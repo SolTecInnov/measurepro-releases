@@ -1,0 +1,84 @@
+Excellent travail de Replit — l'audit est parfait 👏
+L'agent a fait exactement ce qu'il fallait. Il a refusé de dupliquer le travail existant et a trouvé les vrais problèmes. Dis-lui OUI, crée les tâches, avec ces priorités exactes :
+
+Ce que tu lui réponds
+Yes, create the tasks in this exact order. Do not start the next 
+task until the previous one is complete and verified.
+
+TASK 1 — Fix the 3 bugs (do this first, no exceptions)
+
+  1a. Fix stale GPS closure in useLidarService.ts:
+      - Create a useRef called latestGpsRef
+      - Update it in a useEffect whenever gpsData changes
+      - Replace gpsData references inside the setInterval callback 
+        with latestGpsRef.current
+
+  1b. Fix stale connect reference on reconnect:
+      - Create a useRef called connectRef
+      - Update it in a useEffect whenever connect changes
+      - In the onclose handler, call connectRef.current() 
+        instead of connect()
+
+  1c. Fix PointCloudPreview.tsx geometry recreation:
+      - Add a useRef for the Points mesh and BufferGeometry
+      - On first render: create geometry, create mesh, add to scene
+      - On subsequent frames: update positionAttribute.array in-place,
+        set positionAttribute.needsUpdate = true
+      - Never dispose and recreate the geometry at 10Hz
+
+  After Task 1: verify the WebSocket stays connected through 
+  a GPS position change without dropping.
+
+TASK 2 — Fix the French label (quick win)
+
+  In LidarPage.tsx, change "Guide de connexion" to "Connection Guide"
+  Scan all other files for any remaining French text and fix them.
+
+TASK 3 — Build ClearanceHUD.tsx
+
+  Build a full-screen overlay component that consumes data already 
+  coming from the C# service WebSocket (useLidarService hook).
+
+  Use these existing data fields from the service:
+  - metrics.usableWidthAtHeights — for width clearance display
+  - alerts — for triggering red/yellow/green state
+  - metrics from the existing JSON payload
+
+  Visual requirements:
+  - Large centered height clearance number in metres (2 decimals)
+  - Secondary width clearance number
+  - Left/right bar showing vehicle width vs available width
+  - Color: GREEN (safe) / YELLOW (within 20% of alert threshold) / RED (alert)
+  - Pulsing animation on RED
+  - LiDAR connection status dot + packet rate
+  - "Static Scan" button
+  - Embedded minimap bottom-right (see Task 4)
+
+TASK 4 — Upgrade LivePointCloudMinimap.tsx from PointCloudPreview.tsx
+
+  The existing PointCloudPreview.tsx is the base. Adapt it into 
+  a compact floating minimap:
+
+  - Size: 320×320px floating panel
+  - Apply the in-place geometry update fix from Task 1c
+  - Add top/front view toggle button
+  - Add colored border ring: green=connected, red=no signal  
+  - Add collapse/expand button (chevron) — collapsed shows only 
+    status dot + pps number
+  - Show point count and pps as text overlay
+  - Highlight detection zone (forward cone) as a faint green overlay
+
+TASK 5 — Integrate ClearanceHUD into the survey screen
+
+  The LiDAR page is currently at /lidar route, separate from the 
+  main survey. Add an optional overlay mode so ClearanceHUD can 
+  appear on top of the main survey map when LiDAR is connected.
+  
+  - Add a toggle button on the survey page: "LiDAR HUD"
+  - When toggled on: render ClearanceHUD as an overlay
+  - When toggled off: hidden, survey works normally
+  - State persists in localStorage
+
+Do NOT build: lidarBridge.js, PandarPacketParser.ts, 
+ClearanceDetector.ts, StaticScanAccumulator.ts.
+The C# service handles all of that already.

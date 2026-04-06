@@ -1,0 +1,150 @@
+You are the senior engineer. Fix GNSS/Duro integration end-to-end.
+
+Context
+- We connect to a Swift Navigation Duro receiver over Ethernet.
+- Verified by scan: device IP is 192.168.0.222.
+- Verified open TCP ports: 55555 and 55556.
+- App UI currently uses host/port fields and has endpoints:
+  - POST /api/gnss/config  -> currently 500
+  - POST /api/gnss/reconnect -> currently 400
+- Frontend errors:
+  - POST https://measure-pro.app/api/gnss/reconnect 400 (Bad Request)
+  - POST https://measure-pro.app/api/gnss/config 500 (Internal Server Error)
+  - config resource loads also show 500
+
+Important truth you must follow (do NOT guess):
+- Port 55555 is NOT the NMEA default; it is a Swift control/management socket in our environment.
+- Port 55556 appears to be a data stream socket in our environment.
+- The UI text saying “Default 2101 (NMEA output port)” is not valid for our current device configuration because 2101 is not listening (nmap shows closed/conn-refused).
+- Therefore, the application must support Duro in two modes:
+  Mode A: “Direct Stream Mode” (recommended for now): read data from 55556.
+  Mode B: “NMEA Mode”: use 2101 IF and only if receiver is configured to output NMEA on 2101 (future / optional).
+
+Goal
+1) Make the backend reliably connect to the Duro at 192.168.0.222.
+2) Use the correct port for data: 55556 (unless user explicitly selects 2101 and it is reachable).
+3) Use 55555 only for control/handshake if needed (optional).
+4) Fix the 400/500 errors by implementing robust API routes, validation, and error reporting.
+5) Expose a clean GNSS service with reconnect, config save/load, streaming, and parsing.
+
+Requirements
+A. API Contract (must implement exactly)
+- GET  /api/gnss/config
+  Returns current config JSON:
+  {
+    "enabled": true/false,
+    "host": "192.168.0.222",
+    "dataPort": 55556,
+    "controlPort": 55555,
+    "mode": "direct" | "nmea",
+    "nmeaPort": 2101,
+    "imu": { "enabled": boolean, "rateHz": 10|50, "fields": { "attitude":true, "angularRates":true, "accel":true, "parsePASHR":true } }
+  }
+- POST /api/gnss/config
+  Body: same shape as above. Validate and persist.
+  Returns 200 with saved config.
+  Must NEVER 500 on validation errors; return 400 with JSON:
+  { "error": "message", "details": {...} }
+- POST /api/gnss/reconnect
+  Body: optional; if absent uses saved config.
+  Returns 200 JSON:
+  {
+    "status": "connected"|"disconnected",
+    "host": "...",
+    "port": number,
+    "mode": "...",
+    "uptimeSec": number,
+    "samples": number
+  }
+  Must NEVER 500 unless unexpected exception; include server logs.
+
+B. Backend GNSS Service
+Implement a GNSSService module with:
+- loadConfig(), saveConfig()
+- connect(), disconnect(), reconnect()
+- status() -> connection status, uptime, sample count
+- onData(callback) -> subscribe parsed messages
+- TCP socket handling with exponential backoff reconnect when enabled
+- Clear logging: connection attempts, errors, bytes received, last message timestamp
+- Strictly separate:
+  - control socket (55555) optional
+  - data socket (55556) required in direct mode
+
+C. Data Parsing
+We need to “use all data from the Duro”.
+Implement a parser pipeline:
+- Detect if payload is ASCII NMEA (starts with $ and has \r\n):
+  - parse GGA, RMC, VTG, GST, ZDA, GSA, GSV if present
+  - parse proprietary PASHR if present (for attitude)
+- Otherwise treat as binary stream:
+  - Capture as raw frames with timestamps
+  - Provide a plug-in decoder interface so we can add SBP decoding later without rewriting the service.
+  - For now, store raw packets and expose them to the app.
+
+Data output from backend to frontend:
+- Create a server-side event stream endpoint (choose one):
+  Option 1: WebSocket /ws/gnss
+  Option 2: SSE GET /api/gnss/stream
+- Stream parsed messages to the UI:
+  { "ts": ..., "type": "nmea:gga"|"nmea:rmc"|"imu"|"raw", "data": {...} }
+
+D. Persistence
+- Persist GNSS config in a safe server-side store:
+  - If we already have DB, use it.
+  - Otherwise use a JSON file on server with atomic writes.
+- Frontend should load config on Settings page mount and display status.
+- “Save Configuration” should POST /api/gnss/config and show success/errors.
+
+E. Fix the current errors (root causes you must find)
+- The 400 on /api/gnss/reconnect indicates request body mismatch or missing fields.
+- The 500 on /api/gnss/config indicates server route missing, throwing, or unhandled parsing.
+You must:
+1) locate the current Express/Fastify routes for /api/gnss/*
+2) implement correct JSON parsing middleware
+3) add Zod (or equivalent) validation for incoming bodies
+4) add try/catch and return JSON errors
+5) ensure the deployed domain measure-pro.app uses the same API base path and CORS is correct
+
+F. Networking Reality
+Important: the Duro at 192.168.0.222 is on a local Ethernet subnet. If our server is deployed in the cloud, it cannot reach it.
+Therefore:
+- Implement a “Local Bridge Mode”:
+  - The TCP connection to the Duro must run on the same machine/network as the Duro (user’s laptop/tablet/field PC).
+  - Provide instructions and code to run the backend locally (node server) and point the frontend to it.
+- Add a config flag: serverMode: "local" | "cloud"
+  - In cloud mode, disable connect and show a warning: “Cloud server cannot reach 192.168.x.x. Run local bridge.”
+Do NOT ignore this; it is likely the real reason for disconnects in production.
+
+Deliverables
+1) Code changes implementing all API routes, GNSSService, streaming endpoint, and config persistence.
+2) Update the Settings page to:
+   - Load config via GET /api/gnss/config
+   - Save via POST /api/gnss/config
+   - Reconnect via POST /api/gnss/reconnect
+   - Show status (connected/disconnected, uptime, samples)
+   - Show mode selector (direct vs nmea) with correct defaults:
+     - default host 192.168.0.222
+     - default mode "direct"
+     - default dataPort 55556
+     - controlPort 55555
+3) Fix all 400/500 errors and add meaningful logs.
+4) Add a simple “Test Connection” button that attempts a TCP connect and reports open/closed/refused.
+
+Do the work now:
+- First, inspect existing code for routes and settings page.
+- Then implement missing pieces.
+- Finally, run and verify locally with the device IP/ports above.
+- Provide a short report: what caused 400, what caused 500, what you changed.
+
+Acceptance Tests
+- Saving config returns 200 and persists.
+- Reconnect returns 200 with status and increments samples when data arrives.
+- No 500 for user errors; validation returns 400 JSON.
+- With mode "direct" and dataPort 55556, the service receives data and streams to UI.
+- If running in cloud mode, UI clearly warns and prevents false “Disconnected” loops.
+Two things you’re probably missing (and it will bite you)
+If your backend is hosted on measure-pro.app, it cannot reach 192.168.0.222 unless that server is literally on your LAN. So your “Disconnected” might be correct in production even if it works locally. The prompt above forces a “local bridge mode” so you don’t keep pretending cloud can see your receiver.
+
+Your UI currently labels ports wrong for your actual device config. Don’t “follow the label”, follow the scan and the traffic. Your scan + Wireshark proved the device is using 192.168.0.222 and listening on 55555/55556.
+
+If you want, paste your backend stack (Express? Fastify? Next.js API routes?) and where /api/gnss/* lives, and I’ll tailor the prompt to your exact file paths so Replit edits the right files the first time.

@@ -1,0 +1,374 @@
+Fix MeasurePRO → RoadScope Photo/File Sync
+Problem Summary
+Photos and files are NOT syncing to RoadScope for some surveys. The sync state tracking is corrupted - MeasurePRO marks files as "synced" even when uploads fail, preventing future sync attempts.
+
+Evidence from Console Logs
+// Survey "CHRIS 2" - BROKEN (files marked synced but not in RoadScope)
+[RoadScope Sync] Found 46 measurements with media
+[RoadScope Sync] 0 files need syncing (92 already synced) ← WRONG!
+// Survey X4QbOxtAFTmNkTohHLGD - WORKING (correct sync state)
+[RoadScope Sync] Found 14 measurements with media
+[RoadScope Sync] 30 files need syncing (0 already synced) ← CORRECT
+[RoadScope] Requesting: /api/roadscope/proxy/surveys/X4QbOxtAFTmNkTohHLGD/upload-urls
+[RoadScope Sync] Found 30 upload URLs
+[RoadScope] Requesting: /api/roadscope/proxy/surveys/X4QbOxtAFTmNkTohHLGD/files
+[RoadScope] Response (200): {files registered}  ← SUCCESS!
+
+RoadScope API Reference
+Base URL: /api/roadscope/proxy (through MeasurePRO proxy) or /api/measurepro (direct)
+
+1. Request Signed Upload URLs (batch up to 50)
+POST /api/roadscope/proxy/surveys/:surveyId/upload-urls
+Authorization: Bearer <firebase-token>
+Request Body:
+{
+  "files": [
+    {
+      "filename": "poi-uuid_photo.jpg",
+      "category": "photos",      // photos, drawings, timelapse, videos, files
+      "poiId": "poi-uuid-here",  // Link to POI
+      "contentType": "image/jpeg"
+    },
+    // ... up to 50 files per request
+  ]
+}
+Response:
+{
+  "success": true,
+  "data": {
+    "uploads": [
+      {
+        "filename": "poi-uuid_photo.jpg",
+        "uploadUrl": "https://storage.googleapis.com/...",  // Signed URL (1 hour expiry)
+        "storageUrl": "measurepro/surveyId/photos/poiId/timestamp_filename.jpg",
+        "expiresAt": "2025-12-04T20:00:00.000Z"
+      }
+    ]
+  }
+}
+
+2. Upload File to Firebase Storage
+PUT <uploadUrl from step 1>
+Content-Type: image/jpeg  // Must match contentType from request
+Body: <raw file bytes>
+Response: 200 OK (no body needed)
+
+3. Register Uploaded Files with RoadScope
+POST /api/roadscope/proxy/surveys/:surveyId/files
+Authorization: Bearer <firebase-token>
+Request Body:
+{
+  "files": [
+    {
+      "filename": "poi-uuid_photo.jpg",
+      "storageUrl": "measurepro/surveyId/photos/poiId/timestamp_filename.jpg",  // From step 1
+      "category": "photos",
+      "mimeType": "image/jpeg",
+      "size": 1234567,  // File size in bytes
+      "poiId": "poi-uuid-here"  // Links file to POI in RoadScope
+    }
+  ]
+}
+Response:
+{
+  "success": true,
+  "message": "Registered 30 files"
+}
+
+Files to Modify in MeasurePRO
+1. syncService.ts - Main sync logic
+Current Issue: Files are being marked as roadscopeSynced: true before confirming upload success.
+
+Fix Required:
+
+// BEFORE syncing files, validate RoadScope sync state
+async function validateFileSyncState(surveyId: string, roadscopeSurveyId: string): Promise<void> {
+  // 1. Get files marked as synced locally
+  const measurements = await getMeasurementsForSurvey(surveyId);
+  const localSyncedFiles: string[] = [];
+  
+  for (const m of measurements) {
+    if (m.roadscopePhotoSynced) localSyncedFiles.push(`${m.id}_photo`);
+    if (m.roadscopeDrawingSynced) localSyncedFiles.push(`${m.id}_drawing`);
+    // ... other file types
+  }
+  
+  if (localSyncedFiles.length === 0) return;
+  
+  // 2. Check what RoadScope actually has
+  try {
+    const response = await roadscopeClient.get(
+      `/api/roadscope/proxy/surveys/${roadscopeSurveyId}/files`
+    );
+    const roadscopeFiles = response.data?.files || [];
+    const roadscopePoiIds = new Set(roadscopeFiles.map(f => f.poiId));
+    
+    // 3. Find files marked synced locally but missing from RoadScope
+    for (const m of measurements) {
+      if (m.roadscopePhotoSynced && !roadscopePoiIds.has(m.id)) {
+        console.warn(`[RoadScope Sync] Resetting sync state for ${m.id} photo - not in RoadScope`);
+        await updateMeasurement(m.id, { roadscopePhotoSynced: false });
+      }
+      if (m.roadscopeDrawingSynced && !roadscopePoiIds.has(m.id)) {
+        console.warn(`[RoadScope Sync] Resetting sync state for ${m.id} drawing - not in RoadScope`);
+        await updateMeasurement(m.id, { roadscopeDrawingSynced: false });
+      }
+    }
+  } catch (error) {
+    console.warn('[RoadScope Sync] Could not validate sync state:', error);
+  }
+}
+// MODIFIED syncFilesToRoadScope function
+async function syncFilesToRoadScope(
+  surveyId: string, 
+  roadscopeSurveyId: string,
+  measurements: Measurement[]
+): Promise<{ success: number; failed: number }> {
+  let success = 0;
+  let failed = 0;
+  
+  // Collect all files that need syncing
+  const filesToSync: FileUploadRequest[] = [];
+  
+  for (const m of measurements) {
+    // Check photo
+    if (m.photoBlob && !m.roadscopePhotoSynced) {
+      filesToSync.push({
+        measurementId: m.id,
+        filename: `${m.id}_photo.jpg`,
+        category: 'photos',
+        poiId: m.roadscopePoiId || m.id,  // Use RoadScope POI ID if available
+        blob: m.photoBlob,
+        mimeType: 'image/jpeg',
+        type: 'photo'
+      });
+    }
+    
+    // Check drawing
+    if (m.drawingBlob && !m.roadscopeDrawingSynced) {
+      filesToSync.push({
+        measurementId: m.id,
+        filename: `${m.id}_drawing.png`,
+        category: 'drawings',
+        poiId: m.roadscopePoiId || m.id,
+        blob: m.drawingBlob,
+        mimeType: 'image/png',
+        type: 'drawing'
+      });
+    }
+    
+    // Check timelapse
+    if (m.timelapseBlob && !m.roadscopeTimelapseSynced) {
+      filesToSync.push({
+        measurementId: m.id,
+        filename: `${m.id}_timelapse.mp4`,
+        category: 'timelapse',
+        poiId: m.roadscopePoiId || m.id,
+        blob: m.timelapseBlob,
+        mimeType: 'video/mp4',
+        type: 'timelapse'
+      });
+    }
+    
+    // Check video
+    if (m.videoBlob && !m.roadscopeVideoSynced) {
+      filesToSync.push({
+        measurementId: m.id,
+        filename: `${m.id}_video.mp4`,
+        category: 'videos',
+        poiId: m.roadscopePoiId || m.id,
+        blob: m.videoBlob,
+        mimeType: 'video/mp4',
+        type: 'video'
+      });
+    }
+  }
+  
+  if (filesToSync.length === 0) {
+    console.log('[RoadScope Sync] No files need syncing');
+    return { success: 0, failed: 0 };
+  }
+  
+  console.log(`[RoadScope Sync] ${filesToSync.length} files need syncing`);
+  
+  // Process in batches of 50 (RoadScope API limit)
+  const BATCH_SIZE = 50;
+  for (let i = 0; i < filesToSync.length; i += BATCH_SIZE) {
+    const batch = filesToSync.slice(i, i + BATCH_SIZE);
+    
+    try {
+      // Step 1: Request signed upload URLs
+      const urlResponse = await roadscopeClient.post(
+        `/api/roadscope/proxy/surveys/${roadscopeSurveyId}/upload-urls`,
+        {
+          files: batch.map(f => ({
+            filename: f.filename,
+            category: f.category,
+            poiId: f.poiId,
+            contentType: f.mimeType
+          }))
+        }
+      );
+      
+      if (!urlResponse.data?.uploads) {
+        console.error('[RoadScope Sync] No upload URLs in response');
+        failed += batch.length;
+        continue;
+      }
+      
+      const uploads = urlResponse.data.uploads;
+      console.log(`[RoadScope Sync] Got ${uploads.length} upload URLs`);
+      
+      // Step 2: Upload files in parallel
+      const uploadPromises = batch.map(async (file, index) => {
+        const upload = uploads.find(u => u.filename === file.filename);
+        if (!upload) {
+          console.error(`[RoadScope Sync] No upload URL for ${file.filename}`);
+          return { file, success: false };
+        }
+        
+        try {
+          const response = await fetch(upload.uploadUrl, {
+            method: 'PUT',
+            body: file.blob,
+            headers: {
+              'Content-Type': file.mimeType
+            }
+          });
+          
+          if (response.ok) {
+            return { file, success: true, storageUrl: upload.storageUrl };
+          } else {
+            console.error(`[RoadScope Sync] Upload failed for ${file.filename}: ${response.status}`);
+            return { file, success: false };
+          }
+        } catch (error) {
+          console.error(`[RoadScope Sync] Upload error for ${file.filename}:`, error);
+          return { file, success: false };
+        }
+      });
+      
+      const uploadResults = await Promise.all(uploadPromises);
+      const successfulUploads = uploadResults.filter(r => r.success);
+      
+      if (successfulUploads.length === 0) {
+        console.error('[RoadScope Sync] All uploads in batch failed');
+        failed += batch.length;
+        continue;
+      }
+      
+      // Step 3: Register successfully uploaded files with RoadScope
+      const registerResponse = await roadscopeClient.post(
+        `/api/roadscope/proxy/surveys/${roadscopeSurveyId}/files`,
+        {
+          files: successfulUploads.map(r => ({
+            filename: r.file.filename,
+            storageUrl: r.storageUrl,
+            category: r.file.category,
+            mimeType: r.file.mimeType,
+            size: r.file.blob.size,
+            poiId: r.file.poiId
+          }))
+        }
+      );
+      
+      if (registerResponse.data?.success) {
+        // Step 4: ONLY NOW mark files as synced in local storage
+        for (const r of successfulUploads) {
+          const syncField = {
+            'photo': 'roadscopePhotoSynced',
+            'drawing': 'roadscopeDrawingSynced',
+            'timelapse': 'roadscopeTimelapseSynced',
+            'video': 'roadscopeVideoSynced'
+          }[r.file.type];
+          
+          await updateMeasurement(r.file.measurementId, { [syncField]: true });
+          success++;
+        }
+        
+        const failedCount = batch.length - successfulUploads.length;
+        failed += failedCount;
+        
+        console.log(`[RoadScope Sync] Batch complete: ${successfulUploads.length} success, ${failedCount} failed`);
+      } else {
+        // Registration failed - don't mark as synced!
+        console.error('[RoadScope Sync] File registration failed:', registerResponse.data);
+        failed += batch.length;
+      }
+      
+    } catch (error) {
+      console.error('[RoadScope Sync] Batch processing error:', error);
+      failed += batch.length;
+    }
+  }
+  
+  return { success, failed };
+}
+
+2. Add "Force Re-sync Files" Option
+In the RoadScope sync dialog (RoadScopeSyncDialog.tsx or similar):
+
+// Add a button/option to reset file sync state
+async function forceResyncFiles(surveyId: string): Promise<void> {
+  const measurements = await getMeasurementsForSurvey(surveyId);
+  
+  for (const m of measurements) {
+    await updateMeasurement(m.id, {
+      roadscopePhotoSynced: false,
+      roadscopeDrawingSynced: false,
+      roadscopeTimelapseSynced: false,
+      roadscopeVideoSynced: false
+    });
+  }
+  
+  console.log(`[RoadScope Sync] Reset sync state for ${measurements.length} measurements`);
+  // Trigger re-sync
+  await syncToRoadScope(surveyId);
+}
+
+3. Remove ZIP Upload Code
+The ZIP upload to /api/storage/upload-survey-package fails because that endpoint doesn't exist in RoadScope. Remove or disable this code path:
+
+// In storageUpload.ts or exportUtils.ts
+// REMOVE or comment out:
+// [StorageUpload] Uploading chris-2-2025-12-04.zip to server...
+// POST /api/storage/upload-survey-package  ← This endpoint doesn't exist!
+// The signed URL approach is the correct method for syncing files to RoadScope
+
+Testing Checklist
+After implementing fixes:
+
+Test new survey sync:
+
+Create a new survey with 2-3 POIs with photos
+Trigger RoadScope sync
+Console should show:
+[RoadScope Sync] 3 files need syncing (0 already synced)
+[RoadScope] Requesting: .../upload-urls
+[RoadScope Sync] Got 3 upload URLs
+[RoadScope] Requesting: .../files
+[RoadScope Sync] Batch complete: 3 success, 0 failed
+
+Check RoadScope - photos should appear on POIs
+Test corrupted survey (CHRIS 2):
+
+Use "Force Re-sync Files" button
+Console should show:
+[RoadScope Sync] Reset sync state for 47 measurements
+[RoadScope Sync] 92 files need syncing (0 already synced)
+
+Files should now upload successfully
+Test batch limits:
+
+Survey with 60+ files should process in batches:
+[RoadScope Sync] 60 files need syncing
+[RoadScope Sync] Batch complete: 50 success (batch 1)
+[RoadScope Sync] Batch complete: 10 success (batch 2)
+
+Key Points
+ONLY mark files as synced AFTER successful registration (not after upload URL request)
+Batch uploads up to 50 files per request (RoadScope API limit)
+Categories: photos, drawings, timelapse, videos, files
+Signed URLs expire in 1 hour - don't request URLs until ready to upload
+poiId links files to POIs - use the measurement's RoadScope POI ID
+This should fix the photo sync issue for both new surveys and surveys with corrupted sync state.

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 – Hardware Setup Guide | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --green: #4ade80; --red: #f87171; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #cbd5e1; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  ol, ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .step-list { list-style: none; padding: 0; counter-reset: steps; }
+  .step-list li { counter-increment: steps; display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num { background: var(--brand); color: #000; border-radius: 50%; width: 2rem; height: 2rem; min-width: 2rem; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem; }
+  .wrong-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  @media(max-width:600px) { .wrong-right { grid-template-columns: 1fr; } }
+  .wrong { background: #450a0a; border: 1px solid #f87171; border-radius: 0.5rem; padding: 1rem; }
+  .right { background: #052e16; border: 1px solid #4ade80; border-radius: 0.5rem; padding: 1rem; }
+  .wrong-right .label { font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .wrong .label { color: var(--red); }
+  .right .label { color: var(--green); }
+  code { background: #0f172a; padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-size: 0.85rem; color: #7dd3fc; }
+  .warn-box { background: #451a03; border: 1px solid var(--brand); border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; }
+  .warn-box strong { color: var(--brand); }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  th { background: #0f172a; color: var(--brand); text-align: left; padding: 0.6rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+  .placeholder { background: #1e3a5f; border: 1px dashed #3b82f6; border-radius: 0.5rem; padding: 1rem; color: #93c5fd; font-style: italic; margin: 0.75rem 0; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="02-system-architecture.html">← 02: Architecture</a>
+  <a href="index.html">Index</a>
+  <a href="04-pre-deployment-checklist.html">Next: Pre-Deployment Checklist →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 03 of 12</div>
+  <h1>Hardware Setup Guide</h1>
+  <p style="color:var(--muted)">Zero ambiguity. Follow this sequence every time.</p>
+</div>
+
+<div class="warn-box">
+  <strong>CRITICAL:</strong> Startup order matters. If sensors are powered before the app is open and connected, you will get silent failures. Follow the sequence below exactly.
+</div>
+
+<h2>1. Mounting Positions</h2>
+<div class="card">
+  <h3>Vertical Clearance Laser (RSA / LDM71)</h3>
+  <ul>
+    <li><strong>Position:</strong> Vehicle rooftop, centred on the longitudinal axis</li>
+    <li><strong>Orientation:</strong> Beam pointing vertically upward (within ±2°)</li>
+    <li><strong>Height above ground:</strong> Measure and record — this becomes your <em>ground reference</em> value in Settings</li>
+    <li><strong>Mount type:</strong> Rigid, vibration-isolated bracket — no flex or rattle</li>
+  </ul>
+  <div class="placeholder">📷 Photo placeholder: Correct laser roof mount — centred, upright, cables secured</div>
+  <div class="wrong-right">
+    <div class="wrong"><div class="label">✗ WRONG</div>Laser tilted more than 2° from vertical. Strong side-lobe returns will produce false readings 0.3–0.8 m lower than actual clearance.</div>
+    <div class="right"><div class="label">✓ RIGHT</div>Laser perfectly vertical, confirmed with a spirit level. Ground reference calibrated to actual rooftop height.</div>
+  </div>
+
+  <h3>GNSS Antenna (Duro)</h3>
+  <ul>
+    <li><strong>Position:</strong> Rooftop, clear 360° sky view — no vehicle body within 15° elevation</li>
+    <li><strong>Separation from laser:</strong> Minimum 30 cm to avoid multipath interference</li>
+    <li><strong>Cable:</strong> Keep RF cable away from inverters and power wiring</li>
+  </ul>
+  <div class="placeholder">📷 Photo placeholder: Duro antenna placement on vehicle roof with correct separation from laser</div>
+
+  <h3>Lateral Lasers (Left / Right)</h3>
+  <ul>
+    <li><strong>Position:</strong> Bumper or side-rail mount, beam pointing horizontally outward (perpendicular to travel direction)</li>
+    <li><strong>Height above ground:</strong> [FILL IN — match to obstacle type being measured]</li>
+    <li><strong>Offset from vehicle edge:</strong> Measure and enter in Settings → Lateral Laser Settings</li>
+  </ul>
+
+  <h3>Rear Overhang Laser</h3>
+  <ul>
+    <li><strong>Position:</strong> Rear of vehicle/trailer, beam pointing straight rearward along centreline</li>
+    <li><strong>Use case:</strong> Wind blade tip monitoring during dry runs</li>
+    <li><strong>Max range configured:</strong> Up to 80 m</li>
+  </ul>
+</div>
+
+<h2>2. Cable Routing</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Device</th><th>Connector</th><th>Interface</th><th>Routing Notes</th></tr></thead>
+    <tbody>
+      <tr><td>RSA Laser</td><td>DB9 or USB-A</td><td>USB Serial (Web Serial API)</td><td>Route along roof rail, avoid door seals</td></tr>
+      <tr><td>LDM71 Laser</td><td>USB-A</td><td>USB Serial (Web Serial API)</td><td>Secure with cable ties every 30 cm</td></tr>
+      <tr><td>Lateral / Rear Lasers</td><td>DB9 → USB-Serial adapter</td><td>USB Serial, 19200 baud 7E1</td><td>Label each USB port: L / R / REAR</td></tr>
+      <tr><td>Swift Duro GNSS</td><td>RJ45 Ethernet</td><td>TCP via local bridge server (port configurable)</td><td>Run inside cab — keep away from ignition wiring</td></tr>
+      <tr><td>USB GPS Dongle</td><td>USB-A</td><td>USB Serial (Web Serial API)</td><td>Position receiver near window for best sky view</td></tr>
+      <tr><td>Hesai LiDAR (if fitted)</td><td>M12 4-pin → RJ45</td><td>Ethernet UDP → Windows service</td><td>Dedicated laptop NIC preferred; disable Wi-Fi on LiDAR NIC</td></tr>
+    </tbody>
+  </table>
+  <div class="wrong-right">
+    <div class="wrong"><div class="label">✗ WRONG</div>USB serial adapters plugged into a USB hub shared with tablet charging. Ground loops cause intermittent disconnects.</div>
+    <div class="right"><div class="label">✓ RIGHT</div>Each serial laser has its own direct USB port on the controller laptop/tablet. Powered USB hub only if unpowered hub is unavailable.</div>
+  </div>
+</div>
+
+<h2>3. Power Requirements</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Device</th><th>Supply</th><th>Current Draw</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>RSA / LDM71 Laser</td><td>12 V DC or USB 5 V</td><td>[FILL IN — check device label]</td><td>Prefer direct 12 V supply; USB-powered is acceptable for most models</td></tr>
+      <tr><td>Swift Duro GNSS</td><td>12–24 V DC (PoE or direct)</td><td>~3 W typical</td><td>Power before launching app</td></tr>
+      <tr><td>Hesai Pandar40P</td><td>12–48 V DC</td><td>~17 W max</td><td>Use dedicated fused circuit; do not share with comms equipment</td></tr>
+      <tr><td>Controller Laptop/Tablet</td><td>12 V DC (vehicle) or AC inverter</td><td>[FILL IN]</td><td>Ensure it does not sleep during a survey — disable all sleep/hibernate settings</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>4. Startup Sequence</h2>
+<div class="card">
+  <ol class="step-list">
+    <li><span class="step-num">1</span><div><strong>Power on Duro GNSS receiver first</strong> — allow 60–90 seconds to acquire satellites and establish RTK fix before launching the app.</div></li>
+    <li><span class="step-num">2</span><div><strong>Power on all lasers</strong> — vertical, lateral, and rear if fitted. Confirm power indicator LEDs are active.</div></li>
+    <li><span class="step-num">3</span><div><strong>Connect all USB serial cables</strong> to the controller device. Check Device Manager (Windows) or <code>ls /dev/tty*</code> (Linux/macOS) to confirm ports are enumerated.</div></li>
+    <li><span class="step-num">4</span><div><strong>Launch MeasurePRO</strong> in Chrome or Edge (version 89+). Do not use Safari or Firefox — Web Serial API is not supported.</div></li>
+    <li><span class="step-num">5</span><div><strong>Connect vertical laser</strong> — Settings → Laser → Select Port → Connect. Confirm live readings appear in the Measurement card.</div></li>
+    <li><span class="step-num">6</span><div><strong>Connect GPS source</strong> — Settings → GPS. Connect Duro (TCP), USB GPS, or Bluetooth GPS. Confirm the GPS indicator turns green.</div></li>
+    <li><span class="step-num">7</span><div><strong>Connect lateral / rear lasers</strong> if required — Settings → Multi-Laser. Assign each port (Left / Right / Rear).</div></li>
+    <li><span class="step-num">8</span><div><strong>Run ground reference calibration</strong> — aim laser at ground, capture 3 readings, confirm ground reference value in Settings. (See Doc 05 — Field Operation SOP.)</div></li>
+    <li><span class="step-num">9</span><div><strong>Start LiDAR Windows service</strong> (if fitted) — run <code>MeasurePROLidarService.exe</code>, confirm connection in app's LiDAR panel.</div></li>
+    <li><span class="step-num">10</span><div><strong>Final sensor validation</strong> — walk a known-clearance structure and confirm readings are within expected range. Do not begin survey until validated.</div></li>
+  </ol>
+  <div class="wrong-right" style="margin-top:1rem">
+    <div class="wrong"><div class="label">✗ WRONG</div>Opening the app and trying to connect the laser before Duro has acquired a GPS fix. GPS and laser state will be mismatched and the first POIs will have no coordinates.</div>
+    <div class="right"><div class="label">✓ RIGHT</div>Duro fix confirmed (green RTK indicator) before app is launched. All sensors connected before leaving the yard.</div>
+  </div>
+</div>
+
+<h2>5. On-Site Configuration Checks</h2>
+<div class="card">
+  <ul>
+    <li>Verify ground reference value has not changed from yard calibration (laser height above ground must not have shifted during transit)</li>
+    <li>Check ignoreAbove / ignoreBelow thresholds are set correctly for the route profile (Settings → Laser Thresholds)</li>
+    <li>Confirm amplitude filter levels are appropriate for conditions (weak signal in bright sunlight may need lower threshold; rain may need higher threshold to reject false returns)</li>
+    <li>Verify rear overhang threshold is set for the load being transported (default max 80 m)</li>
+    <li>Confirm minimum curve radius setting matches your vehicle specification (default 15 m)</li>
+  </ul>
+</div>
+
+<h2>6. Laser Protocol Reference</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Device</th><th>Protocol</th><th>Baud Rate</th><th>Framing</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>SolTec-10m / 30m / 70m / 2700</td><td>SolTec binary</td><td>115,200</td><td>8N1</td><td>Standard vertical clearance laser</td></tr>
+      <tr><td>RSA High Pole Laser</td><td>RSA 3-byte binary</td><td>115,200</td><td>8N1</td><td>High-pole clearance laser</td></tr>
+      <tr><td>LDM71</td><td>ASCII output</td><td>115,200</td><td>8N1</td><td>Select "LDM71" in Settings → Laser Protocol. ASCII decimal string. If readings are exactly 0.000 m, protocol is wrong — swap RSA ↔ LDM71.</td></tr>
+      <tr><td>Lateral / Rear lasers</td><td>SolTec-old (legacy)</td><td>19,200</td><td>7E1</td><td>Different from primary! 7 data bits, Even parity, 1 stop. Label USB ports: L / R / REAR.</td></tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Common mistake:</strong> Selecting RSA protocol for an LDM71 device (or vice versa). RSA uses 3-byte binary frames; LDM71 outputs ASCII decimal. The symptom is exactly 0.000 m on every reading. Fix: disconnect laser → change protocol → reconnect.
+  </div>
+</div>
+
+<h2>7. Amplitude Filter</h2>
+<div class="card">
+  <p>The amplitude filter rejects laser returns whose reflected signal strength (dBm) falls below a configurable minimum. This prevents weak/noisy returns from polluting survey data.</p>
+  <table>
+    <thead><tr><th>Condition</th><th>Action</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Rain / Dust</td><td><strong>Increase</strong> minimum amplitude</td><td>Reject false rain-drop and dust-particle returns at short range</td></tr>
+      <tr><td>Dark asphalt / max range targets</td><td><strong>Decrease</strong> minimum amplitude</td><td>Accept weaker but valid returns from low-reflectance surfaces</td></tr>
+      <tr><td>Bright direct sunlight (LDM71)</td><td><strong>Decrease</strong> minimum amplitude</td><td>Solar saturation lowers return dBm; threshold must accommodate this</td></tr>
+      <tr><td>Normal conditions</td><td>Default (factory setting)</td><td>Balanced rejection / acceptance</td></tr>
+    </tbody>
+  </table>
+  <p>Configure: <code>Settings → Laser → Amplitude Filter</code></p>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="02-system-architecture.html">← 02: Architecture</a>
+  <a href="index.html">Index</a>
+  <a href="04-pre-deployment-checklist.html">Next: Pre-Deployment Checklist →</a>
+</nav>
+</body>
+</html>

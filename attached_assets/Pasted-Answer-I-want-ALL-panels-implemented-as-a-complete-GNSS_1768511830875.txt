@@ -1,0 +1,49 @@
+Answer: I want ALL panels implemented as a complete “GNSS Profiling Settings Diagnostics & Calibration Suite”. Not a subset, not incremental. Build the whole thing end-to-end as specified, with sensible sequencing but no scope reduction.
+
+1) Priority / Immediate need:
+All are critical and must ship together because they depend on each other for validation:
+- Live Telemetry Dashboard
+- Raw Payload Inspector (altitude reference discovery)
+- Altitude Calibration (altimeter-style offset)
+- Axis Orientation Wizard (X/Y/Z mapping)
+- Live Validation Checks
+- Profile Viewer improvements (overlay + long-distance axis + k-factor toggles)
+Implement in a logical order (data tap -> telemetry dashboard -> inspector -> altitude -> axis -> validation -> profile viewer), but deliver the full suite in one merged feature.
+
+2) Duro Data fields currently available:
+Do NOT assume. The suite must include a Raw Payload Inspector to reveal the real fields live.
+However, in practice today we are at least receiving:
+- lat/lon
+- heading
+- altitude (one value, reference unclear)
+- roll/pitch/yaw (or enough to derive)
+We may or may not have:
+- accel x/y/z
+- gyro x/y/z
+So build the UI and analysis to work in both cases:
+- If accel/gyro exist: run full axis wizard based on IMU
+- If accel/gyro are missing: fall back to a “Reduced wizard” using roll/pitch/yaw + heading dynamics + user confirmation, and clearly mark lower confidence. Still must provide mapping controls and validation checks.
+Also: If MSL vs ellipsoid are separate or geoid separation exists, detect it automatically. If not, mark as ambiguous and allow manual strategy selection.
+
+3) Axis Calibration / Mounting:
+We need the wizard because mounting orientation can vary across vehicles/setups and we want an in-app way to confirm without external tools. Even if orientation is “known”, we still need validation + sign checking.
+
+4) Profile Viewer distance:
+Typical profiles can be tens to hundreds of km. Yes, this already causes display issues. Design for up to 300 km (and ideally more) without NaN/overflow and with readable ticks. Auto-switch meters -> km, dynamic tick steps, and view modes (Full / last 1/5/10 km).
+
+5) Storage / Persistence:
+Both.
+- Cloud (Firebase) as the source of truth per device with optional per-project overrides.
+- Local cache (IndexedDB or localStorage) for offline and fast startup.
+Sync when online. Show a “Calibration Summary” including timestamp, device id, project override state.
+
+6) Definition of Done:
+- Everything accessible under Settings -> GNSS Profiling -> Diagnostics & Calibration
+- User can see raw packets + identify altitude reference + choose altitude source strategy
+- User can calibrate altitude offset and see corrected altitude applied live in profile and exports
+- User can run axis wizard (full or reduced), apply mapping, and pass validation checks
+- Profile Viewer shows live overlay (heading/lat/lon/altitude/roll/pitch/yaw), toggles convex/concave k icons, and long-distance axis is fixed
+- Exports include raw altitude fields + chosen strategy + offset + corrected altitude + axis mapping metadata
+No regressions.
+
+Proceed with implementation now. If any data field is missing, implement graceful fallback paths (not a blocker). Provide a concise change summary with file paths when done.

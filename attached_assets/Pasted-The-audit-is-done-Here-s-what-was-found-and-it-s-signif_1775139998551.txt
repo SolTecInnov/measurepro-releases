@@ -1,0 +1,87 @@
+The audit is done. Here's what was found — and it's significant. Fresh eyes, no laser bias:
+
+MeasurePro v15.3.5 — Code Audit
+🔴 Critical Bugs (will cause wrong data or crashes)
+1. Shared amplitude filter — cross-driver contamination
+amplitudeFilter.ts exports a singleton defaultAmplitudeFilter. Three different drivers (rsa-laser, soltec-new, ldm71-lidar2d-v2) all share it. Their rolling history, hysteresis state, and rejection counters get mixed together. A noisy reading from one sensor silently suppresses valid readings from another. Zero error shown to the user.
+
+2. Double-reader race on serial port
+laserService.ts calls driver.startStreaming(port) then immediately calls port.readable.getReader() again. If any driver grabs a reader during startStreaming, this throws "readable stream is locked". Even when it doesn't crash, data is silently dropped in the gap.
+
+3. RSA 3-byte driver: wrong sky detection
+rsaThreeByteDriver.ts detects "sky" (no return signal) as raw14bit === 0 && intensity === 0. But a sensor touching a surface at zero distance also has raw14bit === 0. The code will mislabel real close-range measurements as sky and discard them.
+
+4. testConnection() always fails — undeclared property
+serial.ts testConnection() sets this.onDataCallback but that property is never declared on the class. The read loop never calls it. Result: testConnection() always times out and returns false, then connect() immediately calls disconnect(). The legacy SerialConnection path cannot connect to anything.
+
+5. MeasurementFeed filters on wrong field
+MeasurementFeed.ts drops measurements where measurement.user_id !== this.currentSurveyId. That's filtering by user ID instead of survey ID. Every measurement gets silently dropped during an active survey. The UI shows it logged (counter goes up, toast fires) but it never appears in the feed.
+
+6. Jenoptik regex too strict — drops real readings
+jenoptikAsciiDriver.ts matches only D XXXX.XXX (exactly 4 integer digits, 3 decimal). Real LDS-30 hardware outputs D 12.345, D 123.456, D 9999.999. Anything outside the exact 4-digit pattern goes to framesInvalid. Meanwhile the LDM71 driver does it right with a flexible regex — inconsistency was introduced by recent edits.
+
+7. Filter bypass — rejected readings still shown
+serialLaserReader.ts falls back to the raw measurement when the filter rejects a value. The whole point of the filter is quality control. Rejected readings should be discarded, not displayed.
+
+🟠 Broken / Non-Functional Code
+8. laser.worker.ts imports a file that doesn't exist
+Imports from ../../shared/worker-types — that path doesn't exist. Worker fails to compile. Also derivedClearance is just copied from rawDistance with zero computation — the worker does nothing real yet.
+
+9. Two conflicting LaserType definitions in serial.ts
+Both a type LaserType union and an enum LaserType are exported from the same file. TypeScript will error. The enum is also missing rsa-laser and ldm71-lidar2d-v2.
+
+10. Two conflicting MeasuringMode definitions in serial.ts
+Same problem — a string-literal type AND an enum, both exported. Worse: the enum values use "Normal" but the switch statements expect 'normal'. Every mode change will resolve to undefined.
+
+11. serialConfig.ts setMode broken by above
+setMode imports the broken MeasuringMode from serial.ts. Mode strings won't match. Also soltec-old config is missing dataBits, stopBits, parity, and flowControl fields entirely.
+
+12. SerialConnection ignores serial port settings
+port.open() is called with only { baudRate }. SolTec-old requires 7E1 (dataBits:7, parity:even). Browser default is 8N1. SolTec-old will always receive garbled data.
+
+13. multiLaserStore hardcodes soltec-old for every laser position
+No matter what device is plugged in, every laser position connects as soltec-old. RSA and SolTec-new devices will fail silently. No way for the user to configure per-position device type.
+
+14. Duplicate Reset buttons in ConnectionControls.tsx
+When connected, two identical Reset buttons render side by side. Copy-paste leftover.
+
+🟡 Serious Issues
+15. setGroundReferenceHeight stores NaN to state
+laser.ts validates height into validHeight to catch NaN — but then stores the original unvalidated height to Zustand state, and validHeight to settings. The in-memory value can be NaN while settings are correct.
+
+16. serialLaserReader.ts creates all 3 drivers on every setLaserType() call
+Every driver type is instantiated upfront, even the ones not in use. Wasted memory, and they all share the amplitude filter singleton (see bug #1).
+
+17. No serial port cleanup on component unmount / hot reload
+Serial ports grabbed with getReader() are not released on React component unmount. During Vite HMR this causes "readable stream is locked" on reconnect — you have to manually unplug and replug the USB device.
+
+18. GPS worker and laser worker are both in readData loop
+serialGPSReader.ts and serialLaserReader.ts both poll from the same serial port infrastructure without port-level locking. If a GPS and laser port happen to share an instance (possible on reconnect), data frames will be interleaved.
+
+🔵 Dead / Unused Code
+src/App.bak.tsx and src/App.original.tsx — backup files committed to repo, never imported
+src/lib/laser.ts — top-level laser store that duplicates src/lib/hardware/laser/ architecture. Unclear which one is canonical
+src/lib/hooks/useMeasurementLogging.ts AND src/hooks/useMeasurementLogging.ts — duplicate hook, two different paths
+src/lib/sync.ts — appears to be a legacy Firebase sync wrapper superseded by src/lib/firebase/syncService.ts
+MockLaserDriver.mockInterval and mockCallback — declared, never assigned, cleared in reset for no reason
+src/lib/supabase.ts — Supabase client initialized but app uses Firebase. Either a leftover or an unfinished migration
+src/workers/laser.worker.ts — won't compile (missing import), minimal implementation, not wired to anything
+⚪ Improvements Worth Making
+Two database layers: src/lib/db.ts (IDB wrapper) and src/lib/survey/db.ts (separate survey DB). Should be unified
+Settings stored in 3 places: Zustand, localStorage, and Firebase. They can diverge silently
+No unit tests for laser drivers — the most critical code has zero automated coverage
+profiles.ts mixes hardware specs and UI labels — should be separated
+serialConfig.ts only defines one device — other devices build their config ad-hoc elsewhere
+📋 Summary
+Health score: 4/10
+
+This is a feature-rich app that grew fast. The core measurement pipeline has serious reliability gaps that would affect real field data.
+
+Top 5 fixes in order of urgency:
+
+Fix MeasurementFeed field filter (user_id → surveyId) — data is being silently lost right now
+Fix SerialConnection.testConnection() — the legacy serial path is completely broken
+Fix serial.ts duplicate type/enum exports — compilation is broken for mode switching
+Isolate amplitude filter instances per driver — stop sharing a singleton across laser types
+Fix jenoptikAsciiDriver regex — real hardware readings are being discarded
+Want me to start fixing these one by one? I can do it branch by branch, committing each fix with a clear message so you can review/merge into Replit.

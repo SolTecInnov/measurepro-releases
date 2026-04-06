@@ -1,0 +1,125 @@
+Keyboard Shortcuts
+General Actions
+Capture Image
+Alt + 1
+Clear Alert
+Alt + 2
+Clear All Captured Images
+Alt + C
+Log Measurement
+Alt + G
+Delete Last Entry
+Ctrl + BACKSPACE
+Deselect POI Type (None)
+Alt + Shift + N
+Open Manual Log Entry Modal
+Alt + Shift + M
+Logging Controls
+Start Logging
+Alt + 3
+Stop Logging
+Alt + 4
+Pause Logging
+Alt + 5
+Resume Logging
+Alt + 6
+Switch to Manual Mode
+Alt + M
+Switch to All Data Mode
+Alt + A
+Switch to Detection Mode (AI)
+Alt + D
+Switch to Manual Detection Mode
+Alt + Shift + S
+Switch to Counter Detection Mode
+Alt + Shift + C
+Clear All Alerts
+Alt + Z
+Start GPS Trace
+Alt + 7
+Detection Controls
+Toggle City Mode
+Alt + Shift + Y
+Video Recording
+Start/Stop Video Recording
+Alt + V
+AI Detection (MeasurePRO+)
+Accept Detection
+Alt + 7
+Reject Detection
+Alt + 8
+Correct Detection
+Alt + 9
+Test Detection
+Alt + 0
+Envelope Clearance (Premium)
+Toggle Envelope Monitoring
+Alt + Shift + E
+Cycle Vehicle Profiles
+Alt + Shift + P
+POI Types
+Bridge
+Alt + B
+Trees
+Alt + T
+Wire
+Alt + W
+Power Line
+Alt + P
+Traffic Light
+Alt + L
+Overpass
+Alt + K
+Lateral Obstruction
+Alt + O
+Road
+Alt + R
+Intersection
+Alt + I
+Signalization
+Alt + U
+Railroad
+Alt + Q
+Information
+Alt + N
+Danger
+Alt + H
+Important Note
+Alt + J
+Work Required
+Alt + F
+Restricted
+Alt + X
+Bridge & Wires
+Alt + Shift + B
+Grade UP (12%+)
+Alt + Shift + U
+Grade Down (12%+)
+Alt + Shift + D
+Autoturn Required
+Ctrl + Alt + A
+Voice Note
+Alt + Shift + N
+Optical Fiber
+Alt + Shift + F
+Passing Lane
+Alt + Shift + L
+Parking
+Alt + Shift + K
+Overhead Structure
+Alt + Shift + O
+Gravel Road
+Alt + Shift + G
+Dead End
+Alt + E
+Culvert
+Alt + C
+Emergency Parking
+Alt + Shift + R
+Roundabout
+Alt + Y
+Tips
+• Keyboard shortcuts are pre-configured for optimal use
+• Shortcuts use Ctrl+Alt, Ctrl+Shift, and Alt+Shift combinations
+• These combinations minimize conflicts with browser and system shortcuts
+• Contact system administrator to request shortcut changes

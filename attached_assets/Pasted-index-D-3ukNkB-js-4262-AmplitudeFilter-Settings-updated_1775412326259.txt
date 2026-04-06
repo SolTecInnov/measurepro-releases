@@ -1,0 +1,155 @@
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4375 🚀 MeasurePRO Build: 2026-04-05-1775411894552
+index-D-3ukNkB.js:4303 Library health check PASSED - All critical libraries loaded
+index-D-3ukNkB.js:3987 [ConnectivityMonitor] Initialized {isOnline: true, isFirebaseConnected: false, isAuthenticated: false, lastOnlineAt: 1775412282605, lastOfflineAt: null}
+index-D-3ukNkB.js:3987 [AutoSync] Firebase auto-sync initialized
+index-D-3ukNkB.js:4287 [AutoPartManager] Initializing with threshold: 200
+index-D-3ukNkB.js:4298 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-D-3ukNkB.js:3987 [ConnectivityMonitor] Firebase connectivity confirmed
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+index-D-3ukNkB.js:3761 [ProfileBuffer] Started global GPS subscription for persistent recording
+RoadProfileCard-Dp-4nIdM.js:31 [GNSSSession] Loaded 0 samples for session profile-
+app:1 Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+index-D-3ukNkB.js:3987 [ConnectivityMonitor] User authenticated
+ClearanceHUD-FA00zcuB.js:16  GET http://127.0.0.1:17777/api/status net::ERR_CONNECTION_REFUSED
+b @ ClearanceHUD-FA00zcuB.js:16
+q @ ClearanceHUD-FA00zcuB.js:16
+Y @ ClearanceHUD-FA00zcuB.js:16
+(anonymous) @ ClearanceHUD-FA00zcuB.js:16
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+Lv @ leaflet-Cfs2bPeT.js:32
+Sn @ leaflet-Cfs2bPeT.js:32
+Pf @ leaflet-Cfs2bPeT.js:32
+mn @ leaflet-Cfs2bPeT.js:30
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+IndexedDB
+(anonymous) @ index-D-3ukNkB.js:3128
+_g @ index-D-3ukNkB.js:3740
+await in _g
+loadSurveys @ index-D-3ukNkB.js:3989
+await in loadSurveys
+(anonymous) @ index-D-3ukNkB.js:4298
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-D-3ukNkB.js:3987 [ConnectivityMonitor] Firebase connectivity confirmed
+index-D-3ukNkB.js:4282 [AutoReconnect] Starting check for user: z2JsOVxJNohWupffvUh28QN1CIs1
+index-D-3ukNkB.js:4282 [AutoReconnect] Check result: match
+index-D-3ukNkB.js:4282 [AutoReconnect] Match found — auto-connecting laser and GPS
+index-D-3ukNkB.js:4282 [AutoReconnect] Connecting laser...
+index-D-3ukNkB.js:4279 [Laser] Connecting soltec-standard at 115200 baud
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4262 [LDM71 Driver] Amplitude filter disabled
+index-D-3ukNkB.js:4279 [Laser] Opening port: {"baudRate":115200,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none","bufferSize":4096}
+index-D-3ukNkB.js:4282 [AutoReconnect] Failed to connect laser: Error: Failed to connect to laser: Failed to execute 'open' on 'SerialPort': Failed to open serial port.
+    at connectToLaser (index-D-3ukNkB.js:4279:2543)
+    at async Kx (index-D-3ukNkB.js:4282:16576)
+Kx @ index-D-3ukNkB.js:4282
+await in Kx
+(anonymous) @ index-D-3ukNkB.js:4282
+Promise.then
+l @ index-D-3ukNkB.js:4282
+(anonymous) @ index-D-3ukNkB.js:4282
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-D-3ukNkB.js:4282 [AutoReconnect] Connecting GPS...
+index-D-3ukNkB.js:4279 [GPS] Using 4800 baud
+index-D-3ukNkB.js:4279 [GPS] Opening port with config: {"baudRate":4800,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none"}
+index-D-3ukNkB.js:4282 [AutoReconnect] Failed to connect GPS: Error: Failed to connect to GPS: Failed to execute 'open' on 'SerialPort': Failed to open serial port.
+    at connectToGPS (index-D-3ukNkB.js:4279:3852)
+    at async Kx (index-D-3ukNkB.js:4282:16908)
+Kx @ index-D-3ukNkB.js:4282
+await in Kx
+(anonymous) @ index-D-3ukNkB.js:4282
+Promise.then
+l @ index-D-3ukNkB.js:4282
+(anonymous) @ index-D-3ukNkB.js:4282
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-D-3ukNkB.js:4282 [DuroGPS] Starting with backend: http://localhost:3001
+index-D-3ukNkB.js:4282 [AutoReconnect] Duro GPS service (re)started with URL: http://localhost:3001
+index-D-3ukNkB.js:4282 [AutoReconnect] No devices actually connected after match
+index-D-3ukNkB.js:4282 [AutoReconnect] Reconnect attempt complete — checking GND REF
+ZED2iCamera-4Z0xBH-H.js:1 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+DV @ index-D-3ukNkB.js:3989
+await in DV
+(anonymous) @ index-D-3ukNkB.js:3989
+(anonymous) @ index-D-3ukNkB.js:3989
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-D-3ukNkB.js:4282 [AutoReconnect] Page became visible — resetting userId guard and checking
+index-D-3ukNkB.js:4282 [AutoReconnect] Starting check for user: z2JsOVxJNohWupffvUh28QN1CIs1
+index-D-3ukNkB.js:4282 [AutoReconnect] Check result: match
+index-D-3ukNkB.js:4282 [AutoReconnect] Match found — auto-connecting laser and GPS
+index-D-3ukNkB.js:4282 [AutoReconnect] Connecting laser...
+index-D-3ukNkB.js:4279 [Laser] Connecting soltec-standard at 115200 baud
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Settings updated: {amplitudeThresholdDb: 1, hysteresisDb: 0.5, windowSize: 10, autoModeEnabled: false}
+index-D-3ukNkB.js:4262 [LDM71 Driver] Using isolated amplitude filter instance
+index-D-3ukNkB.js:4262 [AmplitudeFilter] Reset
+index-D-3ukNkB.js:4263 [LDM71 Driver] Reset
+index-D-3ukNkB.js:4262 [LDM71 Driver] Amplitude filter disabled
+index-D-3ukNkB.js:4279 [Laser] Opening port: {"baudRate":115200,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none","bufferSize":4096}
+index-D-3ukNkB.js:4282 [AutoReconnect] Failed to connect laser: 
+Kx @ index-D-3ukNkB.js:4282
+await in Kx
+(anonymous) @ index-D-3ukNkB.js:4282
+Promise.then
+l @ index-D-3ukNkB.js:4282
+g @ index-D-3ukNkB.js:4282
+index-D-3ukNkB.js:4282 [AutoReconnect] Connecting GPS...
+index-D-3ukNkB.js:4279 [GPS] Using 4800 baud
+index-D-3ukNkB.js:4279 [GPS] Opening port with config: {"baudRate":4800,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none"}
+index-D-3ukNkB.js:4282 [AutoReconnect] Failed to connect GPS: 
+Kx @ index-D-3ukNkB.js:4282
+await in Kx
+(anonymous) @ index-D-3ukNkB.js:4282
+Promise.then
+l @ index-D-3ukNkB.js:4282
+g @ index-D-3ukNkB.js:4282
+index-D-3ukNkB.js:4282 [DuroGPS] Stopped
+index-D-3ukNkB.js:4282 [DuroGPS] Starting with backend: http://localhost:3001
+index-D-3ukNkB.js:4282 [AutoReconnect] Duro GPS service (re)started with URL: http://localhost:3001
+index-D-3ukNkB.js:4282 [AutoReconnect] No devices actually connected after match
+index-D-3ukNkB.js:4282 [AutoReconnect] Reconnect attempt complete — checking GND REF
+app:1 Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

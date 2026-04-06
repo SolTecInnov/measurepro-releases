@@ -1,0 +1,157 @@
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ Found 0 pending changes
+  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ /node_modules/.vite/….js?v=f5993896:4393
+  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ /node_modules/.vite/….js?v=f5993896:4393
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ /src/lib/camera/ZED2iCamera.ts:409
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ /src/lib/camera/ZED2iCamera.ts:409
+/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 (Service Unavailable)
+ [Sync] Pending changes check completed: 0 items in 6.5ms
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ [Sync] Pending changes check completed: 0 items in 1.5ms
+ [Sync] Pending changes check completed: 0 items in 3.0ms
+ [Sync] Pending changes check completed: 0 items in 45.9ms
+ [Sync] Pending changes check completed: 1 items in 10.7ms
+ Found 1 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 0 items in 5.4ms
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+ 🛰️ GPS failsafe disabled - will only use serial GPS
+ Stopping browser GPS tracking
+ [Sync] Pending changes check completed: 0 items in 11.6ms
+ [Sync] Pending changes check completed: 0 items in 77.4ms
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+ [Sync] Pending changes check completed: 0 items in 11.1ms
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ [Sync] Pending changes check completed: 0 items in 2.3ms
+ [Sync] Pending changes check completed: 0 items in 4.2ms
+ [Sync] Pending changes check completed: 0 items in 2.6ms
+ [Sync] Pending changes check completed: 11 items in 6.3ms
+ [Sync] Pending changes check completed: 26 items in 9.3ms
+ Found 26 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 28 items in 3.8ms
+ [Sync] Pending changes check completed: 41 items in 10.6ms
+ [Sync] Pending changes check completed: 56 items in 4.6ms
+ Found 56 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 58 items in 54.6ms
+ [Sync] Pending changes check completed: 72 items in 9.4ms
+ [Sync] Pending changes check completed: 87 items in 33.5ms
+ Found 87 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 2 measurements
+ [Sync] Pending changes check completed: 90 items in 75.0ms
+ [Sync] Pending changes check completed: 102 items in 11.3ms
+ [Sync] Pending changes check completed: 117 items in 119.0ms
+ Found 117 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 3 measurements
+ [Sync] Pending changes check completed: 118 items in 15.8ms
+ [Sync] Pending changes check completed: 128 items in 84.9ms
+gnssWebSocket.ts:48  WebSocket connection to 'wss://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ws/gnss' failed: WebSocket opening handshake timed out
+connect @ gnssWebSocket.ts:48
+ [Sync] Pending changes check completed: 143 items in 142.9ms
+ Found 143 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 145 items in 48.8ms
+ [Sync] Pending changes check completed: 157 items in 744.6ms
+  [Sync] WARNING: checkPendingChanges took 744.6ms (>200ms threshold)
+warn @ /src/lib/utils/logger.ts:17
+ [Sync] Pending changes check completed: 170 items in 264.7ms
+  [Sync] WARNING: checkPendingChanges took 264.7ms (>200ms threshold)
+warn @ /src/lib/utils/logger.ts:17
+ Found 170 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 172 items in 28.1ms
+ [Sync] Pending changes check completed: 182 items in 30.4ms
+ [Sync] Pending changes check completed: 197 items in 15.2ms
+ Found 197 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 199 items in 9.0ms
+ [Sync] Pending changes check completed: 210 items in 76.7ms
+ [Sync] Pending changes check completed: 221 items in 84.7ms
+ Found 221 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 1 surveys to sync
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 1 measurements
+ [Sync] Pending changes check completed: 222 items in 8.9ms
+ [Sync] Pending changes check completed: 233 items in 367.9ms
+  [Sync] WARNING: checkPendingChanges took 367.9ms (>200ms threshold)
+warn @ /src/lib/utils/logger.ts:17

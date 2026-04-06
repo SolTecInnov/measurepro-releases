@@ -1,0 +1,91 @@
+Fix the POI action logging system in MeasurePRO according to the following spec. 
+Read ALL relevant files before making any changes.
+
+--- RELEVANT FILES ---
+src/components/POISelector.tsx
+src/components/KeyboardShortcutHandler.tsx
+src/lib/poiActions.ts
+src/hooks/useMeasurementLogging.ts
+src/components/POIHeightRow.tsx
+src/pages/Settings.tsx (lines 491–688)
+
+--- ROOT CAUSE ---
+The current trigger model is backwards. Selecting a POI type from the dropdown 
+or keyboard shortcut immediately creates a log entry. It should NOT. For 
+height-clearance POIs (auto-capture-and-log), the laser measurement arriving 
+through the logging pipeline must be the only trigger. For measurement-free POIs 
+(auto-capture-no-measurement), the trigger is the POI selection — but only when 
+all guards pass.
+
+--- TASK 1: Remove immediate trigger for auto-capture-and-log ---
+In POISelector.tsx and KeyboardShortcutHandler.tsx:
+- When a POI type with action 'auto-capture-and-log' is selected (dropdown or 
+  keyboard shortcut), ONLY set the active POI type in the store.
+- Do NOT call handleAutoCaptureAndLog. Do NOT create any log entry.
+- useMeasurementLogging.ts already reads the active POI type and handles 
+  measurement-triggered logging — leave that pipeline untouched.
+
+--- TASK 2: Add prerequisite guards to auto-capture-no-measurement, 
+            open-manual-modal, and voice-note ---
+Before executing any of these actions (in both POISelector and 
+KeyboardShortcutHandler):
+  Guard A: An active survey must exist.
+  Guard B: A logging mode must be selected (not "none" / "off").
+  Guard C: For auto-capture-no-measurement only: isLogging must be true.
+
+If any guard fails, show a descriptive toast:
+  - No active survey → "No active survey — create one first"
+  - No logging mode → "Select a logging mode first"
+  - Not logging → "Start logging first"
+
+Pass loggingMode and isLogging as props into POISelector and 
+KeyboardShortcutHandler so they can perform these checks.
+
+--- TASK 3: Harden handleAutoCaptureAndLog ---
+This function must only be called from the measurement pipeline 
+(useMeasurementLogging.ts). Add internal guards at the top:
+  - Active survey exists
+  - Logging mode is selected
+  - A valid laser measurement is present and within ignore-above / ignore-below 
+    thresholds
+If any guard fails, silently return (no toast — this is an automatic pipeline call).
+Remove any remaining calls to handleAutoCaptureAndLog from POISelector and 
+KeyboardShortcutHandler.
+
+--- TASK 4: Confirm measurement-free POIs never have a height value ---
+In handleAutoCaptureNoMeasurement, confirm rel is set to null.
+Audit the DB write path and any worker code — ensure nothing back-fills a height 
+for entries created by auto-capture-no-measurement.
+
+--- TASK 5: Fix note text ---
+In handleAutoCaptureAndLog:
+  Replace any hardcoded "Visual documentation - {label}" note text with:
+  "Height: {value}m | GND REF: {gndRef}m | {label}"
+  (This function cannot be reached with a null measurement after Task 3 guards.)
+
+In handleAutoCaptureNoMeasurement:
+  Replace the note with just the POI type label (e.g. "Intersection", "Grade Up").
+  Remove all "Visual documentation" text.
+
+--- TASK 6: Fix the "None" POI type default ---
+In src/lib/poiActions.ts, in DEFAULT_POI_ACTIONS:
+  Change the '' (empty string) key from 'auto-capture-and-log' to 'select-only'.
+
+--- OUT OF SCOPE — DO NOT TOUCH ---
+- Detection mode pipelines (counterDetection, buffer, etc.)
+- POI type list (no additions or removals)
+- UI layout or visual design
+- The select-only, open-manual-modal, and voice-note action logic itself 
+  (beyond adding the guards from Task 2)
+
+--- VERIFICATION CHECKLIST ---
+After making changes, confirm:
+[ ] Selecting a height-clearance POI type creates zero log entries until a valid 
+    laser measurement arrives
+[ ] Selecting a measurement-free POI type with no active survey → toast, no entry
+[ ] Selecting a measurement-free POI type with no logging mode → toast, no entry
+[ ] Measurements outside ignore-above/ignore-below thresholds are silently 
+    discarded — no POI created
+[ ] Measurement-free POI entries have rel: null (never a numeric height)
+[ ] No POI entry note contains "Visual documentation" text
+[ ] Selecting POI type "None" / '' does nothing (select-only, no action)

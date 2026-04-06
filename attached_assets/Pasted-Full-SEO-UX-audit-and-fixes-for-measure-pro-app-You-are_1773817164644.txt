@@ -1,0 +1,133 @@
+Full SEO + UX audit and fixes for measure-pro.app
+You are auditing and improving my production website measure-pro.app.  
+Goal: Make measure-pro.app the primary, high-converting, and well‑positioned site for MeasurePRO, my LiDAR‑based road survey / oversize–overweight logistics field app. The brand is part of SolTec Innovation (soltecinnovation.com) and SolTec (soltec.ca).
+1. First, understand the product and positioning
+Treat MeasurePRO as:
+•	A professional LiDAR/GPS road survey app for heavy haul / oversize–overweight (OS/OW) transportation.
+•	Used to measure bridge clearances, lane width, road geometry, and obstacles from a vehicle, often paired with hardware bundles.
+•	Closely related to our routing product RoadScope (roadscope.app) and to the company site soltecinnovation.com that explains applications and hardware packages.
+Based on this, you must position measure-pro.app as:
+•	The primary product site for MeasurePRO software.
+•	Focused on: OS/OW logistics, engineering surveys, LiDAR, GPS, road clearance, bridge heights, and field data collection.
+•	Not a generic “measure app” or consumer photo measuring tool.
+Assume there are other unrelated products called “Measure Pro”, “MeasurePro”, “Measure Map Pro”, “My Measures”, etc. You must reduce confusion with them through copy and on‑page SEO.
+2. What I want you to do
+Work directly in the codebase for measure-pro.app (PWA).  
+Do a full audit and implementation in these layers:
+1.	Technical SEO & structure
+2.	On-page SEO & AI/LLM optimization
+3.	UX, navigation, and conversion paths
+4.	Content clarity, errors, and consistency with SolTec sites
+You will:
+•	Identify issues.
+•	Fix them in code/content (not just list them).
+•	Keep all existing working functionality (PWA, forms, map, login, etc.) intact.
+•	Add comments in code only when necessary to explain non-obvious SEO decisions.
+3. Technical SEO checklist (implement fixes)
+For the main public pages (homepage, features, pricing, contact, docs/FAQ if present):
+1.	Head tags
+•	Ensure each page has a unique, descriptive `<title>` (~55–65 chars) that includes “MeasurePRO”, key OS/OW / LiDAR terms, and “measure-pro.app”.
+•	Ensure each page has a strong `<meta name="description">` (~140–160 chars) focused on OS/OW road surveys, LiDAR, clearances, and who it’s for.
+•	Include `<meta name="robots" content="index, follow">` on all indexable pages.
+•	Ensure viewport tag, charset, and language attributes are correct (`lang="en"` or bilingual if the content is actually bilingual).
+2.	Canonical and indexing
+•	Add `<link rel="canonical">` on each page pointing to the preferred URL (https + non‑www, e.g., `https://measure-pro.app/...`).
+•	Make sure there is no accidental `noindex`, `nofollow`, or disallow` on important pages.
+•	Create or correct `robots.txt` to:
+•	Allow crawling of all important content pages.
+•	Block only genuine non-public or duplicate URLs if needed (e.g., admin, test pages).
+3.	Sitemap
+•	Create/update `sitemap.xml` that includes only canonical, public URLs.
+•	Ensure it’s accessible at `/sitemap.xml` and linked from `robots.txt`.
+•	Include: homepage, features/product pages, pricing, contact/sales, documentation/FAQ, and any key marketing pages.
+4.	Performance & Core Web Vitals
+•	Optimize for fast load, especially on mobile: compress/resize large images, defer non-critical JS, remove unused scripts/styles if possible.
+•	Make sure the landing pages (especially homepage) render main content quickly and are not blocked by heavy scripts.
+•	Use lazy loading for below‑the‑fold images and non-critical components.
+5.	PWA / technical integrity
+•	Ensure service worker and manifest remain valid and do not interfere with indexing (e.g., avoid making the app shell a blank JS‑rendered page without content).
+•	Ensure server responses for key pages return HTTP 200, not 3xx/4xx/5xx except where intentional (e.g., redirects from HTTP → HTTPS).
+4. On-page SEO & AI/LLM optimization
+For the homepage and any main product pages:
+1.	H1/H2 structure
+•	Each page must have exactly one H1 that clearly states what MeasurePRO is and for whom (e.g., “LiDAR Road Survey App for Oversize/Overweight Transport”).
+•	Use H2/H3 for sections like Features, Hardware Bundles, Integrations, Pricing, and Use Cases.
+2.	Keywords and language
+•	Naturally incorporate terms like:
+•	“oversize load”, “overweight permits”, “heavy haul”, “pilot car surveys”,
+•	“LiDAR road survey”, “bridge clearance measurement”, “lane width”, “OS/OW logistics”.
+•	Do not keyword-stuff; keep copy readable and professional.
+3.	Brand and differentiation
+•	Make it clear that this MeasurePRO is part of SolTec Innovation and focused on heavy/OS/OW transport.
+•	Add copy that explicitly states that it’s not a generic measuring app and is used with professional LiDAR/GPS hardware packages.
+•	Add a short comparison/clarification section or FAQ item like:
+•	“Is this the same as the consumer ‘MeasurePro’ or ‘Measure Map’ apps?” → Answer clearly that this is a professional OS/OW field survey tool for logistics and engineering.
+4.	AI/LLM-friendly structure
+•	Add one or two concise, well-structured paragraphs that describe MeasurePRO end‑to‑end: what it does, how it’s used in OS/OW workflows, and its relationship to SolTec and RoadScope.
+•	Add a small FAQ section (3–6 Q&As) answering common questions:
+•	What is MeasurePRO?
+•	Who uses MeasurePRO?
+•	How does MeasurePRO integrate with RoadScope?
+•	What hardware does it support?
+•	How is MeasurePRO licensed and supported?
+•	Use clear, factual, non‑marketing language so LLMs can accurately learn what MeasurePRO is.
+5.	Structured data (Schema.org)
+•	Add appropriate JSON‑LD schema to the homepage:
+•	At minimum, `SoftwareApplication` describing MeasurePRO (name, description, operating systems, applicationCategory like “BusinessApplication”, URL = measure-pro.app, provider = SolTec Innovation).
+•	Optionally `Organization` or `LocalBusiness` (SolTec Innovation) with website URLs and contact info.
+•	Ensure the structured data matches the visible content (no misleading claims).
+5. UX, navigation, and conversion paths
+Improve the site so visitors know what to do next and how to talk to us:
+1.	Navigation and IA
+•	Ensure top navigation includes clear links (or equivalents):
+•	Product / Features
+•	Hardware / Bundles (or link to SolTec hardware page if that’s the single source of truth)
+•	Pricing / Plans
+•	Use Cases / Industries
+•	Contact / Book a Demo / Request Quote
+•	Remove or rename any vague labels like “More”, “Misc”, etc.
+2.	Primary CTAs
+•	Ensure there is a clear primary CTA above the fold on the homepage. Examples:
+•	“Book a demo”
+•	“Talk to sales about MeasurePRO”
+•	“Request OS/OW survey bundle pricing”
+•	Wire these CTAs to actual working forms or mailto links.
+•	Make sure forms are simple, mobile-friendly, and fully functional (no JS errors).
+3.	Consistency with SolTec sites
+•	Add a clear statement and link to SolTec Innovation for detailed pricing/hardware if that’s the canonical pricing page (for example: “MeasurePRO pricing and hardware bundles are managed by SolTec Innovation at soltecinnovation.com/pricing”).
+•	Cross-link carefully so:
+•	measure-pro.app = product hub and entry point.
+•	soltecinnovation.com = company, pricing, and global bundle details.
+•	soltec.ca = heavy transport consulting brand.
+•	Avoid duplicate full copy; instead, summarize on measure-pro.app and link to deeper company pages where appropriate.
+4.	Trust and credibility
+•	Add basic trust elements:
+•	Short “Who we are” section referencing SolTec Innovation and OS/OW engineering background.
+•	If appropriate, mention Canada/US focus for OS/OW routing and permitting.
+•	Include at least a few short case examples or bullet use‑cases (no confidential info).
+6. Content cleanup and error fixing
+1.	Typos and grammar
+•	Scan all public-facing text for spelling, grammar, and punctuation errors; fix them.
+•	Standardize capitalization (e.g., MeasurePRO, RoadScope, SolTec Innovation).
+2.	Broken links and components
+•	Check all internal links, menus, buttons, forms, and contact flows.
+•	Fix any 404s, dead links, or UI elements that don’t respond.
+•	Ensure map/interactive components fail gracefully with clear messages if something cannot load.
+3.	Language & clarity
+•	Rewrite vague or generic lines like “measure anything easily” into OS/OW‑specific value:
+•	Examples: “Capture bridge clearances and lane widths from the cab, with LiDAR-validated measurements ready for OS/OW permit planning.”
+•	Make sure each key section answers: what this is, who it’s for, why it matters, and what to do next.
+7. Avoid regressions and keep me oriented
+•	Keep all existing core functionality (PWA features, measurement tools, login, etc.) working.
+•	When you make larger structural changes (navigation, layout, or templates), keep the design coherent with the current look and feel unless it blocks usability.
+•	Add comments in the code for non-obvious SEO/structured-data changes so a human can maintain them later.
+At the end, produce:
+1.	A short summary file (e.g., `SEO_AUDIT_NOTES.md`) in the repo root that lists:
+•	The main issues you found.
+•	The main fixes you implemented.
+•	Any remaining recommendations that require manual decisions (for example, rebranding, new pages, or detailed content I must write).
+2.	Confirm that the key pages:
+•	Have strong titles and meta descriptions.
+•	Include correct canonical tags.
+•	Are linked from the sitemap and robots.txt.
+•	Contain clear MeasurePRO + OS/OW + LiDAR messaging and working CTAs.

@@ -1,0 +1,39 @@
+ Le plan est solide — il va régler tes problèmes
+Les 5 tâches identifient correctement les vraies causes racines. Voici mon analyse de chaque point :
+
+Task 1 — Amplitude filter default 10.0 → 1.0 dB ✅ Critique
+C'est le bug principal. Ton hardware sort 1–3 dB, le filtre rejette tout ce qui est sous 10 dB → 100% des lectures jetées. Ce seul bug explique pourquoi ton affichage reste à -- en permanence. Le fix est simple et direct.
+⚠️ Attention cependant — s'assurer que le fix couvre aussi les profiles.ts et pas seulement le store, sinon un profil sauvegardé rechargé va réappliquer l'ancien threshold de 10.0 dB.
+
+Task 2 — Strip filter messages from raw output ✅ Important
+Le flood de [SolTec] -- (Amplitude 1.8 dB still below threshold 10.0 dB) à 30 Hz dans le raw output est un symptôme du bug #1, mais même une fois le filtre corrigé, ce comportement reste mauvais. Le raw output doit montrer uniquement les bytes bruts du port série. Correct.
+
+Task 3 — Throttle notifications à 4 Hz ✅ Nécessaire
+30 callbacks/seconde qui triggent des re-renders React → c'est la source de ton lag visuel. 4 Hz (250ms) est le bon compromis entre réactivité visuelle et performance. Le buffer accumule quand même tout en arrière-plan — rien n'est perdu.
+
+Task 4 — Amplitude filter button UI ✅ Minor mais important
+Si le bouton est ambigu, l'opérateur ne sait pas si le filtre est actif ou non. En terrain, ça crée de la confusion sur pourquoi les lectures passent ou non. Fix trivial, nécessaire.
+
+Task 5 — Unblock auto-log pipeline ✅ Conséquence directe du bug #1
+Une fois que setLastLaserData reçoit enfin des valeurs valides (grâce au fix Task 1), le pipeline auto-log devrait se débloquer. Mais le ticket mentionne aussi :
+
+height threshold defaults being set too restrictively for real-world readings around 3–8 m
+
+C'est un deuxième bug potentiel indépendant du filtre amplitude. Si le threshold de hauteur est configuré pour rejeter des lectures de 3–8m (ce qui est exactement ta plage de travail), l'auto-log va rester silencieux même après le fix du filtre. Assure-toi que Replit vérifie explicitement ce threshold dans useMeasurementLogging.ts lignes 280–500.
+
+🔴 Ce qui manque dans le ticket
+Une chose que je ne vois pas mentionnée explicitement :
+Le comportement D 00.x.xx vs D 00x.xx X.xx est bien spécifié dans la logique de traitement, mais le ticket ne demande pas de test unitaire pour valider ces deux cas. Sans ça, Replit pourrait casser l'un en fixant l'autre.
+Recommande d'ajouter à la fin du ticket :
+Validation required:
+- Send mock serial line "D 0001.724" (no amplitude) 
+  → must appear on measurement card regardless of filter state
+- Send mock serial line "D 0001.724 1.8" with filter ON threshold=1.0 
+  → must appear (1.8 > 1.0)
+- Send mock serial line "D 0001.724 0.5" with filter ON threshold=1.0 
+  → must be rejected
+- Send mock serial line "D 0001.724 0.5" with filter OFF 
+  → must appear regardless
+
+Verdict
+Oui, ce plan va régler tes issues. Les 5 tâches couvrent la chaîne complète : filtre → output → render → UI → auto-log. La seule chose à surveiller est le height threshold dans Task 5 — demande à Replit de te montrer la valeur actuelle de ce threshold avant de clore le ticket.

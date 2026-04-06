@@ -1,0 +1,540 @@
+You are modifying an existing TypeScript/React PWA called **MeasurePRO**.
+
+### HIGH-LEVEL GOAL
+
+Add **full support for an RSA-style vertical clearance laser** that talks over a **3-byte binary serial protocol** and convert its raw serial data into **readable, normalized distance measurements** that can be used by the existing MeasurePRO measurement pipeline (road survey, overhead clearance, etc.).
+
+If you find an existing hardware/laser abstraction, extend it.  
+If not, create a clean, modular abstraction instead of hard-coding a one-off hack.
+
+It is acceptable to use a **small desktop helper** (Node/C# app exposing a WebSocket/HTTP API) if browser Web Serial isn’t available, but first assume we can use **Web Serial API** (`navigator.serial`) in the PWA.
+
+---
+
+## 1. CONTEXT ABOUT THE LASER PROTOCOL (IMPORTANT)
+
+We have an existing Windows C# app “RSA Vertical Clearance Measurement App” that already works with this laser. You must **replicate its protocol** in MeasurePRO.
+
+### Serial port settings
+
+The laser must be opened with:
+
+- Port: selected by user (COMx) – don’t hard-code.
+- Baud rate: **460800**
+- Data bits: **8**
+- Stop bits: **1**
+- Parity: **none** (8N1)
+- No hardware / software flow control.
+
+### Control commands
+
+The laser uses simple ASCII commands:
+
+- **Start streaming:** send the ASCII string `DT` followed by carriage return:
+
+  - Command: `"DT\r"`
+
+- **Stop streaming:** send ESC (0x1B):
+
+  - Command: `"\x1B"`
+
+No other commands are required for the first version.
+
+### Incoming data format (laser → PC)
+
+Once streaming is started, the laser sends a **continuous binary stream** grouped conceptually as **3-byte frames** with this pattern:
+
+- Frame = `[b0, b1, b2]` (3 bytes, no delimiter).
+- Valid frame condition (framing rule):
+
+  - `b0 & 0x80 != 0`  (MSB of byte 0 is **1**)
+  - `b1 & 0x80 == 0`  (MSB of byte 1 is **0**)
+  - `b2 & 0x80 == 0`  (MSB of byte 2 is **0**)
+
+So valid frames look like:
+
+- `1xxxxxxx 0xxxxxxx 0xxxxxxx`
+
+If the pattern is broken, you must discard bytes and resync.
+
+### Distance / intensity decoding
+
+For a valid frame `[b0, b1, b2]`:
+
+- **Distance:**
+
+  ```ts
+  const raw = (((b0 & 0x7f) << 7) | b1);  // 14-bit value
+  const distanceM = raw / 100.0;          // meters, 0.01 m resolution
+Typical range of interest: 0–30 m (even though encoding allows up to 163.83 m).
+
+Intensity / quality:
+
+ts
+Copy code
+const intensity = b2 * 2; // 0–510
+You must convert this into a normalized measurement object consumed by MeasurePRO.
+
+2. TARGET DESIGN IN MEASUREPRO
+Do NOT hack this in a random component.
+Implement a laser abstraction layer with per-laser profiles.
+
+2.1. Create a laser types module
+Create a new module, for example:
+
+src/hardware/laser/types.ts (or similar, adapt to project structure).
+
+Add the following types (or equivalent):
+
+ts
+Copy code
+export type LaserProtocolType =
+  | 'rsa_3byte'
+  | 'ascii'
+  | 'binary_custom'
+  | 'mock';
+
+export interface LaserProfileConfig {
+  id: string;
+  name: string;
+
+  // Serial config
+  baudRate: number;
+  dataBits: number;
+  parity: 'none' | 'even' | 'odd';
+  stopBits: 1 | 2;
+
+  // Which protocol/driver to use
+  protocol: LaserProtocolType;
+
+  // Optional ASCII commands for start/stop
+  startCommand?: string; // e.g. "DT\r"
+  stopCommand?: string;  // e.g. "\x1B"
+
+  // For flexibility in the future
+  options?: Record<string, any>;
+}
+
+// Normalized measurement used by MeasurePRO
+export interface NormalizedLaserMeasurement {
+  distanceM: number | null;   // null if invalid / out of range
+  intensity?: number;
+  timestamp: number;          // ms since epoch
+  raw?: Uint8Array;           // optional raw frame
+}
+
+// Driver interface for all lasers
+export interface LaserDriver {
+  readonly profile: LaserProfileConfig;
+
+  // Called once the serial port is opened
+  onOpen?(port: SerialPort): Promise<void> | void;
+
+  // Called by app when it wants to start/stop streaming
+  startStreaming(port: SerialPort): Promise<void> | void;
+  stopStreaming(port: SerialPort): Promise<void> | void;
+
+  // Called for each chunk of bytes read from serial
+  feedBytes(chunk: Uint8Array): NormalizedLaserMeasurement[];
+}
+Also create a driver factory:
+
+ts
+Copy code
+export function createLaserDriver(profile: LaserProfileConfig): LaserDriver {
+  switch (profile.protocol) {
+    case 'rsa_3byte':
+      return new RsaThreeByteLaserDriver(profile);
+    // case 'ascii': return new AsciiLaserDriver(profile);
+    // add more here later
+    default:
+      throw new Error(`Unsupported laser protocol: ${profile.protocol}`);
+  }
+}
+You will implement RsaThreeByteLaserDriver in a separate file.
+
+2.2. Implement RSA driver
+Create src/hardware/laser/rsaThreeByteDriver.ts (or equivalent) and implement a driver class that matches the C# behavior.
+
+Key requirements:
+
+Maintain an internal byte buffer.
+
+Try to parse frames of 3 bytes.
+
+Use the MSB pattern to identify valid frames.
+
+If invalid, drop bytes to resync.
+
+Decode distance + intensity as defined above.
+
+Apply optional range-gating (e.g., 0–30 m).
+
+Example implementation (you can refine / optimize):
+
+ts
+Copy code
+import {
+  LaserDriver,
+  LaserProfileConfig,
+  NormalizedLaserMeasurement
+} from './types';
+
+export class RsaThreeByteLaserDriver implements LaserDriver {
+  public readonly profile: LaserProfileConfig;
+  private buffer: number[] = [];
+
+  constructor(profile: LaserProfileConfig) {
+    this.profile = profile;
+  }
+
+  async onOpen(_port: SerialPort) {
+    // Nothing special yet, but keep this hook for future DTR handling etc.
+  }
+
+  async startStreaming(port: SerialPort) {
+    const cmd = this.profile.startCommand ?? 'DT\r';
+    await this.writeAscii(port, cmd);
+  }
+
+  async stopStreaming(port: SerialPort) {
+    const cmd = this.profile.stopCommand ?? '\x1B';
+    await this.writeAscii(port, cmd);
+  }
+
+  feedBytes(chunk: Uint8Array): NormalizedLaserMeasurement[] {
+    const results: NormalizedLaserMeasurement[] = [];
+    const now = Date.now();
+
+    // append new bytes
+    for (let i = 0; i < chunk.length; i++) {
+      this.buffer.push(chunk[i]);
+    }
+
+    // process while at least 3 bytes
+    while (this.buffer.length >= 3) {
+      const b0 = this.buffer[0];
+      const b1 = this.buffer[1];
+      const b2 = this.buffer[2];
+
+      const validFrame =
+        (b0 & 0x80) !== 0 &&
+        (b1 & 0x80) === 0 &&
+        (b2 & 0x80) === 0;
+
+      if (validFrame) {
+        const raw = (((b0 & 0x7f) << 7) | b1);
+        const distanceM = raw / 100.0;
+        const intensity = b2 * 2;
+
+        const maxRange = this.profile.options?.maxRangeM ?? 30;
+        const inRange =
+          distanceM > 0 &&
+          (maxRange <= 0 || distanceM <= maxRange);
+
+        results.push({
+          distanceM: inRange ? distanceM : null,
+          intensity,
+          timestamp: now,
+          raw: new Uint8Array([b0, b1, b2])
+        });
+
+        // consume processed frame
+        this.buffer.splice(0, 3);
+      } else {
+        // Failed framing, drop 1 byte and retry (simple resync).
+        this.buffer.shift();
+      }
+    }
+
+    return results;
+  }
+
+  private async writeAscii(port: SerialPort, text: string) {
+    const writer = port.writable?.getWriter();
+    if (!writer) return;
+    const enc = new TextEncoder();
+    await writer.write(enc.encode(text));
+    writer.releaseLock();
+  }
+}
+Make sure this class is exported and used in createLaserDriver.
+
+2.3. Lightning profile definition for RSA laser
+Define a default profile (for example in src/hardware/laser/profiles.ts):
+
+ts
+Copy code
+import { LaserProfileConfig } from './types';
+
+export const RSA_VERTICAL_CLEARANCE_PROFILE: LaserProfileConfig = {
+  id: 'rsa_vclear',
+  name: 'RSA Vertical Clearance Laser',
+  baudRate: 460800,
+  dataBits: 8,
+  parity: 'none',
+  stopBits: 1,
+  protocol: 'rsa_3byte',
+  startCommand: 'DT\r',
+  stopCommand: '\x1B',
+  options: {
+    maxRangeM: 30,
+    intensityThreshold: 6
+  }
+};
+We will later map this in the UI so the user can select it.
+
+3. SERIAL LAYER IN THE PWA (WEB SERIAL OR HELPER)
+3.1. Web Serial-based implementation (preferred if possible)
+If this PWA can run in Chrome/Edge with navigator.serial, implement a LaserService that:
+
+Asks the user to pick a serial port.
+
+Opens it using the profile’s settings.
+
+Instantiates a LaserDriver for that profile.
+
+Reads chunks from the serial port and passes them to driver.feedBytes.
+
+Exposes decoded measurements via a callback, observable, or React hook.
+
+Create src/hardware/laser/laserService.ts:
+
+ts
+Copy code
+import {
+  LaserProfileConfig,
+  NormalizedLaserMeasurement
+} from './types';
+import { createLaserDriver } from './types'; // adjust import to where the factory lives
+import { RsaThreeByteLaserDriver } from './rsaThreeByteDriver'; // if needed
+
+type MeasurementListener = (m: NormalizedLaserMeasurement) => void;
+
+export class LaserService {
+  private port: SerialPort | null = null;
+  private reader: ReadableStreamDefaultReader<Uint8Array> | null = null;
+  private profile: LaserProfileConfig;
+  private driver = createLaserDriver;
+  private listeners = new Set<MeasurementListener>();
+  private running = false;
+
+  constructor(profile: LaserProfileConfig) {
+    this.profile = profile;
+    this.driver = createLaserDriver(profile);
+  }
+
+  addListener(fn: MeasurementListener) {
+    this.listeners.add(fn);
+  }
+
+  removeListener(fn: MeasurementListener) {
+    this.listeners.delete(fn);
+  }
+
+  private emit(measurement: NormalizedLaserMeasurement) {
+    for (const fn of this.listeners) {
+      fn(measurement);
+    }
+  }
+
+  async connectAndStart() {
+    if (!('serial' in navigator)) {
+      throw new Error('Web Serial API not available in this browser.');
+    }
+
+    this.port = await (navigator as any).serial.requestPort();
+    await this.port.open({
+      baudRate: this.profile.baudRate,
+      dataBits: this.profile.dataBits,
+      stopBits: this.profile.stopBits,
+      parity: this.profile.parity
+    });
+
+    await this.driver.onOpen?.(this.port);
+
+    // Start streaming
+    await this.driver.startStreaming(this.port);
+
+    this.running = true;
+    this.reader = this.port.readable!.getReader();
+
+    // Read loop
+    (async () => {
+      while (this.running && this.reader) {
+        const { value, done } = await this.reader.read();
+        if (done || !value) break;
+        const measurements = this.driver.feedBytes(value);
+        for (const m of measurements) {
+          this.emit(m);
+        }
+      }
+    })().catch(err => {
+      console.error('Laser read loop error', err);
+    });
+  }
+
+  async stop() {
+    this.running = false;
+
+    if (this.reader) {
+      await this.reader.cancel().catch(() => {});
+      this.reader.releaseLock();
+      this.reader = null;
+    }
+
+    if (this.port) {
+      try {
+        await this.driver.stopStreaming(this.port);
+      } catch (err) {
+        console.warn('Error stopping laser stream', err);
+      }
+      await this.port.close();
+      this.port = null;
+    }
+  }
+}
+You can refine / fix any TypeScript errors as needed, but keep the architecture: LaserService talks to serial, LaserDriver decodes frames.
+
+3.2. Desktop helper option (if Web Serial not possible)
+If Web Serial cannot be used in your runtime, then:
+
+Create a small Node.js helper (e.g. desktop-helper/laser-bridge.ts) using the serialport package.
+
+This helper:
+
+Opens the COM port with the RSA profile settings.
+
+Talks to the laser exactly the same way.
+
+Exposes decoded measurements over WebSocket or HTTP to the PWA.
+
+You don’t need to fully implement that in this pass, but:
+
+Add a LaserBridgeClient in the PWA with a pluggable backend:
+
+WebSerialBackend
+
+WebSocketBackend
+
+Make sure the code structure is prepared so that swapping the backend doesn’t require rewriting the laser driver.
+
+4. INTEGRATE WITH MEASUREPRO UI / PIPELINE
+4.1. Expose RSA laser as a selectable hardware profile
+Find the existing configuration section where hardware devices (GNSS, Duro, LiDAR etc.) are selected.
+
+Add a Laser section that lets the user pick:
+
+“None”
+
+“RSA Vertical Clearance Laser”
+
+(Future: other laser models).
+
+When the RSA profile is selected, store that profile selection in the project settings (Firestore if applicable).
+
+4.2. Create a React hook for components to consume decoded values
+Create a hook like useLaserMeasurements(profile: LaserProfileConfig | null) that:
+
+Internally creates a LaserService.
+
+Subscribes to measurements.
+
+Exposes:
+
+last distance
+
+last intensity
+
+list of recent samples (for plotting or debugging)
+
+connection state (idle / connecting / streaming / error)
+
+Pseudo-code:
+
+ts
+Copy code
+export function useLaserMeasurements(profile: LaserProfileConfig | null) {
+  const [lastMeasurement, setLastMeasurement] =
+    useState<NormalizedLaserMeasurement | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [connected, setConnected] = useState(false);
+
+  useEffect(() => {
+    if (!profile) return;
+    const service = new LaserService(profile);
+    service.addListener(m => setLastMeasurement(m));
+    service.connectAndStart()
+      .then(() => setConnected(true))
+      .catch(err => setError(err));
+
+    return () => {
+      service.stop().catch(() => {});
+    };
+  }, [profile?.id]);
+
+  return { lastMeasurement, error, connected };
+}
+4.3. Add a simple “Laser Debug” panel
+Add a small debug panel in the UI to confirm the RSA integration:
+
+Shows:
+
+“Connected: yes/no”
+
+“Current distance: X.XX m or ‘No hit’”
+
+“Intensity: N”
+
+Optional: raw bytes in hex for last few frames.
+
+This is critical to validate the implementation with the real laser.
+
+5. ACCEPTANCE CRITERIA
+There is a clean laser abstraction (LaserProfileConfig, LaserDriver, NormalizedLaserMeasurement, LaserService) implemented in MeasurePRO’s codebase.
+
+A RSA vertical clearance profile exists with:
+
+baudRate = 460800
+
+dataBits = 8
+
+parity = 'none'
+
+stopBits = 1
+
+protocol = 'rsa_3byte'
+
+startCommand = 'DT\r'
+
+stopCommand = '\x1B'
+
+The RsaThreeByteLaserDriver:
+
+Correctly interprets frames with pattern 1xxxxxxx 0xxxxxxx 0xxxxxxx.
+
+Correctly decodes distance using:
+
+ts
+Copy code
+raw = (((b0 & 0x7f) << 7) | b1);
+distanceM = raw / 100.0;
+Correctly decodes intensity as b2 * 2.
+
+Handles invalid framing by resyncing and not crashing.
+
+There is a React-level integration (hook or service) that allows:
+
+Selecting the RSA laser profile.
+
+Connecting to the serial port via Web Serial.
+
+Streaming and viewing decoded measurements in the UI.
+
+Code is well-typed TypeScript, with clear separation of concerns:
+
+Laser protocol decoding is not mixed with UI code.
+
+Serial transport layer is separated from protocol decoding.
+
+Please implement all of this step by step, updating existing code where appropriate. If you find existing measurement/hardware abstractions in the project, integrate with them instead of duplicating logic.

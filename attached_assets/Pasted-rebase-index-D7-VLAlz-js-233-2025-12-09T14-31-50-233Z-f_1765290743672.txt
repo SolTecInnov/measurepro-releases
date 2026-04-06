@@ -1,0 +1,401 @@
+rebase
+index-D7-VLAlz.js:233  [2025-12-09T14:31:50.233Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+eE @ index-D7-VLAlz.js:233
+error @ index-D7-VLAlz.js:233
+gn @ index-D7-VLAlz.js:465
+close @ index-D7-VLAlz.js:1548
+I_ @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+So @ index-D7-VLAlz.js:1488
+(anonymous) @ index-D7-VLAlz.js:1503
+(anonymous) @ index-D7-VLAlz.js:1503
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+Gs.ta @ index-D7-VLAlz.js:420
+Jl @ index-D7-VLAlz.js:417
+Sn.Y @ index-D7-VLAlz.js:416
+Sn.ca @ index-D7-VLAlz.js:416
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+tp @ index-D7-VLAlz.js:419
+r.bb @ index-D7-VLAlz.js:419
+r.Ea @ index-D7-VLAlz.js:419
+so @ index-D7-VLAlz.js:418
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Sa @ index-D7-VLAlz.js:417
+Promise.then
+r.send @ index-D7-VLAlz.js:417
+r.ea @ index-D7-VLAlz.js:419
+Lf @ index-D7-VLAlz.js:416
+lp @ index-D7-VLAlz.js:420
+r.Fa @ index-D7-VLAlz.js:420
+H @ index-D7-VLAlz.js:412
+Promise.then
+Z @ index-D7-VLAlz.js:412
+cp @ index-D7-VLAlz.js:420
+Jl @ index-D7-VLAlz.js:417
+Sn.Y @ index-D7-VLAlz.js:416
+Sn.ca @ index-D7-VLAlz.js:416
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+tp @ index-D7-VLAlz.js:419
+r.bb @ index-D7-VLAlz.js:419
+r.Ea @ index-D7-VLAlz.js:419
+so @ index-D7-VLAlz.js:418
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Sa @ index-D7-VLAlz.js:417
+Promise.then
+r.send @ index-D7-VLAlz.js:417
+r.ea @ index-D7-VLAlz.js:419
+Lf @ index-D7-VLAlz.js:416
+Gl @ index-D7-VLAlz.js:416
+r.Ga @ index-D7-VLAlz.js:420
+H @ index-D7-VLAlz.js:412
+Promise.then
+Z @ index-D7-VLAlz.js:412
+La @ index-D7-VLAlz.js:420
+r.connect @ index-D7-VLAlz.js:420
+ir.m @ index-D7-VLAlz.js:420
+Io @ index-D7-VLAlz.js:1503
+send @ index-D7-VLAlz.js:1488
+a_ @ index-D7-VLAlz.js:1548
+p_ @ index-D7-VLAlz.js:1548
+aA @ index-D7-VLAlz.js:1579
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+wo @ index-D7-VLAlz.js:1488
+(anonymous) @ index-D7-VLAlz.js:1503
+setTimeout
+Bo @ index-D7-VLAlz.js:1503
+T_ @ index-D7-VLAlz.js:1548
+P_ @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+Promise.then
+auth @ index-D7-VLAlz.js:1548
+start @ index-D7-VLAlz.js:1548
+start @ index-D7-VLAlz.js:1548
+tv @ index-D7-VLAlz.js:1579
+ml @ index-D7-VLAlz.js:1579
+await in ml
+IA @ index-D7-VLAlz.js:1657
+await in IA
+(anonymous) @ index-D7-VLAlz.js:1958
+await in (anonymous)
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1958
+Tv @ index-D7-VLAlz.js:1958
+Iv @ index-D7-VLAlz.js:1958
+qo @ index-D7-VLAlz.js:3113
+c @ index-D7-VLAlz.js:3685
+await in c
+(anonymous) @ index-D7-VLAlz.js:3685
+setInterval
+B5 @ index-D7-VLAlz.js:3685
+(anonymous) @ index-D7-VLAlz.js:3701
+await in (anonymous)
+(anonymous) @ index-D7-VLAlz.js:3701
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-D7-VLAlz.js:233  [2025-12-09T14:31:50.233Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+eE @ index-D7-VLAlz.js:233
+error @ index-D7-VLAlz.js:233
+gn @ index-D7-VLAlz.js:465
+close @ index-D7-VLAlz.js:1548
+I_ @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+So @ index-D7-VLAlz.js:1488
+(anonymous) @ index-D7-VLAlz.js:1503
+(anonymous) @ index-D7-VLAlz.js:1503
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+Gs.ta @ index-D7-VLAlz.js:420
+Jl @ index-D7-VLAlz.js:417
+Sn.Y @ index-D7-VLAlz.js:416
+Sn.ca @ index-D7-VLAlz.js:416
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+tp @ index-D7-VLAlz.js:419
+r.bb @ index-D7-VLAlz.js:419
+r.Ea @ index-D7-VLAlz.js:419
+so @ index-D7-VLAlz.js:418
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Sa @ index-D7-VLAlz.js:417
+Promise.then
+r.send @ index-D7-VLAlz.js:417
+r.ea @ index-D7-VLAlz.js:419
+Lf @ index-D7-VLAlz.js:416
+lp @ index-D7-VLAlz.js:420
+r.Fa @ index-D7-VLAlz.js:420
+H @ index-D7-VLAlz.js:412
+Promise.then
+Z @ index-D7-VLAlz.js:412
+cp @ index-D7-VLAlz.js:420
+Jl @ index-D7-VLAlz.js:417
+Sn.Y @ index-D7-VLAlz.js:416
+Sn.ca @ index-D7-VLAlz.js:416
+Re @ index-D7-VLAlz.js:412
+Ee @ index-D7-VLAlz.js:412
+tp @ index-D7-VLAlz.js:419
+r.bb @ index-D7-VLAlz.js:419
+r.Ea @ index-D7-VLAlz.js:419
+so @ index-D7-VLAlz.js:418
+r.Pa @ index-D7-VLAlz.js:417
+Promise.then
+Yf @ index-D7-VLAlz.js:417
+r.Sa @ index-D7-VLAlz.js:417
+Promise.then
+r.send @ index-D7-VLAlz.js:417
+r.ea @ index-D7-VLAlz.js:419
+Lf @ index-D7-VLAlz.js:416
+Gl @ index-D7-VLAlz.js:416
+r.Ga @ index-D7-VLAlz.js:420
+H @ index-D7-VLAlz.js:412
+Promise.then
+Z @ index-D7-VLAlz.js:412
+La @ index-D7-VLAlz.js:420
+r.connect @ index-D7-VLAlz.js:420
+ir.m @ index-D7-VLAlz.js:420
+Io @ index-D7-VLAlz.js:1503
+send @ index-D7-VLAlz.js:1488
+a_ @ index-D7-VLAlz.js:1548
+p_ @ index-D7-VLAlz.js:1548
+aA @ index-D7-VLAlz.js:1579
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+wo @ index-D7-VLAlz.js:1488
+(anonymous) @ index-D7-VLAlz.js:1503
+setTimeout
+Bo @ index-D7-VLAlz.js:1503
+T_ @ index-D7-VLAlz.js:1548
+P_ @ index-D7-VLAlz.js:1548
+(anonymous) @ index-D7-VLAlz.js:1548
+Promise.then
+auth @ index-D7-VLAlz.js:1548
+start @ index-D7-VLAlz.js:1548
+start @ index-D7-VLAlz.js:1548
+tv @ index-D7-VLAlz.js:1579
+ml @ index-D7-VLAlz.js:1579
+await in ml
+IA @ index-D7-VLAlz.js:1657
+await in IA
+(anonymous) @ index-D7-VLAlz.js:1958
+await in (anonymous)
+(anonymous) @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1792
+Promise.then
+gu @ index-D7-VLAlz.js:1792
+enqueue @ index-D7-VLAlz.js:1792
+enqueueAndForget @ index-D7-VLAlz.js:1792
+(anonymous) @ index-D7-VLAlz.js:1958
+Tv @ index-D7-VLAlz.js:1958
+Iv @ index-D7-VLAlz.js:1958
+qo @ index-D7-VLAlz.js:3113
+c @ index-D7-VLAlz.js:3685
+await in c
+(anonymous) @ index-D7-VLAlz.js:3685
+setInterval
+B5 @ index-D7-VLAlz.js:3685
+(anonymous) @ index-D7-VLAlz.js:3701
+await in (anonymous)
+(anonymous) @ index-D7-VLAlz.js:3701
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+// Full Database Backup Script - Paste in Console
+(async function() {
+  const db = await indexedDB.open('measurepro-v2').then(
+    req => new Promise((resolve, reject) => {
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    })
+  );
+  
+  console.log('Starting backup...');
+  const stats = { surveys: 0, measurements: 0 };
+  
+  // Get all surveys
+  const surveysStore = db.transaction('surveys', 'readonly').objectStore('surveys');
+  const surveys = await new Promise((resolve, reject) => {
+    const req = surveysStore.getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+  stats.surveys = surveys.length;
+  console.log(`Found ${stats.surveys} surveys`);
+  
+  // Stream measurements with cursor
+  const measurementChunks = [];
+  let chunkData = [];
+  const tx = db.transaction('measurements', 'readonly');
+  const store = tx.objectStore('measurements');
+  
+  await new Promise((resolve, reject) => {
+    const cursor = store.openCursor();
+    cursor.onsuccess = (e) => {
+      const c = e.target.result;
+      if (c) {
+        const m = {...c.value};
+        // Strip large media to save memory
+        if (m.imageUrl?.startsWith('data:')) m.imageUrl = '[stripped]';
+        if (m.videoUrl?.startsWith('data:')) m.videoUrl = '[stripped]';
+        chunkData.push(m);
+        stats.measurements++;
+        if (chunkData.length >= 50) {
+          measurementChunks.push([...chunkData]);
+          chunkData = [];
+        }
+        c.continue();
+      } else {
+        if (chunkData.length > 0) measurementChunks.push(chunkData);
+        resolve();
+      }
+    };
+    cursor.onerror = () => reject(cursor.error);
+  });
+  
+  console.log(`Backed up ${stats.measurements} measurements in ${measurementChunks.length} chunks`);
+  
+  // Create backup object
+  const backup = {
+    version: '1.0',
+    origin: location.origin,
+    exportedAt: new Date().toISOString(),
+    stats,
+    surveys,
+    measurementChunks
+  };
+  
+  // Download as JSON
+  const blob = new Blob([JSON.stringify(backup)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `measurepro-backup-${location.hostname}-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  
+  console.log('✅ Backup complete!', stats);
+  alert(`Backup complete! ${stats.surveys} surveys, ${stats.measurements} measurements`);
+})();
+Promise {<rejected>: TypeError: indexedDB.open(...).then is not a function
+    at <anonymous>:3:52
+    at <anonymous>:76…}
+index-D7-VLAlz.js:3778  ⚠️ IndexedDB error from service worker (prevented crash): indexedDB.open(...).then is not a function
+(anonymous) @ index-D7-VLAlz.js:3778
+index-D7-VLAlz.js:3778 

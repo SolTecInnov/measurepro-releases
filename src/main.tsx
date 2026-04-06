@@ -1,0 +1,205 @@
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { QueryClientProvider } from '@tanstack/react-query';
+import App from './App.tsx';
+import { queryClient } from './lib/queryClient';
+import { AuthProvider } from './lib/auth/AuthContext';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import './index.css';
+import { activateSerialPolyfill } from './lib/electron-serial-polyfill';
+import { toast } from 'sonner';
+
+// Activate Electron serial bridge before any component mounts
+activateSerialPolyfill();
+import { checkLibraryHealth, showLibraryErrorModal } from './lib/libraryHealthCheck';
+import { initFirebaseAutoSync } from './lib/firebase/autoSync';
+import { initAutoPartManager } from './lib/survey/AutoPartManager';
+
+// BUILD VERSION — injected at build time by vite.config.ts, unique per deployment
+declare const __BUILD_TIMESTAMP__: string;
+const BUILD_VERSION: string = (typeof __BUILD_TIMESTAMP__ !== 'undefined')
+  ? __BUILD_TIMESTAMP__
+  : 'dev';
+console.log(`%c MeasurePRO Desktop Build: ${BUILD_VERSION}`, 'color: #00ff00; font-size: 16px; font-weight: bold');
+if (typeof window !== 'undefined') {
+  (window as any).MEASUREPRO_VERSION = BUILD_VERSION;
+}
+
+// CRITICAL: Clean up localStorage on app startup to prevent quota issues
+const cleanupLocalStorage = () => {
+  try {
+    const preservePatterns = [
+      'firebase:',
+      'app_zoom_level',
+      'theme',
+      'mapType',
+      'mapLayer',
+      'voiceCommandsEnabled',
+      'selectedLanguage',
+      'lastSyncTime',
+      'syncEmailState',
+      'gps_permission_granted',
+      'activeGnssSessionId',
+      'activeGnssSurveyId',
+      'onboarding_completed',
+      'terms_accepted',
+      'welcome_completed',
+      'registration_',
+      '_access'
+    ];
+
+    const keysToRemove: string[] = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key) {
+        const shouldPreserve = preservePatterns.some(pattern => key.includes(pattern));
+
+        if (!shouldPreserve) {
+          if (key.startsWith('emergency_') ||
+              key.startsWith('temp_route_') ||
+              key.startsWith('backup_') ||
+              key.startsWith('gnss_emergency_') ||
+              key.startsWith('checkpoint_')) {
+            keysToRemove.push(key);
+          }
+        }
+      }
+    }
+
+    keysToRemove.forEach(key => {
+      try {
+        localStorage.removeItem(key);
+      } catch (_e) {
+        // Ignore individual removal errors
+      }
+    });
+
+  } catch (error) {
+    console.error('localStorage cleanup failed:', error);
+    try {
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.startsWith('emergency_') || key.startsWith('checkpoint_')) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (_e) {
+      // Last resort failed
+    }
+  }
+};
+
+cleanupLocalStorage();
+
+// Global handler for unhandled promise rejections (catches Firebase offline errors)
+window.addEventListener('unhandledrejection', (event) => {
+  const error = event.reason;
+  const isOffline = !navigator.onLine;
+  const errorMessage = error?.message || String(error);
+
+  const isIndexedDBError =
+    error?.name === 'UnknownError' ||
+    errorMessage.includes('backing store') ||
+    errorMessage.includes('IndexedDB') ||
+    errorMessage.includes('indexedDB');
+
+  if (isIndexedDBError) {
+    console.warn('IndexedDB error (prevented crash):', errorMessage);
+    event.preventDefault();
+    return;
+  }
+
+  const isNetworkError =
+    error?.code === 'auth/network-request-failed' ||
+    errorMessage.includes('network') ||
+    errorMessage.includes('Network') ||
+    errorMessage.includes('Failed to fetch') ||
+    errorMessage.includes('fetch') ||
+    errorMessage.includes('NETWORK_ERROR');
+
+  if (isOffline || isNetworkError) {
+    console.warn('Network error caught (prevented crash):', errorMessage);
+    event.preventDefault();
+    return;
+  }
+
+  console.error('Unhandled promise rejection:', error);
+});
+
+// Global error handler for synchronous errors
+window.addEventListener('error', (event) => {
+  const isOffline = !navigator.onLine;
+  const errorMessage = event.message || '';
+
+  const isNetworkError =
+    errorMessage.includes('network') ||
+    errorMessage.includes('Network') ||
+    errorMessage.includes('Failed to fetch') ||
+    errorMessage.includes('fetch failed');
+
+  if (isOffline || isNetworkError) {
+    console.warn('Network error caught (prevented crash):', errorMessage);
+    event.preventDefault();
+    return;
+  }
+});
+
+// Apply saved zoom level on page load
+const savedZoom = localStorage.getItem('app_zoom_level');
+if (savedZoom) {
+  document.body.style.zoom = savedZoom + '%';
+}
+
+// CRITICAL: Check library health BEFORE rendering React
+const libraryHealth = checkLibraryHealth();
+
+if (!libraryHealth.healthy) {
+  console.error('Library health check failed — cannot start app', libraryHealth);
+  showLibraryErrorModal(libraryHealth);
+} else {
+  try {
+    initFirebaseAutoSync();
+  } catch (error) {
+    console.error('Firebase auto-sync initialization failed:', error);
+  }
+
+  try {
+    initAutoPartManager();
+  } catch (error) {
+    console.error('Auto-Part Manager initialization failed:', error);
+  }
+
+  const root = document.getElementById('root');
+
+  if (root) {
+    try {
+      createRoot(root).render(
+        <StrictMode>
+          <ErrorBoundary>
+            <QueryClientProvider client={queryClient}>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </QueryClientProvider>
+          </ErrorBoundary>
+        </StrictMode>
+      );
+    } catch (error) {
+      console.error('Error rendering React app:', error);
+      root.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0f172a; color: #f1f5f9; font-family: system-ui;">
+          <div style="text-align: center; padding: 2rem;">
+            <h1 style="font-size: 1.5rem; margin-bottom: 1rem;">Application Failed to Load</h1>
+            <p style="margin-bottom: 1.5rem; color: #94a3b8;">Please reload the page or contact support if the problem persists.</p>
+            <button onclick="window.location.reload()" style="background: #3b82f6; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem;">
+              Reload Page
+            </button>
+          </div>
+        </div>
+      `;
+    }
+  } else {
+    console.error('Root element not found — cannot mount app');
+  }
+}

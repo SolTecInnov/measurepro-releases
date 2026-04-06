@@ -1,0 +1,395 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [vite] connecting...
+ [vite] connected.
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: Object
+ [FIREBASE-3] Processed Firebase config: Object
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: development Production: false
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ Found 0 pending changes
+  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=b5b3f49c:4413
+  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=b5b3f49c:4413
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [AUTHCTX-11] Unregistering Firebase auth listener
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:360
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:363
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] Auth cache found: Object
+ [AUTHCTX-3] Auth cache found: Object
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ ✅ MeasurementLoggerClient initialized
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ 🔄 Auto-flush triggers initialized (visibility + memory pressure)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ ✅ Flush-on-close handlers initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [AUTHCTX-4] Days offline: 0
+ [AUTHCTX-6] Auth state initialization complete
+ [AUTHCTX-4] Days offline: 0
+ [AUTHCTX-6] Auth state initialization complete
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ ⏱️ getSurveysPaginated(50): 60.1220703125 ms
+ ⏱️ loadSurveys TOTAL: 77.4599609375 ms
+ ✅ Loaded 38 surveys (including active) in 78ms
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:365
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:387
+ ✅ Loaded 38 surveys (including active) in 87ms
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ [AUTHCTX-8] Firebase auth listener callback: Object
+ [AUTHCTX-9] User authenticated and online, updating timestamps
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ 🔄 Initializing MeasurementFeed for survey 237b2867-a37c-4ccc-94c2-41ea9e64a268
+ ✅ MeasurementFeed primed (historical data loading in background)
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:360
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:360
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:360
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:363
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:363
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:363
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ 📦 Loaded 0 measurements from IndexedDB in 81.4ms
+  ⚠️ SLOW: getSurveysPaginated took 109ms
+perfLog @ db.ts:19
+ ⏱️ getSurveysPaginated(50): 109.0419921875 ms
+ ⏱️ loadSurveys TOTAL: 146.045166015625 ms
+ ✅ Loaded 38 surveys (including active) in 146ms
+  ⚠️ SLOW: loadSurveys (initial) took 146ms
+perfLog @ db.ts:19
+  ⚠️ SLOW: getSurveysPaginated took 123ms
+perfLog @ db.ts:19
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:365
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:387
+ ✅ Loaded 38 surveys (including active) in 161ms
+  ⚠️ SLOW: loadSurveys (initial) took 161ms
+perfLog @ db.ts:19
+  ⚠️ SLOW: getSurveysPaginated took 134ms
+perfLog @ db.ts:19
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:365
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:387
+ ✅ Loaded 38 surveys (including active) in 165ms
+  ⚠️ SLOW: loadSurveys (initial) took 165ms
+perfLog @ db.ts:19
+  ⚠️ SLOW: getSurveysPaginated took 143ms
+perfLog @ db.ts:19
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:365
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:387
+ ✅ Loaded 38 surveys (including active) in 174ms
+  ⚠️ SLOW: loadSurveys (initial) took 174ms
+perfLog @ db.ts:19
+  [Sync] WARNING: checkPendingChanges took 1168.5ms (>200ms threshold)
+warn @ logger.ts:17
+  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+isZED2iAvailable @ ZED2iCamera.ts:399
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:409
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+  [Sync] WARNING: checkPendingChanges took 357.5ms (>200ms threshold)
+warn @ logger.ts:17
+ Found 27 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 38 surveys to sync
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+  [Sync] WARNING: checkPendingChanges took 738.3ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 738.6ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e with 3 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Skipping survey 921bacc7-c152-49e8-89c8-3cebf110a8b7: permission denied (likely different owner)
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Skipping survey a1d15ecd-65a3-4283-b8ac-023f449986e7: permission denied (likely different owner)
+ Survey a1d15ecd-65a3-4283-b8ac-023f449986e7 has no measurements to sync
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Skipping survey 0e24c6c4-6549-45ed-acca-b9aafbd558e4: permission denied (likely different owner)
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Skipping survey 01aa0b18-aba8-4e55-a940-268f512c308f: permission denied (likely different owner)
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+ Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 with 24 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+ Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b with 10 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+  [2025-12-04T01:29:01.985Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [2025-12-04T01:29:01.985Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [Sync] WARNING: checkPendingChanges took 308.9ms (>200ms threshold)
+warn @ logger.ts:17
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+  [Sync] WARNING: checkPendingChanges took 460.2ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 460.4ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 346.4ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 with 19 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 to Firebase
+ Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 3 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 to Firebase
+ Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb to Firebase
+ Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b to Firebase
+ Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 to Firebase
+ Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 to Firebase
+ Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 to Firebase
+  [2025-12-04T01:29:55.273Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [2025-12-04T01:29:55.273Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [Sync] WARNING: checkPendingChanges took 456.0ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 456.1ms (>200ms threshold)
+warn @ logger.ts:17
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+  [Sync] WARNING: checkPendingChanges took 342.6ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 465.4ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 465.5ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 with 19 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 to Firebase
+logger.ts:29 Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 with 28 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b to Firebase
+logger.ts:29 Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 to Firebase
+logger.ts:115  [2025-12-04T01:30:37.092Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-04T01:30:37.092Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 286.2ms (>200ms threshold)
+warn @ logger.ts:22
+exportUtils.ts:2040 [CloseSurvey] Survey marked as inactive: 237b2867-a37c-4ccc-94c2-41ea9e64a268
+exportUtils.ts:2053 [CloseSurvey] Package generated: rangeland-2025-12-04.zip Size: 4.14 KB
+exportUtils.ts:2065 [CloseSurvey] Local download initiated
+storageUpload.ts:57 [StorageUpload] Converting blob to base64 (4.14 KB)...
+storageUpload.ts:75 [StorageUpload] Uploading rangeland-2025-12-04.zip to server...
+storageUpload.ts:126 [StorageUpload] Upload complete: Object
+storageUpload.ts:182 [StorageUpload] Upload status tracked: 237b2867-a37c-4ccc-94c2-41ea9e64a268-1764811849929 completed
+exportUtils.ts:2090 [CloseSurvey] Upload complete, download URL: https://storage.googleapis.com/measureprov1.fireba...
+exportUtils.ts:2107 [CloseSurvey] Email check - ownerEmail: undefined completionEmailList: undefined
+exportUtils.ts:2145  [CloseSurvey] No recipients found - ownerEmail and completionEmailList are empty
+closeSurveyWithExport @ exportUtils.ts:2145
+logger.ts:29 🔄 Initializing MeasurementFeed for survey 8eb6775d-8741-4fa8-b1c0-e88130b55846
+logger.ts:29 ✅ MeasurementFeed primed (historical data loading in background)
+logger.ts:29 📦 Loaded 0 measurements from IndexedDB in 16.0ms
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 422.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 423.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 293.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 393.5ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 393.7ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 with 16 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb to Firebase
+logger.ts:115  [2025-12-04T01:31:30.609Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-04T01:31:30.609Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 297.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 389.9ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 389.9ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb with 10 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey ee0ba98b-0f3b-4ce0-b64c-36cd67b41efd to Firebase
+logger.ts:115  [2025-12-04T01:32:03.544Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-04T01:32:03.544Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 290.1ms (>200ms threshold)
+warn @ logger.ts:22
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+/api/roadscope/proxy/surveys:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+/api/roadscope/proxy/surveys:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 377.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 377.5ms (>200ms threshold)
+warn @ logger.ts:22
+/api/roadscope/proxy/auth/validate:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 305.1ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41

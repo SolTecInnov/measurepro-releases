@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Cache - MeasurePRO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h1 { color: #4a9eff; }
+        button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover { background: #3a8eef; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Clear MeasurePRO Cache</h1>
+        <p>If you're seeing old Firebase configuration or login issues, click below to force clear all caches:</p>
+        
+        <button onclick="clearEverything()">🗑️ Clear All Caches & Reload</button>
+        <button onclick="unregisterServiceWorkers()">🔧 Unregister Service Workers</button>
+        
+        <div id="status" style="margin-top: 20px;"></div>
+        
+        <h3>Manual Steps:</h3>
+        <ol>
+            <li>Press <code>Ctrl+Shift+Delete</code> (or <code>Cmd+Shift+Delete</code> on Mac)</li>
+            <li>Select "All time" or "Everything"</li>
+            <li>Check: <code>Cached images and files</code>, <code>Cookies and site data</code></li>
+            <li>Click "Clear data"</li>
+            <li>Close and reopen browser</li>
+        </ol>
+    </div>
+
+    <script>
+        async function clearEverything() {
+            const status = document.getElementById('status');
+            status.innerHTML = '<p>Clearing caches...</p>';
+            
+            try {
+                // Clear all caches
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(cacheNames.map(name => caches.delete(name)));
+                    status.innerHTML += '<p class="success">✅ Cache API cleared</p>';
+                }
+                
+                // Clear localStorage
+                localStorage.clear();
+                status.innerHTML += '<p class="success">✅ localStorage cleared</p>';
+                
+                // Clear sessionStorage
+                sessionStorage.clear();
+                status.innerHTML += '<p class="success">✅ sessionStorage cleared</p>';
+                
+                // Unregister service workers
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    await Promise.all(registrations.map(reg => reg.unregister()));
+                    status.innerHTML += '<p class="success">✅ Service workers unregistered</p>';
+                }
+                
+                status.innerHTML += '<p class="success"><strong>✅ ALL CACHES CLEARED!</strong></p>';
+                status.innerHTML += '<p>Reloading in 2 seconds...</p>';
+                
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } catch (error) {
+                status.innerHTML += '<p class="error">❌ Error: ' + error.message + '</p>';
+            }
+        }
+        
+        async function unregisterServiceWorkers() {
+            const status = document.getElementById('status');
+            try {
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    await Promise.all(registrations.map(reg => reg.unregister()));
+                    status.innerHTML = '<p class="success">✅ All service workers unregistered. Reload the page.</p>';
+                } else {
+                    status.innerHTML = '<p>Service workers not supported</p>';
+                }
+            } catch (error) {
+                status.innerHTML = '<p class="error">❌ Error: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

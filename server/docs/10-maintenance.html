@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 – Maintenance & Storage Protocol | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --red: #f87171; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #cbd5e1; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  th { background: #0f172a; color: var(--brand); text-align: left; padding: 0.6rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+  .warn-box { background: #450a0a; border: 1px solid var(--red); border-radius: 0.5rem; padding: 1rem; margin: 1rem 0; }
+  .warn-box strong { color: var(--red); }
+  .freq-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+  .freq-daily { background: #052e16; color: #4ade80; }
+  .freq-weekly { background: #1c1917; color: var(--brand); }
+  .freq-monthly { background: #1e1b4b; color: #a5b4fc; }
+  .freq-annual { background: #1f2937; color: #9ca3af; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="09-troubleshooting.html">← 09: Troubleshooting</a>
+  <a href="index.html">Index</a>
+  <a href="11-training.html">Next: Training Module →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 10 of 12</div>
+  <h1>Maintenance & Storage Protocol</h1>
+  <p style="color:var(--muted)">Skip maintenance and your hardware reputation dies. Follow this and your kit lasts years.</p>
+</div>
+
+<div class="warn-box">
+  <strong>NEVER:</strong> Use compressed air directly on laser lens. Never submerge any unit. Never store in a vehicle parked in direct sun (temperatures exceed laser and battery operating limits).
+</div>
+
+<h2>Cleaning Schedule</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Item</th><th>Frequency</th><th>Method</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Laser lens (vertical / lateral / rear)</td>
+        <td><span class="freq-daily">After every survey</span></td>
+        <td>Soft lens cloth (microfibre) with optical lens cleaner. Do NOT use paper towels or abrasive cloths. Wipe in one direction only — do not rub in circles.</td>
+      </tr>
+      <tr>
+        <td>USB / DB9 connectors</td>
+        <td><span class="freq-weekly">Weekly</span></td>
+        <td>Blow with canned air from 20 cm distance. Apply contact cleaner if corrosion visible. Reseat connectors firmly after cleaning.</td>
+      </tr>
+      <tr>
+        <td>GNSS antenna connector and cable</td>
+        <td><span class="freq-weekly">Weekly</span></td>
+        <td>Check RF connector for moisture or corrosion. Apply waterproof connector grease to exposed RF connectors on the antenna end. Tighten hand-tight only — do not overtighten SMA/TNC connectors.</td>
+      </tr>
+      <tr>
+        <td>LiDAR rotating head (Hesai Pandar40P)</td>
+        <td><span class="freq-monthly">Monthly</span></td>
+        <td>[FILL IN — refer to Hesai Pandar40P maintenance manual, Chapter X]. Remove dust from window with approved Hesai lens cloth only.</td>
+      </tr>
+      <tr>
+        <td>Mount bracket and bolts</td>
+        <td><span class="freq-weekly">Weekly</span></td>
+        <td>Check torque on all mount bolts. Vibration loosens hardware — do not assume tightness. Apply thread-lock (medium strength) on bolts exposed to constant vibration.</td>
+      </tr>
+      <tr>
+        <td>Controller device (laptop/tablet)</td>
+        <td><span class="freq-monthly">Monthly</span></td>
+        <td>Keyboard and port area: compressed air. Screen: screen-safe cloth. Check fan vents for dust accumulation — blocked vents cause thermal throttling during survey.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Storage Requirements</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>Temperature Range</h3>
+    <ul>
+      <li><strong>Operating:</strong> [FILL IN — check each device datasheet, typically -10°C to +50°C]</li>
+      <li><strong>Storage:</strong> [FILL IN — typically -20°C to +60°C]</li>
+      <li>Never store in a vehicle left in direct sunlight — interior temperature can exceed 80°C</li>
+      <li>In cold climates: allow units to warm to operating temperature before powering on (condensation risk)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Humidity and Moisture</h3>
+    <ul>
+      <li>Store in sealed case with silica gel desiccant packs (replace desiccant monthly)</li>
+      <li>After use in rain or high humidity: leave case open in dry environment for 2 hours before sealing</li>
+      <li>Lens caps on all lasers during storage — always</li>
+      <li>Connector covers on RF and USB ports during transport and storage</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Transport Precautions</h2>
+<div class="card">
+  <ul>
+    <li>Use padded foam-lined case for all laser units — do not allow loose transport in the back of a vehicle</li>
+    <li>Duro GNSS receiver: foam-padded case; do not allow cable to remain under tension during transport</li>
+    <li>LiDAR (Hesai Pandar40P): [FILL IN — refer to Hesai transport guidelines]. The rotating head is sensitive to shock — always use original packing foam</li>
+    <li>Controller laptop: screen-down in padded bag; remove all USB dongles before transport to avoid port damage</li>
+    <li>Label all cases with equipment contents and operator contact information</li>
+  </ul>
+</div>
+
+<h2>Calibration Frequency</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Calibration</th><th>Frequency</th><th>Method</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Ground reference (laser height above ground)</td>
+        <td><span class="freq-daily">Every deployment</span></td>
+        <td>Aim laser at ground surface before departing yard. Capture 3 stable readings. Confirm value in Settings. Re-calibrate if mount has been removed or adjusted.</td>
+      </tr>
+      <tr>
+        <td>Calibration validation (known-clearance check)</td>
+        <td><span class="freq-daily">First pass on every survey</span></td>
+        <td>Drive under a known-clearance structure (bridge with documented clearance). Confirm reading within ±50 mm of known value.</td>
+      </tr>
+      <tr>
+        <td>Amplitude filter baseline</td>
+        <td><span class="freq-weekly">Weekly or after conditions change</span></td>
+        <td>In standard dry conditions, run amplitude filter at default setting. After extended use in rain/dust, recalibrate baseline against clean-condition readings.</td>
+      </tr>
+      <tr>
+        <td>GNSS antenna alignment</td>
+        <td><span class="freq-monthly">Monthly or after mount changes</span></td>
+        <td>Verify Duro achieves RTK fix within 90 seconds in open sky. If consistently slow to acquire, check antenna cable and connector for damage.</td>
+      </tr>
+      <tr>
+        <td>LiDAR internal calibration</td>
+        <td><span class="freq-annual">Per Hesai schedule</span></td>
+        <td>[FILL IN — refer to Hesai Pandar40P calibration manual]. Factory calibration certificate should accompany the unit.</td>
+      </tr>
+      <tr>
+        <td>Vehicle dimension profile</td>
+        <td>After any vehicle change</td>
+        <td>Update vehicle width, height, wheelbase, and overhang values in Settings. Incorrect vehicle profile will cause wrong lateral width and swept path calculations.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>End-of-Day Shutdown</h2>
+<div class="card">
+  <ol>
+    <li>Close current survey in app (tap Close Survey — wait for sync confirmation)</li>
+    <li>Disconnect all lasers and GPS sources in app before physically unplugging</li>
+    <li>Stop LiDAR Windows service if running</li>
+    <li>Power off lasers</li>
+    <li>Power off Duro GNSS</li>
+    <li>Disconnect all USB cables — store in labelled velcro ties</li>
+    <li>Fit lens caps to all laser apertures</li>
+    <li>Place equipment in foam-padded cases with desiccant</li>
+    <li>Charge controller device overnight</li>
+  </ol>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="09-troubleshooting.html">← 09: Troubleshooting</a>
+  <a href="index.html">Index</a>
+  <a href="11-training.html">Next: Training Module →</a>
+</nav>
+</body>
+</html>

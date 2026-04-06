@@ -1,0 +1,72 @@
+Build end-to-end add-on with:
+	1.	Data model & security rules (Firestore/RTDB) for routes, convoys, telemetry, incidents, approvals.
+	2.	QR/code flow: Dispatch generates a signed short-lived code; drivers scan to join & fetch route.
+	3.	GPX import (server & client validation) + route resampling for efficient on-device matching.
+	4.	On-device matching: compute perpendicular distance to nearest segment, persistence window, local STOP modal.
+	5.	Realtime dispatch console: live map, incident queue, acknowledge/clear, push updated route, broadcast messages.
+	6.	Alerting: device → server → dispatch UI + optional email/SMS (via Twilio/SendGrid if already present).
+	7.	Offline behavior: detection still works; logs buffer & flush later.
+	8.	Billing guardrails: enforce included 3 convoys; prompt purchase for more; deny activation if not entitled.
+	9.	Password-protection UI for enabling the add-on per tenant (same pattern as other add-ons).
+	10.	Tests, seeds, and admin docs.
+
+4) Tech Constraints & Standards
+	•	Frontend: React + TypeScript + Tailwind. PWA already exists (MeasurePro).
+	•	Backend: Node/TypeScript. Use our existing Firebase stack:
+	•	Firestore for metadata/audit;
+	•	Realtime DB or Firestore for low-latency live positions (choose one and be consistent — prefer Firestore with onSnapshot if we’re already using it elsewhere).
+	•	Cloud Functions (HTTPS + background triggers).
+	•	Auth: Firebase Auth (JWT). Device tokens bound to tenant & role.
+	•	i18n: EN/FR strings (simple dictionary; no need for runtime translation).
+	•	Security: follow our existing RBAC/tenant isolation patterns. All writes validated server-side.
+	•	No external map SDK lock-in beyond what we already use. Keep route math in our code (no paid map services required to run matching).
+	•	No OBD/telematics control. Future stubs allowed but disabled.
+
+5) UX Requirements
+
+5.1 Dispatch Console (Web)
+	•	“Convoy Route Enforcement” tab (only visible if add-on enabled).
+	•	Create Convoy modal:
+	•	Fields: name, windowStart, windowEnd, allowedDeviationMeters, persistenceSeconds, contacts (dispatch), optional notes.
+	•	Upload GPX or Draw Route (if draw tool exists; else GPX only). Show length/waypoints summary.
+	•	Button: Generate Join Code / QR -> time-limited (e.g., 2h), single-use or multi-use toggle.
+	•	Live View:
+	•	Map with route polyline, each vehicle pin, color by state (ok, warning, alert).
+	•	Right panel: Incident Queue (latest first): vehicle, off-route distance, time, accuracy, “Acknowledge”, “Clear & Resume”, “Push Updated Route”.
+	•	Broadcast banner to convoy: “Convoy paused — unit #X off route.”
+	•	Billing guardrails:
+	•	At attempt to activate > included convoys → upsell modal to purchase additional convoy slots (rely on existing Square/entitlement UX).
+	•	If tenant lacks add-on entitlement → lock screen with password prompt + “Contact Sales”.
+
+5.2 Driver Device (PWA)
+	•	Scan Join Code screen (camera QR + manual code entry).
+	•	On join: show route summary, threshold, and status “Enforced”.
+	•	While driving: small status pill (green/yellow/red), distance to route.
+	•	Alert state:
+	•	Full-screen modal with loud audio: “OFF ROUTE — STOP & CALL DISPATCH”.
+	•	Buttons: “Call Dispatch”, “Acknowledge”. Modal stays until dispatch clears the incident (device cannot self-clear).
+	•	Show nearest return point preview map.
+	•	Offline: continue detection; buffer events; show “connection lost” badge.
+
+6) Core Logic
+
+6.1 Route Processing
+	•	On GPX upload:
+	•	Validate tracks, ensure CRS is WGS84.
+	•	Resample to points every 10–20 m, compute segment bearings.
+	•	Store resampled[] as compressed polyline or array of lat/lon (choose space-efficient format).
+	•	Client route matcher:
+	•	Sliding window of last 3–5 fixes.
+	•	Reject fixes with accuracy > 15m (configurable).
+	•	Compute perpendicular distance to nearest segment (KD-tree or grid index if needed).
+	•	Trigger alert when distance > allowedDeviationMeters AND sustained for persistenceSeconds (default 7s).
+	•	Debounce repeated alerts; require dispatch clearance to exit STOP.
+
+6.2 Alert Workflow (State Machine)
+
+States (per vehicle): idle → enforcing → offRouteDetected(pending) → alertActive(stopShown) → dispatchCleared → enforcing.
+	•	Transitions:
+	•	enforcing → offRouteDetected if condition met.
+	•	offRouteDetected → alertActive (show STOP; send incident).
+	•	alertActive → dispatchCleared on server command.
+	•	dispatchCleared → enforcing (resume UI; optionally with 

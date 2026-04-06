@@ -1,0 +1,122 @@
+I can see the issue now! Looking at the MeasurePRO logs:
+
+[RoadScope Sync] Found 50 upload URLs
+[RoadScope Sync] Starting parallel upload of 50 files...
+[RoadScope Sync] Parallel upload complete: 50/50 successful
+
+BUT there's NO call to register the files with RoadScope after upload! The files are being uploaded to Firebase Storage directly, but MeasurePRO is NOT calling the /files endpoint to register them.
+
+Let me check what the "NaN" error means and write a complete fix prompt:
+
+CRITICAL FIX: MeasurePRO Files Not Being Registered with RoadScope
+Problem
+Files are uploading to Firebase Storage successfully, but they're NOT being registered with RoadScope. The sync dialog shows "NaN" for files because the registration step is missing.
+
+Evidence
+[RoadScope Sync] Found 50 upload URLs
+[RoadScope Sync] Starting parallel upload of 50 files...
+[RoadScope Sync] Parallel upload complete: 50/50 successful
+❌ MISSING: [RoadScope] Requesting: /api/roadscope/proxy/surveys/.../files
+
+RoadScope server logs show zero file registration requests.
+
+Root Cause
+In syncService.ts, after uploading files to Firebase Storage via signed URLs, the code is NOT calling the /files endpoint to register them with RoadScope.
+
+Required Fix
+In syncService.ts, after the parallel upload completes, add the file registration step:
+
+// CURRENT CODE (broken - missing registration):
+console.log(`[RoadScope Sync] Starting parallel upload of ${filesToUpload.length} files...`);
+const uploadResults = await Promise.all(uploadPromises);
+const successfulUploads = uploadResults.filter(r => r.success);
+console.log(`[RoadScope Sync] Parallel upload complete: ${successfulUploads.length}/${filesToUpload.length} successful`);
+// ❌ Missing: registration with RoadScope!
+// FIXED CODE (add this after successful uploads):
+console.log(`[RoadScope Sync] Starting parallel upload of ${filesToUpload.length} files...`);
+const uploadResults = await Promise.all(uploadPromises);
+const successfulUploads = uploadResults.filter(r => r.success);
+console.log(`[RoadScope Sync] Parallel upload complete: ${successfulUploads.length}/${filesToUpload.length} successful`);
+// ✅ ADD: Register uploaded files with RoadScope
+if (successfulUploads.length > 0) {
+  try {
+    console.log(`[RoadScope Sync] Registering ${successfulUploads.length} files with RoadScope...`);
+    
+    const registerResponse = await roadscopeClient.post(
+      `/api/roadscope/proxy/surveys/${roadscopeSurveyId}/files`,
+      {
+        files: successfulUploads.map(result => ({
+          filename: result.filename,
+          storageUrl: result.storageUrl,  // From upload-urls response
+          category: result.category,
+          mimeType: result.mimeType,
+          size: result.size,
+          poiId: result.poiId  // Links file to POI
+        }))
+      }
+    );
+    
+    if (registerResponse.data?.success) {
+      console.log(`[RoadScope Sync] ✅ Registered ${successfulUploads.length} files with RoadScope`);
+      
+      // Mark files as synced in local storage
+      for (const result of successfulUploads) {
+        await markFileAsSynced(result.measurementId, result.fileType);
+      }
+    } else {
+      console.error(`[RoadScope Sync] ❌ File registration failed:`, registerResponse.data);
+      // DON'T mark as synced if registration failed!
+    }
+  } catch (error) {
+    console.error(`[RoadScope Sync] ❌ File registration error:`, error);
+    // DON'T mark as synced if registration failed!
+  }
+}
+
+Fix the "NaN" Display Bug
+In RoadScopeSyncDialog.tsx or wherever the results are displayed:
+
+// CURRENT (causes NaN):
+const filesUploaded = result.files.success;  // undefined if not set
+// FIXED:
+const filesUploaded = result.files?.success ?? 0;  // Default to 0 if undefined
+
+Complete Flow (what should happen)
+Request signed URLs:
+
+POST /api/roadscope/proxy/surveys/:surveyId/upload-urls
+Body: { files: [{filename, category, poiId, contentType}, ...] }
+Response: { uploads: [{filename, uploadUrl, storageUrl}, ...] }
+
+Upload files to Firebase Storage:
+
+PUT <uploadUrl>
+Body: <file bytes>
+Response: 200 OK
+
+Register files with RoadScope: ⚠️ THIS IS MISSING!
+
+POST /api/roadscope/proxy/surveys/:surveyId/files
+Body: { files: [{filename, storageUrl, category, mimeType, size, poiId}, ...] }
+Response: { success: true, message: "Registered X files" }
+
+Mark files as synced locally (only after step 3 succeeds)
+
+Files to Modify
+syncService.ts - Add file registration step after parallel upload
+RoadScopeSyncDialog.tsx - Fix NaN display bug
+Ensure storageUrl is preserved from upload-urls response for use in registration
+Test After Fix
+Console should show:
+
+[RoadScope Sync] Found 50 upload URLs
+[RoadScope Sync] Starting parallel upload of 50 files...
+[RoadScope Sync] Parallel upload complete: 50/50 successful
+[RoadScope Sync] Registering 50 files with RoadScope...  ← NEW
+[RoadScope] Requesting: /api/roadscope/proxy/surveys/.../files  ← NEW
+[RoadScope] Response (200): {success: true}  ← NEW
+[RoadScope Sync] ✅ Registered 50 files with RoadScope  ← NEW
+
+RoadScope should then show the photos on the POIs!
+
+This is the missing step - the files are being uploaded but not registered with RoadScope's database.

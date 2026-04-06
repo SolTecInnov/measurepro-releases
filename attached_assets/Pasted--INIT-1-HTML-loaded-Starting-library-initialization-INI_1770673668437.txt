@@ -1,0 +1,175 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: production Production: true
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-13b] Initializing Firebase auto-sync service...
+ [ConnectivityMonitor] Initialized Object
+ [AutoSync] Firebase auto-sync initialized
+ [INIT-13c] ✅ Firebase auto-sync initialized
+ [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+ [AutoPartManager] Initializing with threshold: 200
+ [INIT-13e] ✅ Auto-Part Manager initialized
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ [ConnectivityMonitor] Firebase connectivity confirmed
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-CBgT8dEF.js:3480
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-CBgT8dEF.js:3480
+  WebSocket connection to 'ws://localhost:8765/' failed: Error during WebSocket handshake: Unexpected response code: 404
+g @ ZED2iCamera-4Z0xBH-H.js:1
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ [STORAGE-7] Upgrading test database (creating object store)
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+  ⚠️ SLOW: openSurveyDB (fresh) took 1468ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 1460ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 1322ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 801ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 801ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3480 ⏱️ getSurveysPaginated(50): 8.35009765625 ms
+index-CBgT8dEF.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-CBgT8dEF.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-CBgT8dEF.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-CBgT8dEF.js:3480 ⏱️ loadSurveys TOTAL: 1477.1689453125 ms
+index-CBgT8dEF.js:3480 ✅ Loaded 0 surveys (including active) in 1477ms
+index-CBgT8dEF.js:3235  ⚠️ SLOW: loadSurveys (initial) took 1477ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3480 ✅ Loaded 0 surveys (including active) in 811ms
+index-CBgT8dEF.js:3235  ⚠️ SLOW: loadSurveys (initial) took 811ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-CBgT8dEF.js:3480
+index-CBgT8dEF.js:3480 ✅ Loaded 0 surveys (including active) in 812ms
+index-CBgT8dEF.js:3235  ⚠️ SLOW: loadSurveys (initial) took 812ms
+$s @ index-CBgT8dEF.js:3235
+index-CBgT8dEF.js:3771 Legacy scan results: Object
+index-CBgT8dEF.js:3740 [AmplitudeFilter] Settings updated: Object
+index-CBgT8dEF.js:3759 [Laser] Connecting ldm71-lidar2d-v2 at 115200 baud
+index-CBgT8dEF.js:3740 [LDM71 Driver] Using shared amplitude filter instance
+index-CBgT8dEF.js:3740 [AmplitudeFilter] Reset
+index-CBgT8dEF.js:3741 [LDM71 Driver] Reset
+index-CBgT8dEF.js:3759 [Laser] Opening port: {"baudRate":115200,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none","bufferSize":4096}
+index-CBgT8dEF.js:3759 [Laser] Port opened successfully
+index-CBgT8dEF.js:3759 [Laser] Port state - readable: true writable: true
+index-CBgT8dEF.js:3759 [Laser] Starting read loop, port.readable: true
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759 [Laser] Reader acquired, entering read loop
+index-CBgT8dEF.js:3759 [Laser] Read #1: 6 bytes
+index-CBgT8dEF.js:3740 [LDM71 RAW] 6 bytes: "DE02\r\n"
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #1: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3759 [Laser] Read #2: 1 bytes
+index-CBgT8dEF.js:3740 [LDM71 RAW] 1 bytes: "D"
+index-CBgT8dEF.js:3759 [Laser] Read #3: 5 bytes
+index-CBgT8dEF.js:3740 [LDM71 RAW] 5 bytes: "E02\r\n"
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #2: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3759 [Laser] Read #4: 1 bytes
+index-CBgT8dEF.js:3740 [LDM71 RAW] 1 bytes: "D"
+index-CBgT8dEF.js:3759 [Laser] Read #5: 5 bytes
+index-CBgT8dEF.js:3740 [LDM71 RAW] 5 bytes: "E02\r\n"
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #3: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3740 [LDM71 RAW] 6 bytes: "DE02\r\n"
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #4: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3740 [LDM71 RAW] 6 bytes: "DE02\r\n"
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #5: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #6: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #7: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #8: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #9: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #10: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #100: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+index-CBgT8dEF.js:3759 [Laser] Connecting high-pole at 115200 baud
+index-CBgT8dEF.js:3759 [Laser] Opening port: {"baudRate":115200,"dataBits":8,"stopBits":1,"parity":"none","flowControl":"none","bufferSize":4096}
+index-CBgT8dEF.js:3759 [Laser] Port already open, using existing connection
+index-CBgT8dEF.js:3759 [Laser] Port state - readable: true writable: true
+index-CBgT8dEF.js:3759 [Laser] Starting read loop, port.readable: true
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759  [Laser] Read error (1/5): Failed to execute 'getReader' on 'ReadableStream': ReadableStreamDefaultReader constructor can only accept readable streams that are not yet locked to a reader
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759 [Laser] Restarting read loop after error...
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759  [Laser] Read error (2/5): Failed to execute 'getReader' on 'ReadableStream': ReadableStreamDefaultReader constructor can only accept readable streams that are not yet locked to a reader
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759 [Laser] Restarting read loop after error...
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759  [Laser] Read error (3/5): Failed to execute 'getReader' on 'ReadableStream': ReadableStreamDefaultReader constructor can only accept readable streams that are not yet locked to a reader
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759 [Laser] Restarting read loop after error...
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759  [Laser] Read error (4/5): Failed to execute 'getReader' on 'ReadableStream': ReadableStreamDefaultReader constructor can only accept readable streams that are not yet locked to a reader
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759 [Laser] Restarting read loop after error...
+index-CBgT8dEF.js:3759 [Laser] Acquiring reader...
+index-CBgT8dEF.js:3759  [Laser] Read error (5/5): Failed to execute 'getReader' on 'ReadableStream': ReadableStreamDefaultReader constructor can only accept readable streams that are not yet locked to a reader
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759  [Laser] Too many consecutive read errors, stopping read loop
+(anonymous) @ index-CBgT8dEF.js:3759
+index-CBgT8dEF.js:3759 [Laser] Read loop exited
+index-CBgT8dEF.js:3741  [LDM71 Driver] Invalid line #200: "DE02"
+feedBytes @ index-CBgT8dEF.js:3741
+processLdm71Data @ index-CBgT8dEF.js:3743
+processData @ index-CBgT8dEF.js:3742
+(anonymous) @ index-CBgT8dEF.js:3759

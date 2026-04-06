@@ -1,0 +1,233 @@
+STRUCTURE — WHAT YOU ACTUALLY NEED
+1. Mission-Level Overview (1 page max)
+
+Not marketing fluff. Operational clarity.
+
+What this kit does (in 1 sentence)
+
+What problems it eliminates
+
+Expected outputs (clearance profile, route validation, etc.)
+
+Time savings vs traditional methods
+
+Accuracy range (be precise)
+
+👉 If this isn’t crystal clear, everything else collapses.
+
+2. System Architecture (Visual + simple)
+
+You skip this too often.
+
+LiDAR → Controller → GNSS → App (MeasurePRO / RoadProfil)
+
+Data flow (capture → process → export → deliverable)
+
+Make it so a project manager (not technical) understands in 30 seconds.
+
+3. Hardware Setup Guide (ZERO ambiguity)
+
+Not a paragraph. A sequence.
+
+Mounting positions (with angles, heights)
+
+Cable routing (with exact connectors)
+
+Power requirements (12V/24V, amps)
+
+Startup order (this matters more than you think)
+
+👉 Include:
+
+Photos (real, not pretty renders)
+
+“WRONG vs RIGHT” examples
+
+If they can mess it up, they will.
+
+4. Pre-Deployment Checklist (this is critical)
+
+This is where you separate amateurs from serious operators.
+
+Before leaving yard:
+
+Batteries charged ✔
+
+GNSS lock test ✔
+
+LiDAR connection ✔
+
+Storage capacity ✔
+
+Firmware / app version ✔
+
+On-site:
+
+Calibration check ✔
+
+Mount alignment ✔
+
+Time sync ✔
+
+👉 Make it printable + checkbox style.
+
+This alone reduces 30–50% of support calls.
+
+5. Field Operation SOP (Standard Operating Procedure)
+
+This is your real product.
+
+Break it down:
+
+A. Start Sequence
+
+Power ON order
+
+App launch
+
+Sensor validation
+
+B. Data Capture
+
+Speed range (ex: 10–40 km/h)
+
+Distance from object
+
+Overlap rules
+
+When to redo a pass
+
+C. Edge Cases (this is where you win)
+
+Rain
+
+Dust
+
+GNSS signal loss
+
+Narrow corridors
+
+Bridges / obstacles
+
+👉 If you don’t define edge cases, your system looks fragile.
+
+6. Data Processing Workflow
+
+Clients hate this part. Make it stupid simple.
+
+Import process
+
+Automatic vs manual steps
+
+Expected processing time
+
+File formats (LAS, CSV, GeoJSON, etc.)
+
+👉 Include:
+
+“If you see this → do this” troubleshooting
+
+7. Deliverables Definition (VERY important for credibility)
+
+Be explicit:
+
+What they get:
+
+Interactive map (RoadScope)
+
+PDF report (secondary)
+
+Raw data (optional)
+
+Accuracy disclaimer (tight, not vague)
+
+What is NOT included (protect yourself)
+
+8. Quality Control Checklist
+
+This is what makes you look elite.
+
+Before delivering:
+
+Coverage verified ✔
+
+Data gaps checked ✔
+
+GNSS accuracy validated ✔
+
+Clearance anomalies flagged ✔
+
+👉 You’re not selling data. You’re selling confidence.
+
+9. Troubleshooting Matrix (not a FAQ)
+
+Stop doing FAQs. They’re lazy.
+
+Do this instead:
+
+Problem	Cause	Action
+No LiDAR data	Cable / power	Check X, Y, Z
+GNSS drift	Poor signal	Recalibrate / wait
+App crash	Memory overload	Restart sequence
+
+👉 This is operational, not informational.
+
+10. Maintenance & Storage Protocol
+
+If you skip this, your hardware reputation dies.
+
+Cleaning (lens, connectors)
+
+Storage temp range
+
+Transport precautions
+
+Calibration frequency
+
+11. Training Module (THIS IS A BIG GAP FOR YOU)
+
+You’re underestimating this massively.
+
+You need:
+
+30–60 min onboarding structure
+
+Certification (even basic)
+
+“Approved operator” concept
+
+👉 This is how you build:
+
+Authority
+
+Recurring revenue
+
+Lock-in
+
+12. Quick Start Card (laminated, in the case)
+
+This is the most used document.
+
+Front:
+
+Setup steps (5–7 max)
+
+Back:
+
+Common errors + fixes
+
+👉 If this is not perfect, your whole system feels clunky.
+
+⚠️ YOUR BLIND SPOTS (read carefully)
+1. You rely too much on intelligence
+
+You assume users will “figure it out.”
+
+They won’t.
+And when they don’t, they blame your system — not themselves.
+
+2. You under-document edge cases
+
+That’s where 80% of failures happen.
+
+Right now your system probably looks strong in ideal conditions and weak in reality.

@@ -1,0 +1,193 @@
+DEFAULT LOAD PROFILES FOR OS/OW EQUIPMENT CONFIGURATIONS
+STANDARD TRAILERS
+1. Standard Flatbed (5-Axle)
+•	Configuration: Tractor + 2-axle flatbed
+•	Length: 48-53 ft (14.6-16.2m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 5 ft deck height (1.5m)
+•	Weight Capacity: 48,000-53,000 lbs (21,800-24,000 kg)
+•	Axle Config: “5 axles standard flatbed”
+2. Step Deck (5-Axle)
+•	Configuration: Tractor + 2-axle step deck
+•	Length: 48-53 ft (14.6-16.2m)
+•	Width: 8.5 ft (2.6m)
+•	Height: Upper deck 5 ft (1.5m), Lower deck 3.3 ft (1.0m)
+•	Weight Capacity: 48,000-52,000 lbs (21,800-23,600 kg)
+•	Axle Config: “5 axles step deck”
+LOWBOY/RGN TRAILERS
+3. 2-Axle Lowboy
+•	Configuration: Fixed neck lowboy
+•	Length: 24-29 ft well (7.3-8.8m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 18-24 inches deck height (0.46-0.61m)
+•	Weight Capacity: 40,000-48,000 lbs (18,100-21,800 kg)
+•	Axle Config: “2 axles fixed neck lowboy”
+4. 3-Axle RGN (Removable Gooseneck)
+•	Configuration: Hydraulic detachable gooseneck
+•	Length: 29 ft well (8.8m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 18-24 inches deck height (0.46-0.61m)
+•	Weight Capacity: 50,000-55,000 lbs (22,700-25,000 kg)
+•	Axle Config: “3 axles hydraulic RGN”
+5. 4-Axle RGN
+•	Configuration: Removable gooseneck
+•	Length: 29-35 ft well (8.8-10.7m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 18-24 inches deck height (0.46-0.61m)
+•	Weight Capacity: 60,000-80,000 lbs (27,200-36,300 kg)
+•	Axle Config: “4 axles RGN”
+6. 6-Axle RGN
+•	Configuration: Removable gooseneck
+•	Length: 29-35 ft well (8.8-10.7m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 12-24 inches deck height (0.3-0.61m)
+•	Weight Capacity: 50,000-80,000 lbs (22,700-36,300 kg)
+•	Axle Config: “6 axles RGN”
+7. 7-Axle RGN
+•	Configuration: Removable gooseneck
+•	Length: 26-50 ft well (7.9-15.2m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 24 inches deck height (0.61m)
+•	Weight Capacity: 80,000-85,000 lbs (36,300-38,600 kg)
+•	Axle Config: “7 axles RGN”
+8. 8-Axle RGN Extendable
+•	Configuration: Removable gooseneck extendable
+•	Length: 50-66 ft well (15.2-20.1m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 24-30 inches deck height (0.61-0.76m)
+•	Weight Capacity: 100,000-102,000 lbs (45,400-46,300 kg)
+•	Axle Config: “8 axles RGN extendable”
+9. 9-Axle Lowboy
+•	Configuration: Low profile double drop
+•	Length: 25-66 ft lower deck (7.6-20.1m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 18-30 inches deck height (0.46-0.76m)
+•	Weight Capacity: 100,000-125,000 lbs (45,400-56,700 kg)
+•	Axle Config: “9 axles low profile stepdeck extendable”
+10. 10-Axle RGN
+•	Configuration: Multi-axle removable gooseneck
+•	Length: 45-62 ft well (13.7-18.9m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 24-30 inches deck height (0.61-0.76m)
+•	Weight Capacity: 110,000-120,000 lbs (49,900-54,400 kg)
+•	Axle Config: “10 axles multi-axle RGN”
+11. 11-Axle RGN
+•	Configuration: Heavy capacity RGN
+•	Length: 45-62 ft well (13.7-18.9m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 24-30 inches deck height (0.61-0.76m)
+•	Weight Capacity: 125,000-145,000 lbs (56,700-65,800 kg)
+•	Axle Config: “11 axles heavy capacity RGN”
+12. 12-Axle RGN
+•	Configuration: Heavy multi-axle RGN
+•	Length: 45-62 ft well (13.7-18.9m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 24-30 inches deck height (0.61-0.76m)
+•	Weight Capacity: 140,000-145,000 lbs (63,500-65,800 kg)
+•	Axle Config: “12 axles heavy RGN”
+PERIMETER & BEAM TRAILERS
+13. 7-Axle Perimeter
+•	Configuration: Perimeter frame
+•	Length: 60 ft deck (18.3m)
+•	Width: 10 ft (3.0m) expandable to 20 ft (6.1m)
+•	Height: 6 inches deck height (0.15m)
+•	Weight Capacity: 90,000 lbs (40,800 kg)
+•	Axle Config: “7 axles perimeter frame”
+14. 8-Axle Perimeter
+•	Configuration: Perimeter frame
+•	Length: 60 ft deck (18.3m)
+•	Width: 10 ft (3.0m) expandable to 20 ft (6.1m)
+•	Height: 6 inches deck height (0.15m)
+•	Weight Capacity: 110,000 lbs (49,900 kg)
+•	Axle Config: “8 axles perimeter frame”
+15. 11-Axle Perimeter
+•	Configuration: Wide perimeter frame
+•	Length: 85 ft deck (25.9m)
+•	Width: 10 ft (3.0m) expandable to 20 ft (6.1m)
+•	Height: 6 inches deck height (0.15m)
+•	Weight Capacity: 170,000 lbs (77,100 kg)
+•	Axle Config: “11 axles perimeter frame”
+16. 13-Axle Perimeter
+•	Configuration: Heavy perimeter frame
+•	Length: 60-90 ft deck (18.3-27.4m)
+•	Width: 10 ft 2 inches (3.1m) expandable to 20 ft (6.1m)
+•	Height: 6-14 inches deck height (0.15-0.36m)
+•	Weight Capacity: 185,000-200,000 lbs (83,900-90,700 kg)
+•	Axle Config: “13 axles perimeter frame air ride”
+17. Beam Trailer (13-Axle)
+•	Configuration: Beam/girder hauler
+•	Length: Variable (custom)
+•	Width: 10 ft (3.0m)
+•	Height: 27 inches (0.69m)
+•	Weight Capacity: 168,000 lbs (76,200 kg)
+•	Axle Config: “13 axles beam trailer”
+DUAL LANE CONFIGURATIONS
+18. 16-Axle Dual Lane
+•	Configuration: Side-by-side dual lane
+•	Length: 60 ft (18.3m)
+•	Width: 20 ft total (6.1m) - two 10 ft lanes
+•	Height: 6 inches deck height (0.15m)
+•	Weight Capacity: 230,000 lbs (104,300 kg)
+•	Axle Config: “16 axles dual lane configuration”
+19. 19-Axle Dual Lane
+•	Configuration: Heavy dual lane
+•	Length: 60 ft (18.3m)
+•	Width: 20 ft total (6.1m) - two 10 ft lanes
+•	Height: 6 inches deck height (0.15m)
+•	Weight Capacity: 285,000 lbs (129,300 kg)
+•	Axle Config: “19 axles dual lane heavy configuration”
+SCHNABEL & SPECIALIZED
+20. 13-Axle Schnabel (Double Schnabel)
+•	Configuration: Double gooseneck schnabel with 3-axle jeep + 6-axle steer dolly
+•	Length: 80-100 ft between goosenecks (24.4-30.5m)
+•	Width: 10 ft (3.0m)
+•	Height: Variable (self-supporting on load)
+•	Weight Capacity: 150,000-185,000 lbs (68,000-83,900 kg)
+•	Front Overhang: 15-20 ft (4.6-6.1m)
+•	Rear Overhang: 15-20 ft (4.6-6.1m)
+•	Axle Config: “13 axles double schnabel with steerable dolly”
+21. 19-Axle Schnabel
+•	Configuration: Heavy double schnabel
+•	Length: 100+ ft between goosenecks (30.5m+)
+•	Width: 10 ft (3.0m)
+•	Height: Variable (self-supporting)
+•	Weight Capacity: 200,000+ lbs (90,700 kg)
+•	Front Overhang: 20-25 ft (6.1-7.6m)
+•	Rear Overhang: 20-25 ft (6.1-7.6m)
+•	Axle Config: “19 axles heavy schnabel configuration”
+SPECIALIZED WIND ENERGY
+22. Blade Trailer (Schnabel Type)
+•	Configuration: Specialized wind blade schnabel
+•	Length: 130-180 ft (39.6-54.9m)
+•	Width: 8.5-10 ft (2.6-3.0m)
+•	Height: Variable pivot height
+•	Weight Capacity: 35,000-50,000 lbs (15,900-22,700 kg)
+•	Axle Config: “Multi-axle blade trailer with pivot system”
+23. Tower Trailer (Wind Tower)
+•	Configuration: Extendable for wind tower sections
+•	Length: 110-145 ft extended (33.5-44.2m)
+•	Width: 8.5 ft (2.6m)
+•	Height: 4-5 ft deck height (1.2-1.5m)
+•	Weight Capacity: 80,000-100,000 lbs (36,300-45,400 kg)
+•	Front Overhang: 10-15 ft (3.0-4.6m)
+•	Rear Overhang: 15-20 ft (4.6-6.1m)
+•	Axle Config: “Multi-axle extendable tower trailer”
+MODULAR COMBINATIONS
+24. Jeep + Dolly + Trailer (13-Axle Total)
+•	Configuration: 2+1 jeep, steerable dolly, trailer
+•	Length: Total 100-120 ft (30.5-36.6m)
+•	Width: 10 ft (3.0m)
+•	Height: 24-30 inches (0.61-0.76m)
+•	Weight Capacity: 160,000-190,000 lbs (72,600-86,200 kg)
+•	Front Overhang: 15 ft (4.6m)
+•	Rear Overhang: 15 ft (4.6m)
+•	Axle Config: “13 axles: 3 jeep + 6 steerable dolly + 4 trailer”
+25. 19-22 Axle Modular Combination
+•	Configuration: Multi-jeep and dolly combination
+•	Length: 120-150 ft total (36.6-45.7m)
+•	Width: 12-16 ft (3.7-4.9m)
+•	Height: 12-24 inches (0.3-0.61m)
+•	Weight Capacity: 300,000-350,000 lbs (136,100-158,800 kg)
+•	Front Overhang: 20-30 ft (6.1-9.1m)
+•	Rear Overhang: 20-30 ft (6.1-9.1m)
+•	Axle Config: “19-22 axles specialized modular combination”

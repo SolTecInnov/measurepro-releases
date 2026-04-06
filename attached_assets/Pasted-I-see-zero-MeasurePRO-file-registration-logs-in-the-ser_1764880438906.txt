@@ -1,0 +1,66 @@
+I see zero MeasurePRO file registration logs in the server - confirming MeasurePRO is still NOT calling the /files endpoint.
+
+The RoadScope side is ready. The issue is 100% on the MeasurePRO side. Let me check directly in Firebase if there are any files that were uploaded but not registered:
+
+
+Show 4 more
+
+Executed ls -la /home/runner/workspace/*.json 2>/dev/null | head -5; echo "---"; grep -r "service.*account\|credential" /home/runner/workspace/server/index.ts 2>/dev/null | head -5
+
+Decided on service account initialization
+Let me create a simple API endpoint to check the Firebase data:
+
+
+Opened server/api/measurepro/routes.ts
+
+Decided on file discovery feature (7 seconds)
+Let me add a debug endpoint to check what's in Firebase and also create a solution that can work without needing MeasurePRO changes:
+
+
+Show 2 more
+
+Edited server/api/measurepro/routes.ts
+
+Decided on file discovery endpoint
+Now let me add a "discover and register" endpoint that can scan Firebase Storage and register any files that were uploaded but not registered:
+
+
+Show 2 more
+
+Restarted Start application
+
+Decided on workaround endpoints
+I've added a workaround that can discover and register files that were uploaded to Firebase Storage but never registered.
+
+New Solution: File Discovery Endpoint
+MeasurePRO can call this endpoint to automatically find and register all uploaded files:
+
+POST /api/measurepro/discover-files/:surveyId
+Authorization: Bearer <api_key>
+
+This will:
+
+Scan Firebase Storage for all files in measurepro/{surveyId}/
+Register any unregistered files in the database
+Link photos/videos to POIs based on the folder structure
+Update the POI's photos/videos arrays
+To test it from MeasurePRO, add this after file uploads complete:
+
+// After uploading files, call discover to register them
+const discoverResponse = await this.client.post(
+  `/discover-files/${roadscopeSurveyId}`
+);
+console.log('[RoadScope] File discovery result:', discoverResponse.data);
+
+Debug Endpoint
+To check the current state of a survey:
+
+GET /api/measurepro/debug/survey/:surveyId
+Authorization: Bearer <api_key>
+
+This shows:
+
+Sample POIs with photo/measurement counts
+Files registered in database
+Files in Firebase Storage
+Quick fix for now: Have MeasurePRO call the /discover-files/:surveyId endpoint after syncing. This will find all uploaded photos and link them to POIs automatically.

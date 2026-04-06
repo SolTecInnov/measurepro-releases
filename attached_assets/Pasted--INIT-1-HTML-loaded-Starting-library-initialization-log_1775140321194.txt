@@ -1,0 +1,64 @@
+[INIT-1] HTML loaded - Starting library initialization
+login:115 [INIT-4] Body rendering - Root div created
+login:1 Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+
+index-BOwFoxOu.js:4360 [INIT-5] main.tsx loaded - Starting React app initialization
+index-BOwFoxOu.js:4360 🚀 MeasurePRO Build: 2026-04-02-1775140000197
+index-BOwFoxOu.js:4360 [INIT-6] Build environment: production Production: true
+index-BOwFoxOu.js:4360 [INIT-7] Starting localStorage cleanup...
+index-BOwFoxOu.js:4360 [INIT-8] Scanning localStorage for problematic keys...
+index-BOwFoxOu.js:4360 [INIT-9] No problematic localStorage keys found
+index-BOwFoxOu.js:4360 [INIT-11] localStorage cleanup complete
+index-BOwFoxOu.js:4360 [INIT-12] Checking library health (Leaflet, etc)...
+index-BOwFoxOu.js:4288 Library health check PASSED - All critical libraries loaded
+index-BOwFoxOu.js:4360 [INIT-13] ✅ Library health check PASSED
+index-BOwFoxOu.js:4360 [INIT-13b] Initializing Firebase auto-sync service...
+index-BOwFoxOu.js:3973 [ConnectivityMonitor] Initialized {isOnline: true, isFirebaseConnected: false, isAuthenticated: false, lastOnlineAt: 1775140273363, lastOfflineAt: null}
+index-BOwFoxOu.js:3973 [AutoSync] Firebase auto-sync initialized
+index-BOwFoxOu.js:4360 [INIT-13c] ✅ Firebase auto-sync initialized
+index-BOwFoxOu.js:4360 [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+index-BOwFoxOu.js:4272 [AutoPartManager] Initializing with threshold: 200
+index-BOwFoxOu.js:4360 [INIT-13e] ✅ Auto-Part Manager initialized
+index-BOwFoxOu.js:4360 [INIT-14] Rendering React app to root element...
+index-BOwFoxOu.js:4360 [INIT-15] ✅ React app rendered successfully
+index-BOwFoxOu.js:4272 [APP-1] App component mounted, initializing core workers...
+index-BOwFoxOu.js:4272 [APP-2] Checking IndexedDB health before worker initialization...
+index-BOwFoxOu.js:4272 [STORAGE-1] Starting IndexedDB health check...
+index-BOwFoxOu.js:4272 [STORAGE-3] Checking if indexedDB is defined...
+index-BOwFoxOu.js:4272 [STORAGE-4] IndexedDB is defined
+index-BOwFoxOu.js:4272 [STORAGE-5] Attempting to open test database...
+index-BOwFoxOu.js:4283 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-BOwFoxOu.js:4272 [STORAGE-6] Test database opened successfully
+index-BOwFoxOu.js:4272 [STORAGE-8] Testing write operation...
+index-BOwFoxOu.js:4272 [STORAGE-9] Write test successful
+index-BOwFoxOu.js:4272 [STORAGE-10] Test database closed
+index-BOwFoxOu.js:4272 [STORAGE-11] Checking storage quota...
+index-BOwFoxOu.js:3973 [ConnectivityMonitor] Firebase connectivity confirmed
+index-BOwFoxOu.js:4272 [STORAGE-12] Storage quota: {used: '15.0MB', total: '1143967.2MB', percentage: '0.0%'}
+index-BOwFoxOu.js:4272 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-BOwFoxOu.js:4283 [APP-3] IndexedDB healthy, initializing workers...
+index-BOwFoxOu.js:4283 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-BOwFoxOu.js:4283 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-BOwFoxOu.js:4283 [APP-5] ✅ Orchestrator worker initialized
+index-BOwFoxOu.js:4283 [APP-6] ✅ Flush-on-close handlers initialized
+index-BOwFoxOu.js:3975 ⏱️ getSurveysPaginated(50): 22.105224609375 ms
+index-BOwFoxOu.js:3975 ⚠️ Active survey not in recent 50, searching...
+index-BOwFoxOu.js:3975 ⏱️ loadSurveys TOTAL: 36.26220703125 ms
+index-BOwFoxOu.js:3975 ✅ Loaded 0 surveys (including active) in 36ms
+index-BOwFoxOu.js:4283 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ZED2iCamera-4Z0xBH-H.js:1 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+s9 @ index-BOwFoxOu.js:3975
+await in s9
+(anonymous) @ index-BOwFoxOu.js:3975
+(anonymous) @ index-BOwFoxOu.js:3975
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-BOwFoxOu.js:3975 [SoundManager] AudioContext state after create: running
+index-BOwFoxOu.js:3975 [SoundManager] ✅ Initialized successfully

@@ -1,0 +1,1384 @@
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+/t/soltec-innovation:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+/t/soltec-innovation:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+/t/soltec-innovation:1  The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+774d5548df99f183.js:2 
+      /////////////////////
+   ///////////////////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////        Curious and driven?
+  ///////////////@@@@@@@///////        Work with us!
+  ///////////////@@@@@@@///////
+  ///////////////@@@@@@@///////        https://join.replit.com/hack.with.us
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@#//////////////
+   ///////////////////////////
+      /////////////////////
+      
+774d5548df99f183.js:2 Download the Apollo DevTools for a better development experience: https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm
+774d5548df99f183.js:2 [LaunchDarkly] LaunchDarkly client initialized
+/t/soltec-innovation:1 Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner.
+774d5548df99f183.js:2  Cache data may be lost when replacing the dealContext field of a Org object.
+
+This could cause additional (usually avoidable) network requests to fetch data that were otherwise cached.
+
+To address this problem (which is not a bug in Apollo Client), either ensure all objects of type OrgDealContext have an ID or a custom merge function, or define a custom merge function for the Org.dealContext field, so InMemoryCache can safely merge these objects:
+
+  existing: {"__typename":"OrgDealContext","dealType":"default","salesContactEmail":null}
+  incoming: {"__typename":"OrgDealContext","dealType":"default"}
+
+For more information about these options, please refer to the documentation:
+
+  * Ensuring entity objects have IDs: https://go.apollo.dev/c/generating-unique-identifiers
+  * Defining custom merge functions: https://go.apollo.dev/c/merging-non-normalized-objects
+
+(anonymous) @ 774d5548df99f183.js:2
+ed1e693c96a75807.js:2  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'ambient-light-sensor'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'battery'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'execution-while-not-rendered'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'execution-while-out-of-viewport'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'layout-animations'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'legacy-image-formats'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'navigation-override'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'oversized-images'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'publickey-credentials'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'speaker-selection'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'unoptimized-images'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'unsized-media'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Unrecognized feature: 'pointer-lock'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Allow attribute will take precedence over 'allowfullscreen'.
+z @ ed1e693c96a75807.js:2
+ed1e693c96a75807.js:2  Allow attribute will take precedence over 'allowpaymentrequest'.
+z @ ed1e693c96a75807.js:2
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+MeasurePro-v30:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+MeasurePro-v30:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ed1e693c96a75807.js:2  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+z @ ed1e693c96a75807.js:2
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'ambient-light-sensor'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'battery'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'execution-while-not-rendered'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'execution-while-out-of-viewport'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'layout-animations'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'legacy-image-formats'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'navigation-override'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'oversized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'publickey-credentials'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'speaker-selection'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'unoptimized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'unsized-media'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Allow attribute will take precedence over 'allowfullscreen'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Allow attribute will take precedence over 'allowpaymentrequest'.
+injected.js:27 🔥 Firebase Config Loaded:
+injected.js:27   Project ID: measureprov1
+injected.js:27   Config validated: ✅
+injected.js:27 🔥 Initializing Firebase for project: measureprov1
+injected.js:27 ✅ Firebase initialized successfully
+injected.js:27 🛰️ Loading saved GPS permission - permission was previously granted
+injected.js:27 🔧 DEVELOPMENT MODE: Clearing service workers and caches...
+injected.js:27 ✅ Development mode: Service workers cleared. You will always get fresh code!
+injected.js:27 🚀 main.tsx is executing!
+injected.js:27 Looking for root element...
+injected.js:27 Root element found: true <div id=​"root">​…​</div>​
+injected.js:27 Creating React root and rendering App...
+injected.js:27 ✅ React render called successfully!
+injected.js:27 Found 0 pending changes
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 📋 No Firebase user, skipping account status check
+injected.js:27 📱 Desktop device - skipping permissions screen
+injected.js:27  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+(anonymous) @ injected.js:27
+injected.js:27  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+(anonymous) @ injected.js:27
+injected.js:27 📹 Starting camera auto-detection...
+injected.js:27 App: Initializing stores...
+injected.js:27 🔄 Opening IndexedDB database...
+injected.js:27 POI Store: Setting type to: 
+injected.js:27 App: Store initialization complete
+injected.js:27 🔄 Initializing background sync service...
+injected.js:27 🔄 Starting background sync service...
+injected.js:27 ⚠️ No user logged in - skipping background sync
+injected.js:27 ✅ Background sync service started (24-hour interval)
+injected.js:27 🛑 Stopping background sync service...
+injected.js:27 🛑 Background sync service stopped
+injected.js:27 📋 No Firebase user, skipping account status check
+injected.js:27 📱 Desktop device - skipping permissions screen
+injected.js:27 📹 Starting camera auto-detection...
+injected.js:27 App: Initializing stores...
+injected.js:27 🔄 Opening IndexedDB database...
+injected.js:27 POI Store: Setting type to: 
+injected.js:27 App: Store initialization complete
+injected.js:27 🔄 Initializing background sync service...
+injected.js:27 🔄 Starting background sync service...
+injected.js:27 ⚠️ No user logged in - skipping background sync
+injected.js:27 ✅ Background sync service started (24-hour interval)
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 🔄 Checking for emergency data to migrate...
+injected.js:27 ✅ IndexedDB database opened successfully
+injected.js:27 🔄 Checking for emergency data to migrate...
+injected.js:27 ✅ IndexedDB database opened successfully
+injected.js:27 App: Storage initialized
+injected.js:27 App: Storage initialized
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 App: Auto sync setup
+injected.js:27 App: Auto sync setup
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 Loaded laser settings: Object
+injected.js:27 Loaded gps settings: Object
+injected.js:27 Loaded camera settings: Object
+injected.js:27 Loaded map settings: Object
+injected.js:27 Loaded logging settings: Object
+injected.js:27 Loaded alerts settings: Object
+injected.js:27 Loaded laser settings: Object
+injected.js:27 Loaded gps settings: Object
+injected.js:27 Loaded camera settings: Object
+injected.js:27 Loaded map settings: Object
+injected.js:27 Loaded logging settings: Object
+injected.js:27 Loaded alerts settings: Object
+injected.js:27 User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+injected.js:27 Auth state changed, checking pending changes
+injected.js:27 Auth state changed, checking pending changes
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ Last online timestamp updated
+injected.js:27 ✅ Offline mode set to: false
+injected.js:27 Device detection: Desktop
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 (Service Unavailable)
+injected.js:27  Failed to check terms acceptance: Error: Server authentication unavailable: Firebase Admin SDK not configured
+    at apiRequest (queryClient.ts:26:11)
+    at async checkTermsAcceptance (App.tsx:164:26)
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+ZED2iCamera.ts:613  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:613
+injected.js:27 📹 Camera detection results: Object
+injected.js:27 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:613  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:613
+injected.js:27 📹 Camera detection results: Object
+injected.js:27 ✅ Auto-detected camera: standard
+injected.js:27 App component rendering
+injected.js:27 App component rendering
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 ✅ Master admin detected, granting app access
+injected.js:27 ✅ App access granted, account approved, and permissions OK, showing protected content
+injected.js:27 🔄 LaserReader: Setting laser type to: high-pole
+injected.js:27 🔄 LaserReader: Setting laser type to: high-pole
+injected.js:27 🔄 LaserReader: Setting laser type to: high-pole
+injected.js:27 🔄 LaserReader: Setting laser type to: high-pole
+injected.js:27 [LaserStore] Setting ground reference height: 2.06
+injected.js:27 [LaserStore] Validated ground reference height: 2.06
+injected.js:27 ✅ Loaded Route Enforcement data from IndexedDB
+injected.js:27 🔧 About to set isInitialized to true
+injected.js:27 ✅ Voice assistant initialized
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 434 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 🔧 About to set isInitialized to true
+injected.js:27 🔧 Previous state: Object
+injected.js:27 ✅ Voice assistant initialized
+injected.js:27 🔊 Stopped speaking
+injected.js:27 🎙️ Voice assistant stopped
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 🔊 Stopped speaking
+injected.js:27 🎙️ Voice assistant stopped
+injected.js:27 🔧 About to set isInitialized to true
+injected.js:27 ✅ Voice assistant initialized
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 434 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 🔧 About to set isInitialized to true
+injected.js:27 ✅ Voice assistant initialized
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+injected.js:27 Auth state changed in OfflineStatusIndicator: jfprince@soltec.ca
+injected.js:27 Auth state changed, checking pending changes
+injected.js:27 Auth state changed, checking pending changes
+injected.js:27 Auth state changed event in OfflineStatusIndicator: jfprince@soltec.ca
+injected.js:27 📐 Video dimensions (rendered): 434 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔧 Previous state: Object
+injected.js:27 🔧 Previous state: Object
+injected.js:27 🔧 Previous state: Object
+injected.js:27 🔧 Previous state: Object
+injected.js:27 🔧 Previous state: Object
+injected.js:27 🔧 Previous state: Object
+injected.js:27 ✅ measureDetected sound loaded successfully
+injected.js:27 ✅ poiTypeChange sound loaded successfully
+injected.js:27 ✅ logEntry sound loaded successfully
+injected.js:27 ✅ imageCaptured sound loaded successfully
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 ✅ critical sound loaded successfully
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 ✅ warning sound loaded successfully
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: Array(0)
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: Array(0)
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27 ✅ Browser GPS position obtained successfully: Object
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 🛰️ GPS permission granted - starting browser GPS immediately
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Created new marker
+injected.js:27 📍 PositionMarker: Created accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+MeasurePro-v30:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+injected.js:27  Error details: Error: GPS timeout - position unavailable
+    at gpsStore.ts:334:18
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🛰️ Browser GPS initialization already in progress, skipping...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Failed to initialize browser GPS: [object GeolocationPositionError]
+(anonymous) @ injected.js:27
+injected.js:27  Error details: GeolocationPositionError
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 ✅ Browser GPS position obtained successfully: Object
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 🛰️ GPS permission granted - starting browser GPS immediately
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27 ✅ Browser GPS position obtained successfully: Object
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 📐 Video dimensions (rendered): 360 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Created new marker
+injected.js:27 📍 PositionMarker: Created accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+initializeCamera @ LiveCamera.tsx:521
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+initializeCamera @ LiveCamera.tsx:521
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:50', latitude: 45.6075396, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.6075396, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ sync.ts:413
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ sync.ts:413
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:46:32', latitude: 45.60751986, longitude: -72.97327224, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60751986, -72.97327224]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:46:58', latitude: 45.60751869, longitude: -72.97327244, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60751869, -72.97327244]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:47:54', latitude: 45.60751852, longitude: -72.97327229, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60751852, -72.97327229]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10   POST https://ingest.app.coframe.com/ingest/v2/batched_events/68c9ad4d4cddb58cf3a1f93d/ 502 (Bad Gateway)
+M @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+O @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+(anonymous) @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+(anonymous) @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+o @ 774d5548df99f183.js:2
+setTimeout
+(anonymous) @ 774d5548df99f183.js:2
+(anonymous) @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+(anonymous) @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+o @ 774d5548df99f183.js:2
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:48:50', latitude: 45.60751216, longitude: -72.97327098, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60751216, -72.97327098]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10   POST https://ingest.app.coframe.com/ingest/v2/batched_events/68c9ad4d4cddb58cf3a1f93d/ 502 (Bad Gateway)
+M @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+O @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+(anonymous) @ cf.js?config=%257B%2522projectId%2522%253A%252268c9ad4d4cddb58cf3a1f93d%2522%252C%2522startTime%2522%253A1762356673877%252C%2522timeoutMs%2522%253A1000%252C%2522currentUrl%2522%253A%2522https%253A%252F%252Freplit.com%252Ft%252Fsoltec-innovation%2522%252C%2522trackingOnly%2522%253Atrue%257D:10
+o @ 774d5548df99f183.js:2
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43

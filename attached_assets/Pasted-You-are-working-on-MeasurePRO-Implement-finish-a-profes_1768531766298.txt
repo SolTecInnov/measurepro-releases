@@ -1,0 +1,190 @@
+You are working on MeasurePRO. Implement/finish a professional, offline-first “Survey + Engineering Export” pipeline so road profiles are not just JPG images but can be imported into Civil 3D and GIS tools. This must integrate cleanly with the existing GNSS Profiling, Diagnostics & Calibration suite, and the Alignment + Profile Linked Viewer.
+
+NON-NEGOTIABLE PRINCIPLES
+1) Offline-first: Everything must run 100% offline (IndexedDB source of truth). No feature may require internet to function.
+2) Auditability: Never overwrite raw data. Always export raw + selected + corrected values with provenance + calibration metadata.
+3) Interoperability: Exports must work in real tools (Civil 3D, QGIS/ArcGIS) without manual reformatting.
+
+================================================================================
+PART 1 — EXPORTS: From JPG to Engineering/GIS Formats (NEW REQUIRED)
+
+CURRENT PROBLEM
+We only export the road profile as a JPG “photo”. That is not usable for engineering design or GIS analysis. We need data exports.
+
+IMPLEMENT AN “Export” DIALOG IN ROAD PROFILE VIEWER
+Add a unified export modal with format selection and options:
+- Format: CSV | GeoJSON | Shapefile (ZIP) | DXF | LandXML | ZIP Bundle (All)
+- CRS choice:
+  - Default WGS84 (EPSG:4326) lat/lon
+  - Optional projected CRS export (at minimum Web Mercator EPSG:3857, and allow future EPSG code input)
+- Altitude choice:
+  - Export altitude_raw_m, altitude_selected_m, altitude_corrected_m
+  - Clearly label as “Altitude (m MSL)” when applicable
+- Sampling:
+  - export all samples
+  - optional resample step (e.g., 1m/2m/5m) using stationing s
+- Include metadata.json always for bundle exports.
+
+A) CSV PROFILE EXPORT (MANDATORY)
+Export a CSV with at least:
+station_m,
+station_km,
+lat_deg,
+lon_deg,
+altitude_raw_m,
+altitude_selected_m,
+altitude_corrected_m,
+grade_pct,
+roll_deg,
+pitch_deg,
+yaw_deg,
+speed_mps,
+heading_deg,
+timestamp_utc,
+fix_quality,
+sats,
+hdop,
+alignment_id,
+profile_id,
+project_id
+
+Ensure:
+- station_m is continuous stationing (meters)
+- grade_pct is computed from corrected altitude vs station
+- include raw/selected/corrected altitude fields + provenance
+- compatible with Civil 3D point import and general analysis tools
+
+B) GEOJSON EXPORT (MANDATORY)
+Export:
+1) Alignment as LineString (or MultiLineString if segmented), with properties:
+- alignment_id, name, project_id
+- length_m
+2) Profile samples as Point features OR an optional LineStringZ:
+- At least provide a LineString with coordinates including Z = altitude_corrected_m
+- Properties include station_m and altitude fields
+3) Include CRS information in metadata.json (GeoJSON itself is typically WGS84)
+
+C) SHAPEFILE EXPORT (MANDATORY)
+Export a zipped shapefile package:
+- alignment.shp (Polyline)
+- profile_points.shp (Points with station/alt fields)
+- OR profile_linez.shp (PolylineZ) if supported by the shapefile writer library
+Include .prj. Default WGS84.
+
+D) DXF EXPORT (REQUIRED)
+Export DXF with two layers:
+- L_ALIGNMENT: a 2D/3D polyline representing the alignment in the chosen CRS (prefer projected if user selects it)
+- L_PROFILE: a 2D polyline in “station vs altitude” coordinates (engineering profile view):
+    X = station_m
+    Y = altitude_corrected_m
+Optional:
+- L_PROFILE_RAW (station vs altitude_raw_m)
+- L_PROFILE_SELECTED (station vs altitude_selected_m)
+
+This DXF is for CAD drafting, not just GIS.
+
+E) LANDXML EXPORT (CRITICAL FOR CIVIL 3D)
+Generate a LandXML file that Civil 3D can import. It must include:
+- Alignment geometry (CoordGeom) in a projected coordinate system when possible
+- Existing Ground Profile:
+  - Use stationing and elevations derived from altitude_corrected_m
+  - Provide PVIs or a sampled profile definition (whichever Civil 3D accepts reliably)
+- Units (meters), and coordinate system note in metadata (LandXML itself may not fully encode EPSG)
+- Name alignment and profile using project/profile names
+
+If full alignment curve fitting is too heavy initially:
+- Implement LandXML as “sampled” alignment polyline + profile points along stationing.
+- Validate by importing in Civil 3D.
+
+F) ZIP BUNDLE EXPORT (MANDATORY)
+Export a ZIP that includes:
+- alignment.geojson
+- profile.csv
+- profile.geojson (optional)
+- profile.dxf (optional)
+- export.landxml (optional)
+- metadata.json (mandatory)
+
+metadata.json MUST include:
+- app version/build
+- device id/mount id (if present)
+- project/profile/alignment ids + names
+- altitude strategy (explicit MSL / derived MSL / ambiguous)
+- offset value (altimeter-style)
+- axis mapping + confidence
+- smoothing/resampling params used in profile generation
+- timestamps range
+- any warnings (loop/backtrack detection)
+
+G) ZIP RE-IMPORT (MANDATORY)
+If we export a ZIP bundle, we MUST be able to re-import it offline and restore:
+- alignment
+- profile samples
+- metadata
+- linkage (alignmentId in profile)
+Offer conflict options:
+- Import as New
+- Overwrite
+- Duplicate with suffix "(imported)"
+
+After import, automatically open the linked viewer and verify stationing works.
+
+================================================================================
+PART 2 — ALIGNMENT + PROFILE LINKED VIEWER (CONFIRM + KEEP)
+Keep/ensure:
+- Split view: alignment map + profile graph
+- Bidirectional cursor sync
+- Continuous station interpolation (not sample snapping only)
+- Readouts: station, altitude corrected, lateral offset (signed), heading delta, sample spacing
+- Loop/backtrack warnings on alignment creation
+- Offline-first persistence in IndexedDB
+
+================================================================================
+PART 3 — GNSS DIAGNOSTICS & CALIBRATION SUITE (OFFLINE-FIRST)
+Ensure the suite remains working offline with IndexedDB as truth:
+- Raw Payload Inspector (altitude badges: explicit/derivable/ambiguous)
+- Altitude Calibration (offset wizard + strategy selection)
+- Axis Orientation Wizard (confidence + fallback modes):
+  - manual axis mapping editor (swap axes + flip signs)
+  - presets for common mounts
+  - re-run individual tests
+  - validation checks
+- Live telemetry overlay (heading/lat/lon/altitude MSL corrected/roll/pitch/yaw)
+- Diagnostics log export JSON
+- Separate convex/concave toggles
+- View modes (Full/1km/5km/10km)
+- Rename “Elevation” to “Altitude (MSL)” everywhere
+- Do NOT require Firebase; optional sync only. Add Import/Export calibration JSON for offline sharing.
+
+================================================================================
+PART 4 — K-FACTOR DETECTION: ONLY SHORT CREST/SAG RELEVANT TO WIND COMPONENTS
+Upgrade marker logic: do not flag every minor grade change.
+Pipeline:
+- resample + smooth
+- compute grade + curvature
+- segment into convex/concave curves
+- gate by short length + min grade change + prominence
+- add risk model specifically for:
+  (1) Belly grounding at CREST (convex)
+  (2) Tail strike at SAG (concave)
+Inputs:
+- W (effective support span), Hmin, Orear, Htail(optional)
+Compute conservative margin and only emit markers for >= Medium risk.
+Tooltips show: type, L, Δg, K, margin, risk reason.
+
+================================================================================
+ACCEPTANCE TESTS (PROVE IT WORKS)
+1) Export CSV/GeoJSON/Shapefile/DXF/LandXML from a 200–300 km profile, offline.
+2) Import LandXML into Civil 3D:
+   - alignment + existing ground profile appear
+3) Open GeoJSON/Shapefile in QGIS:
+   - alignment line and profile points display correctly with attributes
+4) Re-import ZIP offline:
+   - restores identical alignment/profile linkage and cursor sync works
+5) Exports include raw/selected/corrected altitude and metadata.json with calibration provenance.
+
+DELIVERABLE
+Implement all of the above and provide:
+- file paths changed
+- what libraries used for DXF/LandXML/Shapefile (keep lightweight)
+- a short demo clip or step list verifying Civil 3D + QGIS import success

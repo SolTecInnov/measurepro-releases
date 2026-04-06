@@ -1,0 +1,60 @@
+The Remaining Issue (in MeasurePRO):
+Looking at the logs, MeasurePRO is NOT calling the /files registration endpoint after uploading. The server shows:
+
+Upload URLs generated: ✅
+Files uploaded to Firebase Storage: ✅
+File registration with RoadScope: ❌ MISSING
+Can you try syncing again from MeasurePRO? After the sync, I'll check the server logs to see if the files endpoint is being called now.
+
+Updated Prompt for MeasurePRO Team:
+CRITICAL BUG: Files Not Being Registered After Upload
+Evidence from RoadScope server logs:
+
+📤 Generated 50 upload URLs for survey ← Working
+📁 [MeasurePRO FILES] POST /surveys/.../files ← NEVER APPEARS
+MeasurePRO shows "54 Files Uploaded" but those files are only in Firebase Storage - they were NEVER registered with RoadScope's database.
+
+The Missing Step
+After uploading files via signed URLs, MeasurePRO must call:
+
+POST /api/roadscope/proxy/surveys/:surveyId/files
+Body:
+{
+  "files": [
+    {
+      "filename": "abc123_photo.jpg",
+      "storageUrl": "measurepro/surveyId/photos/poiId/timestamp_file.jpg",  // FROM upload-urls response!
+      "category": "photos",
+      "contentType": "image/jpeg",
+      "size": 123456,
+      "linkedPoiExternalId": "abc123"  // Links to POI
+    }
+  ]
+}
+
+In syncService.ts (or wherever file sync happens):
+// AFTER: Parallel upload complete: 50/50 successful
+// ADD THIS:
+if (successfulUploads.length > 0) {
+  console.log(`[RoadScope Sync] Registering ${successfulUploads.length} files with RoadScope...`);
+  
+  const registerResponse = await roadscopeClient.post(
+    `/api/roadscope/proxy/surveys/${roadscopeSurveyId}/files`,
+    {
+      files: successfulUploads.map(upload => ({
+        filename: upload.filename,
+        storageUrl: upload.storageUrl,  // <-- CRITICAL: From upload-urls response
+        category: upload.category,
+        contentType: upload.mimeType,
+        size: upload.size,
+        linkedPoiExternalId: upload.measurementId
+      }))
+    }
+  );
+  
+  if (registerResponse.data?.success) {
+    console.log(`[RoadScope Sync] ✅ Registered files with RoadScope`);
+  }
+}
+
+Please try syncing again so I can verify if MeasurePRO is now calling the files endpoint.

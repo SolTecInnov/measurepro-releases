@@ -1,0 +1,1252 @@
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+  The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.
+performInitialization @ sounds.ts:99
+  The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.
+performInitialization @ sounds.ts:104
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163447.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5A
+ 🛰️ Processing NMEA sentence: $GPGGA,163447.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ Timelapse frame 19 captured
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163447.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7C
+ 🛰️ Processing NMEA sentence: $GPRMC,163447.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163448.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*55
+ 🛰️ Processing NMEA sentence: $GPGGA,163448.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,1,12,28,80,001,29,31,57,258,35,32,55,108,38,25,38,056,35*73
+ 🛰️ Processing NMEA sentence: $GPGSV,3,1,12,28,80,001,29,31,57,258,35,32,55,108,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,2,12,26,31,192,26,03,27,314,19,10,14,171,29,01,12,277,22*73
+ 🛰️ Processing NMEA sentence: $GPGSV,3,2,12,26,31,192,26,03,27,314,19,10,14,171,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,3,12,12,11,037,29,29,08,100,30,02,01,252,19,04,00,296,*70
+ 🛰️ Processing NMEA sentence: $GPGSV,3,3,12,12,11,037,29,29,08,100,30,02,01,252,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163448.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*73
+ 🛰️ Processing NMEA sentence: $GPRMC,163448.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163449.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*54
+ 🛰️ Processing NMEA sentence: $GPGGA,163449.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163449.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*72
+ 🛰️ Processing NMEA sentence: $GPRMC,163449.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163450.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5C
+ 🛰️ Processing NMEA sentence: $GPGGA,163450.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163450.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7A
+ 🛰️ Processing NMEA sentence: $GPRMC,163450.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163451.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5D
+ 🛰️ Processing NMEA sentence: $GPGGA,163451.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163451.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7B
+ 🛰️ Processing NMEA sentence: $GPRMC,163451.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163452.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5E
+ 🛰️ Processing NMEA sentence: $GPGGA,163452.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ Timelapse frame 20 captured
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163452.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*78
+ 🛰️ Processing NMEA sentence: $GPRMC,163452.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163453.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5F
+ 🛰️ Processing NMEA sentence: $GPGGA,163453.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,1,12,28,80,001,31,31,57,258,36,32,55,108,39,25,38,056,36*7B
+ 🛰️ Processing NMEA sentence: $GPGSV,3,1,12,28,80,001,31,31,57,258,36,32,55,108,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,2,12,26,31,192,31,03,27,314,25,10,14,171,30,01,12,277,24*74
+ 🛰️ Processing NMEA sentence: $GPGSV,3,2,12,26,31,192,31,03,27,314,25,10,14,171,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,3,12,12,11,037,28,29,08,100,30,02,01,252,21,04,00,296,*7A
+ 🛰️ Processing NMEA sentence: $GPGSV,3,3,12,12,11,037,28,29,08,100,30,02,01,252,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163453.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*79
+ 🛰️ Processing NMEA sentence: $GPRMC,163453.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163454.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*58
+ 🛰️ Processing NMEA sentence: $GPGGA,163454.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163454.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7E
+ 🛰️ Processing NMEA sentence: $GPRMC,163454.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163455.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*59
+ 🛰️ Processing NMEA sentence: $GPGGA,163455.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163455.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7F
+ 🛰️ Processing NMEA sentence: $GPRMC,163455.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163456.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5A
+ 🛰️ Processing NMEA sentence: $GPGGA,163456.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163456.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7C
+ 🛰️ Processing NMEA sentence: $GPRMC,163456.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163457.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5B
+ 🛰️ Processing NMEA sentence: $GPGGA,163457.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163457.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7D
+ 🛰️ Processing NMEA sentence: $GPRMC,163457.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163458.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*54
+ 🛰️ Processing NMEA sentence: $GPGGA,163458.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ Timelapse frame 21 captured
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,1,12,28,80,001,32,31,57,258,38,32,55,108,40,25,38,056,36*78
+ 🛰️ Processing NMEA sentence: $GPGSV,3,1,12,28,80,001,32,31,57,258,38,32,55,108,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,2,12,26,31,192,31,03,27,314,25,10,14,171,31,01,12,277,24*75
+ 🛰️ Processing NMEA sentence: $GPGSV,3,2,12,26,31,192,31,03,27,314,25,10,14,171,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSV,3,3,12,12,11,037,28,29,08,100,31,02,01,252,22,04,00,296,*78
+ 🛰️ Processing NMEA sentence: $GPGSV,3,3,12,12,11,037,28,29,08,100,31,02,01,252,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163458.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*72
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163458.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163459.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*55
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163459.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: Object
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163459.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*73
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163459.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163500.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*58
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163500.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: Object
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163500.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7E
+ 🛰️ Processing NMEA sentence: $GPRMC,163500.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ 🛰️ GPS NMEA received: $GPGGA,163501.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*59
+ 🛰️ Processing NMEA sentence: $GPGGA,163501.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163501.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7F
+ 🛰️ Processing NMEA sentence: $GPRMC,163501.000,A,4534.4980,N,07255.7886,W,0.00,...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ Timelapse frame 22 captured
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163502.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5A
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163502.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163502.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7C
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163502.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: Object
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera.tsx:379 📐 Video dimensions (rendered): 580 x 326
+LiveCamera.tsx:380 📐 Video dimensions (intrinsic): 1280 x 720
+gpsStore.ts:86 🛰️ GPS Store Updated: Object
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163503.000,4534.4980,N,07255.7886,W,1,10,0.8,34.2,M,-31.3,M,,0000*5B
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163503.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSV,3,1,12,28,80,001,32,31,57,258,37,32,55,108,39,25,38,056,36*79
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSV,3,1,12,28,80,001,32,31,57,258,37,32,55,108,...
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSV,3,2,12,26,31,192,30,03,27,314,20,10,14,171,31,01,12,277,24*71
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSV,3,2,12,26,31,192,30,03,27,314,20,10,14,171,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSV,3,3,12,12,11,037,28,29,08,100,31,02,01,252,22,04,00,296,*78
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSV,3,3,12,12,11,037,28,29,08,100,31,02,01,252,...
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:03', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.2, speed: 0, …}
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163503.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7D
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163503.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: {time: '16:35:03', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.2, speed: 0, …}
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:04', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163504.000,4534.4980,N,07255.7886,W,1,10,0.8,34.3,M,-31.3,M,,0000*5D
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163504.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:04', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163504.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7A
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163504.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: {time: '16:35:04', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:05', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163505.000,4534.4980,N,07255.7886,W,1,10,0.8,34.3,M,-31.3,M,,0000*5C
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163505.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:05', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163505.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*7B
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163505.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+vehicleTraceStore.ts:77 🔄 Trace interval tick - Fresh GPS: {time: '16:35:05', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+vehicleTraceStore.ts:90 🔄 Skipping trace point - distance too small: 0
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:06', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGGA,163506.000,4534.4980,N,07255.7886,W,1,10,0.8,34.3,M,-31.3,M,,0000*5F
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGGA,163506.000,4534.4980,N,07255.7886,W,1,10,0....
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:256 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+gpsStore.ts:86 🛰️ GPS Store Updated: {time: '16:35:06', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+serialStore.ts:256 🛰️ GPS NMEA received: $GPRMC,163506.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*78
+gpsStore.ts:102 🛰️ Processing NMEA sentence: $GPRMC,163506.000,A,4534.4980,N,07255.7886,W,0.00,...
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+serialStore.ts:667 🔍 Infinity code or invalid measurement detected: --
+VoiceCommandBridge.tsx:40 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+VoiceCommandBridge.tsx:66 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ Timelapse frame 23 captured
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: {time: '16:35:06', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: {time: '16:35:07', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+ 🛰️ GPS NMEA received: $GPGGA,163507.000,4534.4980,N,07255.7886,W,1,10,0.8,34.3,M,-31.3,M,,0000*5E
+ 🛰️ Processing NMEA sentence: $GPGGA,163507.000,4534.4980,N,07255.7886,W,1,10,0....
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8,1.1*3E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,31,32,25,26,03,10,01,12,29,,,1.4,0.8...
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS Store Updated: {time: '16:35:07', latitude: 45.57496666666667, longitude: -72.92981, altitude: 34.3, speed: 0, …}
+ GPS Date: 2025-11-06
+ 🛰️ GPS NMEA received: $GPRMC,163507.000,A,4534.4980,N,07255.7886,W,0.00,134.74,061125,,,A*79
+ 🛰️ Processing NMEA sentence: $GPRMC,163507.000,A,4534.4980,N,07255.7886,W,0.00,...

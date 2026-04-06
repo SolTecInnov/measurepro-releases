@@ -1,0 +1,26 @@
+SignupPage.tsx:958 
+ Uncaught TypeError: Cannot read properties of undefined (reading 'filter')
+    at SignupPage (SignupPage.tsx:958:37)
+workbox-47da91e0.js:44 workbox Expired 1 entry and removed it from the 'api-cache' cache.
+SignupPage.tsx:958 
+ Uncaught TypeError: Cannot read properties of undefined (reading 'filter')
+    at SignupPage (SignupPage.tsx:958:37)
+react-dom.development.js:18704 
+ The above error occurred in the <SignupPage> component:
+
+    at SignupPage (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/pages/SignupPage.tsx:110:20)
+    at Suspense
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:175:5)
+    at RenderedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0:4088:5)
+    at Routes (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0:4558:5)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:175:5)
+    at Suspense
+    at div
+    at Router (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0:4501:15)
+    at BrowserRouter (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0:5247:5)
+    at LicenseStartupCheckProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useLicenseStartupCheck.tsx:109:47)
+    at App (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:195:3)
+    at AuthProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/AuthContext.tsx:49:32)
+    at QueryClientProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=ee9fb5a0:3086:3)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, RouteErrorBoundary.

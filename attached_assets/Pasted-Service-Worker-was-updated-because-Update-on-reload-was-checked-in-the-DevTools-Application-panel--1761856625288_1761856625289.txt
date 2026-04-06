@@ -1,0 +1,1214 @@
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Precaching 0 files. 1 file is already cached.
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-TQGXHKBZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-TQGXHKBZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-VHXUCOYC.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-VHXUCOYC.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-JKG5FPDI.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-JKG5FPDI.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-42XBNZVG.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-42XBNZVG.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_app.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_app.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_firestore.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_firestore.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_auth.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_auth.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/idb.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/idb.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/bcryptjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/bcryptjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-MDTWCXA2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-MDTWCXA2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/lucide-react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/lucide-react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand_middleware.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand_middleware.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/jszip.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/jszip.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/file-saver.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/file-saver.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_functions.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_functions.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/qrcode.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/qrcode.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/axios.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/axios.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/workbox-window.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/workbox-window.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/Settings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/Settings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://replit.com/public/js/beacon.js
+workbox-47da91e0.js:44 workbox No route found for: https://replit.com/public/js/beacon.js
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/serialStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/serialStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLayoutCustomization.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLayoutCustomization.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useMeasurementLogging.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useMeasurementLogging.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sounds.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sounds.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/AppHeader.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/AppHeader.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/VehicleMap.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/VehicleMap.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/MeasurementCards.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/MeasurementCards.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POISelector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POISelector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LoggingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LoggingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/SurveyManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/SurveyManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GPSData.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GPSData.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/MeasurementLog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/MeasurementLog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LiveCamera.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LiveCamera.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CapturedImages.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CapturedImages.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TabManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TabManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TimelapseCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TimelapseCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ColumnResizer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ColumnResizer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/StatusDialogs.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/StatusDialogs.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CardWrapper.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CardWrapper.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/KeyboardShortcutHandler.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/KeyboardShortcutHandler.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementModeSelector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementModeSelector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POIHeightRow.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POIHeightRow.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/types.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/types.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/serial.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/serial.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/config/serialConfig.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/config/serialConfig.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/readers/serialLaserReader.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/readers/serialLaserReader.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/readers/serialGPSReader.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/readers/serialGPSReader.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/laser.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/laser.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/laserUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/laserUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/video/VideoRecorder.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/video/VideoRecorder.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/overhead/overhead-aggregator.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/overhead/overhead-aggregator.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/alert-alarm-1005.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/alert-alarm-1005.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/classic-alarm-995.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/classic-alarm-995.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/confirmation.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/confirmation.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/critical.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/critical.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/double-beep-tone-alert-2868.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/double-beep-tone-alert-2868.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator-tone-2863.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/elevator-tone-2863.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/elevator.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/facility-alarm-sound-999.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/facility-alarm-sound-999.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface-hint-notification-911.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/interface-hint-notification-911.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/interface.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/log-entry.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/log-entry.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/long-pop-2358.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/long-pop-2358.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/message-pop-alert-2354.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/message-pop-alert-2354.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/retro-confirmation-tone-2860.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/retro-confirmation-tone-2860.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/scanning-sci-fi-alarm-905.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/scanning-sci-fi-alarm-905.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/security-facility-breach-alarm-994.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/security-facility-breach-alarm-994.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/slot-machine-win-alarm-1995.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/slot-machine-win-alarm-1995.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/warning.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/warning.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/QuickConnect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/QuickConnect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineStatusIndicator.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineStatusIndicator.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/vehicleTraceStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/vehicleTraceStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POIDetailsModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POIDetailsModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/leaflet/dist/leaflet.css
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/leaflet/dist/leaflet.css
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-UG6BUJXU.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-UG6BUJXU.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/AlertBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/AlertBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/CurrentMeasureCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/CurrentMeasureCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/LastMeasureCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/LastMeasureCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/HistorySettingsModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/HistorySettingsModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/utils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/utils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyDetails.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyDetails.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyStatistics.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyStatistics.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyActions.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyActions.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyForm.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyForm.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyList.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyList.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/NoActiveSurvey.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/NoActiveSurvey.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ManualLogEntryModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ManualLogEntryModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/envelopeStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/envelopeStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraErrorDisplay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraErrorDisplay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraSetup.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraSetup.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/VideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/VideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/GeoVideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/GeoVideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DetectionOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DetectionOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DetectionZoneOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DetectionZoneOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ai/DetectionCorrectionDialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ai/DetectionCorrectionDialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/EnvelopeClearanceOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/EnvelopeClearanceOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DepthDataOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DepthDataOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/StereoViewOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/StereoViewOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraStatusBadge.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraStatusBadge.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useDetectionManager.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useDetectionManager.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useTrainingSession.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useTrainingSession.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useKeyboardShortcuts.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useKeyboardShortcuts.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/training.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/training.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/calibrationStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/calibrationStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/sweptPathStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/sweptPathStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/AnalyzeTurnButton.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/AnalyzeTurnButton.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/SweptPathOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/SweptPathOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/RoadDetectionDebugOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/RoadDetectionDebugOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraDisconnectMonitor.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraDisconnectMonitor.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/timelapse/TimelapseControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/timelapse/TimelapseControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/timelapse/TimelapseViewer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/timelapse/TimelapseViewer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@radix-ui_react-tabs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@radix-ui_react-tabs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CameraSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CameraSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/MapSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/MapSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LoggingSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LoggingSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AlertSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AlertSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/EmailSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/EmailSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/KeyboardSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/KeyboardSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/HelpSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/HelpSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LaserGPSSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LaserGPSSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DisplaySettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DisplaySettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AISettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AISettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/EnvelopeSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/EnvelopeSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/ConvoySettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/ConvoySettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/PermittedRouteSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/PermittedRouteSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/SweptPathSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/SweptPathSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/SyncControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/SyncControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LogoSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LogoSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AdminSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AdminSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LayoutCustomizer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LayoutCustomizer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/calibration/CameraCalibration.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/calibration/CameraCalibration.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DetectionSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DetectionSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DetectionDebugPanel.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DetectionDebugPanel.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/unitConversion.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/unitConversion.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/keyboard.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/keyboard.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/detectionStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/detectionStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/storage/measurement-storage.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/storage/measurement-storage.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/specialized-measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/specialized-measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/HeightSettingsCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/HeightSettingsCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/export/measurement-export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/export/measurement-export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/overhead/config.schema.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/overhead/config.schema.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/overhead/utils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/overhead/utils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/video/GeoReferencedVideoPlayer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/video/GeoReferencedVideoPlayer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailConfig.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailConfig.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/geoUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/geoUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/capture.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/capture.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/video/geoVideoRecorder.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/video/geoVideoRecorder.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseEnforcement.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseEnforcement.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/mockDetection.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/mockDetection.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/ai/tensorflowDetection.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/ai/tensorflowDetection.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/complexVehicle.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/complexVehicle.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/roadDetection.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/roadDetection.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/simulator.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/simulator.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/opencv-init.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/opencv-init.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/timelapse/TimelapseRecorder.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/timelapse/TimelapseRecorder.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/hooks.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/hooks.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/SurveyCreationDialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/SurveyCreationDialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ai/DetectionLogViewer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ai/DetectionLogViewer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/subscriptionAuth.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/subscriptionAuth.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/routeEnforcementStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/routeEnforcementStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/admin/CustomerManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/admin/CustomerManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/admin/SubscriptionManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/admin/SubscriptionManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/admin/ViolationsViewer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/admin/ViolationsViewer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/admin/SoundTestPanel.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/admin/SoundTestPanel.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/admin/TrainingDataManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/admin/TrainingDataManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/calibration.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/calibration.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/calibration-storage.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/calibration-storage.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/card.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/card.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/label.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/label.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/input.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/input.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-W2FM3CC2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-W2FM3CC2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/piexifjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/piexifjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/vehicleSegments.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/vehicleSegments.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/articulationJoints.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/articulationJoints.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sweptPath/steerableCompensation.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sweptPath/steerableCompensation.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tensorflow_tfjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tensorflow_tfjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tensorflow-models_coco-ssd.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tensorflow-models_coco-ssd.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-U7DDB4KB.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-U7DDB4KB.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-3LPNY7II.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-3LPNY7II.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/mathjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/mathjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-hook-form.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-hook-form.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@hookform_resolvers_zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@hookform_resolvers_zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /shared/schema.ts
+workbox-47da91e0.js:44 workbox No route found for: /shared/schema.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-3TPKUQWQ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-3TPKUQWQ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/interface.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/alert-alarm-1005.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/alert-alarm-1005.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/facility-alarm-sound-999.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/facility-alarm-sound-999.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/long-pop-2358.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/long-pop-2358.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator-tone-2863.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/elevator-tone-2863.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/message-pop-alert-2354.mp3
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/message-pop-alert-2354.mp3
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2421&y=2930&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2421&y=2930&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2420&y=2930&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2420&y=2930&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2423&y=2930&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2423&y=2930&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2420&y=2929&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2420&y=2929&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2423&y=2929&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2423&y=2929&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2420&y=2931&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2420&y=2931&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2423&y=2931&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2423&y=2931&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2422&y=2930&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2422&y=2930&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2421&y=2929&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2421&y=2929&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2422&y=2929&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2422&y=2929&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2421&y=2931&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2421&y=2931&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2422&y=2931&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2422&y=2931&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/StandardCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/StandardCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /soltec.png
+workbox-47da91e0.js:44 workbox Router is responding to: /soltec.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/soltec.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/alert-alarm-1005.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/alert-alarm-1005.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/alert-alarm-1005.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/alert-alarm-1005.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/alert-alarm-1005.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/long-pop-2358.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/long-pop-2358.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/long-pop-2358.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/long-pop-2358.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/long-pop-2358.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/message-pop-alert-2354.mp3' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/message-pop-alert-2354.mp3'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/message-pop-alert-2354.mp3 has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/message-pop-alert-2354.mp3' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/message-pop-alert-2354.mp3' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/interface.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/interface.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/interface.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/interface.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/interface.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/facility-alarm-sound-999.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/facility-alarm-sound-999.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/facility-alarm-sound-999.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/facility-alarm-sound-999.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/facility-alarm-sound-999.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/elevator-tone-2863.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/elevator-tone-2863.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/elevator-tone-2863.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/elevator-tone-2863.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/elevator-tone-2863.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2435&y=2926&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2435&y=2926&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2435&y=2927&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2435&y=2927&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2434&y=2926&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2434&y=2926&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2436&y=2926&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2436&y=2926&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2434&y=2927&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2434&y=2927&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://mt1.google.com/vt/lyrs=m&x=2436&y=2927&z=13
+workbox-47da91e0.js:44 workbox No route found for: https://mt1.google.com/vt/lyrs=m&x=2436&y=2927&z=13
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/interface.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/alert-alarm-1005.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/alert-alarm-1005.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/facility-alarm-sound-999.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/facility-alarm-sound-999.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/long-pop-2358.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/long-pop-2358.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator-tone-2863.wav
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/elevator-tone-2863.wav
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/message-pop-alert-2354.mp3
+workbox-47da91e0.js:44 workbox Router is responding to: /src/assets/sounds/message-pop-alert-2354.mp3
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox No cached response found in 'audio-cache'.
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/elevator-tone-2863.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/elevator-tone-2863.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/elevator-tone-2863.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/elevator-tone-2863.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/elevator-tone-2863.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/facility-alarm-sound-999.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/facility-alarm-sound-999.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/facility-alarm-sound-999.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/facility-alarm-sound-999.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/facility-alarm-sound-999.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/message-pop-alert-2354.mp3' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/message-pop-alert-2354.mp3'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/message-pop-alert-2354.mp3 has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/message-pop-alert-2354.mp3' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/message-pop-alert-2354.mp3' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/long-pop-2358.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/long-pop-2358.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/long-pop-2358.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/long-pop-2358.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/long-pop-2358.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/alert-alarm-1005.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/alert-alarm-1005.wav'
+workbox-47da91e0.js:44 workbox Network request for '/src/assets/sounds/interface.wav' returned a response with status '206'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/src/assets/sounds/interface.wav'
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/alert-alarm-1005.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/alert-alarm-1005.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/alert-alarm-1005.wav' will not be cached. undefined
+workbox-47da91e0.js:44 workbox The response for /src/assets/sounds/interface.wav has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/src/assets/sounds/interface.wav' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/src/assets/sounds/interface.wav' will not be cached. undefined
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Precaching 0 files. 1 file is already cached.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-1.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-1.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-1.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-2.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-2.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-3.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-3.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-4.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-4.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /lidar-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /lidar-device.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /tablet-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /tablet-device.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-2.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-3.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-4.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/lidar-device.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/tablet-device.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /signup
+workbox-47da91e0.js:44 workbox The navigation route /signup is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /signup
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-JKG5FPDI.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-JKG5FPDI.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-TQGXHKBZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-TQGXHKBZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-VHXUCOYC.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-VHXUCOYC.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-router-dom.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-42XBNZVG.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-42XBNZVG.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/lucide-react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/lucide-react.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_auth.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_auth.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/idb.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/idb.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/bcryptjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/bcryptjs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_firestore.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_firestore.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_app.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_app.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand_middleware.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand_middleware.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-MDTWCXA2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-MDTWCXA2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/jszip.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/jszip.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/file-saver.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/file-saver.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_functions.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_functions.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/qrcode.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/qrcode.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/axios.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/axios.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/workbox-window.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/workbox-window.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/SignupPage.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/SignupPage.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /manifest.webmanifest
+workbox-47da91e0.js:44 workbox No route found for: /manifest.webmanifest
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /favicon.png
+workbox-47da91e0.js:44 workbox Router is responding to: /favicon.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/favicon.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-hook-form.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-hook-form.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@hookform_resolvers_zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@hookform_resolvers_zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zod.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/input.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/input.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/textarea.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/textarea.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/card.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/card.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/form.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/form.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-3TPKUQWQ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-3TPKUQWQ.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-W2FM3CC2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-W2FM3CC2.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/clsx.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/clsx.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/tailwind-merge.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/tailwind-merge.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/SignupPage.tsx?t=1761856603490
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/SignupPage.tsx?t=1761856603490
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856603490
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/Settings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/Settings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/serialStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/serialStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLayoutCustomization.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLayoutCustomization.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useMeasurementLogging.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useMeasurementLogging.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sounds.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sounds.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/AppHeader.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/AppHeader.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/VehicleMap.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/VehicleMap.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/MeasurementCards.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/MeasurementCards.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POISelector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POISelector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LoggingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LoggingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/SurveyManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/SurveyManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GPSData.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GPSData.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/MeasurementLog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/MeasurementLog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LiveCamera.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LiveCamera.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CapturedImages.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CapturedImages.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TabManager.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TabManager.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TimelapseCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TimelapseCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ColumnResizer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ColumnResizer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/StatusDialogs.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/StatusDialogs.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CardWrapper.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CardWrapper.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/KeyboardShortcutHandler.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/KeyboardShortcutHandler.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementModeSelector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementModeSelector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POIHeightRow.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POIHeightRow.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/serial.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/serial.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/config/serialConfig.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/config/serialConfig.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/readers/serialLaserReader.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/readers/serialLaserReader.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/readers/serialGPSReader.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/readers/serialGPSReader.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/types.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/types.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/alert-alarm-1005.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/alert-alarm-1005.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/classic-alarm-995.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/classic-alarm-995.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/confirmation.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/confirmation.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/critical.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/critical.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/double-beep-tone-alert-2868.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/double-beep-tone-alert-2868.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator-tone-2863.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/elevator-tone-2863.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/elevator.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/elevator.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/facility-alarm-sound-999.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/facility-alarm-sound-999.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface-hint-notification-911.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/interface-hint-notification-911.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/interface.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/interface.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/log-entry.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/log-entry.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/long-pop-2358.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/long-pop-2358.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/message-pop-alert-2354.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/message-pop-alert-2354.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/retro-confirmation-tone-2860.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/retro-confirmation-tone-2860.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/scanning-sci-fi-alarm-905.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/scanning-sci-fi-alarm-905.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/security-facility-breach-alarm-994.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/security-facility-breach-alarm-994.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/slot-machine-win-alarm-1995.wav?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/slot-machine-win-alarm-1995.wav?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/assets/sounds/warning.mp3?import
+workbox-47da91e0.js:44 workbox No route found for: /src/assets/sounds/warning.mp3?import
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/QuickConnect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/QuickConnect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineStatusIndicator.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineStatusIndicator.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/AlertBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/AlertBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/laser.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/laser.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/laserUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/laserUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/CurrentMeasureCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/CurrentMeasureCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/LastMeasureCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/LastMeasureCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/HistorySettingsModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/HistorySettingsModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/utils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/utils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyDetails.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyDetails.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyStatistics.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyStatistics.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyActions.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyActions.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyForm.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyForm.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/SurveyList.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/SurveyList.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/survey/NoActiveSurvey.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/survey/NoActiveSurvey.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/video/VideoRecorder.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/video/VideoRecorder.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/overhead/overhead-aggregator.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/overhead/overhead-aggregator.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/unitConversion.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/unitConversion.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ManualLogEntryModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ManualLogEntryModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/leaflet.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/vehicleTraceStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/vehicleTraceStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/POIDetailsModal.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/POIDetailsModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/leaflet/dist/leaflet.css
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/leaflet/dist/leaflet.css
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@radix-ui_react-tabs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@radix-ui_react-tabs.js?v=ee9fb5a0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/CameraSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/CameraSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/MapSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/MapSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LoggingSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LoggingSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AlertSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AlertSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/EmailSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/EmailSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/KeyboardSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/KeyboardSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/HelpSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/HelpSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LaserGPSSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LaserGPSSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DisplaySettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DisplaySettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AISettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AISettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/EnvelopeSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/EnvelopeSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/ConvoySettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/ConvoySettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/PermittedRouteSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/PermittedRouteSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/SweptPathSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/SweptPathSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/SyncControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/SyncControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/LogoSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/LogoSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/AdminSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/AdminSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/LayoutCustomizer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/LayoutCustomizer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/calibration/CameraCalibration.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/calibration/CameraCalibration.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DetectionSettings.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DetectionSettings.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/settings/DetectionDebugPanel.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/settings/DetectionDebugPanel.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/timelapse/TimelapseControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/timelapse/TimelapseControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/timelapse/TimelapseViewer.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/timelapse/TimelapseViewer.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/envelopeStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/envelopeStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraErrorDisplay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraErrorDisplay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraSetup.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraSetup.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/VideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/VideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/GeoVideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/GeoVideoRecordingControls.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DetectionOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DetectionOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DetectionZoneOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DetectionZoneOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ai/DetectionCorrectionDialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ai/DetectionCorrectionDialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/EnvelopeClearanceOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/EnvelopeClearanceOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/DepthDataOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/DepthDataOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/StereoViewOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/StereoViewOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/camera/CameraStatusBadge.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/camera/CameraStatusBadge.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/MeasurementOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/MeasurementOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useDetectionManager.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useDetectionManager.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useTrainingSession.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useTrainingSession.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useKeyboardShortcuts.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useKeyboardShortcuts.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/training.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/training.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/calibrationStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/calibrationStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/sweptPathStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/sweptPathStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/AnalyzeTurnButton.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/AnalyzeTurnButton.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/SweptPathOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/SweptPathOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/sweptPath/RoadDetectionDebugOverlay.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/sweptPath/RoadDetectionDebugOverlay.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraDisconnectMonitor.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraDisconnectMonitor.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/keyboard.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/keyboard.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/detectionStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/detectionStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/storage/measurement-storage.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/storage/measurement-storage.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/export/measurement-export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/export/measurement-export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/opencv/specialized-measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/opencv/specialized-measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/measurement/HeightSettingsCard.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/measurement/HeightSettingsCard.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/SignupPage.tsx?t=1761856606108
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/SignupPage.tsx?t=1761856606108
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1761856606108
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailConfig.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailConfig.ts
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /signup
+workbox-47da91e0.js:44 workbox The navigation route /signup is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /signup
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/pwa-entry-point-loaded
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/pwa-entry-point-loaded
+@react-refresh:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+client:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://fonts.googleapis.com/css?family=IBM+Plex+Sans
+workbox-47da91e0.js:44 workbox Router is responding to: https://fonts.googleapis.com/css?family=IBM+Plex+Sans
+workbox-47da91e0.js:44 workbox Found a cached response in 'google-fonts-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to 'https://fonts.googleapis.com/css?family=IBM+Plex+Sans'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDB6g4.woff2
+workbox-47da91e0.js:44 workbox Router is responding to: https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDB6g4.woff2
+workbox-47da91e0.js:44 workbox Found a cached response in 'gstatic-fonts-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to 'https://fonts.gstatic.com/s/ibmplexsans/v23/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDB6g4.woff2'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /favicon.ico
+workbox-47da91e0.js:44 workbox Router is responding to: /favicon.ico
+workbox-47da91e0.js:44 workbox No cached response found in 'image-cache'.
+pwa-entry-point-loaded:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /manifest.webmanifest
+workbox-47da91e0.js:44 workbox No route found for: /manifest.webmanifest
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /favicon.png
+workbox-47da91e0.js:44 workbox Router is responding to: /favicon.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/favicon.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+workbox-47da91e0.js:44 workbox Network request for '/favicon.ico' returned a response with status '502'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/favicon.ico'
+workbox-47da91e0.js:44 workbox The request for '/favicon.ico' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/favicon.ico' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+manifest.webmanifest:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+(index):1  Manifest fetch from https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/manifest.webmanifest failed, code 502
+workbox-47da91e0.js:44 workbox Router is responding to: /
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /manifest.webmanifest
+workbox-47da91e0.js:44 workbox No route found for: /manifest.webmanifest
+workbox-47da91e0.js:44 workbox Found a cached response in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+workbox-47da91e0.js:44 workbox No cached response found in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox No cached response found in 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/'.
+workbox-47da91e0.js:44 workbox Network request for '/index.html' returned a response with status '200'.
+workbox-47da91e0.js:44 workbox The response for /index.html?__WB_REVISION__=0.s1takq83n1o has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox Updating the 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/' cache with a new Response for /index.html?__WB_REVISION__=0.s1takq83n1o.
+workbox-47da91e0.js:44 workbox Precaching 1 file.
+workbox-47da91e0.js:44 workbox Network request for '/index.html' returned a response with status '200'.
+workbox-47da91e0.js:44 workbox The response for /index.html?__WB_REVISION__=0.s1takq83n1o has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox Updating the 'workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/' cache with a new Response for /index.html?__WB_REVISION__=0.s1takq83n1o.
+workbox-47da91e0.js:44 workbox Precaching 1 file.
+workbox-47da91e0.js:44 workbox During precaching cleanup, 1 cached request was deleted.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar20n%3A
+workbox-47da91e0.js:44 workbox The navigation route /__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar20n%3A is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar20n%3A
+workbox-47da91e0.js:44 workbox During precaching cleanup, 1 cached request was deleted.

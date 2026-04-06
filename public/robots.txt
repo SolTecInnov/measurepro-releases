@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Block non-public app routes (authenticated/tool pages)
+Disallow: /admin
+Disallow: /debug-indexeddb
+Disallow: /debug-stress
+Disallow: /testing
+Disallow: /license-management
+Disallow: /checkout/
+Disallow: /slave-app
+Disallow: /mobile-select
+Disallow: /LiveMonitor
+Disallow: /point-cloud-scanner
+Disallow: /gnss-profiling
+Disallow: /set-password
+Disallow: /awaiting-approval
+Disallow: /marketing
+
+# XML sitemap location
+Sitemap: https://measure-pro.app/sitemap.xml

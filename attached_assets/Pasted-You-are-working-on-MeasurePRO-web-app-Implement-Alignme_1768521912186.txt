@@ -1,0 +1,131 @@
+You are working on MeasurePRO (web app). Implement “Alignment + Profile Linked Viewer” and also finish the missing items from the GNSS Diagnostics & Calibration Suite. Do not reduce scope. Deliver end-to-end functionality with persistence, exports, and UI.
+
+================================================================================
+PART A — ALIGNMENT + PROFILE LINKED VIEWER (NEW FEATURE)
+
+GOAL
+Add road alignments to the Road Profile Viewer and save both objects, linked together. When the user moves a marker on the map (alignment view) the profile cursor moves to the matching station; when the user drags a cursor on the profile, the map marker moves to the matching station on the alignment.
+
+CONCEPT
+Use a shared linear reference “stationing” s (meters) along an alignment polyline.
+Alignment is the polyline; Profile is altitude vs s.
+Project GNSS points to the alignment to compute s and lateral offset.
+
+DATA MODELS (Firebase + local cache)
+1) Alignment
+- id, projectId, name
+- polyline: [{lat, lon}, ...]
+- cumDistM: number[] (precomputed cumulative distance per vertex)
+- createdAt, updatedAt, createdBy
+2) Profile
+- id, projectId, name
+- alignmentId (required for linked mode)
+- samples: [{ s_m, lat, lon, time, altitude_raw_m, altitude_selected_m, altitude_corrected_m, ... }]
+- metadata: altitudeStrategy, altitudeOffsetM, axisMapping, buildVersion, createdAt
+
+Persist BOTH in Firebase (project scope). Cache locally (IndexedDB). Support offline viewing.
+
+CORE GEOMETRY FUNCTIONS
+Implement these utilities (tested):
+- projectPointToPolyline(pointLatLon, polylineLatLon, cumDistM) ->
+    { s_m, offset_m, closestLatLon, segIndex, t }
+  where s_m is station along polyline, offset is signed lateral distance (right positive), closest point is snapped point.
+- pointAtStation(polylineLatLon, cumDistM, s_m) ->
+    { lat, lon, bearingDeg }
+- computePolylineCumDist(polylineLatLon) -> cumDistM
+
+UI: PROFILE VIEWER SPLIT VIEW
+Add a split view mode in Road Profile Viewer:
+Left: Map with alignment polyline + a draggable station marker constrained to the alignment (snap as user drags).
+Right: Profile graph with a vertical cursor line at station s.
+
+INTERACTIONS (bidirectional)
+- Map marker drag:
+  -> snap marker to alignment
+  -> compute s_m from snapped point
+  -> update profile cursor to s_m
+  -> show readout: station (km), lateral offset (m), corrected altitude at nearest sample
+- Profile cursor drag:
+  -> compute s_m from cursor x
+  -> find pointAtStation(s_m) on alignment
+  -> move map marker to that point
+- “Link cursor” toggle (default ON)
+
+PROFILE CREATION OPTIONS
+- “Attach to alignment” for existing profiles: compute s_m per sample by projecting each sample lat/lon to the alignment.
+- “Create alignment from driven path” (optional but useful):
+  - create polyline from GNSS path (simplify with Douglas-Peucker)
+  - save as alignment, then link profile
+
+SAVE / LOAD
+- List alignments and profiles in project
+- Ability to load an alignment + linked profiles
+- Save both as a “Linked Set” (alignmentId stored in profile)
+- Ensure deleting an alignment warns if profiles reference it.
+
+EXPORTS
+- Export alignment as GeoJSON
+- Export profile as CSV
+- Export linked set as ZIP:
+  - alignment.geojson
+  - profile.csv
+  - metadata.json (including calibration metadata)
+
+================================================================================
+PART B — FINISH MISSING ITEMS FROM GNSS DIAGNOSTICS & CALIBRATION SUITE
+
+MISSING REQUIREMENTS TO IMPLEMENT
+1) Profile Viewer live telemetry overlay MUST show (while drawing):
+- heading, lat/lon, corrected altitude (MSL), roll/pitch/yaw
+Update at 5–10 Hz (throttle). Add expand/collapse for fix/sats/hdop/speed.
+
+2) K-factor icon toggles MUST be independent:
+- Show/hide convex k-factor icons
+- Show/hide concave k-factor icons
+Not a single combined toggle.
+
+3) Distance axis for long profiles must be fully fixed:
+- auto switch m -> km
+- dynamic tick steps (0.1, 0.2, 0.5, 1, 2, 5, 10, 25, 50 km)
+- readable labels (avoid overlap)
+- view modes: Full / last 1km / 5km / 10km (or pan/zoom)
+Must handle 100–300 km without NaN/overflow.
+
+4) Rename “Elevation” to “Altitude (MSL)” everywhere and ensure y-axis supports negative values without clipping.
+
+5) Raw Payload Inspector must:
+- highlight altitude-related keys automatically
+- show “Altitude Summary” per packet:
+  - explicit MSL candidate field(s)
+  - ellipsoid height candidate(s)
+  - geoid separation/undulation if present
+  - derived MSL = ellipsoid - geoidSep (with units)
+- show badge: explicit MSL / derivable / ambiguous
+- show exact field paths used by the selected altitude strategy
+- allow selecting altitude strategy: prefer explicit MSL / derive MSL / raw ambiguous
+Persist per device with optional per-project override.
+
+6) Diagnostics log export:
+Export JSON containing raw packets ring buffer + derived telemetry + calibrations + device/project ids + app build/version.
+
+7) Persistence must be BOTH:
+- Firebase per device (source of truth) with optional per-project overrides
+- Local cache (IndexedDB) for offline
+localStorage-only is not acceptable; migrate existing localStorage values into new persistence.
+
+8) Calibration Summary card:
+Show axis mapping + confidence, altitude strategy, offset value, last calibration timestamp, device id/mount name, project override status.
+
+9) Axis Wizard confidence + fallback:
+- If accel/gyro present: full 3-step wizard
+- If missing: reduced-confidence wizard using attitude/heading dynamics + manual confirmation
+Always display confidence scores (0–100) and corrective suggestions (90° rotation, inverted Z, sign flips).
+
+ACCEPTANCE CRITERIA
+- Alignment+Profile split view works bidirectionally with stationing s.
+- Profiles can be saved linked to alignment and reloaded reliably.
+- Missing suite items above are implemented and verifiable in UI.
+- Exports include raw + corrected altitude and calibration metadata.
+- No regressions to existing GNSS or overhead features.
+
+Implement now and provide a concise summary with file paths and what changed.

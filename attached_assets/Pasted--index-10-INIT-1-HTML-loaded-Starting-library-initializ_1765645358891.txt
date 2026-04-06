@@ -1,0 +1,390 @@
+(index):10 [INIT-1] HTML loaded - Starting library initialization
+(index):23 [INIT-4] Body rendering - Root div created
+index-DiMOPAeL.js:3820 [INIT-5] main.tsx loaded - Starting React app initialization
+index-DiMOPAeL.js:3820 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-DiMOPAeL.js:3820 [INIT-6] Build environment: production Production: true
+index-DiMOPAeL.js:3820 [INIT-7] Starting localStorage cleanup...
+index-DiMOPAeL.js:3820 [INIT-8] Scanning localStorage for problematic keys...
+index-DiMOPAeL.js:3820 [INIT-9] No problematic localStorage keys found
+index-DiMOPAeL.js:3820 [INIT-11] localStorage cleanup complete
+index-DiMOPAeL.js:3820 [INIT-12] Checking library health (Leaflet, etc)...
+index-DiMOPAeL.js:3748 Library health check PASSED - All critical libraries loaded
+index-DiMOPAeL.js:3820 [INIT-13] ✅ Library health check PASSED
+index-DiMOPAeL.js:3820 [INIT-13b] Initializing Firebase auto-sync service...
+index-DiMOPAeL.js:3478 [ConnectivityMonitor] Initialized {isOnline: true, isFirebaseConnected: false, isAuthenticated: false, lastOnlineAt: 1765645330428, lastOfflineAt: null}
+index-DiMOPAeL.js:3478 [AutoSync] Firebase auto-sync initialized
+index-DiMOPAeL.js:3820 [INIT-13c] ✅ Firebase auto-sync initialized
+index-DiMOPAeL.js:3820 [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+index-DiMOPAeL.js:3732 [AutoPartManager] Initializing with threshold: 400
+index-DiMOPAeL.js:3820 [INIT-13e] ✅ Auto-Part Manager initialized
+index-DiMOPAeL.js:3820 [INIT-14] Rendering React app to root element...
+index-DiMOPAeL.js:3820 [INIT-15] ✅ React app rendered successfully
+index-DiMOPAeL.js:3732 [APP-1] App component mounted, initializing core workers...
+index-DiMOPAeL.js:3732 [APP-2] Checking IndexedDB health before worker initialization...
+index-DiMOPAeL.js:3732 [STORAGE-1] Starting IndexedDB health check...
+index-DiMOPAeL.js:3732 [STORAGE-3] Checking if indexedDB is defined...
+index-DiMOPAeL.js:3732 [STORAGE-4] IndexedDB is defined
+index-DiMOPAeL.js:3732 [STORAGE-5] Attempting to open test database...
+index-DiMOPAeL.js:3743 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-DiMOPAeL.js:3732 [STORAGE-6] Test database opened successfully
+index-DiMOPAeL.js:3732 [STORAGE-8] Testing write operation...
+index-DiMOPAeL.js:3732 [STORAGE-9] Write test successful
+index-DiMOPAeL.js:3732 [STORAGE-10] Test database closed
+index-DiMOPAeL.js:3732 [STORAGE-11] Checking storage quota...
+index-DiMOPAeL.js:3732 [STORAGE-12] Storage quota: {used: '159.0MB', total: '144821.4MB', percentage: '0.1%'}
+index-DiMOPAeL.js:3732 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-DiMOPAeL.js:3743 [APP-3] IndexedDB healthy, initializing workers...
+index-DiMOPAeL.js:3743 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-DiMOPAeL.js:3743 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-DiMOPAeL.js:3743 [APP-5] ✅ Orchestrator worker initialized
+index-DiMOPAeL.js:3743 [APP-6] ✅ Flush-on-close handlers initialized
+indexedDbStore-BthjtwQk.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BthjtwQk.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BthjtwQk.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BthjtwQk.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BthjtwQk.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BthjtwQk.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BthjtwQk.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BthjtwQk.js:2 [LaserReader] ASCII mode (no RSA driver)
+index-DiMOPAeL.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-DiMOPAeL.js:3480
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-DiMOPAeL.js:3480
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+index-DiMOPAeL.js:3743 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-DiMOPAeL.js:3235  ⚠️ SLOW: getSurveysPaginated took 333ms
+ks @ index-DiMOPAeL.js:3235
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480 ⏱️ getSurveysPaginated(50): 332.9609375 ms
+index-DiMOPAeL.js:3480 ⏱️ loadSurveys TOTAL: 369.839111328125 ms
+index-DiMOPAeL.js:3480 ✅ Loaded 7 surveys (including active) in 370ms
+index-DiMOPAeL.js:3235  ⚠️ SLOW: loadSurveys (initial) took 370ms
+ks @ index-DiMOPAeL.js:3235
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3235  ⚠️ SLOW: getSurveysPaginated took 127ms
+ks @ index-DiMOPAeL.js:3235
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480 ✅ Loaded 7 surveys (including active) in 143ms
+index-DiMOPAeL.js:3235  ⚠️ SLOW: loadSurveys (initial) took 143ms
+ks @ index-DiMOPAeL.js:3235
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3235  ⚠️ SLOW: getSurveysPaginated took 136ms
+ks @ index-DiMOPAeL.js:3235
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3480 ✅ Loaded 7 surveys (including active) in 151ms
+index-DiMOPAeL.js:3235  ⚠️ SLOW: loadSurveys (initial) took 151ms
+ks @ index-DiMOPAeL.js:3235
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ Settings-CSchDw2Q.js:171
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+index-DiMOPAeL.js:3478 [ConnectivityMonitor] User authenticated
+index-DiMOPAeL.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+ZED2iCamera-4Z0xBH-H.js:1  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+n5 @ index-DiMOPAeL.js:3720
+await in n5
+(anonymous) @ index-DiMOPAeL.js:3720
+(anonymous) @ index-DiMOPAeL.js:3720
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3478 [AutoSync] Survey exported: f4954eb4-c3f0-43fa-aae3-995ace9dce10 - "d"
+index-DiMOPAeL.js:3113  [Sync] Error syncing measurements for survey f4954eb4-c3f0-43fa-aae3-995ace9dce10: FirebaseError: Missing or insufficient permissions.
+Go @ index-DiMOPAeL.js:3113
+await in Go
+Zg @ index-DiMOPAeL.js:3478
+await in Zg
+XO @ index-DiMOPAeL.js:3479
+(anonymous) @ Settings-CSchDw2Q.js:171
+setTimeout
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+IndexedDB
+(anonymous) @ index-DiMOPAeL.js:3113
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3478  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at Zg (index-DiMOPAeL.js:3478:24478)
+    at async XO (index-DiMOPAeL.js:3479:2815)
+Zg @ index-DiMOPAeL.js:3478
+await in Zg
+XO @ index-DiMOPAeL.js:3479
+(anonymous) @ Settings-CSchDw2Q.js:171
+setTimeout
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+IndexedDB
+(anonymous) @ index-DiMOPAeL.js:3113
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3478 [SyncQueue] Enqueued survey_export for survey f4954eb4-c3f0-43fa-aae3-995ace9dce10 sync_f4954eb4-c3f0-43fa-aae3-995ace9dce10_1765645337000_b6klev
+index-DiMOPAeL.js:3113  [Sync] Error syncing measurements for survey f4954eb4-c3f0-43fa-aae3-995ace9dce10: FirebaseError: Missing or insufficient permissions.
+Go @ index-DiMOPAeL.js:3113
+await in Go
+processItem @ index-DiMOPAeL.js:3478
+await in processItem
+processQueue @ index-DiMOPAeL.js:3478
+await in processQueue
+(anonymous) @ index-DiMOPAeL.js:3478
+Xc @ index-DiMOPAeL.js:3478
+await in Xc
+Zg @ index-DiMOPAeL.js:3478
+await in Zg
+XO @ index-DiMOPAeL.js:3479
+(anonymous) @ Settings-CSchDw2Q.js:171
+setTimeout
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+IndexedDB
+(anonymous) @ index-DiMOPAeL.js:3113
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DiMOPAeL.js:3478  [SyncService] Failed to sync survey f4954eb4-c3f0-43fa-aae3-995ace9dce10: Failed to sync measurement batch 1
+processItem @ index-DiMOPAeL.js:3478
+await in processItem
+processQueue @ index-DiMOPAeL.js:3478
+await in processQueue
+(anonymous) @ index-DiMOPAeL.js:3478
+Xc @ index-DiMOPAeL.js:3478
+await in Xc
+Zg @ index-DiMOPAeL.js:3478
+await in Zg
+XO @ index-DiMOPAeL.js:3479
+(anonymous) @ Settings-CSchDw2Q.js:171
+setTimeout
+(anonymous) @ Settings-CSchDw2Q.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+IndexedDB
+(anonymous) @ index-DiMOPAeL.js:3113
+$d @ index-DiMOPAeL.js:3235
+await in $d
+loadSurveys @ index-DiMOPAeL.js:3480
+await in loadSurveys
+(anonymous) @ index-DiMOPAeL.js:3743
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+Settings-CSchDw2Q.js:171  [ProfileRecording] GPS error: GeolocationPositionError {code: 3, message: 'Timeout expired'}
+x.current.navigator.geolocation.watchPosition.enableHighAccuracy @ Settings-CSchDw2Q.js:171

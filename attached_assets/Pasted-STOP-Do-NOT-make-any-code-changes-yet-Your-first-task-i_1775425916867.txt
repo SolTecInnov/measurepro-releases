@@ -1,0 +1,218 @@
+STOP. Do NOT make any code changes yet.
+
+Your first task is to READ and AUDIT the codebase, then produce a written plan
+for my review. I will approve the plan before you touch a single file.
+
+--- FILES TO READ IN FULL BEFORE ANYTHING ELSE ---
+src/components/POISelector.tsx
+src/components/KeyboardShortcutHandler.tsx
+src/lib/poiActions.ts
+src/hooks/useMeasurementLogging.ts
+src/components/POIHeightRow.tsx
+src/pages/Settings.tsx (lines 491–688 and line 849)
+
+--- BACKGROUND: WHAT IS BROKEN AND WHY ---
+
+The POI action system has multiple problems:
+
+PROBLEM 1 — IMMEDIATE TRIGGER (root cause)
+In POISelector.tsx and KeyboardShortcutHandler.tsx, selecting a POI type
+immediately calls a function that creates a log entry. This is wrong. The
+measurement pipeline in useMeasurementLogging.ts already handles all logging
+correctly. POI type selection should ONLY set the active type in the store —
+nothing more. No log entry should ever be created at selection time.
+
+PROBLEM 2 — DUPLICATE COUNTER DETECTION PATHS
+There appear to be TWO separate code paths that can log a POI in
+counterDetection mode simultaneously:
+  (a) processCounterDetection() — called by a 150ms setInterval timer
+  (b) A logBufferedPOI() function — inside the handleMeasurementChange useEffect
+      that also handles counterDetection mode
+If both paths are active at the same time, they will produce duplicate POI
+entries for the same physical object. One of these paths must be removed or
+disabled.
+
+PROBLEM 3 — TWO SOURCES OF TRUTH FOR ACTIVE POI TYPE
+Some functions read selectedPOIType (from props).
+Some functions call getSelectedType() (from the POI store directly).
+If these two sources ever diverge, measurements get logged with the wrong POI
+type. All functions must use the same single source.
+
+PROBLEM 4 — WRONG NOTE FORMAT IN ALL LOGGING PATHS
+Multiple logging functions produce incorrect note text:
+  - Some include "Visual documentation" text that must be removed
+  - Some omit GND REF entirely or make it conditional on > 0
+  - GND REF must ALWAYS appear in height-clearance POI notes, even when 0.00m
+  - Measurement-free POIs should have only the POI type label in their note
+
+PROBLEM 5 — MISSING PREREQUISITE GUARDS ON UI-TRIGGERED ACTIONS
+auto-capture-no-measurement, open-manual-modal, and voice-note actions in
+POISelector and KeyboardShortcutHandler have no guards. They must check:
+  Guard A: an active survey exists
+  Guard B: a logging mode is selected (not "manual" / "none" / "off")
+  Guard C: isLogging === true (for auto-capture-no-measurement only)
+If any guard fails, show a descriptive toast and do nothing else.
+
+PROBLEM 6 — "NONE" POI TYPE DEFAULT IS WRONG
+In poiActions.ts, DEFAULT_POI_ACTIONS maps '' (empty string) to
+'auto-capture-and-log'. It should map to 'select-only'.
+
+--- AUDIT TASKS: WHAT I NEED YOU TO FIND AND REPORT ---
+
+Read all files listed above, then answer each of the following precisely.
+
+AUDIT 1 — POI TRIGGER
+  - Find every line in POISelector.tsx and KeyboardShortcutHandler.tsx that
+    calls any function when a POI type is selected.
+  - For each call: what function is called, which file is it in, does it create
+    a log entry immediately?
+
+AUDIT 2 — COUNTER DETECTION PATHS
+  - Find every code path in useMeasurementLogging.ts that can log a POI entry
+    in counterDetection mode.
+  - Confirm whether processCounterDetection() and logBufferedPOI() (inside
+    handleMeasurementChange) can both fire for the same measurement event.
+  - If both exist and overlap, identify which one is the correct authoritative
+    path to keep, and which one must be disabled or removed.
+
+AUDIT 3 — POI TYPE SOURCE
+  - List every function in useMeasurementLogging.ts that reads the active POI
+    type, and whether it reads from selectedPOIType (props) or getSelectedType()
+    (store).
+  - Can these two sources diverge? Propose which single source all functions
+    should use.
+
+AUDIT 4 — NOTE FORMAT
+  - Find the exact note string being written in each of these functions:
+    logMeasurement(), processCounterDetection(), finalizeManualDetection(),
+    handleBufferComplete()
+  - Quote the exact current string for each.
+  - Flag any that include "Visual documentation", omit GND REF, or make
+    GND REF conditional.
+
+AUDIT 5 — handleAutoCaptureAndLog
+  - Where is this function defined?
+  - Where is it currently called from?
+  - Does it create a log entry directly? If so, how?
+
+AUDIT 6 — POI NUMBER GENERATION
+  - Which logging functions use getNextPOINumber() (sequential)?
+  - Which use Math.random() (random)?
+  - List each function and the method it uses.
+
+--- IMPLEMENTATION REQUIREMENTS ---
+After completing the audit, produce a plan that addresses all of the following.
+Do not write any code yet — describe exactly what you will do and where.
+
+REQUIREMENT 1 — Remove immediate trigger for auto-capture-and-log
+In POISelector.tsx and KeyboardShortcutHandler.tsx:
+  - When a POI type with action 'auto-capture-and-log' is selected, ONLY set
+    the active POI type in the store. Do NOT call any logging function.
+  - Do NOT auto-reset the active POI type to '' after a capture. The selected
+    type must persist until the user explicitly changes it. A driver may run
+    for hours logging the same type (e.g. "Wire") with zero manual interaction
+    — the existing pipeline fires on every qualifying measurement automatically.
+  - The existing pipeline in useMeasurementLogging.ts already reads
+    selectedPOIType and handles all logging correctly. No new wiring is needed.
+
+REQUIREMENT 2 — Eliminate duplicate counter detection logging
+One of the two counter detection paths (processCounterDetection() timer OR
+logBufferedPOI() inside handleMeasurementChange) must be the single
+authoritative path. The other must be fully disabled. Your audit will determine
+which is correct to keep. Do not leave both active.
+
+REQUIREMENT 3 — Unify POI type source
+All functions in useMeasurementLogging.ts must read the active POI type from
+the same single source. Your audit will determine which source is correct.
+Update all functions that use the wrong source.
+
+REQUIREMENT 4 — Add prerequisite guards (Task 2 from background)
+Before executing auto-capture-no-measurement, open-manual-modal, or voice-note
+(in both POISelector and KeyboardShortcutHandler):
+  Guard A: activeSurvey exists
+  Guard B: loggingMode is not "manual" / "none" / "off"
+  Guard C: isLogging === true (auto-capture-no-measurement only)
+Show a descriptive toast on failure:
+  - "No active survey — create one first"
+  - "Select a logging mode first"
+  - "Start logging first"
+Threading required:
+  - loggingMode and isLogging come from useMeasurementLogging (Settings.tsx
+    line 849) and must be threaded: Settings.tsx → POIHeightRow → POISelector
+    and Settings.tsx → KeyboardShortcutHandler
+  - activeSurvey comes from useSurveyStore in Settings.tsx and must also be
+    threaded to both components as a prop.
+
+REQUIREMENT 5 — Neutralize handleAutoCaptureAndLog
+Add a guard at the top of handleAutoCaptureAndLog that immediately returns
+without doing anything. This prevents any accidental future call from creating
+phantom entries. Do NOT delete the function — it may be referenced in type
+definitions.
+
+REQUIREMENT 6 — Fix measurement-free POIs
+In handleAutoCaptureNoMeasurement:
+  - Confirm rel is set to null.
+  - Replace the note with just the POI type label (e.g. "Intersection").
+  - Remove all "Visual documentation" text.
+  - Confirm no downstream DB write or worker back-fills a height for these
+    entries.
+
+REQUIREMENT 7 — Fix note format in ALL four logging paths
+The corrected note format must be applied in logMeasurement(),
+processCounterDetection(), finalizeManualDetection(), and handleBufferComplete().
+
+For height-clearance POIs — single measurement:
+  "Height: X.XXm | GND REF: X.XXm | {label}"
+
+For height-clearance POIs — multiple measurements (counter/buffer/manual
+detection modes):
+  "Readings: X.XXm, X.XXm, X.XXm | Min: X.XXm | GND REF: X.XXm | {label}"
+
+Rules that apply to all paths:
+  - GND REF must ALWAYS appear, even when the value is 0.00m. It is required
+    for audit and traceability — never omit it or make it conditional.
+  - Remove all "Visual documentation" text entirely.
+  - The label is the active POI type's display name.
+  - For measurement-free POIs: just the label, no height, no GND REF.
+
+For handleBufferComplete(): check what BufferDetectionService.formatSessionNotes()
+returns. If it does not follow the format above, override the note field before
+writing the measurement.
+
+REQUIREMENT 8 — Fix "None" POI type default
+In poiActions.ts, in DEFAULT_POI_ACTIONS:
+  Change the '' key from 'auto-capture-and-log' to 'select-only'.
+
+--- OUT OF SCOPE — DO NOT TOUCH ---
+  - The internal logic of detection pipelines beyond what is explicitly listed
+    above — do not refactor or reorganize useMeasurementLogging.ts structure
+  - POI type list (no additions or removals)
+  - UI layout or visual design
+  - The select-only, open-manual-modal, and voice-note action logic itself
+    beyond adding the guards from Requirement 4
+
+--- PLAN FORMAT REQUIRED ---
+
+Produce your plan in these four sections. No code yet.
+
+SECTION A — FINDINGS
+Your audit answers for each of the 6 audit tasks above, with file names and
+line numbers for every finding.
+
+SECTION B — CHANGES REQUIRED
+For each requirement above, list:
+  - What you will change
+  - Exact file(s) and line number(s) affected
+  - How you will make the change
+  - What could go wrong and how you will avoid it
+
+SECTION C — EXECUTION ORDER
+The exact order in which you will make the changes, with a brief explanation
+of why that order is safe.
+
+SECTION D — VERIFICATION STEPS
+For each change, how you will confirm it worked without breaking anything else.
+
+--- AWAIT APPROVAL BEFORE WRITING ANY CODE ---
+Submit the plan only. I will review it and give explicit approval before
+you make any changes to any file.

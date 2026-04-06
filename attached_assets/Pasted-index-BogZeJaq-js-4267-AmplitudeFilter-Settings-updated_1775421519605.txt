@@ -1,0 +1,47 @@
+index-BogZeJaq.js:4267 [AmplitudeFilter] Settings updated: Object
+index-BogZeJaq.js:4267 [LDM71 Driver] Using isolated amplitude filter instance
+index-BogZeJaq.js:4267 [AmplitudeFilter] Reset
+index-BogZeJaq.js:4268 [LDM71 Driver] Reset
+index-BogZeJaq.js:4267 [AmplitudeFilter] Settings updated: Object
+index-BogZeJaq.js:4267 [LDM71 Driver] Using isolated amplitude filter instance
+index-BogZeJaq.js:4267 [AmplitudeFilter] Reset
+index-BogZeJaq.js:4268 [LDM71 Driver] Reset
+index-BogZeJaq.js:4380 🚀 MeasurePRO Build: 2026-04-05-1775420303375
+index-BogZeJaq.js:4308 Library health check PASSED - All critical libraries loaded
+index-BogZeJaq.js:3992 [ConnectivityMonitor] Initialized Object
+index-BogZeJaq.js:3992 [AutoSync] Firebase auto-sync initialized
+index-BogZeJaq.js:4292 [AutoPartManager] Initializing with threshold: 200
+index-BogZeJaq.js:4303 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-BogZeJaq.js:3992 [ConnectivityMonitor] Firebase connectivity confirmed
+measure-pro.app/:1 [Intervention] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113
+index-BogZeJaq.js:3992 [ConnectivityMonitor] User authenticated
+index-BogZeJaq.js:4287 [AutoReconnect] Starting check for user: z2JsOVxJNohWupffvUh28QN1CIs1
+index-BogZeJaq.js:4287 [AutoReconnect] Check result: config-changed
+index-BogZeJaq.js:4287 [AutoReconnect] Config changed but no profile — skipping
+index-BogZeJaq.js:3992 [ConnectivityMonitor] Firebase connectivity confirmed
+index-BogZeJaq.js:3766 [ProfileBuffer] Started global GPS subscription for persistent recording
+app:1 Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+leaflet-Cfs2bPeT.js:32 TypeError: Cannot read properties of null (reading 'toFixed')
+    at VehicleMap-DTpGiibx.js:14:674
+    at jl (leaflet-Cfs2bPeT.js:30:17030)
+    at Md (leaflet-Cfs2bPeT.js:32:43927)
+    at Cd (leaflet-Cfs2bPeT.js:32:39697)
+    at Pv (leaflet-Cfs2bPeT.js:32:39625)
+    at Wo (leaflet-Cfs2bPeT.js:32:39479)
+    at sl (leaflet-Cfs2bPeT.js:32:35853)
+    at Ld (leaflet-Cfs2bPeT.js:32:34804)
+    at A (leaflet-Cfs2bPeT.js:17:1555)
+    at MessagePort.ke (leaflet-Cfs2bPeT.js:17:1925)
+Ya @ leaflet-Cfs2bPeT.js:32
+index-BogZeJaq.js:4292 ❌ RouteErrorBoundary caught non-chunk error: Cannot read properties of null (reading 'toFixed')
+componentDidCatch @ index-BogZeJaq.js:4292
+ZED2iCamera-4Z0xBH-H.js:1 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+127.0.0.1:17777/api/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+app:1 Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+index-BogZeJaq.js:4287 [AutoReconnect] Page became visible — resetting userId guard and checking
+index-BogZeJaq.js:4287 [AutoReconnect] Starting check for user: z2JsOVxJNohWupffvUh28QN1CIs1
+index-BogZeJaq.js:4287 [AutoReconnect] Check result: config-changed
+index-BogZeJaq.js:4287 [AutoReconnect] Config changed but no profile — skipping
+index-BogZeJaq.js:3994 [SoundManager] AudioContext state after create: running
+index-BogZeJaq.js:3994 [SoundManager] ✅ Initialized successfully

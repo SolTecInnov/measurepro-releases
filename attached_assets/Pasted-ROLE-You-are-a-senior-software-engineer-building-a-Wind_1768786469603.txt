@@ -1,0 +1,84 @@
+ROLE:
+You are a senior software engineer building a Windows 11 Pro LiDAR companion service for a React PWA (MeasurePRO). The PWA cannot receive UDP, so we need a native/local service that captures and processes Hesai Pandar40P Ethernet UDP LiDAR data and exposes results to the PWA via localhost WebSocket/HTTP.
+
+HARD CONSTRAINTS:
+- OS: Windows 11 Pro
+- Hardware: Dell Rugged i7, 32GB RAM
+- MeasurePRO: React PWA in browser
+- Pandar40P: Ethernet UDP stream
+- Swift Duro provides PPS to Pandar for sync. Duro also provides GNSS/IMU to the PC (assume via Ethernet or serial; we will ingest NMEA and optionally IMU).
+
+GOAL (OS/OW use-cases):
+1) While driving: compute and stream lightweight corridor metrics to MeasurePRO:
+   - roadWidthNow (drivable width)
+   - minRoadWidthLast100m
+   - usableWidthAtHeights[] for heights [4.5, 5.0, 5.5, 6.0] meters
+   - lateralClearanceLeft/Right within a configurable convoy envelope
+   - alerts when width < (loadWidth + margin) or when obstacles intrude into envelope
+   - confidence score per metric
+2) When stopped: “Static Scan” capture:
+   - record 10–30 seconds of raw data
+   - export a point cloud file that can be imported into CAD tools (CloudCompare/Civil3D). Prefer LAZ/LAS.
+3) Optional: “Segment Capture” while rolling slowly (e.g. 60s).
+
+ARCHITECTURE:
+Build “measurepro-lidar-service” as a local program exposing:
+- WebSocket: ws://127.0.0.1:PORT/ws for streaming JSON at 5–10Hz:
+  {
+    ts, status:{connected, packetsPerSec, timeSyncOk},
+    metrics:{roadWidthNow, minRoadWidthLast100m, usableWidthAtHeights:[{h,width}], lateral:{left,right}},
+    alerts:[{type, severity, message, distanceAheadM}],
+    debug:{cpu, droppedPackets, diskWriteMBps}
+  }
+- HTTP API:
+  GET  /api/status
+  POST /api/capture/static/start   body:{durationSec, poiId?}
+  POST /api/capture/segment/start  body:{durationSec, poiId?}
+  POST /api/capture/stop
+  GET  /api/capture/:id
+  POST /api/capture/:id/export     body:{format:"laz"|"las"|"pcap"}
+
+DATA STORAGE:
+Write captures to:
+  captures/<captureId>/
+    raw/ (pcap or vendor raw)
+    metadata.json (device info, timestamps, GNSS fix, pose if available, config)
+    exports/scan.laz (after export)
+
+IMPLEMENTATION CHOICE:
+- Use C# (.NET 8) OR Rust. Pick the most practical for Windows packaging.
+- If vendor SDK is needed, design an adapter layer so we can drop it in later.
+- If we cannot rely on vendor SDK, implement UDP packet capture and create a “parser interface” with TODOs where packet decoding details must be plugged in.
+
+IMPORTANT MISSING INFO YOU MUST HANDLE:
+We may not have exact Pandar40P packet definitions inside this prompt. Implement the system so:
+- UDP capture works immediately (packets in, count rate shown).
+- Packet decode is abstracted via ILidarDecoder interface.
+- Provide a “mock decoder” so the PWA integration can be tested without real LiDAR.
+- Provide clear TODO placeholders for real Pandar40P decoding fields.
+
+METRICS (MVP algorithms — keep it simple and robust):
+- Use a forward sector window (e.g. +/- 60 degrees, 3–30m range).
+- Ground filter: simple z-threshold or plane fit (configurable).
+- Road edges: derive left/right limits from ground points occupancy in lateral bins (histogram) and detect drop-off/obstacle boundary.
+- Overhead usable width at height H: in a distance slice (e.g. 10–20m ahead), take points in [H±0.25m] band and compute left/right clear boundaries.
+- Lateral intrusion: for each point in height band [0.3–6.5m], check if within envelope. If yes, generate alert.
+
+ACCEPTANCE CRITERIA:
+1) Service runs on Windows and shows:
+   - connected=false then true when UDP packets arrive
+   - packetsPerSec updates
+   - droppedPackets tracked
+2) WebSocket streams JSON 5–10Hz.
+3) Static capture creates a folder with metadata.json and raw dump.
+4) Export produces a valid LAS/LAZ file (even if coordinates are local sensor frame for now), readable in CloudCompare.
+5) Provide a minimal React example snippet showing how MeasurePRO connects to WebSocket and calls the HTTP endpoints.
+
+DELIVERABLES:
+- Repository with service code
+- README with: install, run, configure IP/ports, test mode
+- A config file (json/yaml) with:
+  pandar_ip, pandar_port(s), output_dir,
+  roadWidth params, heightBands, envelope (loadWidth, margin),
+  capture durations
+- Basic unit tests for metrics functions using simulated point clouds

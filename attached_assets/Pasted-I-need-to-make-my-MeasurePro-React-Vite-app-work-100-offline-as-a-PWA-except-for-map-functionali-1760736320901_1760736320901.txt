@@ -1,0 +1,184 @@
+I need to make my MeasurePro React + Vite app work 100% offline as a PWA (except for map functionality). Here are the specific requirements:
+
+## Requirements:
+
+1. **Full Offline Support**: The app shell must work completely offline after initial load
+2. **Google Maps Limitation**: Maps require internet and cannot work offline (we use Google Maps via Leaflet and do 500-600km surveys daily, so tile caching isn't practical)
+3. **Map Offline Logic**:
+   - If app STARTS while offline → Show message "Map functionality requires internet connection. Please connect to use maps."
+   - If app STARTS online then goes offline → Hide map and show "Map functionality unavailable. You are currently offline."
+   - When back online → Map resumes normal functionality automatically
+4. **Offline Banner**: Persistent orange banner at top when offline saying "You are currently offline"
+5. **Online Banner**: Green banner saying "Back online" that appears for 3 seconds when reconnecting, then disappears automatically
+
+## Changes Needed:
+
+### 1. Update `vite.config.ts`:
+- Remove `allowedHosts` (invalid Vite option - causes errors)
+- Add proper Workbox configuration for offline support
+- Precache all app files with `globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,woff,woff2,ttf,eot}']`
+- Add `navigateFallback: 'index.html'` for offline navigation
+- Add `navigateFallbackDenylist: [/^\/api/, /^\/auth/]`
+- Add `cleanupOutdatedCaches: true`
+- Add `maximumFileSizeToCacheInBytes: 5 * 1024 * 1024`
+- Keep existing Google Maps caching (maps.googleapis.com, maps.gstatic.com) with NetworkFirst strategy
+- Keep existing caching for fonts, images, and CDN content
+
+### 2. Create Offline Detection System:
+- Create `src/hooks/useOnlineStatus.ts` hook
+- Track two states: `isOnline` and `wasOnlineAtStart`
+- `wasOnlineAtStart` = navigator.onLine on component mount (never changes after mount)
+- `isOnline` = current online status (updates with window 'online'/'offline' events)
+- Return `{ isOnline, wasOnlineAtStart }`
+
+### 3. Create Banner Components:
+
+**Create `src/components/OfflineBanner.tsx`:**
+- Shows when `isOnline === false`
+- Fixed position at top (top: 0), full width, z-index: 9999
+- Orange background (#ff9800), white text
+- Text: "You are currently offline"
+- Padding: 10-12px, centered text
+- Always visible when offline (persistent)
+
+**Create `src/components/OnlineBanner.tsx`:**
+- Shows when transitioning from offline to online
+- Fixed position at top (top: 0), full width, z-index: 9999
+- Green background (#4caf50), white text
+- Text: "Back online" (add checkmark icon if available)
+- Padding: 10-12px, centered text
+- Auto-dismisses after 3 seconds using setTimeout
+- Smooth fade-out animation (CSS transition)
+- Component manages its own visibility state
+
+### 4. Update Map Component Logic:
+
+The existing Leaflet + Google Maps component needs conditional rendering:
+```
+If (!wasOnlineAtStart) {
+  // Show centered message:
+  // "Map functionality requires internet connection. Please connect to use maps."
+} else if (!isOnline) {
+  // Show centered message:
+  // "Map functionality unavailable. You are currently offline."
+} else {
+  // Show map normally (existing Leaflet + Google Maps implementation)
+}
+```
+
+Messages should be:
+- Centered in the map container
+- Gray background (#f5f5f5) or light styling
+- Icon (map icon with warning) if available
+- Padding: 40px
+- Font size: 16px
+- Color: #666
+
+### 5. Update `src/App.tsx`:
+- Import and use `useOnlineStatus` hook at top level
+- Add `<OfflineBanner />` component (shows when offline)
+- Add `<OnlineBanner />` component (shows temporarily on reconnect)
+- Pass `isOnline` and `wasOnlineAtStart` props to map component
+- Ensure banners are positioned above all content (z-index: 9999)
+- Banners should be direct children of App (not inside other containers)
+
+### 6. File Structure:
+```
+src/
+├── components/
+│   ├── [ExistingMapComponent].tsx  (MODIFY - Add offline detection)
+│   ├── OfflineBanner.tsx           (NEW - Persistent offline indicator)
+│   └── OnlineBanner.tsx            (NEW - Temporary reconnection message)
+├── hooks/
+│   └── useOnlineStatus.ts          (NEW - Online detection logic)
+├── App.tsx                          (MODIFY - Add banners and pass online status)
+└── main.tsx                         (NO CHANGES)
+vite.config.ts                       (MODIFY - Fix config, add offline support)
+```
+
+### 7. CSS/Styling Requirements:
+
+**Banners:**
+- Position: fixed, top: 0, left: 0, right: 0
+- z-index: 9999 (above everything)
+- Text-align: center
+- Padding: 10-12px
+- Font-weight: 500 or 600
+
+**Offline Banner:**
+- Background: #ff9800 (orange)
+- Color: white
+- No animation (persistent)
+
+**Online Banner:**
+- Background: #4caf50 (green)
+- Color: white
+- Animation: fadeOut 0.5s ease-out (at end of 3 second delay)
+- Opacity: 1 → 0
+
+**Map Offline Messages:**
+- Display: flex, align-items: center, justify-content: center
+- Min-height: 400px (or match map height)
+- Background: #f5f5f5
+- Text-align: center
+- Padding: 40px
+
+### 8. Handle Multiple Banners:
+- If offline banner is showing and app comes online, the online banner should appear BELOW the offline banner (which will then disappear)
+- Use stacking: Offline banner at top: 0, Online banner at top: 0 (they overlap briefly)
+- OR: Online banner at top: 50px if offline banner exists
+- Transition should be smooth
+
+### 9. Testing Instructions:
+1. Build and run the app online first
+2. Test offline mode: DevTools → Network → Offline
+3. Test "started offline" scenario: 
+   - Open app with network disabled
+   - Should see offline banner
+   - Map should show "Map functionality requires internet connection"
+4. Test "went offline" scenario: 
+   - Open app online (map works)
+   - Disable network
+   - Should see offline banner
+   - Map should show "Map functionality unavailable. You are currently offline."
+5. Test reconnection: 
+   - Re-enable network
+   - Green "Back online" banner appears for 3 seconds then disappears
+   - Map resumes working
+   - Offline banner disappears immediately
+
+### 10. Additional Offline Enhancements (Optional):
+
+If the app has forms, measurements, or data entry:
+- Store form data in localStorage or IndexedDB while offline
+- Show message: "Data will be saved locally and synced when online"
+- Add sync indicator when back online
+- Handle failed API calls gracefully (show retry option)
+
+## Important Notes:
+- Google Maps WILL NOT work offline (this is expected and communicated to user)
+- App shell (UI, navigation, cached data) WILL work offline
+- First visit must be online to cache app files
+- Service worker caches app bundle automatically
+- `wasOnlineAtStart` prevents map from appearing then disappearing on offline start
+- Banner z-index must be higher than map z-index
+
+## vite.config.ts Key Changes:
+```typescript
+workbox: {
+  globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,woff,woff2,ttf,eot}'],
+  maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+  cleanupOutdatedCaches: true,
+  navigateFallback: 'index.html',
+  navigateFallbackDenylist: [/^\/api/, /^\/auth/],
+  runtimeCaching: [
+    // Keep existing Google Maps, fonts, images, CDN caching
+  ]
+}
+```
+
+Please implement all these changes ensuring:
+1. App shell works 100% offline
+2. Clear communication that maps need internet
+3. Smooth banner transitions
+4. Existing Google Maps + Leaflet implementation is preserved (just add conditional rendering)

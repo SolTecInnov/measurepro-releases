@@ -1,0 +1,39 @@
+[ConnectivityMonitor] User authenticated
+2injected.js:37 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+injected.js:37 [ConnectivityMonitor] Firebase connectivity confirmed
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+types.ts:124 [Violation] Permissions policy violation: bluetooth is not allowed in this document.
+checkBluetoothAvailability @ types.ts:124
+ZED2iCamera.ts:588 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+ZED2iCamera.ts:588 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+3store.ts:544 Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:544
+3store.ts:551 Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:551
+store.ts:553 ⏱️ getSurveysPaginated(50): 18.89208984375 ms
+injected.js:37 ⚠️ Active survey not in recent 50, searching...
+store.ts:553 Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:553
+injected.js:37 ⚠️ Active survey not in recent 50, searching...
+store.ts:553 Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:553
+injected.js:37 ⚠️ Active survey not in recent 50, searching...
+store.ts:553 Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:553
+injected.js:37 ⚠️ Active survey not in recent 50, searching...
+store.ts:585 ⏱️ loadSurveys TOTAL: 30.635986328125 ms
+injected.js:37 ✅ Loaded 0 surveys (including active) in 31ms
+store.ts:585 Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:585
+injected.js:37 ✅ Loaded 0 surveys (including active) in 34ms
+store.ts:585 Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:585
+injected.js:37 ✅ Loaded 0 surveys (including active) in 36ms
+store.ts:585 Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:585
+injected.js:37 ✅ Loaded 0 surveys (including active) in 38ms
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/signup/start:1  Failed to load resource: the server responded with a status of 400 (Bad Request)
+
+injected.js:214  POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/signup/start 400 (Bad Request)

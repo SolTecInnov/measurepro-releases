@@ -1,0 +1,60 @@
+From Field Survey to OS/OW Permit: The MeasurePRO + RoadScope Workflow
+Oversize and overweight permits depend on one critical ingredient: trustworthy field data. Without a repeatable process from survey to analysis, you risk unexpected low structures, denied permits, or last‑minute reroutes.
+MeasurePRO and RoadScope form a complete workflow that takes you from LiDAR‑based field surveys to corridor‑wide clearance analysis and permit‑ready documentation.
+1. Planning the survey route
+Everything starts before the truck leaves the yard:
+•	Identify the candidate permitted route and any known high‑risk segments (older bridges, urban corridors, complex interchanges).
+•	Define the planned load envelope (height, width, length) so you know what clearances you need to validate.
+•	In MeasurePRO, create a new survey project and give it a clear name that matches the permit application or move ID.
+Having a named project and documented route plan makes it easy to tie field data to specific moves later.
+2. Configuring MeasurePRO and vehicle profiles
+Before driving, MeasurePRO is configured around the vehicle and load:
+•	Select or create a vehicle profile that matches the planned OS/OW configuration (tractor, trailer type, axle counts, overall height).
+•	Confirm LiDAR and GPS/RTK connections and check fix quality and satellite count.
+•	Choose logging behavior: continuous logging along the corridor plus explicit POIs for bridges, signals, power lines, and other overhead features.
+•	Set warning and critical clearance thresholds based on the load’s envelope.
+This configuration ensures that every measurement is interpreted in the context of the vehicle actually doing the move.
+3. Running the field survey with MeasurePRO
+On the road, MeasurePRO turns the survey vehicle into a rolling sensor suite:
+•	The driver or surveyor follows the planned route while MeasurePRO logs LiDAR measurements, GPS positions, speed, and time.
+•	Voice commands trigger POIs and control logging without taking hands off the wheel.
+•	Each structure of interest (bridges, overhead utilities, gantries, tunnels) is captured with measured clearance and tagged with a POI type.
+•	Photos and video provide visual confirmation and context for later review.
+By the time the vehicle returns to the yard, you have a detailed trace of the route with clearances and obstacles recorded in real time.
+4. Exporting survey data from MeasurePRO
+After the run, the survey project is exported from MeasurePRO in standard engineering and GIS formats:
+•	CSV for tabular review, quick sanity checks, and sharing via spreadsheets.
+•	GeoJSON or Shapefile for GIS tools and mapping platforms.
+•	LandXML and DXF for AutoCAD Civil 3D and design workflows.
+Each export includes coordinates, POI types, measured clearances, timestamps, and any operator notes, forming a complete field data record for that route.
+5. Importing the survey into RoadScope
+RoadScope consumes the exported data to give you a corridor‑wide view:
+•	Import the MeasurePRO export file into RoadScope and associate it with the corresponding route or permit request.
+•	RoadScope maps all measured points, color‑coding them by clearance status (safe, warning, critical).
+•	You can overlay other data layers such as known restrictions, previous surveys, and customer constraints.
+This step turns a collection of measurements into a clear visual of where the route is strong and where it’s at risk.
+6. Performing clearance analysis and route decisions
+With the survey visualized in RoadScope, the engineering and permitting team can:
+•	Identify all structures that fall near or below your warning and critical thresholds.
+•	Compare alternate alignments or bypasses, using historical surveys where available.
+•	Document why a route is acceptable, requires mitigation (e.g., lane shifts, bucket truck support), or should be rejected.
+Because the analysis is built on field data, you can justify route choices to customers, regulators, and internal safety teams.
+7. Generating permit‑ready outputs
+Once the route decision is made, the same MeasurePRO + RoadScope data can feed your permit package:
+•	Generate bridge and overhead clearance tables that reference measured values and coordinates.
+•	Export maps showing measured points, risk zones, and any required mitigations.
+•	Attach photos or video clips for particularly tight locations as visual evidence.
+Many carriers and engineering firms standardize these outputs so each permit application follows a consistent, repeatable format.
+8. Example: Single corridor, multiple moves
+One of the biggest benefits of this workflow is reusability:
+•	A corridor surveyed once with MeasurePRO can be reused for multiple similar loads, as long as equipment and envelope remain within known limits.
+•	Additional surveys can be layered over time to reflect construction changes or new restrictions.
+•	RoadScope keeps these surveys organized so planners can quickly answer “Have we run this corridor before with a similar load?”
+Over time, your organization builds a growing database of trusted routes instead of treating each move as a blank slate.
+9. Why standardizing this workflow matters
+By standardizing on MeasurePRO in the field and RoadScope in the office, you:
+•	Reduce the chance of surprises on move day.
+•	Shorten the time from “we might take this route” to an evidence‑backed “yes” or “no.”
+•	Provide regulators and customers with a clear record of how clearances were checked.
+•	Build an internal knowledge base of safe, proven OS/OW corridors.
+That’s the difference between treating each oversize move as a one‑off project and building a scalable, auditable OS/OW operation

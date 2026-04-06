@@ -1,0 +1,241 @@
+# MeasurePRO — Laser Performance Fix
+
+## Context
+
+At 10 Hz continuous streaming, the UI freezes completely. The diagnosis identifies 5 cumulative causes listed below. **Each fix must be applied without modifying the functional behavior of data capture** — no measurement must be lost.
+
+---
+
+## Absolute Rule — Respect Throughout This Work
+
+> **Every valid laser measurement must continue to call `setLastLaserData()` immediately and synchronously, without throttle, without buffer, without delay.** Throttling applies only to display side-effects (log textarea, DOM events, auto-scroll).
+
+---
+
+## Fix 1 — Remove Double Append in the Log
+
+**Files:** `src/lib/readers/serialLaserReader.ts`, `src/lib/serial.ts`
+
+**Problem:** `processLdm71Data` calls `appendToLaserOutput()` directly, then calls `emitMeasurement()` → `notifyCallbacks()` → callback registered in `connectToLaser` which calls `appendToLaserOutput("Received: x.xxx")` a second time. Each measurement = 2 Zustand updates on `laserOutput`.
+
+**Fix:** In `connectToLaser` (serial.ts), remove or no-op the callback that calls `appendToLaserOutput("Received: …")`. The complete log is already produced by `processLdm71Data` and `processAsciiData` — the generic callback is redundant. Same for the legacy ASCII path.
+
+**Validation:** One measurement = exactly one line in the log, never two.
+
+---
+
+## Fix 2 — Merge the Two `set()` Calls in `setLastLaserData`
+
+**File:** `src/lib/stores/serialStore.ts` lines 77–101
+
+**Problem:** `setLastLaserData` executes two separate Zustand `set()` calls per code path: a first one for `{lastMeasurement, currentMeasurement}`, then immediately a second one for `measurementSampleId: prev + 1`. At 10 Hz = 20 Zustand updates/sec for this store alone.
+
+**Fix:** Merge into a single atomic call per code path:
+```ts
+set(state => ({
+  lastMeasurement: ...,
+  currentMeasurement: ...,
+  measurementSampleId: state.measurementSampleId + 1,
+}));
+```
+Every conditional branch inside `setLastLaserData` must end with **exactly one** `set()`. No exceptions.
+
+**Validation:** 10 measurements/sec = 10 Zustand updates/sec on this store, not 20.
+
+---
+
+## Fix 3 — Move `laserOutput` Out of Zustand
+
+**Files:** `src/lib/stores/serialStore.ts`, `src/components/settings/LaserGPSSettings.tsx`
+
+**Problem:** `laserOutput` is a Zustand string that grows to ~160 KB. Every `appendToLaserOutput()` forces React to compare and re-render all subscribed components. At 10 Hz with double append = 20 re-renders/sec for the debug log alone.
+
+**Fix — simple implementation:**
+
+1. **In `serialStore.ts`:** Remove `laserOutput` from Zustand state. Replace with module-level variables:
+```ts
+let laserLogBuffer = "";
+const laserLogListeners = new Set<() => void>();
+
+export function appendToLaserOutput(line: string) {
+  laserLogBuffer += line + "\n";
+  // Keep a reasonable size (e.g. last 500 lines)
+  const lines = laserLogBuffer.split("\n");
+  if (lines.length > 500) {
+    laserLogBuffer = lines.slice(lines.length - 500).join("\n");
+  }
+  laserLogListeners.forEach(fn => fn());
+}
+
+export function clearLaserOutput() {
+  laserLogBuffer = "";
+  laserLogListeners.forEach(fn => fn());
+}
+
+export function getLaserLog() { return laserLogBuffer; }
+export function subscribeLaserLog(fn: () => void) {
+  laserLogListeners.add(fn);
+  return () => laserLogListeners.delete(fn);
+}
+```
+
+2. **In `LaserGPSSettings.tsx`:** The textarea updates via a local 200ms interval, not on every append:
+```ts
+const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (textareaRef.current) {
+      textareaRef.current.value = getLaserLog();
+      textareaRef.current.scrollTop = textareaRef.current.scrollHeight;
+    }
+  }, 200);
+  return () => clearInterval(interval);
+}, []);
+```
+**Remove** the `[laserOutput]` effect that was triggering auto-scroll on every change.
+
+3. Remove `laserOutput` from any other component that may be subscribed to it (check `CurrentMeasureCard`, `CameraOverlay`). These components must not read from the log.
+
+**What does NOT change:** `appendToLaserOutput` continues to be called normally from drivers — only the display is decoupled.
+
+---
+
+## Fix 4 — Throttle Display Side-Effects Only (NOT the Data)
+
+**File:** `src/lib/readers/serialLaserReader.ts`
+
+**Problem:** `window.dispatchEvent('laser-measurement-update')` fires on every measurement, waking up `CurrentMeasureCard`, `CameraOverlay`, and other listeners. At 10 Hz = 10 DOM events/sec, each triggering re-renders in complex components.
+
+**Fix:** Introduce a throttle **only on `dispatchEvent`**, completely separate from `setLastLaserData`:
+
+```ts
+// Module-level in serialLaserReader.ts
+let lastDispatchTime = 0;
+const DISPATCH_THROTTLE_MS = 66; // ~15 Hz max for display
+
+function handleMeasurement(value: number, amplitude?: number) {
+  // ALWAYS immediate — no data must ever be lost
+  setLastLaserData(value, amplitude);
+
+  // Throttled — only for display components
+  const now = Date.now();
+  if (now - lastDispatchTime >= DISPATCH_THROTTLE_MS) {
+    lastDispatchTime = now;
+    window.dispatchEvent(new CustomEvent('laser-measurement-update'));
+  }
+}
+```
+
+**Critical:** `setLastLaserData` is called **before** the throttle check and **always**. The throttle applies only to `dispatchEvent`. When `reset()` is called, reset `lastDispatchTime = 0`.
+
+---
+
+## Fix 5 — Throttle and Deduplicate DE02 Errors in the Log
+
+**File:** `src/lib/hardware/laser/ldm71AsciiDriver.ts` (or wherever DE02 errors are logged)
+
+**Problem:** DE02 errors (and other laser errors) can arrive in bursts and spam the log with identical lines, contributing to `laserLogBuffer` growth and repeated calls to `appendToLaserOutput`.
+
+**Fix:**
+```ts
+let lastErrorCode = "";
+let lastErrorCount = 0;
+let errorFlushTimeout: ReturnType<typeof setTimeout> | null = null;
+
+function logLaserError(code: string) {
+  if (code === lastErrorCode) {
+    lastErrorCount++;
+    if (errorFlushTimeout) clearTimeout(errorFlushTimeout);
+    errorFlushTimeout = setTimeout(() => {
+      if (lastErrorCount > 1) {
+        appendToLaserOutput(`[ERR] ${lastErrorCode} ×${lastErrorCount}`);
+      }
+      lastErrorCount = 0;
+      lastErrorCode = "";
+    }, 500);
+  } else {
+    // Different new error: flush the previous one immediately
+    if (lastErrorCount > 0) {
+      appendToLaserOutput(`[ERR] ${lastErrorCode} ×${lastErrorCount}`);
+    }
+    lastErrorCode = code;
+    lastErrorCount = 1;
+    appendToLaserOutput(`[ERR] ${code}`);
+    errorFlushTimeout = setTimeout(() => {
+      lastErrorCount = 0;
+      lastErrorCode = "";
+    }, 500);
+  }
+}
+```
+Replace direct `appendToLaserOutput` calls for errors with `logLaserError(code)`.
+
+---
+
+## Fix 6 — Simplify Laser Types
+
+**Files:** `src/lib/hardware/laser/profiles.ts`, `src/lib/config/serialConfig.ts`, `src/lib/stores/serialStore.ts`, `src/components/settings/LaserGPSSettings.tsx`, `src/components/ConnectionControls.tsx`
+
+**Problem:** 5 types presented to the user, 4 of which are functionally identical (115200/8N1, identical ASCII protocol). The `rsa-laser` label is misleading (it maps to SolTec-30m in the code). The amplitude filter is a hidden side-effect of the type selection when it should be an independent toggle.
+
+**Fix:**
+
+1. Reduce `LaserType` to two values:
+   - `'soltec-standard'` → 115200 baud, 8N1, LDM71 ASCII driver — covers: SolTec 30m, SolTec 70m, Acuity AR2700, RSA High Pole
+   - `'soltec-legacy'` → 19200 baud, 7E1 — covers: SolTec 10m (old unit)
+
+2. Migration shim — run **at store initialization and on every localStorage read**:
+```ts
+function migrateLaserType(stored: string): 'soltec-standard' | 'soltec-legacy' {
+  const standardTypes = ['rsa-laser', 'soltec-new', 'ldm71-lidar2d-v2', 'high-pole', 'soltec-standard'];
+  const legacyTypes = ['soltec-old', 'soltec-legacy'];
+  if (standardTypes.includes(stored)) return 'soltec-standard';
+  if (legacyTypes.includes(stored)) return 'soltec-legacy';
+  // Unknown value → safe fallback with log
+  console.warn(`[LaserType] Unknown value "${stored}", falling back to soltec-standard`);
+  return 'soltec-standard';
+}
+```
+This function must be called everywhere `laserType` is read from the store or localStorage.
+
+3. Add an `amplitudeFilterEnabled: boolean` field to the laser settings store (default: `true`). The `ldm71AsciiDriver` reads this flag to enable/disable amplitude filtering — **independently of the laser type**.
+
+4. Update `LASER_PRESETS` and `LASER_CONFIGS` to reflect the 2 new values only. Remove the 5 old entries.
+
+5. Update all `switch(laserType)` branches in the codebase to the 2 new values. Do not leave dead branches for old types.
+
+---
+
+## Fix 7 — Settings UI
+
+**Files:** `src/components/settings/LaserGPSSettings.tsx`, `src/components/ConnectionControls.tsx`
+
+1. Replace the 5-option selector with a 2-option selector:
+   - `"SolTec / RSA High Pole (115200)"` → value `soltec-standard`
+   - `"SolTec Legacy 10m (19200)"` → value `soltec-legacy`
+
+2. Add a grey note below the selector: *"All modern SolTec models (30m, 70m, AR2700) and RSA High Pole use the standard setting."*
+
+3. Add an **"Amplitude Filter"** toggle visible only when the type is `soltec-standard`. This toggle controls `amplitudeFilterEnabled` in the store.
+
+4. Remove all references to old type names in the UI (rsa-laser, soltec-new, ldm71-lidar2d-v2, high-pole, soltec-old).
+
+---
+
+## Validation Tests — Must Pass Before Considering This Done
+
+1. **Freeze test:** Connect the laser, let it run for 30 seconds at 10 Hz. The UI stays responsive, buttons respond, the survey continues without lag.
+2. **Complete data test:** At 10 Hz for 10 seconds = 100 expected measurements in `lastMeasurement` / the store. Verify none are missing (`measurementSampleId` must increment by 100).
+3. **Disconnect/reconnect test:** Disconnect and reconnect the laser 3 times rapidly. No ghost intervals, no duplicate listeners, the log clears correctly, connection establishes normally.
+4. **Migration test:** Manually set `laserType = "rsa-laser"` in localStorage, reload the app. The type must silently migrate to `soltec-standard` with no error, no connection reset.
+5. **DE02 error burst test:** Simulate 20 consecutive DE02 errors. The log must show `[ERR] DE02 ×20`, not 20 separate lines.
+
+---
+
+## Out of Scope — Do Not Touch
+
+- Multi-laser system (lateral/rear) — `multiLaserStore` — separate, do not modify
+- Bluetooth laser path — separate store, do not modify
+- RSA 3-byte binary protocol — not implemented, do not invent
+- Survey recording and data logging logic — must not be affected by any of these changes

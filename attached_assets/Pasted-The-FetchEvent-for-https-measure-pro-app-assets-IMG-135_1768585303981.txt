@@ -1,0 +1,1148 @@
+The FetchEvent for "https://measure-pro.app/assets/IMG_1359_1768528798113-Cnpemm5H.jpeg" resulted in a network error response: the promise was rejected.
+The FetchEvent for "https://measure-pro.app/assets/IMG_1360_1768528798113-BKRPsC_n.jpeg" resulted in a network error response: the promise was rejected.
+The FetchEvent for "https://measure-pro.app/assets/IMG_1361_1768528798113-u9kNb7Ds.jpeg" resulted in a network error response: the promise was rejected.
+workbox-ce8d0cb0.js:1  Uncaught (in promise) 
+workbox-ce8d0cb0.js:1  Uncaught (in promise) 
+workbox-ce8d0cb0.js:1  Uncaught (in promise) 
+  WebSocket connection to 'ws://localhost:8765/' failed: Error during WebSocket handshake: Unexpected response code: 404
+g @ ZED2iCamera-4Z0xBH-H.js:1
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+/api/road-profile/save-by-time:1   Failed to load resource: the server responded with a status of 400 ()
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?sessionId=HQ+Chamouchouane+wind+project.:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+localhost:8765/api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 404 (Not Found)
+ [GPSReader] processData: 1 bytes, chunk #55500, preview: ,
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #55600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #55700, preview: E
+ [GPSReader] processData: 1 bytes, chunk #55800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #55900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #56000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #56100, preview: W
+ [GPSReader] processData: 1 bytes, chunk #56200, preview: D
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #56300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #56400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #56500, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #56600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #56700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #56800, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #56900, preview: P
+ [GPSReader] processData: 1 bytes, chunk #57000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #57100, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #57200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #57300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #57400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #57500, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #57600, preview: -
+ [GPSReader] processData: 1 bytes, chunk #57700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #57800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #57900, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #58000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #58100, preview: *
+ [GPSReader] processData: 1 bytes, chunk #58200, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #58300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #58400, preview: R
+ [GPSReader] processData: 1 bytes, chunk #58500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #58600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #58700, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #58800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #58900, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #59000, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #59100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #59200, preview: G
+ [GPSReader] processData: 1 bytes, chunk #59300, preview: E
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #59400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #59500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #59600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #59700, preview: 3
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #59800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #59900, preview: 3
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #60000, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #60100, preview: P
+ [GPSReader] processData: 1 bytes, chunk #60200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #60300, preview: .
+ [GPSReader] processData: 1 bytes, chunk #60400, preview: 1
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #60500, preview: .
+ [GPSReader] processData: 1 bytes, chunk #60600, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #60700, preview: A
+ [GPSReader] processData: 1 bytes, chunk #60800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #60900, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #61000, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #61100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #61200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #61300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #61400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #61500, preview: M
+ [GPSReader] processData: 1 bytes, chunk #61600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #61700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #61800, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #61900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #62000, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #62100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #62200, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #62300, preview: 04
+ [GPSReader] processData: 1 bytes, chunk #62400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #62500, preview: $
+ [GPSReader] processData: 1 bytes, chunk #62600, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #62700, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #62800, preview: .
+ [GPSReader] processData: 1 bytes, chunk #62900, preview: N
+ [GPSReader] processData: 1 bytes, chunk #63000, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #63100, preview: W,
+ [GPSReader] processData: 1 bytes, chunk #63200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #63300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #63400, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #63500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #63600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #63700, preview: 
+ [GPSReader] processData: 1 bytes, chunk #63800, preview: .
+ [GPSReader] processData: 4 bytes, chunk #63900, preview: ,07,
+ [GPSReader] processData: 1 bytes, chunk #64000, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #64100, preview: .
+ [GPSReader] processData: 1 bytes, chunk #64200, preview: 8
+ [GPSReader] processData: 3 bytes, chunk #64300, preview: 
+$
+ [GPSReader] processData: 1 bytes, chunk #64400, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #64500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #64600, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #64700, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #64800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #64900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #65000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #65100, preview: N
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #65200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #65300, preview: R
+ [GPSReader] processData: 8 bytes, chunk #65400, preview: 8,1.1,12
+ [GPSReader] processData: 1 bytes, chunk #65500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #65600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #65700, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #65800, preview: 3
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #65900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #66000, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #66100, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #66200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #66300, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #66400, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #66500, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #66600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #66700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #66800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #66900, preview: G
+ [GPSReader] processData: 2 bytes, chunk #67000, preview: 4,
+ [GPSReader] processData: 1 bytes, chunk #67100, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #67200, preview: 0
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #67300, preview: .
+ [GPSReader] processData: 1 bytes, chunk #67400, preview: 9
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 2 bytes, chunk #67500, preview: SA
+ [GPSReader] processData: 1 bytes, chunk #67600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #67700, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #67800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #67900, preview: .
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #68000, preview: $
+ [GPSReader] processData: 1 bytes, chunk #68100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #68200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #68300, preview: G
+ [GPSReader] processData: 1 bytes, chunk #68400, preview: 4
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 2 bytes, chunk #68500, preview: 6.
+ [GPSReader] processData: 1 bytes, chunk #68600, preview: 3
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #68700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #68800, preview: 0
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #68900, preview: G
+ [GPSReader] processData: 1 bytes, chunk #69000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #69100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #69200, preview: 0
+ [GPSReader] processData: 2 bytes, chunk #69300, preview: 0*
+ [GPSReader] processData: 2 bytes, chunk #69400, preview: 0,
+ [GPSReader] processData: 1 bytes, chunk #69500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #69600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #69700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #69800, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #69900, preview: C
+ [GPSReader] processData: 1 bytes, chunk #70000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #70100, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #70200, preview: ,M
+ [GPSReader] processData: 1 bytes, chunk #70300, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #70400, preview: 
+ [GPSReader] processData: 1 bytes, chunk #70500, preview: .
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #70600, preview: S
+ [GPSReader] processData: 1 bytes, chunk #70700, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #70800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #70900, preview: M
+ [GPSReader] processData: 1 bytes, chunk #71000, preview: 8
+  [2026-01-16T17:35:11.514Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+qE @ index-Bx7rGO0B.js:233
+  [2026-01-16T17:35:11.514Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+qE @ index-Bx7rGO0B.js:233
+ [GPSReader] processData: 1 bytes, chunk #71100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #71200, preview: E
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #71300, preview: .
+ [GPSReader] processData: 1 bytes, chunk #71400, preview: N
+ [GPSReader] processData: 1 bytes, chunk #71500, preview: 3
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #71600, preview: -
+ [GPSReader] processData: 1 bytes, chunk #71700, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #71800, preview: ,3
+ [GPSReader] processData: 1 bytes, chunk #71900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #72000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #72100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #72200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #72300, preview: $
+ [GPSReader] processData: 1 bytes, chunk #72400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #72500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #72600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #72700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #72800, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #72900, preview: 1
+ [useMeasurementLogger] Logging measurement with POI type: "none" Object
+ [GPSReader] processData: 7 bytes, chunk #73000, preview: 00,92.4
+ [GPSReader] processData: 1 bytes, chunk #73100, preview: 1
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #73200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #73300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #73400, preview: B
+ [GPSReader] processData: 1 bytes, chunk #73500, preview: 2
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #73600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #73700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #73800, preview: .
+ [useMeasurementLogger] Logging measurement with POI type: "none" Object
+ [GPSReader] processData: 1 bytes, chunk #73900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #74000, preview: N
+ [GPSReader] processData: 1 bytes, chunk #74100, preview: R
+ [useMeasurementLogger] Logging measurement with POI type: "overhead" Object
+ [GPSReader] processData: 1 bytes, chunk #74200, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #74300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #74400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #74500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #74600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #74700, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #74800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #74900, preview: 2
+ [GPSReader] processData: 2 bytes, chunk #75000, preview: $G
+ [GPSReader] processData: 1 bytes, chunk #75100, preview: 1
+ [GPSReader] processData: 2 bytes, chunk #75200, preview: 3.
+ [GPSReader] processData: 1 bytes, chunk #75300, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #75400, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #75500, preview: A
+ [GPSReader] processData: 1 bytes, chunk #75600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #75700, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #75800, preview: B
+ [GPSReader] processData: 1 bytes, chunk #75900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #76000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #76100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #76200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #76300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #76400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #76500, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #76600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #76700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #76800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #76900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #77000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #77100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #77200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #77300, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #77400, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #77500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #77600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #77700, preview: G
+ [GPSReader] processData: 1 bytes, chunk #77800, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #77900, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #78000, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #78100, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #78200, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #78300, preview: ,1
+ [GPSReader] processData: 1 bytes, chunk #78400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #78500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #78600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #78700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #78800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #78900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #79000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #79100, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #79200, preview: M
+ [GPSReader] processData: 1 bytes, chunk #79300, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #79400, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #79500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #79600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #79700, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #79800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #79900, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #80000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #80100, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #80200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #80300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #80400, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #80500, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #80600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #80700, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #80800, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #80900, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #81000, preview: A
+ [GPSReader] processData: 1 bytes, chunk #81100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #81200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #81300, preview: C
+ [GPSReader] processData: 1 bytes, chunk #81400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #81500, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #81600, preview: 8*
+ [GPSReader] processData: 1 bytes, chunk #81700, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #81800, preview: A
+ [GPSReader] processData: 1 bytes, chunk #81900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #82000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #82100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #82200, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #82300, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #82400, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #82500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #82600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #82700, preview: 
+ [GPSReader] processData: 1 bytes, chunk #82800, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #82900, preview: 
+ [GPSReader] processData: 1 bytes, chunk #83000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #83100, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #83200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #83300, preview: *
+ [GPSReader] processData: 1 bytes, chunk #83400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #83500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #83600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #83700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #83800, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #83900, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #84000, preview: 8,
+ [GPSReader] processData: 1 bytes, chunk #84100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #84200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #84300, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #84400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #84500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #84600, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #84700, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #84800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #84900, preview: S
+ [GPSReader] processData: 1 bytes, chunk #85000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #85100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #85200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #85300, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #85400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #85500, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #85600, preview: -
+ [GPSReader] processData: 1 bytes, chunk #85700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #85800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #85900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #86000, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #86100, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #86200, preview: P
+ [GPSReader] processData: 6 bytes, chunk #86300, preview: .5780,
+ [GPSReader] processData: 1 bytes, chunk #86400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #86500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #86600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #86700, preview: $
+ [GPSReader] processData: 3 bytes, chunk #86800, preview: ,16
+ [GPSReader] processData: 1 bytes, chunk #86900, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #87000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #87100, preview: P
+ [GPSReader] processData: 1 bytes, chunk #87200, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #87300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #87400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #87500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #87600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #87700, preview: G
+ [GPSReader] processData: 1 bytes, chunk #87800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #87900, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #88000, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #88100, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #88200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #88300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #88400, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #88500, preview: A
+ [GPSReader] processData: 1 bytes, chunk #88600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #88700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #88800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #88900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #89000, preview: .
+ [GPSReader] processData: 2 bytes, chunk #89100, preview: $G
+ [GPSReader] processData: 1 bytes, chunk #89200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #89300, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #89400, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #89500, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #89600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #89700, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #89800, preview: $G
+ [GPSReader] processData: 1 bytes, chunk #89900, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #90000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #90100, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #90200, preview: 6
+ [GPSReader] processData: 3 bytes, chunk #90300, preview: 2,0
+ [GPSReader] processData: 1 bytes, chunk #90400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #90500, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #90600, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #90700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #90800, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #90900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #91000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #91100, preview: .
+ [GPSReader] processData: 1 bytes, chunk #91200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #91300, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #91400, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #91500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #91600, preview: $
+ [GPSReader] processData: 1 bytes, chunk #91700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #91800, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #91900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #92000, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #92100, preview: E
+ [GPSReader] processData: 1 bytes, chunk #92200, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #92300, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #92400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #92500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #92600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #92700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #92800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #92900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #93000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #93100, preview: G
+ [GPSReader] processData: 1 bytes, chunk #93200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #93300, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #93400, preview: P
+ [GPSReader] processData: 1 bytes, chunk #93500, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #93600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #93700, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #93800, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #93900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #94000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #94100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #94200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #94300, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #94400, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #94500, preview: $
+ [GPSReader] processData: 1 bytes, chunk #94600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #94700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #94800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #94900, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #95000, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #95100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #95200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #95300, preview: M
+ [GPSReader] processData: 2 bytes, chunk #95400, preview: .5
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-Bx7rGO0B.js:3480
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-Bx7rGO0B.js:3480
+ ⏱️ getSurveysPaginated(50): 10.47412109375 ms
+ ⏱️ loadSurveys TOTAL: 14.40283203125 ms
+ ✅ Loaded 1 surveys (including active) in 14ms
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-Bx7rGO0B.js:3480
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-Bx7rGO0B.js:3480
+ ✅ Loaded 1 surveys (including active) in 25ms
+ [GPSReader] processData: 1 bytes, chunk #95500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #95600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #95700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #95800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #95900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #96000, preview: 3
+ [GPSReader] processData: 3 bytes, chunk #96100, preview: $GP
+ [GPSReader] processData: 1 bytes, chunk #96200, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #96300, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #96400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #96500, preview: 8
+ [AutoSync] Survey exported: a6bafeb9-dcf3-4fd2-9645-0428c3160b74 - "HQ Chamouchouane wind projectq"
+ [GPSReader] processData: 1 bytes, chunk #96600, preview: ,
+ [AutoSync] ✅ Survey a6bafeb9-dcf3-4fd2-9645-0428c3160b74 marked as synced
+ [AutoSync] Export sync completed successfully
+ [GPSReader] processData: 1 bytes, chunk #96700, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #96800, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #96900, preview: 2,
+ [GPSReader] processData: 1 bytes, chunk #97000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #97100, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #97200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #97300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #97400, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #97500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #97600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #97700, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #97800, preview: D
+ [GPSReader] processData: 3 bytes, chunk #97900, preview: ,1.
+ [GPSReader] processData: 1 bytes, chunk #98000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #98100, preview: 1
+ [GPSReader] processData: 3 bytes, chunk #98200, preview: ,1.
+ [GPSReader] processData: 1 bytes, chunk #98300, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #98400, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #98500, preview: .
+ [GPSReader] processData: 1 bytes, chunk #98600, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #98700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #98800, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #98900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #99000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #99100, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #99200, preview: 7
+ [GPSReader] processData: 3 bytes, chunk #99300, preview: 000
+ [GPSReader] processData: 1 bytes, chunk #99400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #99500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #99600, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #99700, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #99800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #99900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #100000, preview: E
+ [GPSReader] processData: 1 bytes, chunk #100100, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #100200, preview: N
+ [GPSReader] processData: 1 bytes, chunk #100300, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #100400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #100500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #100600, preview: A
+ [GPSReader] processData: 1 bytes, chunk #100700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #100800, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #100900, preview: $
+ [useMeasurementLogger] Logging measurement with POI type: "none" Object
+ [GPSReader] processData: 1 bytes, chunk #101000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #101100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #101200, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #101300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #101400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #101500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #101600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #101700, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #101800, preview: ,3
+ [GPSReader] processData: 1 bytes, chunk #101900, preview: $
+ [GPSReader] processData: 1 bytes, chunk #102000, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #102100, preview: .
+ [GPSReader] processData: 2 bytes, chunk #102200, preview: GP
+ [GPSReader] processData: 1 bytes, chunk #102300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #102400, preview: 2
+ [GPSReader] processData: 2 bytes, chunk #102500, preview: .7
+ [GPSReader] processData: 1 bytes, chunk #102600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #102700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #102800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #102900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #103000, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #103100, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #103200, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #103300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #103400, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #103500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #103600, preview: M
+ [GPSReader] processData: 1 bytes, chunk #103700, preview: 2
+ [GPSReader] processData: 2 bytes, chunk #103800, preview: 82
+ [GPSReader] processData: 1 bytes, chunk #103900, preview: G
+ [GPSReader] processData: 1 bytes, chunk #104000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #104100, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #104200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #104300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #104400, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #104500, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #104600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #104700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #104800, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #104900, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #105000, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #105100, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #105200, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #105300, preview: 6
+ [GPSReader] processData: 2 bytes, chunk #105400, preview: 9
+ [GPSReader] processData: 5 bytes, chunk #105500, preview: 0126,
+ [GPSReader] processData: 1 bytes, chunk #105600, preview: ,
+ [GPSReader] processData: 3 bytes, chunk #105700, preview: 070
+ [GPSReader] processData: 1 bytes, chunk #105800, preview: 4
+ [GPSReader] processData: 2 bytes, chunk #105900, preview: -2
+ [GPSReader] processData: 1 bytes, chunk #106000, preview: .
+ [GPSReader] processData: 1 bytes, chunk #106100, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #106200, preview: G
+ [GPSReader] processData: 1 bytes, chunk #106300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #106400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #106500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #106600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #106700, preview: 0
+ [GPSReader] processData: 20 bytes, chunk #106800, preview: 26.9,M,,0000*68
+$GP
+ [GPSReader] processData: 1 bytes, chunk #106900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #107000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #107100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #107200, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #107300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #107400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #107500, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #107600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #107700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #107800, preview: ,
+ [GPSReader] processData: 4 bytes, chunk #107900, preview: $GPG
+ [GPSReader] processData: 1 bytes, chunk #108000, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #108100, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #108200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #108300, preview: P
+ [GPSReader] processData: 1 bytes, chunk #108400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #108500, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #108600, preview: C
+ [GPSReader] processData: 1 bytes, chunk #108700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #108800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #108900, preview: G
+ [GPSReader] processData: 1 bytes, chunk #109000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #109100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #109200, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #109300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #109400, preview: *
+ [GPSReader] processData: 5 bytes, chunk #109500, preview: ,,,1.
+ [GPSReader] processData: 1 bytes, chunk #109600, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #109700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #109800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #109900, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #110000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #110100, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #110200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #110300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #110400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #110500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #110600, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #110700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #110800, preview: 
+ [GPSReader] processData: 1 bytes, chunk #110900, preview: 
+ [GPSReader] processData: 1 bytes, chunk #111000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #111100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #111200, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #111300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #111400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #111500, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #111600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #111700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #111800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #111900, preview: 8
+ [GPSReader] processData: 2 bytes, chunk #112000, preview: 49
+ [GPSReader] processData: 1 bytes, chunk #112100, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #112200, preview: 1
+ [GPSReader] processData: 2 bytes, chunk #112300, preview: 6,
+ [GPSReader] processData: 1 bytes, chunk #112400, preview: 
+ [GPSReader] processData: 1 bytes, chunk #112500, preview: .
+ [GPSReader] processData: 4 bytes, chunk #112600, preview: PGSA
+ [GPSReader] processData: 1 bytes, chunk #112700, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #112800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #112900, preview: A
+ [GPSReader] processData: 1 bytes, chunk #113000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #113100, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #113200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #113300, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #113400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #113500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #113600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #113700, preview: *
+ [GPSReader] processData: 1 bytes, chunk #113800, preview: .
+ [GPSReader] processData: 2 bytes, chunk #113900, preview: ,3
+ [GPSReader] processData: 1 bytes, chunk #114000, preview: $
+ [GPSReader] processData: 1 bytes, chunk #114100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #114200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #114300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #114400, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #114500, preview: .
+ [GPSReader] processData: 1 bytes, chunk #114600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #114700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #114800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #114900, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #115000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #115100, preview: *
+ [GPSReader] processData: 1 bytes, chunk #115200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #115300, preview: S
+ [GPSReader] processData: 1 bytes, chunk #115400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #115500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #115600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #115700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #115800, preview: $
+ [GPSReader] processData: 1 bytes, chunk #115900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #116000, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #116100, preview: M
+ [GPSReader] processData: 4 bytes, chunk #116200, preview: 41
+
+ [GPSReader] processData: 1 bytes, chunk #116300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #116400, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #116500, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #116600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #116700, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #116800, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #116900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #117000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #117100, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #117200, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #117300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #117400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #117500, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #117600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #117700, preview: .
+ [GPSReader] processData: 1 bytes, chunk #117800, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #117900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #118000, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #118100, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #118200, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #118300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #118400, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #118500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #118600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #118700, preview: 2
+ [GPSReader] processData: 2 bytes, chunk #118800, preview: 07
+ [GPSReader] processData: 1 bytes, chunk #118900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #119000, preview: 
+ [GPSReader] processData: 1 bytes, chunk #119100, preview: *
+ [GPSReader] processData: 1 bytes, chunk #119200, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #119300, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #119400, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #119500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #119600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #119700, preview: 0
+ [GPSReader] processData: 2 bytes, chunk #119800, preview: $G
+ [GPSReader] processData: 1 bytes, chunk #119900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #120000, preview: .
+ [GPSReader] processData: 1 bytes, chunk #120100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #120200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #120300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #120400, preview: G
+ [GPSReader] processData: 1 bytes, chunk #120500, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #120600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #120700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #120800, preview: C
+ [GPSReader] processData: 1 bytes, chunk #120900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #121000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #121100, preview: ,
+ [GPSReader] processData: 4 bytes, chunk #121200, preview: 1.57
+ [GPSReader] processData: 1 bytes, chunk #121300, preview: P
+ [GPSReader] processData: 1 bytes, chunk #121400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #121500, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #121600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #121700, preview: C
+ [GPSReader] processData: 1 bytes, chunk #121800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #121900, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #122000, preview: -
+ [GPSReader] processData: 1 bytes, chunk #122100, preview: .
+ [GPSReader] processData: 1 bytes, chunk #122200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #122300, preview: .
+ [GPSReader] processData: 1 bytes, chunk #122400, preview: S
+ [GPSReader] processData: 1 bytes, chunk #122500, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #122600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #122700, preview: 
+ [GPSReader] processData: 1 bytes, chunk #122800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #122900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #123000, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #123100, preview: .
+ [GPSReader] processData: 1 bytes, chunk #123200, preview: P
+ [GPSReader] processData: 1 bytes, chunk #123300, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #123400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #123500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #123600, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #123700, preview: V
+ [GPSReader] processData: 1 bytes, chunk #123800, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #123900, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #124000, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #124100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #124200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #124300, preview: R
+ [GPSReader] processData: 1 bytes, chunk #124400, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #124500, preview: A
+ [GPSReader] processData: 1 bytes, chunk #124600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #124700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #124800, preview: *
+ [GPSReader] processData: 1 bytes, chunk #124900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #125000, preview: ,
+ [GPSReader] processData: 2 bytes, chunk #125100, preview: A,
+ [GPSReader] processData: 1 bytes, chunk #125200, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #125300, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #125400, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #125500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #125600, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #125700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #125800, preview: 4
+ [GPSReader] processData: 2 bytes, chunk #125900, preview: 04
+ [GPSReader] processData: 1 bytes, chunk #126000, preview: 1
+ [GPSReader] processData: 2 bytes, chunk #126100, preview: 7,
+ [GPSReader] processData: 1 bytes, chunk #126200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #126300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #126400, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #126500, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #126600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #126700, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #126800, preview: S
+ [GPSReader] processData: 1 bytes, chunk #126900, preview: *
+ [GPSReader] processData: 1 bytes, chunk #127000, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #127100, preview: G
+ [GPSReader] processData: 1 bytes, chunk #127200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #127300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #127400, preview: G
+ [GPSReader] processData: 1 bytes, chunk #127500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #127600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #127700, preview: .
+ [GPSReader] processData: 1 bytes, chunk #127800, preview: 7
+ [GPSReader] processData: 4 bytes, chunk #127900, preview: 8,07
+ [GPSReader] processData: 1 bytes, chunk #128000, preview: 2
+ [GPSReader] processData: 2 bytes, chunk #128100, preview: 7D
+ [GPSReader] processData: 2 bytes, chunk #128200, preview: 1,
+ [GPSReader] processData: 2 bytes, chunk #128300, preview: 7,
+ [GPSReader] processData: 1 bytes, chunk #128400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #128500, preview: 9
+ [GPSReader] processData: 1 bytes, chunk #128600, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #128700, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #128800, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #128900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #129000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #129100, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #129200, preview: M
+ [GPSReader] processData: 2 bytes, chunk #129300, preview: ,9
+ [GPSReader] processData: 1 bytes, chunk #129400, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #129500, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #129600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #129700, preview: .
+ [GPSReader] processData: 1 bytes, chunk #129800, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #129900, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #130000, preview: V
+ [GPSReader] processData: 1 bytes, chunk #130100, preview: 4
+ [GPSReader] processData: 1 bytes, chunk #130200, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #130300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #130400, preview: 9
+ [GPSReader] processData: 7 bytes, chunk #130500, preview: .9,M,,0
+ [GPSReader] processData: 1 bytes, chunk #130600, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #130700, preview: ,
+ [GPSReader] processData: 4 bytes, chunk #130800, preview: ,W,1
+ [GPSReader] processData: 1 bytes, chunk #130900, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #131000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #131100, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #131200, preview: .
+ [GPSReader] processData: 1 bytes, chunk #131300, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #131400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #131500, preview: 
+ [GPSReader] processData: 1 bytes, chunk #131600, preview: .
+ [GPSReader] processData: 1 bytes, chunk #131700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #131800, preview: N
+ [GPSReader] processData: 1 bytes, chunk #131900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #132000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #132100, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #132200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #132300, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #132400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #132500, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #132600, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #132700, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #132800, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #132900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #133000, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #133100, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #133200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #133300, preview: 6
+ [GPSReader] processData: 1 bytes, chunk #133400, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #133500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #133600, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #133700, preview: ,
+ [GPSReader] processData: 4 bytes, chunk #133800, preview: 0.00
+ [GPSReader] processData: 1 bytes, chunk #133900, preview: .
+ [GPSReader] processData: 3 bytes, chunk #134000, preview: 21,
+ [GPSReader] processData: 1 bytes, chunk #134100, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #134200, preview: -
+ [GPSReader] processData: 1 bytes, chunk #134300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #134400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #134500, preview: 2
+ [GPSReader] processData: 1 bytes, chunk #134600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #134700, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #134800, preview: 
+
+ [GPSReader] processData: 1 bytes, chunk #134900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #135000, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #135100, preview: 9
+ [GPSReader] processData: 13 bytes, chunk #135200, preview: GSA,A,3,08,07
+ [GPSReader] processData: 1 bytes, chunk #135300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #135400, preview: .
+ [GPSReader] processData: 1 bytes, chunk #135500, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #135600, preview: 7
+ [GPSReader] processData: 1 bytes, chunk #135700, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #135800, preview: A
+ [GPSReader] processData: 1 bytes, chunk #135900, preview: 1
+ [GPSReader] processData: 1 bytes, chunk #136000, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #136100, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #136200, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #136300, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #136400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #136500, preview: N
+ [GPSReader] processData: 1 bytes, chunk #136600, preview: 0
+ [GPSReader] processData: 1 bytes, chunk #136700, preview: ,
+ [GPSReader] processData: 5 bytes, chunk #136800, preview: $GPGG
+ [GPSReader] processData: 1 bytes, chunk #136900, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #137000, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #137100, preview: 5
+ [GPSReader] processData: 1 bytes, chunk #137200, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #137300, preview: .
+ [GPSReader] processData: 1 bytes, chunk #137400, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #137500, preview: ,
+ [GPSReader] processData: 1 bytes, chunk #137600, preview: 8
+ [GPSReader] processData: 1 bytes, chunk #137700, preview: 
+
+ [GPSReader] processData: 15 bytes, chunk #137800, preview: $GPGGA,174030.0
+ [GPSReader] processData: 1 bytes, chunk #137900, preview: 3
+ [GPSReader] processData: 1 bytes, chunk #138000, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138100, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138200, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138300, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138400, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138500, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138600, preview: 4
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138700, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138800, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #138900, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139000, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139100, preview: 3
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139200, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139300, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139400, preview: S
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139500, preview: *
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139600, preview: 6
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139700, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 2 bytes, chunk #139800, preview: PR
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #139900, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140000, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140100, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140200, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140300, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140400, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 2 bytes, chunk #140500, preview: $G
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140600, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140700, preview: A
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140800, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #140900, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141000, preview: $
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141100, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141200, preview: 4
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141300, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141400, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141500, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141600, preview: M
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141700, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141800, preview: A
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #141900, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142000, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142100, preview: *
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142200, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142300, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142400, preview: M
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142500, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142600, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142700, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #142800, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 2 bytes, chunk #142900, preview: $G
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143000, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143100, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143200, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143300, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143400, preview: S
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143500, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143600, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 2 bytes, chunk #143700, preview: GP
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143800, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #143900, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144000, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144100, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144200, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144300, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144400, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144500, preview: G
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144600, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144700, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144800, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #144900, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145000, preview: M
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145100, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145200, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145300, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145400, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145500, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145600, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145700, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145800, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #145900, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 2 bytes, chunk #146000, preview: ,A
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146100, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146200, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146300, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146400, preview: 3
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 3 bytes, chunk #146500, preview: M,,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146600, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146700, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146800, preview: G
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #146900, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147000, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147100, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147200, preview: 6
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147300, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147400, preview: 4
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147500, preview: 3
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147600, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147700, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147800, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #147900, preview: 3
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148000, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148100, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148200, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148300, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148400, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148500, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148600, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148700, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148800, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #148900, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149000, preview: 6
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149100, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149200, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149300, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149400, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149500, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149600, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149700, preview: 7
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149800, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #149900, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150000, preview: 
+
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150100, preview: 8
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150200, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150300, preview: 6
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150400, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150500, preview: 3
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150600, preview: *
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150700, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150800, preview: 9
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #150900, preview: 2
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151000, preview: .
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151100, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151200, preview: M
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151300, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151400, preview: M
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151500, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151600, preview: A
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151700, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151800, preview: S
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #151900, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152000, preview: R
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152100, preview: 5
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152200, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152300, preview: 1
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152400, preview: 0
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152500, preview: ,
+index-Bx7rGO0B.js:3741 [GPSReader] processData: 1 bytes, chunk #152600, preview: 5

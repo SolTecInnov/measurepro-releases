@@ -1,0 +1,388 @@
+# Object Detection Algorithm - Flowchart
+
+## Main Processing Loop
+
+```
+START: New Laser Reading Received
+        ↓
+    ┌───────────────────────────┐
+    │ Parse 3-Byte Data Packet │
+    │                           │
+    │ - Byte 0-1: Distance      │
+    │ - Byte 2: Intensity       │
+    └───────────┬───────────────┘
+                ↓
+    ┌───────────────────────────┐
+    │ Calculate Values:         │
+    │                           │
+    │ distance_m = parsed/100.0 │
+    │ intensity = byte2 * 2     │
+    └───────────┬───────────────┘
+                ↓
+         ╔══════════════════╗
+         ║ Is Reading Valid?║
+         ║                  ║
+         ║ - No errors?     ║
+         ║ - Intensity > threshold?
+         ║ - Distance in range?
+         ╚═══════┬══════════╝
+                 ↓
+         ┌───────┴───────┐
+         │               │
+        NO              YES
+         │               │
+         ↓               ↓
+    [Discard]     ╔══════════════════╗
+                  ║ Is distance less ║
+                  ║ than current min?║
+                  ╚═══════┬══════════╝
+                          ↓
+                  ┌───────┴───────┐
+                  │               │
+                 NO              YES
+                  │               │
+                  ↓               ↓
+          [Keep current]   ┌──────────────────┐
+                           │ UPDATE MINIMUM:  │
+                           │                  │
+                           │ - Store distance │
+                           │ - Store GPS      │
+                           │ - Store timestamp│
+                           │ - Store intensity│
+                           └────────┬─────────┘
+                                    ↓
+    ╔════════════════════════════════════════════════╗
+    ║        AUTO OBJECT DETECTION MODE?             ║
+    ╚════════════════════┬═══════════════════════════╝
+                         ↓
+                 ┌───────┴───────┐
+                 │               │
+                NO              YES
+                 │               │
+                 ↓               ↓
+         [Skip detection]   ╔══════════════════════════════╗
+              logic         ║ Check Detection Conditions:   ║
+                            ║                               ║
+                            ║ CONDITION A (No Object):      ║
+                            ║ • Distance > MaxHeight        ║
+                            ║   OR                          ║
+                            ║ • Distance ≤ DistThreshold    ║
+                            ║   OR                          ║
+                            ║ • Intensity ≤ IntThreshold    ║
+                            ║                               ║
+                            ║ AND                           ║
+                            ║                               ║
+                            ║ • MinDistance is valid        ║
+                            ╚════════════┬══════════════════╝
+                                         ↓
+                                 ┌───────┴───────┐
+                                 │               │
+                         CONDITION A         CONDITION B
+                           TRUE            (Object Present)
+                                 │               │
+                                 ↓               ↓
+                    ┌─────────────────────┐  ┌──────────────┐
+                    │ Increment Counter   │  │ Reset Counter│
+                    │                     │  │              │
+                    │ if (counter < 10)   │  │ counter = 0  │
+                    │   counter++         │  │              │
+                    └──────────┬──────────┘  └──────┬───────┘
+                               │                    │
+                               └────────┬───────────┘
+                                        ↓
+                            ╔═══════════════════════╗
+                            ║ Is Counter == 10?     ║
+                            ╚═══════┬═══════════════╝
+                                    ↓
+                            ┌───────┴───────┐
+                            │               │
+                           NO              YES
+                            │               │
+                            ↓               ↓
+                    [Continue        ┌──────────────────────┐
+                     monitoring]     │ TRIGGER LOG ENTRY!   │
+                                     │                      │
+                                     │ Write to CSV:        │
+                                     │ - Longitude          │
+                                     │ - Latitude           │
+                                     │ - Height (minimum)   │
+                                     │ - Obstruction type   │
+                                     │ - Notes              │
+                                     │ - Timestamp          │
+                                     │ - GPS satellites     │
+                                     │ - Intensity          │
+                                     │ - Temperature        │
+                                     │ - Route segment      │
+                                     └──────────┬───────────┘
+                                                ↓
+                                     ┌──────────────────────┐
+                                     │ Reset for Next:      │
+                                     │                      │
+                                     │ - MinDistance = 30m  │
+                                     │ - Play notification  │
+                                     │ - Clear stored data  │
+                                     └──────────┬───────────┘
+                                                ↓
+                                           [Continue]
+                                                ↓
+                                     [Wait for next reading]
+```
+
+---
+
+## State Machine View
+
+```
+STATE MACHINE: Object Detection Counter
+═══════════════════════════════════════
+
+    ┌─────────────┐
+    │ STATE: IDLE │  Counter = 10
+    │  No Object  │  Ready to detect
+    └──────┬──────┘
+           │
+           │ Valid reading detected
+           │ (within detection range)
+           ↓
+    ┌─────────────────┐
+    │ STATE: DETECTING│  Counter = 0
+    │  Object Present │  Tracking minimum
+    └──────┬──────────┘
+           │
+           │ Continues while
+           │ object detected
+           │
+           ├──────────┐
+           │          │
+           ↓          ↓
+    Valid reading   Reading indicates
+    continues       no object
+           │          │
+           │          ↓
+           │    Counter++
+           │          │
+           │          │ Repeat 10 times
+           │          ↓
+           │    ┌──────────────┐
+           │    │ STATE: EXITED│  Counter = 10
+           │    │ Object Passed│  LOG TRIGGERED
+           │    └──────┬───────┘
+           │           │
+           │           ↓
+           │    ┌──────────────┐
+           │    │ Log Entry    │
+           │    │ Created      │
+           │    └──────┬───────┘
+           │           │
+           │           ↓
+           │    Reset MinDistance
+           │           │
+           └───────────┴──────────→ Back to IDLE
+```
+
+---
+
+## Decision Tree: Counter Increment Logic
+
+```
+FOR EACH LASER READING:
+═══════════════════════
+
+Is Auto Detection Mode ON?
+         │
+    ┌────┴────┐
+   NO        YES
+    │          │
+    └─→ Skip   │
+               ↓
+        Is Logging Active?
+               │
+          ┌────┴────┐
+         NO        YES
+          │          │
+          └─→ Skip   │
+                     ↓
+              ┌──────────────────┐
+              │ Evaluate Reading │
+              └──────┬───────────┘
+                     ↓
+        ╔════════════════════════╗
+        ║ HEIGHT > MaxHeight?    ║  ← Laser sees sky/far
+        ╚════════┬═══════════════╝
+                 │
+            ┌────┴────┐
+           YES       NO
+            │          │
+            │          ↓
+            │    ╔═══════════════════════╗
+            │    ║ Intensity > Threshold?║
+            │    ╚═══════┬═══════════════╝
+            │            │
+            │       ┌────┴────┐
+            │      YES       NO  ← Weak signal
+            │       │          │
+            │       ↓          │
+            │ ╔════════════════════════╗
+            │ ║ Distance > DistThresh? ║
+            │ ╚════════┬═══════════════╝
+            │          │
+            │     ┌────┴────┐
+            │    YES       NO  ← Too close
+            │     │          │
+            │     ↓          │
+            │  GOOD        BAD
+            │  READING     READING
+            │     │          │
+            └─────┴──────────┘
+                  │
+                  ↓
+        ╔═══════════════════════╗
+        ║ Is Condition "BAD"?   ║
+        ║ (No object present)   ║
+        ╚═══════┬═══════════════╝
+                │
+           ┌────┴────┐
+          YES       NO
+           │          │
+           ↓          ↓
+    ┌──────────┐  ┌──────────┐
+    │INCREMENT │  │  RESET   │
+    │ Counter  │  │ Counter  │
+    │          │  │ (Object  │
+    │(if < 10) │  │ present) │
+    └──────────┘  └──────────┘
+```
+
+---
+
+## Timing Diagram Example
+
+```
+TIME PROGRESSION (Passing under bridge):
+════════════════════════════════════════
+
+Time:     0s    1s    2s    3s    4s    5s    6s    7s
+         │     │     │     │     │     │     │     │
+         ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓
+
+Distance: 30m   5.2m  4.8m  5.0m  30m   30m   30m   30m
+Reading   └─┘   └─┘   └─┘   └─┘   └─┘   └─┘   └─┘   └─┘
+          SKY   ╔════BRIDGE════╗  └────SKY────────┘
+                ║    DETECTED  ║
+                ╚══════════════╝
+
+Counter:   10    0     0     0     1     2    ...   10
+State:   IDLE  DETECT DETECT DETECT ←─EXITING──→  LOG!
+                      ↓
+MinDist:   -    5.2m  4.8m← 4.8m   4.8m kept...    4.8m
+                           LOWEST!                logged
+
+GPS:       -    (x,y) (X,Y)← (x,y)  Coords at      (X,Y)
+                           LOWEST   lowest point   logged
+
+Action:  Ready  Track  Track Track  Count Count   WRITE
+                min    min   min    clear clear   TO CSV
+                                                   ↓
+                                               ┌────────┐
+                                               │LOG:    │
+                                               │4.8m at │
+                                               │(X,Y)   │
+                                               └────────┘
+```
+
+---
+
+## Pseudo-Code Summary
+
+```python
+# Global variables
+objectDetectionCounter = 0
+minDistance = 30.0  # meters
+MAX_COUNTER = 10
+DISTANCE_THRESHOLD = 0.5  # configurable
+INTENSITY_THRESHOLD = 50  # configurable
+MAX_HEIGHT = 30.0  # meters
+BASE_HEIGHT = 4.0  # sensor height above ground
+
+# Main processing loop
+def ProcessLaserReading(distance_m, intensity):
+    global objectDetectionCounter, minDistance
+    
+    # Calculate total height
+    total_height = distance_m + BASE_HEIGHT
+    
+    # Update minimum if this is lower
+    if (distance_m < minDistance and 
+        distance_m > DISTANCE_THRESHOLD and
+        intensity > INTENSITY_THRESHOLD and
+        total_height <= MAX_HEIGHT):
+        
+        minDistance = distance_m
+        StoreGPSCoordinates()
+        StoreTimestamp()
+        StoreIntensity(intensity)
+    
+    # Object detection logic (Auto mode only)
+    if CurrentMode == AUTO_OBJECT_DETECTION:
+        
+        # Check if reading indicates "no object"
+        no_object_detected = (
+            (total_height > MAX_HEIGHT) or      # Beyond range
+            (distance_m <= DISTANCE_THRESHOLD) or # Too close
+            (intensity <= INTENSITY_THRESHOLD)    # Weak signal
+        )
+        
+        # Check if we have valid minimum
+        have_valid_minimum = (minDistance + BASE_HEIGHT <= MAX_HEIGHT)
+        
+        if no_object_detected and have_valid_minimum:
+            # Increment counter (object has passed or invalid reading)
+            if objectDetectionCounter < MAX_COUNTER:
+                objectDetectionCounter += 1
+        else:
+            # Reset counter (object still present)
+            objectDetectionCounter = 0
+        
+        # Check if we should log
+        if objectDetectionCounter >= MAX_COUNTER:
+            if have_valid_minimum:
+                CreateLogEntry(
+                    height=minDistance,
+                    gps=stored_coordinates,
+                    timestamp=stored_timestamp,
+                    intensity=stored_intensity
+                )
+                PlayNotificationSound()
+                ResetMinimumDistance()  # Reset for next object
+
+def ResetMinimumDistance():
+    global minDistance
+    minDistance = 30.0
+```
+
+---
+
+## Key Algorithm Parameters
+
+| Parameter | Typical Value | Purpose |
+|-----------|--------------|---------|
+| **Counter Max** | 10 readings | Number of consecutive "clear" readings needed |
+| **Distance Threshold** | 0.5 m | Minimum distance to consider (filters ground) |
+| **Intensity Threshold** | 50 | Minimum signal strength |
+| **Max Height** | 30 m | Maximum detection range (laser limit) |
+| **Base Height** | 4-5 m | Height of sensor above ground |
+
+---
+
+## Edge Cases Handled
+
+1. **Noise/Glitches**: Single bad readings don't trigger logging (need 10 consecutive)
+2. **Very Low Objects**: Distance threshold prevents logging ground/vehicle
+3. **Weak Signals**: Intensity threshold filters unreliable readings
+4. **Multiple Objects Close Together**: Each object generates separate log entry
+5. **GPS Loss**: Can configure to require GPS or log without it
+6. **Partial Obstructions**: Tracks absolute minimum during entire pass
+
+---
+
+This flowchart visualization should help understand the logical flow of the object detection system!

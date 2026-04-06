@@ -1,0 +1,1655 @@
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+MeasurePro-v-1535:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+MeasurePro-v-1535:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+MeasurePro-v-1535:1  The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+ stallwart: failed ping 1
+ stallwart: failed ping 2
+ stallwart: failed ping 1
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ 
+      /////////////////////
+   ///////////////////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////        Curious and driven?
+  ///////////////@@@@@@@///////        Work with us!
+  ///////////////@@@@@@@///////
+  ///////////////@@@@@@@///////        https://join.replit.com/hack.with.us
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@#//////////////
+   ///////////////////////////
+      /////////////////////
+      
+ Download the Apollo DevTools for a better development experience: https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm
+ [LaunchDarkly] LaunchDarkly client initialized
+  Cache data may be lost when replacing the dealContext field of a Org object.
+
+This could cause additional (usually avoidable) network requests to fetch data that were otherwise cached.
+
+To address this problem (which is not a bug in Apollo Client), either ensure all objects of type OrgDealContext have an ID or a custom merge function, or define a custom merge function for the Org.dealContext field, so InMemoryCache can safely merge these objects:
+
+  existing: {"__typename":"OrgDealContext","dealType":"default","salesContactEmail":null}
+  incoming: {"__typename":"OrgDealContext","dealType":"default"}
+
+For more information about these options, please refer to the documentation:
+
+  * Ensuring entity objects have IDs: https://go.apollo.dev/c/generating-unique-identifiers
+  * Defining custom merge functions: https://go.apollo.dev/c/merging-non-normalized-objects
+
+(anonymous) @ 7945184460b610be.js:2
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+  Unrecognized feature: 'ambient-light-sensor'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'battery'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-not-rendered'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-out-of-viewport'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'layout-animations'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'legacy-image-formats'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'navigation-override'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'oversized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'publickey-credentials'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'speaker-selection'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unoptimized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unsized-media'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'pointer-lock'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowfullscreen'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowpaymentrequest'.
+z @ ed1e693c96a75807.js:2
+ stallwart: failed ping 1
+ stallwart: failed ping 2
+ stallwart: failed ping 3
+ stallwart: failed ping 4
+ stallwart: failed ping 5
+ stallwart: session stalled
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'ambient-light-sensor'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'battery'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'execution-while-not-rendered'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'execution-while-out-of-viewport'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'layout-animations'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'legacy-image-formats'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'navigation-override'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'oversized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'publickey-credentials'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'speaker-selection'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'unoptimized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Unrecognized feature: 'unsized-media'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Allow attribute will take precedence over 'allowfullscreen'.
+workspace_iframe.html?initialPath=%2F&id=%3Arht%3A:32  Allow attribute will take precedence over 'allowpaymentrequest'.
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+WebSocket connection to 'ws:<URL>/' failed: WebSocket is closed before the connection is established.
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+MeasurePro-v-1535:1  Uncaught (in promise) 
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+  [Coframe] Mutation callback infinite loop protection triggered, disconnecting mutation observer Object
+(anonymous) @ 7945184460b610be.js:2
+main.tsx:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+client:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+@react-refresh:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+pwa-entry-point-loaded:1   Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ Sound system initialized with AudioContext
+ ✅ poiTypeChange sound loaded successfully
+ ✅ measureDetected sound loaded successfully
+ ✅ warning sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ critical sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Checking camera permission...
+ Checking camera permission...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Camera permission status from API: granted
+ Camera permission status from API: granted
+ Selected default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ Selected default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📷 Creating standard camera instance...
+ 📷 Initializing StandardCamera with deviceId: c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+ 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+  Failed to create camera instance: 
+initializeCamera @ LiveCamera.tsx:420
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ Starting camera, attempt: 2
+  ⚠️ No active camera instance, falling back to getUserMedia()
+tryStartCamera @ LiveCamera.tsx:502
+ Checking camera permission...
+ Checking camera permission...
+ Available devices count: 7
+ Available video devices count: 5
+ Starting camera with constraints: Object
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+  Error playing video: 
+tryStartCamera @ LiveCamera.tsx:545
+  ❌ Error starting camera: 
+tryStartCamera @ LiveCamera.tsx:554
+  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. 
+getWebcamErrorMessage @ CameraUtils.ts:37
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Creating standard camera instance...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 3
+ Stopping existing stream before starting new one
+ ✅ Video playback started successfully
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Video playback started successfully
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Creating standard camera instance...
+ 📷 Initializing StandardCamera with deviceId: de35763aec5a2948aff90c980a5c3d5de80996aa583d45b0920cf35cc273a294
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: de35763aec5a2948aff90c980a5c3d5de80996aa583d45b0920cf35cc273a294
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "de35763aec5a2948aff90c980a5c3d5de80996aa583d45b0920cf35cc273a294"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ getUserMedia succeeded
+ ✅ GoPro camera initialized: Object
+ 📹 GoPro detected! Make sure the GoPro Webcam Desktop Utility is running for best results.
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 4
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: de35763aec5a2948aff90c980a5c3d5de80996aa583d45b0920cf35cc273a294
+ 🔍 Stream label: GoPro Webcam
+ 🔍 Expected selectedCamera: de35763aec5a2948aff90c980a5c3d5de80996aa583d45b0920cf35cc273a294
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Creating standard camera instance...
+ 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 5
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+  Error playing video: 
+tryStartCamera @ LiveCamera.tsx:545
+  ❌ Error starting camera: 
+tryStartCamera @ LiveCamera.tsx:554
+  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. 
+getWebcamErrorMessage @ CameraUtils.ts:37
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ Starting camera, attempt: 6
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+  Error playing video: 
+tryStartCamera @ LiveCamera.tsx:545
+  ❌ Error starting camera: 
+tryStartCamera @ LiveCamera.tsx:554
+  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. 
+getWebcamErrorMessage @ CameraUtils.ts:37
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Starting camera, attempt: 7
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+  Error playing video: 
+tryStartCamera @ LiveCamera.tsx:545
+  ❌ Error starting camera: 
+tryStartCamera @ LiveCamera.tsx:554
+  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. 
+getWebcamErrorMessage @ CameraUtils.ts:37
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Creating standard camera instance...
+ 📷 Initializing StandardCamera with deviceId: c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+ 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "c1fc87ed31dc697ea3e846de37239574ec2f437f6cb163376efb8b807cc6e45a"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+  Failed to create camera instance: 
+initializeCamera @ LiveCamera.tsx:420
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ Starting camera, attempt: 8
+  ⚠️ No active camera instance, falling back to getUserMedia()
+tryStartCamera @ LiveCamera.tsx:502
+ Checking camera permission...
+ Checking camera permission...
+ Available devices count: 7
+ Available video devices count: 5
+ Starting camera with constraints: Object
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+  Error playing video: 
+tryStartCamera @ LiveCamera.tsx:545
+  ❌ Error starting camera: 
+tryStartCamera @ LiveCamera.tsx:554
+  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. 
+getWebcamErrorMessage @ CameraUtils.ts:37
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Creating standard camera instance...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 9
+ Stopping existing stream before starting new one
+ ✅ Video playback started successfully
+ Starting camera, attempt: 10
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ 🔍 Stream label: ZED 2i (2b03:f880)
+ 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Video playback started successfully
+ ✅ Video playback started successfully
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+  Error checking pending changes: 
+checkPendingChanges @ sync.ts:245
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Failed to initialize browser GPS: 
+initBrowserGPS @ gpsStore.ts:323
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📷 Creating standard camera instance...
+ 📷 Initializing StandardCamera with deviceId: a707aa45db8d00e910364534d35afb01fda3819848af6bc367231f674441f6d2
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: a707aa45db8d00e910364534d35afb01fda3819848af6bc367231f674441f6d2
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "a707aa45db8d00e910364534d35afb01fda3819848af6bc367231f674441f6d2"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🎬 activeCamera ready, starting video display
+LiveCamera.tsx:558 Starting camera, attempt: 11
+LiveCamera.tsx:594 📹 Using StandardCamera stream from camera instance
+LiveCamera.tsx:605 🔍 Stream deviceId: a707aa45db8d00e910364534d35afb01fda3819848af6bc367231f674441f6d2
+LiveCamera.tsx:606 🔍 Stream label: Rear Integrated Webcam (0bda:5677)
+LiveCamera.tsx:607 🔍 Expected selectedCamera: a707aa45db8d00e910364534d35afb01fda3819848af6bc367231f674441f6d2
+LiveCamera.tsx:611 ✅ Got stream from StandardCamera instance
+LiveCamera.tsx:667 Video tracks obtained, count: 1
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:470 🔄 Shutting down existing camera before creating new one
+StandardCamera.ts:208 ✅ Standard camera shut down
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:489 📷 Creating standard camera instance...
+LiveCamera.tsx:503 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:51 🔧🔧🔧 StandardCamera.initialize() called
+StandardCamera.ts:52 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:82 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+StandardCamera.ts:85 🔧 Calling getUserMedia with deviceId constraint...
+sync.ts:363  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:363
+StandardCamera.ts:87 ✅ getUserMedia succeeded
+StandardCamera.ts:148 ✅ Standard camera initialized: Object
+LiveCamera.tsx:508 ✅ standard camera instance created and initialized
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:544 🎬 activeCamera ready, starting video display
+LiveCamera.tsx:558 Starting camera, attempt: 12
+LiveCamera.tsx:594 📹 Using StandardCamera stream from camera instance
+LiveCamera.tsx:605 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:606 🔍 Stream label: ZED 2i (2b03:f880)
+LiveCamera.tsx:607 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:611 ✅ Got stream from StandardCamera instance
+LiveCamera.tsx:667 Video tracks obtained, count: 1
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+LiveCamera.tsx:692  Error playing video: AbortError: The play() request was interrupted because the media was removed from the document.
+tryStartCamera @ LiveCamera.tsx:692
+LiveCamera.tsx:702  ❌ Error starting camera: Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+tryStartCamera @ LiveCamera.tsx:702
+CameraUtils.ts:63  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+getWebcamErrorMessage @ CameraUtils.ts:63
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:558 Starting camera, attempt: 13
+LiveCamera.tsx:594 📹 Using StandardCamera stream from camera instance
+LiveCamera.tsx:605 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:606 🔍 Stream label: ZED 2i (2b03:f880)
+LiveCamera.tsx:607 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:611 ✅ Got stream from StandardCamera instance
+LiveCamera.tsx:667 Video tracks obtained, count: 1
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Checking camera permission...
+ Checking camera permission...
+ Camera permission status from API: granted
+ Camera permission state: granted
+ Setting up camera...
+LiveCamera.tsx:692  Error playing video: AbortError: The play() request was interrupted because the media was removed from the document.
+tryStartCamera @ LiveCamera.tsx:692
+LiveCamera.tsx:702  ❌ Error starting camera: Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+tryStartCamera @ LiveCamera.tsx:702
+CameraUtils.ts:63  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+getWebcamErrorMessage @ CameraUtils.ts:63
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:558 Starting camera, attempt: 14
+LiveCamera.tsx:594 📹 Using StandardCamera stream from camera instance
+LiveCamera.tsx:605 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:606 🔍 Stream label: ZED 2i (2b03:f880)
+LiveCamera.tsx:607 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:611 ✅ Got stream from StandardCamera instance
+LiveCamera.tsx:667 Video tracks obtained, count: 1
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+LiveCamera.tsx:692  Error playing video: AbortError: The play() request was interrupted because the media was removed from the document.
+tryStartCamera @ LiveCamera.tsx:692
+LiveCamera.tsx:702  ❌ Error starting camera: Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+tryStartCamera @ LiveCamera.tsx:702
+CameraUtils.ts:63  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+getWebcamErrorMessage @ CameraUtils.ts:63
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: Object
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:439  Failed to initialize browser GPS: Error: GPS timeout - position unavailable
+    at gpsStore.ts:323:18
+initBrowserGPS @ gpsStore.ts:439
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:558 Starting camera, attempt: 15
+LiveCamera.tsx:594 📹 Using StandardCamera stream from camera instance
+LiveCamera.tsx:605 🔍 Stream deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:606 🔍 Stream label: ZED 2i (2b03:f880)
+LiveCamera.tsx:607 🔍 Expected selectedCamera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+LiveCamera.tsx:611 ✅ Got stream from StandardCamera instance
+LiveCamera.tsx:667 Video tracks obtained, count: 1
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:29 Checking camera permission...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+LiveCamera.tsx:692  Error playing video: AbortError: The play() request was interrupted because the media was removed from the document.
+tryStartCamera @ LiveCamera.tsx:692
+LiveCamera.tsx:702  ❌ Error starting camera: Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+tryStartCamera @ LiveCamera.tsx:702
+CameraUtils.ts:63  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+getWebcamErrorMessage @ CameraUtils.ts:63
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+sync.ts:363  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:363
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+workbox-47da91e0.js:44 workbox Router is responding to: /
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:439  Failed to initialize browser GPS: Error: GPS timeout - position unavailable
+    at gpsStore.ts:323:18
+initBrowserGPS @ gpsStore.ts:439
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+LiveCamera.tsx:429 🧹 LiveCamera unmounting, cleaning up resources
+LiveCamera.tsx:437 🧹 Shutting down camera instance
+StandardCamera.ts:208 ✅ Standard camera shut down
+ManualLogEntryModal.tsx:214 Voice recognition stopped
+MeasurementLog.tsx:160 📊 MeasurementLog: Loading measurements for survey: 61b13eba-bdba-4709-a3bc-16f2e6cd91f0
+CameraUtils.ts:29 Checking camera permission...
+useCameraDisconnectMonitor.tsx:150 📹 Camera monitor state: {cameraType: 'standard', lastDisconnectReason: null, reconnectionAttempts: 0, isRecording: false, isTimelapseActive: false}
+LiveCamera.tsx:470 🔄 Shutting down existing camera before creating new one
+StandardCamera.ts:208 ✅ Standard camera shut down
+CameraUtils.ts:29 Checking camera permission...
+LiveCamera.tsx:429 🧹 LiveCamera unmounting, cleaning up resources
+LiveCamera.tsx:437 🧹 Shutting down camera instance
+StandardCamera.ts:208 ✅ Standard camera shut down
+ManualLogEntryModal.tsx:214 Voice recognition stopped
+MeasurementLog.tsx:160 📊 MeasurementLog: Loading measurements for survey: 61b13eba-bdba-4709-a3bc-16f2e6cd91f0
+CameraUtils.ts:29 Checking camera permission...
+useCameraDisconnectMonitor.tsx:150 📹 Camera monitor state: {cameraType: 'standard', lastDisconnectReason: null, reconnectionAttempts: 0, isRecording: false, isTimelapseActive: false}
+LiveCamera.tsx:470 🔄 Shutting down existing camera before creating new one
+StandardCamera.ts:208 ✅ Standard camera shut down
+CameraUtils.ts:29 Checking camera permission...
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+LiveCamera.tsx:692  Error playing video: AbortError: The play() request was interrupted because the media was removed from the document.
+tryStartCamera @ LiveCamera.tsx:692
+LiveCamera.tsx:702  ❌ Error starting camera: Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+tryStartCamera @ LiveCamera.tsx:702
+CameraUtils.ts:63  Detailed camera error: Error Failed to play video: The play() request was interrupted because the media was removed from the document. Error: Failed to play video: The play() request was interrupted because the media was removed from the document.
+    at tryStartCamera (LiveCamera.tsx:696:17)
+    at async handleStartCamera (LiveCamera.tsx:714:5)
+getWebcamErrorMessage @ CameraUtils.ts:63
+tryStartCamera @ LiveCamera.tsx:703
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:31 Camera permission state: granted
+CameraSetup.tsx:72 Setting up camera...
+CameraUtils.ts:35 Camera permission status from API: granted
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSettings.tsx:128 Selected default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSetup.tsx:87 Using default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+CameraSettings.tsx:128 Selected default camera: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+MeasurementLog.tsx:174 Found 1 total measurements
+MeasurementLog.tsx:214 📊 MeasurementLog: Loaded 1 measurements for display
+MeasurementLog.tsx:261 📼 Loaded 0 voice notes
+MeasurementLog.tsx:174 Found 1 total measurements
+MeasurementLog.tsx:214 📊 MeasurementLog: Loaded 1 measurements for display
+MeasurementLog.tsx:261 📼 Loaded 0 voice notes
+LiveCamera.tsx:489 📷 Creating standard camera instance...
+LiveCamera.tsx:489 📷 Creating standard camera instance...
+LiveCamera.tsx:503 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:51 🔧🔧🔧 StandardCamera.initialize() called
+StandardCamera.ts:52 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:82 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+StandardCamera.ts:85 🔧 Calling getUserMedia with deviceId constraint...
+LiveCamera.tsx:503 📷 Initializing StandardCamera with deviceId: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:51 🔧🔧🔧 StandardCamera.initialize() called
+StandardCamera.ts:52 🔧 deviceId passed to constructor: 27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc
+StandardCamera.ts:82 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+StandardCamera.ts:85 🔧 Calling getUserMedia with deviceId constraint...
+StandardCamera.ts:87 ✅ getUserMedia succeeded
+StandardCamera.ts:87 ✅ getUserMedia succeeded
+StandardCamera.ts:148 ✅ Standard camera initialized: {requestedDeviceId: '27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc', actualDeviceId: '27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc', name: 'ZED 2i (2b03:f880)', resolution: '1280x376', fps: 30}
+StandardCamera.ts:208 ✅ Standard camera shut down
+StandardCamera.ts:148 ✅ Standard camera initialized: {requestedDeviceId: '27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc', actualDeviceId: '27da085a35f62d4f5b32660e67c33c70e5bca0544885480833fff14954d653bc', name: 'ZED 2i (2b03:f880)', resolution: '1280x376', fps: 30}
+LiveCamera.tsx:508 ✅ standard camera instance created and initialized
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates
+sync.ts:363  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:439  Failed to initialize browser GPS: Error: GPS timeout - position unavailable
+    at gpsStore.ts:323:18
+initBrowserGPS @ gpsStore.ts:439
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '--:--:--', latitude: 0, longitude: 0, altitude: 0, speed: 0, …}
+VehicleMap.tsx:90 📍 PositionMarker: No GPS data or invalid coordinates

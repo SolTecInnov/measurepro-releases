@@ -1,0 +1,389 @@
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🎤 Recognition result: {transcript: 'bridge', confidence: 0, isFinal: false}
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🎤 Recognition result: {transcript: 'Bridge.', confidence: 0, isFinal: true}
+injected.js:27 🧠 Intent recognition: {text: 'Bridge.', intent: 'poi_bridge', confidence: 0.9}
+injected.js:27 🎯 Recognized command: {intent: 'poi_bridge', confidence: 0.9, language: 'en-US', originalText: 'Bridge.'}
+injected.js:27 🎯 CommandRegistry: poi_bridge intent handler called
+injected.js:27 🎯 CommandRegistry: setPOITypeCallback is: NULL
+injected.js:27 ✅ Command executed: poi_bridge → POI type: Bridge
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: POI type: Bridge
+injected.js:27 🎤 Speech recognition ended
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🔊 Finished speaking
+injected.js:27 🎤 Resuming speech recognition
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎤 Speech recognition started
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🎤 Recognition result: {transcript: 'capture', confidence: 0, isFinal: false}
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🎤 Recognition result: {transcript: 'Capture.', confidence: 0, isFinal: true}
+injected.js:27 🧠 Intent recognition: {text: 'Capture.', intent: 'capture_image', confidence: 0.9}
+injected.js:27 🎯 Recognized command: {intent: 'capture_image', confidence: 0.9, language: 'en-US', originalText: 'Capture.'}
+injected.js:27 📸 CommandRegistry: capture_image intent handler called
+injected.js:27 📸 CommandRegistry: captureImageCallback is: NULL
+injected.js:27 ✅ Command executed: capture_image → Image captured
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: Image captured
+injected.js:27 🎤 Speech recognition ended
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27 🔊 Finished speaking
+injected.js:27 🎤 Resuming speech recognition
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎤 Speech recognition started
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+ca343566e0ba1bad.js:2  WebSocket is already in CLOSING or CLOSED state.
+value @ ca343566e0ba1bad.js:2
+ez @ ca343566e0ba1bad.js:2
+value @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+(anonymous) @ ca343566e0ba1bad.js:2
+apply @ ca343566e0ba1bad.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+e @ 33ddb2aa5c45a58a.js:2
+s @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+(anonymous) @ 33ddb2aa5c45a58a.js:2
+wait @ 61a592363b2405ab.js:2
+u @ daf57a1c772bbed1.js:2
+(anonymous) @ daf57a1c772bbed1.js:2
+o @ e53b7ce7814b668c.js:2
+setTimeout
+(anonymous) @ e53b7ce7814b668c.js:2
+Object.assign.isScheduled @ daf57a1c772bbed1.js:2
+(anonymous) @ 61a592363b2405ab.js:2
+r @ 61a592363b2405ab.js:2
+o @ e53b7ce7814b668c.js:2

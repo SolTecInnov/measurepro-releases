@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeasurePRO — Complete User Manual | SolTec Innovation</title>
+<style>
+/* ===================== RESET & BASE ===================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.7;display:flex;min-height:100vh}
+
+/* ===================== SIDEBAR ===================== */
+#sidebar{width:280px;min-width:280px;background:#161b22;border-right:1px solid #21262d;height:100vh;position:sticky;top:0;overflow-y:auto;padding:0 0 40px;flex-shrink:0;z-index:100}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-track{background:#161b22}
+#sidebar::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
+.sidebar-logo{padding:20px 20px 16px;border-bottom:1px solid #21262d;display:flex;align-items:center;gap:10px}
+.sidebar-logo .bolt{width:32px;height:32px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sidebar-logo .title{font-size:13px;font-weight:700;color:#f0f6fc;line-height:1.3}
+.sidebar-logo .sub{font-size:11px;color:#6e7681;margin-top:1px}
+.sidebar-search{padding:10px 16px;border-bottom:1px solid #21262d}
+.sidebar-search input{width:100%;padding:6px 10px;background:#0d1117;border:1px solid #30363d;border-radius:6px;color:#c9d1d9;font-size:12px;outline:none}
+.sidebar-search input:focus{border-color:#388bfd}
+.toc-section{padding:8px 0}
+.toc-section-title{padding:4px 20px;font-size:10px;font-weight:700;color:#6e7681;text-transform:uppercase;letter-spacing:.08em}
+.toc-link{display:flex;align-items:center;gap:8px;padding:5px 20px;font-size:12px;color:#8b949e;text-decoration:none;transition:all .15s;border-left:2px solid transparent}
+.toc-link:hover{color:#c9d1d9;background:#21262d;border-left-color:#388bfd}
+.toc-link.active{color:#58a6ff;border-left-color:#388bfd;background:#21262d}
+.toc-link .num{font-size:10px;color:#6e7681;min-width:24px}
+.toc-sub{padding-left:12px}
+.toc-sub .toc-link{font-size:11px;padding:3px 20px 3px 32px}
+
+/* ===================== MAIN CONTENT ===================== */
+#content{flex:1;max-width:900px;padding:0 48px 80px;min-width:0}
+@media(max-width:1100px){#content{padding:0 24px 80px}}
+
+/* ===================== HEADER ===================== */
+.manual-header{background:linear-gradient(135deg,#0d1117 0%,#161b22 40%,#0d1117 100%);border-bottom:1px solid #21262d;padding:48px 48px 40px;margin:0 -48px 0;position:relative;overflow:hidden}
+.manual-header::before{content:'';position:absolute;top:-40px;right:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,.12) 0%,transparent 70%);pointer-events:none}
+.header-badge{display:inline-flex;align-items:center;gap:6px;background:#1f2937;border:1px solid #374151;border-radius:20px;padding:4px 12px;font-size:11px;color:#9ca3af;margin-bottom:16px}
+.header-badge .dot{width:6px;height:6px;background:#22c55e;border-radius:50%}
+.manual-header h1{font-size:36px;font-weight:800;color:#f0f6fc;line-height:1.2;margin-bottom:8px}
+.manual-header h1 span{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.manual-header .subtitle{font-size:16px;color:#8b949e;margin-bottom:24px}
+.header-meta{display:flex;gap:24px;flex-wrap:wrap}
+.meta-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#6e7681}
+.meta-item strong{color:#c9d1d9}
+.header-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;border:none;transition:all .2s}
+.btn-primary{background:#1d6ae5;color:#fff}
+.btn-primary:hover{background:#1558c0}
+.btn-secondary{background:#21262d;color:#c9d1d9;border:1px solid #30363d}
+.btn-secondary:hover{background:#2d333b;color:#f0f6fc}
+
+/* ===================== SECTIONS ===================== */
+.section{padding:48px 0;border-bottom:1px solid #21262d}
+.section:last-child{border-bottom:none}
+.part-divider{display:flex;align-items:center;gap:16px;margin:56px 0 32px}
+.part-divider .part-num{background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:4px;white-space:nowrap}
+.part-divider .part-title{font-size:22px;font-weight:700;color:#f0f6fc}
+.part-divider hr{flex:1;border:none;border-top:1px solid #21262d}
+
+h2{font-size:20px;font-weight:700;color:#f0f6fc;margin:32px 0 12px;padding-top:16px}
+h2:first-child{margin-top:0}
+h3{font-size:16px;font-weight:600;color:#e6edf3;margin:24px 0 10px}
+h4{font-size:14px;font-weight:600;color:#c9d1d9;margin:16px 0 8px}
+p{margin-bottom:14px;color:#c9d1d9}
+p strong{color:#f0f6fc}
+ul,ol{margin:0 0 14px 20px;color:#c9d1d9}
+li{margin-bottom:4px}
+li strong{color:#f0f6fc}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#1e2432;color:#e06c75;padding:2px 6px;border-radius:4px;font-size:12px;font-family:'SFMono-Regular',Consolas,monospace}
+pre{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px;overflow-x:auto;margin:16px 0;font-size:12px;font-family:'SFMono-Regular',Consolas,monospace;color:#c9d1d9;line-height:1.6}
+
+/* ===================== CALLOUT BOXES ===================== */
+.callout{border-radius:8px;padding:14px 16px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.callout-body{flex:1}
+.callout-body p{margin-bottom:0;font-size:13px}
+.callout-body strong{display:block;margin-bottom:4px;font-size:13px}
+.callout.tip{background:#0d2236;border:1px solid #1a4a6e;border-left:3px solid #388bfd}
+.callout.tip .callout-icon{color:#388bfd}
+.callout.warning{background:#2a1f00;border:1px solid #6a4a00;border-left:3px solid #d29922}
+.callout.warning .callout-icon{color:#d29922}
+.callout.danger{background:#2a0d0d;border:1px solid #6e1a1a;border-left:3px solid #f85149}
+.callout.danger .callout-icon{color:#f85149}
+.callout.success{background:#0d2a0d;border:1px solid #1a6e1a;border-left:3px solid #3fb950}
+.callout.success .callout-icon{color:#3fb950}
+
+/* ===================== SCREENSHOTS / MOCKUPS ===================== */
+.screenshot{border:1px solid #30363d;border-radius:10px;overflow:hidden;margin:20px 0;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.screenshot img{width:100%;display:block}
+.screenshot-cap{background:#161b22;padding:8px 14px;font-size:11px;color:#6e7681;border-top:1px solid #21262d;display:flex;align-items:center;gap:6px}
+.screenshot-cap::before{content:'📸';font-size:12px}
+
+/* MOCKUP UI — simulates the dark app UI */
+.mockup{background:#0d1117;border:1px solid #30363d;border-radius:10px;overflow:hidden;margin:20px 0;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.mockup-bar{background:#161b22;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #21262d}
+.mockup-bar .dot{width:10px;height:10px;border-radius:50%}
+.mockup-bar .dot-r{background:#f85149}
+.mockup-bar .dot-y{background:#d29922}
+.mockup-bar .dot-g{background:#3fb950}
+.mockup-bar .url{flex:1;background:#0d1117;border:1px solid #21262d;border-radius:6px;padding:4px 10px;font-size:11px;color:#6e7681;margin:0 12px}
+.mockup-body{padding:0}
+.app-shell{display:flex;height:420px}
+.app-sidebar{width:60px;background:#161b22;border-right:1px solid #21262d;display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:4px;flex-shrink:0}
+.app-sidebar-icon{width:40px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:background .15s;color:#6e7681}
+.app-sidebar-icon:hover,.app-sidebar-icon.active{background:#21262d;color:#58a6ff}
+.app-main{flex:1;overflow:hidden;display:flex;flex-direction:column}
+.app-topbar{background:#161b22;border-bottom:1px solid #21262d;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.app-topbar .logo{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#f0f6fc}
+.app-topbar .bolt-sm{width:20px;height:20px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.status-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600}
+.status-pill.connected{background:#0d2a0d;color:#3fb950;border:1px solid #1a6e1a}
+.status-pill.disconnected{background:#2a0d0d;color:#f85149;border:1px solid #6e1a1a}
+.status-pill.warning{background:#2a1f00;color:#d29922;border:1px solid #6a4a00}
+.app-content{flex:1;overflow-y:auto;padding:16px;background:#0d1117}
+.card{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:14px}
+.card h4{margin:0 0 10px;font-size:12px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:.06em}
+.big-num{font-size:36px;font-weight:800;color:#f0f6fc;line-height:1}
+.big-num.green{color:#3fb950}
+.big-num.yellow{color:#d29922}
+.big-num.red{color:#f85149}
+.big-num .unit{font-size:16px;font-weight:400;color:#6e7681;margin-left:4px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.settings-tab-bar{background:#161b22;border-bottom:1px solid #21262d;padding:0 16px;display:flex;gap:4px;overflow-x:auto;flex-shrink:0}
+.settings-tab-bar::-webkit-scrollbar{height:3px}
+.settings-tab-bar::-webkit-scrollbar-track{background:#161b22}
+.settings-tab-bar::-webkit-scrollbar-thumb{background:#30363d}
+.stab{padding:8px 12px;font-size:11px;color:#8b949e;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.stab.active{color:#58a6ff;border-bottom-color:#388bfd}
+.stab:hover{color:#c9d1d9}
+.form-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #21262d}
+.form-row:last-child{border-bottom:none}
+.form-row label{font-size:12px;color:#8b949e}
+.form-row .val{font-size:12px;color:#c9d1d9}
+.toggle{width:36px;height:20px;background:#3fb950;border-radius:10px;position:relative;cursor:pointer;flex-shrink:0}
+.toggle.off{background:#30363d}
+.toggle::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:left .2s}
+.toggle.off::after{left:2px}
+.toggle:not(.off)::after{left:18px}
+.btn-sm{padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:5px}
+.btn-sm.blue{background:#1d6ae5;color:#fff}
+.btn-sm.green{background:#1a6e1a;color:#3fb950;border:1px solid #2d8f2d}
+.btn-sm.red{background:#6e1a1a;color:#f85149;border:1px solid #8f2d2d}
+.btn-sm.gray{background:#21262d;color:#8b949e;border:1px solid #30363d}
+.log-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #21262d;font-size:11px}
+.log-row:hover{background:#21262d}
+.poi-badge{padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600}
+.alert-banner{background:#6e1a1a;border:1px solid #8f2d2d;border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.alert-banner.warning{background:#2a1f00;border-color:#6a4a00}
+
+/* ===================== TABLES ===================== */
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.data-table th{background:#161b22;color:#8b949e;text-align:left;padding:8px 12px;border-bottom:1px solid #30363d;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.data-table td{padding:9px 12px;border-bottom:1px solid #21262d;color:#c9d1d9}
+.data-table td strong,.data-table td code{color:#f0f6fc}
+.data-table tr:hover td{background:#161b22}
+.data-table .badge{display:inline-flex;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
+.badge-blue{background:#1a3a6e;color:#58a6ff}
+.badge-green{background:#1a3a1a;color:#3fb950}
+.badge-yellow{background:#3a2a00;color:#d29922}
+.badge-red{background:#3a1a1a;color:#f85149}
+.badge-purple{background:#2a1a4e;color:#a78bfa}
+.badge-cyan{background:#1a2a3a;color:#22d3ee}
+.badge-gray{background:#1e2432;color:#6e7681}
+
+/* ===================== SHORTCUT TABLE ===================== */
+.kbd{display:inline-flex;align-items:center;padding:2px 8px;background:#1e2432;border:1px solid #30363d;border-bottom-width:2px;border-radius:5px;font-family:'SFMono-Regular',monospace;font-size:11px;color:#e6edf3;white-space:nowrap}
+
+/* ===================== POI GRID ===================== */
+.poi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:16px 0}
+.poi-card{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.poi-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.poi-info{flex:1;min-width:0}
+.poi-name{font-size:12px;font-weight:600;color:#c9d1d9;line-height:1.3}
+.poi-meta{font-size:10px;color:#6e7681;margin-top:2px}
+.poi-height-badge{margin-left:auto;flex-shrink:0}
+
+/* ===================== STEP LIST ===================== */
+.steps{list-style:none;margin:16px 0;padding:0}
+.steps li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #21262d}
+.steps li:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px}
+.step-body{flex:1}
+.step-body strong{display:block;color:#c9d1d9;font-size:14px;margin-bottom:4px}
+.step-body p{margin:0;font-size:13px}
+
+/* ===================== SPEC BOX ===================== */
+.spec-box{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px;margin:12px 0}
+.spec-box h4{margin:0 0 12px;font-size:12px;font-weight:700;color:#8b949e;text-transform:uppercase;letter-spacing:.06em}
+.spec-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #0d1117;font-size:13px}
+.spec-row:last-child{border-bottom:none}
+.spec-row .spec-key{color:#8b949e}
+.spec-row .spec-val{color:#c9d1d9;font-weight:600;text-align:right}
+
+/* ===================== APPENDIX ===================== */
+.appendix-section{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:20px;margin:16px 0}
+
+/* ===================== PRINT ===================== */
+@media print{
+  body{background:#fff;color:#000;display:block;font-size:11pt}
+  #sidebar{display:none}
+  #content{max-width:100%;padding:0;margin:0}
+  .manual-header{background:#fff;border:none;padding:0 0 20pt;margin:0 0 20pt;border-bottom:2pt solid #000}
+  .manual-header::before{display:none}
+  .manual-header h1{color:#000;font-size:24pt}
+  .manual-header h1 span{-webkit-text-fill-color:#1a56db}
+  .manual-header .subtitle,.header-meta,.header-actions{color:#333}
+  .btn{display:none}
+  h2{color:#000;font-size:14pt;page-break-after:avoid}
+  h3{color:#111;font-size:12pt;page-break-after:avoid}
+  p,ul,ol,li{color:#333}
+  .section{border-bottom:1pt solid #ddd;page-break-inside:avoid}
+  .part-divider{page-break-before:always}
+  .part-divider .part-num{background:#1a56db;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .part-divider .part-title{color:#000}
+  .callout{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .mockup,.screenshot{page-break-inside:avoid}
+  .mockup-bar{display:none}
+  .app-shell{height:auto}
+  code{background:#f4f4f4;color:#d63200}
+  pre{background:#f8f8f8;border:1pt solid #ddd;color:#333}
+  .data-table th{background:#eee;color:#333;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .data-table td{border-bottom-color:#ddd;color:#333}
+  @page{size:letter portrait;margin:2cm 2cm 2cm 2cm}
+  @page:first{margin-top:1cm}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== SIDEBAR ===================== -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="bolt">⚡</div>
+    <div>
+      <div class="title">MeasurePRO</div>
+      <div class="sub">User Manual v1.0</div>
+    </div>
+  </div>
+  <div class="sidebar-search">
+    <input type="text" placeholder="Search manual…" oninput="filterTOC(this.value)">
+  </div>
+  <div id="toc">
+    <div class="toc-section">
+      <div class="toc-section-title">Getting Started</div>
+      <a class="toc-link" href="#quickstart"><span class="num">QS</span>Quick Start (5 Minutes)</a>
+      <a class="toc-link" href="#p1"><span class="num">1</span>Account &amp; App Access</a>
+      <a class="toc-link" href="#p2"><span class="num">2</span>Vertical Laser Setup</a>
+      <a class="toc-link" href="#p3"><span class="num">3</span>Multi-Laser System</a>
+      <a class="toc-link" href="#p4"><span class="num">4</span>GPS &amp; GNSS</a>
+      <a class="toc-link" href="#p5"><span class="num">5</span>Camera System</a>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Field Operations</div>
+      <a class="toc-link" href="#p6"><span class="num">6</span>Stream Deck Integration</a>
+      <a class="toc-link" href="#p7"><span class="num">7</span>Survey Management</a>
+      <a class="toc-link" href="#p8"><span class="num">8</span>POI Types Reference</a>
+      <a class="toc-link" href="#p9"><span class="num">9</span>Measurement &amp; Logging</a>
+      <a class="toc-link" href="#p10"><span class="num">10</span>Alert System</a>
+      <a class="toc-link" href="#p11"><span class="num">11</span>Photos, Video &amp; Voice</a>
+      <a class="toc-link" href="#p12"><span class="num">12</span>Maps &amp; Navigation</a>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Advanced Features</div>
+      <a class="toc-link" href="#p13"><span class="num">13</span>Road Profile Recording</a>
+      <a class="toc-link" href="#p14"><span class="num">14</span>Export &amp; Data</a>
+      <a class="toc-link" href="#p15"><span class="num">15</span>AI Features (MeasurePRO+)</a>
+      <a class="toc-link" href="#p16"><span class="num">16</span>3D LiDAR Scanning</a>
+      <a class="toc-link" href="#p17"><span class="num">17</span>Slave App &amp; Live Monitor</a>
+      <a class="toc-link" href="#p18"><span class="num">18</span>Database &amp; Storage</a>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Reference</div>
+      <a class="toc-link" href="#p19"><span class="num">19</span>Settings Reference</a>
+      <a class="toc-link" href="#p20"><span class="num">20</span>Keyboard Shortcuts</a>
+      <a class="toc-link" href="#p21"><span class="num">21</span>Admin Panel</a>
+      <a class="toc-link" href="#p22"><span class="num">22</span>Troubleshooting</a>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-title">Appendices</div>
+      <a class="toc-link" href="#appA"><span class="num">A</span>Laser Protocol Specs</a>
+      <a class="toc-link" href="#appB"><span class="num">B</span>Export Format Reference</a>
+      <a class="toc-link" href="#appC"><span class="num">C</span>Environmental Conditions</a>
+      <a class="toc-link" href="#appD"><span class="num">D</span>Subscription Plans</a>
+      <a class="toc-link" href="#appE"><span class="num">E</span>Compliance &amp; Accuracy</a>
+      <a class="toc-link" href="#appF"><span class="num">F</span>Contact &amp; Support</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== CONTENT ===================== -->
+<main id="content">
+
+  <!-- HEADER -->
+  <div class="manual-header">
+    <div class="header-badge"><span class="dot"></span> measure-pro.app &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; March 2026</div>
+    <h1>MeasurePRO<br><span>Complete User Manual</span></h1>
+    <p class="subtitle">Professional LiDAR Road Survey for Oversize &amp; Overweight Transport</p>
+    <div class="header-meta">
+      <div class="meta-item">🏢 <strong>SolTec Innovation</strong></div>
+      <div class="meta-item">🌐 <a href="https://www.soltecinnovation.com" style="color:#58a6ff">www.SolTecInnovation.com</a></div>
+      <div class="meta-item">📞 <strong>1.438.533.5344</strong></div>
+      <div class="meta-item">✉️ <a href="mailto:support@soltec.ca" style="color:#58a6ff">support@soltec.ca</a></div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-primary" onclick="window.print()">🖨 Print / Save as PDF</button>
+      <a class="btn btn-secondary" href="mailto:support@soltec.ca?subject=MeasurePRO%20Manual%20Question">✉️ Email Support</a>
+      <a class="btn btn-secondary" href="/docs/field-card">📋 Field Reference Card</a>
+    </div>
+  </div>
+
+  <!-- ======================== QUICK START ======================== -->
+  <div class="section" id="quickstart">
+    <div class="part-divider">
+      <span class="part-num">QUICK START</span>
+      <span class="part-title">Up and Running in 5 Minutes</span>
+      <hr>
+    </div>
+    <p>Follow these 8 steps to complete your first clearance survey after receiving your MeasurePRO kit.</p>
+    <ul class="steps">
+      <li><div class="step-num">1</div><div class="step-body"><strong>Power the laser</strong><p>Connect the 12V power cable from the laser enclosure to the vehicle's cigarette lighter adapter, or use the included 120V-to-12V converter. The <strong>Power LED turns on</strong> immediately — the laser streams measurements automatically, no commands required.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-body"><strong>Connect USB-to-Serial cable</strong><p>Plug the DB9 cable from the laser into the tablet's USB-to-serial adapter. Windows detects it as a COM port (e.g., <code>COM3</code>) within seconds.</p></div></li>
+      <li><div class="step-num">3</div><div class="step-body"><strong>Open the app</strong><p>Open <strong>Google Chrome</strong> or <strong>Microsoft Edge</strong> and navigate to <a href="https://measure-pro.app">measure-pro.app</a>. Sign in with your credentials. If using the PWA, tap <em>Install</em> when prompted for offline capability.</p></div></li>
+      <li><div class="step-num">4</div><div class="step-body"><strong>Connect the laser in Settings</strong><p>Go to <strong>Settings → Laser &amp; GPS → Laser tab</strong>. Click <em>Select Port</em>, choose your COM port, set Protocol to <strong>SolTec</strong> (or RSA for the High Pole), baud rate is auto-set to <strong>115,200</strong>. Click <em>Connect</em>. The current measurement appears immediately.</p></div></li>
+      <li><div class="step-num">5</div><div class="step-body"><strong>Set the Ground Reference</strong><p>Measure with a tape measure from the bottom of the laser enclosure/sun shade to the ground. Enter that distance in <strong>Settings → Laser &amp; GPS → Ground Reference</strong> field. This value is subtracted from all readings to give true clearance.</p></div></li>
+      <li><div class="step-num">6</div><div class="step-body"><strong>Connect GPS</strong><p>If using a USB GPS dongle, go to <strong>Settings → Laser &amp; GPS → GPS tab</strong> and click <em>Select Port</em>. For Swift Duro GNSS, see Part 4. For Bluetooth GPS, use the Bluetooth tab.</p></div></li>
+      <li><div class="step-num">7</div><div class="step-body"><strong>Create a new survey</strong><p>Click the <strong>Survey Manager</strong> tab (or the clipboard icon in the sidebar). Click <em>New Survey</em>, fill in the route name and description, then click <em>Create</em>. The survey is now active and ready to log POIs.</p></div></li>
+      <li><div class="step-num">8</div><div class="step-body"><strong>Start logging</strong><p>Press <kbd class="kbd">Alt+3</kbd> to start logging, or click the <em>Start Logging</em> button. Drive your route. Use <kbd class="kbd">Alt+G</kbd> to manually log a measurement at any POI. Press <kbd class="kbd">Alt+1</kbd> to capture a photo. When done, press <kbd class="kbd">Alt+4</kbd> and close your survey from Survey Manager.</p></div></li>
+    </ul>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>First-time tip</strong><p>Use the <a href="/docs/laser-quickstart">Laser Quick Start Guide</a> and the <a href="/docs/field-card">Field Reference Card</a> (printable, laminate-ready) for a condensed checklist you can keep in the vehicle.</p></div></div>
+    <div class="screenshot">
+      <img src="manual-img/08-docs-fieldcard.jpg" alt="Field Reference Card">
+      <div class="screenshot-cap">The printable Field Reference Card — covers startup sequence and all keyboard shortcuts</div>
+    </div>
+  </div>
+
+  <!-- ======================== PART 1 ======================== -->
+  <div class="section" id="p1">
+    <div class="part-divider">
+      <span class="part-num">PART 1</span>
+      <span class="part-title">Account &amp; App Access</span>
+      <hr>
+    </div>
+
+    <h2>1.1 Creating Your Account</h2>
+    <p>MeasurePRO uses Firebase Authentication for secure login. All accounts require <strong>admin approval</strong> before the app becomes fully accessible — typically within 24 hours on business days.</p>
+    <ol>
+      <li>Navigate to <a href="https://measure-pro.app">measure-pro.app</a> and click <strong>Sign Up</strong>.</li>
+      <li>Enter your name, company, email, and a strong password.</li>
+      <li>Agree to the Terms of Service and Privacy Policy.</li>
+      <li>Submit — you'll receive a confirmation email immediately.</li>
+      <li>Wait for admin approval. You'll receive an email when your account is activated.</li>
+    </ol>
+    <div class="screenshot">
+      <img src="manual-img/03-register.jpg" alt="Registration page">
+      <div class="screenshot-cap">The registration form — all fields are required</div>
+    </div>
+    <div class="callout warning"><div class="callout-icon">⚠️</div><div class="callout-body"><strong>Awaiting Approval</strong><p>After registering, the app shows an "Awaiting Approval" screen until an admin activates your account. If you need urgent access, email <a href="mailto:support@soltec.ca">support@soltec.ca</a> or call 1.438.533.5344.</p></div></div>
+
+    <h2>1.2 Logging In</h2>
+    <p>Go to <a href="https://measure-pro.app/login">measure-pro.app/login</a>. Enter your email and password. Use <em>Forgot Password</em> to reset via email if needed.</p>
+    <div class="screenshot">
+      <img src="manual-img/02-login.jpg" alt="Login page">
+      <div class="screenshot-cap">Login page — use your registered email and password</div>
+    </div>
+
+    <h2>1.3 Subscription Plans</h2>
+    <p>MeasurePRO offers three base plans plus optional add-on modules:</p>
+    <div class="screenshot">
+      <img src="manual-img/04-pricing.jpg" alt="Pricing page">
+      <div class="screenshot-cap">Pricing page — base plans plus feature add-ons</div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Plan</th><th>Access Type</th><th>Key Features</th></tr></thead>
+      <tbody>
+        <tr><td><strong>MeasurePRO Lite</strong></td><td><span class="badge badge-green">Lifetime</span></td><td>Core laser measurement, GPS logging, basic POI types, CSV export</td></tr>
+        <tr><td><strong>MeasurePRO</strong></td><td><span class="badge badge-blue">Most Popular</span></td><td>All Lite features + GNSS/Duro, multi-laser, road profile, all export formats, auto-part</td></tr>
+        <tr><td><strong>Beta Tester</strong></td><td><span class="badge badge-purple">Invite Only</span></td><td>All features including AI, envelope clearance, convoy, swept path, LiDAR</td></tr>
+      </tbody>
+    </table>
+    <p>Feature modules (AI+, Envelope Clearance, Convoy Guardian, etc.) are available as add-ons. Contact SolTec Innovation for pricing. Hardware bundle pricing (rugged tablet, LiDAR kit, GPS, mounts) is managed separately at <a href="https://www.soltecinnovation.com">soltecinnovation.com</a>.</p>
+
+    <h2>1.4 Browser &amp; Device Requirements</h2>
+    <table class="data-table">
+      <thead><tr><th>Requirement</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Browser</strong></td><td>Google Chrome 120+ or Microsoft Edge 120+ (required for Web Serial API)</td></tr>
+        <tr><td><strong>Tablet/PC</strong></td><td>Windows 10/11 recommended; any OS for GPS-only workflows</td></tr>
+        <tr><td><strong>USB</strong></td><td>USB-A or USB-C port for USB-to-serial adapter</td></tr>
+        <tr><td><strong>Memory</strong></td><td>8 GB RAM minimum; 16 GB recommended for long surveys</td></tr>
+        <tr><td><strong>PWA Install</strong></td><td>Click the install icon in Chrome's address bar for offline capability</td></tr>
+        <tr><td><strong>Permissions</strong></td><td>Camera, Microphone, Serial Port, Location must be allowed</td></tr>
+      </tbody>
+    </table>
+
+    <h2>1.5 App Layout Overview</h2>
+    <p>The main app interface has three primary areas: a <strong>top bar</strong> with status indicators, a <strong>left sidebar</strong> for navigation between major views, and the <strong>main content area</strong> which changes based on the active view.</p>
+    <div class="mockup">
+      <div class="mockup-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="url">measure-pro.app/app</div></div>
+      <div class="mockup-body">
+        <div class="app-shell">
+          <div class="app-sidebar">
+            <div class="app-sidebar-icon active" title="Main">🏠</div>
+            <div class="app-sidebar-icon" title="Survey Manager">📋</div>
+            <div class="app-sidebar-icon" title="Map">🗺️</div>
+            <div class="app-sidebar-icon" title="Camera">📷</div>
+            <div class="app-sidebar-icon" title="Settings">⚙️</div>
+            <div class="app-sidebar-icon" title="Road Profile">📈</div>
+            <div class="app-sidebar-icon" title="LiDAR">🔵</div>
+          </div>
+          <div class="app-main">
+            <div class="app-topbar">
+              <div class="logo"><div class="bolt-sm">⚡</div>MeasurePRO</div>
+              <span class="status-pill connected">● Laser</span>
+              <span class="status-pill connected">● GPS</span>
+              <span class="status-pill warning">⚠ Survey Active</span>
+              <div style="margin-left:auto;display:flex;gap:8px">
+                <span style="font-size:11px;color:#6e7681">HWY 40 Survey · Part 1</span>
+              </div>
+            </div>
+            <div class="app-content">
+              <div class="grid-2" style="margin-bottom:12px">
+                <div class="card">
+                  <h4>Current Measurement</h4>
+                  <div class="big-num green">4.82<span class="unit">m</span></div>
+                  <div style="font-size:11px;color:#6e7681;margin-top:4px">15' 9.8" &nbsp;·&nbsp; filtered: 4.81 m</div>
+                  <div style="font-size:10px;color:#3fb950;margin-top:4px">✓ Within threshold</div>
+                </div>
+                <div class="card">
+                  <h4>Min / Max (session)</h4>
+                  <div style="display:flex;gap:16px;align-items:flex-end">
+                    <div><div class="big-num yellow" style="font-size:24px">3.94</div><div style="font-size:10px;color:#6e7681">Min</div></div>
+                    <div><div class="big-num" style="font-size:24px">6.12</div><div style="font-size:10px;color:#6e7681">Max</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="margin-bottom:12px">
+                <h4>Active Survey — HWY 40 North Loop</h4>
+                <div style="display:flex;gap:16px;font-size:12px">
+                  <span style="color:#3fb950">● Logging Active</span>
+                  <span style="color:#8b949e">47 POIs</span>
+                  <span style="color:#8b949e">GPS: 49.3°N 122.7°W</span>
+                  <span style="color:#8b949e">Speed: 58 km/h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:8px">The main dashboard shows the <strong>current laser measurement</strong> (large), session min/max, active survey status, GPS coordinates, and speed — all updated in real time.</p>
+  </div>
+
+  <!-- ======================== PART 2 ======================== -->
+  <div class="section" id="p2">
+    <div class="part-divider">
+      <span class="part-num">PART 2</span>
+      <span class="part-title">Vertical Laser Setup</span>
+      <hr>
+    </div>
+    <div class="screenshot">
+      <img src="manual-img/06-docs-laser.jpg" alt="Laser Quick Start Guide">
+      <div class="screenshot-cap">Laser Quick Start Guide — available at Settings → Help or /docs/laser-quickstart</div>
+    </div>
+
+    <h2>2.1 Supported Laser Devices</h2>
+    <table class="data-table">
+      <thead><tr><th>Model</th><th>Protocol</th><th>Baud Rate</th><th>Format</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SolTec-10m</strong></td><td><span class="badge badge-blue">SolTec</span></td><td>115,200</td><td>3-byte binary</td></tr>
+        <tr><td><strong>SolTec-30m</strong></td><td><span class="badge badge-blue">SolTec</span></td><td>115,200</td><td>3-byte binary</td></tr>
+        <tr><td><strong>SolTec-70m</strong></td><td><span class="badge badge-blue">SolTec</span></td><td>115,200</td><td>3-byte binary</td></tr>
+        <tr><td><strong>SolTec-2700</strong></td><td><span class="badge badge-blue">SolTec</span></td><td>115,200</td><td>3-byte binary</td></tr>
+        <tr><td><strong>RSA High Pole Laser</strong></td><td><span class="badge badge-yellow">RSA</span></td><td>115,200</td><td>3-byte binary</td></tr>
+        <tr><td><strong>Mock Mode</strong></td><td><span class="badge badge-gray">Mock</span></td><td>—</td><td>Simulated random data</td></tr>
+      </tbody>
+    </table>
+
+    <h2>2.2 Connecting the Laser</h2>
+    <ol>
+      <li>Go to <strong>Settings → Laser &amp; GPS</strong>. The Laser tab is shown by default.</li>
+      <li>Click <strong>Select Port</strong> — a browser dialog lists all available serial ports.</li>
+      <li>Choose your USB-to-Serial COM port (usually the only option).</li>
+      <li>Set <strong>Protocol</strong>: SolTec for all SolTec models; RSA for the High Pole Laser.</li>
+      <li><strong>Baud rate is automatically set to 115,200</strong> — do not change it.</li>
+      <li>Click <strong>Connect</strong>. The current measurement appears in the top card within 1–2 seconds.</li>
+    </ol>
+    <div class="mockup">
+      <div class="mockup-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="url">measure-pro.app/app — Settings → Laser &amp; GPS</div></div>
+      <div class="mockup-body" style="padding:16px">
+        <div style="display:flex;gap:8px;margin-bottom:16px">
+          <div class="stab active" style="background:#21262d;border-bottom:2px solid #388bfd;padding:6px 14px;border-radius:4px 4px 0 0;font-size:12px;color:#58a6ff">⚡ Laser</div>
+          <div class="stab" style="padding:6px 14px;border-radius:4px 4px 0 0;font-size:12px">🛰 GPS</div>
+          <div class="stab" style="padding:6px 14px;border-radius:4px 4px 0 0;font-size:12px">🔵 Bluetooth</div>
+          <div class="stab" style="padding:6px 14px;border-radius:4px 4px 0 0;font-size:12px">🔧 Ground Ref</div>
+          <div class="stab" style="padding:6px 14px;border-radius:4px 4px 0 0;font-size:12px">🌧 Filters</div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <div class="form-row"><label>Protocol</label><select style="background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:4px 8px;border-radius:4px;font-size:12px"><option>SolTec</option><option>RSA</option><option>Mock</option></select></div>
+            <div class="form-row"><label>Baud Rate</label><span class="val">115,200 (fixed)</span></div>
+            <div class="form-row"><label>Selected Port</label><span class="val" style="color:#3fb950">COM3 — USB Serial</span></div>
+            <div class="form-row"><label>Status</label><span class="status-pill connected">● Connected</span></div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <button class="btn-sm blue">Select Port</button>
+              <button class="btn-sm red">Disconnect</button>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Live Reading</h4>
+            <div class="big-num green" style="font-size:42px">4.82<span class="unit">m</span></div>
+            <div style="font-size:12px;color:#6e7681;margin-top:6px">Raw: 5.64 m &nbsp;·&nbsp; Ground ref: 0.82 m</div>
+            <div style="font-size:11px;color:#8b949e;margin-top:4px">15' 9.8" &nbsp;·&nbsp; Filtered: 4.81 m</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>2.3 Ground Reference</h2>
+    <p>The <strong>Ground Reference</strong> is the vertical distance from the laser beam exit point (bottom of the sun shade/enclosure) to the road surface. This value is subtracted from every raw reading to give true vertical clearance.</p>
+    <div class="callout warning"><div class="callout-icon">⚠️</div><div class="callout-body"><strong>Measure this before every deployment</strong><p>If your mounting height changes (different vehicle, removed the sun shade bracket), re-measure and update the ground reference. A 5 cm error here means all clearances are off by 5 cm.</p></div></div>
+    <p>To set: go to <strong>Settings → Laser &amp; GPS → Ground Reference tab</strong>. Enter the distance in metres. Click <em>Save</em>. The live reading card updates immediately.</p>
+
+    <h2>2.4 Ignore Above / Ignore Below Thresholds</h2>
+    <p>Raw laser readings can include spurious returns from the sky or the road surface itself. Two thresholds filter these out:</p>
+    <ul>
+      <li><strong>Ignore Above</strong>: Discard readings greater than this value (metres). Default: 25 m. Use 15 m in urban canyons to avoid reflection from buildings.</li>
+      <li><strong>Ignore Below</strong>: Discard readings less than this value. Default: 0 m. Set to 0.5–1.0 m when driving in fog or rain to eliminate false close-range returns.</li>
+    </ul>
+
+    <h2>2.5 Measurement Filtering</h2>
+    <p>The Filters tab (Settings → Laser &amp; GPS) provides three filtering tools:</p>
+    <table class="data-table">
+      <thead><tr><th>Filter</th><th>What It Does</th><th>When to Use</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Amplitude Filter</strong></td><td>Discards readings with a signal return strength (intensity) below a set threshold</td><td>Eliminate multi-path reflections under bridges at night</td></tr>
+        <tr><td><strong>Measurement Filter</strong></td><td>Rolling average smoothing over N samples (1–20)</td><td>Smooth jitter on rough roads</td></tr>
+        <tr><td><strong>Weather Quality Filter</strong></td><td>RSA-only: filters by intensity thresholds for Good vs Acceptable returns</td><td>Rain, fog, snow conditions with RSA laser</td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Environmental Conditions</strong><p>See the <a href="/docs/environmental">Environmental Conditions Guide</a> for specific filter settings recommended for rain, fog, snow, night, and tunnel conditions.</p></div></div>
+    <div class="screenshot">
+      <img src="manual-img/15-docs-env.jpg" alt="Environmental Conditions Guide">
+      <div class="screenshot-cap">Environmental Conditions Guide — rain, fog, and night-time filter recommendations</div>
+    </div>
+
+    <h2>2.6 Mock Mode (Testing)</h2>
+    <p>If no laser hardware is available, set Protocol to <strong>Mock</strong>. The app generates simulated random measurements in a realistic range, allowing you to test workflows, practice survey creation, and validate export formats without hardware.</p>
+  </div>
+
+  <!-- ======================== PART 3 ======================== -->
+  <div class="section" id="p3">
+    <div class="part-divider">
+      <span class="part-num">PART 3</span>
+      <span class="part-title">Multi-Laser System (Lateral Width &amp; Rear Overhang)</span>
+      <hr>
+    </div>
+    <p>MeasurePRO supports up to <strong>4 independent laser ports</strong> for measuring lateral lane widths and rear overhang simultaneously with the primary vertical laser.</p>
+
+    <h2>3.1 Hardware Specifications</h2>
+    <div class="spec-box">
+      <h4>Lateral / Rear Laser Specifications</h4>
+      <div class="spec-row"><span class="spec-key">Supported model</span><span class="spec-val">SolTec-10m (lateral/rear use)</span></div>
+      <div class="spec-row"><span class="spec-key">Protocol</span><span class="spec-val">soltec-old (19,200 baud, 7-E-1)</span></div>
+      <div class="spec-row"><span class="spec-key">Baud rate</span><span class="spec-val">19,200 (different from vertical — do NOT mix up)</span></div>
+      <div class="spec-row"><span class="spec-key">Data bits</span><span class="spec-val">7</span></div>
+      <div class="spec-row"><span class="spec-key">Parity</span><span class="spec-val">Even</span></div>
+      <div class="spec-row"><span class="spec-key">Stop bits</span><span class="spec-val">1</span></div>
+      <div class="spec-row"><span class="spec-key">Max ports</span><span class="spec-val">4 (vertical + left lateral + right lateral + rear)</span></div>
+    </div>
+    <div class="callout danger"><div class="callout-icon">🚨</div><div class="callout-body"><strong>Critical: Different baud rates</strong><p>Vertical laser = 115,200 baud. Lateral/rear lasers = 19,200 baud, 7-E-1. Using the wrong settings will result in garbled or no data.</p></div></div>
+
+    <h2>3.2 Connecting Lateral / Rear Lasers</h2>
+    <p>Go to <strong>Settings → Lateral/Rear</strong>. Four port selectors appear:</p>
+    <ul>
+      <li><strong>Left Lateral Laser</strong> — aimed horizontally to the left side of the vehicle</li>
+      <li><strong>Right Lateral Laser</strong> — aimed horizontally to the right side</li>
+      <li><strong>Rear Laser</strong> — aimed backward for overhang monitoring (wind blade transport)</li>
+    </ul>
+    <p>For each port: click <em>Select Port</em>, choose the COM port, confirm the protocol is <em>soltec-old</em>, then click <em>Connect</em>.</p>
+
+    <h2>3.3 Vehicle Offset Calibration</h2>
+    <p>Because the laser isn't mounted at the vehicle's edge, you must enter the <strong>vehicle offset</strong> — the distance from the laser emitter to the outermost edge of the vehicle on each side. This is subtracted from the lateral reading to give road-edge-to-vehicle-edge clearance.</p>
+    <ul>
+      <li><strong>Single laser mode</strong>: One lateral laser used to measure to one lane boundary. The other boundary is inferred from lane width (configurable).</li>
+      <li><strong>Dual laser mode</strong>: Left and right lasers measure simultaneously for real-time total lane width.</li>
+    </ul>
+
+    <h2>3.4 Rear Overhang Monitoring</h2>
+    <p>Used for wind blade and long-load transport. The rear laser monitors the distance from the rear of the load to following vehicles or road features. Alert thresholds up to <strong>80 m</strong>.</p>
+    <ul>
+      <li><strong>Warning threshold</strong>: Alert triggered when rear reading exceeds this value</li>
+      <li><strong>Critical threshold</strong>: 150% of warning threshold — critical alarm sounds</li>
+    </ul>
+    <p>Rear overhang data is recorded in the measurement log and exported with survey data.</p>
+
+    <h2>3.5 Keyboard Shortcuts — Multi-Laser</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">[</kbd></td><td>Log left lateral measurement</td></tr>
+        <tr><td><kbd class="kbd">]</kbd></td><td>Log right lateral measurement</td></tr>
+        <tr><td><kbd class="kbd">\</kbd></td><td>Log total width (left + right)</td></tr>
+        <tr><td><kbd class="kbd">'</kbd></td><td>Log rear overhang measurement</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3.6 Multi-Camera Integration</h2>
+    <p>Lateral and rear POI captures automatically use the corresponding position camera when configured:</p>
+    <ul>
+      <li>Left lateral detection → uses left camera</li>
+      <li>Right lateral detection → uses right camera</li>
+      <li>Rear overhang → uses rear camera</li>
+    </ul>
+    <p>Configure per-position cameras in <strong>Settings → Camera → Multi-Camera</strong>. If a position camera isn't configured, the system falls back to the front camera, then the selected default camera.</p>
+  </div>
+
+  <!-- ======================== PART 4 ======================== -->
+  <div class="section" id="p4">
+    <div class="part-divider">
+      <span class="part-num">PART 4</span>
+      <span class="part-title">GPS &amp; GNSS</span>
+      <hr>
+    </div>
+    <div class="screenshot">
+      <img src="manual-img/07-docs-gnss.jpg" alt="GNSS Quick Start Guide">
+      <div class="screenshot-cap">GNSS Quick Start Guide — available at /docs/gnss-quickstart</div>
+    </div>
+
+    <h2>4.1 GPS Source Priority</h2>
+    <p>MeasurePRO supports three simultaneous GPS sources. When multiple are connected, a strict priority order determines which data is used for logging:</p>
+    <table class="data-table">
+      <thead><tr><th>Priority</th><th>Source</th><th>Typical Accuracy</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-red">Highest</span></td><td><strong>Swift Duro GNSS (RTK)</strong></td><td>1–3 cm</td><td>Active when data received within last 5 seconds</td></tr>
+        <tr><td><span class="badge badge-yellow">Medium</span></td><td><strong>USB Serial GPS</strong></td><td>2–5 m</td><td>Takes over automatically if Duro stops for 5+ sec</td></tr>
+        <tr><td><span class="badge badge-blue">Lower</span></td><td><strong>Bluetooth GPS</strong></td><td>2–5 m</td><td>Same priority level as USB GPS</td></tr>
+        <tr><td><span class="badge badge-gray">Fallback</span></td><td>Browser Geolocation API</td><td>10–50 m</td><td>Only when no hardware GPS is connected</td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Failover is automatic</strong><p>If the Duro GNSS loses signal (tunnel, multi-path) for 5 seconds, USB GPS takes over seamlessly. When the Duro reacquires, it resumes priority. No manual intervention needed.</p></div></div>
+
+    <h2>4.2 Connecting a USB GPS</h2>
+    <ol>
+      <li>Go to <strong>Settings → Laser &amp; GPS → GPS tab</strong>.</li>
+      <li>Click <strong>Select GPS Port</strong>.</li>
+      <li>Choose the COM port for your GPS dongle.</li>
+      <li>Protocol: <strong>NMEA</strong> (all consumer GPS devices use this).</li>
+      <li>Click <strong>Connect</strong>. Latitude/longitude appear within seconds.</li>
+    </ol>
+
+    <h2>4.3 Bluetooth GPS</h2>
+    <ol>
+      <li>Go to <strong>Settings → Laser &amp; GPS → Bluetooth tab</strong>.</li>
+      <li>Ensure your Bluetooth GPS device is powered on and paired with the tablet.</li>
+      <li>Click <strong>Scan for Devices</strong>. Select your GPS unit from the list.</li>
+      <li>Click <strong>Connect</strong>. Uses Web Bluetooth API — Chrome required.</li>
+    </ol>
+
+    <h2>4.4 Swift Navigation Duro GNSS (RTK)</h2>
+    <p>The Swift Navigation Duro provides centimetre-level accuracy via RTK correction. It connects to the tablet via <strong>USB or Ethernet</strong>.</p>
+    <div class="spec-box">
+      <h4>Duro Connection Parameters</h4>
+      <div class="spec-row"><span class="spec-key">Bridge software</span><span class="spec-val">Must run <strong>measure-pro-duro-bridge.exe</strong> on Windows</span></div>
+      <div class="spec-row"><span class="spec-key">Bridge URL</span><span class="spec-val"><code>http://localhost:8765</code></span></div>
+      <div class="spec-row"><span class="spec-key">Duro default IP</span><span class="spec-val">192.168.0.222</span></div>
+      <div class="spec-row"><span class="spec-key">Duro SBP port</span><span class="spec-val">55555</span></div>
+      <div class="spec-row"><span class="spec-key">GNSS Settings tab</span><span class="spec-val">Settings → GNSS/Duro</span></div>
+    </div>
+    <ul class="steps">
+      <li><div class="step-num">1</div><div class="step-body"><strong>Install the Duro antenna</strong><p>Mount on roof or mast with clear 360° sky view. Elevation mask: 10°. Poor placement is the #1 cause of bad RTK accuracy.</p></div></li>
+      <li><div class="step-num">2</div><div class="step-body"><strong>Power the Duro</strong><p>Connect 12–30V DC. Wait for GPS LED to blink (acquiring) then go solid (fix acquired).</p></div></li>
+      <li><div class="step-num">3</div><div class="step-body"><strong>Connect to the tablet</strong><p>Via USB: Windows detects a virtual COM port. Via Ethernet: Set tablet to same subnet as Duro (192.168.0.x).</p></div></li>
+      <li><div class="step-num">4</div><div class="step-body"><strong>Run the bridge</strong><p>Launch <code>measure-pro-duro-bridge.exe</code>. It runs on port 8765 and translates SBP binary to WebSocket for the PWA.</p></div></li>
+      <li><div class="step-num">5</div><div class="step-body"><strong>Connect in the app</strong><p>Go to <strong>Settings → GNSS/Duro</strong>. Click <em>Connect to Duro</em>. The IMU data (roll, pitch, heading) appears in addition to coordinates.</p></div></li>
+    </ul>
+
+    <h2>4.5 GPS Data Display</h2>
+    <p>The GPS Data panel (visible in the main app, collapsible) shows:</p>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:16px">
+        <div class="grid-4">
+          <div class="card"><h4>Latitude</h4><div style="font-size:16px;font-weight:700;color:#f0f6fc">49.3284°N</div></div>
+          <div class="card"><h4>Longitude</h4><div style="font-size:16px;font-weight:700;color:#f0f6fc">122.7892°W</div></div>
+          <div class="card"><h4>Speed</h4><div style="font-size:16px;font-weight:700;color:#3fb950">58.4 km/h</div></div>
+          <div class="card"><h4>Heading</h4><div style="font-size:16px;font-weight:700;color:#58a6ff">247° SW</div></div>
+          <div class="card"><h4>Altitude</h4><div style="font-size:16px;font-weight:700;color:#f0f6fc">312 m</div></div>
+          <div class="card"><h4>Source</h4><div style="font-size:14px;font-weight:600;color:#22d3ee">Duro RTK</div></div>
+          <div class="card"><h4>Fix Quality</h4><div style="font-size:14px;font-weight:600;color:#3fb950">RTK Fixed</div></div>
+          <div class="card"><h4>Satellites</h4><div style="font-size:16px;font-weight:700;color:#f0f6fc">18</div></div>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <div class="card" style="flex:1"><h4>Roll (Banking)</h4><div style="font-size:20px;font-weight:700;color:#d29922">2.4°</div><div style="font-size:10px;color:#6e7681">Normal (0–3°)</div></div>
+          <div class="card" style="flex:1"><h4>Pitch</h4><div style="font-size:20px;font-weight:700;color:#3fb950">1.1°</div></div>
+          <div class="card" style="flex:1"><h4>Curve Radius</h4><div style="font-size:20px;font-weight:700;color:#58a6ff">284 m</div><div style="font-size:10px;color:#6e7681">Safe (&gt;15 m min)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>4.6 Banking &amp; Cross-Slope (Duro IMU)</h2>
+    <p>When the Duro is connected, IMU roll data feeds the <strong>banking/cross-slope</strong> system. Three processing modes:</p>
+    <ul>
+      <li><strong>Raw</strong>: Direct roll reading from IMU, no smoothing</li>
+      <li><strong>Filtered</strong>: Low-pass filter removes vibration noise</li>
+      <li><strong>Stopped-only</strong>: Banking only recorded when vehicle speed &lt; 5 km/h</li>
+    </ul>
+    <p>Default alert thresholds:</p>
+    <table class="data-table">
+      <thead><tr><th>Range</th><th>Level</th><th>Color</th></tr></thead>
+      <tbody>
+        <tr><td>0° – 3°</td><td>Normal</td><td><span class="badge badge-green">✓ Safe</span></td></tr>
+        <tr><td>3° – 5°</td><td>Caution</td><td><span class="badge badge-blue">● Caution</span></td></tr>
+        <tr><td>5° – 7°</td><td>Warning</td><td><span class="badge badge-yellow">⚠ Warning</span></td></tr>
+        <tr><td>7° – 10°</td><td>Critical</td><td><span class="badge badge-red">🚨 Critical</span></td></tr>
+        <tr><td>&gt; 10°</td><td>Unacceptable</td><td><span class="badge badge-red">🚫 Unacceptable</span></td></tr>
+      </tbody>
+    </table>
+    <p>All thresholds are configurable in <strong>Settings → GNSS/Duro → Banking Thresholds</strong>.</p>
+  </div>
+
+  <!-- ======================== PART 5 ======================== -->
+  <div class="section" id="p5">
+    <div class="part-divider">
+      <span class="part-num">PART 5</span>
+      <span class="part-title">Camera System</span>
+      <hr>
+    </div>
+
+    <h2>5.1 Camera Setup</h2>
+    <p>Go to <strong>Settings → Camera</strong>. Select your preferred camera from the dropdown (lists all connected cameras). Click <em>Test Camera</em> to preview the feed.</p>
+    <ul>
+      <li><strong>Resolution</strong>: 1080p recommended; 720p for slower tablets</li>
+      <li><strong>Auto-capture</strong>: When enabled, the app captures a photo 10 seconds before and after each logged POI using a rolling frame buffer</li>
+      <li><strong>JPEG Quality</strong>: Configurable 60–100%. 85% recommended for field work</li>
+    </ul>
+
+    <h2>5.2 Multi-Camera Positions</h2>
+    <p>Configure separate cameras for four positions in <strong>Settings → Camera → Multi-Camera</strong>:</p>
+    <table class="data-table">
+      <thead><tr><th>Position</th><th>Typical Use</th><th>Auto-linked to POIs</th></tr></thead>
+      <tbody>
+        <tr><td>Front</td><td>Primary road view, overhead structures</td><td>All height clearance POIs</td></tr>
+        <tr><td>Left</td><td>Left lane boundary, lateral obstacles</td><td>Left lateral measurements</td></tr>
+        <tr><td>Right</td><td>Right lane boundary, right-side obstacles</td><td>Right lateral measurements</td></tr>
+        <tr><td>Rear</td><td>Load overhang monitoring</td><td>Rear overhang measurements</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.3 Capturing Photos</h2>
+    <ul>
+      <li>Press <kbd class="kbd">Alt+1</kbd> to capture immediately from the active camera</li>
+      <li>The captured image appears in the Captured Images panel</li>
+      <li>Images are stored locally and linked to the active survey</li>
+      <li>Multiple images can be pending — they are embedded in the survey ZIP on export</li>
+    </ul>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>POI Auto-capture</strong><p>For certain POI types (railroad, intersection, road, bridge, danger), the camera fires automatically when logging. See Part 8 for the complete auto-capture POI list.</p></div></div>
+
+    <h2>5.4 Video Recording</h2>
+    <p>Press <kbd class="kbd">Alt+V</kbd> to start/stop video recording. Video is stored locally and can be linked to the active survey. A 10-second rolling buffer means the last 10 seconds of footage is always preserved when you trigger a capture.</p>
+    <p>GPS coordinates and POI timestamps are synchronized with video for geo-referenced playback.</p>
+
+    <h2>5.5 AI Detection Camera (MeasurePRO+)</h2>
+    <p>When AI detection is enabled, the camera feed is analyzed in real-time using TensorFlow.js COCO-SSD. See Part 15 for AI detection details.</p>
+  </div>
+
+  <!-- ======================== PART 6 ======================== -->
+  <div class="section" id="p6">
+    <div class="part-divider">
+      <span class="part-num">PART 6</span>
+      <span class="part-title">Stream Deck Integration</span>
+      <hr>
+    </div>
+
+    <h2>6.1 What is the Stream Deck?</h2>
+    <p>The <strong>Elgato Stream Deck</strong> is a programmable button panel that lets operators trigger MeasurePRO actions hands-free while driving — without looking away from the road. All keyboard shortcuts can be mapped to Stream Deck buttons.</p>
+
+    <h2>6.2 Downloading the Stream Deck Profile</h2>
+    <ol>
+      <li>Go to <strong>Settings → Keyboard</strong>.</li>
+      <li>Click the <strong>"Download Stream Deck Profile"</strong> button at the top of the page.</li>
+      <li>The file <code>MeasurePRO.streamDeckProfile</code> downloads automatically.</li>
+      <li>In the Stream Deck software, click the <em>gear icon → Import</em> and select the downloaded profile.</li>
+    </ol>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Pre-configured profile</strong><p>The downloaded profile includes all MeasurePRO keyboard shortcuts already mapped to buttons — Start Logging, Stop Logging, Capture Image, Log Measurement, POI types, and more. Just import and go.</p></div></div>
+
+    <h2>6.3 Recommended Button Layout</h2>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:20px">
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:400px">
+          <div style="background:#1d6ae5;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">▶ START<br>LOGGING<br><span style="font-size:9px;opacity:.7">Alt+3</span></div>
+          <div style="background:#6e1a1a;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">⏹ STOP<br>LOGGING<br><span style="font-size:9px;opacity:.7">Alt+4</span></div>
+          <div style="background:#1a4e1a;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">📸 CAPTURE<br>IMAGE<br><span style="font-size:9px;opacity:.7">Alt+1</span></div>
+          <div style="background:#4e3a00;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">📍 LOG<br>MEASURE<br><span style="font-size:9px;opacity:.7">Alt+G</span></div>
+          <div style="background:#21262d;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#8b949e">⏸ PAUSE<br><span style="font-size:9px;opacity:.7">Alt+5</span></div>
+          <div style="background:#1a3a6e;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">🌉 BRIDGE<br>POI<br><span style="font-size:9px;opacity:.7">Shift+1</span></div>
+          <div style="background:#1a3a1a;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">🌲 TREE<br>POI<br><span style="font-size:9px;opacity:.7">Shift+2</span></div>
+          <div style="background:#3a2a00;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">⚡ POWER<br>LINE<br><span style="font-size:9px;opacity:.7">Shift+3</span></div>
+          <div style="background:#3a1a1a;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#fff">🚨 DANGER<br>POI<br><span style="font-size:9px;opacity:.7">Shift+4</span></div>
+          <div style="background:#21262d;border-radius:8px;padding:10px;text-align:center;font-size:10px;font-weight:700;color:#8b949e">🗑 DEL LAST<br><span style="font-size:9px;opacity:.7">Ctrl+BS</span></div>
+        </div>
+        <p style="font-size:11px;color:#6e7681;margin-top:12px">Example 2-row layout. The downloaded profile provides a complete pre-mapped set of all functions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== PART 7 ======================== -->
+  <div class="section" id="p7">
+    <div class="part-divider">
+      <span class="part-num">PART 7</span>
+      <span class="part-title">Survey Management</span>
+      <hr>
+    </div>
+
+    <h2>7.1 What is a Survey?</h2>
+    <p>A <strong>Survey</strong> is the primary data container in MeasurePRO. It holds all POIs, measurements, photos, voice notes, and GPS tracks for one route or inspection session. Every measurement log entry must belong to an active survey.</p>
+
+    <h2>7.2 Creating a New Survey</h2>
+    <ol>
+      <li>Click the <strong>Survey Manager</strong> tab in the Settings sidebar.</li>
+      <li>Click <strong>New Survey</strong>.</li>
+      <li>Fill in: <em>Survey Name</em> (required), <em>Description</em>, <em>Road/Route Number</em>, <em>Operator Name</em>.</li>
+      <li>Click <strong>Create Survey</strong>. The survey becomes active immediately.</li>
+    </ol>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:16px">
+        <div class="card" style="margin-bottom:12px">
+          <h4>Active Survey</h4>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-size:16px;font-weight:700;color:#f0f6fc">HWY 40 North Loop</div>
+              <div style="font-size:12px;color:#8b949e;margin-top:4px">Operator: J. Smith &nbsp;·&nbsp; Started: 2026-03-26 07:14</div>
+              <div style="font-size:12px;color:#8b949e">Part 1 of 1 &nbsp;·&nbsp; 47 POIs logged</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-direction:column;align-items:flex-end">
+              <button class="btn-sm blue">💾 Save Now</button>
+              <button class="btn-sm gray">📋 Edit Survey</button>
+              <button class="btn-sm red">✕ Close Survey</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h4>Total POIs</h4><div class="big-num" style="font-size:28px">47</div></div>
+          <div class="card"><h4>Distance</h4><div class="big-num" style="font-size:28px">38.2<span class="unit">km</span></div></div>
+          <div class="card"><h4>Photos</h4><div class="big-num" style="font-size:28px">31</div></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button class="btn-sm blue">➕ New Survey</button>
+          <button class="btn-sm gray">📂 Load Survey</button>
+          <button class="btn-sm blue">📤 Export CSV</button>
+          <button class="btn-sm blue">📤 Export ZIP</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>7.3 Survey Statistics</h2>
+    <p>The Survey Manager panel displays real-time statistics for the active survey: total POI count, number of photos, distance traveled, and time elapsed. These update as you log.</p>
+
+    <h2>7.4 Auto-Save</h2>
+    <p>Surveys auto-save at a configurable interval (default: every 60 minutes). A local ZIP file containing all data and photos is downloaded automatically, even without internet. Configure in <strong>Settings → Logging → Auto-Save</strong>:</p>
+    <ul>
+      <li><strong>Auto-Save Interval</strong>: 5 minutes to 24 hours</li>
+      <li><strong>Include Images</strong>: Toggle whether photos are included in auto-save ZIP</li>
+      <li><strong>Custom Filename</strong>: Template for auto-save file names</li>
+    </ul>
+
+    <h2>7.5 Auto-Part System</h2>
+    <p>For very long surveys (500+ km), the <strong>Auto-Part system</strong> automatically splits the survey into numbered parts when the POI count reaches the threshold, preventing memory issues and ensuring data safety.</p>
+    <div class="screenshot">
+      <img src="manual-img/16-docs-autopart.jpg" alt="Auto-Part System Guide">
+      <div class="screenshot-cap">Auto-Part System Guide — see /docs/autopart for full details</div>
+    </div>
+    <div class="spec-box">
+      <h4>Auto-Part Parameters</h4>
+      <div class="spec-row"><span class="spec-key">Default threshold</span><span class="spec-val">200 POIs</span></div>
+      <div class="spec-row"><span class="spec-key">Configurable range</span><span class="spec-val">100 – 1,000 POIs</span></div>
+      <div class="spec-row"><span class="spec-key">Warning trigger</span><span class="spec-val">Threshold minus 50 POIs</span></div>
+      <div class="spec-row"><span class="spec-key">Configure at</span><span class="spec-val">Settings → Logging → Auto-Part Manager</span></div>
+    </div>
+    <p>When a part completes: an audible alert sounds, a toast notification appears, a local ZIP saves automatically, and the survey seamlessly continues in the next part — <strong>laser and GPS keep running without interruption</strong>.</p>
+
+    <h2>7.6 Closing a Survey</h2>
+    <p>Click <strong>Close Survey</strong> in Survey Manager. The app prompts for confirmation, then exports a final package to local storage and attempts cloud upload if online. A closed survey is read-only — you can still export it but cannot add new measurements.</p>
+
+    <h2>7.7 Loading a Previous Survey</h2>
+    <p>Click <strong>Load Survey</strong> to see a list of all surveys stored in the local database. Click any survey to set it as active. You can also import a survey ZIP file from a backup using the upload button.</p>
+
+    <h2>7.8 Importing Surveys from ZIP</h2>
+    <p>Survey ZIP files created by MeasurePRO (v2.0 format) can be re-imported: click the upload button in Survey Manager, select the ZIP, and the data is restored including POIs, measurements, and embedded images.</p>
+
+    <h2>7.9 Cloud Sync</h2>
+    <p>When connected to the internet, surveys automatically sync to Firebase. The sync status is shown in <strong>Settings → Sync</strong>. Each survey part uploads as a separate package. The sync indicator in the top bar shows pending/complete status.</p>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Offline-first design</strong><p>Everything works without internet. The app stores all data in IndexedDB locally. When connectivity resumes, pending items sync automatically. You'll never lose data due to loss of signal.</p></div></div>
+
+    <h2>7.10 Road Profile Recording Control</h2>
+    <p>The Survey Manager includes a <strong>Profile Recording Control</strong> card that starts/stops GNSS road profile recording for the active survey. This is separate from POI logging — it continuously records GPS position, elevation, speed, banking, and K-factor for road engineering analysis. See Part 13.</p>
+  </div>
+
+  <!-- ======================== PART 8 ======================== -->
+  <div class="section" id="p8">
+    <div class="part-divider">
+      <span class="part-num">PART 8</span>
+      <span class="part-title">POI Types Reference</span>
+      <hr>
+    </div>
+    <p>MeasurePRO supports <strong>35 Point of Interest (POI) types</strong>, each with specific behavior for height capture, auto-photo, and display. POIs are identified by their unique ID (first 8 characters displayed, e.g., <code>POI abc12345</code>).</p>
+
+    <h2>8.1 Height Clearance POI Types</h2>
+    <p>The following POI types <strong>automatically record the current laser height reading</strong> when logged. The reading must pass ignoreAbove/ignoreBelow thresholds and the ground reference is subtracted.</p>
+    <div class="poi-grid">
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a3a">🏠</div><div class="poi-info"><div class="poi-name">Overhead Structure</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a1a4e">📡</div><div class="poi-info"><div class="poi-name">Optical Fiber</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a1a">🚂</div><div class="poi-info"><div class="poi-name">Railroad</div><div class="poi-meta">Auto height + auto-photo</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#3a2a00">🚦</div><div class="poi-info"><div class="poi-name">Signalization</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a1500">🌉</div><div class="poi-info"><div class="poi-name">Overpass</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a1a1a">🚥</div><div class="poi-info"><div class="poi-name">Traffic Light</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a0d0d">⚡</div><div class="poi-info"><div class="poi-name">Power Line</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a3a">🌉</div><div class="poi-info"><div class="poi-name">Bridge &amp; Wires</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#3a3a00">🔌</div><div class="poi-info"><div class="poi-name">Wire</div><div class="poi-meta">Auto height capture</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#0d2a0d">🌳</div><div class="poi-info"><div class="poi-name">Trees</div><div class="poi-meta">Auto height capture</div></div></div>
+    </div>
+
+    <h2>8.2 Auto-Photo POI Types</h2>
+    <p>These POI types trigger <strong>automatic camera capture</strong> when logged:</p>
+    <div class="poi-grid">
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a1a">🚂</div><div class="poi-info"><div class="poi-name">Railroad</div><div class="poi-meta">Auto photo + height</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#1a1a2a">✚</div><div class="poi-info"><div class="poi-name">Intersection</div><div class="poi-meta">Auto photo</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#21262d">🛣</div><div class="poi-info"><div class="poi-name">Road</div><div class="poi-meta">Auto photo</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a3a">🌉</div><div class="poi-info"><div class="poi-name">Bridge</div><div class="poi-meta">Auto photo</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a0d0d">⚠️</div><div class="poi-info"><div class="poi-name">Danger</div><div class="poi-meta">Auto photo</div></div></div>
+    </div>
+
+    <h2>8.3 Modal POI Types</h2>
+    <p>These POI types open a <strong>text entry modal</strong> when logged, allowing you to enter a note or description:</p>
+    <div class="poi-grid">
+      <div class="poi-card"><div class="poi-icon" style="background:#1a2a3a">ℹ️</div><div class="poi-info"><div class="poi-name">Information</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#3a2a00">🔧</div><div class="poi-info"><div class="poi-name">Work Required</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#0d2a0d">📝</div><div class="poi-info"><div class="poi-name">Important Note</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a0d1a">🚧</div><div class="poi-info"><div class="poi-name">Lateral Obstruction</div></div></div>
+      <div class="poi-card"><div class="poi-icon" style="background:#2a0d0d">🚫</div><div class="poi-info"><div class="poi-name">Restricted</div></div></div>
+    </div>
+
+    <h2>8.4 Complete POI Type Reference</h2>
+    <table class="data-table">
+      <thead><tr><th>POI Type</th><th>Category</th><th>Height Capture</th><th>Auto-Photo</th><th>Modal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bridge</strong></td><td>Infrastructure</td><td>—</td><td>✓</td><td>—</td></tr>
+        <tr><td><strong>Trees</strong></td><td>Vegetation</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Wire</strong></td><td>Utility</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Power Line</strong></td><td>Utility</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Traffic Light</strong></td><td>Signage</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Overpass</strong></td><td>Infrastructure</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Lateral Obstruction</strong></td><td>Obstacle</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td><strong>Road</strong></td><td>Navigation</td><td>—</td><td>✓</td><td>—</td></tr>
+        <tr><td><strong>Intersection</strong></td><td>Navigation</td><td>—</td><td>✓</td><td>—</td></tr>
+        <tr><td><strong>Signalization</strong></td><td>Signage</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Railroad</strong></td><td>Infrastructure</td><td>✓</td><td>✓</td><td>—</td></tr>
+        <tr><td><strong>Information</strong></td><td>Note</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td><strong>Danger</strong></td><td>Safety</td><td>—</td><td>✓</td><td>—</td></tr>
+        <tr><td><strong>Important Note</strong></td><td>Note</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td><strong>Work Required</strong></td><td>Note</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td><strong>Restricted</strong></td><td>Safety</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td><strong>Bridge &amp; Wires</strong></td><td>Infrastructure</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade UP (legacy)</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade Down (legacy)</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 10-12% UP</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 10-12% DOWN</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 12-14% UP</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 12-14% DOWN</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 14%+ UP</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Grade 14%+ DOWN</strong></td><td>Road Geometry</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Autoturn Required</strong></td><td>Navigation</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Voice Note</strong></td><td>Note</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Optical Fiber</strong></td><td>Utility</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Passing Lane</strong></td><td>Navigation</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Parking</strong></td><td>Navigation</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Overhead Structure</strong></td><td>Infrastructure</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Gravel Road</strong></td><td>Road Type</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Dead End</strong></td><td>Navigation</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Culvert</strong></td><td>Infrastructure</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Emergency Parking</strong></td><td>Safety</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Roundabout</strong></td><td>Navigation</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================== PART 9 ======================== -->
+  <div class="section" id="p9">
+    <div class="part-divider">
+      <span class="part-num">PART 9</span>
+      <span class="part-title">Measurement &amp; Logging</span>
+      <hr>
+    </div>
+
+    <h2>9.1 Logging Modes</h2>
+    <p>MeasurePRO has <strong>five logging modes</strong> that control how measurements are recorded:</p>
+    <table class="data-table">
+      <thead><tr><th>Mode</th><th>Key</th><th>Description</th><th>Shortcut</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Manual</strong></td><td><code>manual</code></td><td>Only logs when you press a button or keyboard shortcut. Most common for surveys.</td><td><kbd class="kbd">Alt+M</kbd></td></tr>
+        <tr><td><strong>All Data</strong></td><td><code>all</code></td><td>Logs every laser measurement continuously (high volume). Use for dense data collection.</td><td><kbd class="kbd">Alt+A</kbd></td></tr>
+        <tr><td><strong>Object Detection</strong></td><td><code>detection</code></td><td>Logs automatically when AI detects an overhead object (MeasurePRO+ only).</td><td><kbd class="kbd">Alt+D</kbd></td></tr>
+        <tr><td><strong>Manual + Detection</strong></td><td><code>manualDetection</code></td><td>Both manual logging and AI auto-detection are active simultaneously.</td><td>—</td></tr>
+        <tr><td><strong>Counter Detection</strong></td><td><code>counterDetection</code></td><td>Logs when the object count in the frame drops (departure trigger). Advanced use.</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:16px">
+        <h4 style="font-size:12px;color:#8b949e;text-transform:uppercase;margin-bottom:12px">Logging Controls</h4>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+          <button class="btn-sm green">▶ Start Logging (Alt+3)</button>
+          <button class="btn-sm red">⏹ Stop (Alt+4)</button>
+          <button class="btn-sm gray">⏸ Pause (Alt+5)</button>
+          <button class="btn-sm blue">📍 Log Now (Alt+G)</button>
+          <button class="btn-sm gray">✎ Manual Entry (Alt+Shift+M)</button>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+          <div style="font-size:11px;color:#8b949e">Mode:</div>
+          <div style="display:flex;gap:4px">
+            <span style="background:#1d6ae5;color:#fff;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600">Manual</span>
+            <span style="background:#21262d;color:#8b949e;padding:3px 8px;border-radius:4px;font-size:11px">All Data</span>
+            <span style="background:#21262d;color:#8b949e;padding:3px 8px;border-radius:4px;font-size:11px">Detection</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid #21262d;padding-top:12px">
+          <div style="font-size:11px;color:#8b949e;margin-bottom:8px">Recent POI Log</div>
+          <div class="log-row"><span class="poi-badge" style="background:#1a3a6e;color:#58a6ff">BRIDGE</span><span style="color:#c9d1d9;flex:1">POI a3f7c2e1</span><span style="color:#3fb950">4.82 m</span><span style="color:#6e7681;margin-left:12px">14:23:11</span></div>
+          <div class="log-row"><span class="poi-badge" style="background:#0d2a0d;color:#3fb950">TREE</span><span style="color:#c9d1d9;flex:1">POI b8e2d4a9</span><span style="color:#3fb950">5.14 m</span><span style="color:#6e7681;margin-left:12px">14:19:44</span></div>
+          <div class="log-row"><span class="poi-badge" style="background:#2a0d0d;color:#f85149">POWER LINE</span><span style="color:#c9d1d9;flex:1">POI c1f5a8b2</span><span style="color:#d29922">4.05 m</span><span style="color:#6e7681;margin-left:12px">14:15:02</span></div>
+          <div class="log-row"><span class="poi-badge" style="background:#1a3a1a;color:#3fb950">RAIL</span><span style="color:#c9d1d9;flex:1">POI d9e3c7f4</span><span style="color:#3fb950">5.91 m</span><span style="color:#6e7681;margin-left:12px">14:08:33</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>9.2 Manual Logging (Mode: Manual)</h2>
+    <p>This is the most common workflow for OS/OW surveys:</p>
+    <ol>
+      <li>Set POI type in the POI selector (or use a keyboard shortcut).</li>
+      <li>As you approach the structure, press <kbd class="kbd">Alt+G</kbd> or click <em>Log Measurement</em>.</li>
+      <li>The app records: current laser reading, GPS coordinates, speed, heading, UTC time, photo (if auto-capture is on), and the selected POI type.</li>
+      <li>A toast notification confirms the log entry.</li>
+    </ol>
+
+    <h2>9.3 Manual Log Entry Dialog</h2>
+    <p>Press <kbd class="kbd">Alt+Shift+M</kbd> to open the <strong>Manual Log Entry modal</strong>. This lets you type a custom height value and note — useful when logging a previously known clearance (e.g., from a permit or field note) without a live laser reading.</p>
+
+    <h2>9.4 Deleting the Last Entry</h2>
+    <p>Press <kbd class="kbd">Ctrl+Backspace</kbd> to delete the most recently logged measurement. A confirmation prompt appears first. This action cannot be undone.</p>
+
+    <h2>9.5 Measurement Log Display</h2>
+    <p>The measurement log shows all POIs for the active survey in reverse chronological order (newest first). Each row shows:</p>
+    <ul>
+      <li>POI type badge (color-coded)</li>
+      <li>Unique POI ID (8 characters)</li>
+      <li>Height clearance in metres (and feet/inches)</li>
+      <li>GPS coordinates</li>
+      <li>UTC date and time</li>
+      <li>Speed and heading at time of capture</li>
+      <li>Photo thumbnail (if an image was captured)</li>
+      <li>Note (if entered)</li>
+    </ul>
+    <p>Click any row to open a detail view. Click the note icon to add or edit a note. The list is <strong>virtualized</strong> for performance — it handles 10,000+ entries without slowdown.</p>
+
+    <h2>9.6 Editing Notes</h2>
+    <p>Click the note icon on any log row to open an inline note editor. Type your note and click <em>Save</em>. Notes are stored with the measurement and appear in all exports.</p>
+  </div>
+
+  <!-- ======================== PART 10 ======================== -->
+  <div class="section" id="p10">
+    <div class="part-divider">
+      <span class="part-num">PART 10</span>
+      <span class="part-title">Alert System</span>
+      <hr>
+    </div>
+
+    <h2>10.1 Alert Thresholds</h2>
+    <p>The alert system monitors the live laser reading and triggers visual and audio alerts when measurements approach or breach clearance limits.</p>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:16px">
+        <div class="alert-banner">
+          <span style="font-size:24px">🚨</span>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#f85149">CRITICAL ALERT — 3.94 m</div>
+            <div style="font-size:12px;color:#c9d1d9">Below critical threshold (4.00 m). Press Alt+2 to clear.</div>
+          </div>
+          <button class="btn-sm gray" style="margin-left:auto">Clear (Alt+2)</button>
+        </div>
+        <div class="alert-banner warning">
+          <span style="font-size:20px">⚠️</span>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#d29922">WARNING — 4.12 m</div>
+            <div style="font-size:11px;color:#c9d1d9">Approaching warning threshold (4.20 m).</div>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:12px">
+          <div class="card">
+            <h4>Warning Threshold</h4>
+            <div class="big-num yellow" style="font-size:28px">4.20<span class="unit">m</span></div>
+            <div style="font-size:11px;color:#6e7681">13' 9.4"</div>
+          </div>
+          <div class="card">
+            <h4>Critical Threshold</h4>
+            <div class="big-num red" style="font-size:28px">4.00<span class="unit">m</span></div>
+            <div style="font-size:11px;color:#6e7681">13' 1.5"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>Configure thresholds in <strong>Settings → Alerts</strong>:</p>
+    <ul>
+      <li><strong>Min Height</strong>: Ignore readings below this (filters ground returns)</li>
+      <li><strong>Max Height</strong>: Ignore readings above this (filters sky returns). Default 25 m.</li>
+      <li><strong>Warning Threshold</strong>: Alert triggers when reading drops below this. Default: 4.20 m (13' 9")</li>
+      <li><strong>Critical Threshold</strong>: Emergency alert below this. Default: 4.00 m (13' 1.5")</li>
+    </ul>
+    <p>Thresholds can be set in <strong>metric (metres)</strong> or <strong>imperial (feet and inches)</strong> — use the units toggle in <strong>Settings → Display</strong>.</p>
+
+    <h2>10.2 Alert Sounds</h2>
+    <p>Each alert level has a configurable sound from the full sound library:</p>
+    <table class="data-table">
+      <thead><tr><th>Event</th><th>Default Sound</th><th>Available Sounds</th></tr></thead>
+      <tbody>
+        <tr><td>Log Entry</td><td>Interface</td><td>Interface, Confirmation, Message Pop, Long Pop, Double Beep, Retro Confirmation, Elevator Tone, Elevator, Interface Hint, Log Entry</td></tr>
+        <tr><td>Warning Alert</td><td>Alert Alarm</td><td>Alert Alarm, Classic Alarm, Elevator Warning, Sci-Fi Alarm, Slot Machine Alarm, Warning Sound, Double Beep Alert</td></tr>
+        <tr><td>Critical Alert</td><td>Facility Alarm</td><td>Facility Alarm, Security Breach, Sci-Fi Critical, Classic Critical, Critical Alert, Alert Critical</td></tr>
+        <tr><td>Notification</td><td>Confirmation</td><td>Confirmation, Long Pop, Elevator Tone, Message Pop, Interface Hint, Retro Confirmation, Double Beep, Interface</td></tr>
+      </tbody>
+    </table>
+    <p>Click the play button next to any sound in <strong>Settings → Alerts</strong> to preview it. Sounds play through the system speaker — ensure volume is adequate in the vehicle.</p>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Alert auto-acknowledge</strong><p>The alert banner shows until the measurement rises back above the threshold, or you press <kbd class="kbd">Alt+2</kbd> to manually clear it. Each alert session tracks separately — re-triggering happens on the next new measurement that crosses the threshold.</p></div></div>
+
+    <h2>10.3 Clearing Alerts</h2>
+    <ul>
+      <li><kbd class="kbd">Alt+2</kbd>: Clear current alert banner</li>
+      <li><kbd class="kbd">Alt+7</kbd>: Clear all alerts (all banners dismissed)</li>
+    </ul>
+  </div>
+
+  <!-- ======================== PART 11 ======================== -->
+  <div class="section" id="p11">
+    <div class="part-divider">
+      <span class="part-num">PART 11</span>
+      <span class="part-title">Photos, Video &amp; Voice Notes</span>
+      <hr>
+    </div>
+
+    <h2>11.1 Image Capture</h2>
+    <ul>
+      <li>Press <kbd class="kbd">Alt+1</kbd> to capture a photo from the current camera</li>
+      <li>Images appear immediately in the <em>Captured Images</em> panel</li>
+      <li>Multiple images can be pending — they all get attached to the next logged POI</li>
+      <li>Press <kbd class="kbd">Alt+C</kbd> to clear all pending captured images</li>
+      <li>Images are stored in IndexedDB and included in survey ZIP exports</li>
+    </ul>
+
+    <h2>11.2 Video Recording</h2>
+    <ul>
+      <li>Press <kbd class="kbd">Alt+V</kbd> to toggle video recording on/off</li>
+      <li>GPS coordinates are embedded in video metadata for geo-referenced playback</li>
+      <li>POI timestamps sync with video for frame-accurate review</li>
+      <li>A <strong>10-second rolling buffer</strong> is always maintained — trigger capture up to 10 seconds after a critical event</li>
+      <li>Video compression settings configurable in <strong>Settings → Camera</strong></li>
+    </ul>
+
+    <h2>11.3 Voice Notes</h2>
+    <p>The <strong>Voice Note</strong> POI type records audio using the Web Speech API:</p>
+    <ol>
+      <li>Set POI type to <em>Voice Note</em></li>
+      <li>Press <kbd class="kbd">Alt+G</kbd> or the log button</li>
+      <li>A recording starts automatically — speak your note</li>
+      <li>Press stop or the shortcut again to end recording</li>
+      <li>The audio is stored and linked to the GPS location</li>
+    </ol>
+    <p>Voice-to-text transcription is available when enabled in <strong>Settings → Voice</strong> — the transcript is saved as the POI note.</p>
+
+    <h2>11.4 Logo / Watermark</h2>
+    <p>All captured images can include a company logo watermark. Configure in <strong>Settings → Logo</strong>. Upload a PNG logo and position it in one of 4 corners. The watermark is baked into exported images.</p>
+  </div>
+
+  <!-- ======================== PART 12 ======================== -->
+  <div class="section" id="p12">
+    <div class="part-divider">
+      <span class="part-num">PART 12</span>
+      <span class="part-title">Maps &amp; Navigation</span>
+      <hr>
+    </div>
+
+    <h2>12.1 Live Map View</h2>
+    <p>The map view (click the map icon in the sidebar) shows a <strong>real-time GPS track</strong> overlaid on an OpenStreetMap base layer. POIs appear as color-coded markers matching their type. The camera icon in the top bar centers the map on your current position.</p>
+    <div class="mockup">
+      <div class="mockup-body">
+        <div style="background:#1a2a1a;height:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="color:#2d4a2d;font-size:80px;opacity:.3;position:absolute">🗺</div>
+          <div style="position:absolute;top:16px;right:16px;background:#161b22;border:1px solid #21262d;border-radius:8px;padding:10px 14px">
+            <div style="font-size:11px;color:#8b949e;margin-bottom:6px">Map Controls</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <button class="btn-sm gray" style="font-size:10px">+ Zoom In</button>
+              <button class="btn-sm gray" style="font-size:10px">− Zoom Out</button>
+              <button class="btn-sm blue" style="font-size:10px">⊕ Center GPS</button>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:16px;left:16px;background:#161b22;border:1px solid #21262d;border-radius:6px;padding:8px 12px">
+            <div style="font-size:11px;color:#8b949e">GPS Track Active</div>
+            <div style="font-size:12px;color:#3fb950">● 49.3284°N 122.7892°W</div>
+          </div>
+          <!-- Simulated POI markers -->
+          <div style="position:absolute;top:40%;left:35%;width:12px;height:12px;background:#58a6ff;border-radius:50%;border:2px solid #fff"></div>
+          <div style="position:absolute;top:55%;left:50%;width:12px;height:12px;background:#f85149;border-radius:50%;border:2px solid #fff"></div>
+          <div style="position:absolute;top:30%;left:60%;width:12px;height:12px;background:#3fb950;border-radius:50%;border:2px solid #fff"></div>
+          <div style="position:absolute;top:65%;left:40%;width:12px;height:12px;background:#d29922;border-radius:50%;border:2px solid #fff"></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>12.2 Map Layers &amp; Settings</h2>
+    <p>Configure in <strong>Settings → Map</strong>:</p>
+    <ul>
+      <li><strong>Tile Provider</strong>: OpenStreetMap, Satellite, Hybrid, or custom tile URL</li>
+      <li><strong>Track Color</strong>: Color of the GPS trace line</li>
+      <li><strong>POI Marker Size</strong>: Small, Medium, Large</li>
+      <li><strong>Cluster POIs</strong>: Group nearby markers at low zoom levels (handles 100,000+ records)</li>
+      <li><strong>Show Speed Heat Map</strong>: Overlay driving speed as a color gradient</li>
+    </ul>
+
+    <h2>12.3 Offline Maps</h2>
+    <p>When offline, cached map tiles from recent sessions are used. Areas not previously visited show blank grid squares. Tile cache size is configurable (default: 200 MB). GPS tracking and POI logging continue fully offline — only the base map tiles require internet.</p>
+
+    <h2>12.4 Clicking Map Markers</h2>
+    <p>Click any POI marker on the map to open a popup with the measurement detail: height, POI type, time, speed, and a thumbnail of any attached photo. Click the thumbnail to open the full image.</p>
+  </div>
+
+  <!-- ======================== PART 13 ======================== -->
+  <div class="section" id="p13">
+    <div class="part-divider">
+      <span class="part-num">PART 13</span>
+      <span class="part-title">Road Profile Recording &amp; Analysis</span>
+      <hr>
+    </div>
+
+    <h2>13.1 What is Road Profile Recording?</h2>
+    <p>The GNSS Road Profile system records a continuous GPS elevation profile along the surveyed route. Combined with Duro IMU data, it computes <strong>chainage, grade, K-factor (vertical curve geometry), and banking</strong> — critical data for OS/OW permit applications.</p>
+
+    <h2>13.2 Starting a Profile Recording</h2>
+    <ol>
+      <li>Ensure the Swift Duro GNSS is connected (see Part 4).</li>
+      <li>Open Survey Manager (Settings → Logging tab or the clipboard icon).</li>
+      <li>Click <strong>Start Profile Recording</strong> in the Profile Recording Control card.</li>
+      <li>Drive the route. The recording continues in the background — you can navigate to other app sections without interrupting it.</li>
+      <li>When done, click <strong>Stop Profile Recording</strong>.</li>
+    </ol>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Background persistence</strong><p>The profile recording service is a singleton that persists across page navigation. Even if you switch to the map view or camera, the profile continues recording. Data is flushed to IndexedDB every 30 seconds for crash safety.</p></div></div>
+
+    <h2>13.3 Road Profile Page</h2>
+    <p>The Road Profile page (<strong>/road-profile</strong>) provides real-time visualization of the recorded profile:</p>
+    <ul>
+      <li><strong>Elevation profile chart</strong> — distance (chainage) vs altitude</li>
+      <li><strong>Grade chart</strong> — percentage grade along the route</li>
+      <li><strong>K-factor chart</strong> — vertical curve geometry</li>
+      <li><strong>Alert segments</strong> — highlighted sections where grade exceeds limits</li>
+      <li><strong>Banking/roll chart</strong> — cross-slope from IMU</li>
+      <li><strong>GPS point count</strong> and recording statistics</li>
+    </ul>
+
+    <h2>13.4 Profile Export</h2>
+    <p>Road profile data exports in 5 professional engineering formats. See Part 14 for the complete export reference.</p>
+
+    <h2>13.5 GNSS Profiling Page</h2>
+    <p>The GNSS Profiling page (<strong>/gnss-profiling</strong>) provides a dedicated full-screen view for profile recording, with real-time NMEA status display, GNSS diagnostics, and IMU attitude visualization. Includes a calibration suite for verifying Duro accuracy.</p>
+  </div>
+
+  <!-- ======================== PART 14 ======================== -->
+  <div class="section" id="p14">
+    <div class="part-divider">
+      <span class="part-num">PART 14</span>
+      <span class="part-title">Export &amp; Data</span>
+      <hr>
+    </div>
+
+    <h2>14.1 Survey Export Formats</h2>
+    <p>Surveys can be exported from the Survey Manager. Click <em>Export</em> to open the <strong>Survey Export Dialog</strong>:</p>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:16px">
+        <div style="font-size:14px;font-weight:700;color:#f0f6fc;margin-bottom:12px">📤 Export Survey — HWY 40 North Loop</div>
+        <div style="margin-bottom:12px">
+          <div style="font-size:11px;color:#8b949e;margin-bottom:6px">Format</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <div style="background:#1d6ae5;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600">CSV</div>
+            <div style="background:#21262d;color:#8b949e;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">GeoJSON</div>
+            <div style="background:#21262d;color:#8b949e;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">Shapefile</div>
+            <div style="background:#21262d;color:#8b949e;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">DXF</div>
+            <div style="background:#21262d;color:#8b949e;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">LandXML</div>
+            <div style="background:#21262d;color:#8b949e;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer">ZIP Bundle</div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <div style="font-size:11px;color:#8b949e;margin-bottom:6px">Coordinate Reference System</div>
+            <select style="width:100%;background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:6px 8px;border-radius:6px;font-size:12px">
+              <option>WGS84 (EPSG:4326)</option>
+              <option>Web Mercator (EPSG:3857)</option>
+              <option>MGA Zone 54 (EPSG:28354)</option>
+              <option>MGA Zone 55 (EPSG:28355)</option>
+              <option>Custom EPSG…</option>
+            </select>
+          </div>
+          <div>
+            <div style="font-size:11px;color:#8b949e;margin-bottom:6px">Altitude Mode</div>
+            <select style="width:100%;background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:6px 8px;border-radius:6px;font-size:12px">
+              <option>Raw GPS</option>
+              <option>Duro RTK Corrected</option>
+              <option>All Altitudes</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <div class="toggle"></div>
+          <label style="font-size:12px;color:#8b949e">Include photos in ZIP</label>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <div class="toggle"></div>
+          <label style="font-size:12px;color:#8b949e">Resample at fixed interval (enter metres)</label>
+        </div>
+        <button class="btn-sm blue" style="margin-top:14px;padding:8px 20px;font-size:13px">⬇ Export Now</button>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Format</th><th>Files Created</th><th>Software</th><th>Use Case</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CSV</strong></td><td>survey.csv</td><td>Excel, any spreadsheet</td><td>General sharing, permit applications</td></tr>
+        <tr><td><strong>GeoJSON</strong></td><td>survey.geojson</td><td>QGIS, ArcGIS, Mapbox</td><td>GIS analysis, web mapping</td></tr>
+        <tr><td><strong>Shapefile</strong></td><td>.shp, .shx, .dbf, .prj</td><td>ArcGIS, QGIS</td><td>Professional GIS, CAD integration</td></tr>
+        <tr><td><strong>DXF</strong></td><td>survey.dxf</td><td>AutoCAD, Civil3D</td><td>Engineering drawing overlay</td></tr>
+        <tr><td><strong>LandXML</strong></td><td>survey.xml</td><td>Civil 3D, Bentley</td><td>Road design software input</td></tr>
+        <tr><td><strong>ZIP Bundle</strong></td><td>.zip (all above + photos)</td><td>—</td><td>Complete backup, re-importable</td></tr>
+        <tr><td><strong>KML</strong></td><td>survey.kml</td><td>Google Earth</td><td>Visual route review</td></tr>
+        <tr><td><strong>YOLO</strong></td><td>labels/, images/</td><td>YOLO training</td><td>AI training data export (MeasurePRO+)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>14.2 Coordinate Reference System (CRS)</h2>
+    <p>Exports support multiple CRS via the proj4 library:</p>
+    <ul>
+      <li><strong>WGS84 (EPSG:4326)</strong>: Standard GPS coordinates — use for most applications</li>
+      <li><strong>Web Mercator (EPSG:3857)</strong>: Used by Google Maps, OpenStreetMap</li>
+      <li><strong>Australian MGA Zones</strong>: MGA54, MGA55, MGA56 (EPSG:28354–28356)</li>
+      <li><strong>Custom EPSG</strong>: Enter any valid EPSG code for local survey grids</li>
+    </ul>
+
+    <h2>14.3 ZIP Bundle (Re-importable)</h2>
+    <p>The ZIP Bundle format includes a <code>metadata.json</code> with calibration provenance (ground reference value, laser model, GNSS fix quality at time of survey). ZIP files are <strong>re-importable</strong> — you can restore a complete survey from a ZIP backup for round-trip capability.</p>
+
+    <h2>14.4 Road Profile Export</h2>
+    <p>Road profile data (from the GNSS recording system) exports in all 5 engineering formats plus resampling options:</p>
+    <ul>
+      <li><strong>Full density</strong>: Every recorded GPS sample</li>
+      <li><strong>Fixed interval resampling</strong>: One point every N metres (e.g., every 10 m) for uniform profile analysis</li>
+    </ul>
+  </div>
+
+  <!-- ======================== PART 15 ======================== -->
+  <div class="section" id="p15">
+    <div class="part-divider">
+      <span class="part-num">PART 15</span>
+      <span class="part-title">AI Features (MeasurePRO+)</span>
+      <hr>
+    </div>
+    <p>MeasurePRO+ extends the base app with AI-powered object detection and specialized clearance modules. These features require an active MeasurePRO+ license or Beta Tester account.</p>
+
+    <h2>15.1 AI Object Detection</h2>
+    <p>The AI system uses <strong>TensorFlow.js COCO-SSD</strong> running locally in the browser — no cloud processing required, works offline.</p>
+    <ul>
+      <li><strong>Real-time detection</strong>: Camera feed analyzed at up to 30 fps</li>
+      <li><strong>Detected classes</strong>: All 80 COCO classes including person, car, truck, traffic light, stop sign, etc.</li>
+      <li><strong>Confidence threshold</strong>: Configurable (default 60%) — reduce for more detections, increase for fewer false positives</li>
+      <li><strong>Detection logging</strong>: Each detection can be accepted (<kbd class="kbd">Alt+7</kbd>), rejected (<kbd class="kbd">Alt+8</kbd>), or corrected (<kbd class="kbd">Alt+9</kbd>)</li>
+    </ul>
+
+    <h2>15.2 Detection Modes</h2>
+    <table class="data-table">
+      <thead><tr><th>Mode</th><th>Shortcut</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Detection (AI)</td><td><kbd class="kbd">Alt+D</kbd></td><td>Auto-logs when AI detects specified object types overhead</td></tr>
+        <tr><td>Accept Detection</td><td><kbd class="kbd">Alt+7</kbd></td><td>Accept current AI detection — logs to survey</td></tr>
+        <tr><td>Reject Detection</td><td><kbd class="kbd">Alt+8</kbd></td><td>Reject false positive — discarded, not logged</td></tr>
+        <tr><td>Correct Detection</td><td><kbd class="kbd">Alt+9</kbd></td><td>Override AI class — opens POI selector to pick correct type</td></tr>
+        <tr><td>Test Detection</td><td><kbd class="kbd">Alt+0</kbd></td><td>Trigger a simulated detection event for testing</td></tr>
+      </tbody>
+    </table>
+
+    <h2>15.3 Envelope Clearance</h2>
+    <p>The Envelope Clearance module uses a <strong>ZED 2i stereo camera</strong> via WebSocket to create a 3D clearance envelope around the vehicle. Toggle with <kbd class="kbd">Alt+Shift+E</kbd>.</p>
+    <ul>
+      <li>Configures vehicle envelope dimensions (height, width, length)</li>
+      <li>Real-time clearance alerts when any obstacle enters the envelope</li>
+      <li>Configure in <strong>Settings → Envelope</strong></li>
+    </ul>
+
+    <h2>15.4 Convoy Guardian</h2>
+    <p>The Convoy Guardian module coordinates multiple vehicles in an OS/OW convoy. Each vehicle runs MeasurePRO; the lead vehicle broadcasts alerts to all following vehicles via WebSocket.</p>
+    <ul>
+      <li>Configure vehicles in <strong>Settings → Convoy</strong></li>
+      <li>Cycle vehicle profiles with <kbd class="kbd">Alt+Shift+P</kbd></li>
+      <li>Leader and follower roles configurable</li>
+    </ul>
+
+    <h2>15.5 Permitted Route Enforcement</h2>
+    <p>Upload a permitted route (GeoJSON or KML) and the system alerts when the vehicle deviates from the approved corridor. Configure in <strong>Settings → Route</strong>.</p>
+
+    <h2>15.6 Swept Path Analysis</h2>
+    <p>Real-time swept path analysis shows the predicted vehicle track through curves and intersections. Configure in <strong>Settings → Swept Path</strong>.</p>
+    <div class="callout warning"><div class="callout-icon">⚠️</div><div class="callout-body"><strong>MVP Limitations</strong><p>The current version uses simplified physics (proportional off-tracking distribution, hardcoded 90° arc turns). Perfect articulated vehicle physics are planned for a future release. See the in-code documentation for specifics.</p></div></div>
+
+    <h2>15.7 AI Assistant</h2>
+    <p>The AI Assistant tab (Settings → AI Assistant) provides a conversational interface for help, route planning suggestions, and analysis of survey results.</p>
+  </div>
+
+  <!-- ======================== PART 16 ======================== -->
+  <div class="section" id="p16">
+    <div class="part-divider">
+      <span class="part-num">PART 16</span>
+      <span class="part-title">3D LiDAR Scanning (Hesai Pandar40P)</span>
+      <hr>
+    </div>
+
+    <h2>16.1 System Architecture</h2>
+    <p>The LiDAR system uses the <strong>Hesai Pandar40P</strong> spinning LiDAR sensor. Since a PWA cannot receive UDP packets directly, a <strong>Windows Companion Service</strong> runs locally and bridges the hardware to the app.</p>
+    <div class="spec-box">
+      <h4>LiDAR Service Specifications</h4>
+      <div class="spec-row"><span class="spec-key">Companion service</span><span class="spec-val">MeasurePRO LiDAR Service (C# .NET 8)</span></div>
+      <div class="spec-row"><span class="spec-key">Service folder</span><span class="spec-val"><code>lidar-service/</code> in the project</span></div>
+      <div class="spec-row"><span class="spec-key">Default WebSocket port</span><span class="spec-val">17777 (auto-fallback to 17778–17787)</span></div>
+      <div class="spec-row"><span class="spec-key">Capture storage</span><span class="spec-val"><code>C:\MeasurePRO\Captures\</code> (configurable)</span></div>
+      <div class="spec-row"><span class="spec-key">Streaming rate</span><span class="spec-val">10 Hz: status, road width, clearance at heights, alerts</span></div>
+      <div class="spec-row"><span class="spec-key">Export format</span><span class="spec-val">LAZ/LAS (CloudCompare, Civil3D compatible)</span></div>
+      <div class="spec-row"><span class="spec-key">Mock mode</span><span class="spec-val">Set <code>MockMode: true</code> in <code>appsettings.json</code></span></div>
+    </div>
+
+    <h2>16.2 Connecting to the LiDAR Service</h2>
+    <ol>
+      <li>Install and start <code>MeasurePROLiDARService.exe</code> on Windows. It auto-selects an available port (17777–17787).</li>
+      <li>In the app, navigate to the <strong>LiDAR page</strong> (<em>/lidar</em>) or click the LiDAR icon.</li>
+      <li>Click <strong>Connect</strong> — the app tries port 17777, then falls back down the list.</li>
+      <li>When connected, the service streams road width, clearance at 4 m, 4.5 m, and 5 m heights.</li>
+    </ol>
+
+    <h2>16.3 HTTP API (from LiDAR Service)</h2>
+    <table class="data-table">
+      <thead><tr><th>Endpoint</th><th>Method</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><code>/api/capture/static/start</code></td><td>POST</td><td>Start a static point cloud capture</td></tr>
+        <tr><td><code>/api/capture/segment/start</code></td><td>POST</td><td>Start a rolling road segment capture</td></tr>
+        <tr><td><code>/api/capture/stop</code></td><td>POST</td><td>Stop any active capture</td></tr>
+        <tr><td><code>/api/gnss/heartbeat</code></td><td>POST</td><td>Push GNSS position to service (for geo-referenced export)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>16.4 3D Point Cloud Scanner Page</h2>
+    <p>The Point Cloud Scanner page (<em>/point-cloud-scanner</em>) provides a Three.js 3D viewer showing the real-time point cloud from the Pandar40P. Rotate, pan, and zoom the cloud in 3D. Captures can be linked to survey POIs for traceability.</p>
+
+    <h2>16.5 Recording Survives Navigation</h2>
+    <p>LiDAR capture recording is managed by the Windows service — the PWA can navigate freely without interrupting a capture. GNSS heartbeats are pushed from the PWA to the service every second to maintain geo-referenced capture quality.</p>
+  </div>
+
+  <!-- ======================== PART 17 ======================== -->
+  <div class="section" id="p17">
+    <div class="part-divider">
+      <span class="part-num">PART 17</span>
+      <span class="part-title">Slave App &amp; Live Monitor</span>
+      <hr>
+    </div>
+
+    <h2>17.1 Slave App</h2>
+    <p>The <strong>Slave App</strong> is a companion iOS/Android/tablet interface that connects to the main MeasurePRO instance via WebSocket for real-time synchronization. Use it to:</p>
+    <ul>
+      <li>View live measurements on a second screen (co-pilot display)</li>
+      <li>Trigger captures and log entries remotely</li>
+      <li>Use a device camera for the main app's camera feed</li>
+    </ul>
+    <p>Configure in <strong>Settings → Slave App</strong>. Scan the QR code on the settings page with the slave device to pair.</p>
+    <p>The slave interface is available at <a href="/slave-app">measure-pro.app/slave-app</a> — open this URL on the slave device's browser.</p>
+
+    <h2>17.2 Live Monitor</h2>
+    <p>The <strong>Live Monitor</strong> page (<a href="/LiveMonitor">/LiveMonitor</a>) provides a dispatcher/operations-center view of active surveys across multiple vehicles. Requires a Live Sharing license feature.</p>
+    <ul>
+      <li>See all connected vehicles on a shared map</li>
+      <li>View each vehicle's current measurement and alert status</li>
+      <li>Configure in <strong>Settings → Live Sharing</strong></li>
+    </ul>
+  </div>
+
+  <!-- ======================== PART 18 ======================== -->
+  <div class="section" id="p18">
+    <div class="part-divider">
+      <span class="part-num">PART 18</span>
+      <span class="part-title">Database &amp; Storage</span>
+      <hr>
+    </div>
+
+    <h2>18.1 Storage Architecture</h2>
+    <p>MeasurePRO uses an <strong>offline-first, dual-database</strong> architecture:</p>
+    <table class="data-table">
+      <thead><tr><th>Storage Layer</th><th>Technology</th><th>What's Stored</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primary (Local)</strong></td><td>IndexedDB (idb)</td><td>Surveys, measurements, photos, settings, GPS track samples</td></tr>
+        <tr><td><strong>Cloud Sync</strong></td><td>Firebase Realtime DB</td><td>Synced survey packages, user profile, license info</td></tr>
+        <tr><td><strong>Settings</strong></td><td>localStorage</td><td>UI preferences, auto-save config, session flags</td></tr>
+        <tr><td><strong>Profile Recordings</strong></td><td>IndexedDB</td><td>GPS road profile samples (flushed every 30s)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>18.2 ACK-based Storage Health</h2>
+    <p>MeasurePRO uses an ACK (acknowledgement) system for critical writes. When a measurement is saved, the system waits for IndexedDB to confirm the write before showing the success toast. If the write fails or stalls, a <strong>critical warning banner</strong> appears alerting to pending or failed writes.</p>
+    <div class="callout danger"><div class="callout-icon">🚨</div><div class="callout-body"><strong>Storage Health Warning</strong><p>If you see a "Stale Data" or "Pending Write" warning banner, do NOT close the browser until the indicator clears. Force-closing with unsaved writes may result in data loss. Use the Backup settings to immediately download a manual backup.</p></div></div>
+
+    <h2>18.3 Backup</h2>
+    <p>Go to <strong>Settings → Backup</strong> to:</p>
+    <ul>
+      <li>Download an immediate backup of all surveys and settings</li>
+      <li>Configure automatic backup frequency</li>
+      <li>Restore from a backup file</li>
+      <li>View storage usage statistics</li>
+    </ul>
+
+    <h2>18.4 IndexedDB Debug</h2>
+    <p>Administrators can inspect the raw IndexedDB contents at <strong>/admin/debug/indexeddb</strong>. This is useful for diagnosing data issues, orphaned records, or migration problems.</p>
+  </div>
+
+  <!-- ======================== PART 19 ======================== -->
+  <div class="section" id="p19">
+    <div class="part-divider">
+      <span class="part-num">PART 19</span>
+      <span class="part-title">Settings Reference</span>
+      <hr>
+    </div>
+    <p>Access all settings via <strong>Settings</strong> in the sidebar. The settings panel has a scrollable tab bar with 29 tabs:</p>
+
+    <div class="mockup">
+      <div class="mockup-body" style="padding:0">
+        <div class="settings-tab-bar">
+          <div class="stab active">⚡ Laser &amp; GPS</div>
+          <div class="stab" style="color:#22d3ee">↔ Lateral/Rear</div>
+          <div class="stab" style="color:#3fb950">🛰 GNSS/Duro</div>
+          <div class="stab">📷 Camera</div>
+          <div class="stab" style="color:#22d3ee">🎯 Calibration</div>
+          <div class="stab" style="color:#14b8a6">📡 Detection</div>
+          <div class="stab" style="color:#a78bfa">🧠 AI+</div>
+          <div class="stab" style="color:#34d399">🤖 AI Asst.</div>
+          <div class="stab" style="color:#fb923c">🚛 Envelope</div>
+          <div class="stab" style="color:#60a5fa">👥 Convoy</div>
+          <div class="stab" style="color:#3fb950">🗺 Route</div>
+          <div class="stab" style="color:#facc15">〰 Swept Path</div>
+          <div class="stab">🖼 Logo</div>
+          <div class="stab">🗺 Map</div>
+          <div class="stab">📝 Logging</div>
+          <div class="stab">🔔 Alerts</div>
+          <div class="stab">✉️ Email</div>
+          <div class="stab">🖥 Display</div>
+          <div class="stab" style="color:#3fb950">🎙 Voice</div>
+          <div class="stab">⌨ Keyboard</div>
+          <div class="stab" style="color:#f59e0b">⚙ POI Actions</div>
+          <div class="stab">☁ Sync</div>
+          <div class="stab" style="color:#22d3ee">📱 Slave App</div>
+          <div class="stab" style="color:#818cf8">💾 Backup</div>
+          <div class="stab" style="color:#9ca3af">🔧 Developer</div>
+          <div class="stab" style="color:#f87171">🛡 Admin</div>
+          <div class="stab">⊞ Customize</div>
+          <div class="stab">❓ Help</div>
+          <div class="stab" style="color:#60a5fa">ℹ About</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Tab</th><th>Key Settings</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Laser &amp; GPS</strong></td><td>Serial port, protocol (SolTec/RSA/Mock), baud 115200, ground reference, ignoreAbove/Below, amplitude filter, weather filter, GPS port, Bluetooth GPS</td></tr>
+        <tr><td><strong>Lateral/Rear</strong></td><td>Left/right/rear laser ports (19200 baud, 7-E-1), vehicle offsets, dual-laser mode, rear overhang thresholds (up to 80 m)</td></tr>
+        <tr><td><strong>GNSS/Duro</strong></td><td>Duro bridge URL (localhost:8765), banking thresholds (0-3°/3-5°/5-7°/7-10°/>10°), roll processing mode (raw/filtered/stopped), curve radius alert, K-factor</td></tr>
+        <tr><td><strong>Camera</strong></td><td>Camera selection, resolution, JPEG quality, auto-capture toggle, watermark, multi-camera positions (front/left/right/rear)</td></tr>
+        <tr><td><strong>Calibration</strong></td><td>Camera calibration wizard, distortion correction, field-of-view parameters (MeasurePRO+)</td></tr>
+        <tr><td><strong>Detection</strong></td><td>Confidence threshold, class filter, detection overlay display, debug panel</td></tr>
+        <tr><td><strong>AI+</strong></td><td>TensorFlow.js model selection, mock/production mode, clearance alert distances, AI log integration</td></tr>
+        <tr><td><strong>AI Assistant</strong></td><td>Chat interface for help and analysis — no configuration needed</td></tr>
+        <tr><td><strong>Envelope</strong></td><td>Vehicle envelope dimensions, ZED camera connection, clearance margin settings</td></tr>
+        <tr><td><strong>Convoy</strong></td><td>Vehicle profiles, WebSocket server URL, leader/follower role</td></tr>
+        <tr><td><strong>Route</strong></td><td>Permitted route upload (GeoJSON/KML), corridor width, deviation alert</td></tr>
+        <tr><td><strong>Swept Path</strong></td><td>Vehicle type, axle configuration, turning radius, simulation resolution</td></tr>
+        <tr><td><strong>Logo</strong></td><td>Upload PNG logo, position (4 corners), opacity, size for image watermarking</td></tr>
+        <tr><td><strong>Map</strong></td><td>Tile provider, track color, POI marker size, clustering, offline cache size</td></tr>
+        <tr><td><strong>Logging</strong></td><td>Auto-save interval, include images in backup, auto-close survey, Auto-Part threshold (100–1000 POIs)</td></tr>
+        <tr><td><strong>Alerts</strong></td><td>Min/max height, warning threshold (default 4.2 m), critical threshold (default 4.0 m), sound selection for each event</td></tr>
+        <tr><td><strong>Email</strong></td><td>SMTP configuration, auto-email survey reports, recipient list</td></tr>
+        <tr><td><strong>Display</strong></td><td>Units (metric/imperial), decimal places, card layout, dark/light mode</td></tr>
+        <tr><td><strong>Voice</strong></td><td>Voice recognition language, auto-transcription, voice command bindings</td></tr>
+        <tr><td><strong>Keyboard</strong></td><td>Full shortcut reference table, Stream Deck profile download</td></tr>
+        <tr><td><strong>POI Actions</strong></td><td>Per-POI-type behavior overrides, custom auto-capture rules</td></tr>
+        <tr><td><strong>Sync</strong></td><td>Firebase sync status, pending upload queue, force sync button</td></tr>
+        <tr><td><strong>Slave App</strong></td><td>Pairing QR code, connected devices, permission grants</td></tr>
+        <tr><td><strong>Backup</strong></td><td>Manual backup download, restore from file, auto-backup schedule, storage usage</td></tr>
+        <tr><td><strong>Developer</strong></td><td>Debug logging, IndexedDB inspector, stress test, build info (beta users only)</td></tr>
+        <tr><td><strong>Admin</strong></td><td>Link to full Admin Panel at /admin (password protected — see Part 21)</td></tr>
+        <tr><td><strong>Customize</strong></td><td>Layout customizer — drag and resize dashboard cards, hide/show panels</td></tr>
+        <tr><td><strong>Help</strong></td><td>Links to all documentation, quick start guides, field reference card</td></tr>
+        <tr><td><strong>About</strong></td><td>App version, build date, license info, support contact</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================== PART 20 ======================== -->
+  <div class="section" id="p20">
+    <div class="part-divider">
+      <span class="part-num">PART 20</span>
+      <span class="part-title">Keyboard Shortcuts Complete Reference</span>
+      <hr>
+    </div>
+    <div class="screenshot">
+      <img src="manual-img/08-docs-fieldcard.jpg" alt="Field Reference Card with keyboard shortcuts">
+      <div class="screenshot-cap">The Field Reference Card includes a condensed shortcut reference — printable and laminate-ready</div>
+    </div>
+
+    <h2>General Actions</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">Alt+1</kbd></td><td>Capture image from active camera</td></tr>
+        <tr><td><kbd class="kbd">Alt+2</kbd></td><td>Clear current alert banner</td></tr>
+        <tr><td><kbd class="kbd">Alt+C</kbd></td><td>Clear all captured images (pending photos)</td></tr>
+        <tr><td><kbd class="kbd">Alt+G</kbd></td><td>Log current measurement (manual capture)</td></tr>
+        <tr><td><kbd class="kbd">Ctrl+Backspace</kbd></td><td>Delete last log entry (with confirmation)</td></tr>
+        <tr><td><kbd class="kbd">Alt+Shift+M</kbd></td><td>Open manual log entry dialog</td></tr>
+        <tr><td><kbd class="kbd">Alt+7</kbd></td><td>Clear all alerts</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Logging Controls</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">Alt+3</kbd></td><td>Start logging</td></tr>
+        <tr><td><kbd class="kbd">Alt+4</kbd></td><td>Stop logging</td></tr>
+        <tr><td><kbd class="kbd">Alt+5</kbd></td><td>Pause logging</td></tr>
+        <tr><td><kbd class="kbd">Alt+6</kbd></td><td>Resume logging</td></tr>
+        <tr><td><kbd class="kbd">Alt+M</kbd></td><td>Switch to Manual mode</td></tr>
+        <tr><td><kbd class="kbd">Alt+A</kbd></td><td>Switch to All Data mode</td></tr>
+        <tr><td><kbd class="kbd">Alt+D</kbd></td><td>Switch to Detection mode (AI)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Video Recording</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">Alt+V</kbd></td><td>Start / Stop video recording</td></tr>
+      </tbody>
+    </table>
+
+    <h2>AI Detection Controls (MeasurePRO+)</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">Alt+7</kbd></td><td>Accept detection — log to survey</td></tr>
+        <tr><td><kbd class="kbd">Alt+8</kbd></td><td>Reject detection — discard false positive</td></tr>
+        <tr><td><kbd class="kbd">Alt+9</kbd></td><td>Correct detection — override AI class</td></tr>
+        <tr><td><kbd class="kbd">Alt+0</kbd></td><td>Test detection — trigger simulated event</td></tr>
+        <tr><td><kbd class="kbd">Alt+Shift+E</kbd></td><td>Toggle envelope monitoring on/off</td></tr>
+        <tr><td><kbd class="kbd">Alt+Shift+P</kbd></td><td>Cycle vehicle profiles (Convoy)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Multi-Laser (Lateral/Rear)</h2>
+    <table class="data-table">
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><kbd class="kbd">[</kbd></td><td>Log left lateral measurement</td></tr>
+        <tr><td><kbd class="kbd">]</kbd></td><td>Log right lateral measurement</td></tr>
+        <tr><td><kbd class="kbd">\</kbd></td><td>Log total width (left + right combined)</td></tr>
+        <tr><td><kbd class="kbd">'</kbd></td><td>Log rear overhang measurement</td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Stream Deck</strong><p>All shortcuts can be mapped to a Stream Deck. Download the pre-configured profile from <strong>Settings → Keyboard → Download Stream Deck Profile</strong>.</p></div></div>
+  </div>
+
+  <!-- ======================== PART 21 ======================== -->
+  <div class="section" id="p21">
+    <div class="part-divider">
+      <span class="part-num">PART 21</span>
+      <span class="part-title">Admin Panel</span>
+      <hr>
+    </div>
+    <div class="callout danger"><div class="callout-icon">🔒</div><div class="callout-body"><strong>Restricted Access</strong><p>The Admin Panel is only for SolTec Innovation administrators. End users should not need to access this section.</p></div></div>
+
+    <h2>21.1 Accessing the Admin Panel</h2>
+    <ol>
+      <li>Log in with a master admin account.</li>
+      <li>Go to <strong>Settings → Admin</strong> tab.</li>
+      <li>Click <em>Open Admin Panel</em> — this navigates to <code>/admin</code>.</li>
+      <li>Enter the admin password when prompted.</li>
+      <li>The password is stored in <code>sessionStorage</code> and persists for the browser session.</li>
+    </ol>
+
+    <h2>21.2 Admin Panel Sections</h2>
+    <div class="mockup">
+      <div class="mockup-body" style="padding:0">
+        <div style="display:flex;height:320px">
+          <div style="width:180px;background:#0d1117;border-right:1px solid #21262d;padding:12px 0">
+            <div style="padding:8px 16px;font-size:11px;color:#6e7681;text-transform:uppercase;font-weight:700;margin-bottom:4px">Admin Navigation</div>
+            <div style="padding:8px 16px;background:#21262d;border-left:2px solid #388bfd;font-size:12px;color:#58a6ff;display:flex;align-items:center;gap:8px">⊞ All Admin Pages</div>
+            <div style="padding:8px 16px;font-size:12px;color:#8b949e;display:flex;align-items:center;gap:8px">👥 Customers</div>
+            <div style="padding:8px 16px;font-size:12px;color:#8b949e;display:flex;align-items:center;gap:8px">💳 Subscriptions</div>
+            <div style="padding:8px 16px;font-size:12px;color:#8b949e;display:flex;align-items:center;gap:8px">⚠ Violations</div>
+            <div style="padding:8px 16px;font-size:12px;color:#8b949e;display:flex;align-items:center;gap:8px">🔊 Sounds</div>
+            <div style="padding:8px 16px;font-size:12px;color:#8b949e;display:flex;align-items:center;gap:8px">🧠 Training</div>
+          </div>
+          <div style="flex:1;padding:16px;background:#0d1117;overflow:auto">
+            <div style="font-size:14px;font-weight:700;color:#f0f6fc;margin-bottom:12px">All Admin Pages</div>
+            <div class="grid-2" style="gap:10px">
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#1d6ae5;border-radius:6px;display:flex;align-items:center;justify-content:center">👥</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">User Accounts</div><div style="font-size:11px;color:#6e7681">Approve registrations</div></div></div></div>
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#7c3aed;border-radius:6px;display:flex;align-items:center;justify-content:center">🔑</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">License Admin</div><div style="font-size:11px;color:#6e7681">Issue &amp; revoke licenses</div></div></div></div>
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#1a6e1a;border-radius:6px;display:flex;align-items:center;justify-content:center">📊</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">Analytics</div><div style="font-size:11px;color:#6e7681">Usage &amp; session metrics</div></div></div></div>
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#a16207;border-radius:6px;display:flex;align-items:center;justify-content:center">🏷</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">Pricing Mgmt</div><div style="font-size:11px;color:#6e7681">Edit subscription tiers</div></div></div></div>
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#374151;border-radius:6px;display:flex;align-items:center;justify-content:center">🗄</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">Debug: IndexedDB</div><div style="font-size:11px;color:#6e7681">Inspect local data stores</div></div></div></div>
+              <div class="card" style="cursor:pointer"><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#7f1d1d;border-radius:6px;display:flex;align-items:center;justify-content:center">⚡</div><div><div style="font-size:13px;font-weight:600;color:#f0f6fc">Debug: Stress Test</div><div style="font-size:11px;color:#6e7681">Write-speed benchmarks</div></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>21.3 Admin Sub-Sections</h2>
+    <table class="data-table">
+      <thead><tr><th>Section</th><th>Location</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><strong>User Accounts</strong></td><td>/admin/accounts</td><td>Approve/reject registrations, view user list, activate/deactivate accounts</td></tr>
+        <tr><td><strong>License Admin</strong></td><td>/admin-licensing</td><td>Issue license keys, assign feature modules, revoke access, manage trial periods</td></tr>
+        <tr><td><strong>Analytics</strong></td><td>/admin/analytics</td><td>Active sessions, survey counts, feature usage metrics, device breakdown</td></tr>
+        <tr><td><strong>Pricing Management</strong></td><td>/admin/pricing</td><td>Edit plan names, prices, descriptions, and included features</td></tr>
+        <tr><td><strong>Customers</strong></td><td>Admin sidebar</td><td>Customer CRM view — contact info, subscription status, notes</td></tr>
+        <tr><td><strong>Subscriptions</strong></td><td>Admin sidebar</td><td>All active/expired subscriptions, renewal dates, payment status</td></tr>
+        <tr><td><strong>Violations</strong></td><td>Admin sidebar</td><td>License violation log — unauthorized access attempts, sharing violations</td></tr>
+        <tr><td><strong>Sounds</strong></td><td>Admin sidebar</td><td>Test all alert sounds from the admin panel</td></tr>
+        <tr><td><strong>Training Data</strong></td><td>Admin sidebar</td><td>Manage AI training data — label images, export YOLO datasets</td></tr>
+        <tr><td><strong>Debug: IndexedDB</strong></td><td>/admin/debug/indexeddb</td><td>Inspect and repair local IndexedDB stores — for support diagnostics</td></tr>
+        <tr><td><strong>Debug: Stress Test</strong></td><td>/admin/debug/stress</td><td>Run write-speed and concurrency stress tests for performance validation</td></tr>
+        <tr><td><strong>View Overrides</strong></td><td>Admin panel header</td><td>Toggle admin-only view switches to simulate different user permission levels</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================== PART 22 ======================== -->
+  <div class="section" id="p22">
+    <div class="part-divider">
+      <span class="part-num">PART 22</span>
+      <span class="part-title">Troubleshooting</span>
+      <hr>
+    </div>
+
+    <h2>22.1 Laser Not Connecting</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Likely Cause</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>No ports listed in selector</td><td>USB-to-Serial driver not installed</td><td>Install CH340 or FTDI driver from manufacturer website</td></tr>
+        <tr><td>Port listed but no data</td><td>Wrong protocol or baud rate</td><td>Ensure Protocol = SolTec (or RSA), baud = 115,200</td></tr>
+        <tr><td>Readings all zero or garbled</td><td>Laser not powered / wrong cable end</td><td>Check power LED on laser; verify DB9 cable orientation</td></tr>
+        <tr><td>"Permission denied" on port</td><td>Another app has port open</td><td>Close Device Manager, Arduino IDE, or any other serial terminal</td></tr>
+        <tr><td>Works in Edge, not Chrome</td><td>Chrome Web Serial not enabled</td><td>Check chrome://flags — ensure Web Serial is enabled</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.2 GPS Not Connecting</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>No GPS COM port visible</td><td>Check Device Manager — GPS may appear as different COM number after reboot</td></tr>
+        <tr><td>GPS connected but no coordinates</td><td>Move outdoors — GPS needs sky view for satellite fix (typically 30–90 sec)</td></tr>
+        <tr><td>Duro shows "No Data"</td><td>Ensure bridge software is running; verify Duro IP (192.168.0.222 default); check Ethernet/USB connection</td></tr>
+        <tr><td>RTK shows "Float" not "Fixed"</td><td>RTK correction signal not received — check NTRIP connection or wait for baseline</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.3 Measurement Issues</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Readings much lower than expected</td><td>Ground reference not set, or set too high — remeasure and update</td></tr>
+        <tr><td>Readings jump wildly</td><td>Enable amplitude filter (Settings → Laser → Filters); reduce measurement filter window</td></tr>
+        <tr><td>All readings cluster at same value (fog)</td><td>Enable Weather Quality Filter; set ignoreBelow to 2 m; wait for fog to clear</td></tr>
+        <tr><td>Readings lost under bridge</td><td>Normal — laser hits road surface when overhead clearance &gt; laser max range. Use Min Height filter to show these separately.</td></tr>
+        <tr><td>Alert not triggering</td><td>Check Warning/Critical thresholds in Settings → Alerts; ensure sound volume is up</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.4 Camera Problems</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Black camera feed</td><td>Check browser permissions — camera must be allowed for measure-pro.app</td></tr>
+        <tr><td>Wrong camera selected</td><td>Settings → Camera → change camera from dropdown</td></tr>
+        <tr><td>Auto-capture not working</td><td>Ensure auto-capture toggle is ON; check the POI type is in the auto-capture list (railroad, intersection, road, bridge, danger)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.5 Survey / Data Issues</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Survey not saving</td><td>Check for "Storage Health Warning" banner — free disk space; clear browser cache if IndexedDB is full</td></tr>
+        <tr><td>Export file empty</td><td>Ensure measurements have been logged; if no active survey, create one first</td></tr>
+        <tr><td>Cloud sync stuck</td><td>Check internet connection; use Settings → Sync → Force Sync; verify Firebase credentials</td></tr>
+        <tr><td>Survey disappeared</td><td>Check Settings → Backup → Load Survey; or restore from a ZIP backup file</td></tr>
+        <tr><td>Auto-Part created unexpectedly</td><td>Normal behavior at threshold (default 200 POIs) — a local ZIP auto-downloads. Continue normally.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.6 App Won't Load / Errors</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>White screen on load</td><td>Open browser console (F12); look for red errors; try clearing site data in Chrome settings</td></tr>
+        <tr><td>"IndexedDB blocked" warning</td><td>Close all other tabs running measure-pro.app; close and reopen the browser</td></tr>
+        <tr><td>Service Worker problems</td><td>Chrome → Settings → Privacy → Clear browsing data → cached images and files</td></tr>
+        <tr><td>Login fails after password reset</td><td>Clear browser cookies for measure-pro.app and try again</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.7 LiDAR / Bridge Issues</h2>
+    <table class="data-table">
+      <thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>LiDAR page shows "Not Connected"</td><td>Verify bridge service is running; check Windows Firewall — allow port 17777</td></tr>
+        <tr><td>Bridge connects but no point cloud</td><td>Check Pandar40P power and Ethernet connection to PC; try Mock mode to verify app is working</td></tr>
+        <tr><td>Port 17777 in use</td><td>Service auto-tries 17778–17787; check service logs for which port it bound to</td></tr>
+      </tbody>
+    </table>
+
+    <h2>22.8 Getting Help</h2>
+    <div class="callout success"><div class="callout-icon">✅</div><div class="callout-body"><strong>Contact SolTec Innovation Support</strong><p>Email: <a href="mailto:support@soltec.ca">support@soltec.ca</a><br>Phone: 1.438.533.5344<br>Web: <a href="https://www.soltecinnovation.com">www.SolTecInnovation.com</a><br>Hours: Monday–Friday 8 AM – 6 PM EST</p></div></div>
+    <p>When contacting support, have ready:</p>
+    <ul>
+      <li>Your account email</li>
+      <li>App version (Settings → About)</li>
+      <li>Browser version (Chrome Help → About)</li>
+      <li>Laser model and protocol being used</li>
+      <li>Browser console screenshot (F12 → Console tab)</li>
+      <li>Description of steps to reproduce the issue</li>
+    </ul>
+  </div>
+
+  <!-- ======================== APPENDIX A ======================== -->
+  <div class="section" id="appA">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX A</span>
+      <span class="part-title">Laser Protocol Specifications</span>
+      <hr>
+    </div>
+    <h2>A.1 SolTec/RSA 3-Byte Binary Protocol</h2>
+    <p>All vertical lasers (SolTec-10m, 30m, 70m, 2700, RSA High Pole) use the same 3-byte binary protocol at 115,200 baud (8-N-1):</p>
+    <pre>Byte 0: Header / Status (0xFA for valid reading)
+Byte 1: High byte of raw distance (mm, unsigned)
+Byte 2: Low byte of raw distance (mm, unsigned)
+
+Distance (mm) = (Byte1 &lt;&lt; 8) | Byte2
+Distance (m) = Distance(mm) / 1000.0
+True Clearance (m) = Distance(m) - GroundReference(m)</pre>
+    <div class="spec-box">
+      <h4>Vertical Laser Serial Parameters</h4>
+      <div class="spec-row"><span class="spec-key">Baud Rate</span><span class="spec-val">115,200</span></div>
+      <div class="spec-row"><span class="spec-key">Data Bits</span><span class="spec-val">8</span></div>
+      <div class="spec-row"><span class="spec-key">Parity</span><span class="spec-val">None</span></div>
+      <div class="spec-row"><span class="spec-key">Stop Bits</span><span class="spec-val">1</span></div>
+      <div class="spec-row"><span class="spec-key">Flow Control</span><span class="spec-val">None</span></div>
+      <div class="spec-row"><span class="spec-key">Stream rate</span><span class="spec-val">~10–50 Hz continuous</span></div>
+    </div>
+
+    <h2>A.2 Lateral/Rear Laser Protocol (soltec-old)</h2>
+    <div class="spec-box">
+      <h4>Lateral/Rear Laser Serial Parameters</h4>
+      <div class="spec-row"><span class="spec-key">Baud Rate</span><span class="spec-val">19,200</span></div>
+      <div class="spec-row"><span class="spec-key">Data Bits</span><span class="spec-val">7</span></div>
+      <div class="spec-row"><span class="spec-key">Parity</span><span class="spec-val">Even</span></div>
+      <div class="spec-row"><span class="spec-key">Stop Bits</span><span class="spec-val">1</span></div>
+      <div class="spec-row"><span class="spec-key">Internal name</span><span class="spec-val">soltec-old</span></div>
+    </div>
+
+    <h2>A.3 Jenoptik ASCII Protocol</h2>
+    <p>An alternative ASCII-format protocol supported for Jenoptik-compatible devices. Outputs comma-delimited ASCII strings terminated with CR/LF. Contact support if using a Jenoptik device for configuration assistance.</p>
+  </div>
+
+  <!-- ======================== APPENDIX B ======================== -->
+  <div class="section" id="appB">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX B</span>
+      <span class="part-title">Export Format Reference</span>
+      <hr>
+    </div>
+
+    <h2>B.1 CSV Column Reference</h2>
+    <pre>POI_ID, POI_Type, Height_m, Height_ft, Latitude, Longitude, Altitude_m,
+UTC_Date, UTC_Time, Speed_kmh, Heading_deg, Road_Number, Note, 
+Image_Filename, Chainage_m, Grade_pct, K_Factor, Banking_deg</pre>
+
+    <h2>B.2 GeoJSON Structure</h2>
+    <pre>{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [lon, lat, alt] },
+      "properties": {
+        "poi_id": "abc12345",
+        "poi_type": "bridge",
+        "height_m": 4.82,
+        "height_ft": 15.814,
+        "utc_datetime": "2026-03-26T14:23:11Z",
+        "speed_kmh": 58.4,
+        "heading_deg": 247,
+        "note": "Overhead steel truss",
+        "image_filename": "abc12345_photo1.jpg"
+      }
+    }
+  ]
+}</pre>
+
+    <h2>B.3 Shapefile Notes</h2>
+    <p>Shapefiles export as a 4-file bundle: <code>.shp</code> (geometry), <code>.shx</code> (index), <code>.dbf</code> (attributes), <code>.prj</code> (projection). The .prj file contains the WKT projection string matching the selected CRS. Import the entire set of 4 files into ArcGIS or QGIS.</p>
+
+    <h2>B.4 DXF Notes</h2>
+    <p>DXF files are compatible with AutoCAD 2018+ and Civil3D. POIs are exported as point entities with attributes. The route GPS track is exported as a polyline on a separate layer named <code>GPS_TRACK</code>.</p>
+
+    <h2>B.5 LandXML Notes</h2>
+    <p>LandXML files follow the LandXML 1.2 schema. Compatible with Autodesk Civil3D, Bentley OpenRoads, and Trimble Business Center. Elevation data uses the altitude mode selected at export time.</p>
+
+    <h2>B.6 ZIP Bundle Contents</h2>
+    <pre>survey_HWY40_20260326/
+  metadata.json         — Calibration provenance, app version, export time
+  survey.csv            — Complete POI data in CSV format
+  survey.geojson        — GeoJSON feature collection
+  survey.dxf            — AutoCAD DXF
+  survey.xml            — LandXML
+  survey_shapefile/     — .shp, .shx, .dbf, .prj
+  photos/
+    abc12345_photo1.jpg
+    b8e2d4a9_photo1.jpg
+    ...</pre>
+  </div>
+
+  <!-- ======================== APPENDIX C ======================== -->
+  <div class="section" id="appC">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX C</span>
+      <span class="part-title">Environmental Conditions</span>
+      <hr>
+    </div>
+    <div class="screenshot">
+      <img src="manual-img/15-docs-env.jpg" alt="Environmental Conditions Guide">
+      <div class="screenshot-cap">Full Environmental Conditions Guide — available at /docs/environmental</div>
+    </div>
+    <p>The in-app Environmental Conditions Guide covers filter recommendations for rain, fog, snow, night-time, and tunnel conditions. Key points:</p>
+    <table class="data-table">
+      <thead><tr><th>Condition</th><th>Laser Effect</th><th>Recommended Settings</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rain</strong></td><td>Droplets scatter beam, spurious close readings</td><td>Increase ignoreBelow 2–3 m; enable Weather Filter (RSA)</td></tr>
+        <tr><td><strong>Fog / Mist</strong></td><td>All readings cluster at fog layer distance (10–40 m)</td><td>Wait for fog to clear; use ignoreAbove to exclude fog layer; manually enter known clearances</td></tr>
+        <tr><td><strong>Snow</strong></td><td>Similar to rain; snowflakes can cause spikes</td><td>Enable amplitude filter; increase ignoreBelow</td></tr>
+        <tr><td><strong>Night</strong></td><td>Laser unaffected; camera quality reduced</td><td>Increase camera ISO/exposure in camera settings; use a supplemental light source on the vehicle</td></tr>
+        <tr><td><strong>Direct Sun</strong></td><td>Can reduce signal intensity on SolTec models</td><td>Use the sun shade included with the kit; orient laser away from direct solar alignment</td></tr>
+        <tr><td><strong>Tunnel</strong></td><td>No effect on laser; GPS signal drops</td><td>GPS continues using last known position + speed dead reckoning; profile data may show gaps</td></tr>
+        <tr><td><strong>Bridge Deck</strong></td><td>Laser may read road surface at far end of structure</td><td>Normal — review log and delete spurious readings if necessary</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================== APPENDIX D ======================== -->
+  <div class="section" id="appD">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX D</span>
+      <span class="part-title">Subscription Plans &amp; Features</span>
+      <hr>
+    </div>
+    <div class="screenshot">
+      <img src="manual-img/04-pricing.jpg" alt="Pricing page">
+      <div class="screenshot-cap">Current subscription plans — see measure-pro.app/pricing for up-to-date pricing</div>
+    </div>
+    <p>Full hardware bundle pricing (rugged tablet, LiDAR system, GPS receiver, mounting kit) is managed by SolTec Innovation at <a href="https://www.soltecinnovation.com">soltecinnovation.com</a>.</p>
+    <p>Contact <a href="mailto:support@soltec.ca">support@soltec.ca</a> or call <strong>1.438.533.5344</strong> for custom enterprise pricing, multi-vehicle licensing, or hardware bundles.</p>
+
+    <h2>D.1 Feature Module Add-ons</h2>
+    <table class="data-table">
+      <thead><tr><th>Module</th><th>Feature Key</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>GNSS Profiling</td><td>gnss_profiling</td><td>Road profile recording, grade, K-factor, LandXML/DXF export</td></tr>
+        <tr><td>AI Detection</td><td>ai_detection</td><td>TensorFlow.js overhead object detection, detection logging</td></tr>
+        <tr><td>Envelope Clearance</td><td>envelope_clearance</td><td>ZED 2i stereo camera 3D envelope monitoring</td></tr>
+        <tr><td>Convoy Guardian</td><td>convoy_guardian</td><td>Multi-vehicle convoy coordination and alerting</td></tr>
+        <tr><td>Route Enforcement</td><td>route_enforcement</td><td>GPS-based permitted route compliance monitoring</td></tr>
+        <tr><td>Swept Path Analysis</td><td>swept_path_analysis</td><td>Real-time vehicle swept path simulation</td></tr>
+        <tr><td>Slave App</td><td>slave_app</td><td>Companion iOS/tablet slave device pairing</td></tr>
+        <tr><td>Camera Calibration</td><td>calibration</td><td>Advanced camera distortion calibration tools</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================== APPENDIX E ======================== -->
+  <div class="section" id="appE">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX E</span>
+      <span class="part-title">Compliance &amp; Accuracy</span>
+      <hr>
+    </div>
+
+    <h2>E.1 Laser Accuracy</h2>
+    <table class="data-table">
+      <thead><tr><th>Factor</th><th>Specification</th></tr></thead>
+      <tbody>
+        <tr><td>Raw laser accuracy</td><td>±5 mm (SolTec models, stationary, optimal conditions)</td></tr>
+        <tr><td>Moving vehicle accuracy</td><td>±1–3 cm (10–15 Hz capture rate, smooth road)</td></tr>
+        <tr><td>Ground reference error contribution</td><td>Direct 1:1 — a 1 cm measurement error = 1 cm clearance error</td></tr>
+        <tr><td>Foliage/non-solid targets</td><td>±5–10 cm (variable due to partial returns through canopy)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>E.2 GNSS Accuracy</h2>
+    <table class="data-table">
+      <thead><tr><th>Source</th><th>Horizontal</th><th>Vertical</th></tr></thead>
+      <tbody>
+        <tr><td>Swift Duro (RTK Fixed)</td><td>1–3 cm CEP</td><td>2–5 cm</td></tr>
+        <tr><td>Swift Duro (RTK Float)</td><td>10–30 cm</td><td>20–50 cm</td></tr>
+        <tr><td>USB GPS (consumer grade)</td><td>2–5 m CEP</td><td>5–10 m</td></tr>
+        <tr><td>Browser Geolocation</td><td>10–50 m</td><td>Not available</td></tr>
+      </tbody>
+    </table>
+
+    <h2>E.3 Permit Application Suitability</h2>
+    <p>MeasurePRO data is accepted for OS/OW permit applications in Canada and the United States when used with the Swift Duro RTK system (RTK Fixed mode). CSV and LandXML exports include all metadata required by most provincial/state transportation authorities. Always verify local permitting authority requirements before submitting data.</p>
+
+    <div class="callout warning"><div class="callout-icon">⚠️</div><div class="callout-body"><strong>Operator Responsibility</strong><p>The operator is responsible for verifying all measurements before use in permit applications or route planning. MeasurePRO provides tools to assist field surveys; it does not replace professional engineering judgment.</p></div></div>
+  </div>
+
+  <!-- ======================== APPENDIX F ======================== -->
+  <div class="section" id="appF">
+    <div class="part-divider">
+      <span class="part-num">APPENDIX F</span>
+      <span class="part-title">Contact &amp; Support</span>
+      <hr>
+    </div>
+    <div class="appendix-section">
+      <h2 style="margin-top:0">SolTec Innovation</h2>
+      <table class="data-table" style="margin:0">
+        <tbody>
+          <tr><td><strong>Company</strong></td><td>SolTec Innovation</td></tr>
+          <tr><td><strong>Application</strong></td><td>MeasurePRO — measure-pro.app</td></tr>
+          <tr><td><strong>Website</strong></td><td><a href="https://www.soltecinnovation.com">www.SolTecInnovation.com</a></td></tr>
+          <tr><td><strong>Support Email</strong></td><td><a href="mailto:support@soltec.ca">support@soltec.ca</a></td></tr>
+          <tr><td><strong>Phone</strong></td><td>1.438.533.5344</td></tr>
+          <tr><td><strong>Support Hours</strong></td><td>Monday – Friday, 8 AM – 6 PM Eastern Time</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip"><div class="callout-icon">💡</div><div class="callout-body"><strong>Before contacting support</strong><p>Check the troubleshooting guide in Part 22 and the in-app Help section (Settings → Help). Most common issues are resolved by verifying the serial port protocol, baud rate, ground reference value, and browser serial port permissions.</p></div></div>
+    <div class="callout success"><div class="callout-icon">✅</div><div class="callout-body"><strong>Training &amp; Onboarding</strong><p>SolTec Innovation offers remote onboarding sessions for new customers. Contact us at <a href="mailto:support@soltec.ca">support@soltec.ca</a> to schedule a guided setup session with one of our field specialists.</p></div></div>
+
+    <div style="margin-top:40px;padding:24px;background:#161b22;border:1px solid #21262d;border-radius:10px;text-align:center">
+      <div style="font-size:32px;margin-bottom:12px">⚡</div>
+      <div style="font-size:18px;font-weight:700;color:#f0f6fc;margin-bottom:6px">MeasurePRO — User Manual v1.0</div>
+      <div style="font-size:13px;color:#6e7681">© 2026 SolTec Innovation. All rights reserved.</div>
+      <div style="font-size:13px;color:#6e7681;margin-top:4px">measure-pro.app &nbsp;·&nbsp; www.SolTecInnovation.com &nbsp;·&nbsp; support@soltec.ca &nbsp;·&nbsp; 1.438.533.5344</div>
+      <div style="margin-top:16px;display:flex;justify-content:center;gap:12px">
+        <button class="btn btn-primary" onclick="window.print()">🖨 Print / Save as PDF</button>
+        <a class="btn btn-secondary" href="mailto:support@soltec.ca?subject=MeasurePRO%20Support">✉️ Email Support</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// Smooth active link tracking
+const links = document.querySelectorAll('.toc-link');
+const sections = document.querySelectorAll('.section, [id^="p"], [id^="app"], #quickstart');
+
+function updateActiveLink() {
+  let current = '';
+  document.querySelectorAll('[id]').forEach(el => {
+    if (el.getBoundingClientRect().top <= 100) current = el.id;
+  });
+  links.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+}
+
+window.addEventListener('scroll', updateActiveLink, { passive: true });
+updateActiveLink();
+
+// TOC filter
+function filterTOC(q) {
+  q = q.toLowerCase();
+  links.forEach(l => {
+    const text = l.textContent.toLowerCase();
+    l.style.display = text.includes(q) ? '' : 'none';
+  });
+  document.querySelectorAll('.toc-section-title').forEach(t => t.style.display = '');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02 – System Architecture | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #cbd5e1; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.4rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  /* Flow diagram */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; }
+  .flow-node { background: var(--card); border: 2px solid var(--brand); border-radius: 0.5rem; padding: 0.6rem 1rem; font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
+  .flow-node.sub { border-color: var(--border); color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+  .flow-arrow { color: var(--brand); font-size: 1.4rem; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  th { background: #0f172a; color: var(--brand); text-align: left; padding: 0.6rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+  code { background: #0f172a; padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-size: 0.85rem; color: #7dd3fc; }
+  .priority-table td:first-child { font-weight: 700; }
+  .p1 { color: #4ade80; }
+  .p2 { color: var(--brand); }
+  .p3 { color: #94a3b8; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="01-mission-overview.html">← 01: Mission Overview</a>
+  <a href="index.html">Index</a>
+  <a href="03-hardware-setup.html">Next: Hardware Setup →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 02 of 12</div>
+  <h1>System Architecture</h1>
+  <p style="color:var(--muted)">How data moves from hardware to deliverable. Readable by a project manager in 30 seconds.</p>
+</div>
+
+<h2>Top-Level Data Flow</h2>
+<div class="card">
+  <div class="flow">
+    <div class="flow-node">Hardware Sensors</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Serial / BT / UDP</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">MeasurePRO PWA</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">IndexedDB (local)</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Firebase Cloud</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Export / Deliverable</div>
+  </div>
+  <p style="color:var(--muted); font-size:0.85rem; margin-top:0.5rem">The app works fully offline. Cloud sync happens automatically when connectivity is restored.</p>
+</div>
+
+<h2>Hardware Layer</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>Vertical Clearance Laser</h3>
+    <ul>
+      <li><strong>RSA laser</strong> — 3-byte binary protocol via USB serial</li>
+      <li><strong>Jenoptik LDM71</strong> — ASCII protocol via USB serial</li>
+      <li>Connects via Web Serial API (Chrome/Edge required)</li>
+      <li>Protocol auto-detected or manually selected in Settings</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>GNSS / GPS Sources</h3>
+    <ul>
+      <li><strong>Swift Navigation Duro</strong> — Ethernet TCP bridge → RTK GNSS + full IMU (roll, pitch, heading)</li>
+      <li><strong>USB GPS dongle</strong> — NMEA via Web Serial</li>
+      <li><strong>Bluetooth GPS</strong> — NMEA via Web Bluetooth</li>
+      <li><strong>Browser Geolocation</strong> — fallback only, no logging triggers</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Multi-Laser (Lateral / Rear)</h3>
+    <ul>
+      <li>Up to 4 independent laser ports: vertical, left lateral, right lateral, rear</li>
+      <li>Protocol: soltec-old (19200 baud, 7E1)</li>
+      <li>Lateral width: single or dual laser mode</li>
+      <li>Rear overhang: wind blade transport monitoring up to 80 m</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>3D LiDAR (Hesai Pandar40P)</h3>
+    <ul>
+      <li>UDP packets received by Windows companion service (<code>lidar-service/</code>)</li>
+      <li>Service bridges to PWA via WebSocket on port 17777</li>
+      <li>Streams metrics at 10 Hz: road width, clearance at heights, alerts</li>
+      <li>Exports LAZ / LAS point cloud files</li>
+    </ul>
+  </div>
+</div>
+
+<h2>GPS Priority Architecture</h2>
+<div class="card">
+  <table class="priority-table">
+    <thead><tr><th>Priority</th><th>Source</th><th>Accuracy</th><th>Condition</th></tr></thead>
+    <tbody>
+      <tr><td class="p1">1 — Highest</td><td>Swift Duro (RTK GNSS)</td><td>±2 cm (RTK fix)</td><td>Active when Duro sends data within last 5 seconds</td></tr>
+      <tr><td class="p2">2 — Medium</td><td>USB GPS Dongle</td><td>±1–3 m</td><td>Active when Duro not connected or silent &gt;5s</td></tr>
+      <tr><td class="p3">3 — Low</td><td>Bluetooth GPS</td><td>±1–5 m</td><td>Active when USB GPS unavailable</td></tr>
+      <tr><td class="p3">4 — Fallback</td><td>Browser Geolocation</td><td>±5–50 m</td><td>Does not trigger logging modes; map display only</td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--muted); font-size:0.85rem">Priority switching is automatic with no operator action required. If the Duro loses signal mid-survey, USB GPS takes over within 5 seconds.</p>
+</div>
+
+<h2>Application Layer</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Layer</th><th>Technology</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>Frontend PWA</td><td>React 18 + TypeScript + Vite</td><td>All UI, hardware comms, real-time display, data capture</td></tr>
+      <tr><td>State management</td><td>Zustand stores</td><td>Laser, GPS, survey, camera, multi-laser, amplitude filter state</td></tr>
+      <tr><td>Local persistence</td><td>IndexedDB (via idb + Drizzle ORM)</td><td>Surveys, POIs, road profile samples, settings — all offline-capable</td></tr>
+      <tr><td>Service Worker</td><td>Workbox</td><td>Offline PWA caching, background sync</td></tr>
+      <tr><td>Backend API</td><td>Express + Node.js</td><td>GNSS bridge, road profile processing, Firebase Admin, WebSocket relay</td></tr>
+      <tr><td>Cloud sync</td><td>Firebase (Auth + Firestore + Storage)</td><td>User auth, survey packages, cloud backup</td></tr>
+      <tr><td>Mapping</td><td>Leaflet + React Leaflet</td><td>Live GPS track, POI markers, road boundary overlay</td></tr>
+      <tr><td>3D Visualization</td><td>Three.js</td><td>Point cloud rendering</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Data Storage — Dual Database</h2>
+<div class="card">
+  <p>The system uses two database namespaces to allow safe migration from legacy data:</p>
+  <ul>
+    <li><code>measurepro</code> — legacy database (older surveys, migrated on read)</li>
+    <li><code>measurepro-v2</code> — current database (all new surveys, POIs, road profile samples)</li>
+  </ul>
+  <p>A migration adapter handles transparent reads across both. New writes always go to <code>-v2</code>.</p>
+</div>
+
+<h2>Specialist Modules (MeasurePRO+)</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>Envelope Clearance</h3>
+    <p>ZED 2i stereo camera via WebSocket server. Real-time object detection with TensorFlow.js COCO-SSD. Automatic clearance alerts.</p>
+  </div>
+  <div class="card">
+    <h3>Convoy Guardian</h3>
+    <p>Multi-vehicle coordination over WebSocket. Oversized convoy operations with shared route awareness.</p>
+  </div>
+  <div class="card">
+    <h3>Permitted Route Enforcement</h3>
+    <p>GPS-based route compliance. Alerts when the vehicle deviates from the permitted path.</p>
+  </div>
+  <div class="card">
+    <h3>Swept Path Analysis</h3>
+    <p>Real-time road boundary detection + multi-segment vehicle modelling. Checks whether a vehicle's turning path fits within the road envelope.</p>
+  </div>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="01-mission-overview.html">← 01: Mission Overview</a>
+  <a href="index.html">Index</a>
+  <a href="03-hardware-setup.html">Next: Hardware Setup →</a>
+</nav>
+</body>
+</html>

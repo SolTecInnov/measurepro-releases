@@ -1,0 +1,116 @@
+⚠️ No auth cache to update
+queryClient.ts:15   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance 401 (Unauthorized)
+apiRequest @ queryClient.ts:15
+checkTermsAcceptance @ App.tsx:164
+await in checkTermsAcceptance
+(anonymous) @ App.tsx:182
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+App.tsx:178  Failed to check terms acceptance: Error: Unauthorized: Invalid or expired token
+    at apiRequest (queryClient.ts:26:11)
+    at async checkTermsAcceptance (App.tsx:164:26)
+checkTermsAcceptance @ App.tsx:178
+await in checkTermsAcceptance
+(anonymous) @ App.tsx:182
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+firebase.ts:583 No account found for UID: z2JsOVxJNohWupffvUh28QN1CIs1
+index.js:121 [Violation] 'setTimeout' handler took 51ms
+offlineAuth.ts:106 ✅ Auth cache saved successfully for: jfprince@soltec.ca
+AuthContext.tsx:198 ✅ Online login successful
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:113 📱 Desktop device - skipping permissions screen
+ProtectedRoute.tsx:113 📱 Desktop device - skipping permissions screen
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+firebase.ts:583 No account found for UID: z2JsOVxJNohWupffvUh28QN1CIs1
+ProtectedRoute.tsx:69 📋 No account found for user, allowing access
+firebase.ts:583 No account found for UID: z2JsOVxJNohWupffvUh28QN1CIs1
+ProtectedRoute.tsx:69 📋 No account found for user, allowing access
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+sync.ts:363  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ sync.ts:429
+setTimeout
+(anonymous) @ sync.ts:428
+(anonymous) @ firebase.ts:117
+(anonymous) @ subscribe.ts:104
+(anonymous) @ subscribe.ts:233
+Promise.then
+sendOne @ subscribe.ts:230
+forEachObserver @ subscribe.ts:220
+next @ subscribe.ts:103
+notifyAuthListeners @ auth_impl.ts:710
+(anonymous) @ auth_impl.ts:438
+Promise.then
+queue @ auth_impl.ts:790
+_updateCurrentUser @ auth_impl.ts:436
+await in _updateCurrentUser
+_signInWithCredential @ credential.ts:56
+await in _signInWithCredential
+signInWithCredential @ credential.ts:79
+signInWithEmailAndPassword @ email_and_password.ts:349
+signInWithEmail @ firebase.ts:137
+login @ AuthContext.tsx:165
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+2react.development.js:1407  Uncaught SyntaxError: The requested module '/src/lib/survey/index.ts' does not provide an export named 'importSurveysFromFirebase' (at SyncControls.tsx:6:10)
+react-dom.development.js:18704  The above error occurred in one of your React components:
+
+    at Lazy
+    at Suspense
+    at ProtectedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/ProtectedRoute.tsx:47:34)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:180:5)
+    at RenderedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4088:5)
+    at Routes (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4558:5)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:180:5)
+    at Suspense
+    at div
+    at Router (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4501:15)
+    at BrowserRouter (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:5247:5)
+    at ThemeProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/ThemeProvider.tsx:29:33)
+    at LicenseStartupCheckProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useLicenseStartupCheck.tsx:109:47)
+    at App (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:200:3)
+    at AuthProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/AuthContext.tsx:49:32)
+    at QueryClientProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=f6482b3f:3086:3)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, RouteErrorBoundary.

@@ -1,0 +1,1785 @@
+AuthContext.tsx:163 🔐 Attempting online login...
+workbox-47da91e0.js:44 workbox No route found for: https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIC_bcUVl0gtjmBq82WK5Fbc61Bec3bFw%22
+firebase.ts:84   POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIC_bcUVl0gtjmBq82WK5Fbc61Bec3bFw%22 400 (Bad Request)
+(anonymous) @ index.ts:165
+await in (anonymous)
+_performFetchWithErrorHandling @ index.ts:182
+_performApiRequest @ index.ts:126
+_performSignInRequest @ index.ts:240
+signInWithPassword @ email_and_password.ts:50
+handleRecaptchaFlow @ recaptcha_enterprise_verifier.ts:205
+_getIdTokenResponse @ email.ts:127
+_processCredentialSavingMfaContextIfNecessary @ mfa_error.ts:74
+_signInWithCredential @ credential.ts:44
+signInWithCredential @ credential.ts:79
+signInWithEmailAndPassword @ email_and_password.ts:349
+signInWithEmail @ firebase.ts:84
+login @ AuthContext.tsx:165
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+firebase.ts:89  Error signing in with email: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:84:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+signInWithEmail @ firebase.ts:89
+await in signInWithEmail
+login @ AuthContext.tsx:165
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+AuthContext.tsx:253  ❌ Login error: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:84:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+login @ AuthContext.tsx:253
+await in login
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+LoginPage.tsx:40  Login error: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:84:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+handleSubmit @ LoginPage.tsx:40
+await in handleSubmit
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts?t=1762013362779
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyCIC_bcUVl0gtjm
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-1.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-1.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-2.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-2.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-3.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-3.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-4.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-4.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /lidar-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /lidar-device.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-1.png'
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /tablet-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /tablet-device.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-2.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-3.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-4.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/lidar-device.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/tablet-device.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-1.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-1.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-2.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-2.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-3.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-3.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-4.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-4.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /lidar-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /lidar-device.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /tablet-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /tablet-device.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-1.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-2.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-3.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-4.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/lidar-device.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/tablet-device.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+sync.ts:371 Found 0 pending changes
+client:223 [vite] hot updated: /src/index.css
+client:64 [vite] invalidate /src/lib/auth/AuthContext.tsx: Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+client:223 [vite] hot updated: /src/lib/auth/AuthContext.tsx
+client:223 [vite] hot updated: /src/App.tsx
+client:223 [vite] hot updated: /src/components/NetworkStatusBanner.tsx
+client:223 [vite] hot updated: /src/lib/auth/ProtectedRoute.tsx
+client:223 [vite] hot updated: /src/components/TermsReacceptanceModal.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /welcome
+workbox-47da91e0.js:44 workbox The navigation route /welcome is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /welcome
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /login
+workbox-47da91e0.js:44 workbox The navigation route /login is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /login
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/LoginPage.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/LoginPage.tsx?t=1762013362779
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:245 App: Storage initialized
+store.ts:454 Loaded 0 surveys from database
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:245 App: Storage initialized
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+store.ts:454 Loaded 0 surveys from database
+offlineAuth.ts:122 ℹ️ No auth cache found
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /__replco/static/devtools/injected.js
+workbox-47da91e0.js:44 workbox No route found for: /__replco/static/devtools/injected.js
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/firebase.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/offlineAuth.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/masterAdmin.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-PXMHN2KN.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-PXMHN2KN.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-router-dom.js?v=e99df51e
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-router-dom.js?v=e99df51e
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ThemeProvider.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ThemeProvider.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-PXMHN2KN.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-PXMHN2KN.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-router-dom.js?v=e99df51e
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-router-dom.js?v=e99df51e
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/ProtectedRoute.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ThemeProvider.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ThemeProvider.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/store.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/poi.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useOnlineStatus.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/hooks/useSyncSurveyToCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useCameraAutoDetect.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OfflineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/OnlineBanner.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/GracePeriodLockout.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/hooks/useLicenseStartupCheck.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/TermsReacceptanceModal.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/backgroundSync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/backgroundSync.ts?t=1762013362779
+client:495 [vite] connecting...
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/idb.js?v=b86170a6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/idb.js?v=b86170a6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/bcryptjs.js?v=1cbb7ee5
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/bcryptjs.js?v=1cbb7ee5
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_app.js?v=039bca2e
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_app.js?v=039bca2e
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_firestore.js?v=65ee4bf6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_firestore.js?v=65ee4bf6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_auth.js?v=c408cb5d
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_auth.js?v=c408cb5d
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_app.js?v=039bca2e
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_app.js?v=039bca2e
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_firestore.js?v=65ee4bf6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_firestore.js?v=65ee4bf6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_auth.js?v=c408cb5d
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_auth.js?v=c408cb5d
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/idb.js?v=b86170a6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/idb.js?v=b86170a6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/bcryptjs.js?v=1cbb7ee5
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/bcryptjs.js?v=1cbb7ee5
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand.js?v=8276efa0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand.js?v=8276efa0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand.js?v=8276efa0
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand.js?v=8276efa0
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/stores/gpsStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/autoSaveUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/measurements.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/export.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/survey/firebase.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/lucide-react.js?v=3e988b08
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/lucide-react.js?v=3e988b08
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/lucide-react.js?v=3e988b08
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/lucide-react.js?v=3e988b08
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/CameraInterface.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/index.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/dialog.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/ui/button.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/sync.ts?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-E5FV4JFZ.js?v=f95b3095
+client:618 [vite] connected.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/stores/videoRecordingStore.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/exportUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand_middleware.js?v=b7327291
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand_middleware.js?v=b7327291
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/zustand_middleware.js?v=b7327291
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/zustand_middleware.js?v=b7327291
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/db.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/db.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/licensing/cloudFunctionsAPI.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/emailUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_functions.js?v=a5e45293
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_functions.js?v=a5e45293
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/qrcode.js?v=8548dfa2
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/qrcode.js?v=8548dfa2
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/jszip.js?v=ebc4c021
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/jszip.js?v=ebc4c021
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/file-saver.js?v=52651442
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/file-saver.js?v=52651442
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/qrcode.js?v=8548dfa2
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/qrcode.js?v=8548dfa2
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/firebase_functions.js?v=a5e45293
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/firebase_functions.js?v=a5e45293
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/jszip.js?v=ebc4c021
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/jszip.js?v=ebc4c021
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/file-saver.js?v=52651442
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/file-saver.js?v=52651442
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/utils/routeUtils.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/axios.js?v=1c9d5fe4
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/axios.js?v=1c9d5fe4
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/axios.js?v=1c9d5fe4
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/axios.js?v=1c9d5fe4
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyCIC_bcUVl0gtjm
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/LoginPage.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/LoginPage.tsx?t=1762013362779
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/settings.ts
+App.tsx:235 App: Store initialization complete
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/settings.ts
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+db.ts:139 🔄 Opening IndexedDB database...
+db.ts:139 🔄 Opening IndexedDB database...
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /favicon.png
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+workbox-47da91e0.js:44 workbox Router is responding to: /favicon.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/favicon.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+offlineAuth.ts:122 ℹ️ No auth cache found
+offlineAuth.ts:122 ℹ️ No auth cache found
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+store.ts:454 Loaded 0 surveys from database
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/components/NetworkStatusBanner.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/components/DeviceRedirector.tsx
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/pages/WelcomePage.tsx
+workbox-47da91e0.js:44 workbox No route found for: /src/pages/WelcomePage.tsx
+store.ts:454 Loaded 0 surveys from database
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/settings.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://replit.com/public/js/beacon.js
+workbox-47da91e0.js:44 workbox No route found for: https://replit.com/public/js/beacon.js
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/camera/ZED2iCamera.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/camera/ZED2iCamera.ts
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-1.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-1.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-2.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-2.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-3.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-3.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /screenshot-4.png
+workbox-47da91e0.js:44 workbox Router is responding to: /screenshot-4.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /lidar-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /lidar-device.png
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /tablet-device.png
+workbox-47da91e0.js:44 workbox Router is responding to: /tablet-device.png
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-1.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-2.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-3.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/screenshot-4.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/lidar-device.png'
+workbox-47da91e0.js:44 workbox Found a cached response in 'image-cache'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/tablet-device.png'
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+workbox-47da91e0.js:44 workbox Cache expiration ran and found no entries to remove.
+DeviceRedirector.tsx:36 Device detection: Desktop
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+AuthContext.tsx:163 🔐 Attempting online login...
+workbox-47da91e0.js:44 workbox No route found for: https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIC_bcUVl0gtjmBq82WK5Fbc61Bec3bFw%22
+firebase.ts:139   POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIC_bcUVl0gtjmBq82WK5Fbc61Bec3bFw%22 400 (Bad Request)
+(anonymous) @ index.ts:165
+await in (anonymous)
+_performFetchWithErrorHandling @ index.ts:182
+_performApiRequest @ index.ts:126
+_performSignInRequest @ index.ts:240
+signInWithPassword @ email_and_password.ts:50
+handleRecaptchaFlow @ recaptcha_enterprise_verifier.ts:205
+_getIdTokenResponse @ email.ts:127
+_processCredentialSavingMfaContextIfNecessary @ mfa_error.ts:74
+_signInWithCredential @ credential.ts:44
+signInWithCredential @ credential.ts:79
+signInWithEmailAndPassword @ email_and_password.ts:349
+signInWithEmail @ firebase.ts:139
+login @ AuthContext.tsx:165
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+firebase.ts:144  Error signing in with email: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:139:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+signInWithEmail @ firebase.ts:144
+await in signInWithEmail
+login @ AuthContext.tsx:165
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+AuthContext.tsx:253  ❌ Login error: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:139:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+login @ AuthContext.tsx:253
+await in login
+handleSubmit @ LoginPage.tsx:26
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+LoginPage.tsx:40  Login error: FirebaseError: Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.).
+    at createErrorInternal (assert.ts:146:55)
+    at _fail (assert.ts:65:9)
+    at _performFetchWithErrorHandling (index.ts:219:9)
+    at async _performSignInRequest (index.ts:240:27)
+    at async _signInWithCredential (credential.ts:44:20)
+    at async signInWithEmail (firebase.ts:139:28)
+    at async login (AuthContext.tsx:165:30)
+    at async handleSubmit (LoginPage.tsx:26:23)
+handleSubmit @ LoginPage.tsx:40
+await in handleSubmit
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:344 ✅ Browser GPS position obtained successfully
+gpsStore.ts:119 🛰️ GPS permission status updated and saved: true
+gpsStore.ts:124 🛰️ GPS permission granted - starting browser GPS immediately
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /login
+workbox-47da91e0.js:44 workbox The navigation route /login is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /login
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /welcome
+workbox-47da91e0.js:44 workbox The navigation route /welcome is not being used, since the URL being navigated to doesn't match the allowlist.
+workbox-47da91e0.js:44 workbox No route found for: /welcome
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /__replco/static/devtools/injected.js
+workbox-47da91e0.js:44 workbox No route found for: /__replco/static/devtools/injected.js
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx?t=1762013374128
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx?t=1762013374128
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox No route found for: /@vite/client
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/main.tsx?t=1762013374128
+workbox-47da91e0.js:44 workbox No route found for: /src/main.tsx?t=1762013374128
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+login:25 🧹 Unregistered service worker: true
+login:36 🧹 Deleted cache: workbox-precache-v2-https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/
+login:36 🧹 Deleted cache: google-fonts-cache
+login:36 🧹 Deleted cache: gstatic-fonts-cache
+login:36 🧹 Deleted cache: image-cache
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@react-refresh
+workbox-47da91e0.js:44 workbox No route found for: /@react-refresh
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013374128
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013374128
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=38c4769c
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-OIM7OLJW.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-RDKGUBC5.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/chunk-UZOKQUDP.js?v=f95b3095
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/vite/dist/client/env.mjs
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react.js?v=1e1a3a6b
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/App.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/queryClient.ts
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox No route found for: /src/lib/auth/AuthContext.tsx?t=1762013362779
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /src/index.css?t=1762013374128
+workbox-47da91e0.js:44 workbox No route found for: /src/index.css?t=1762013374128
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox No route found for: /@vite-plugin-pwa/virtual:pwa-register
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /node_modules/.vite/deps/sonner.js?v=38c4769c
+workbox-47da91e0.js:44 workbox No route found for: /node_modules/.vite/deps/sonner.js?v=38c4769c
+client:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/vite/dist/client/env.mjs net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1e1a3a6b net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:2   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react.js?v=1e1a3a6b net::ERR_ABORTED 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /favicon.png
+workbox-47da91e0.js:44 workbox Router is responding to: /favicon.png
+workbox-47da91e0.js:44 workbox No cached response found in 'image-cache'.
+main.tsx:4   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=ac4b3adb net::ERR_ABORTED 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Precaching did not find a match for https://replit.com/public/js/beacon.js
+workbox-47da91e0.js:44 workbox No route found for: https://replit.com/public/js/beacon.js
+main.tsx:3   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-dom_client.js?v=f6eb39e6 net::ERR_ABORTED 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Workbox Router only supports URLs that start with 'http'.
+main.tsx:5   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx?t=1762013362779 net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:6   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/queryClient.ts net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:7   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/AuthContext.tsx?t=1762013362779 net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:8   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/index.css?t=1762013374128 net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:10   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/sonner.js?v=38c4769c net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:9   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/@vite-plugin-pwa/virtual:pwa-register net::ERR_ABORTED 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Network request for '/favicon.png' returned a response with status '502'.
+workbox-47da91e0.js:44 workbox Using CacheFirst to respond to '/favicon.png'
+workbox-47da91e0.js:44 workbox The request for '/favicon.png' returned a response that does not meet the criteria for being cached.
+favicon.png:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.png 502 (Bad Gateway)
+workbox-47da91e0.js:44 workbox Response '/favicon.png' will not be cached. undefined
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyByDlbmK3jv8h_6
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+db.ts:139 🔄 Opening IndexedDB database...
+db.ts:139 🔄 Opening IndexedDB database...
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+offlineAuth.ts:122 ℹ️ No auth cache found
+offlineAuth.ts:122 ℹ️ No auth cache found
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+store.ts:454 Loaded 0 surveys from database
+store.ts:454 Loaded 0 surveys from database
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+DeviceRedirector.tsx:36 Device detection: Desktop
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyByDlbmK3jv8h_6
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+db.ts:139 🔄 Opening IndexedDB database...
+db.ts:139 🔄 Opening IndexedDB database...
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+offlineAuth.ts:122 ℹ️ No auth cache found
+offlineAuth.ts:122 ℹ️ No auth cache found
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+store.ts:454 Loaded 0 surveys from database
+store.ts:454 Loaded 0 surveys from database
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+DeviceRedirector.tsx:36 Device detection: Desktop
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyByDlbmK3jv8h_6
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+db.ts:139 🔄 Opening IndexedDB database...
+db.ts:139 🔄 Opening IndexedDB database...
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+offlineAuth.ts:122 ℹ️ No auth cache found
+offlineAuth.ts:122 ℹ️ No auth cache found
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+store.ts:454 Loaded 0 surveys from database
+store.ts:454 Loaded 0 surveys from database
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+DeviceRedirector.tsx:36 Device detection: Desktop
+client:560 [vite] server connection lost. Polling for restart...
+client:736   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ 502 (Bad Gateway)
+ping @ client:736
+waitForSuccessfulPing @ client:749
+(anonymous) @ client:561
+   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login 502 (Bad Gateway)
+(anonymous) @ @vite/client:562
+TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at index.ts-5ba508dd.js:1:3292
+Promise.catch
+(anonymous) @ index.ts-loader3.js:11
+(anonymous) @ index.ts-loader3.js:13
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+favicon.ico:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.ico 502 (Bad Gateway)
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyCIC_bcUVl0gtjm
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+firebase.ts:65 ✅ Firebase already initialized, reusing existing app
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+db.ts:139 🔄 Opening IndexedDB database...
+db.ts:139 🔄 Opening IndexedDB database...
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+offlineAuth.ts:122 ℹ️ No auth cache found
+offlineAuth.ts:122 ℹ️ No auth cache found
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+store.ts:454 Loaded 0 surveys from database
+store.ts:454 Loaded 0 surveys from database
+firebase.ts:112 User signed out, ID removed from localStorage
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+DeviceRedirector.tsx:36 Device detection: Desktop
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+store.ts:8   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/survey/firebase.ts?t=1762013538297 net::ERR_ABORTED 404 (Not Found)
+client:176  [hmr] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+warnFailedUpdate @ client:176
+fetchUpdate @ client:213
+await in fetchUpdate
+queueUpdate @ client:186
+(anonymous) @ client:642
+handleMessage @ client:640
+(anonymous) @ client:550
+client:223 [vite] hot updated: /src/index.css
+client:223 [vite] hot updated: /src/App.tsx
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+client:560 [vite] server connection lost. Polling for restart...
+client:736   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ 502 (Bad Gateway)
+ping @ client:736
+waitForSuccessfulPing @ client:749
+(anonymous) @ client:561
+   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login 502 (Bad Gateway)
+(anonymous) @ @vite/client:562
+TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at index.ts-5ba508dd.js:1:3292
+Promise.catch
+(anonymous) @ index.ts-loader3.js:11
+(anonymous) @ index.ts-loader3.js:13
+login:1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+login:1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+favicon.ico:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.ico 502 (Bad Gateway)
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+store.ts:9  Uncaught SyntaxError: The requested module '/src/lib/firebase.ts' does not provide an export named 'importPOIsFromFirebase' (at store.ts:9:53)
+client:560 [vite] server connection lost. Polling for restart...
+client:736   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ 502 (Bad Gateway)
+ping @ client:736
+waitForSuccessfulPing @ client:749
+(anonymous) @ client:561
+   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login 502 (Bad Gateway)
+(anonymous) @ @vite/client:562
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at index.ts-5ba508dd.js:1:3292
+Promise.catch
+(anonymous) @ index.ts-loader3.js:11
+(anonymous) @ index.ts-loader3.js:13
+favicon.ico:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.ico 502 (Bad Gateway)
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+react-dom_client.js:3   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/chunk-JKG5FPDI.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+react.js:3   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/chunk-TQGXHKBZ.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+@tanstack_react-query.js:3   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/chunk-42XBNZVG.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+main.tsx:10   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/sonner.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+react.js:4   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/chunk-VHXUCOYC.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+client:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/vite/dist/client/env.mjs net::ERR_ABORTED 502 (Bad Gateway)
+AuthContext.tsx:25   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/firebase.ts net::ERR_ABORTED 502 (Bad Gateway)
+AuthContext.tsx:37   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/masterAdmin.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:19   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f net::ERR_ABORTED 502 (Bad Gateway)
+AuthContext.tsx:36   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/offlineAuth.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:22   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/ThemeProvider.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:23   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/survey/store.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:21   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/ProtectedRoute.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:24   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/poi.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:25   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useOnlineStatus.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:26   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/hooks/useSyncSurveyToCamera.ts net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:27   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useCameraAutoDetect.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:28   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/OfflineBanner.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:29   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/OnlineBanner.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:30   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/GracePeriodBanner.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:31   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/GracePeriodLockout.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:32   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useLicenseStartupCheck.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:102   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/TermsReacceptanceModal.tsx net::ERR_ABORTED 502 (Bad Gateway)
+App.tsx:104   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/backgroundSync.ts net::ERR_ABORTED 502 (Bad Gateway)
+favicon.png:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.png 502 (Bad Gateway)
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyCIC_bcUVl0gtjm
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+api.ts:343  Uncaught FirebaseError: Firebase: No Firebase App '[DEFAULT]' has been created - call initializeApp() first (app/no-app).
+    at getApp (api.ts:343:25)
+    at getFunctions (api.ts:46:22)
+    at cloudFunctionsAPI.ts:21:19
+getApp @ api.ts:343
+getFunctions @ api.ts:46
+(anonymous) @ cloudFunctionsAPI.ts:21
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:344 ✅ Browser GPS position obtained successfully
+gpsStore.ts:119 🛰️ GPS permission status updated and saved: true
+gpsStore.ts:124 🛰️ GPS permission granted - starting browser GPS immediately
+gpsStore.ts:371 [Violation] Only request geolocation information in response to a user gesture.
+initBrowserGPS @ gpsStore.ts:371
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+(anonymous) @ gpsStore.ts:126
+setTimeout
+setHasGPSPermission @ gpsStore.ts:125
+initBrowserGPS @ gpsStore.ts:345
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/login
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:42 🔥 Firebase Config Loaded:
+firebase.ts:43   API Key (first 20 chars): AIzaSyCIC_bcUVl0gtjm
+firebase.ts:44   Project ID: measureprov1
+firebase.ts:45   Full API Key length: 39
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+api.ts:343  Uncaught FirebaseError: Firebase: No Firebase App '[DEFAULT]' has been created - call initializeApp() first (app/no-app).
+    at getApp (api.ts:343:25)
+    at getFunctions (api.ts:46:22)
+    at cloudFunctionsAPI.ts:21:19
+getApp @ api.ts:343
+getFunctions @ api.ts:46
+(anonymous) @ cloudFunctionsAPI.ts:21
+gpsStore.ts:184 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:344 ✅ Browser GPS position obtained successfully
+gpsStore.ts:119 🛰️ GPS permission status updated and saved: true
+gpsStore.ts:124 🛰️ GPS permission granted - starting browser GPS immediately
+gpsStore.ts:371 [Violation] Only request geolocation information in response to a user gesture.
+initBrowserGPS @ gpsStore.ts:371
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:318 🌍 Attempting to get browser GPS position...
+gpsStore.ts:326 [Violation] Only request geolocation information in response to a user gesture.
+pos @ gpsStore.ts:326
+initBrowserGPS @ gpsStore.ts:321
+await in initBrowserGPS
+(anonymous) @ gpsStore.ts:126
+setTimeout
+setHasGPSPermission @ gpsStore.ts:125
+initBrowserGPS @ gpsStore.ts:345
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485
+gpsStore.ts:344 ✅ Browser GPS position obtained successfully
+gpsStore.ts:119 🛰️ GPS permission status updated and saved: true
+gpsStore.ts:371 [Violation] Only request geolocation information in response to a user gesture.
+initBrowserGPS @ gpsStore.ts:371
+await in initBrowserGPS
+(anonymous) @ gpsStore.ts:126
+setTimeout
+setHasGPSPermission @ gpsStore.ts:125
+initBrowserGPS @ gpsStore.ts:345
+await in initBrowserGPS
+checkSerialTimeout @ gpsStore.ts:192
+(anonymous) @ gpsStore.ts:486
+setInterval
+(anonymous) @ gpsStore.ts:485

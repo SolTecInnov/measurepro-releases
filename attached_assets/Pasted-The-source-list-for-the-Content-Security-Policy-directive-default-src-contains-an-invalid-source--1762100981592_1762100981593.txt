@@ -1,0 +1,712 @@
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+MeasurePro-v30:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+MeasurePro-v30:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+MeasurePro-v30:1  The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+ 
+      /////////////////////
+   ///////////////////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////        Curious and driven?
+  ///////////////@@@@@@@///////        Work with us!
+  ///////////////@@@@@@@///////
+  ///////////////@@@@@@@///////        https://join.replit.com/hack.with.us
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@#//////////////
+   ///////////////////////////
+      /////////////////////
+      
+ Download the Apollo DevTools for a better development experience: https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm
+ [LaunchDarkly] LaunchDarkly client initialized
+  Cache data may be lost when replacing the dealContext field of a Org object.
+
+This could cause additional (usually avoidable) network requests to fetch data that were otherwise cached.
+
+To address this problem (which is not a bug in Apollo Client), either ensure all objects of type OrgDealContext have an ID or a custom merge function, or define a custom merge function for the Org.dealContext field, so InMemoryCache can safely merge these objects:
+
+  existing: {"__typename":"OrgDealContext","dealType":"default","salesContactEmail":null}
+  incoming: {"__typename":"OrgDealContext","dealType":"default"}
+
+For more information about these options, please refer to the documentation:
+
+  * Ensuring entity objects have IDs: https://go.apollo.dev/c/generating-unique-identifiers
+  * Defining custom merge functions: https://go.apollo.dev/c/merging-non-normalized-objects
+
+(anonymous) @ 13ea93ecd30055c3.js:2
+  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'ambient-light-sensor'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'battery'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-not-rendered'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-out-of-viewport'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'layout-animations'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'legacy-image-formats'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'navigation-override'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'oversized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'publickey-credentials'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'speaker-selection'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unoptimized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unsized-media'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'pointer-lock'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowfullscreen'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowpaymentrequest'.
+z @ ed1e693c96a75807.js:2
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'ambient-light-sensor'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'battery'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'execution-while-not-rendered'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'execution-while-out-of-viewport'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'layout-animations'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'legacy-image-formats'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'navigation-override'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'oversized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'publickey-credentials'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'speaker-selection'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'unoptimized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Unrecognized feature: 'unsized-media'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Allow attribute will take precedence over 'allowfullscreen'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar5m%3A:32  Allow attribute will take precedence over 'allowpaymentrequest'.
+ 🔥 Firebase Config Loaded:
+   Project ID: measureprov1
+   Config validated: ✅
+ 🔥 Initializing Firebase for project: measureprov1
+ ✅ Firebase initialized successfully
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ 🚀 main.tsx is executing!
+ Looking for root element...
+ Root element found: true 
+ Creating React root and rendering App...
+ ✅ React render called successfully!
+ Found 0 pending changes
+ App component rendering
+ App component rendering
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+(anonymous) @ injected.js:27
+  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+(anonymous) @ injected.js:27
+ 📹 Starting camera auto-detection...
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ 🛑 Stopping background sync service...
+ 🛑 Background sync service stopped
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+ 📹 Starting camera auto-detection...
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ App component rendering
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ App: Storage initialized
+ App: Storage initialized
+ ℹ️ No auth cache found
+ App: Auto sync setup
+ App: Auto sync setup
+ App component rendering
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded 0 surveys from database
+ Loaded 0 surveys from database
+ ℹ️ No auth cache found
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ User signed out, ID removed from localStorage
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+MeasurePro-v30:1 Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner.
+ Array(1)
+ Object
+ Device detection: Desktop
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+ App component rendering
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ [LaserStore] Setting ground reference height: 0
+ [LaserStore] Validated ground reference height: 0
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ ✅ Voice assistant initialized
+ 🔊 Stopped speaking
+ 🎙️ Voice assistant stopped
+ 🧹 LiveCamera unmounting, cleaning up resources
+ 🔊 Stopped speaking
+ 🎙️ Voice assistant stopped
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ ✅ Voice assistant initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ User signed out, ID removed from localStorage
+ Auth state changed in OfflineStatusIndicator: No user
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: No user
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📷 Initializing StandardCamera with deviceId: default
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ 📷 Initializing StandardCamera with deviceId: default
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ SurveyManager: Loaded surveys: Array(0)
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ SurveyManager: Loaded surveys: Array(0)
+ ✅ Loaded Route Enforcement data from IndexedDB
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 1
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+ 🔍 Stream label: USB Live Camcra (0c45:6366)
+ 🔍 Expected selectedCamera: 
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ getUserMedia succeeded
+ ✅ measureDetected sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ critical sound loaded successfully
+ ✅ Standard camera initialized: Object
+ ✅ Standard camera shut down
+ ✅ Video metadata loaded, resolution: 1280 x 720
+ ✅ Video playback started successfully
+ ✅ warning sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Sound system initialized with AudioContext
+ 🔄 User requested camera restart
+ 🔄 Recreating camera instance...
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ measureDetected sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ critical sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ ✅ warning sound loaded successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+  ⚠️ LiveCamera: cameraType is null, cannot initialize camera
+(anonymous) @ injected.js:27
+ ✅ Camera recreation initiated
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📷 Initializing StandardCamera with deviceId: default
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 ✅ getUserMedia succeeded
+injected.js:27 ✅ Standard camera initialized: Object
+injected.js:27 ✅ standard camera instance created and initialized
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🎬 activeCamera ready, starting video display
+injected.js:27 Starting camera, attempt: 2
+injected.js:27 📹 Using StandardCamera stream from camera instance
+injected.js:27 🔍 Stream deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔍 Stream label: USB Live Camcra (0c45:6366)
+injected.js:27 🔍 Expected selectedCamera: 
+injected.js:27 ✅ Got stream from StandardCamera instance
+injected.js:27 Video tracks obtained, count: 1
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Video metadata loaded, resolution: 1280 x 720
+injected.js:27 ✅ Video playback started successfully
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+stallwart.build.js:1 stallwart: failed ping 1
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:25', latitude: 45.861163967134715, longitude: -72.57273227220041, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.861163967134715, -72.57273227220041]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+stallwart.build.js:1 stallwart: failed ping 2
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:26', latitude: 45.86136850456228, longitude: -72.57249076180175, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86136850456228, -72.57249076180175]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 🧹 Shutting down camera instance
+injected.js:27 ✅ Standard camera shut down
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: {cameraType: 'standard', lastDisconnectReason: null, reconnectionAttempts: 0, isRecording: false, isTimelapseActive: false}
+injected.js:27 📐 Video dimensions (rendered): 443 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running {cameraType: 'standard', selectedCamera: '', hasVideoRef: true, isVideoElementReady: false}
+injected.js:27 🔄 Shutting down existing camera before creating new one
+injected.js:27 ✅ Standard camera shut down
+injected.js:27 Video element is ready
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 🧹 Shutting down camera instance
+injected.js:27 ✅ Standard camera shut down
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: {cameraType: 'standard', lastDisconnectReason: null, reconnectionAttempts: 0, isRecording: false, isTimelapseActive: false}
+injected.js:27 📐 Video dimensions (rendered): 443 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running {cameraType: 'standard', selectedCamera: '', hasVideoRef: true, isVideoElementReady: false}
+injected.js:27 🔄 Shutting down existing camera before creating new one
+injected.js:27 ✅ Standard camera shut down
+injected.js:27 Video element is ready
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Created new marker
+injected.js:27 📍 PositionMarker: Created accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📐 Video dimensions (rendered): 443 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 📷 Initializing StandardCamera with deviceId: default
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 📷 Initializing StandardCamera with deviceId: default
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 ✅ getUserMedia succeeded
+injected.js:27 ✅ Standard camera initialized: {requestedDeviceId: '', actualDeviceId: '383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754', name: 'USB Live Camcra (0c45:6366)', resolution: '1280x720', fps: 30}
+injected.js:27 ✅ Standard camera shut down
+injected.js:27 ✅ getUserMedia succeeded
+injected.js:27 ✅ Standard camera initialized: {requestedDeviceId: '', actualDeviceId: '383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754', name: 'USB Live Camcra (0c45:6366)', resolution: '1280x720', fps: 30}
+injected.js:27 ✅ standard camera instance created and initialized
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🎬 activeCamera ready, starting video display
+injected.js:27 Starting camera, attempt: 1
+injected.js:27 📹 Using StandardCamera stream from camera instance
+injected.js:27 🔍 Stream deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔍 Stream label: USB Live Camcra (0c45:6366)
+injected.js:27 🔍 Expected selectedCamera: 
+injected.js:27 ✅ Got stream from StandardCamera instance
+injected.js:27 Video tracks obtained, count: 1
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:27', latitude: 45.86157511894469, longitude: -72.57224371323476, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86157511894469, -72.57224371323476]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📐 Video dimensions (rendered): 443 x 249
+injected.js:27 📐 Video dimensions (intrinsic): 1280 x 720
+injected.js:27 📹 Video metadata loaded in LiveCamera
+injected.js:27 📐 Video dimensions (rendered): 443 x 249
+injected.js:27 📐 Video dimensions (intrinsic): 1280 x 720
+injected.js:27 ✅ Video metadata loaded, resolution: 1280 x 720
+injected.js:27 📐 Video dimensions (rendered): 443 x 249
+injected.js:27 📐 Video dimensions (intrinsic): 1280 x 720
+injected.js:27 📐 Video dimensions (rendered): 443 x 249
+injected.js:27 📐 Video dimensions (intrinsic): 1280 x 720
+injected.js:27 📹 Video playing in LiveCamera
+injected.js:27 ✅ Video playback started successfully
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:28', latitude: 45.86179508176924, longitude: -72.57201172687704, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86179508176924, -72.57201172687704]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:29', latitude: 45.86200082497814, longitude: -72.57175831217444, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86200082497814, -72.57175831217444]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:30', latitude: 45.862204137493606, longitude: -72.57149480012069, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.862204137493606, -72.57149480012069]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:31', latitude: 45.862417423931284, longitude: -72.57124829090802, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.862417423931284, -72.57124829090802]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:32', latitude: 45.86261831801227, longitude: -72.57100748156554, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86261831801227, -72.57100748156554]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:33', latitude: 45.86281114508959, longitude: -72.57075185685933, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86281114508959, -72.57075185685933]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:34', latitude: 45.86301328263136, longitude: -72.5705158468793, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86301328263136, -72.5705158468793]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:35', latitude: 45.8632217379936, longitude: -72.57026508299396, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.8632217379936, -72.57026508299396]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:36', latitude: 45.86343282364361, longitude: -72.57002885382241, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86343282364361, -72.57002885382241]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:37', latitude: 45.8636300933884, longitude: -72.56979186948278, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.8636300933884, -72.56979186948278]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: {time: '11:29:38', latitude: 45.86383381755979, longitude: -72.56953876326254, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.86383381755979, -72.56953876326254]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position

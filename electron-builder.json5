@@ -1,0 +1,22 @@
+{
+  "appId": "com.soltecinnovation.measurepro",
+  "productName": "MeasurePRO",
+  "copyright": "Copyright © 2025 Soltec Innovation",
+  "directories": {
+    "output": "release-builds",
+    "buildResources": "build-resources"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "build-resources/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  },
+  "asar": true
+}

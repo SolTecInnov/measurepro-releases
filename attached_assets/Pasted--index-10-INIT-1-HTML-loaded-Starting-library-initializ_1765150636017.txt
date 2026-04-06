@@ -1,0 +1,332 @@
+(index):10 [INIT-1] HTML loaded - Starting library initialization
+(index):23 [INIT-4] Body rendering - Root div created
+index-oLnrLo6f.js:3113 [FIREBASE-1] Loading Firebase configuration...
+index-oLnrLo6f.js:3113 [FIREBASE-2] Environment variables: {VITE_FIREBASE_API_KEY: 'AIzaSyCIC_...', VITE_FIREBASE_AUTH_DOMAIN: 'measureprov1.firebaseapp.com', VITE_FIREBASE_PROJECT_ID: 'measureprov1', VITE_FIREBASE_STORAGE_BUCKET: 'measureprov1.firebasestorage.app', VITE_FIREBASE_MESSAGING_SENDER_ID: '341067281215', …}
+index-oLnrLo6f.js:3113 [FIREBASE-3] Processed Firebase config: {apiKey: 'AIzaSyCIC_...', authDomain: 'measureprov1.firebaseapp.com', projectId: 'measureprov1', storageBucket: 'measureprov1.firebasestorage.app', messagingSenderId: '341067281215', …}
+index-oLnrLo6f.js:3113 [FIREBASE-4] Firebase configured: true
+index-oLnrLo6f.js:3113 [FIREBASE-15] Auto-initializing Firebase on module load...
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: false
+index-oLnrLo6f.js:3113 [FIREBASE-7] Firebase is configured, initializing...
+index-oLnrLo6f.js:3113 [FIREBASE-8] Existing Firebase apps: 0
+index-oLnrLo6f.js:3113 [FIREBASE-11] Creating new Firebase app...
+index-oLnrLo6f.js:3113 [FIREBASE-12] ✅ Firebase initialized (new app)
+index-oLnrLo6f.js:3777 [INIT-5] main.tsx loaded - Starting React app initialization
+index-oLnrLo6f.js:3777 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-oLnrLo6f.js:3777 [INIT-6] Build environment: production Production: true
+index-oLnrLo6f.js:3777 [INIT-7] Starting localStorage cleanup...
+index-oLnrLo6f.js:3777 [INIT-8] Scanning localStorage for problematic keys...
+index-oLnrLo6f.js:3777 [INIT-9] No problematic localStorage keys found
+index-oLnrLo6f.js:3777 [INIT-11] localStorage cleanup complete
+index-oLnrLo6f.js:3777 [INIT-12] Checking library health (Leaflet, etc)...
+index-oLnrLo6f.js:3705 Library health check PASSED - All critical libraries loaded
+index-oLnrLo6f.js:3777 [INIT-13] ✅ Library health check PASSED
+index-oLnrLo6f.js:3777 [INIT-13b] Initializing Firebase auto-sync service...
+index-oLnrLo6f.js:3434 [ConnectivityMonitor] Initialized {isOnline: true, isFirebaseConnected: false, isAuthenticated: false, lastOnlineAt: 1765150547170, lastOfflineAt: null}
+index-oLnrLo6f.js:3434 [SyncService] Initialized
+index-oLnrLo6f.js:3434 [AutoSync] Firebase auto-sync initialized
+index-oLnrLo6f.js:3777 [INIT-13c] ✅ Firebase auto-sync initialized
+index-oLnrLo6f.js:3777 [INIT-14] Rendering React app to root element...
+index-oLnrLo6f.js:3777 [INIT-15] ✅ React app rendered successfully
+index-oLnrLo6f.js:3689 [APP-1] App component mounted, initializing core workers...
+index-oLnrLo6f.js:3689 [APP-2] Checking IndexedDB health before worker initialization...
+index-oLnrLo6f.js:3689 [STORAGE-1] Starting IndexedDB health check...
+index-oLnrLo6f.js:3689 [STORAGE-3] Checking if indexedDB is defined...
+index-oLnrLo6f.js:3689 [STORAGE-4] IndexedDB is defined
+index-oLnrLo6f.js:3689 [STORAGE-5] Attempting to open test database...
+index-oLnrLo6f.js:3700 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-oLnrLo6f.js:3113 [AUTHCTX-1] Initializing AuthContext...
+index-oLnrLo6f.js:3113 [AUTHCTX-2] Loading cached auth state...
+index-oLnrLo6f.js:3113 [AUTHCTX-7] Setting up Firebase auth listener...
+index-oLnrLo6f.js:3113 [AUTH-1] initAuthListener() called
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [AUTH-3] Setting up Firebase auth state listener...
+index-oLnrLo6f.js:3113 [AUTHCTX-10] Firebase auth listener registered
+index-oLnrLo6f.js:3434 [ConnectivityMonitor] Firebase connectivity confirmed
+index-oLnrLo6f.js:3689 [STORAGE-6] Test database opened successfully
+index-oLnrLo6f.js:3689 [STORAGE-8] Testing write operation...
+index-oLnrLo6f.js:3689 [STORAGE-9] Write test successful
+index-oLnrLo6f.js:3689 [STORAGE-10] Test database closed
+index-oLnrLo6f.js:3689 [STORAGE-11] Checking storage quota...
+index-oLnrLo6f.js:3113 [AUTHCTX-3] Auth cache found: {email: 'jfprince@soltec.ca', isOfflineMode: false}
+index-oLnrLo6f.js:3689 [STORAGE-12] Storage quota: {used: '403.2MB', total: '144821.4MB', percentage: '0.3%'}
+index-oLnrLo6f.js:3689 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-oLnrLo6f.js:3700 [APP-3] IndexedDB healthy, initializing workers...
+index-oLnrLo6f.js:3700 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-oLnrLo6f.js:3700 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-oLnrLo6f.js:3700 [APP-5] ✅ Orchestrator worker initialized
+index-oLnrLo6f.js:3700 [APP-6] ✅ Flush-on-close handlers initialized
+(index):1  Error while trying to use the following icon from the Manifest: https://measurepro.replit.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+index-oLnrLo6f.js:3113 [AUTHCTX-4] Days offline: 0
+index-oLnrLo6f.js:3113 [AUTHCTX-6] Auth state initialization complete
+index-oLnrLo6f.js:3113 [AUTH-1] initAuthListener() called
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [AUTH-3] Setting up Firebase auth state listener...
+index-oLnrLo6f.js:3437  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-oLnrLo6f.js:3437
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-oLnrLo6f.js:3437
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3235  ⚠️ SLOW: getSurveysPaginated took 533ms
+hi @ index-oLnrLo6f.js:3235
+Fd @ index-oLnrLo6f.js:3235
+await in Fd
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ index-oLnrLo6f.js:3700
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437 ⏱️ getSurveysPaginated(50): 533.333984375 ms
+index-oLnrLo6f.js:3437 ⚠️ Active survey not in recent 50, searching...
+index-oLnrLo6f.js:3700 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-oLnrLo6f.js:3235  ⚠️ SLOW: getSurveysPaginated took 124ms
+hi @ index-oLnrLo6f.js:3235
+Fd @ index-oLnrLo6f.js:3235
+await in Fd
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437 ⚠️ Active survey not in recent 50, searching...
+index-oLnrLo6f.js:3235  ⚠️ SLOW: getSurveysPaginated took 125ms
+hi @ index-oLnrLo6f.js:3235
+Fd @ index-oLnrLo6f.js:3235
+await in Fd
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437 ⚠️ Active survey not in recent 50, searching...
+index-oLnrLo6f.js:3437 ⏱️ loadSurveys TOTAL: 638.093017578125 ms
+index-oLnrLo6f.js:3437 ✅ Loaded 3 surveys (including active) in 638ms
+index-oLnrLo6f.js:3235  ⚠️ SLOW: loadSurveys (initial) took 638ms
+hi @ index-oLnrLo6f.js:3235
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ index-oLnrLo6f.js:3700
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437 ✅ Loaded 3 surveys (including active) in 162ms
+index-oLnrLo6f.js:3235  ⚠️ SLOW: loadSurveys (initial) took 162ms
+hi @ index-oLnrLo6f.js:3235
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3437 ✅ Loaded 3 surveys (including active) in 167ms
+index-oLnrLo6f.js:3235  ⚠️ SLOW: loadSurveys (initial) took 167ms
+hi @ index-oLnrLo6f.js:3235
+loadSurveys @ index-oLnrLo6f.js:3437
+await in loadSurveys
+(anonymous) @ Settings-ecgLqRPp.js:181
+(anonymous) @ Settings-ecgLqRPp.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3434 [ConnectivityMonitor] User authenticated
+index-oLnrLo6f.js:3434 [SyncService] Starting queue processing...
+index-oLnrLo6f.js:3113 [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+index-oLnrLo6f.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-oLnrLo6f.js:3113 [AUTH-7] Calling auth callback with user: true
+index-oLnrLo6f.js:3113 [AUTHCTX-8] Firebase auth listener callback: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1'}
+index-oLnrLo6f.js:3113 [AUTHCTX-9] User authenticated and online, updating timestamps
+index-oLnrLo6f.js:3113 [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+index-oLnrLo6f.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-oLnrLo6f.js:3113 [AUTH-7] Calling auth callback with user: true
+index-oLnrLo6f.js:3434 [SyncService] Queue empty, nothing to process
+index-oLnrLo6f.js:3434 [ConnectivityMonitor] Firebase connectivity confirmed
+index-oLnrLo6f.js:3434 [SyncService] Firebase ready for sync, processing queue...
+index-oLnrLo6f.js:3434 [SyncService] Starting queue processing...
+index-oLnrLo6f.js:3434 [SyncService] Already processing queue, skipping...
+index-oLnrLo6f.js:3434 [SyncService] Queue empty, nothing to process
+ZED2iCamera-4Z0xBH-H.js:1  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+A4 @ index-oLnrLo6f.js:3677
+await in A4
+(anonymous) @ index-oLnrLo6f.js:3677
+(anonymous) @ index-oLnrLo6f.js:3677
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3113 [AUTH-1] initAuthListener() called
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [AUTH-3] Setting up Firebase auth state listener...
+index-oLnrLo6f.js:3113 [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+index-oLnrLo6f.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-oLnrLo6f.js:3113 [AUTH-7] Calling auth callback with user: true
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [Sync] Successfully synced survey 3f0eaf2c-f873-4687-accf-70904afd2c54 to Firebase
+index-oLnrLo6f.js:3113  [Sync] Error syncing measurements for survey 3f0eaf2c-f873-4687-accf-70904afd2c54: FirebaseError: Request payload size exceeds the limit: 11534336 bytes.
+Wo @ index-oLnrLo6f.js:3113
+await in Wo
+c @ index-oLnrLo6f.js:3684
+await in c
+(anonymous) @ index-oLnrLo6f.js:3684
+setInterval
+M5 @ index-oLnrLo6f.js:3684
+(anonymous) @ index-oLnrLo6f.js:3700
+await in (anonymous)
+(anonymous) @ index-oLnrLo6f.js:3700
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [Sync] Successfully synced survey 0ca71f6a-5089-4623-92f5-9e52e734d91d to Firebase
+index-oLnrLo6f.js:3113  [Sync] Error syncing measurements for survey 0ca71f6a-5089-4623-92f5-9e52e734d91d: FirebaseError: Request payload size exceeds the limit: 11534336 bytes.
+Wo @ index-oLnrLo6f.js:3113
+await in Wo
+c @ index-oLnrLo6f.js:3684
+await in c
+(anonymous) @ index-oLnrLo6f.js:3684
+index-oLnrLo6f.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-oLnrLo6f.js:3113 [FIREBASE-6] Already initialized, skipping
+index-oLnrLo6f.js:3113 [Sync] Successfully synced survey 64019a91-128e-4806-bb27-5f0a6822e2f5 to Firebase

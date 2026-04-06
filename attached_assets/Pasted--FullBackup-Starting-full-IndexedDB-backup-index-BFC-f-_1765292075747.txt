@@ -1,0 +1,138 @@
+[FullBackup] Starting full IndexedDB backup
+index-BFC-f-AF.js:3435 [FullBackup] Exported 37 surveys
+index-BFC-f-AF.js:3435  Uncaught NotFoundError: Failed to execute 'transaction' on 'IDBDatabase': One of the specified object stores was not found.
+    at x.onsuccess (index-BFC-f-AF.js:3435:5580)
+index-BFC-f-AF.js:233  [2025-12-09T14:52:15.344Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+eE @ index-BFC-f-AF.js:233
+index-BFC-f-AF.js:233  [2025-12-09T14:52:15.344Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+eE @ index-BFC-f-AF.js:233
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BFC-f-AF.js:3113 [Sync] Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb to Firebase
+index-BFC-f-AF.js:233  [2025-12-09T14:53:11.275Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+eE @ index-BFC-f-AF.js:233
+index-BFC-f-AF.js:233  [2025-12-09T14:53:11.275Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+eE @ index-BFC-f-AF.js:233
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BFC-f-AF.js:3113 [Sync] Successfully synced survey ee0ba98b-0f3b-4ce0-b64c-36cd67b41efd to Firebase
+index-BFC-f-AF.js:233  [2025-12-09T14:54:12.929Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+eE @ index-BFC-f-AF.js:233
+error @ index-BFC-f-AF.js:233
+gn @ index-BFC-f-AF.js:465
+close @ index-BFC-f-AF.js:1548
+I_ @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1792
+(anonymous) @ index-BFC-f-AF.js:1792
+Promise.then
+gu @ index-BFC-f-AF.js:1792
+enqueue @ index-BFC-f-AF.js:1792
+enqueueAndForget @ index-BFC-f-AF.js:1792
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+So @ index-BFC-f-AF.js:1488
+(anonymous) @ index-BFC-f-AF.js:1503
+(anonymous) @ index-BFC-f-AF.js:1503
+Re @ index-BFC-f-AF.js:412
+Ee @ index-BFC-f-AF.js:412
+Gs.ta @ index-BFC-f-AF.js:420
+Jl @ index-BFC-f-AF.js:417
+Sn.Y @ index-BFC-f-AF.js:416
+Sn.ca @ index-BFC-f-AF.js:416
+Re @ index-BFC-f-AF.js:412
+Ee @ index-BFC-f-AF.js:412
+tp @ index-BFC-f-AF.js:419
+r.bb @ index-BFC-f-AF.js:419
+r.Ea @ index-BFC-f-AF.js:419
+so @ index-BFC-f-AF.js:418
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Sa @ index-BFC-f-AF.js:417
+Promise.then
+r.send @ index-BFC-f-AF.js:417
+r.ea @ index-BFC-f-AF.js:419
+Lf @ index-BFC-f-AF.js:416
+lp @ index-BFC-f-AF.js:420
+r.Fa @ index-BFC-f-AF.js:420
+H @ index-BFC-f-AF.js:412
+Promise.then
+Z @ index-BFC-f-AF.js:412
+cp @ index-BFC-f-AF.js:420
+Jl @ index-BFC-f-AF.js:417
+Sn.Y @ index-BFC-f-AF.js:416
+Sn.ca @ index-BFC-f-AF.js:416
+Re @ index-BFC-f-AF.js:412
+Ee @ index-BFC-f-AF.js:412
+tp @ index-BFC-f-AF.js:419
+r.bb @ index-BFC-f-AF.js:419
+r.Ea @ index-BFC-f-AF.js:419
+so @ index-BFC-f-AF.js:418
+r.Pa @ index-BFC-f-AF.js:417
+Promise.then
+Yf @ index-BFC-f-AF.js:417
+r.Sa @ index-BFC-f-AF.js:417
+Promise.then
+r.send @ index-BFC-f-AF.js:417
+r.ea @ index-BFC-f-AF.js:419
+Lf @ index-BFC-f-AF.js:416
+Gl @ index-BFC-f-AF.js:416
+r.Ga @ index-BFC-f-AF.js:420
+H @ index-BFC-f-AF.js:412
+Promise.then
+Z @ index-BFC-f-AF.js:412
+La @ index-BFC-f-AF.js:420
+r.connect @ index-BFC-f-AF.js:420
+ir.m @ index-BFC-f-AF.js:420
+Io @ index-BFC-f-AF.js:1503
+send @ index-BFC-f-AF.js:1488
+a_ @ index-BFC-f-AF.js:1548
+p_ @ index-BFC-f-AF.js:1548
+aA @ index-BFC-f-AF.js:1579
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1792
+(anonymous) @ index-BFC-f-AF.js:1792
+Promise.then
+gu @ index-BFC-f-AF.js:1792
+enqueue @ index-BFC-f-AF.js:1792
+enqueueAndForget @ index-BFC-f-AF.js:1792
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+wo @ index-BFC-f-AF.js:1488
+(anonymous) @ index-BFC-f-AF.js:1503
+setTimeout
+Bo @ index-BFC-f-AF.js:1503
+T_ @ index-BFC-f-AF.js:1548
+P_ @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+Promise.then
+auth @ index-BFC-f-AF.js:1548
+start @ index-BFC-f-AF.js:1548
+start @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1548
+(anonymous) @ index-BFC-f-AF.js:1533
+(anonymous) @ index-BFC-f-AF.js:1594
+(anonymous) @ index-BFC-f-AF.js:1792
+(anonymous) @ index-BFC-f-AF.js:1792
+Promise.then
+gu @ index-BFC-f-AF.js:1792
+enqueue @ index-BFC-f-AF.js:1792
+enqueueAndForget @ index-BFC-f-AF.js:1792
+handleDelayElapsed @ index-BFC-f-AF.js:1594
+(anonymous) @ index-BFC-f-AF.js:1594
+index-BFC-f-AF.js:233  [2025-12-09T14:54:12.929Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.

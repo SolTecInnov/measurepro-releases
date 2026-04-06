@@ -1,0 +1,595 @@
+MeasurePRO to RoadScope Data Sync Integration
+Overview
+Implement a data synchronization system in MeasurePRO PWA to transfer survey data (POIs, routes, traces, images, videos, timelapse frames) to RoadScope using the MeasurePRO REST API.
+
+Base URL: https://roadscope.app/api/measurepro (or development URL)
+
+Authentication
+API Key Management
+MeasurePRO users must obtain an API key from RoadScope:
+
+User logs into RoadScope with the same email used in MeasurePRO
+User navigates to Admin > MeasurePRO API Keys
+User generates an API key with required scopes
+User copies the key (shown only once) and enters it in MeasurePRO settings
+API Key Format
+Prefix: mpro_
+Length: 64 characters total
+Example: mpro_a1b2c3d4e5f6...
+Authentication Header
+All API requests must include:
+
+Authorization: Bearer mpro_your_api_key_here
+Content-Type: application/json
+
+Required Scopes
+For full sync functionality, the API key needs these scopes:
+
+surveys:read - List existing surveys
+surveys:write - Create/update surveys
+pois:read - Read POI data
+pois:write - Create/update POIs
+routes:write - Create/update routes/traces
+files:upload - Get signed URLs for file uploads
+files:read - Read file metadata
+API Endpoints
+1. Health Check
+GET /api/measurepro/health
+
+No authentication required. Use to verify API availability.
+
+Response:
+
+{
+  "success": true,
+  "data": {
+    "status": "healthy",
+    "version": "1.0.0",
+    "timestamp": "2024-01-15T10:30:00.000Z"
+  }
+}
+
+2. Validate API Key
+POST /api/measurepro/auth/validate
+
+Headers: Authorization: Bearer mpro_...
+
+Response (Success):
+
+{
+  "success": true,
+  "data": {
+    "valid": true,
+    "userId": "firebase_user_id",
+    "userEmail": "user@example.com",
+    "scopes": ["surveys:read", "surveys:write", "pois:write", ...],
+    "expiresAt": "2025-01-15T00:00:00.000Z"
+  }
+}
+
+Response (Invalid):
+
+{
+  "success": false,
+  "error": "Invalid or expired API key"
+}
+
+3. Get POI Types (for type mapping)
+GET /api/measurepro/poi-types
+
+Returns RoadScope's 35 preset POI types for mapping MeasurePRO types.
+
+Response:
+
+{
+  "success": true,
+  "data": {
+    "types": [
+      { "name": "Photo", "color": "#3B82F6", "icon": "Camera", "prefix": "PH" },
+      { "name": "Bridge", "color": "#EF4444", "icon": "Building2", "prefix": "BR" },
+      { "name": "PowerLine", "color": "#F59E0B", "icon": "Zap", "prefix": "PL" },
+      ...
+    ]
+  }
+}
+
+RoadScope's 35 POI Types: Photo, Label, DronePhoto, Road, Intersection, Bridge, PowerLine, Trees, Signalization, Railroad, Structure, WeightLimit, TurnRestriction, RestArea, FuelStation, WeighStation, Custom, Signpost, OriginPoint, DestinationPoint, Overpass, Roundabout, TrafficLight, Parking, EmergencyParking, Danger, Information, WorkRequired, TruckStop, PayToll, Culvert, Wire, OpticalFiber, OverheadStructure, LateralObstruction
+
+4. List User's Surveys
+GET /api/measurepro/surveys
+
+Returns surveys owned by the authenticated user.
+
+Response:
+
+{
+  "success": true,
+  "data": {
+    "surveys": [
+      {
+        "id": "roadscope_survey_id",
+        "externalId": "measurepro_survey_uuid",
+        "name": "Highway 401 Survey",
+        "description": "Bridge clearance inspection",
+        "client": "Ontario Transport",
+        "projectNumber": "PRJ-2024-001",
+        "status": "active",
+        "poiCount": 145,
+        "routeCount": 3,
+        "createdAt": "2024-01-10T08:00:00.000Z",
+        "updatedAt": "2024-01-15T14:30:00.000Z"
+      }
+    ],
+    "count": 1
+  }
+}
+
+5. Create/Update Survey
+POST /api/measurepro/surveys
+
+Request Body:
+
+{
+  "externalId": "measurepro_unique_survey_id",
+  "name": "Highway 401 Bridge Survey",
+  "description": "Clearance measurements for OS/OW permits",
+  "client": "Ontario Transport Ministry",
+  "projectNumber": "PRJ-2024-001",
+  "status": "active",
+  "startDate": "2024-01-10",
+  "endDate": "2024-01-15",
+  "metadata": {
+    "measureproVersion": "2.1.0",
+    "deviceId": "device_uuid",
+    "operator": "John Smith"
+  }
+}
+
+Key Fields:
+
+externalId (required for sync): MeasurePRO's unique survey identifier. Used for upsert logic - if a survey with this externalId exists, it will be updated.
+name (required): Survey display name
+All other fields optional
+Response (Created):
+
+{
+  "success": true,
+  "data": {
+    "id": "roadscope_survey_id",
+    "name": "Highway 401 Bridge Survey",
+    "externalId": "measurepro_unique_survey_id",
+    "created": true,
+    "updated": false
+  },
+  "message": "Survey created successfully"
+}
+
+Response (Updated):
+
+{
+  "success": true,
+  "data": {
+    "id": "roadscope_survey_id",
+    "name": "Highway 401 Bridge Survey",
+    "externalId": "measurepro_unique_survey_id",
+    "created": false,
+    "updated": true
+  },
+  "message": "Survey updated successfully"
+}
+
+6. Batch Upsert POIs
+POST /api/measurepro/surveys/:surveyId/pois
+
+Request Body:
+
+{
+  "mode": "upsert",
+  "pois": [
+    {
+      "externalId": "measurepro_poi_uuid",
+      "roadNumber": "R001",
+      "poiNumber": 15,
+      "name": "Bridge HWY401-KM45",
+      "description": "Steel truss bridge over river",
+      "type": "Bridge",
+      "coordinates": {
+        "latitude": 45.4215,
+        "longitude": -75.6972,
+        "altitude": 125.5
+      },
+      "measurements": {
+        "heightClearance": 5.2,
+        "widthClearance": 12.5,
+        "length": 85.0,
+        "unit": "meters"
+      },
+      "badges": ["Danger"],
+      "notes": "Public inspection notes",
+      "privateNotes": "Internal crew notes",
+      "capturedAt": "2024-01-15T10:30:00.000Z",
+      "metadata": {
+        "inspector": "John Smith",
+        "weather": "Clear",
+        "temperature": 22
+      }
+    }
+  ]
+}
+
+Parameters:
+
+mode:
+"create" - Only create new POIs, error if externalId already exists
+"upsert" (recommended) - Create or update based on externalId
+Limits:
+
+Maximum 500 POIs per batch
+Coordinates validated: latitude -90 to 90, longitude -180 to 180
+POI Type Mapping: RoadScope automatically maps MeasurePRO types to its 35 presets. If an exact match isn't found, it defaults to "Custom". Common mappings:
+
+"bridge", "pont" → "Bridge"
+"powerline", "power_line", "ligne_electrique" → "PowerLine"
+"tree", "trees", "arbre" → "Trees"
+"overpass", "viaduc" → "Overpass"
+Response:
+
+{
+  "success": true,
+  "data": {
+    "results": [
+      { "externalId": "poi_1", "id": "roadscope_poi_id", "status": "created" },
+      { "externalId": "poi_2", "id": "roadscope_poi_id", "status": "updated" },
+      { "externalId": "poi_3", "id": "", "status": "error", "error": "Invalid coordinates" }
+    ],
+    "summary": {
+      "total": 3,
+      "created": 1,
+      "updated": 1,
+      "errors": 1
+    }
+  }
+}
+
+7. Batch Upsert Routes/Traces
+POST /api/measurepro/surveys/:surveyId/routes
+
+Request Body:
+
+{
+  "mode": "upsert",
+  "routes": [
+    {
+      "externalId": "measurepro_route_uuid",
+      "name": "Main Survey Route",
+      "description": "Primary inspection path",
+      "type": "trace",
+      "coordinates": [
+        { "latitude": 45.4215, "longitude": -75.6972, "altitude": 125, "timestamp": "2024-01-15T10:00:00Z" },
+        { "latitude": 45.4220, "longitude": -75.6980, "altitude": 126, "timestamp": "2024-01-15T10:00:05Z" },
+        { "latitude": 45.4225, "longitude": -75.6985, "altitude": 127, "timestamp": "2024-01-15T10:00:10Z" }
+      ],
+      "metadata": {
+        "recordedBy": "John Smith",
+        "vehicle": "Survey Truck 1",
+        "gpsAccuracy": "high"
+      },
+      "startTime": "2024-01-15T10:00:00.000Z",
+      "endTime": "2024-01-15T11:30:00.000Z",
+      "distance": 45.2,
+      "distanceUnit": "kilometers"
+    }
+  ]
+}
+
+Limits:
+
+Maximum 100 routes per batch
+Each route can have unlimited coordinate points
+Route Types:
+
+"trace" - GPS recording/breadcrumb trail
+"route" - Planned/imported route
+"path" - Walking/inspection path
+Response:
+
+{
+  "success": true,
+  "data": {
+    "results": [
+      { "externalId": "route_1", "id": "roadscope_route_id", "status": "created" }
+    ],
+    "summary": {
+      "total": 1,
+      "created": 1,
+      "updated": 0,
+      "errors": 0
+    }
+  }
+}
+
+8. Get Signed Upload URLs
+POST /api/measurepro/surveys/:surveyId/upload-urls
+
+For uploading files (images, videos, timelapse) directly to Firebase Storage.
+
+Request Body:
+
+{
+  "files": [
+    {
+      "filename": "POI_0015_photo_001.jpg",
+      "contentType": "image/jpeg",
+      "size": 2048576,
+      "type": "photo",
+      "linkedPoiExternalId": "measurepro_poi_uuid"
+    },
+    {
+      "filename": "POI_0015_video_001.mp4",
+      "contentType": "video/mp4",
+      "size": 15728640,
+      "type": "video",
+      "linkedPoiExternalId": "measurepro_poi_uuid"
+    },
+    {
+      "filename": "timelapse_frame_001.jpg",
+      "contentType": "image/jpeg",
+      "size": 512000,
+      "type": "timelapse",
+      "linkedPoiExternalId": null
+    }
+  ]
+}
+
+File Types:
+
+"photo" - POI photos
+"video" - POI videos
+"timelapse" - Timelapse frames
+"drawing" - POI drawings/annotations
+"document" - PDF, reports
+Response:
+
+{
+  "success": true,
+  "data": {
+    "uploadUrls": [
+      {
+        "filename": "POI_0015_photo_001.jpg",
+        "uploadUrl": "https://storage.googleapis.com/...?token=...",
+        "storagePath": "surveys/survey_id/photos/uuid_POI_0015_photo_001.jpg",
+        "expiresAt": "2024-01-15T11:30:00.000Z"
+      }
+    ]
+  }
+}
+
+Upload Process:
+
+Request signed URLs for all files to upload
+Upload each file directly to the signed URL using PUT request:
+PUT {uploadUrl}
+Content-Type: image/jpeg
+Body: [raw file bytes]
+
+After uploads complete, call /files endpoint to register them
+9. Register Uploaded Files
+POST /api/measurepro/surveys/:surveyId/files
+
+After uploading files to Firebase Storage, register them to link to POIs.
+
+Request Body:
+
+{
+  "files": [
+    {
+      "storagePath": "surveys/survey_id/photos/uuid_POI_0015_photo_001.jpg",
+      "filename": "POI_0015_photo_001.jpg",
+      "type": "photo",
+      "contentType": "image/jpeg",
+      "size": 2048576,
+      "linkedPoiExternalId": "measurepro_poi_uuid",
+      "metadata": {
+        "capturedAt": "2024-01-15T10:30:00.000Z",
+        "gpsLatitude": 45.4215,
+        "gpsLongitude": -75.6972,
+        "deviceModel": "iPhone 14 Pro"
+      }
+    }
+  ]
+}
+
+Response:
+
+{
+  "success": true,
+  "data": {
+    "registered": 1,
+    "linked": 1,
+    "files": [
+      {
+        "id": "roadscope_file_id",
+        "storagePath": "surveys/.../photo.jpg",
+        "linkedPoiId": "roadscope_poi_id"
+      }
+    ]
+  }
+}
+
+Sync Strategy Implementation
+Recommended Sync Flow
+1. VALIDATE API KEY
+   POST /auth/validate
+   ↓
+   Store userId and verify scopes
+2. SYNC SURVEY
+   POST /surveys
+   {externalId: measurepro_survey_id, ...}
+   ↓
+   Store returned RoadScope survey ID
+3. SYNC POIs (in batches of 500)
+   POST /surveys/:surveyId/pois
+   {mode: "upsert", pois: [...]}
+   ↓
+   Build externalId → RoadScope ID mapping
+4. SYNC ROUTES/TRACES (in batches of 100)
+   POST /surveys/:surveyId/routes
+   {mode: "upsert", routes: [...]}
+5. UPLOAD FILES
+   a. Request signed URLs:
+      POST /surveys/:surveyId/upload-urls
+   
+   b. Upload to signed URLs:
+      PUT {signedUrl} with file data
+   
+   c. Register files:
+      POST /surveys/:surveyId/files
+6. VERIFICATION
+   GET /surveys
+   Compare counts with local data
+
+Incremental Sync
+For ongoing sync during field work:
+
+// Track sync state in IndexedDB
+const syncState = {
+  surveyId: "roadscope_id",
+  lastSyncTime: "2024-01-15T10:00:00Z",
+  pendingPOIs: [],
+  pendingRoutes: [],
+  pendingFiles: []
+};
+// On POI creation/update
+function queuePOIForSync(poi) {
+  syncState.pendingPOIs.push(poi);
+  if (navigator.onLine) {
+    attemptSync();
+  }
+}
+// Sync when online
+async function attemptSync() {
+  if (syncState.pendingPOIs.length >= 10 || timeSinceLastSync > 60000) {
+    await syncPOIs(syncState.pendingPOIs);
+    syncState.pendingPOIs = [];
+    syncState.lastSyncTime = new Date().toISOString();
+  }
+}
+
+Offline Handling
+// Queue operations when offline
+window.addEventListener('online', async () => {
+  await syncQueuedOperations();
+});
+// Retry with exponential backoff
+async function syncWithRetry(operation, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (error.status === 429) { // Rate limited
+        await delay(Math.pow(2, i) * 1000);
+      } else if (error.status >= 500) { // Server error
+        await delay(Math.pow(2, i) * 1000);
+      } else {
+        throw error; // Client error, don't retry
+      }
+    }
+  }
+  throw new Error('Max retries exceeded');
+}
+
+Error Handling
+Error Response Format
+{
+  "success": false,
+  "error": "Error message",
+  "code": "ERROR_CODE",
+  "details": {}
+}
+
+Common Error Codes
+Status	Code	Description	Action
+400	INVALID_REQUEST	Missing/invalid fields	Check request body
+401	UNAUTHORIZED	Invalid/expired API key	Re-authenticate
+403	FORBIDDEN	Insufficient scopes	Request new API key
+403	NOT_OWNER	Survey belongs to different user	Verify survey ID
+404	NOT_FOUND	Survey/POI not found	Check IDs
+409	DUPLICATE	ExternalId exists (create mode)	Use upsert mode
+429	RATE_LIMITED	Too many requests	Wait and retry
+500	SERVER_ERROR	Internal error	Retry with backoff
+Validation Errors
+POI coordinate validation:
+
+Latitude must be -90 to 90
+Longitude must be -180 to 180
+Both values must be valid numbers
+{
+  "success": false,
+  "error": "Invalid coordinates (lat must be -90 to 90, lng must be -180 to 180)"
+}
+
+UI Requirements
+Settings Screen
+API Key input field (masked)
+"Test Connection" button → calls /auth/validate
+Display connected RoadScope email
+Display granted scopes
+Show API key expiration date
+Sync Status
+Last sync timestamp
+Pending items count (POIs, routes, files)
+Sync progress indicator
+Error notifications with retry option
+Survey List
+"Sync to RoadScope" button per survey
+Sync status indicator (synced/pending/error)
+Last sync time per survey
+Auto-Sync Options
+Toggle: Auto-sync when online
+Interval: Sync every X minutes
+Toggle: Sync on POI save
+Toggle: Sync photos immediately
+Data Mapping Reference
+MeasurePRO → RoadScope Field Mapping
+MeasurePRO Field	RoadScope Field	Notes
+survey.id	externalId	Used for upsert matching
+survey.name	name	Direct mapping
+poi.id	externalId	Used for upsert matching
+poi.lat, poi.lng	coordinates.latitude/longitude	
+poi.elevation	coordinates.altitude	Optional
+poi.height	measurements.heightClearance	
+poi.width	measurements.widthClearance	
+poi.note	notes	Public notes
+poi.internalNote	privateNotes	Private notes
+poi.timestamp	capturedAt	ISO 8601 format
+trace.points[]	coordinates[]	Array of lat/lng/alt/timestamp
+Rate Limits
+API Key validation: 10 requests/minute
+Survey operations: 30 requests/minute
+POI batch: 10 requests/minute (500 POIs each = 5000 POIs/min)
+Route batch: 10 requests/minute
+File URL requests: 20 requests/minute
+File registration: 20 requests/minute
+Security Considerations
+Store API key securely - Use secure storage (Keychain/Keystore), not localStorage
+Validate API key on app launch - Detect expiration early
+HTTPS only - All requests must use HTTPS
+Don't log sensitive data - Never log API keys or user data
+Handle token expiration - Prompt user to generate new key when expired
+Testing Checklist
+ API key validation works
+ Invalid API key shows clear error
+ Survey creation works
+ Survey update (same externalId) works
+ POI batch create works (test with 500 POIs)
+ POI batch upsert works (update existing)
+ Coordinate validation rejects invalid coords
+ Duplicate detection works in create mode
+ Route/trace upload works
+ Signed URL generation works
+ File upload to signed URL works
+ File registration links to POIs
+ Offline queue works
+ Sync resumes after reconnection
+ Rate limiting is handled gracefully
+ Error messages are user-friendly

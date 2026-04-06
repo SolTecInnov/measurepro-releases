@@ -1,0 +1,78 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+index-tUnpb20f.js:3740 [LaserReader] setLaserType called with: high-pole
+index-tUnpb20f.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-tUnpb20f.js:3740 [LaserReader] setLaserType called with: high-pole
+index-tUnpb20f.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-tUnpb20f.js:3740 [LaserReader] setLaserType called with: high-pole
+index-tUnpb20f.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-tUnpb20f.js:3740 [LaserReader] setLaserType called with: high-pole
+index-tUnpb20f.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-tUnpb20f.js:3861 [INIT-5] main.tsx loaded - Starting React app initialization
+index-tUnpb20f.js:3861 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-tUnpb20f.js:3861 [INIT-6] Build environment: production Production: true
+index-tUnpb20f.js:3861 [INIT-7] Starting localStorage cleanup...
+index-tUnpb20f.js:3861 [INIT-8] Scanning localStorage for problematic keys...
+index-tUnpb20f.js:3861 [INIT-9] No problematic localStorage keys found
+index-tUnpb20f.js:3861 [INIT-11] localStorage cleanup complete
+index-tUnpb20f.js:3861 [INIT-12] Checking library health (Leaflet, etc)...
+index-tUnpb20f.js:3789 Library health check PASSED - All critical libraries loaded
+index-tUnpb20f.js:3861 [INIT-13] ✅ Library health check PASSED
+index-tUnpb20f.js:3861 [INIT-13b] Initializing Firebase auto-sync service...
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Initialized Object
+index-tUnpb20f.js:3478 [AutoSync] Firebase auto-sync initialized
+index-tUnpb20f.js:3861 [INIT-13c] ✅ Firebase auto-sync initialized
+index-tUnpb20f.js:3861 [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+index-tUnpb20f.js:3773 [AutoPartManager] Initializing with threshold: 200
+index-tUnpb20f.js:3861 [INIT-13e] ✅ Auto-Part Manager initialized
+index-tUnpb20f.js:3861 [INIT-14] Rendering React app to root element...
+index-tUnpb20f.js:3861 [INIT-15] ✅ React app rendered successfully
+index-tUnpb20f.js:3773 [APP-1] App component mounted, initializing core workers...
+index-tUnpb20f.js:3773 [APP-2] Checking IndexedDB health before worker initialization...
+index-tUnpb20f.js:3773 [STORAGE-1] Starting IndexedDB health check...
+index-tUnpb20f.js:3773 [STORAGE-3] Checking if indexedDB is defined...
+index-tUnpb20f.js:3773 [STORAGE-4] IndexedDB is defined
+index-tUnpb20f.js:3773 [STORAGE-5] Attempting to open test database...
+index-tUnpb20f.js:3784 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-tUnpb20f.js:3773 [STORAGE-6] Test database opened successfully
+index-tUnpb20f.js:3773 [STORAGE-8] Testing write operation...
+index-tUnpb20f.js:3773 [STORAGE-9] Write test successful
+index-tUnpb20f.js:3773 [STORAGE-10] Test database closed
+index-tUnpb20f.js:3773 [STORAGE-11] Checking storage quota...
+index-tUnpb20f.js:3773 [STORAGE-12] Storage quota: Object
+index-tUnpb20f.js:3773 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-tUnpb20f.js:3784 [APP-3] IndexedDB healthy, initializing workers...
+index-tUnpb20f.js:3784 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-tUnpb20f.js:3784 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-tUnpb20f.js:3784 [APP-5] ✅ Orchestrator worker initialized
+index-tUnpb20f.js:3784 [APP-6] ✅ Flush-on-close handlers initialized
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+index-tUnpb20f.js:3235  ⚠️ SLOW: getSurveysPaginated took 195ms
+Vs @ index-tUnpb20f.js:3235
+index-tUnpb20f.js:3480 ⏱️ getSurveysPaginated(50): 195.330078125 ms
+index-tUnpb20f.js:3480 ⏱️ loadSurveys TOTAL: 208.173095703125 ms
+index-tUnpb20f.js:3480 ✅ Loaded 1 surveys (including active) in 208ms
+index-tUnpb20f.js:3235  ⚠️ SLOW: loadSurveys (initial) took 208ms
+Vs @ index-tUnpb20f.js:3235
+index-tUnpb20f.js:3784 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-tUnpb20f.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480 ⏱️ getSurveysPaginated(50): 48.541015625 ms
+index-tUnpb20f.js:3480 ⏱️ loadSurveys TOTAL: 59.530029296875 ms
+index-tUnpb20f.js:3480 ✅ Loaded 1 surveys (including active) in 60ms
+index-tUnpb20f.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480 ✅ Loaded 1 surveys (including active) in 67ms
+index-tUnpb20f.js:3478 [ConnectivityMonitor] User authenticated
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ZED2iCamera-4Z0xBH-H.js:1  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+index-tUnpb20f.js:3478 [AutoSync] Survey exported: 7e942e5e-8bf2-4c2d-a91e-fdf82ff7f74a - "test"
+index-tUnpb20f.js:3478 [AutoSync] ✅ Survey 7e942e5e-8bf2-4c2d-a91e-fdf82ff7f74a marked as synced
+index-tUnpb20f.js:3478 [AutoSync] Export sync completed successfully
+Settings-B47kyR38.js:232 [DuroGPS] Starting with backend: http://localhost:3001

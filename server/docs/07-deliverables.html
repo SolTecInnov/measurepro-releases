@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 – Deliverables Definition | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #cbd5e1; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  ol, ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .included { border-left: 4px solid #4ade80; padding-left: 1rem; }
+  .included h3 { color: #4ade80; }
+  .excluded { border-left: 4px solid #f87171; padding-left: 1rem; }
+  .excluded h3 { color: #f87171; }
+  .disclaimer { background: #451a03; border: 1px solid var(--brand); border-radius: 0.5rem; padding: 1.25rem; margin: 1.5rem 0; }
+  .disclaimer strong { color: var(--brand); }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  th { background: #0f172a; color: var(--brand); text-align: left; padding: 0.6rem 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="06-data-processing.html">← 06: Data Processing</a>
+  <a href="index.html">Index</a>
+  <a href="08-quality-control.html">Next: Quality Control →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 07 of 12</div>
+  <h1>Deliverables Definition</h1>
+  <p style="color:var(--muted)">Be explicit. Vague deliverables create disputes. Clear deliverables build trust.</p>
+</div>
+
+<div class="disclaimer">
+  <strong>Use this page as a contract reference.</strong> Share it with clients before engagement. Scope creep starts when deliverables are undefined. Amend the "NOT included" section per project as needed.
+</div>
+
+<h2>What the Client Gets — Standard Deliverable</h2>
+<div class="card">
+  <div class="included">
+    <h3>Clearance Profile (CSV)</h3>
+    <p>Every recorded POI with: unique ID, GPS coordinates (lat/lon), measurement date/time, clearance height in metres, POI type (bridge/overpass/wire/powerLine etc.), operator notes, and photo filename references. Format: CSV, importable into Excel with no modification.</p>
+  </div>
+
+  <div class="included" style="margin-top:1.25rem">
+    <h3>Route GeoJSON</h3>
+    <p>GPS track as a LineString feature. All POIs as Point features with full properties. Suitable for direct import into any GIS platform (QGIS, ArcGIS, Mapbox). CRS: WGS84 by default; alternate CRS on request.</p>
+  </div>
+
+  <div class="included" style="margin-top:1.25rem">
+    <h3>Survey ZIP Package</h3>
+    <p>Complete self-contained archive: all export formats, all captured photos (JPEG), metadata.json (calibration provenance, app version, operator, survey date, ground reference value). This file can be re-imported into MeasurePRO for independent verification.</p>
+  </div>
+
+  <div class="included" style="margin-top:1.25rem">
+    <h3>Road Profile (if GNSS Recording was enabled)</h3>
+    <p>Chainage-based profile with: chainage (m), GPS coordinates, altitude, grade (%), K-factor, cross-slope (°), curve radius (m). Flagged alert segments (banking &gt;threshold, curve &lt;minimum radius). Formats: CSV + LandXML or DXF (Civil 3D / AutoCAD compatible).</p>
+  </div>
+</div>
+
+<h2>Optional Add-ons (By Request)</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Add-on</th><th>Format</th><th>When Available</th></tr></thead>
+    <tbody>
+      <tr><td>Shapefile package</td><td>.shp/.shx/.dbf/.prj</td><td>On request — required for some GIS workflows</td></tr>
+      <tr><td>DXF (AutoCAD)</td><td>.dxf</td><td>On request — civil engineering design</td></tr>
+      <tr><td>LandXML</td><td>.xml</td><td>On request — Civil 3D, Bentley integration</td></tr>
+      <tr><td>3D Point Cloud</td><td>LAZ / LAS</td><td>Only when Hesai LiDAR was active during survey</td></tr>
+      <tr><td>YOLO image dataset</td><td>YOLO format</td><td>MeasurePRO+ only — annotated detection images</td></tr>
+      <tr><td>Lateral width profile</td><td>CSV</td><td>Only when lateral lasers were active</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>What Is NOT Included</h2>
+<div class="card">
+  <div class="excluded">
+    <h3>Structural engineering assessment</h3>
+    <p>Clearance measurements tell you the geometric clearance at time of survey. They do not assess structural capacity, load rating, or fitness for specific vehicle types. A structural engineer must make those determinations.</p>
+  </div>
+  <div class="excluded" style="margin-top:1.25rem">
+    <h3>Permit applications</h3>
+    <p>Data is provided to support a permit application. MeasurePRO survey data does not constitute a permit, approval, or road authority sign-off.</p>
+  </div>
+  <div class="excluded" style="margin-top:1.25rem">
+    <h3>Interpretation of results</h3>
+    <p>The CSV and GeoJSON files contain measured data. Interpretation, risk assessment, and recommendations are outside scope unless a consulting engagement is separately contracted.</p>
+  </div>
+  <div class="excluded" style="margin-top:1.25rem">
+    <h3>Real-time route safety certification</h3>
+    <p>MeasurePRO records conditions at time of survey. Road conditions change (new obstacles, maintenance, seasonal sag on overhead wires). The client is responsible for validating current conditions before each load movement.</p>
+  </div>
+  <div class="excluded" style="margin-top:1.25rem">
+    <h3>Indoor or off-road environments</h3>
+    <p>GPS accuracy degrades or fails entirely in tunnels, under dense canopy, and in buildings. Survey data from these sections should be treated with caution and noted as approximate.</p>
+  </div>
+</div>
+
+<h2>Accuracy Disclaimer (Tight, Not Vague)</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Condition</th><th>Accuracy</th></tr></thead>
+    <tbody>
+      <tr><td>Vertical clearance, RTK GPS, calm/dry weather, correct calibration</td><td>±15 mm (1σ)</td></tr>
+      <tr><td>Vertical clearance, SBAS GPS only</td><td>±50 mm measurement; ±2 m position</td></tr>
+      <tr><td>Vertical clearance, rain or high dust</td><td>Not surveyed — see Field SOP</td></tr>
+      <tr><td>Road profile chainage</td><td>±0.5 m per km (RTK GPS)</td></tr>
+      <tr><td>Road profile grade</td><td>±0.1% (RTK GPS, smooth road surface)</td></tr>
+      <tr><td>Lateral width, dual laser</td><td>±20 mm at typical road width</td></tr>
+      <tr><td>LiDAR point cloud</td><td>±20 mm @ 50 m range</td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--muted); font-size:0.85rem">Accuracy figures represent 1-sigma (68% confidence interval) under stated conditions. Systematic errors (incorrect ground reference, tilted mount) are the operator's responsibility to detect and correct via calibration validation.</p>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="06-data-processing.html">← 06: Data Processing</a>
+  <a href="index.html">Index</a>
+  <a href="08-quality-control.html">Next: Quality Control →</a>
+</nav>
+</body>
+</html>

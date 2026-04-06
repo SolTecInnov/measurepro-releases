@@ -1,0 +1,19 @@
+The audit and fixes look excellent overall; only a few manual routing and content decisions remain, with one especially urgent.
+1. Quality of what Replit already did
+•	Technical SEO is now in a solid state: unique titles/descriptions, canonical tags, robots.txt, sitemap.xml, OG/Twitter tags, and JSON‑LD for SoftwareApplication + Organization. This brings you in line with modern SEO checklists.[marketingaid +2]
+•	On-page positioning is now clearly OS/OW + LiDAR focused: new H1, hero copy, “What is MeasurePRO?” section, FAQ, and cross‑links to SolTec / RoadScope all directly address the confusion with consumer “Measure Pro” apps.[soltecinnovation +2]
+•	UX and nav are much better: Testing Portal removed, Use Cases / Contact / Book a Demo added, contact/pricing pages reframed for B2B OS/OW buyers with hardware context and SolTec pricing link.[seoclarity]
+2. Single most important next step
+Right now, Google will crawl `https://measure-pro.app/` first, but your public landing is `/welcome`, and `/` is a protected dashboard.[seoclarity]
+You should pick one of these and implement it in your router/hosting:
+•	Preferred: Make `/` show `WelcomePage` for unauthenticated users, and move the app dashboard to something like `/app` or `/dashboard`.
+•	Alternative: Add a 301 redirect at the server level from `/` → `/welcome` so crawlers and users hit the marketing page.[seoclarity]
+This change will have the biggest impact on indexing and discoverability.
+3. Other items I recommend doing soon
+•	Update/remove the outdated “pre-launch” pricing dates on WelcomePage (Nov 15 / Dec 15 / Jan 14) so new visitors don’t see expired promos on first contact.
+•	Add the PWA manifest to `public/manifest.webmanifest` and ensure `index.html` references that file, not just the built one in `dist/`, so it is visible and testable in dev.[seoclarity]
+•	Turn on `loading="lazy"` and consider WebP for big images on WelcomePage (hero tablet/LiDAR shots) to help Core Web Vitals.[thatware]
+•	Once routing/root is fixed and deployed on the real domain, immediately submit `https://measure-pro.app/sitemap.xml` in Google Search Console and Bing Webmaster Tools.[marketingaid +1]
+4. Nice-to-have, but lower priority
+•	Add `PriceSpecification` / additional `SoftwareApplication` schema to `/pricing` if you keep clearly-defined tiers; this can help with rich results.[marketingaid]
+•	Start a minimum of 2–3 focused blog posts on OS/OW survey topics (bridge clearance workflows, lane-width surveys, field-to-permit pipeline), which your new structure will support nicely.[marketingaid]

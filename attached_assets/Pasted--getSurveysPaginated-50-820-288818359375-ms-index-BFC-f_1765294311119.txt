@@ -1,0 +1,171 @@
+⏱️ getSurveysPaginated(50): 820.288818359375 ms
+index-BFC-f-AF.js:3438 ⏱️ loadSurveys TOTAL: 848.314208984375 ms
+index-BFC-f-AF.js:3438 ✅ Loaded 24 surveys (including active) in 848ms
+index-BFC-f-AF.js:3235  ⚠️ SLOW: loadSurveys (initial) took 849ms
+ks @ index-BFC-f-AF.js:3235
+loadSurveys @ index-BFC-f-AF.js:3438
+index-BFC-f-AF.js:3235  ⚠️ SLOW: getSurveysPaginated took 844ms
+ks @ index-BFC-f-AF.js:3235
+Dd @ index-BFC-f-AF.js:3235
+index-BFC-f-AF.js:3438  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BFC-f-AF.js:3438
+index-BFC-f-AF.js:3438  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BFC-f-AF.js:3438
+index-BFC-f-AF.js:3438 ✅ Loaded 24 surveys (including active) in 872ms
+index-BFC-f-AF.js:3235  ⚠️ SLOW: loadSurveys (initial) took 872ms
+ks @ index-BFC-f-AF.js:3235
+loadSurveys @ index-BFC-f-AF.js:3438
+3index-BFC-f-AF.js:3435 [AutoSync] Survey exported: 34ace820-4d70-483f-9256-63920c767e29 - "222"
+Warning: Don’t paste code into the DevTools Console that you don’t understand or haven’t reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type ‘allow pasting’ below and press Enter to allow pasting.
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BFC-f-AF.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BFC-f-AF.js:3113 [FIREBASE-6] Already initialized, skipping
+Warning: Don’t paste code into the DevTools Console that you don’t understand or haven’t reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type ‘allow pasting’ below and press Enter to allow pasting.
+allow pasting
+(async function() {
+  console.log('[FullBackup] Starting...');
+  const dbList = await indexedDB.databases();
+  console.log('[FullBackup] Found databases:', dbList.map(d => d.name));
+  
+  const backup = { exportedAt: new Date().toISOString(), origin: location.origin, databases: {} };
+  
+  for (const dbInfo of dbList) {
+    if (!dbInfo.name) continue;
+    const dbName = dbInfo.name;
+    console.log(`[FullBackup] Opening ${dbName}...`);
+    
+    backup.databases[dbName] = {};
+    
+    const nativeDb = await new Promise((res, rej) => {
+      const r = indexedDB.open(dbName);
+      r.onsuccess = () => res(r.result);
+      r.onerror = () => rej(r.error);
+    });
+    
+    const storeNames = Array.from(nativeDb.objectStoreNames);
+    console.log(`[FullBackup] Stores in ${dbName}:`, storeNames);
+    
+    for (const storeName of storeNames) {
+      const records = await new Promise((res) => {
+        const tx = nativeDb.transaction(storeName, 'readonly');
+        const arr = [];
+        tx.objectStore(storeName).openCursor().onsuccess = function(e) {
+          const c = e.target.result;
+          if (c) {
+            let v = {...c.value};
+            if (v.imageUrl?.startsWith('data:')) v.imageUrl = '[media]';
+            if (v.videoUrl?.startsWith('data:')) v.videoUrl = '[media]';
+            if (v.drawingUrl?.startsWith('data:')) v.drawingUrl = '[media]';
+            arr.push(v);
+            c.continue();
+          } else res(arr);
+        };
+      });
+      backup.databases[dbName][storeName] = records;
+      console.log(`[FullBackup] ${dbName}/${storeName}: ${records.length} records`);
+    }
+    nativeDb.close();
+  }
+  
+  const blob = new Blob([JSON.stringify(backup, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = `measurepro-backup-${Date.now()}.json`; a.click();
+  console.log('[FullBackup] Done!'); alert('Backup downloaded!');
+})();
+VM328:2 [FullBackup] Starting...
+Promise {<pending>}
+VM328:4 [FullBackup] Found databases: (16) ['MeasurePRO_PointClouds', 'MeasureProVideo', '__measurepro_healthcheck__', 'csv-backup-db', 'firebase-heartbeat-database', 'firebase-sync-queue', 'firebaseLocalStorageDb', 'geo-video-recordings-db', 'measurements-db', 'measurepro-calibration', 'measurepro-detections', 'measurepro-v2', 'routeEnforcementDB', 'routes-db', 'survey-db', 'workbox-expiration']
+VM328:11 [FullBackup] Opening MeasurePRO_PointClouds...
+VM328:22 [FullBackup] Stores in MeasurePRO_PointClouds: (2) ['frames', 'scans_metadata']
+VM328:41 [FullBackup] MeasurePRO_PointClouds/frames: 0 records
+VM328:41 [FullBackup] MeasurePRO_PointClouds/scans_metadata: 0 records
+VM328:11 [FullBackup] Opening MeasureProVideo...
+VM328:22 [FullBackup] Stores in MeasureProVideo: []
+VM328:11 [FullBackup] Opening __measurepro_healthcheck__...
+VM328:22 [FullBackup] Stores in __measurepro_healthcheck__: ['test']
+VM328:41 [FullBackup] __measurepro_healthcheck__/test: 1 records
+VM328:11 [FullBackup] Opening csv-backup-db...
+VM328:22 [FullBackup] Stores in csv-backup-db: ['csv-data']
+VM328:41 [FullBackup] csv-backup-db/csv-data: 8 records
+VM328:11 [FullBackup] Opening firebase-heartbeat-database...
+VM328:22 [FullBackup] Stores in firebase-heartbeat-database: ['firebase-heartbeat-store']
+VM328:41 [FullBackup] firebase-heartbeat-database/firebase-heartbeat-store: 1 records
+VM328:11 [FullBackup] Opening firebase-sync-queue...
+VM328:22 [FullBackup] Stores in firebase-sync-queue: (2) ['queue', 'syncLog']
+VM328:41 [FullBackup] firebase-sync-queue/queue: 7 records
+VM328:41 [FullBackup] firebase-sync-queue/syncLog: 19 records
+VM328:11 [FullBackup] Opening firebaseLocalStorageDb...
+VM328:22 [FullBackup] Stores in firebaseLocalStorageDb: ['firebaseLocalStorage']
+VM328:41 [FullBackup] firebaseLocalStorageDb/firebaseLocalStorage: 1 records
+VM328:11 [FullBackup] Opening geo-video-recordings-db...
+VM328:22 [FullBackup] Stores in geo-video-recordings-db: (2) ['videoChunks', 'videoRecordings']
+VM328:41 [FullBackup] geo-video-recordings-db/videoChunks: 0 records
+VM328:41 [FullBackup] geo-video-recordings-db/videoRecordings: 0 records
+VM328:11 [FullBackup] Opening measurements-db...
+VM328:22 [FullBackup] Stores in measurements-db: ['authCache']
+VM328:41 [FullBackup] measurements-db/authCache: 1 records
+VM328:11 [FullBackup] Opening measurepro-calibration...
+VM328:22 [FullBackup] Stores in measurepro-calibration: ['calibrations']
+VM328:41 [FullBackup] measurepro-calibration/calibrations: 0 records
+VM328:11 [FullBackup] Opening measurepro-detections...
+VM328:22 [FullBackup] Stores in measurepro-detections: ['detectionImages']
+VM328:41 [FullBackup] measurepro-detections/detectionImages: 187 records
+VM328:11 [FullBackup] Opening measurepro-v2...
+VM328:22 [FullBackup] Stores in measurepro-v2: ['poiEvents']
+VM328:41 [FullBackup] measurepro-v2/poiEvents: 0 records
+VM328:11 [FullBackup] Opening routeEnforcementDB...
+VM328:22 [FullBackup] Stores in routeEnforcementDB: (4) ['gpsBreadcrumbs', 'incidents', 'offlineQueue', 'settings']
+VM328:41 [FullBackup] routeEnforcementDB/gpsBreadcrumbs: 0 records
+VM328:41 [FullBackup] routeEnforcementDB/incidents: 0 records
+VM328:41 [FullBackup] routeEnforcementDB/offlineQueue: 0 records
+VM328:41 [FullBackup] routeEnforcementDB/settings: 0 records
+VM328:11 [FullBackup] Opening routes-db...
+VM328:22 [FullBackup] Stores in routes-db: (2) ['route-points', 'routes']
+VM328:41 [FullBackup] routes-db/route-points: 0 records
+VM328:41 [FullBackup] routes-db/routes: 0 records
+VM328:11 [FullBackup] Opening survey-db...
+VM328:22 [FullBackup] Stores in survey-db: (18) ['alerts', 'appSettings', 'frames', 'measurements', 'processedPOIs', 'roadProfileEvents', 'roadProfileQuarantine', 'roadProfileSamples', 'roadProfiles', 'routes', 'surveyCheckpoints', 'surveyMetadata', 'surveys', 'timelapseJobs', 'timelapses', 'uploadQueue', 'vehicleTraces', 'voiceNotes']
+VM328:41 [FullBackup] survey-db/alerts: 0 records
+VM328:41 [FullBackup] survey-db/appSettings: 7 records
+VM328:41 [FullBackup] survey-db/frames: 584 records
+VM328:41 [FullBackup] survey-db/measurements: 1616 records
+VM328:41 [FullBackup] survey-db/processedPOIs: 1163 records
+VM328:41 [FullBackup] survey-db/roadProfileEvents: 0 records
+VM328:41 [FullBackup] survey-db/roadProfileQuarantine: 0 records
+VM328:41 [FullBackup] survey-db/roadProfileSamples: 0 records
+VM328:41 [FullBackup] survey-db/roadProfiles: 40 records
+VM328:41 [FullBackup] survey-db/routes: 0 records
+VM328:41 [FullBackup] survey-db/surveyCheckpoints: 11 records
+VM328:41 [FullBackup] survey-db/surveyMetadata: 0 records
+VM328:41 [FullBackup] survey-db/surveys: 24 records
+VM328:41 [FullBackup] survey-db/timelapseJobs: 1730 records
+VM328:41 [FullBackup] survey-db/timelapses: 0 records
+VM328:41 [FullBackup] survey-db/uploadQueue: 2 records
+VM328:41 [FullBackup] survey-db/vehicleTraces: 0 records
+VM328:41 [FullBackup] survey-db/voiceNotes: 0 records
+VM328:11 [FullBackup] Opening workbox-expiration...
+VM328:22 [FullBackup] Stores in workbox-expiration: ['cache-entries']
+VM328:41 [FullBackup] workbox-expiration/cache-entries: 2 records
+index-BFC-f-AF.js:3778  Unhandled promise rejection: RangeError: Invalid string length
+    at JSON.stringify (<anonymous>)
+    at <anonymous>:46:31
+(anonymous) @ index-BFC-f-AF.js:3778
+VM328:46  Uncaught (in promise) RangeError: Invalid string length
+    at JSON.stringify (<anonymous>)
+    at <anonymous>:46:31
+(anonymous) @ VM328:46
+await in (anonymous)
+(anonymous) @ VM328:50
+index-BFC-f-AF.js:3113  [Sync] Error syncing measurements for survey 34ace820-4d70-483f-9256-63920c767e29: FirebaseError: Request payload size exceeds the limit: 11534336 bytes.
+Wo @ index-BFC-f-AF.js:3113
+index-BFC-f-AF.js:3435  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at Qg (index-BFC-f-AF.js:3435:28532)
+    at async TD (index-BFC-f-AF.js:3437:2815)
+    at async S (Settings-eH9YrnRE.js:181:177419)
+Qg @ index-BFC-f-AF.js:3435
+index-BFC-f-AF.js:3435 [SyncQueue] Survey 34ace820-4d70-483f-9256-63920c767e29 already queued for survey_export, skipping duplicate

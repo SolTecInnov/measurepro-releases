@@ -1,0 +1,1927 @@
+# 🎯 REPLIT AGENT PROMPT — Intégration Pandar40P dans MeasurePRO
+
+> Copier-coller ce prompt COMPLET dans Replit Agent. Ne rien omettre.
+> Ce prompt RÉVISE et ÉTEND la configuration existante — ne pas réécrire ce qui fonctionne déjà.
+
+-----
+
+## CONTEXTE DU PROJET EXISTANT
+
+MeasurePRO est une PWA React + TypeScript + Vite déjà fonctionnelle avec :
+
+- Web Serial API connectée aux LiDARs ponctuels (Jenoptik LDS-30, Astech LDS70A, Acuity AR2700)
+- GNSS Swift Navigation Duro (RTK, UART/Serial)
+- Web Workers pour la réception des données série
+- Firebase/Firestore backend (projet : os-hub-db)
+- Système de POI existant dans RoadScope (GIS-based)
+- PWA offline-first
+
+**NE PAS TOUCHER** à la logique Serial Worker existante pour les LiDARs ponctuels — ils restent actifs en parallèle. Le Pandar40P est un ajout, pas un remplacement de l’architecture existante.
+
+-----
+
+## CE QU’ON AJOUTE — VUE D’ENSEMBLE
+
+Le **Hesai Pandar40P** est un LiDAR 3D mécanique 40 canaux qui communique via **UDP Ethernet** (pas Serial). Il remplace ET dépasse les LiDARs ponctuels existants pour deux fonctions principales :
+
+### Fonction 1 — MODE SURVEY CONTINU (en roulant à 90 km/h)
+
+- Remplacement du laser ponctuel vertical → détection hauteur libre (fils, structures, ponts, feux, panneaux)
+- Mesure largeur disponible gauche/droite (voies, ponts, accotements)
+- Création automatique de POI géoréférencés avec attributs hauteur + largeur
+- Alertes temps réel si enveloppe de passage compromise
+
+### Fonction 2 — MODE SCAN STATIQUE (arrêté devant un overpass)
+
+- Acquisition d’un nuage de points 3D complet 360°
+- Sauvegarde locale en format .pcd ou .las géoréférencé
+- Visualisation 3D interactive au bureau (Three.js point cloud viewer)
+- Attachement automatique au POI correspondant dans RoadScope
+
+-----
+
+## SPECS TECHNIQUES DU PANDAR40P
+
+```
+Interface réseau  : UDP/IP Ethernet 100 Mbps
+IP source LiDAR   : 192.168.1.201 (configurable)
+Port UDP données  : 2368 (point cloud)
+Port UDP GPS      : 10110 (NMEA sync)
+Format données    : Paquets UDP binaires propriétaires Hesai
+Débit             : ~720 000 points/sec
+Canaux            : 40 (distribution verticale -25° à +15°)
+FOV horizontal    : 360°
+FOV vertical      : 40° (-25° à +15°)
+Résolution vert.  : 0.33° (canaux centraux 6-30)
+Fréquence rotation: 10 ou 20 Hz (configurable)
+Portée            : 0.3 à 200m (±2cm précision)
+Sortie            : Point Cloud Data Packets (UDP broadcast)
+Connecteur        : Lemo FGG.2T.316.CLAC75Z
+Alimentation      : 12V DC via boîtier Hesai
+IP rating         : IP6K7
+```
+
+**Structure d’un paquet UDP Pandar40P :**
+
+```
+Header (42 bytes) : version, flags, azimuth, timestamp
+Blocs de données  : 12 blocs × 40 canaux × [distance(2B) + réflectivité(1B)]
+Timestamp         : µs depuis GPS epoch (synchronisé PTP ou GPS)
+```
+
+-----
+
+## ARCHITECTURE COMPLÈTE À IMPLÉMENTER
+
+```
+src/
+├── services/
+│   └── pandar40p/
+│       ├── Pandar40PService.ts        ← singleton service UDP
+│       ├── PacketParser.ts            ← parse paquets UDP binaires Hesai
+│       ├── PointCloudBuffer.ts        ← buffer circulaire nuage de points
+│       ├── SurveyProcessor.ts         ← MODE 1: analyse continue en roulant
+│       ├── StaticScanCapture.ts       ← MODE 2: scan statique overpass
+│       └── ClearanceDetector.ts       ← détection hauteur/largeur libre
+├── workers/
+│   └── pandar.worker.ts               ← Web Worker UDP parsing (hors main thread)
+├── components/
+│   ├── Pandar40PStatus/
+│   │   └── Pandar40PStatus.tsx        ← widget état connexion + stats
+│   ├── ClearanceHUD/
+│   │   ├── ClearanceHUD.tsx           ← HUD hauteur/largeur temps réel
+│   │   └── ClearanceHUD.css
+│   ├── StaticScanView/
+│   │   ├── StaticScanView.tsx         ← UI mode scan statique
+│   │   ├── PointCloudViewer.tsx       ← visualiseur Three.js 3D au bureau
+│   │   └── StaticScanView.css
+│   └── POICapture/
+│       └── POICapturePanel.tsx        ← création POI avec données Pandar
+├── hooks/
+│   ├── usePandar40P.ts                ← hook principal Pandar
+│   ├── useClearanceMonitor.ts         ← hook surveillance gabarit continu
+│   └── useStaticScan.ts               ← hook gestion scan statique
+├── types/
+│   └── pandar.types.ts                ← types TypeScript complets
+└── utils/
+    ├── pandarPacketDecoder.ts          ← décodage binaire UDP
+    ├── pointCloudExporter.ts           ← export .pcd / .las / .csv
+    └── clearanceAlgorithms.ts          ← algorithmes détection gabarit
+```
+
+-----
+
+## FICHIER 1 — `pandar.types.ts`
+
+```typescript
+// Types fondamentaux pour toutes les données Pandar40P
+
+export interface Point3D {
+  x: number;        // mètres, système coordonnées véhicule
+  y: number;        // mètres
+  z: number;        // mètres (positif = vers le haut)
+  intensity: number; // 0-255 réflectivité
+  channel: number;  // 0-39 numéro de canal laser
+  azimuth: number;  // degrés 0-360
+  distance: number; // mètres distance brute
+  timestamp: number; // µs
+  returnType?: 'strongest' | 'last' | 'dual';
+}
+
+export interface PointCloud {
+  points: Point3D[];
+  timestamp: number;       // µs epoch GPS
+  frameId: string;         // UUID unique par rotation complète
+  gpsLat?: number;         // WGS84 depuis Duro GNSS
+  gpsLon?: number;
+  gpsAlt?: number;
+  gpsHeading?: number;     // degrés vrais
+  gpsAccuracy?: number;    // mètres ±
+  vehicleSpeed?: number;   // km/h depuis GPS
+  isComplete: boolean;     // true = rotation 360° complète
+}
+
+export interface ClearanceProfile {
+  timestamp: number;
+  gpsLat: number;
+  gpsLon: number;
+  gpsHeading: number;
+  vehicleSpeed: number;
+
+  // Hauteur libre (au-dessus du véhicule)
+  clearanceAbove: number;       // mètres — minimum détecté sur l'axe vertical
+  clearanceAboveLeft: number;   // mètres — côté gauche
+  clearanceAboveRight: number;  // mètres — côté droit
+  clearanceAboveCenter: number; // mètres — centre route
+  obstacleTypeAbove?: string;   // 'wire' | 'bridge' | 'sign' | 'light' | 'structure'
+  obstacleConfidence: number;   // 0-1
+
+  // Largeur disponible (obstacles latéraux)
+  widthAvailable: number;       // mètres total gauche + droite
+  clearanceLeft: number;        // mètres depuis centre véhicule gauche
+  clearanceRight: number;       // mètres depuis centre véhicule droite
+  leftObstacleType?: string;    // 'barrier' | 'wall' | 'vehicle' | 'curb' | 'edge'
+  rightObstacleType?: string;
+
+  // Profil sol
+  roadWidth: number;            // mètres largeur chaussée estimée
+  shoulderWidthLeft: number;    // mètres accotement gauche
+  shoulderWidthRight: number;   // mètres accotement droit
+
+  // Alertes
+  isCritical: boolean;          // true si < seuil dangereux
+  isWarning: boolean;           // true si < seuil avertissement
+  alertMessage?: string;
+}
+
+export interface StaticScanSession {
+  sessionId: string;
+  startTime: number;
+  endTime?: number;
+  gpsLat: number;
+  gpsLon: number;
+  gpsAlt: number;
+  gpsHeading: number;
+  locationName?: string;        // nom saisi par l'opérateur
+  structureType?: string;       // 'overpass' | 'bridge' | 'tunnel' | 'sign_gantry'
+  totalPoints: number;
+  rotationCount: number;        // nombre de rotations 360° capturées
+  durationSeconds: number;
+  pointClouds: PointCloud[];
+  measurements: StaticMeasurement[];
+  exportPath?: string;          // chemin fichier .pcd exporté
+  poiId?: string;               // ID POI RoadScope associé
+}
+
+export interface StaticMeasurement {
+  type: 'height' | 'width' | 'span' | 'clearance';
+  value: number;                // mètres
+  confidence: number;           // 0-1
+  pointA?: Point3D;             // points source de la mesure
+  pointB?: Point3D;
+  label: string;                // ex: "Hauteur libre centre" "Largeur tablier"
+}
+
+export interface Pandar40PConfig {
+  vehicleHeight: number;        // hauteur totale du véhicule hôte (m)
+  vehicleWidth: number;         // largeur totale (m)
+  vehicleLength: number;        // longueur totale (m)
+  sensorHeight: number;         // hauteur montage Pandar sur véhicule (m)
+  sensorTiltDeg: number;        // inclinaison avant (degrés, typique 5°)
+  alertHeightThreshold: number; // alerte si dégagement < X m (ex: 0.5m au-dessus véhicule)
+  warningHeightThreshold: number;
+  alertWidthThreshold: number;  // alerte si largeur dispo < X m
+  warningWidthThreshold: number;
+  minScanPointsForPOI: number;  // points minimum pour créer un POI automatique
+  autoPoiEnabled: boolean;
+  udpHost: string;              // IP du Pandar (défaut: '192.168.1.201')
+  udpPort: number;              // port (défaut: 2368)
+}
+
+export interface POIData {
+  id: string;
+  type: 'clearance_point' | 'static_scan' | 'alert';
+  timestamp: number;
+  gpsLat: number;
+  gpsLon: number;
+  gpsAlt: number;
+  gpsHeading: number;
+  name: string;
+  structureType?: string;
+  clearanceHeight?: number;     // m — hauteur libre mesurée
+  clearanceWidth?: number;      // m — largeur disponible
+  roadWidth?: number;           // m — largeur chaussée
+  vehicleHeightAtCapture?: number;
+  isCritical?: boolean;
+  notes?: string;
+  scanSessionId?: string;       // lien vers StaticScanSession si scan statique
+  attachments?: string[];       // URLs fichiers .pcd exportés
+  createdBy: string;
+  tags: string[];
+}
+
+export type ScanMode = 'idle' | 'survey' | 'static_scan' | 'paused';
+
+export interface PandarState {
+  connected: boolean;
+  mode: ScanMode;
+  pointsPerSecond: number;
+  rotationsPerSecond: number;
+  lastFrameTimestamp: number;
+  totalPointsCaptured: number;
+  currentProfile?: ClearanceProfile;
+  activeSession?: StaticScanSession;
+  config: Pandar40PConfig;
+  error?: string;
+}
+```
+
+-----
+
+## FICHIER 2 — `PacketParser.ts` (Décodage UDP binaire Hesai)
+
+```typescript
+import type { Point3D, PointCloud } from '../types/pandar.types';
+
+// Structure paquet UDP Pandar40P
+// Header: 42 bytes
+// Body: 12 blocs × (azimuth 2B + 40 canaux × 3B) = 12 × 122 = 1464 bytes
+// Tail: timestamp 4B + factory 2B = 6 bytes
+// Total: ~1512 bytes par paquet
+
+const PACKET_SIZE = 1512;
+const BLOCKS_PER_PACKET = 12;
+const CHANNELS_PER_BLOCK = 40;
+const BLOCK_SIZE = 2 + CHANNELS_PER_BLOCK * 3; // azimuth + channels
+
+// Angles verticaux des 40 canaux Pandar40P (degrés, du haut vers le bas)
+// Source: Hesai Pandar40P User Manual, Appendix I
+const CHANNEL_ANGLES_DEG: number[] = [
+  15.0, 11.0, 8.0, 5.0, 3.0, 2.0, 1.67, 1.33,
+  1.0, 0.67, 0.33, 0.0, -0.33, -0.67, -1.0, -1.33,
+  -1.67, -2.0, -2.33, -2.67, -3.0, -3.33, -3.67, -4.0,
+  -4.33, -4.67, -5.0, -5.5, -6.0, -7.0, -8.0, -9.0,
+  -10.0, -11.0, -12.0, -13.0, -14.0, -19.0, -25.0, -25.0
+];
+
+// Offsets azimuth horizontaux par canal (degrés)
+// Compense le décalage physique des émetteurs
+const CHANNEL_AZIMUTH_OFFSETS_DEG: number[] = [
+  -1.042, -1.042, -1.042, -1.042, -1.042, -1.042, 3.125, -5.208,
+  -1.042, 3.125, -5.208, -1.042, 3.125, -5.208, -1.042, 3.125,
+  -5.208, -1.042, 3.125, -5.208, -1.042, 3.125, -5.208, -1.042,
+  3.125, -5.208, -1.042, -1.042, -1.042, -1.042, -1.042, -1.042,
+  -1.042, -1.042, -1.042, -1.042, -1.042, -1.042, -1.042, -1.042
+];
+
+const DEG_TO_RAD = Math.PI / 180;
+
+export class PacketParser {
+  private azimuthBuffer: number[] = [];
+  private currentFramePoints: Point3D[] = [];
+  private lastAzimuth: number = -1;
+  private frameCallback: ((cloud: PointCloud) => void) | null = null;
+  private calibrationLoaded = false;
+
+  // Angles calibrés depuis le fichier de calibration Hesai (optionnel)
+  private calibratedAngles: number[] = [...CHANNEL_ANGLES_DEG];
+  private calibratedAzOffsets: number[] = [...CHANNEL_AZIMUTH_OFFSETS_DEG];
+
+  setFrameCallback(cb: (cloud: PointCloud) => void) {
+    this.frameCallback = cb;
+  }
+
+  // Charger le fichier de calibration .csv fourni avec l'unité
+  loadCalibration(csvContent: string) {
+    const lines = csvContent.trim().split('\n').slice(1); // skip header
+    lines.forEach((line, i) => {
+      if (i >= 40) return;
+      const parts = line.split(',');
+      if (parts.length >= 3) {
+        this.calibratedAngles[i] = parseFloat(parts[2]); // elevation
+        this.calibratedAzOffsets[i] = parseFloat(parts[1]); // azimuth offset
+      }
+    });
+    this.calibrationLoaded = true;
+    console.log('[Pandar40P] Calibration chargée:', this.calibratedAngles.slice(0, 5));
+  }
+
+  parsePacket(buffer: ArrayBuffer): void {
+    if (buffer.byteLength < PACKET_SIZE) return;
+
+    const view = new DataView(buffer);
+
+    // Vérifier signature header Hesai (0xFFEE)
+    const magic = view.getUint16(0, false);
+    if (magic !== 0xFFEE) return;
+
+    // Extraire timestamp (µs) — bytes 1494-1497
+    const timestamp = view.getUint32(1494, true);
+
+    // Traiter les 12 blocs
+    const blockOffset = 42; // offset après header
+
+    for (let b = 0; b < BLOCKS_PER_PACKET; b++) {
+      const base = blockOffset + b * BLOCK_SIZE;
+
+      // Azimuth du bloc (1/100 degré → degrés)
+      const azimuth = view.getUint16(base, true) / 100.0;
+
+      // Détection nouvelle rotation (azimuth revient près de 0)
+      if (this.lastAzimuth > 350 && azimuth < 10 && this.currentFramePoints.length > 1000) {
+        this.emitFrame(timestamp);
+      }
+      this.lastAzimuth = azimuth;
+
+      // Traiter les 40 canaux
+      for (let ch = 0; ch < CHANNELS_PER_BLOCK; ch++) {
+        const chBase = base + 2 + ch * 3;
+
+        // Distance (mm → mètres)
+        const distMM = view.getUint16(chBase, true);
+        const distance = distMM / 1000.0;
+
+        // Réflectivité
+        const intensity = view.getUint8(chBase + 2);
+
+        // Ignorer points invalides
+        if (distance < 0.3 || distance > 200) continue;
+
+        // Angle vertical calibré
+        const elevDeg = this.calibratedAngles[ch];
+        const azOffsetDeg = this.calibratedAzOffsets[ch];
+        const finalAzimuth = (azimuth + azOffsetDeg + 360) % 360;
+
+        // Conversion sphérique → cartésien
+        // Système coordonnées véhicule: X=avant, Y=gauche, Z=haut
+        const elevRad = elevDeg * DEG_TO_RAD;
+        const azRad = finalAzimuth * DEG_TO_RAD;
+
+        const cosElev = Math.cos(elevRad);
+        const x = distance * cosElev * Math.cos(azRad);
+        const y = distance * cosElev * Math.sin(azRad);
+        const z = distance * Math.sin(elevRad);
+
+        this.currentFramePoints.push({
+          x, y, z,
+          intensity,
+          channel: ch,
+          azimuth: finalAzimuth,
+          distance,
+          timestamp,
+        });
+      }
+    }
+  }
+
+  private emitFrame(timestamp: number) {
+    if (!this.frameCallback || this.currentFramePoints.length === 0) return;
+
+    const cloud: PointCloud = {
+      points: [...this.currentFramePoints],
+      timestamp,
+      frameId: crypto.randomUUID(),
+      isComplete: true,
+    };
+
+    this.frameCallback(cloud);
+    this.currentFramePoints = [];
+  }
+}
+```
+
+-----
+
+## FICHIER 3 — `pandar.worker.ts` (Web Worker UDP)
+
+```typescript
+// Web Worker dédié à la réception et au parsing des paquets UDP Pandar40P
+// Tourne hors du thread principal pour ne pas bloquer l'UI
+
+import { PacketParser } from '../services/pandar40p/PacketParser';
+import type { PointCloud, Pandar40PConfig } from '../types/pandar.types';
+
+let parser: PacketParser | null = null;
+let udpSocket: any = null; // WebSocket vers un proxy UDP si nécessaire
+let isRunning = false;
+let frameCount = 0;
+let lastFpsTime = Date.now();
+
+// NOTE IMPORTANTE: Les browsers n'ont pas accès direct aux sockets UDP.
+// On utilise une des deux approches selon l'environnement:
+// Approche A: WebSocket proxy (Node.js server intermédiaire) — recommandé PWA
+// Approche B: Electron avec Node.js UDP natif — si app desktop
+// Approche C: WebRTC DataChannel — expérimental
+// → Implémenter Approche A par défaut avec fallback mode simulation
+
+self.onmessage = async (e: MessageEvent) => {
+  const { type, config, calibrationCsv } = e.data;
+
+  switch (type) {
+    case 'init':
+      parser = new PacketParser();
+      parser.setFrameCallback((cloud: PointCloud) => {
+        frameCount++;
+        const now = Date.now();
+        if (now - lastFpsTime >= 1000) {
+          const fps = frameCount;
+          frameCount = 0;
+          lastFpsTime = now;
+          self.postMessage({ type: 'stats', fps, pointsPerFrame: cloud.points.length });
+        }
+        // Transférer le nuage de points au thread principal
+        // Utiliser transferable objects pour performance
+        self.postMessage({ type: 'frame', cloud });
+      });
+
+      if (calibrationCsv) {
+        parser.loadCalibration(calibrationCsv);
+      }
+
+      self.postMessage({ type: 'initialized' });
+      break;
+
+    case 'connect':
+      await connectToLiDAR(config);
+      break;
+
+    case 'disconnect':
+      disconnect();
+      break;
+
+    case 'loadCalibration':
+      parser?.loadCalibration(calibrationCsv);
+      break;
+  }
+};
+
+async function connectToLiDAR(config: Pandar40PConfig) {
+  // Connexion via WebSocket proxy
+  // Le proxy Node.js écoute sur UDP 2368 et relaie via WebSocket
+  const wsUrl = `ws://localhost:8768`; // port du proxy local
+
+  try {
+    const ws = new WebSocket(wsUrl);
+    ws.binaryType = 'arraybuffer';
+
+    ws.onopen = () => {
+      isRunning = true;
+      self.postMessage({ type: 'connected', message: 'Pandar40P connecté' });
+    };
+
+    ws.onmessage = (event) => {
+      if (event.data instanceof ArrayBuffer && parser) {
+        parser.parsePacket(event.data);
+      }
+    };
+
+    ws.onerror = (err) => {
+      self.postMessage({ type: 'error', message: 'Erreur connexion Pandar40P — vérifier proxy UDP' });
+    };
+
+    ws.onclose = () => {
+      isRunning = false;
+      self.postMessage({ type: 'disconnected' });
+    };
+
+    udpSocket = ws;
+  } catch (err) {
+    self.postMessage({ type: 'error', message: String(err) });
+    // Fallback: mode simulation pour développement
+    startSimulation();
+  }
+}
+
+function disconnect() {
+  udpSocket?.close();
+  isRunning = false;
+}
+
+// Mode simulation pour développement sans hardware
+function startSimulation() {
+  self.postMessage({ type: 'simulation_mode', message: 'Pandar40P en mode simulation' });
+  let simAzimuth = 0;
+
+  const interval = setInterval(() => {
+    if (!parser || !isRunning) { clearInterval(interval); return; }
+
+    // Générer un paquet simulé réaliste
+    const simBuffer = generateSimPacket(simAzimuth);
+    parser.parsePacket(simBuffer);
+    simAzimuth = (simAzimuth + 30) % 360; // 12 blocs × 2.5° = 30° par paquet
+  }, 50); // 20 paquets/sec ≈ 10 Hz
+}
+
+function generateSimPacket(startAzimuth: number): ArrayBuffer {
+  const buffer = new ArrayBuffer(1512);
+  const view = new DataView(buffer);
+
+  // Magic header
+  view.setUint16(0, 0xFFEE, false);
+
+  const blockOffset = 42;
+  for (let b = 0; b < 12; b++) {
+    const base = blockOffset + b * 122;
+    const azimuth = ((startAzimuth + b * 2.5) % 360) * 100;
+    view.setUint16(base, azimuth, true);
+
+    for (let ch = 0; ch < 40; ch++) {
+      const chBase = base + 2 + ch * 3;
+      // Simuler une route + structures
+      let dist = 5000; // 5m sol par défaut
+      if (ch < 5) dist = Math.floor(8000 + Math.random() * 2000); // fils/structures haut
+      else if (ch > 35) dist = Math.floor(1500 + Math.random() * 500); // sol proche
+      else dist = Math.floor(3000 + Math.sin(startAzimuth * 0.05) * 1000); // route côtés
+      view.setUint16(chBase, dist, true);
+      view.setUint8(chBase + 2, 120 + Math.floor(Math.random() * 80));
+    }
+  }
+
+  // Timestamp
+  view.setUint32(1494, Date.now() % 1000000, true);
+  return buffer;
+}
+```
+
+-----
+
+## FICHIER 4 — `ClearanceDetector.ts` (Algorithmes détection gabarit)
+
+```typescript
+import type {
+  PointCloud, ClearanceProfile, Point3D, Pandar40PConfig
+} from '../types/pandar.types';
+
+export class ClearanceDetector {
+  private config: Pandar40PConfig;
+  private vehicleHalfWidth: number;
+  private sensorH: number;
+
+  constructor(config: Pandar40PConfig) {
+    this.config = config;
+    this.vehicleHalfWidth = config.vehicleWidth / 2;
+    this.sensorH = config.sensorHeight;
+  }
+
+  updateConfig(config: Pandar40PConfig) {
+    this.config = config;
+    this.vehicleHalfWidth = config.vehicleWidth / 2;
+    this.sensorH = config.sensorHeight;
+  }
+
+  /**
+   * Analyse un nuage de points complet et produit un profil de gabarit.
+   * Algorithme:
+   * 1. Segmenter les points par secteur angulaire (avant, arrière, gauche, droite)
+   * 2. Séparer points sol / points obstacles
+   * 3. Calculer hauteur libre minimale dans la zone de passage du véhicule
+   * 4. Calculer largeur disponible (distance aux obstacles latéraux)
+   * 5. Classifier les types d'obstacles (fil, pont, panneau, mur, berge...)
+   */
+  analyze(cloud: PointCloud): ClearanceProfile {
+    const { points } = cloud;
+
+    // === SEGMENTATION ANGULAIRE ===
+    // Zone avant véhicule: azimuth 330°-30° (±30° axe avant)
+    // Zone gauche: 60°-120°
+    // Zone droite: 240°-300°
+    const frontPoints = points.filter(p => {
+      const az = p.azimuth;
+      return (az >= 330 || az <= 30);
+    });
+    const leftPoints  = points.filter(p => p.azimuth >= 60  && p.azimuth <= 120);
+    const rightPoints = points.filter(p => p.azimuth >= 240 && p.azimuth <= 300);
+
+    // === SÉPARATION SOL / OBSTACLES ===
+    // Sol: points avec z < -sensorHeight + 0.3m (dans les 30cm du sol)
+    const groundZ = -this.sensorH + 0.3;
+    const groundPoints = points.filter(p => p.z < groundZ);
+    const obstaclePoints = points.filter(p => p.z >= groundZ);
+
+    // === HAUTEUR LIBRE ===
+    // Zone de passage: ±vehicleHalfWidth autour de l'axe du véhicule
+    const overheadPoints = obstaclePoints.filter(p => {
+      const lateralDist = Math.sqrt(p.x * p.x + p.y * p.y);
+      // Points au-dessus du véhicule (z > vehicleHeight - sensorHeight)
+      return p.z > (this.config.vehicleHeight - this.sensorH - 0.5)
+          && lateralDist < this.vehicleHalfWidth * 1.5;
+    });
+
+    let clearanceAbove = 99.9;
+    let clearanceAboveLeft = 99.9;
+    let clearanceAboveCenter = 99.9;
+    let clearanceAboveRight = 99.9;
+    let obstacleTypeAbove: string | undefined;
+
+    if (overheadPoints.length > 5) {
+      // Hauteur libre = z minimum des points overhead + hauteur capteur
+      const minZ = Math.min(...overheadPoints.map(p => p.z));
+      clearanceAbove = minZ + this.sensorH; // hauteur réelle depuis sol
+
+      // Décomposer gauche / centre / droite
+      const leftOverhead   = overheadPoints.filter(p => p.y > this.vehicleHalfWidth * 0.3);
+      const centerOverhead = overheadPoints.filter(p => Math.abs(p.y) <= this.vehicleHalfWidth * 0.3);
+      const rightOverhead  = overheadPoints.filter(p => p.y < -this.vehicleHalfWidth * 0.3);
+
+      if (leftOverhead.length > 0)
+        clearanceAboveLeft = Math.min(...leftOverhead.map(p => p.z)) + this.sensorH;
+      if (centerOverhead.length > 0)
+        clearanceAboveCenter = Math.min(...centerOverhead.map(p => p.z)) + this.sensorH;
+      if (rightOverhead.length > 0)
+        clearanceAboveRight = Math.min(...rightOverhead.map(p => p.z)) + this.sensorH;
+
+      // Classification type obstacle
+      obstacleTypeAbove = this.classifyOverheadObstacle(overheadPoints);
+    }
+
+    // === LARGEUR DISPONIBLE ===
+    // Points latéraux à hauteur pertinente (entre sol et hauteur véhicule)
+    const vehicleHeightAboveSensor = this.config.vehicleHeight - this.sensorH;
+
+    const leftObstacles = leftPoints.filter(p =>
+      p.z > groundZ && p.z < vehicleHeightAboveSensor + 1.0
+    );
+    const rightObstacles = rightPoints.filter(p =>
+      p.z > groundZ && p.z < vehicleHeightAboveSensor + 1.0
+    );
+
+    let clearanceLeft = 99.9;
+    let clearanceRight = 99.9;
+    let leftObstacleType: string | undefined;
+    let rightObstacleType: string | undefined;
+
+    if (leftObstacles.length > 3) {
+      const minDistLeft = Math.min(...leftObstacles.map(p =>
+        Math.sqrt(p.x * p.x + p.y * p.y)
+      ));
+      clearanceLeft = minDistLeft - this.vehicleHalfWidth;
+      leftObstacleType = this.classifyLateralObstacle(leftObstacles);
+    }
+
+    if (rightObstacles.length > 3) {
+      const minDistRight = Math.min(...rightObstacles.map(p =>
+        Math.sqrt(p.x * p.x + p.y * p.y)
+      ));
+      clearanceRight = minDistRight - this.vehicleHalfWidth;
+      rightObstacleType = this.classifyLateralObstacle(rightObstacles);
+    }
+
+    const widthAvailable = clearanceLeft + clearanceRight + this.config.vehicleWidth;
+
+    // === LARGEUR DE CHAUSSÉE ===
+    const roadWidth = this.estimateRoadWidth(groundPoints);
+    const shoulderWidthLeft  = Math.max(0, clearanceLeft - (roadWidth/2 - this.vehicleHalfWidth));
+    const shoulderWidthRight = Math.max(0, clearanceRight - (roadWidth/2 - this.vehicleHalfWidth));
+
+    // === ALERTES ===
+    const isCritical = clearanceAbove < (this.config.vehicleHeight + this.config.alertHeightThreshold)
+      || clearanceLeft < this.config.alertWidthThreshold
+      || clearanceRight < this.config.alertWidthThreshold;
+
+    const isWarning = clearanceAbove < (this.config.vehicleHeight + this.config.warningHeightThreshold)
+      || clearanceLeft < this.config.warningWidthThreshold
+      || clearanceRight < this.config.warningWidthThreshold;
+
+    let alertMessage: string | undefined;
+    if (isCritical) {
+      if (clearanceAbove < this.config.vehicleHeight + this.config.alertHeightThreshold) {
+        alertMessage = `⚡ HAUTEUR CRITIQUE: ${clearanceAbove.toFixed(2)}m — VÉHICULE ${this.config.vehicleHeight}m`;
+      } else {
+        alertMessage = `⚠️ LARGEUR CRITIQUE: G${clearanceLeft.toFixed(1)}m D${clearanceRight.toFixed(1)}m`;
+      }
+    }
+
+    return {
+      timestamp: cloud.timestamp,
+      gpsLat: cloud.gpsLat || 0,
+      gpsLon: cloud.gpsLon || 0,
+      gpsHeading: cloud.gpsHeading || 0,
+      vehicleSpeed: cloud.vehicleSpeed || 0,
+      clearanceAbove,
+      clearanceAboveLeft,
+      clearanceAboveRight,
+      clearanceAboveCenter,
+      obstacleTypeAbove,
+      obstacleConfidence: overheadPoints.length > 20 ? 0.95 : overheadPoints.length > 5 ? 0.75 : 0.4,
+      widthAvailable,
+      clearanceLeft,
+      clearanceRight,
+      leftObstacleType,
+      rightObstacleType,
+      roadWidth,
+      shoulderWidthLeft,
+      shoulderWidthRight,
+      isCritical,
+      isWarning,
+      alertMessage,
+    };
+  }
+
+  private classifyOverheadObstacle(points: Point3D[]): string {
+    // Fils: cluster étroit, haute réflectivité variable, z élevé
+    const avgIntensity = points.reduce((s, p) => s + p.intensity, 0) / points.length;
+    const zRange = Math.max(...points.map(p => p.z)) - Math.min(...points.map(p => p.z));
+    const yRange = Math.max(...points.map(p => p.y)) - Math.min(...points.map(p => p.y));
+    const xRange = Math.max(...points.map(p => p.x)) - Math.min(...points.map(p => p.x));
+
+    if (zRange < 0.5 && (yRange > 3 || xRange > 3)) return 'wire';
+    if (zRange > 1.5 && xRange > 3 && yRange > 3) return 'bridge';
+    if (points.length < 30 && avgIntensity > 150) return 'sign';
+    if (avgIntensity > 180) return 'light';
+    return 'structure';
+  }
+
+  private classifyLateralObstacle(points: Point3D[]): string {
+    const zRange = Math.max(...points.map(p => p.z)) - Math.min(...points.map(p => p.z));
+    const avgIntensity = points.reduce((s, p) => s + p.intensity, 0) / points.length;
+    const minZ = Math.min(...points.map(p => p.z));
+
+    if (zRange > 2.0) return 'wall';
+    if (zRange < 0.4 && minZ < -this.sensorH + 0.5) return 'curb';
+    if (avgIntensity > 160 && zRange < 1.0) return 'barrier';
+    if (points.length > 200) return 'vehicle';
+    return 'edge';
+  }
+
+  private estimateRoadWidth(groundPoints: Point3D[]): number {
+    if (groundPoints.length < 100) return 0;
+    // Chercher les bords de chaussée (changement d'intensité sol → accotement)
+    // Approximation: distribution latérale des points sol
+    const yValues = groundPoints.map(p => p.y).sort((a, b) => a - b);
+    const p10 = yValues[Math.floor(yValues.length * 0.1)];
+    const p90 = yValues[Math.floor(yValues.length * 0.9)];
+    return Math.abs(p90 - p10);
+  }
+}
+```
+
+-----
+
+## FICHIER 5 — `SurveyProcessor.ts` (Mode survey continu)
+
+```typescript
+import { ClearanceDetector } from './ClearanceDetector';
+import type {
+  PointCloud, ClearanceProfile, POIData, Pandar40PConfig
+} from '../types/pandar.types';
+import { db } from '../../firebase'; // import Firebase existant
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
+export class SurveyProcessor {
+  private detector: ClearanceDetector;
+  private config: Pandar40PConfig;
+  private profileHistory: ClearanceProfile[] = [];
+  private lastPoiTimestamp = 0;
+  private onProfile?: (profile: ClearanceProfile) => void;
+  private onPOICreated?: (poi: POIData) => void;
+  private onAlert?: (message: string, severity: 'warning' | 'critical') => void;
+
+  // Buffer de profils pour détection de structures persistantes
+  private recentProfiles: ClearanceProfile[] = [];
+  private readonly PROFILE_BUFFER_SIZE = 20; // dernières 2 secondes à 10Hz
+
+  constructor(config: Pandar40PConfig) {
+    this.config = config;
+    this.detector = new ClearanceDetector(config);
+  }
+
+  setCallbacks(callbacks: {
+    onProfile?: (p: ClearanceProfile) => void;
+    onPOICreated?: (poi: POIData) => void;
+    onAlert?: (msg: string, severity: 'warning' | 'critical') => void;
+  }) {
+    this.onProfile = callbacks.onProfile;
+    this.onPOICreated = callbacks.onPOICreated;
+    this.onAlert = callbacks.onAlert;
+  }
+
+  // Appelé à chaque frame complète (10-20 Hz)
+  processFrame(cloud: PointCloud) {
+    const profile = this.detector.analyze(cloud);
+
+    // Enrichir avec données GPS depuis le cloud
+    // (les données GPS sont injectées par usePandar40P depuis le Duro existant)
+
+    this.recentProfiles.push(profile);
+    if (this.recentProfiles.length > this.PROFILE_BUFFER_SIZE) {
+      this.recentProfiles.shift();
+    }
+    this.profileHistory.push(profile);
+
+    // Émettre le profil temps réel
+    this.onProfile?.(profile);
+
+    // Alertes immédiates
+    if (profile.isCritical) {
+      this.onAlert?.(profile.alertMessage || 'ALERTE CRITIQUE', 'critical');
+    } else if (profile.isWarning) {
+      this.onAlert?.(profile.alertMessage || 'AVERTISSEMENT', 'warning');
+    }
+
+    // Détection de structure persistante → créer POI automatique
+    if (this.config.autoPoiEnabled) {
+      this.checkAutoPoiCreation(profile);
+    }
+  }
+
+  /**
+   * Crée un POI automatiquement si une contrainte de gabarit est détectée
+   * de manière persistante sur plusieurs frames consécutives.
+   * Évite les POI en double (cooldown de 30 secondes).
+   */
+  private async checkAutoPoiCreation(profile: ClearanceProfile) {
+    const now = Date.now();
+    if (now - this.lastPoiTimestamp < 30000) return; // cooldown 30s
+
+    // Compter combien de profils récents ont une contrainte similaire
+    const constrainedProfiles = this.recentProfiles.filter(p =>
+      p.clearanceAbove < (this.config.vehicleHeight + 2.0) // contrainte à moins de 2m de marge
+      || p.clearanceLeft < 2.0
+      || p.clearanceRight < 2.0
+    );
+
+    // Seuil: >60% des frames récentes ont une contrainte
+    if (constrainedProfiles.length < this.PROFILE_BUFFER_SIZE * 0.6) return;
+
+    // Calculer valeurs médianes (plus robuste que min/max)
+    const medianClearanceAbove = this.median(constrainedProfiles.map(p => p.clearanceAbove));
+    const medianClearanceLeft  = this.median(constrainedProfiles.map(p => p.clearanceLeft));
+    const medianClearanceRight = this.median(constrainedProfiles.map(p => p.clearanceRight));
+    const medianRoadWidth      = this.median(constrainedProfiles.map(p => p.roadWidth));
+
+    const poi: POIData = {
+      id: crypto.randomUUID(),
+      type: 'clearance_point',
+      timestamp: now,
+      gpsLat: profile.gpsLat,
+      gpsLon: profile.gpsLon,
+      gpsAlt: 0,
+      gpsHeading: profile.gpsHeading,
+      name: this.generatePOIName(profile),
+      structureType: profile.obstacleTypeAbove,
+      clearanceHeight: Math.round(medianClearanceAbove * 100) / 100,
+      clearanceWidth: Math.round((medianClearanceLeft + medianClearanceRight + this.config.vehicleWidth) * 100) / 100,
+      roadWidth: Math.round(medianRoadWidth * 100) / 100,
+      vehicleHeightAtCapture: this.config.vehicleHeight,
+      isCritical: profile.isCritical,
+      notes: `Détecté automatiquement. Marge G: ${medianClearanceLeft.toFixed(2)}m D: ${medianClearanceRight.toFixed(2)}m`,
+      createdBy: 'MeasurePRO Auto',
+      tags: [profile.obstacleTypeAbove || 'structure', 'auto-detected', 'pandar40p'],
+    };
+
+    // Sauvegarder dans Firebase
+    try {
+      await addDoc(collection(db, 'pois'), {
+        ...poi,
+        createdAt: serverTimestamp(),
+      });
+      this.lastPoiTimestamp = now;
+      this.onPOICreated?.(poi);
+    } catch (err) {
+      console.error('[SurveyProcessor] Erreur sauvegarde POI:', err);
+    }
+  }
+
+  private generatePOIName(profile: ClearanceProfile): string {
+    const typeNames: Record<string, string> = {
+      wire:      'Fil aérien',
+      bridge:    'Pont / viaduc',
+      sign:      'Panneau de signalisation',
+      light:     'Feu de circulation',
+      structure: 'Structure aérienne',
+    };
+    const typeName = typeNames[profile.obstacleTypeAbove || ''] || 'Contrainte de gabarit';
+    const height = profile.clearanceAbove.toFixed(2);
+    return `${typeName} — ${height}m`;
+  }
+
+  private median(values: number[]): number {
+    const sorted = [...values].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0
+      ? (sorted[mid - 1] + sorted[mid]) / 2
+      : sorted[mid];
+  }
+
+  // Créer un POI manuellement (bouton opérateur)
+  async createManualPOI(
+    profile: ClearanceProfile,
+    name: string,
+    structureType: string,
+    notes: string
+  ): Promise<POIData> {
+    const poi: POIData = {
+      id: crypto.randomUUID(),
+      type: 'clearance_point',
+      timestamp: Date.now(),
+      gpsLat: profile.gpsLat,
+      gpsLon: profile.gpsLon,
+      gpsAlt: 0,
+      gpsHeading: profile.gpsHeading,
+      name,
+      structureType,
+      clearanceHeight: Math.round(profile.clearanceAbove * 100) / 100,
+      clearanceWidth: Math.round(profile.widthAvailable * 100) / 100,
+      roadWidth: Math.round(profile.roadWidth * 100) / 100,
+      vehicleHeightAtCapture: this.config.vehicleHeight,
+      isCritical: profile.isCritical,
+      notes,
+      createdBy: 'MeasurePRO Manuel',
+      tags: [structureType, 'manual', 'pandar40p'],
+    };
+
+    await addDoc(collection(db, 'pois'), {
+      ...poi,
+      createdAt: serverTimestamp(),
+    });
+
+    this.onPOICreated?.(poi);
+    return poi;
+  }
+
+  getProfileHistory(): ClearanceProfile[] {
+    return [...this.profileHistory];
+  }
+
+  clearHistory() {
+    this.profileHistory = [];
+    this.recentProfiles = [];
+  }
+}
+```
+
+-----
+
+## FICHIER 6 — `StaticScanCapture.ts` (Mode scan statique overpass)
+
+```typescript
+import type {
+  PointCloud, StaticScanSession, StaticMeasurement, POIData, Pandar40PConfig
+} from '../types/pandar.types';
+import { PointCloudExporter } from '../../utils/pointCloudExporter';
+import { db } from '../../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
+export class StaticScanCapture {
+  private session: StaticScanSession | null = null;
+  private config: Pandar40PConfig;
+  private exporter: PointCloudExporter;
+  private onProgress?: (session: StaticScanSession) => void;
+
+  constructor(config: Pandar40PConfig) {
+    this.config = config;
+    this.exporter = new PointCloudExporter();
+  }
+
+  setProgressCallback(cb: (session: StaticScanSession) => void) {
+    this.onProgress = cb;
+  }
+
+  /**
+   * Démarrer une session de scan statique.
+   * À appeler quand le véhicule est arrêté devant un overpass.
+   */
+  startSession(params: {
+    gpsLat: number;
+    gpsLon: number;
+    gpsAlt: number;
+    gpsHeading: number;
+    locationName?: string;
+    structureType?: string;
+  }): StaticScanSession {
+    this.session = {
+      sessionId: crypto.randomUUID(),
+      startTime: Date.now(),
+      gpsLat: params.gpsLat,
+      gpsLon: params.gpsLon,
+      gpsAlt: params.gpsAlt,
+      gpsHeading: params.gpsHeading,
+      locationName: params.locationName,
+      structureType: params.structureType || 'overpass',
+      totalPoints: 0,
+      rotationCount: 0,
+      durationSeconds: 0,
+      pointClouds: [],
+      measurements: [],
+    };
+    return this.session;
+  }
+
+  /**
+   * Ajouter une frame à la session en cours.
+   * Chaque frame = une rotation 360° complète.
+   */
+  addFrame(cloud: PointCloud) {
+    if (!this.session) return;
+
+    this.session.pointClouds.push(cloud);
+    this.session.totalPoints += cloud.points.length;
+    this.session.rotationCount++;
+    this.session.durationSeconds = (Date.now() - this.session.startTime) / 1000;
+
+    // Calculer mesures automatiques après 5 rotations (données stables)
+    if (this.session.rotationCount === 5) {
+      this.session.measurements = this.computeStaticMeasurements();
+    }
+
+    this.onProgress?.(this.session);
+  }
+
+  /**
+   * Terminer la session, exporter le .pcd et créer le POI dans Firebase.
+   */
+  async stopSession(notes?: string): Promise<{
+    session: StaticScanSession;
+    pcdBlob: Blob;
+    poi: POIData;
+  }> {
+    if (!this.session) throw new Error('Aucune session active');
+
+    this.session.endTime = Date.now();
+    this.session.durationSeconds = (this.session.endTime - this.session.startTime) / 1000;
+
+    // Recalculer mesures finales avec toutes les frames
+    this.session.measurements = this.computeStaticMeasurements();
+
+    // Exporter en format .pcd (compatible CloudCompare, RViz, MeshLab)
+    const allPoints = this.session.pointClouds.flatMap(c => c.points);
+    const pcdBlob = this.exporter.toPCD(allPoints, {
+      gpsLat: this.session.gpsLat,
+      gpsLon: this.session.gpsLon,
+      gpsAlt: this.session.gpsAlt,
+      timestamp: this.session.startTime,
+    });
+
+    // Sauvegarder session + POI dans Firebase
+    const heightMeasurement = this.session.measurements.find(m => m.type === 'clearance');
+    const widthMeasurement  = this.session.measurements.find(m => m.type === 'width');
+
+    const poi: POIData = {
+      id: crypto.randomUUID(),
+      type: 'static_scan',
+      timestamp: this.session.startTime,
+      gpsLat: this.session.gpsLat,
+      gpsLon: this.session.gpsLon,
+      gpsAlt: this.session.gpsAlt,
+      gpsHeading: this.session.gpsHeading,
+      name: this.session.locationName || `Scan statique — ${new Date(this.session.startTime).toLocaleString('fr-CA')}`,
+      structureType: this.session.structureType,
+      clearanceHeight: heightMeasurement?.value,
+      clearanceWidth: widthMeasurement?.value,
+      vehicleHeightAtCapture: this.config.vehicleHeight,
+      notes: notes || `${this.session.rotationCount} rotations, ${this.session.totalPoints.toLocaleString()} points`,
+      scanSessionId: this.session.sessionId,
+      createdBy: 'MeasurePRO Scan Statique',
+      tags: [this.session.structureType || 'overpass', 'static-scan', 'pandar40p', 'point-cloud'],
+    };
+
+    this.session.poiId = poi.id;
+
+    try {
+      await addDoc(collection(db, 'pois'), {
+        ...poi,
+        createdAt: serverTimestamp(),
+      });
+      await addDoc(collection(db, 'static_scans'), {
+        ...this.session,
+        pointClouds: [], // Ne pas sauvegarder les points bruts dans Firestore
+        createdAt: serverTimestamp(),
+      });
+    } catch (err) {
+      console.error('[StaticScan] Erreur sauvegarde Firebase:', err);
+    }
+
+    const result = { session: this.session, pcdBlob, poi };
+    this.session = null;
+    return result;
+  }
+
+  private computeStaticMeasurements(): StaticMeasurement[] {
+    if (!this.session || this.session.pointClouds.length === 0) return [];
+
+    // Fusionner tous les nuages de points
+    const allPoints = this.session.pointClouds.flatMap(c => c.points);
+    const measurements: StaticMeasurement[] = [];
+
+    // === HAUTEUR LIBRE (clearance) ===
+    // Points dans la zone de passage du véhicule (±véhicule largeur/2)
+    const vehicleZonePoints = allPoints.filter(p =>
+      Math.abs(p.y) < this.config.vehicleWidth * 0.8
+      && p.z > (this.config.vehicleHeight - this.config.sensorHeight - 0.5)
+      && p.z < 20
+    );
+
+    if (vehicleZonePoints.length > 50) {
+      const minZ = Math.min(...vehicleZonePoints.map(p => p.z));
+      const clearanceH = minZ + this.config.sensorHeight;
+      measurements.push({
+        type: 'clearance',
+        value: Math.round(clearanceH * 100) / 100,
+        confidence: Math.min(0.99, vehicleZonePoints.length / 200),
+        label: 'Hauteur libre passage',
+      });
+    }
+
+    // === LARGEUR TOTALE de la structure ===
+    // Points formant le tablier / les murs (z > vehicleHeight)
+    const structurePoints = allPoints.filter(p =>
+      p.z > (this.config.vehicleHeight - this.config.sensorHeight)
+      && Math.abs(p.x) < 30 // 30m devant/derrière
+    );
+
+    if (structurePoints.length > 100) {
+      const minY = Math.min(...structurePoints.map(p => p.y));
+      const maxY = Math.max(...structurePoints.map(p => p.y));
+      const spanWidth = Math.abs(maxY - minY);
+      measurements.push({
+        type: 'span',
+        value: Math.round(spanWidth * 100) / 100,
+        confidence: 0.85,
+        label: 'Largeur tablier / structure',
+      });
+    }
+
+    // === LARGEUR DISPONIBLE (voie dégagée) ===
+    const groundPoints = allPoints.filter(p => p.z < -this.config.sensorHeight + 0.5);
+    if (groundPoints.length > 200) {
+      const yVals = groundPoints.map(p => p.y).sort((a, b) => a - b);
+      const p10 = yVals[Math.floor(yVals.length * 0.1)];
+      const p90 = yVals[Math.floor(yVals.length * 0.9)];
+      const roadW = Math.abs(p90 - p10);
+      measurements.push({
+        type: 'width',
+        value: Math.round(roadW * 100) / 100,
+        confidence: 0.90,
+        label: 'Largeur chaussée',
+      });
+    }
+
+    return measurements;
+  }
+
+  getCurrentSession(): StaticScanSession | null {
+    return this.session;
+  }
+
+  isActive(): boolean {
+    return this.session !== null;
+  }
+}
+```
+
+-----
+
+## FICHIER 7 — `pointCloudExporter.ts` (Export .pcd / .csv / .las)
+
+```typescript
+import type { Point3D } from '../types/pandar.types';
+
+interface ExportMetadata {
+  gpsLat: number;
+  gpsLon: number;
+  gpsAlt: number;
+  timestamp: number;
+}
+
+export class PointCloudExporter {
+
+  /**
+   * Export format .pcd (Point Cloud Data — standard ROS / CloudCompare)
+   * Lisible dans: CloudCompare, MeshLab, RViz, PCL, Open3D
+   */
+  toPCD(points: Point3D[], meta: ExportMetadata): Blob {
+    const header = [
+      '# .PCD v0.7 - MeasurePRO Point Cloud Export',
+      `# GPS: ${meta.gpsLat.toFixed(8)}, ${meta.gpsLon.toFixed(8)}, ${meta.gpsAlt.toFixed(3)}m`,
+      `# Timestamp: ${new Date(meta.timestamp).toISOString()}`,
+      `# Generated by MeasurePRO - SolTec Innovation Inc.`,
+      'VERSION 0.7',
+      'FIELDS x y z intensity',
+      'SIZE 4 4 4 4',
+      'TYPE F F F F',
+      'COUNT 1 1 1 1',
+      `WIDTH ${points.length}`,
+      'HEIGHT 1',
+      'VIEWPOINT 0 0 0 1 0 0 0',
+      `POINTS ${points.length}`,
+      'DATA ascii',
+    ].join('\n');
+
+    const dataLines = points.map(p =>
+      `${p.x.toFixed(4)} ${p.y.toFixed(4)} ${p.z.toFixed(4)} ${p.intensity}`
+    ).join('\n');
+
+    return new Blob([header + '\n' + dataLines], { type: 'text/plain' });
+  }
+
+  /**
+   * Export format .csv avec toutes les colonnes
+   * Lisible dans Excel, QGIS, ArcGIS
+   */
+  toCSV(points: Point3D[], meta: ExportMetadata): Blob {
+    const header = 'x,y,z,intensity,channel,azimuth,distance,timestamp';
+    const rows = points.map(p =>
+      `${p.x.toFixed(4)},${p.y.toFixed(4)},${p.z.toFixed(4)},${p.intensity},${p.channel},${p.azimuth.toFixed(3)},${p.distance.toFixed(4)},${p.timestamp}`
+    );
+    const content = [
+      `# MeasurePRO Export - GPS: ${meta.gpsLat},${meta.gpsLon} - ${new Date(meta.timestamp).toISOString()}`,
+      header,
+      ...rows
+    ].join('\n');
+    return new Blob([content], { type: 'text/csv' });
+  }
+
+  /**
+   * Export format .xyz simplifié (x y z intensity)
+   * Compatible avec la plupart des logiciels de nuage de points
+   */
+  toXYZ(points: Point3D[], meta: ExportMetadata): Blob {
+    const lines = points.map(p =>
+      `${p.x.toFixed(4)} ${p.y.toFixed(4)} ${p.z.toFixed(4)} ${p.intensity}`
+    );
+    return new Blob([lines.join('\n')], { type: 'text/plain' });
+  }
+
+  /**
+   * Déclencher le téléchargement du fichier dans le browser
+   */
+  downloadFile(blob: Blob, filename: string) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  /**
+   * Générer un nom de fichier automatique basé sur GPS + timestamp
+   */
+  generateFilename(meta: ExportMetadata, format: 'pcd' | 'csv' | 'xyz'): string {
+    const date = new Date(meta.timestamp);
+    const dateStr = date.toISOString().replace(/[:.]/g, '-').substring(0, 19);
+    const lat = meta.gpsLat.toFixed(5).replace('.', 'N');
+    const lon = meta.gpsLon.toFixed(5).replace('.', 'W');
+    return `MeasurePRO_${dateStr}_${lat}_${lon}.${format}`;
+  }
+}
+```
+
+-----
+
+## FICHIER 8 — `ClearanceHUD.tsx` (Affichage temps réel)
+
+```typescript
+import React, { useEffect, useRef } from 'react';
+import type { ClearanceProfile, PandarState } from '../../types/pandar.types';
+import './ClearanceHUD.css';
+
+interface ClearanceHUDProps {
+  profile: ClearanceProfile | undefined;
+  pandarState: PandarState;
+  vehicleHeight: number;
+  vehicleWidth: number;
+  onCreatePOI?: () => void;
+  onStartStaticScan?: () => void;
+}
+
+export const ClearanceHUD: React.FC<ClearanceHUDProps> = ({
+  profile, pandarState, vehicleHeight, vehicleWidth,
+  onCreatePOI, onStartStaticScan
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Dessiner le profil transversal schématique
+  useEffect(() => {
+    if (!canvasRef.current || !profile) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d')!;
+    const W = canvas.width, H = canvas.height;
+    const cx = W / 2, cy = H * 0.7;
+    const scale = 18; // pixels par mètre
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#05080f';
+    ctx.fillRect(0, 0, W, H);
+
+    // Sol
+    ctx.fillStyle = '#1c1c2e';
+    ctx.fillRect(0, cy, W, H - cy);
+
+    // Route
+    const roadPx = profile.roadWidth * scale;
+    ctx.fillStyle = '#2a2a3e';
+    ctx.fillRect(cx - roadPx/2, cy - 2, roadPx, H);
+
+    // Marquage centre route
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.setLineDash([10, 10]);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - 2); ctx.lineTo(cx, H);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Véhicule hôte
+    const vW = vehicleWidth * scale, vH = vehicleHeight * scale;
+    const vehicleColor = '#d0d8e8';
+    ctx.fillStyle = vehicleColor;
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(cx - vW/2, cy - vH, vW, vH, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    // Label véhicule
+    ctx.fillStyle = '#05080f';
+    ctx.font = 'bold 11px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${vehicleHeight}m`, cx, cy - vH/2 + 4);
+
+    // Dégagement gauche
+    const clL = profile.clearanceLeft * scale;
+    const leftObstX = cx - vW/2 - clL;
+    const clColor = profile.clearanceLeft < 1.5 ? '#ff3b3b' :
+                    profile.clearanceLeft < 3.0 ? '#ff9f1c' : '#34e89e';
+    ctx.fillStyle = clColor + '44';
+    ctx.fillRect(leftObstX, cy - vH * 0.6, clL, vH * 0.6);
+    ctx.strokeStyle = clColor;
+    ctx.lineWidth = 1.5;
+
+    // Ligne obstacle gauche
+    ctx.fillStyle = clColor + '88';
+    ctx.fillRect(leftObstX - 6, cy - H * 0.5, 6, H * 0.5);
+
+    // Flèche + mesure gauche
+    ctx.fillStyle = clColor;
+    ctx.font = 'bold 13px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${profile.clearanceLeft.toFixed(1)}m`, leftObstX + clL/2, cy - vH * 0.65);
+    drawArrow(ctx, leftObstX + 4, cy - vH * 0.3, cx - vW/2 - 4, cy - vH * 0.3, clColor);
+
+    // Dégagement droit
+    const clR = profile.clearanceRight * scale;
+    const rightObstX = cx + vW/2 + clR;
+    const crColor = profile.clearanceRight < 1.5 ? '#ff3b3b' :
+                    profile.clearanceRight < 3.0 ? '#ff9f1c' : '#34e89e';
+    ctx.fillStyle = crColor + '44';
+    ctx.fillRect(cx + vW/2, cy - vH * 0.6, clR, vH * 0.6);
+    ctx.fillStyle = crColor + '88';
+    ctx.fillRect(rightObstX, cy - H * 0.5, 6, H * 0.5);
+    ctx.fillStyle = crColor;
+    ctx.font = 'bold 13px JetBrains Mono, monospace';
+    ctx.fillText(`${profile.clearanceRight.toFixed(1)}m`, cx + vW/2 + clR/2, cy - vH * 0.65);
+    drawArrow(ctx, cx + vW/2 + 4, cy - vH * 0.3, rightObstX - 4, cy - vH * 0.3, crColor);
+
+    // Dégagement au-dessus
+    if (profile.clearanceAbove < 20) {
+      const aboveH = (profile.clearanceAbove - vehicleHeight) * scale;
+      const aColor = profile.isCritical ? '#ff3b3b' :
+                     profile.isWarning ? '#ff9f1c' : '#3b9eff';
+      ctx.fillStyle = aColor + '33';
+      ctx.fillRect(cx - vW/2 - 10, cy - vH - aboveH, vW + 20, aboveH);
+
+      // Ligne obstacle aérien
+      ctx.strokeStyle = aColor;
+      ctx.lineWidth = 3;
+      ctx.shadowColor = aColor;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.moveTo(cx - vW/2 - 20, cy - vH - aboveH);
+      ctx.lineTo(cx + vW/2 + 20, cy - vH - aboveH);
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Label hauteur libre
+      ctx.fillStyle = aColor;
+      ctx.font = 'bold 14px JetBrains Mono, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(`${profile.clearanceAbove.toFixed(2)}m`, cx, cy - vH - aboveH - 8);
+
+      // Type obstacle
+      if (profile.obstacleTypeAbove) {
+        const typeLabel: Record<string, string> = {
+          wire: '⚡ FIL', bridge: '🌉 PONT', sign: '🚦 PANNEAU',
+          light: '💡 FEU', structure: '🏗️ STRUCTURE',
+        };
+        ctx.font = '10px JetBrains Mono, monospace';
+        ctx.fillStyle = aColor + 'cc';
+        ctx.fillText(typeLabel[profile.obstacleTypeAbove] || profile.obstacleTypeAbove,
+          cx, cy - vH - aboveH - 22);
+      }
+    }
+
+    // Largeur route
+    ctx.fillStyle = 'rgba(200,216,240,0.35)';
+    ctx.font = '10px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`Route: ${profile.roadWidth.toFixed(1)}m`, cx, cy + 20);
+
+  }, [profile, vehicleHeight, vehicleWidth]);
+
+  const getHeightColor = (h: number) => {
+    const margin = h - vehicleHeight;
+    if (margin < 0.3) return '#ff3b3b';
+    if (margin < 1.0) return '#ff9f1c';
+    return '#34e89e';
+  };
+
+  return (
+    <div className="clearance-hud">
+      {/* Alert Banner */}
+      {profile?.isCritical && (
+        <div className="alert-banner critical">
+          🚨 {profile.alertMessage}
+        </div>
+      )}
+      {profile?.isWarning && !profile?.isCritical && (
+        <div className="alert-banner warning">
+          ⚠️ {profile.alertMessage}
+        </div>
+      )}
+
+      {/* Métriques numériques */}
+      <div className="metrics-row">
+        <div className="metric">
+          <span className="metric-label">HAUTEUR LIBRE</span>
+          <span className="metric-value"
+            style={{ color: profile ? getHeightColor(profile.clearanceAbove) : '#c8d8f0' }}>
+            {profile ? `${profile.clearanceAbove.toFixed(2)}m` : '--'}
+          </span>
+          <span className="metric-sub">
+            {profile?.obstacleTypeAbove?.toUpperCase() || 'DÉGAGEMENT'}
+          </span>
+        </div>
+        <div className="metric">
+          <span className="metric-label">MARGE G</span>
+          <span className="metric-value"
+            style={{ color: profile?.clearanceLeft && profile.clearanceLeft < 1.5 ? '#ff3b3b' : '#34e89e' }}>
+            {profile ? `${profile.clearanceLeft.toFixed(1)}m` : '--'}
+          </span>
+        </div>
+        <div className="metric">
+          <span className="metric-label">MARGE D</span>
+          <span className="metric-value"
+            style={{ color: profile?.clearanceRight && profile.clearanceRight < 1.5 ? '#ff3b3b' : '#34e89e' }}>
+            {profile ? `${profile.clearanceRight.toFixed(1)}m` : '--'}
+          </span>
+        </div>
+        <div className="metric">
+          <span className="metric-label">LARGEUR VOIE</span>
+          <span className="metric-value" style={{ color: '#3b9eff' }}>
+            {profile ? `${profile.roadWidth.toFixed(1)}m` : '--'}
+          </span>
+        </div>
+      </div>
+
+      {/* Schéma transversal */}
+      <canvas
+        ref={canvasRef}
+        width={460}
+        height={280}
+        className="profile-canvas"
+      />
+
+      {/* Boutons action */}
+      <div className="action-buttons">
+        <button
+          className="action-btn poi-btn"
+          onClick={onCreatePOI}
+          disabled={!profile}
+        >
+          📍 CRÉER POI
+        </button>
+        <button
+          className="action-btn scan-btn"
+          onClick={onStartStaticScan}
+          disabled={pandarState.mode === 'static_scan'}
+        >
+          {pandarState.mode === 'static_scan' ? '⏺ SCAN EN COURS...' : '⏺ SCAN STATIQUE'}
+        </button>
+      </div>
+
+      {/* Statut Pandar */}
+      <div className="pandar-status">
+        <div className={`status-dot ${pandarState.connected ? 'active' : 'inactive'}`}/>
+        <span>Pandar40P</span>
+        <span className="status-detail">
+          {pandarState.connected
+            ? `${pandarState.pointsPerSecond.toLocaleString()} pts/s · ${pandarState.rotationsPerSecond.toFixed(1)}Hz`
+            : 'Déconnecté'}
+        </span>
+        {pandarState.mode === 'static_scan' && (
+          <span className="scan-indicator">
+            ⏺ {pandarState.activeSession?.rotationCount || 0} rotations · {pandarState.activeSession?.totalPoints.toLocaleString() || 0} pts
+          </span>
+        )}
+      </div>
+    </div>
+  );
+};
+
+function drawArrow(ctx: CanvasRenderingContext2D, x1: number, y1: number, x2: number, y2: number, color: string) {
+  const headLen = 8;
+  const angle = Math.atan2(y2 - y1, x2 - x1);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI/6), y2 - headLen * Math.sin(angle - Math.PI/6));
+  ctx.moveTo(x2, y2);
+  ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI/6), y2 - headLen * Math.sin(angle + Math.PI/6));
+  ctx.stroke();
+}
+```
+
+-----
+
+## FICHIER 9 — `PointCloudViewer.tsx` (Visualiseur 3D bureau)
+
+```typescript
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import type { StaticScanSession } from '../../types/pandar.types';
+
+interface PointCloudViewerProps {
+  session: StaticScanSession;
+  onClose: () => void;
+  onExport: (format: 'pcd' | 'csv' | 'xyz') => void;
+}
+
+export const PointCloudViewer: React.FC<PointCloudViewerProps> = ({
+  session, onClose, onExport
+}) => {
+  const mountRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    // Three.js scene
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x05080f);
+    mountRef.current.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      0.1, 500
+    );
+    camera.position.set(0, -20, 15);
+    camera.lookAt(0, 0, 0);
+
+    // Lumière ambiante
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+
+    // Fusionner tous les points des frames
+    const allPoints = session.pointClouds.flatMap(c => c.points);
+
+    // Créer la géométrie points
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(allPoints.length * 3);
+    const colors = new Float32Array(allPoints.length * 3);
+
+    // Colorer par hauteur Z (gradient bleu → vert → rouge)
+    const minZ = Math.min(...allPoints.map(p => p.z));
+    const maxZ = Math.max(...allPoints.map(p => p.z));
+    const zRange = maxZ - minZ || 1;
+
+    allPoints.forEach((p, i) => {
+      positions[i * 3]     = p.x;
+      positions[i * 3 + 1] = p.y;
+      positions[i * 3 + 2] = p.z;
+
+      // Coloration par hauteur
+      const t = (p.z - minZ) / zRange;
+      if (t < 0.5) {
+        colors[i * 3]     = 0;
+        colors[i * 3 + 1] = t * 2;
+        colors[i * 3 + 2] = 1 - t * 2;
+      } else {
+        colors[i * 3]     = (t - 0.5) * 2;
+        colors[i * 3 + 1] = 1 - (t - 0.5) * 2;
+        colors[i * 3 + 2] = 0;
+      }
+    });
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const material = new THREE.PointsMaterial({
+      size: 0.06,
+      vertexColors: true,
+      sizeAttenuation: true,
+    });
+
+    const pointCloud = new THREE.Points(geometry, material);
+    scene.add(pointCloud);
+
+    // Axes de référence
+    scene.add(new THREE.AxesHelper(3));
+
+    // Grille au sol
+    const gridHelper = new THREE.GridHelper(40, 20, 0x1a2040, 0x1a2040);
+    gridHelper.position.y = minZ;
+    scene.add(gridHelper);
+
+    // Afficher les mesures calculées
+    session.measurements.forEach(m => {
+      // Ajouter des labels 3D pour les mesures clés
+      // (via CSS2DRenderer ou sprites)
+    });
+
+    // Contrôles orbitaux manuels (sans OrbitControls — pas disponible en r128)
+    let isDragging = false;
+    let prevMouse = { x: 0, y: 0 };
+    let spherical = { theta: 0, phi: Math.PI / 3, radius: 30 };
+
+    const updateCamera = () => {
+      camera.position.set(
+        spherical.radius * Math.sin(spherical.phi) * Math.sin(spherical.theta),
+        spherical.radius * Math.cos(spherical.phi),
+        spherical.radius * Math.sin(spherical.phi) * Math.cos(spherical.theta),
+      );
+      camera.lookAt(0, 0, 0);
+    };
+    updateCamera();
+
+    const onMouseDown = (e: MouseEvent) => { isDragging = true; prevMouse = { x: e.clientX, y: e.clientY }; };
+    const onMouseUp = () => { isDragging = false; };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      const dx = e.clientX - prevMouse.x;
+      const dy = e.clientY - prevMouse.y;
+      spherical.theta -= dx * 0.01;
+      spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi + dy * 0.01));
+      prevMouse = { x: e.clientX, y: e.clientY };
+      updateCamera();
+    };
+    const onWheel = (e: WheelEvent) => {
+      spherical.radius = Math.max(5, Math.min(100, spherical.radius + e.deltaY * 0.05));
+      updateCamera();
+    };
+
+    renderer.domElement.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('mousemove', onMouseMove);
+    renderer.domElement.addEventListener('wheel', onWheel);
+
+    // Boucle de rendu
+    let animId: number;
+    const animate = () => {
+      animId = requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      renderer.dispose();
+      renderer.domElement.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('mousemove', onMouseMove);
+      renderer.domElement.removeEventListener('wheel', onWheel);
+      if (mountRef.current) mountRef.current.removeChild(renderer.domElement);
+    };
+  }, [session]);
+
+  return (
+    <div className="pointcloud-viewer">
+      <div className="viewer-header">
+        <div className="viewer-title">
+          <span>☁️ NUAGE DE POINTS 3D</span>
+          <span className="viewer-subtitle">
+            {session.locationName || 'Scan statique'} · {session.totalPoints.toLocaleString()} points · {session.durationSeconds.toFixed(0)}s
+          </span>
+        </div>
+        <div className="viewer-actions">
+          <button onClick={() => onExport('pcd')} className="export-btn">⬇️ .PCD</button>
+          <button onClick={() => onExport('csv')} className="export-btn">⬇️ .CSV</button>
+          <button onClick={() => onExport('xyz')} className="export-btn">⬇️ .XYZ</button>
+          <button onClick={onClose} className="close-btn">✕</button>
+        </div>
+      </div>
+
+      {/* Mesures calculées */}
+      <div className="measurements-panel">
+        {session.measurements.map((m, i) => (
+          <div key={i} className="measurement-chip">
+            <span className="m-label">{m.label}</span>
+            <span className="m-value">{m.value.toFixed(2)}m</span>
+            <span className="m-conf">{(m.confidence * 100).toFixed(0)}%</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Canvas Three.js */}
+      <div ref={mountRef} className="viewer-canvas" />
+
+      {/* Légende couleurs */}
+      <div className="color-legend">
+        <span style={{color:'#0000ff'}}>■</span> Sol
+        <span style={{color:'#00ff00'}}>■</span> Mi-hauteur
+        <span style={{color:'#ff0000'}}>■</span> Structures aériennes
+        <span style={{color:'rgba(200,216,240,0.5)', fontSize:'9px', marginLeft:'12px'}}>
+          Clic + glisser: rotation · Molette: zoom
+        </span>
+      </div>
+    </div>
+  );
+};
+```
+
+-----
+
+## FICHIER 10 — Proxy UDP Node.js (`server/udp-proxy.ts`)
+
+> **CRITIQUE** — Le browser ne peut pas recevoir UDP directement. Ce serveur Node.js fait le pont UDP → WebSocket.
+
+```typescript
+// server/udp-proxy.ts
+// Démarrer avec: npx ts-node server/udp-proxy.ts
+// Ou ajouter dans package.json scripts: "udp-proxy": "ts-node server/udp-proxy.ts"
+
+import dgram from 'dgram';
+import { WebSocketServer } from 'ws';
+
+const UDP_PORT = 2368;         // Port Pandar40P (défaut Hesai)
+const UDP_HOST = '0.0.0.0';   // Écouter toutes les interfaces
+const WS_PORT = 8768;         // Port WebSocket pour le browser
+
+// Créer socket UDP
+const udpSocket = dgram.createSocket('udp4');
+udpSocket.bind(UDP_PORT, UDP_HOST);
+
+// Créer serveur WebSocket
+const wss = new WebSocketServer({ port: WS_PORT });
+const clients = new Set<any>();
+
+wss.on('connection', (ws) => {
+  clients.add(ws);
+  console.log(`[UDP Proxy] Client WebSocket connecté. Total: ${clients.size}`);
+  ws.on('close', () => {
+    clients.delete(ws);
+    console.log(`[UDP Proxy] Client déconnecté. Total: ${clients.size}`);
+  });
+});
+
+// Relayer les paquets UDP → tous les clients WebSocket
+udpSocket.on('message', (msg, rinfo) => {
+  if (clients.size === 0) return;
+  const data = msg.buffer.slice(msg.byteOffset, msg.byteOffset + msg.byteLength);
+  clients.forEach(ws => {
+    if (ws.readyState === 1) { // OPEN
+      ws.send(data, { binary: true });
+    }
+  });
+});
+
+udpSocket.on('listening', () => {
+  const addr = udpSocket.address();
+  console.log(`[UDP Proxy] ✅ Écoute UDP ${addr.address}:${addr.port}`);
+  console.log(`[UDP Proxy] ✅ WebSocket sur ws://localhost:${WS_PORT}`);
+  console.log(`[UDP Proxy] En attente du Pandar40P sur ${UDP_HOST}:${UDP_PORT}...`);
+});
+
+udpSocket.on('error', (err) => {
+  console.error('[UDP Proxy] Erreur UDP:', err);
+});
+
+// Configuration réseau requise:
+// - IP fixe sur l'interface Ethernet connectée au Pandar: 192.168.1.100
+// - Subnet: 255.255.255.0
+// - Le Pandar40P broadcast sur 255.255.255.255:2368
+```
+
+-----
+
+## CONFIGURATION RÉSEAU REQUISE
+
+Ajouter dans le README du projet :
+
+```bash
+# Configuration réseau pour Pandar40P
+# L'ordinateur doit avoir une IP fixe sur l'interface Ethernet du Pandar:
+
+# Windows:
+# → Panneau config → Réseau → Propriétés → IPv4
+# IP: 192.168.1.100 / Masque: 255.255.255.0 / Passerelle: vide
+
+# Linux/Mac:
+sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0
+
+# Vérifier la réception UDP:
+nc -ul 2368  # doit recevoir des données binaires quand Pandar est allumé
+
+# Démarrer le proxy avant MeasurePRO:
+npm run udp-proxy
+```
+
+-----
+
+## INTÉGRATION DANS L’UI EXISTANTE DE MeasurePRO
+
+### Dans `App.tsx` ou le router principal :
+
+```typescript
+import { ClearanceHUD } from './components/ClearanceHUD/ClearanceHUD';
+import { StaticScanView } from './components/StaticScanView/StaticScanView';
+import { usePandar40P } from './hooks/usePandar40P';
+
+// Dans le composant principal:
+const {
+  pandarState,
+  currentProfile,
+  startSurveyMode,
+  stopSurveyMode,
+  startStaticScan,
+  stopStaticScan,
+  createManualPOI,
+  downloadScan,
+} = usePandar40P(pandarConfig);
+
+// Dans le JSX — ajouter à la vue existante (pas remplacer):
+<ClearanceHUD
+  profile={currentProfile}
+  pandarState={pandarState}
+  vehicleHeight={pandarConfig.vehicleHeight}
+  vehicleWidth={pandarConfig.vehicleWidth}
+  onCreatePOI={() => setShowPOIDialog(true)}
+  onStartStaticScan={startStaticScan}
+/>
+```
+
+### Dans les settings / configuration :
+
+Ajouter un panneau de configuration Pandar40P avec les champs :
+
+- Hauteur du véhicule (m)
+- Largeur du véhicule (m)
+- Hauteur de montage du capteur (m)
+- Inclinaison avant (degrés)
+- Seuil alerte hauteur (m de marge)
+- Seuil alerte largeur (m de marge)
+- Auto-POI activé (toggle)
+- Upload fichier de calibration (.csv Hesai)
+
+-----
+
+## CHECKLIST D’IMPLÉMENTATION (ordre exact)
+
+1. **Installer dépendances** : `npm install three @types/three ws @types/ws`
+1. **Créer** `src/types/pandar.types.ts`
+1. **Créer** `src/utils/pandarPacketDecoder.ts` (alias de PacketParser)
+1. **Créer** `src/utils/pointCloudExporter.ts`
+1. **Créer** `src/utils/clearanceAlgorithms.ts` (alias de ClearanceDetector)
+1. **Créer** `src/services/pandar40p/` avec tous les fichiers services
+1. **Créer** `src/workers/pandar.worker.ts`
+1. **Créer** `server/udp-proxy.ts`
+1. **Ajouter dans `package.json`** : `"udp-proxy": "ts-node server/udp-proxy.ts"`
+1. **Créer** composants `ClearanceHUD`, `StaticScanView`, `PointCloudViewer`
+1. **Créer** hook `usePandar40P.ts`
+1. **Intégrer** dans l’UI existante sans casser les workers Serial existants
+1. **Ajouter** collection Firebase `pois` et `static_scans` avec les règles Firestore
+1. **Tester** en mode simulation (sans hardware) → vérifier HUD + POI création
+1. **Configurer** le réseau → tester avec Pandar réel
+
+-----
+
+## NOTES IMPORTANTES POUR REPLIT
+
+- **Ne PAS modifier** les Workers Serial existants (LiDAR ponctuels + Duro GNSS)
+- Le proxy UDP `server/udp-proxy.ts` doit démarrer **en parallèle** de Vite
+- En environnement Replit (pas de hardware), le mode simulation du pandar.worker.ts prend le relais automatiquement
+- Les données GPS du **Duro GNSS existant** doivent être injectées dans les PointCloud via un event bus ou context partagé — utiliser le système d’events existant dans MeasurePRO
+- Le fichier de calibration Pandar (`.csv` fourni par Hesai avec l’unité) peut être uploadé via l’UI et stocké dans Firebase Storage
+- Les fichiers `.pcd` exportés peuvent faire 50-200 MB — utiliser `URL.createObjectURL` pour le téléchargement direct, **ne pas uploader dans Firestore**
+
+-----
+
+*MeasurePRO · SolTec Innovation Inc. · Saint-Hyacinthe, QC*
+*Pandar40P Integration Prompt v1.0 — Généré pour Replit Agent*

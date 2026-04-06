@@ -1,0 +1,53 @@
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /api/testers/jfprince%40soltec.ca
+workbox-47da91e0.js:44 workbox Router is responding to: /api/testers/jfprince%40soltec.ca
+workbox-47da91e0.js:44 workbox Network request for '/api/testers/jfprince%40soltec.ca' returned a response with status '404'.
+workbox-47da91e0.js:44 workbox Using NetworkFirst to respond to '/api/testers/jfprince%40soltec.ca'
+workbox-47da91e0.js:44 workbox The response for /api/testers/jfprince%40soltec.ca has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+injected.js:204   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/testers/jfprince%40soltec.ca 404 (Not Found)
+apply @ injected.js:204
+handleSubmit @ TestingPage.tsx:629
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+workbox-47da91e0.js:44 workbox The request for '/api/testers/jfprince%40soltec.ca' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/api/testers/jfprince%40soltec.ca' will not be cached. undefined
+workbox-47da91e0.js:44 workbox No route found for: /api/testers
+injected.js:204   POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/testers 400 (Bad Request)
+apply @ injected.js:204
+apiRequest @ queryClient.ts:8
+mutationFn @ TestingPage.tsx:594
+fn @ mutation.ts:190
+run @ retryer.ts:155
+start @ retryer.ts:221
+execute @ mutation.ts:233
+await in execute
+mutate @ mutationObserver.ts:142
+handleSubmit @ TestingPage.tsx:635
+await in handleSubmit
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430

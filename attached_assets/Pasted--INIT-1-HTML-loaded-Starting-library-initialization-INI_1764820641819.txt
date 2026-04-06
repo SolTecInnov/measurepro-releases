@@ -1,0 +1,195 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: Object
+ [FIREBASE-3] Processed Firebase config: Object
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: production Production: true
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] Auth cache found: Object
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [AUTHCTX-4] Days offline: 0
+ [AUTHCTX-6] Auth state initialization complete
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ ⏱️ getSurveysPaginated(50): 93.59619140625 ms
+ ⏱️ loadSurveys TOTAL: 111.52392578125 ms
+ ✅ Loaded 32 surveys (including active) in 112ms
+  ⚠️ SLOW: loadSurveys (initial) took 112ms
+li @ index-BOJU9veW.js:3235
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+  ⚠️ SLOW: getSurveysPaginated took 101ms
+li @ index-BOJU9veW.js:3235
+ ⏱️ getSurveysPaginated(50): 101.467041015625 ms
+ ⏱️ loadSurveys TOTAL: 119.4580078125 ms
+ ✅ Loaded 32 surveys (including active) in 120ms
+  ⚠️ SLOW: loadSurveys (initial) took 120ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3235  ⚠️ SLOW: getSurveysPaginated took 122ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3437  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3437  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3437 ✅ Loaded 32 surveys (including active) in 140ms
+index-BOJU9veW.js:3235  ⚠️ SLOW: loadSurveys (initial) took 140ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3113 [AUTH-4] Auth state changed: Object
+index-BOJU9veW.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-BOJU9veW.js:3113 [AUTH-7] Calling auth callback with user: true
+index-BOJU9veW.js:3113 [AUTHCTX-8] Firebase auth listener callback: Object
+index-BOJU9veW.js:3113 [AUTHCTX-9] User authenticated and online, updating timestamps
+index-BOJU9veW.js:3113 [AUTH-4] Auth state changed: Object
+index-BOJU9veW.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-BOJU9veW.js:3113 [AUTH-7] Calling auth callback with user: true
+ZED2iCamera-4Z0xBH-H.js:1  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+g @ ZED2iCamera-4Z0xBH-H.js:1
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Settings-DY8rPonP.js:181 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+index-BOJU9veW.js:233  [2025-12-04T03:57:08.279Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+index-BOJU9veW.js:233  [2025-12-04T03:57:08.279Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417

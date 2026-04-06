@@ -1,0 +1,93 @@
+MeasurePRO Photo Sync Issue - RoadScope Integration
+Problem Summary
+Photos are not syncing to RoadScope when surveys are exported. The RoadScope survey "Lotbinière 8" has 80 POIs synced successfully but 0 photos are displaying.
+
+Root Cause Analysis
+Looking at the console logs, there are two different upload paths being used:
+
+RoadScope Sync path (WORKS) - Survey wOZN2IcGhPlr8osAerCZ:
+
+[RoadScope] Requesting: /api/roadscope/proxy/surveys/wOZN2IcGhPlr8osAerCZ/upload-urls
+[RoadScope Sync] Upload URLs response: {"uploads":[...]}
+[RoadScope Sync] Found 1 upload URLs
+[RoadScope] Response (200): {success: true, message: 'Registered 1 files'}
+
+CloseSurvey/Export ZIP path (FAILS) - Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 (Lotbinière 8):
+
+[CloseSurvey] Package generated: lotbiniere-8--2025-12-04.zip Size: 16.28 MB
+[StorageUpload] Uploading lotbiniere-8--2025-12-04.zip to server...
+POST .../api/storage/upload-survey-package 413 (Request Entity Too Large)
+[StorageUpload] Upload failed: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+The Issue
+The /api/storage/upload-survey-package endpoint does not exist in RoadScope. RoadScope only supports per-file uploads via signed URLs through these endpoints:
+
+POST /api/measurepro/surveys/:surveyId/upload-urls - Get signed upload URLs
+POST /api/measurepro/surveys/:surveyId/files - Register uploaded files
+What Needs to be Fixed in MeasurePRO
+Option A (Recommended): Ensure photos sync via RoadScope Sync path
+
+The RoadScope sync in syncService.ts needs to include photos when syncing POIs. Currently:
+
+POIs sync correctly (80/81 synced)
+But photos are NOT being uploaded via the RoadScope signed URL approach
+Check the sync service logic to ensure:
+
+When syncing POIs to RoadScope, also sync associated photos
+For each photo:
+Call /api/roadscope/proxy/surveys/:surveyId/upload-urls to get a signed URL
+Upload the photo directly to Firebase Storage using the signed URL
+Call /api/roadscope/proxy/surveys/:surveyId/files to register the file with RoadScope
+Option B: Fix the CloseSurvey/Export flow
+
+If the CloseSurvey flow should upload to RoadScope:
+
+Don't bundle photos into a ZIP - upload them individually
+Use the RoadScope signed URL approach (same as Option A)
+Remove the call to /api/storage/upload-survey-package since it doesn't exist
+RoadScope API Reference
+Get Upload URLs:
+
+POST /api/measurepro/surveys/:surveyId/upload-urls
+Authorization: Bearer <api_key>
+Body: {
+  "files": [
+    { "filename": "photo.jpg", "category": "photos", "poiId": "poi-uuid" }
+  ]
+}
+Response: {
+  "uploads": [
+    { "filename": "...", "uploadUrl": "https://storage.googleapis.com/..." }
+  ]
+}
+
+Register Files After Upload:
+
+POST /api/measurepro/surveys/:surveyId/files
+Authorization: Bearer <api_key>
+Body: {
+  "files": [
+    {
+      "filename": "photo.jpg",
+      "storageUrl": "measurepro/surveyId/photos/poiId/timestamp_photo.jpg",
+      "category": "photos",
+      "mimeType": "image/jpeg",
+      "size": 123456,
+      "poiId": "poi-uuid"
+    }
+  ]
+}
+
+Expected Behavior
+When a survey is synced to RoadScope:
+
+Survey metadata syncs ✅ (working)
+POIs sync ✅ (working - 80/81)
+Photos should upload via signed URLs and register with RoadScope ❌ (not happening for some surveys)
+Files to Check
+syncService.ts - RoadScope sync logic
+autoSync.ts - Auto-sync triggers
+storageUpload.ts - Storage upload logic (currently trying non-existent endpoint)
+exportUtils.ts - Survey export/close logic
+client.ts - RoadScope API client
+This should give MeasurePRO's agent enough context to fix the photo sync issue. The key is making sure ALL surveys use the signed URL approach for photos, not just some of them.

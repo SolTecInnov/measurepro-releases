@@ -1,0 +1,272 @@
+You are a senior full-stack engineer specialized in:
+	•	high-frequency data ingestion,
+	•	PWA performance,
+	•	multi-worker architectures,
+	•	IndexedDB optimization,
+	•	real-time visualization and stress testing.
+
+Your job is to FIX and REBUILD the data pipeline of an existing PWA called MeasurePro so that:
+	•	it NEVER “lags” under real-world usage (8000+ POIs/day),
+	•	POIs, GPS, LiDAR measurements, images, timelapse/video, and map points stay 100% synchronized,
+	•	IndexedDB stays performant and manageable,
+	•	we can visualize and stress-test everything.
+
+CONTEXT (DO NOT IGNORE):
+	•	App: MeasurePro, a React/Vite PWA running on Windows tablets, offline-first.
+	•	Storage: IndexedDB as local DB, with sync to Firebase later (not part of this task).
+	•	Use case: 2D LiDAR (e.g. Jenoptik LDS30A/LDS70A/Acuity AR2700) on top of a vehicle, scanning overhead obstacles while driving at road speed.
+	•	For each detected “event” (POI), we must log: POI type, GPS, LiDAR measurement, image (frame approx. 1s in the past from a rolling buffer), optional timelapse/video reference, and create a point on the map.
+	•	This is for OS/OW convoy clearance work: precision and data integrity are critical. Wrong match between image/measurement/GPS is unacceptable.
+
+GENERAL RULES:
+	•	Do not over-explain. Implement.
+	•	Prefer robust architecture and determinism over clever tricks.
+	•	Avoid any design that could silently drop or desync events.
+	•	You may refactor existing code structure if needed.
+
+TASK 1 – MULTI-WORKER ARCHITECTURE (MANDATORY)
+
+Implement a clear multi-worker architecture. NO worker is allowed to write directly to IndexedDB. Only a single “orchestrator” is responsible for writes and global consistency.
+
+Create at least the following Web Workers:
+	1.	gpsWorker
+
+	•	Reads GPS, validates, normalizes (lat/lng/alt/speed/accuracy).
+	•	Attaches precise timestamps (monotonic if available).
+	•	Sends small, lightweight GPS updates to orchestratorWorker.
+
+	2.	laserWorker
+
+	•	Reads LiDAR distance values at high frequency.
+	•	Detects relevant “events” (e.g. when current measurement is within configured thresholds).
+	•	Attaches timestamps to all events.
+	•	Receives the current “active POI type” from the main thread/orchestrator (set when user presses a remote button: wire, branch, overpass, etc.).
+	•	For each detected event, sends a compact message to orchestratorWorker with: timestamp, raw distance, derived height info, current active POI type.
+
+	3.	photoWorker
+
+	•	Manages a rolling buffer of recent frames coming from the camera.
+	•	Buffer length: about 1–2 seconds of history.
+	•	Each frame has a timestamp.
+	•	Frames must be compressed (e.g. WebP, medium quality) and resized (e.g. 640x360 or 800x450) to stay lightweight.
+	•	On request from orchestratorWorker, returns the frame whose timestamp best matches “eventTimestamp – configuredOffset” (e.g. 1s).
+	•	Ensures that even under UI lag, we always retrieve the correct frame corresponding to the LiDAR event.
+
+	4.	timelapseWorker
+
+	•	Builds a timelapse as a single video OR efficient sequence (NOT thousands of individual JPEGs).
+	•	Receives frames or frame references and outputs a compact format (or at least a structured sequence easy to export as a single file).
+	•	Maintains a mapping between “survey time” and timelapse time/index, so POIs can reference a specific frame/time in the timelapse.
+
+	5.	videoWorker (optional but preferred)
+
+	•	Handles continuous video stream if enabled.
+	•	Maintains a mapping between POI event timestamps and video timeline (time offsets) for later playback.
+
+	6.	mapWorker
+
+	•	Responsible for map features generation: POI markers, geometry, clustering preparation.
+	•	Receives event summaries from orchestratorWorker and precomputes data for map rendering, so the main thread only has to render.
+
+	7.	orchestratorWorker (THE BOSS)
+
+	•	Receives messages from all other workers.
+	•	Maintains in-memory queues and lookup tables keyed by timestamp or event id.
+	•	When a LiDAR event arrives:
+	•	Resolves the active POI type.
+	•	Finds the closest GPS sample (or interpolates if needed).
+	•	Requests the correct image frame from photoWorker based on timestamp.
+	•	Associates timelapse/video reference (frame index or time).
+	•	Builds a single, atomic “POI event record” object that contains:
+	•	id
+	•	timestamp
+	•	POI type
+	•	LiDAR measurement and metadata
+	•	GPS snapshot
+	•	image blob or reference
+	•	timelapse/video pointer
+	•	any extra metadata (e.g. survey id, vehicle id, etc.)
+	•	Handles batching and writing to IndexedDB (see Task 2).
+	•	Publishes condensed status updates to the main thread for UI (queue size, write rate, errors, etc.).
+	•	Enforces strict ordering and avoids concurrent transactions.
+
+TASK 2 – INDEXEDDB WRITING STRATEGY (ZERO-LAG)
+
+Redesign IndexedDB usage for performance and safety.
+	1.	Single writer model
+
+	•	Only orchestratorWorker opens IndexedDB and writes data.
+	•	NO other worker or UI code touches the DB directly.
+
+	2.	Batching
+
+	•	Maintain an in-memory queue of POI records.
+	•	Batch size target: around 20–50 items per transaction (configurable).
+	•	Flush conditions:
+	•	A timer (e.g. every 500–800ms).
+	•	OR queue size exceeds batch size.
+	•	Use a single readwrite transaction per batch.
+	•	Avoid opening multiple overlapping transactions.
+
+	3.	Memory guardrail
+
+	•	Set a hard cap on the in-memory queue size (e.g. 100–150 events).
+	•	If queue reaches the cap:
+	•	Temporarily throttle intake from workers (e.g. backpressure messages).
+	•	Prioritize flushing data to IndexedDB.
+	•	Expose current queue size and backpressure state to UI (for /debug).
+
+	4.	Crash-tolerant batching
+
+	•	Each “POI event record” must be stored as a single object in IndexedDB, not fragmented across multiple stores.
+	•	Use a clear schema, for example:
+	•	store: “poiEvents”
+	•	keyPath: “id”
+	•	indexes: by timestamp, by surveyId, by poiType, etc.
+	•	If the app crashes, all fully committed batches are intact. Only the current in-memory queue might be lost.
+
+TASK 3 – PERFECT SYNCHRONIZATION LOGIC
+
+Implement deterministic synchronization based on timestamps:
+	•	When the user presses a POI button (remote or UI), update “currentActivePoiType” with a timestamp.
+	•	When laserWorker flags an event:
+	•	Ensure event captures the POI type that was active at that moment.
+	•	For each LiDAR event, orchestratorWorker must:
+	•	Match to nearest GPS sample in time (and optionally interpolate).
+	•	Request from photoWorker: frame closest to (eventTimestamp – configuredOffset).
+	•	Associate timelapse/video references based on that timestamp.
+	•	Each stored POI event must contain:
+	•	poiId
+	•	surveyId
+	•	createdAt (timestamp)
+	•	poiType
+	•	lidar: rawDistance, derivedClearance, etc.
+	•	gps: lat, lng, alt, speed, accuracy, etc.
+	•	image: compressed data or reference key
+	•	timelapseRef: time or frame index
+	•	videoRef: time or frame index (if applicable)
+
+The architecture must guarantee:
+	•	No event is stored without GPS,
+	•	No event is stored without a resolved POI type,
+	•	No event refers to a “null” image unless explicitly allowed by config.
+
+TASK 4 – EXPORT + SAFE CLEANUP WORKFLOW
+
+At the end of a survey:
+	1.	Provide an “Export Survey” action in the UI.
+	2.	This triggers orchestratorWorker (or a dedicated export worker) to:
+	•	Read all relevant POI events + metadata + media references from IndexedDB for that surveyId.
+	•	Build a single ZIP archive that includes:
+	•	A JSON (or multiple files) with all POI events and logs (including Jensen data, etc.).
+	•	The timelapse as a single file.
+	•	Optional continuous video file if applicable.
+	•	All relevant images (or a packed format).
+	•	GPX/KML exports.
+	•	Compute an integrity check (e.g. checksum or count of records).
+	3.	Once ZIP creation is successful, show a clear confirmation UI:
+	•	“Export completed: X POIs, Y images, Z GPS samples…”
+	•	Provide a button to download the ZIP.
+	4.	Then prompt:
+	•	“Export confirmed. Do you want to DELETE this survey from local IndexedDB to free space?”
+	•	Buttons: [YES] [NO]
+	5.	If YES:
+	•	Safely delete only the relevant survey data from IndexedDB (or full DB if required by design).
+	•	Confirm deletion and show remaining storage usage if possible.
+
+TASK 5 – INDEXEDDB VISUALIZER / DEBUG UI
+
+Add a dedicated internal debug interface, accessible at:
+	•	Route: /debug/indexeddb
+
+This page should:
+	•	List the IndexedDB databases and object stores used by MeasurePro.
+	•	For the main stores (e.g. poiEvents), show:
+	•	Number of records,
+	•	Ability to list entries (paged),
+	•	Ability to inspect a single entry (POI JSON + media info),
+	•	Ability to delete specific entries (for debugging only).
+	•	Show current queue size in orchestratorWorker.
+	•	Show last write batch size and time taken.
+	•	Show any IndexedDB errors.
+
+This is a dev tool, but it must be functional and usable on the tablet.
+
+TASK 6 – REAL-TIME STRESS TEST SUITE
+
+Add another debug route:
+	•	Route: /debug/stress
+
+Implement a STRESS TEST MODE that can be run on demand by the user.
+
+Requirements:
+	1.	Synthetic workload
+
+	•	Generate synthetic POI events at a rate 5x higher than real-world usage for a short duration (e.g. 60–90 seconds).
+	•	Simulate:
+	•	GPS updates,
+	•	LiDAR events,
+	•	photo frames (use small fake images),
+	•	timelapse references.
+	•	Drive the same pipeline as real data (workers → orchestrator → IndexedDB), NOT a shortcut.
+
+	2.	Real-time visualization
+During the stress test, display in real time:
+
+	•	Queue size in orchestratorWorker,
+	•	Batch size and batch write time,
+	•	Total number of POIs written,
+	•	Number of transactions,
+	•	Any backpressure state (e.g. throttling active),
+	•	Dropped events (must remain ZERO),
+	•	Time to process vs time simulated.
+
+	3.	Post-test validation
+When the stress test finishes, show:
+
+	•	Total POIs expected vs POIs recorded,
+	•	Consistency checks (no missing GPS, no missing POI types, no missing image ref),
+	•	IndexedDB readback verification (sample a subset to prove writes are valid),
+	•	Time taken for all writes.
+
+	4.	Export and cleanup (for test data)
+Optionally:
+
+	•	Allow exporting the synthetic survey as ZIP to validate the export pipeline.
+	•	Then offer to delete the synthetic data from IndexedDB.
+
+If any inconsistency or dropped event occurs, the stress test must clearly flag FAILURE.
+
+TASK 7 – TYPESCRIPT TYPES AND STRUCTURE
+
+Implement or update TypeScript types/interfaces for:
+	•	GpsSample
+	•	LaserEvent
+	•	PoiType
+	•	PoiEventRecord
+	•	TimelapseRef
+	•	VideoRef
+	•	Worker message payloads between:
+	•	main ↔ orchestratorWorker
+	•	orchestratorWorker ↔ other workers
+
+Keep these types centralized (e.g. in a shared types file) to avoid drift.
+
+TASK 8 – UI HOOKS
+
+Integrate this architecture into the existing React/Vite PWA:
+	•	Provide hooks or context to:
+	•	start/stop survey,
+	•	observe current queue size and status,
+	•	trigger export,
+	•	access /debug/indexeddb and /debug/stress views.
+	•	Ensure normal survey mode stays simple and responsive.
+	•	Sound/visual feedback for each POI must remain in sync with the event creation (use orchestrator status, not raw UI timing).
+
+FINAL REQUIREMENTS:
+	•	Focus on robustness, determinism, and performance.
+	•	No silent data loss.
+	•	No UI lockups during heavy writes.
+	•	Assume this will be used in real-world OS/OW convoy work: correctness matters more than micro-optimizations.
+
+Implement everything described above. Do not ignore any section. If something is ambiguous, choose the option that maximizes reliability and debuggability.

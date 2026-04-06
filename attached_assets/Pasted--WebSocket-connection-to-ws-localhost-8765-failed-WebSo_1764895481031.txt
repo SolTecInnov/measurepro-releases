@@ -1,0 +1,1258 @@
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:409
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:409
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110c-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110e-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110b-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000111e-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001108-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+  [Sync] WARNING: checkPendingChanges took 309.1ms (>200ms threshold)
+warn @ logger.ts:17
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 1.62
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.65
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.65
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.65
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.65
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.65
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.65
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.62
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.62
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.62
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.62
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.62
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.62
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.62
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.62
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.62
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.62
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.62
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.62
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.63
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.63
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.63
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+MeasurementCards.tsx:401 [MeasurementCards] Received laser-measurement-update event: 1.64
+MeasurementCards.tsx:415 [MeasurementCards] Setting measurement: 1.64
+serialStore.ts:769 [Laser Store] Valid measurement received: 1.64
+serialStore.ts:782 [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 1.63
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 1.65
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 1.64

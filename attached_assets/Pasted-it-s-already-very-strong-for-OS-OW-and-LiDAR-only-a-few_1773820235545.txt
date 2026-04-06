@@ -1,0 +1,36 @@
+it’s already very strong for OS/OW and LiDAR; only a few surgical tweaks would make the top of the page convert even better.
+1. Hero section (micro‑tweaks)
+Your current hero:
+•	H1: “LiDAR Road Survey App for Oversize & Overweight Transport” – this clearly nails problem + audience and is aligned with B2B hero best practices.[prismic +2]
+•	Subhead: good detail, but it’s long and jumps quickly into formats and tech; above the fold should highlight outcome first, then details.[thespotonagency +2]
+You could tighten the first screen like this (you can adapt exact wording):
+•	H1 (keep as is or very close):  
+LiDAR Road Survey App for Oversize & Overweight Transport
+•	Subhead (reduced and outcome‑first):  
+“MeasurePRO lets heavy haul and OS/OW teams capture bridge clearances, lane widths, and road geometry from the cab with LiDAR + RTK‑GNSS, then export permit‑ready survey data in standard engineering formats.”[genesysgrowth +2]
+•	CTAs:
+•	Primary: “Book a Demo” (or “Talk to SolTec About MeasurePRO”)
+•	Secondary: “Explore Demo” or “View Pricing & Bundles”
+This matches the guidance that above‑the‑fold should answer what you do, for whom, and the next step in under ~5 seconds.[prismic +2]
+2. CTA clarity and hierarchy
+You currently show:
+•	Create Account
+•	Sign In
+•	Explore Demo
+For cold traffic, “Create Account” is a big leap; best‑practice is to lead with a low‑friction action: demo, talk to sales, or see pricing.[sendtric +2]
+You could:
+•	Make the main button: “Book a Demo” (scrolls to Contact / opens email)
+•	Secondary: “Explore Demo”
+•	Move “Create Account / Sign In” slightly lower or visually de‑emphasize for new visitors, while keeping it obvious for returning users.
+3. Scannability and length
+The page is content‑rich (which is great for LLMs and SEO), but for humans:
+•	Consider adding short bullet lists immediately under a few key headings (“The Complete Professional Solution”, “MeasurePRO+ AI Features”, “Convoy Guardian”) that summarize in 3–5 bullets each before the deeper text.[nudgenow +2]
+•	Where you have big pricing / feature blocks, keep the first line clearly stating who it’s for and the main benefit, then details below.
+4. SEO / AI alignment
+Your “What is MeasurePRO?” section is excellent: it’s factual, avoids fluff, clearly distinguishes from consumer apps, and mentions Canada/US OS/OW context and formats. This is ideal for AI/LLM understanding and on‑page SEO as long as the `<title>` and meta description match this story.[linkedin +2]
+One small addition you might consider:
+•	In that section, add one short sentence that explicitly connects MeasurePRO → RoadScope (“Surveys flow directly into RoadScope for route‑level clearance analysis and OS/OW permit planning.”), which you already imply but can restate once more for engines.[seologist +1]
+5. What I’d test next
+Given where you are now, the biggest lever is conversion, not more copy:
+•	Test hero CTA labels: “Book a Demo”, “See it in Action”, “Talk to an Engineer” and see which yields more contact requests.[genesysgrowth +2]
+•	Monitor bounce rate and scroll depth on `/` once traffic picks up; if many users don’t reach pricing/add‑ons, we can insert a small “Plans & Add‑Ons” teaser block higher on the page with jump links.

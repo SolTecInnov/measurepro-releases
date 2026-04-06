@@ -1,0 +1,202 @@
+You are a senior TypeScript backend developer.
+Create or update a Node.js 22 + TypeScript backend that integrates a Swift Navigation Duro GNSS receiver via TCP (Ethernet), accepts GNSS from the PWA (USB or browser GPS fallback), stores data in Firebase Firestore (NO SQL / NO SQLite), computes road profiles, detects grade triggers, and allows saving full or partial profile sections — WITHOUT breaking any existing functionality of the app.
+
+REQUIREMENTS:
+	1.	The backend must support three GNSS sources:
+	•	Swift Duro via TCP
+	•	USB GPS from the PWA (ingested via HTTP POST)
+	•	Browser geolocation fallback from the PWA (ingested via HTTP POST)
+All must be merged into a unified GNSS pipeline using Firestore.
+	2.	Absolutely no SQL or SQLite.
+Use Firebase Admin SDK + Firestore ONLY.
+	3.	The frontend (MeasurePRO / RoadScope PWA) is offline-first using IndexedDB.
+This backend must NOT break existing offline logic.
+	4.	New Features to add:
+	•	Road Profile generation (distance, elevation, grade %)
+	•	Grade trigger alerts when slope exceeds configurable threshold (default 12%)
+	•	Auto-log grade events in Firestore
+	•	Save full road profile
+	•	Save sections (sub-profiles) of a profile on demand
+	5.	Everything must be additive.
+Do NOT break or rename existing endpoints.
+Only add new modules, endpoints and helpers.
+
+TECH STACK:
+	•	Node.js 22
+	•	TypeScript
+	•	Express
+	•	Firebase Admin (Firestore)
+	•	WebSocket via “ws”
+	•	Optional tests with Vitest or Jest
+
+ENVIRONMENT VARIABLES (.env):
+SERVER_PORT=4000
+DURO_MODE=tcp or disabled
+DURO_TCP_HOST=192.168.0.10
+DURO_TCP_PORT=2101
+FIREBASE_PROJECT_ID=…
+FIREBASE_CLIENT_EMAIL=…
+FIREBASE_PRIVATE_KEY=…
+ROAD_PROFILE_DEFAULT_STEP_M=5
+ROAD_PROFILE_DEFAULT_GRADE_TRIGGER_PCT=12
+
+FILES TO CREATE OR UPDATE:
+src/index.ts
+src/config.ts
+src/firebase.ts
+src/duroClient.ts
+src/nmeaParser.ts
+src/gnssStore.ts
+src/roadProfile.ts
+src/routes/gnssRoutes.ts
+src/routes/roadProfileRoutes.ts
+src/wsServer.ts
+test/nmeaParser.test.ts
+test/roadProfile.test.ts
+test/gradeTriggers.test.ts
+README.md
+.env.example
+
+GNSS SAMPLE TYPE:
+export interface GnssSample {
+timestamp: string;
+lat: number;
+lon: number;
+alt_m: number | null;
+speed_mps: number | null;
+heading_deg: number | null;
+quality: number | null;
+hdop: number | null;
+num_sats: number | null;
+source: ‘duro’ | ‘usb’ | ‘browser’;
+sessionId?: string;
+}
+
+FIRESTORE DESIGN:
+
+Collection: gnssSamples
+Each document:
+	•	All fields of GnssSample
+	•	created_at (server timestamp)
+
+Collection: roadProfiles
+Document fields:
+	•	start, end
+	•	step_m
+	•	grade_trigger_pct
+	•	summary (total distance, climb, descent, max up/down)
+	•	points (or compressed representation)
+
+Subcollection: roadProfiles/{profileId}/sections
+Each section contains:
+	•	fromDistance_m
+	•	toDistance_m
+	•	summary
+	•	optional label
+
+Collection: gradeEvents
+Each event contains:
+	•	sessionId
+	•	profileId (optional)
+	•	direction (‘up’ or ‘down’)
+	•	trigger_pct
+	•	max_grade_pct
+	•	start_distance_m
+	•	end_distance_m
+	•	start_timestamp
+	•	end_timestamp
+	•	created_at
+
+DURO CLIENT (src/duroClient.ts):
+	•	If DURO_MODE=tcp → connect using net.Socket
+	•	Auto-reconnect with exponential backoff
+	•	Parse lines of NMEA (GGA + RMC minimum)
+	•	Build GnssSample with source=‘duro’
+	•	Insert into Firestore using gnssStore.insertSample
+	•	Broadcast sample to WebSocket clients
+	•	Never crash the server on disconnects
+
+NMEA PARSER (src/nmeaParser.ts):
+	•	Parse GGA → lat/lon/alt/quality/hdop/sats
+	•	Parse RMC → lat/lon/speed/heading/timestamp
+	•	Convert ddmm.mmmm to decimal degrees
+	•	Convert knots to m/s
+	•	Merge GGA & RMC when timestamps are close
+	•	Export unified GnssSample
+
+GNSS INGESTION FROM PWA (USB / browser):
+Add POST /api/gnss/ingest
+	•	Accept JSON { samples: GnssSample[] } or a single GnssSample
+	•	source must be ‘usb’ or ‘browser’
+	•	Insert each sample via gnssStore.insertSample
+This preserves all existing offline-first logic and ensures data still syncs.
+
+GNSS ROUTES (src/routes/gnssRoutes.ts):
+GET /api/gnss/latest?limit=100&sessionId=…
+GET /api/gnss/range?start=ISO&end=ISO&sessionId=…
+GET /api/gnss/health
+
+ROAD PROFILE ENGINE (src/roadProfile.ts):
+Implement:
+	•	Haversine distance
+	•	Resampling every stepMeters (default 5 m)
+	•	Compute:
+	•	total distance
+	•	total climb
+	•	total descent
+	•	grade % between each resampled point
+	•	max up/down gradients
+	•	GradeEvent detection:
+	•	When grade_pct >= threshold → uphill event
+	•	When grade_pct <= -threshold → downhill event
+	•	Group consecutive points exceeding threshold
+	•	Automatically write GradeEvent to Firestore
+
+ROAD PROFILE ROUTES (src/routes/roadProfileRoutes.ts):
+	1.	GET /api/road-profile/by-time?start=ISO&end=ISO&step=5&gradeThreshold=12&sessionId=…
+
+	•	Fetch samples
+	•	Compute profile
+	•	Return full RoadProfileResult (points + summary + grade events)
+
+	2.	GET /api/road-profile/recent?duration_sec=300&step=5&gradeThreshold=12&sessionId=…
+	3.	POST /api/road-profile/save-by-time
+Body: { start, end, sessionId, step, gradeThreshold, label }
+
+	•	Compute profile
+	•	Save to Firestore (roadProfiles)
+	•	Auto-save gradeEvents with profileId
+	•	Return profileId and summary
+
+	4.	POST /api/road-profile/save-section
+Body: { profileId, fromDistance_m, toDistance_m, label }
+
+	•	Load profile
+	•	Cut section
+	•	Recompute summary
+	•	Save under roadProfiles/{profileId}/sections
+	•	Detect/log gradeEvents for the section
+
+This allows saving the full profile OR any portion of it.
+
+WEBSOCKET SERVER (src/wsServer.ts):
+	•	Broadcast every new GnssSample in real time
+	•	Do not affect any other features if no clients are connected
+
+QUALITY REQUIREMENTS:
+	•	TypeScript must compile without errors
+	•	All existing routes must still work untouched
+	•	New code must be isolated and additive
+	•	Duro TCP reader must never block or crash the server
+	•	No SQL, no SQLite, no local DB files
+	•	Firestore only
+
+FINAL GOAL:
+Generate the complete backend code (or incremental update) so that:
+	•	The Swift Duro is ingested via TCP
+	•	USB/browser GPS still works as a fallback
+	•	Road profiles can be generated, saved, and sectioned
+	•	Grade alerts auto-log when exceeding the threshold
+	•	Offline-first PWA behavior remains unchanged
+
+Now produce the full backend implementation accordingly, strictly following all constraints above

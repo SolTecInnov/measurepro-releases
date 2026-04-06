@@ -1,0 +1,94 @@
+You are a senior full-stack engineer specialized in PWA performance, high-frequency data ingestion, IndexedDB optimization, real-time systems, and multi-worker architectures.
+Your task is to FIX and REBUILD the MeasurePro data pipeline so it never lags, even under extreme load.
+Follow the instructions EXACTLY.
+
+⸻
+
+🧩 1. Multi-Worker Architecture (Mandatory)
+
+Create dedicated Web Workers:
+
+Workers required:
+	1.	gpsWorker → reads, timestamps & buffers GPS with minimal overhead
+	2.	laserWorker → reads LiDAR measurements, timestamps, triggers POI capture
+	3.	photoWorker → maintains a rolling buffer (ex: last 1–2 seconds) of compressed frames
+	4.	timelapseWorker → builds timelapse as a single continuous video, NOT individual JPEGs
+	5.	videoWorker → handles optional continuous video stream
+	6.	mapWorker → builds map points, clustering & geometry (to avoid blocking UI thread)
+	7.	orchestratorWorker → THE BOSS:
+	•	receives data from all workers
+	•	matches POI type + laser + GPS + image (via timestamps)
+	•	performs batching
+	•	controls IndexedDB writing order
+	•	prevents race conditions
+	•	enforces concurrency rules
+	•	ensures no data is ever lost during slowdowns
+
+Important:
+Workers must NEVER write directly to IndexedDB.
+Only the orchestrator can perform writes.
+
+⸻
+
+💾 2. IndexedDB: Zero-Lag Writing Strategy
+
+Implement:
+
+A. Batching system
+	•	Maintain an in-memory queue (RAM)
+	•	Batch size target: 20–50 items
+	•	Writes occur:
+	•	every X seconds (ex: 500–800ms) OR
+	•	when queue hits batch size
+	•	Use readwrite transactions ONLY in orchestrator
+	•	NEVER open more than one transaction at a time
+
+B. Memory Guard
+	•	Max RAM queue: 100–150 POI events
+	•	If queue exceeds limit:
+	•	temporarily throttle reading workers
+	•	ensure REAL-TIME always wins
+	•	flush aggressively in larger batches
+
+C. Crash-Safe Writes
+	•	Every batch must include:
+	•	POI type
+	•	GPS snapshot
+	•	laser measurement
+	•	compressed image
+	•	timestamp links
+	•	timelapse/video pointer (frame # or time)
+
+All grouped under a single indexed object, never separated.
+
+⸻
+
+📸 3. Rolling Image Buffer (Critical)
+
+Implement in photoWorker:
+	•	Keep last 1–2 seconds of frames in RAM
+	•	Use efficient compression:
+	•	WebP, quality 0.5–0.6
+	•	640×360 or 800×450 resolution
+	•	On laser detection:
+	•	pick the frame whose timestamp matches (now – delay)
+	•	send that exact frame to orchestrator
+	•	lock it immediately (freeze)
+
+This ensures 100% accuracy even if the PWA lags.
+
+⸻
+
+🗂️ 4. Data Export + Safe Wipe Mode
+
+At end of survey:
+	1.	Build a ZIP archive containing:
+	•	all POIs
+	•	the timelapse (single video)
+	•	continuous video if enabled
+	•	photos (compressed)
+	•	logs & metadata
+	•	Jensen JSON
+	•	GPX/KML export
+	2.	Validate ZIP checksum
+	3.	Display prompt:

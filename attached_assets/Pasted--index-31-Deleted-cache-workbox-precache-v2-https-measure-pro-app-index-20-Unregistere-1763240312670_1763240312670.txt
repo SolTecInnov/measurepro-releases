@@ -1,0 +1,85 @@
+(index):31 🧹 Deleted cache: workbox-precache-v2-https://measure-pro.app/
+(index):20 🧹 Unregistered service worker: true
+index-Cx2i5-KZ.js:3144 🔥 Firebase Config Loaded:
+index-Cx2i5-KZ.js:3144   Project ID: measureprov1
+index-Cx2i5-KZ.js:3144   Config validated: ✅
+index-Cx2i5-KZ.js:3144 🔥 Initializing Firebase for project: measureprov1
+index-Cx2i5-KZ.js:3144 ✅ Firebase initialized successfully
+index-Cx2i5-KZ.js:3623 🏭 PRODUCTION MODE: Registering service worker...
+index-Cx2i5-KZ.js:3623 🚀 main.tsx is executing!
+index-Cx2i5-KZ.js:3623 Looking for root element...
+index-Cx2i5-KZ.js:3623 Root element found: true <div id=​"root">​…​</div>​
+index-Cx2i5-KZ.js:3623 Creating React root and rendering App...
+index-Cx2i5-KZ.js:3623 ✅ React render called successfully!
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 📋 No Firebase user, skipping account status check
+index-Cx2i5-KZ.js:3144 📱 Desktop device - skipping permissions screen
+index-Cx2i5-KZ.js:3511 📹 Starting camera auto-detection...
+index-Cx2i5-KZ.js:3623 App: Initializing stores...
+index-Cx2i5-KZ.js:3161 🔄 Opening IndexedDB database...
+index-Cx2i5-KZ.js:3511 POI Store: Setting type to: 
+index-Cx2i5-KZ.js:3623 App: Store initialization complete
+index-Cx2i5-KZ.js:3623 🔄 Initializing background sync service...
+index-Cx2i5-KZ.js:3623 🔄 Starting background sync service...
+index-Cx2i5-KZ.js:3623 ⚠️ No user logged in - skipping background sync
+index-Cx2i5-KZ.js:3623 ✅ Background sync service started (24-hour interval)
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+index-Cx2i5-KZ.js:3161 🔄 Opening IndexedDB database...
+index-Cx2i5-KZ.js:3623 App: Auto sync setup
+index-Cx2i5-KZ.js:3338 💾 Storage Status (cached for 5000ms):
+  Device Quota: 286.10 GB
+  Device Used: 146.49 MB
+  Safety Buffer (2%): 5.72 GB
+  Device Available: 280.23 GB
+  App Quota (capped at 50GB): 50.00 GB
+  Available for App: 49.86 GB
+  Limited by: 50GB cap
+index-Cx2i5-KZ.js:3623 ✅ Storage quota initialized based on device: 50.00 GB
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+index-Cx2i5-KZ.js:3161 🔄 Checking for emergency data to migrate...
+index-Cx2i5-KZ.js:3161 ✅ IndexedDB database opened successfully
+index-Cx2i5-KZ.js:3161 🔄 Checking for emergency data to migrate...
+index-Cx2i5-KZ.js:3161 ✅ IndexedDB database opened successfully
+index-Cx2i5-KZ.js:3623 App: Storage initialized
+index-Cx2i5-KZ.js:3345 ✅ No emergency localStorage items to clean up
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 ✅ Master admin detected, granting app access
+index-Cx2i5-KZ.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+index-Cx2i5-KZ.js:3346 Loaded 1 surveys from database
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 ✅ Master admin detected, granting app access
+index-Cx2i5-KZ.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+index-Cx2i5-KZ.js:3511 Camera overlay synced with survey: Object
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3144 ✅ Master admin detected, granting app access
+index-Cx2i5-KZ.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+index-Cx2i5-KZ.js:3144 User signed out, ID removed from localStorage
+index-Cx2i5-KZ.js:3623 Loaded laser settings: Object
+index-Cx2i5-KZ.js:3623 Loaded gps settings: Object
+index-Cx2i5-KZ.js:3623 Loaded camera settings: Object
+index-Cx2i5-KZ.js:3623 Loaded map settings: Object
+index-Cx2i5-KZ.js:3623 Loaded logging settings: Object
+index-Cx2i5-KZ.js:3623 Loaded alerts settings: Object
+useQuery-D4yyt9j7.js:1   Failed to load resource: the server responded with a status of 429 ()
+target-D2ovg7m-.js:1   Failed to load resource: the server responded with a status of 429 ()
+routeEnforcementStore-i8Zq1Neq.js:1   Failed to load resource: the server responded with a status of 429 ()
+monitor-DDHMjD5Y.js:1   Failed to load resource: the server responded with a status of 429 ()
+index-DRQaEVMU.js:1   Failed to load resource: the server responded with a status of 429 ()
+hard-drive-BYxMmHng.js:1   Failed to load resource: the server responded with a status of 429 ()
+calculator-JcYpUgV7.js:1   Failed to load resource: the server responded with a status of 429 ()
+qr-code-Dk5t8VKq.js:1   Failed to load resource: the server responded with a status of 429 ()
+label-DsP-cdA-.js:1   Failed to load resource: the server responded with a status of 429 ()
+bell-BXSZ2Rp0.js:1   Failed to load resource: the server responded with a status of 429 ()
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:3623 App component rendering
+index-Cx2i5-KZ.js:41  TypeError: Failed to fetch dynamically imported module: https://measure-pro.app/assets/Settings-DeIFaY3u.js
+lm @ index-Cx2i5-KZ.js:41
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+DeviceRedirector-DDUDYd08.js:1 Device detection: Desktop
+ZED2iCamera-BumoUdHB.js:1  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+p @ ZED2iCamera-BumoUdHB.js:1
+index-Cx2i5-KZ.js:3511 📹 Camera detection results: Object
+index-Cx2i5-KZ.js:3511 ✅ Auto-detected camera: standard
+index-Cx2i5-KZ.js:3623 App component rendering

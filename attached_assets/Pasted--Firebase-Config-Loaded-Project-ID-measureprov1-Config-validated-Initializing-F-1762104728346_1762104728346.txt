@@ -1,0 +1,198 @@
+ 🔥 Firebase Config Loaded:
+   Project ID: measureprov1
+   Config validated: ✅
+ 🔥 Initializing Firebase for project: measureprov1
+ ✅ Firebase initialized successfully
+ 🏭 PRODUCTION MODE: Registering service worker...
+ 🚀 main.tsx is executing!
+ Looking for root element...
+ Root element found: true 
+ Creating React root and rendering App...
+ ✅ React render called successfully!
+ Found 0 pending changes
+ App component rendering
+ 🚫 No app access, redirecting to /welcome
+ 📹 Starting camera auto-detection...
+ 🔧 Clearing old sound configuration...
+ ✅ Sound configuration reset to use new sound files
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ App component rendering
+ 🔄 Opening IndexedDB database...
+ App: Auto sync setup
+ 🔄 Upgrading database from version 0 to 6
+ ℹ️ No auth cache found
+ App component rendering
+ User signed out, ID removed from localStorage
+ Auth state changed, checking pending changes
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ App: Storage initialized
+ Loaded 0 surveys from database
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+/welcome:1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ Device detection: Desktop
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-BumoUdHB.js:1
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+ App component rendering
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 🌍 Attempting to get browser GPS position...
+ 🔐 Attempting online login...
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed, checking pending changes
+ Signed in with email: z2JsOVxJNohWupffvUh28QN1CIs1
+ App component rendering
+ ℹ️ No auth cache found
+ ⚠️ No auth cache to update
+ ℹ️ No auth cache found
+ ⚠️ No auth cache to update
+/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 ()
+  Failed to check terms acceptance: 
+(anonymous) @ index-GxfqYXl5.js:3569
+ No account found for UID: z2JsOVxJNohWupffvUh28QN1CIs1
+ ✅ Auth cache saved successfully for: jfprince@soltec.ca
+ ✅ Online login successful
+ App component rendering
+ ✅ Master admin detected, granting app access
+ 📱 Desktop device - skipping permissions screen
+ ✅ Master admin detected, granting app access
+ No account found for UID: z2JsOVxJNohWupffvUh28QN1CIs1
+ 📋 No account found for user, allowing access
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+  Error checking pending changes: 
+a @ index-GxfqYXl5.js:3569
+ [LaserStore] Setting ground reference height: 0
+ [LaserStore] Validated ground reference height: 0
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ ✅ Voice assistant initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed in OfflineStatusIndicator: jfprince@soltec.ca
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: jfprince@soltec.ca
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+index-GxfqYXl5.js:3317 Loaded 0 surveys from database
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+index-GxfqYXl5.js:3317 Loaded 0 surveys from database
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+Settings-oykBUZiF.js:167 SurveyManager: Loaded surveys: Array(0)
+routeEnforcementStore-BGoBdTG_.js:1 ✅ Loaded Route Enforcement data from IndexedDB
+sounds-By3cy5G_.js:1 ✅ measureDetected sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ imageCaptured sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ logEntry sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ poiTypeChange sound loaded successfully
+LiveCamera-VX1-5hPw.js:22128 📷 Initializing StandardCamera with deviceId: default
+StandardCamera-CFVDe1pu.js:1 🔧🔧🔧 StandardCamera.initialize() called
+StandardCamera-CFVDe1pu.js:1 🔧 deviceId passed to constructor: 
+StandardCamera-CFVDe1pu.js:1 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+StandardCamera-CFVDe1pu.js:1 🔧 Calling getUserMedia with deviceId constraint...
+sounds-By3cy5G_.js:1 ✅ critical sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ warning sound loaded successfully
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+StandardCamera-CFVDe1pu.js:1 ✅ getUserMedia succeeded
+StandardCamera-CFVDe1pu.js:1 ✅ Standard camera initialized: Object
+LiveCamera-VX1-5hPw.js:22128 ✅ standard camera instance created and initialized
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 🎬 activeCamera ready, starting video display
+LiveCamera-VX1-5hPw.js:22128 Starting camera, attempt: 1
+LiveCamera-VX1-5hPw.js:22128 📹 Using StandardCamera stream from camera instance
+LiveCamera-VX1-5hPw.js:22128 🔍 Stream deviceId: ac8a0808dc22a2ae881c7c3d2d76770c568735868cbc969f682a3182eb76c9c7
+LiveCamera-VX1-5hPw.js:22128 🔍 Stream label: USB Live Camcra (0c45:6366)
+LiveCamera-VX1-5hPw.js:22128 🔍 Expected selectedCamera: 
+LiveCamera-VX1-5hPw.js:22128 ✅ Got stream from StandardCamera instance
+LiveCamera-VX1-5hPw.js:22128 Video tracks obtained, count: 1
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 ✅ Video metadata loaded, resolution: 1280 x 720
+LiveCamera-VX1-5hPw.js:22128 ✅ Video playback started successfully
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+sounds-By3cy5G_.js:1 ✅ Sound system initialized with AudioContext
+sounds-By3cy5G_.js:1 ✅ measureDetected sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ logEntry sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ poiTypeChange sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ warning sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ critical sound loaded successfully
+sounds-By3cy5G_.js:1 ✅ imageCaptured sound loaded successfully
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+index-GxfqYXl5.js:3569 ✅ App ready to work offline
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+index-GxfqYXl5.js:3569  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-GxfqYXl5.js:3569
+await in a
+(anonymous) @ Settings-oykBUZiF.js:167

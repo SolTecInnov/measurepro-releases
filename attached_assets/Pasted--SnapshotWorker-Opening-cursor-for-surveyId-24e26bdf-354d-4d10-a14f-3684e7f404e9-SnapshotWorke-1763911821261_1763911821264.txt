@@ -1,0 +1,2499 @@
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 79 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 80 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 82 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 83 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+Tracking Prevention blocked access to storage for <URL>.
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 84 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 86 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 87 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 88 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+  WebSocket connection to 'wss://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ws/gnss' failed: WebSocket opening handshake timed out
+connect @ gnssWebSocket.ts:27
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 89 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 90 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 91 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 92 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 94 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 95 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 96 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 98 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Completed loading 99 measurements for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911774724-0.5877906913734331] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911774724-0.16468886965743157] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911774725-0.8689940432782722] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911774725-0.31033822669497424] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [Sync] Pending changes check completed: 706 items in 18328.4ms
+  [Sync] WARNING: checkPendingChanges took 18328.4ms (>200ms threshold)
+warn @ logger.ts:17
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [Sync] Pending changes check completed: 706 items in 18410.5ms
+  [Sync] WARNING: checkPendingChanges took 18410.5ms (>200ms threshold)
+warn @ logger.ts:17
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911761186-0.6338792876159284]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911771669-0.4636480823493552]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911771669-0.48462737075128837]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911771901-0.7145194692049311]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911771901-0.894704483422248]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911773353-0.47048201205381246]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911773353-0.9470410864084787]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779662-0.8355430992224003] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779710-0.46883543009090256] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.6012014392977022] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.1665966265348715] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.5835242449243488] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.521205929417792] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.9073142969458553] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911779711-0.7284440804851792] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911774679-0.02629250880923928]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911774724-0.5133767685156364]: 100 measurements loaded so far...
+ 📦 Progress [1763911774724-0.7757910803444454]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911774724-0.8858731571783801]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911774724-0.5877906913734331]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911774724-0.16468886965743157]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911774725-0.8689940432782722]: 100 measurements loaded so far...
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911774725-0.31033822669497424]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+logger.ts:29 [Sync] Pending changes check completed: 706 items in 26439.0ms
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 26439.0ms (>200ms threshold)
+warn @ logger.ts:22
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+logger.ts:29 [Sync] Pending changes check completed: 707 items in 12483.7ms
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 12483.7ms (>200ms threshold)
+warn @ logger.ts:22
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+measurementSnapshot.ts:43 📊 Loading measurement snapshot [1763911788173-0.3207741976377422] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+measurementSnapshot.ts:43 📊 Loading measurement snapshot [1763911788200-0.8864067842059143] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788200-0.9006898805492438] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788200-0.6726448127490409] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788200-0.2571686559604456] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788201-0.8639371622361393] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788201-0.12272447514558293] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911788201-0.27218038212935836] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911779662-0.8355430992224003]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911779710-0.46883543009090256]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911779711-0.6012014392977022]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911779711-0.1665966265348715]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911779711-0.5835242449243488]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911779711-0.521205929417792]: 100 measurements loaded so far...
+ 📦 Progress [1763911779711-0.9073142969458553]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911779711-0.7284440804851792]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911795879-0.28794849824329105] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796011-0.6283984988801622] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796011-0.48576075825783094] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796012-0.3320909186876352] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796012-0.0850866122947378] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796012-0.7053308432723133] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796012-0.7591913207484128] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911796013-0.46603345942105867] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911788173-0.3207741976377422]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788200-0.8864067842059143]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788200-0.9006898805492438]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788200-0.6726448127490409]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788200-0.2571686559604456]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788201-0.8639371622361393]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911788201-0.12272447514558293]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911788201-0.27218038212935836]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [Sync] Pending changes check completed: 707 items in 16265.0ms
+  [Sync] WARNING: checkPendingChanges took 16265.0ms (>200ms threshold)
+warn @ logger.ts:17
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [Sync] Pending changes check completed: 707 items in 16400.5ms
+  [Sync] WARNING: checkPendingChanges took 16400.5ms (>200ms threshold)
+warn @ logger.ts:17
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803304-0.6839634301427707] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803308-0.68628602842704] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.5021509528828406] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.9539981908267939] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.5628197065689668] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.7182976993783818] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.21824229515915472] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911803309-0.35953055145830726] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911795879-0.28794849824329105]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911796011-0.6283984988801622]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ 📦 Progress [1763911796011-0.48576075825783094]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911796012-0.3320909186876352]: 100 measurements loaded so far...
+ 📦 Progress [1763911796012-0.0850866122947378]: 100 measurements loaded so far...
+ 📦 Progress [1763911796012-0.7053308432723133]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911796012-0.7591913207484128]: 100 measurements loaded so far...
+ 📦 Progress [1763911796013-0.46603345942105867]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+ [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+measurementSnapshot.ts:43 📊 Loading measurement snapshot [1763911808281-0.20665268562799244] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+snapshot-loader.worker.ts:46 [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+snapshot-loader.worker.ts:61 [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+measurementSnapshot.ts:43 📊 Loading measurement snapshot [1763911808284-0.07603949103650742] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+snapshot-loader.worker.ts:46 [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+snapshot-loader.worker.ts:61 [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+TabManager.tsx:133 [TABS] Filtered tabs: Object
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+3503 log entries are not shown.
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+TabManager.tsx:133 [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+MeasurementLog.tsx:169 [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+measurementSnapshot.ts:43 📊 Loading measurement snapshot [1763911812773-0.03513113498772591] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+snapshot-loader.worker.ts:63 [SnapshotWorker] Cursor initialized: YES
+snapshot-loader.worker.ts:63 [SnapshotWorker] Cursor initialized: YES
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812830-0.13924854226487027] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812830-0.3550260596557082] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812831-0.0533259459221993] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812831-0.10572568156343598] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Cursor initialized: YES
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812832-0.8311273765045446] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812832-0.1998599753687189] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [MeasurementLog] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ 📊 Loading measurement snapshot [1763911812833-0.38832432242552206] for survey 24e26bdf-354d-4d10-a14f-3684e7f404e9...
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Cursor initialized: YES
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Loading measurements for survey: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [SnapshotWorker] Opening cursor for surveyId: 24e26bdf-354d-4d10-a14f-3684e7f404e9
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ [TABS] Filtered tabs: {totalTabs: 25, visibleTabs: 25, hiddenTabs: Array(0), userFeatures: Array(1), isBetaAccount: false, …}
+ 📦 Progress [1763911803304-0.6839634301427707]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911803308-0.68628602842704]: 100 measurements loaded so far...
+ 📦 Progress [1763911803309-0.5021509528828406]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165
+ 📦 Progress [1763911803309-0.9539981908267939]: 100 measurements loaded so far...
+  Failed to load snapshot: 
+(anonymous) @ MeasurementLog.tsx?t=1763910294548:165

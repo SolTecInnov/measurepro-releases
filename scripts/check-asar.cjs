@@ -1,0 +1,14 @@
+const { execSync } = require('child_process');
+const asar = '/mnt/c/Users/jfpri/measurepro-electron/release-builds/win-unpacked/resources/app.asar';
+const bin = '/mnt/c/Users/jfpri/measurepro-electron/node_modules/@electron/asar/bin/asar.js';
+const out = execSync(`node "${bin}" list "${asar}"`, { encoding: 'utf8', maxBuffer: 50*1024*1024 });
+const lines = out.split('\n');
+const hasNodeModules = lines.some(l => l.startsWith('/node_modules'));
+const hasSerialport = lines.some(l => l.includes('serialport'));
+const hasMain = lines.some(l => l === '/electron/main.cjs');
+console.log('Has node_modules:', hasNodeModules);
+console.log('Has serialport:', hasSerialport);
+console.log('Has main.cjs:', hasMain);
+console.log('Total files:', lines.length);
+const topLevel = [...new Set(lines.map(l => '/' + l.split('/').filter(Boolean)[0]))].slice(0,20);
+console.log('Top level dirs:', topLevel.join(', '));

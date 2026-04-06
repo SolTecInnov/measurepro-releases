@@ -1,0 +1,119 @@
+Available surveys in SurveyList: Array(1)
+SurveyList.tsx:81 Available surveys in SurveyList: Array(1)
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 6.2ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 1.0ms
+checkPendingChanges @ sync.ts:440
+2sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 2.7ms
+checkPendingChanges @ sync.ts:440
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 2.7ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 6.0ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 0.8ms
+checkPendingChanges @ sync.ts:440
+2sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 0.8ms
+checkPendingChanges @ sync.ts:440
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 0.9ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 3.5ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 0.8ms
+checkPendingChanges @ sync.ts:440
+2sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 1.0ms
+checkPendingChanges @ sync.ts:440
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 1.0ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 4.9ms
+checkPendingChanges @ sync.ts:440
+SurveyForm.tsx:63 Survey form submitted: Object
+SurveyForm.tsx:104 Creating survey with validated data: Object
+store.ts:27 Creating new survey with data: Object
+store.ts:180  Error creating survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_6de7d4d6-3e28-4614-8d16-2148d0ddc9fd' exceeded the quota.
+    at createSurvey (store.ts:72:20)
+    at handleSubmit (SurveyForm.tsx:105:13)
+    at HTMLUnknownElement.callCallback2 (react-dom.development.js:4164:14)
+    at Object.invokeGuardedCallbackDev (react-dom.development.js:4213:16)
+    at invokeGuardedCallback (react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (react-dom.development.js:4291:25)
+    at executeDispatch (react-dom.development.js:9041:3)
+    at processDispatchQueueItemsInOrder (react-dom.development.js:9073:7)
+    at processDispatchQueue (react-dom.development.js:9086:5)
+    at dispatchEventsForPlugins (react-dom.development.js:9097:3)
+createSurvey @ store.ts:180
+SurveyForm.tsx:124  Error saving survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_6de7d4d6-3e28-4614-8d16-2148d0ddc9fd' exceeded the quota.
+    at createSurvey (store.ts:72:20)
+    at handleSubmit (SurveyForm.tsx:105:13)
+    at HTMLUnknownElement.callCallback2 (react-dom.development.js:4164:14)
+    at Object.invokeGuardedCallbackDev (react-dom.development.js:4213:16)
+    at invokeGuardedCallback (react-dom.development.js:4277:31)
+    at invokeGuardedCallbackAndCatchFirstError (react-dom.development.js:4291:25)
+    at executeDispatch (react-dom.development.js:9041:3)
+    at processDispatchQueueItemsInOrder (react-dom.development.js:9073:7)
+    at processDispatchQueue (react-dom.development.js:9086:5)
+    at dispatchEventsForPlugins (react-dom.development.js:9097:3)
+handleSubmit @ SurveyForm.tsx:124
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 0.8ms
+checkPendingChanges @ sync.ts:440
+2sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 1.0ms
+checkPendingChanges @ sync.ts:440
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 1.0ms
+checkPendingChanges @ sync.ts:440
+sync.ts:312 [Sync] Computing pending changes (cache miss)...
+sync.ts:437  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:437
+sync.ts:440  [Sync] Error after 3.7ms
+checkPendingChanges @ sync.ts:440
+storageManager.ts:82 💾 Storage Status (cached for 5000ms):
+  Device Quota: 286.10 GB
+  Device Used: 3.24 MB
+  Safety Buffer (2%): 5.72 GB
+  Device Available: 280.37 GB
+  App Quota (capped at 50GB): 50.00 GB
+  Available for App: 50.00 GB
+  Limited by: 50GB cap
+App.tsx:138 ✅ Storage quota initialized based on device: 50.00 GB

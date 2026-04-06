@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04 – Pre-Deployment Checklist | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --green: #4ade80; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+  .checklist li:last-child { border-bottom: none; }
+  .cb { width: 1.3rem; height: 1.3rem; min-width: 1.3rem; border: 2px solid var(--border); border-radius: 0.25rem; margin-top: 0.2rem; cursor: pointer; }
+  .cb:checked { accent-color: var(--brand); }
+  .item-text strong { display: block; font-weight: 700; }
+  .item-text span { font-size: 0.88rem; color: var(--muted); }
+  .critical { border-left: 3px solid #f87171; padding-left: 0.75rem; }
+  .critical strong::after { content: ' ⚠'; color: #f87171; font-size: 0.9rem; }
+  .section-label { font-size: 0.8rem; font-weight: 800; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin: 1.5rem 0 0.5rem; padding: 0.3rem 0.75rem; background: #0f172a; border-radius: 0.25rem; display: inline-block; }
+  .print-note { background: #0f172a; border: 1px dashed var(--border); border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0; font-size: 0.85rem; color: var(--muted); }
+  @media print {
+    body { background: white; color: black; padding: 1cm; }
+    .nav, .print-note { display: none; }
+    .doc-header { border-left: 4px solid #000; }
+    .card { background: #f8f8f8; border: 1px solid #ccc; }
+    h2 { color: #000; }
+    .cb { border: 2px solid #000; }
+    .section-label { background: #eee; color: #000; }
+    .item-text span { color: #555; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="03-hardware-setup.html">← 03: Hardware Setup</a>
+  <a href="index.html">Index</a>
+  <a href="05-field-operation-sop.html">Next: Field Operation SOP →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 04 of 12</div>
+  <h1>Pre-Deployment Checklist</h1>
+  <p style="color:var(--muted)">Print this. Laminate it. Complete it every time without shortcuts.</p>
+</div>
+
+<div class="print-note">
+  🖨️ This page is print-optimised. Use Ctrl+P / Cmd+P → Print. Checkboxes will appear correctly on paper.
+  <br>Survey ID: _________________________ &nbsp;&nbsp; Date: _________________________ &nbsp;&nbsp; Operator: _________________________
+</div>
+
+<div class="card">
+  <div class="section-label">Section A — Before Leaving the Yard</div>
+
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Controller device battery / power</strong>
+        <span>Laptop/tablet charged &gt;80% or connected to vehicle power. Sleep/hibernate disabled.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Duro GNSS powered and RTK fix acquired</strong>
+        <span>Green RTK indicator in app. Allow 60–90 seconds after power-on. Do not leave without RTK.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>All laser(s) powered and connected</strong>
+        <span>Vertical + lateral + rear (if fitted). Power LEDs active. Serial ports enumerated.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Ground reference calibrated</strong>
+        <span>Aim laser at ground, capture 3 readings, confirm value in Settings → Laser Thresholds. Record value: _______ m</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>ignoreAbove / ignoreBelow thresholds set</strong>
+        <span>Configured for today's route clearance range. Typical: ignoreBelow = 0.5 m, ignoreAbove = 12 m.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Amplitude filter level confirmed</strong>
+        <span>Check signal strength on a known target at typical survey range. Adjust filter if needed.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Camera(s) tested</strong>
+        <span>Front, left, right, and rear positions assigned in Settings → Multi-Camera. Test capture for each active position.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Storage capacity</strong>
+        <span>IndexedDB storage &lt;70% full. If low, export and clear completed surveys before departing.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>App and firmware versions confirmed</strong>
+        <span>MeasurePRO version: _______. Duro firmware: _______. LiDAR service version (if fitted): _______.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>LiDAR Windows service running (if fitted)</strong>
+        <span>MeasurePROLidarService.exe running. WebSocket connected (port 17777). Mock mode: OFF.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Vehicle dimensions entered</strong>
+        <span>Width, height, wheelbase, and overhang values confirmed in vehicle profile. Curve radius threshold set.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Rear overhang threshold set (if wind blade run)</strong>
+        <span>Max threshold configured for blade length. Alert levels: warning and critical confirmed. Value: _______ m</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-label">Section B — On-Site, Before First Pass</div>
+
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Laser mount alignment checked</strong>
+        <span>Verify laser has not shifted during transit. Use spirit level. Re-calibrate ground reference if shifted.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Calibration validation pass</strong>
+        <span>Drive under a known-clearance structure (bridge, gantry). Confirm reading matches reference measurement within ±50 mm.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>GPS time sync</strong>
+        <span>Device clock synced to GPS time. Verify in GNSS status panel — time offset &lt;1 second.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>GNSS accuracy indicator</strong>
+        <span>RTK fix confirmed (green). HDOP &lt;2.0. If only SBAS available, note in survey comments.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>New survey created in app</strong>
+        <span>Survey name, road name, and operator recorded. Survey ID: _________________________</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Road profile recording mode selected</strong>
+        <span>GNSS profile recording enabled if engineering grade output is required.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Convoy Guardian / Permitted Route loaded (if applicable)</strong>
+        <span>Route file imported. All convoy vehicles confirmed connected.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-label">Section C — Post-Survey (Before Leaving Site)</div>
+
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Survey closed and synced</strong>
+        <span>Tap "Close Survey" in app. Wait for sync confirmation (Firebase cloud icon turns green). Do not power off until synced.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Coverage review</strong>
+        <span>Check route trace on map — no unexplained gaps or missing segments.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>POI count reasonable</strong>
+        <span>Review POI list — no obvious misses or duplicates from calibration passes.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>LiDAR capture stopped cleanly (if fitted)</strong>
+        <span>Confirm capture ended via HTTP API. LAZ file saved to C:\MeasurePRO\Captures\.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="03-hardware-setup.html">← 03: Hardware Setup</a>
+  <a href="index.html">Index</a>
+  <a href="05-field-operation-sop.html">Next: Field Operation SOP →</a>
+</nav>
+</body>
+</html>

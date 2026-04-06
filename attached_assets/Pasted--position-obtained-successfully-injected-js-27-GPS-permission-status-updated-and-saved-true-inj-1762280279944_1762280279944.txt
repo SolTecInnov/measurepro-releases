@@ -1,0 +1,310 @@
+ position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🌍 Attempting to get browser GPS position...
+14injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27  Failed to initialize browser GPS: Error: GPS timeout - position unavailable
+    at gpsStore.ts:323:18
+(anonymous) @ injected.js:27
+initBrowserGPS @ gpsStore.ts:439
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 🛰️ GPS permission granted - starting browser GPS immediately
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 ✅ Browser GPS position obtained successfully
+injected.js:27 🛰️ GPS permission status updated and saved: true
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🌍 Attempting to get browser GPS position...
+8injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎙️ Voice assistant started in en-US
+injected.js:27 🎤 Voice assistant started
+injected.js:27 🎤 Speech recognition started
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🧠 Intent recognition: Object
+injected.js:27 🎯 Recognized command: Object
+injected.js:27 🎯 CommandRegistry: poi_bridge intent handler called
+injected.js:27 🎯 CommandRegistry: setPOITypeCallback is: NULL
+injected.js:27 ✅ Command executed: poi_bridge → POI type: Bridge
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: POI type: Bridge
+injected.js:27 🎤 Speech recognition ended
+injected.js:27 🔊 Stopped speaking
+injected.js:27 🎙️ Voice assistant stopped
+injected.js:27 🎤 Voice assistant stopped
+injected.js:27  🔊 Speech synthesis error: SpeechSynthesisErrorEvent
+(anonymous) @ injected.js:27
+utterance.onerror @ SpeechSynthesizer.ts:122
+injected.js:27  Error processing command: Error: Speech synthesis error: interrupted
+    at utterance.onerror (SpeechSynthesizer.ts:125:16)
+(anonymous) @ injected.js:27
+processCommand @ VoiceAssistant.ts:124
+injected.js:27  Voice assistant error: undefined
+(anonymous) @ injected.js:27
+(anonymous) @ useVoiceAssistant.ts:134
+(anonymous) @ VoiceAssistant.ts:223
+emitEvent @ VoiceAssistant.ts:221
+setState @ VoiceAssistant.ts:232
+processCommand @ VoiceAssistant.ts:125
+injected.js:27  Voice assistant error: Error: Speech synthesis error: interrupted
+    at utterance.onerror (SpeechSynthesizer.ts:125:16)
+(anonymous) @ injected.js:27
+(anonymous) @ useVoiceAssistant.ts:134
+(anonymous) @ VoiceAssistant.ts:223
+emitEvent @ VoiceAssistant.ts:221
+processCommand @ VoiceAssistant.ts:126
+3injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27  Failed to initialize browser GPS: Error: GPS timeout - position unavailable
+    at gpsStore.ts:323:18
+(anonymous) @ injected.js:27
+initBrowserGPS @ gpsStore.ts:439
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: No GPS data or invalid coordinates
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎙️ Voice assistant started in en-US
+injected.js:27 🎤 Voice assistant started
+injected.js:27 🎤 Speech recognition started
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🧠 Intent recognition: Object
+injected.js:27 🎯 Recognized command: Object
+injected.js:27 📸 CommandRegistry: capture_image intent handler called
+injected.js:27 📸 CommandRegistry: captureImageCallback is: NULL
+injected.js:27 ✅ Command executed: capture_image → Image captured
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: Image captured
+injected.js:27 🎤 Speech recognition ended
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27 🔊 Finished speaking
+injected.js:27 🎤 Resuming speech recognition
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎤 Speech recognition started
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🧠 Intent recognition: Object
+injected.js:27 🎯 Recognized command: Object
+injected.js:27 ✅ Command executed: unknown → Sorry, I didn't understand that command.
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: Sorry, I didn't understand that command.
+injected.js:27 🎤 Speech recognition ended
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27 🔊 Finished speaking
+injected.js:27 🎤 Resuming speech recognition
+injected.js:27 🎤 Starting speech recognition in en-US
+injected.js:27 🎤 Speech recognition started
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🎤 Recognition result: Object
+injected.js:27 🧠 Intent recognition: Object
+injected.js:27 🎯 Recognized command: Object
+injected.js:27 🎯 CommandRegistry: poi_trees intent handler called
+injected.js:27 🎯 CommandRegistry: setPOITypeCallback is: NULL
+injected.js:27 ✅ Command executed: poi_trees → POI type: Trees
+injected.js:27 🔇 Pausing speech recognition to prevent feedback loop
+injected.js:27 🎤 Stopping speech recognition
+injected.js:27 🔊 Selected preferred voice: Microsoft David - English (United States)
+injected.js:27 🔊 Speaking: POI type: Trees
+injected.js:27 🎤 Speech recognition ended
+injected.js:27 🔊 Stopped speaking
+injected.js:27 🎙️ Voice assistant stopped
+injected.js:27 🎤 Voice assistant stopped
+injected.js:27  🔊 Speech synthesis error: SpeechSynthesisErrorEvent
+(anonymous) @ injected.js:27
+utterance.onerror @ SpeechSynthesizer.ts:122
+injected.js:27  Error processing command: Error: Speech synthesis error: interrupted
+    at utterance.onerror (SpeechSynthesizer.ts:125:16)
+(anonymous) @ injected.js:27
+processCommand @ VoiceAssistant.ts:124
+injected.js:27  Voice assistant error: undefined
+(anonymous) @ injected.js:27
+(anonymous) @ useVoiceAssistant.ts:134
+(anonymous) @ VoiceAssistant.ts:223
+emitEvent @ VoiceAssistant.ts:221
+setState @ VoiceAssistant.ts:232
+processCommand @ VoiceAssistant.ts:125
+injected.js:27  Voice assistant error: Error: Speech synthesis error: interrupted
+    at utterance.onerror (SpeechSynthesizer.ts:125:16)
+(anonymous) @ injected.js:27
+(anonymous) @ useVoiceAssistant.ts:134
+(anonymous) @ VoiceAssistant.ts:223
+emitEvent @ VoiceAssistant.ts:221
+processCommand @ VoiceAssistant.ts:126
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+injected.js:27 🛰️ Switching to browser GPS failsafe: Object
+injected.js:27 🌍 Attempting to get browser GPS position...
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43
+injected.js:27 🛰️ Switching to browser GPS failsafe: {reason: 'No serial data'}
+injected.js:27 🌍 Attempting to get browser GPS position...

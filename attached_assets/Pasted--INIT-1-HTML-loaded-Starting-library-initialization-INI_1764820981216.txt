@@ -1,0 +1,1879 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+index-BOJU9veW.js:3113 [FIREBASE-1] Loading Firebase configuration...
+index-BOJU9veW.js:3113 [FIREBASE-2] Environment variables: Object
+index-BOJU9veW.js:3113 [FIREBASE-3] Processed Firebase config: Object
+index-BOJU9veW.js:3113 [FIREBASE-4] Firebase configured: true
+index-BOJU9veW.js:3113 [FIREBASE-15] Auto-initializing Firebase on module load...
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: false
+index-BOJU9veW.js:3113 [FIREBASE-7] Firebase is configured, initializing...
+index-BOJU9veW.js:3113 [FIREBASE-8] Existing Firebase apps: 0
+index-BOJU9veW.js:3113 [FIREBASE-11] Creating new Firebase app...
+index-BOJU9veW.js:3113 [FIREBASE-12] ✅ Firebase initialized (new app)
+index-BOJU9veW.js:3777 [INIT-5] main.tsx loaded - Starting React app initialization
+index-BOJU9veW.js:3777 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-BOJU9veW.js:3777 [INIT-6] Build environment: production Production: true
+index-BOJU9veW.js:3777 [INIT-7] Starting localStorage cleanup...
+index-BOJU9veW.js:3777 [INIT-8] Scanning localStorage for problematic keys...
+index-BOJU9veW.js:3777 [INIT-9] No problematic localStorage keys found
+index-BOJU9veW.js:3777 [INIT-11] localStorage cleanup complete
+index-BOJU9veW.js:3777 [INIT-12] Checking library health (Leaflet, etc)...
+index-BOJU9veW.js:3705 Library health check PASSED - All critical libraries loaded
+index-BOJU9veW.js:3777 [INIT-13] ✅ Library health check PASSED
+index-BOJU9veW.js:3777 [INIT-14] Rendering React app to root element...
+index-BOJU9veW.js:3777 [INIT-15] ✅ React app rendered successfully
+index-BOJU9veW.js:3689 [APP-1] App component mounted, initializing core workers...
+index-BOJU9veW.js:3689 [APP-2] Checking IndexedDB health before worker initialization...
+index-BOJU9veW.js:3689 [STORAGE-1] Starting IndexedDB health check...
+index-BOJU9veW.js:3689 [STORAGE-3] Checking if indexedDB is defined...
+index-BOJU9veW.js:3689 [STORAGE-4] IndexedDB is defined
+index-BOJU9veW.js:3689 [STORAGE-5] Attempting to open test database...
+index-BOJU9veW.js:3700 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-BOJU9veW.js:3113 [AUTHCTX-1] Initializing AuthContext...
+index-BOJU9veW.js:3113 [AUTHCTX-2] Loading cached auth state...
+index-BOJU9veW.js:3113 [AUTHCTX-7] Setting up Firebase auth listener...
+index-BOJU9veW.js:3113 [AUTH-1] initAuthListener() called
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [AUTH-3] Setting up Firebase auth state listener...
+index-BOJU9veW.js:3113 [AUTHCTX-10] Firebase auth listener registered
+index-BOJU9veW.js:3689 [STORAGE-6] Test database opened successfully
+index-BOJU9veW.js:3689 [STORAGE-8] Testing write operation...
+index-BOJU9veW.js:3689 [STORAGE-9] Write test successful
+index-BOJU9veW.js:3689 [STORAGE-10] Test database closed
+index-BOJU9veW.js:3689 [STORAGE-11] Checking storage quota...
+index-BOJU9veW.js:3113 [AUTHCTX-3] Auth cache found: Object
+index-BOJU9veW.js:3689 [STORAGE-12] Storage quota: Object
+index-BOJU9veW.js:3689 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-BOJU9veW.js:3700 [APP-3] IndexedDB healthy, initializing workers...
+index-BOJU9veW.js:3700 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-BOJU9veW.js:3700 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-BOJU9veW.js:3700 [APP-5] ✅ Orchestrator worker initialized
+index-BOJU9veW.js:3700 [APP-6] ✅ Flush-on-close handlers initialized
+index-BOJU9veW.js:3113 [AUTHCTX-4] Days offline: 0
+index-BOJU9veW.js:3113 [AUTHCTX-6] Auth state initialization complete
+index-BOJU9veW.js:3700 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-BOJU9veW.js:3437 ⏱️ getSurveysPaginated(50): 93.59619140625 ms
+index-BOJU9veW.js:3437 ⏱️ loadSurveys TOTAL: 111.52392578125 ms
+index-BOJU9veW.js:3437 ✅ Loaded 32 surveys (including active) in 112ms
+index-BOJU9veW.js:3235  ⚠️ SLOW: loadSurveys (initial) took 112ms
+li @ index-BOJU9veW.js:3235
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+index-BOJU9veW.js:3113 [AUTH-1] initAuthListener() called
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [AUTH-3] Setting up Firebase auth state listener...
+index-BOJU9veW.js:3437  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3437  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3235  ⚠️ SLOW: getSurveysPaginated took 101ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3437 ⏱️ getSurveysPaginated(50): 101.467041015625 ms
+index-BOJU9veW.js:3437 ⏱️ loadSurveys TOTAL: 119.4580078125 ms
+index-BOJU9veW.js:3437 ✅ Loaded 32 surveys (including active) in 120ms
+index-BOJU9veW.js:3235  ⚠️ SLOW: loadSurveys (initial) took 120ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3235  ⚠️ SLOW: getSurveysPaginated took 122ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3437  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3437  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+index-BOJU9veW.js:3437 ✅ Loaded 32 surveys (including active) in 140ms
+index-BOJU9veW.js:3235  ⚠️ SLOW: loadSurveys (initial) took 140ms
+li @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3113 [AUTH-4] Auth state changed: Object
+index-BOJU9veW.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-BOJU9veW.js:3113 [AUTH-7] Calling auth callback with user: true
+index-BOJU9veW.js:3113 [AUTHCTX-8] Firebase auth listener callback: Object
+index-BOJU9veW.js:3113 [AUTHCTX-9] User authenticated and online, updating timestamps
+index-BOJU9veW.js:3113 [AUTH-4] Auth state changed: Object
+index-BOJU9veW.js:3113 [AUTH-5] User logged in, saving to localStorage
+index-BOJU9veW.js:3113 [AUTH-7] Calling auth callback with user: true
+ZED2iCamera-4Z0xBH-H.js:1  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+g @ ZED2iCamera-4Z0xBH-H.js:1
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Settings-DY8rPonP.js:181 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+index-BOJU9veW.js:233  [2025-12-04T03:57:08.279Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+index-BOJU9veW.js:233  [2025-12-04T03:57:08.279Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+index-BOJU9veW.js:3235 [Violation] Only request geolocation information in response to a user gesture.
+t @ index-BOJU9veW.js:3235
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+checkSerialTimeout @ index-BOJU9veW.js:3234
+(anonymous) @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3235 [Violation] Only request geolocation information in response to a user gesture.
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+checkSerialTimeout @ index-BOJU9veW.js:3234
+(anonymous) @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3235 [Violation] Only request geolocation information in response to a user gesture.
+t @ index-BOJU9veW.js:3235
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+(anonymous) @ index-BOJU9veW.js:3234
+setTimeout
+setHasGPSPermission @ index-BOJU9veW.js:3234
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+checkSerialTimeout @ index-BOJU9veW.js:3234
+(anonymous) @ index-BOJU9veW.js:3235
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 to Firebase
+  [2025-12-04T03:58:35.782Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+  [2025-12-04T03:58:35.783Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 to Firebase
+  [2025-12-04T03:59:28.215Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+D0 @ index-BOJU9veW.js:1579
+al @ index-BOJU9veW.js:1579
+await in al
+rA @ index-BOJU9veW.js:1657
+await in rA
+(anonymous) @ index-BOJU9veW.js:1958
+await in (anonymous)
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1958
+iv @ index-BOJU9veW.js:1958
+sv @ index-BOJU9veW.js:1958
+Fk @ index-BOJU9veW.js:3113
+c @ index-BOJU9veW.js:3684
+  [2025-12-04T03:59:28.215Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+D0 @ index-BOJU9veW.js:1579
+al @ index-BOJU9veW.js:1579
+await in al
+rA @ index-BOJU9veW.js:1657
+await in rA
+(anonymous) @ index-BOJU9veW.js:1958
+await in (anonymous)
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1958
+iv @ index-BOJU9veW.js:1958
+sv @ index-BOJU9veW.js:1958
+Fk @ index-BOJU9veW.js:3113
+c @ index-BOJU9veW.js:3684
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb to Firebase
+  [2025-12-04T04:00:32.320Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1533
+(anonymous) @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+handleDelayElapsed @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1594
+setTimeout
+start @ index-BOJU9veW.js:1594
+createAndSchedule @ index-BOJU9veW.js:1594
+enqueueAfterDelay @ index-BOJU9veW.js:1793
+Go @ index-BOJU9veW.js:1533
+i_ @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+D0 @ index-BOJU9veW.js:1579
+BT @ index-BOJU9veW.js:1579
+await in BT
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+  [2025-12-04T04:00:32.320Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1533
+(anonymous) @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+handleDelayElapsed @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1594
+setTimeout
+start @ index-BOJU9veW.js:1594
+createAndSchedule @ index-BOJU9veW.js:1594
+enqueueAfterDelay @ index-BOJU9veW.js:1793
+Go @ index-BOJU9veW.js:1533
+i_ @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+D0 @ index-BOJU9veW.js:1579
+BT @ index-BOJU9veW.js:1579
+await in BT
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey ee0ba98b-0f3b-4ce0-b64c-36cd67b41efd to Firebase
+  [2025-12-04T04:01:22.596Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1533
+(anonymous) @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+handleDelayElapsed @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1594
+  [2025-12-04T04:01:22.596Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+error @ index-BOJU9veW.js:233
+yn @ index-BOJU9veW.js:465
+close @ index-BOJU9veW.js:1548
+I_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+So @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+(anonymous) @ index-BOJU9veW.js:1503
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Ws.ta @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+Jf @ index-BOJU9veW.js:420
+r.Fa @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Kf @ index-BOJU9veW.js:420
+Ul @ index-BOJU9veW.js:417
+Sn.Y @ index-BOJU9veW.js:416
+Sn.ca @ index-BOJU9veW.js:416
+Oe @ index-BOJU9veW.js:412
+Te @ index-BOJU9veW.js:412
+Bf @ index-BOJU9veW.js:419
+r.bb @ index-BOJU9veW.js:419
+r.Ea @ index-BOJU9veW.js:419
+eo @ index-BOJU9veW.js:418
+r.Pa @ index-BOJU9veW.js:417
+Promise.then
+Mf @ index-BOJU9veW.js:417
+r.Sa @ index-BOJU9veW.js:417
+Promise.then
+r.send @ index-BOJU9veW.js:417
+r.ea @ index-BOJU9veW.js:419
+xf @ index-BOJU9veW.js:416
+jl @ index-BOJU9veW.js:416
+r.Ga @ index-BOJU9veW.js:420
+H @ index-BOJU9veW.js:412
+Promise.then
+Z @ index-BOJU9veW.js:412
+Ca @ index-BOJU9veW.js:420
+r.connect @ index-BOJU9veW.js:420
+sr.m @ index-BOJU9veW.js:420
+Io @ index-BOJU9veW.js:1503
+send @ index-BOJU9veW.js:1488
+a_ @ index-BOJU9veW.js:1548
+p_ @ index-BOJU9veW.js:1548
+jT @ index-BOJU9veW.js:1579
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+wo @ index-BOJU9veW.js:1488
+(anonymous) @ index-BOJU9veW.js:1503
+setTimeout
+Bo @ index-BOJU9veW.js:1503
+T_ @ index-BOJU9veW.js:1548
+P_ @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+Promise.then
+auth @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+start @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1548
+(anonymous) @ index-BOJU9veW.js:1533
+(anonymous) @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1792
+(anonymous) @ index-BOJU9veW.js:1792
+Promise.then
+gu @ index-BOJU9veW.js:1792
+enqueue @ index-BOJU9veW.js:1792
+enqueueAndForget @ index-BOJU9veW.js:1792
+handleDelayElapsed @ index-BOJU9veW.js:1594
+(anonymous) @ index-BOJU9veW.js:1594
+ [INIT-1] HTML loaded - Starting library initialization
+Navigated to https://measure-pro.app/
+ [INIT-4] Body rendering - Root div created
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: {VITE_FIREBASE_API_KEY: 'AIzaSyCIC_...', VITE_FIREBASE_AUTH_DOMAIN: 'measureprov1.firebaseapp.com', VITE_FIREBASE_PROJECT_ID: 'measureprov1', VITE_FIREBASE_STORAGE_BUCKET: 'measureprov1.firebasestorage.app', VITE_FIREBASE_MESSAGING_SENDER_ID: '341067281215', …}
+ [FIREBASE-3] Processed Firebase config: {apiKey: 'AIzaSyCIC_...', authDomain: 'measureprov1.firebaseapp.com', projectId: 'measureprov1', storageBucket: 'measureprov1.firebasestorage.app', messagingSenderId: '341067281215', …}
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: production Production: true
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] Auth cache found: {email: 'jfprince@soltec.ca', isOfflineMode: false}
+ [STORAGE-12] Storage quota: {used: '178.6MB', total: '1143967.2MB', percentage: '0.0%'}
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [AUTHCTX-4] Days offline: 0
+ [AUTHCTX-6] Auth state initialization complete
+ ⏱️ getSurveysPaginated(50): 57.323974609375 ms
+ ⏱️ loadSurveys TOTAL: 67.547119140625 ms
+ ✅ Loaded 32 surveys (including active) in 68ms
+ [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ [AUTHCTX-8] Firebase auth listener callback: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1'}
+ [AUTHCTX-9] User authenticated and online, updating timestamps
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+Service Worker was updated because "Update on reload" was checked in the DevTools Application panel.
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [Violation] Only request geolocation information in response to a user gesture.
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ ⏱️ getSurveysPaginated(50): 34.655029296875 ms
+ ⏱️ loadSurveys TOTAL: 41.34814453125 ms
+ ✅ Loaded 32 surveys (including active) in 41ms
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ ✅ Loaded 32 surveys (including active) in 53ms
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+HD @ index-BOJU9veW.js:3677
+await in HD
+(anonymous) @ index-BOJU9veW.js:3677
+(anonymous) @ index-BOJU9veW.js:3677
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ [RoadScope] Requesting: /api/roadscope/proxy/surveys
+ [Violation] Only request geolocation information in response to a user gesture.
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+checkSerialTimeout @ index-BOJU9veW.js:3234
+(anonymous) @ index-BOJU9veW.js:3235
+setInterval
+(anonymous) @ index-BOJU9veW.js:3235
+ [Violation] Only request geolocation information in response to a user gesture.
+t @ index-BOJU9veW.js:3235
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+(anonymous) @ index-BOJU9veW.js:3234
+setTimeout
+setHasGPSPermission @ index-BOJU9veW.js:3234
+initBrowserGPS @ index-BOJU9veW.js:3235
+await in initBrowserGPS
+checkSerialTimeout @ index-BOJU9veW.js:3234
+(anonymous) @ index-BOJU9veW.js:3235
+setInterval
+(anonymous) @ index-BOJU9veW.js:3235
+Navigated to https://measure-pro.app/
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: {VITE_FIREBASE_API_KEY: 'AIzaSyCIC_...', VITE_FIREBASE_AUTH_DOMAIN: 'measureprov1.firebaseapp.com', VITE_FIREBASE_PROJECT_ID: 'measureprov1', VITE_FIREBASE_STORAGE_BUCKET: 'measureprov1.firebasestorage.app', VITE_FIREBASE_MESSAGING_SENDER_ID: '341067281215', …}
+ [FIREBASE-3] Processed Firebase config: {apiKey: 'AIzaSyCIC_...', authDomain: 'measureprov1.firebaseapp.com', projectId: 'measureprov1', storageBucket: 'measureprov1.firebasestorage.app', messagingSenderId: '341067281215', …}
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: production Production: true
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] Auth cache found: {email: 'jfprince@soltec.ca', isOfflineMode: false}
+ [STORAGE-12] Storage quota: {used: '176.6MB', total: '1143967.2MB', percentage: '0.0%'}
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [AUTHCTX-4] Days offline: 0
+ [AUTHCTX-6] Auth state initialization complete
+ ⏱️ getSurveysPaginated(50): 59.9970703125 ms
+ ⏱️ loadSurveys TOTAL: 69.33984375 ms
+ ✅ Loaded 32 surveys (including active) in 69ms
+ [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ [AUTHCTX-8] Firebase auth listener callback: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1'}
+ [AUTHCTX-9] User authenticated and online, updating timestamps
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [Violation] Only request geolocation information in response to a user gesture.
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ ⏱️ getSurveysPaginated(50): 32.10498046875 ms
+ ⏱️ loadSurveys TOTAL: 38.001953125 ms
+ ✅ Loaded 32 surveys (including active) in 38ms
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+await in loadSurveys
+(anonymous) @ Settings-DY8rPonP.js:181
+(anonymous) @ Settings-DY8rPonP.js:181
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ ✅ Loaded 32 surveys (including active) in 42ms
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+HD @ index-BOJU9veW.js:3677
+await in HD
+(anonymous) @ index-BOJU9veW.js:3677
+(anonymous) @ index-BOJU9veW.js:3677
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+ [RoadScope] Requesting: /api/roadscope/proxy/surveys

@@ -1,0 +1,538 @@
+ 🧹 Deleted cache: workbox-precache-v2-https://measure-pro.app/
+ 🧹 Unregistered service worker: true
+ 🔥 Firebase Config Loaded:
+   Project ID: measureprov1
+   Config validated: ✅
+ 🔥 Initializing Firebase for project: measureprov1
+ ✅ Firebase initialized successfully
+ 🛰️ GPS failsafe enabled - will use browser GPS when serial GPS is unavailable
+ 🛰️ No recent serial GPS data, starting browser GPS failsafe immediately
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ 🏭 PRODUCTION MODE: Registering service worker...
+ 🚀 main.tsx is executing!
+ Looking for root element...
+ Root element found: true 
+ Creating React root and rendering App...
+ ✅ React render called successfully!
+ Found 0 pending changes
+ 🌍 Attempting to get browser GPS position...
+ App component rendering
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+ 📹 Starting camera auto-detection...
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ 🔄 Opening IndexedDB database...
+ App: Auto sync setup
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ App: Storage initialized
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded 3 surveys from database
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Camera overlay synced with survey: Object
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ [LaserStore] Setting ground reference height: 2.06
+ [LaserStore] Validated ground reference height: 2.06
+  Failed to save ground reference height: 
+setGroundReferenceHeight @ laser-XSFgdTaB.js:6
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔧 About to set isInitialized to true
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📊 MeasurementLog: Loading measurements for survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+ 📹 Camera monitor state: Object
+ 📐 Video dimensions (rendered): 795 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ Auto-save enabled: every 5 minutes for survey test
+ 🔧 About to set isInitialized to true
+ 🔧 Previous state: Object
+ ✅ Voice assistant initialized
+ 🔍 handleMeasurementChange: Not logging
+ 🔍 Counter Detection useEffect triggered: loggingMode=manual, isLogging=false, stopRequested=false
+ 🔢❌ Counter Detection timer NOT started - conditions not met
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🔧 Previous state: Object
+ ✅ warning sound loaded successfully
+ ✅ Loaded Route Enforcement data from IndexedDB
+ 🔄 Survey changed, loading traces for: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+ 🗺️ Loading traces for survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+ Loaded 3 surveys from database
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📊 MeasurementLog: Loading measurements for survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+ Auto-save enabled: every 5 minutes for survey test
+ 🔍 handleMeasurementChange: Not logging
+ Loaded 3 surveys from database
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📊 MeasurementLog: Loading measurements for survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+ Auto-save enabled: every 5 minutes for survey test
+ 🔍 handleMeasurementChange: Not logging
+ SurveyManager: Loaded surveys: Array(3)
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ ✅ critical sound loaded successfully
+ 🗺️ Found 4696 trace points from IndexedDB
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: jfprince@soltec.ca
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed in OfflineStatusIndicator: jfprince@soltec.ca
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: jfprince@soltec.ca
+ 📷 Initializing StandardCamera with deviceId: 6533fec3dc2382a3dd971cf6316e595ed1ba0f06aeedaf3de57e6c152dbd5a0d
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 6533fec3dc2382a3dd971cf6316e595ed1ba0f06aeedaf3de57e6c152dbd5a0d
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "6533fec3dc2382a3dd971cf6316e595ed1ba0f06aeedaf3de57e6c152dbd5a0d"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ measureDetected sound loaded successfully
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ logEntry sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ ✅ Last online timestamp updated
+ ✅ Offline mode set to: false
+/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 ()
+  Failed to check terms acceptance: 
+(anonymous) @ index-DzlXbgY6.js:3591
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 1
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: 6533fec3dc2382a3dd971cf6316e595ed1ba0f06aeedaf3de57e6c152dbd5a0d
+ 🔍 Stream label: OsmoAction5pro (05c6:8004)
+ 🔍 Expected selectedCamera: 6533fec3dc2382a3dd971cf6316e595ed1ba0f06aeedaf3de57e6c152dbd5a0d
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📐 Video dimensions (rendered): 795 x 447
+ 📐 Video dimensions (intrinsic): 1280 x 720
+ 📹 Video metadata loaded in LiveCamera
+ 📐 Video dimensions (rendered): 795 x 447
+ 📐 Video dimensions (intrinsic): 1280 x 720
+ ✅ Video metadata loaded, resolution: 1280 x 720
+ 📐 Video dimensions (rendered): 795 x 447
+ 📐 Video dimensions (intrinsic): 1280 x 720
+ 📹 Video playing in LiveCamera
+ ✅ Video playback started successfully
+ 🔗 Setting camera connected status to TRUE
+ ✅ Camera connection status updated to TRUE
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Device detection: Desktop
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-BumoUdHB.js:1
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ Sound system initialized with AudioContext
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ critical sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ measureDetected sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ warning sound loaded successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ Found 272 total measurements
+ 📊 MeasurementLog: Loaded 272 measurements for display
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+ 📼 Loaded 0 voice notes
+ Found 272 total measurements
+ 📊 MeasurementLog: Loaded 272 measurements for display
+ Found 272 total measurements
+ 📊 MeasurementLog: Loaded 272 measurements for display
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 📼 Loaded 0 voice notes
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 📐 Video dimensions (rendered): 795 x 447
+ 📐 Video dimensions (intrinsic): 1280 x 720
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+initBrowserGPS @ index-DzlXbgY6.js:3161
+  Error details: 
+initBrowserGPS @ index-DzlXbgY6.js:3161
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+a @ index-DzlXbgY6.js:3591
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3179  No active recording to stop
+stopRecording @ index-DzlXbgY6.js:3179
+index-DzlXbgY6.js:3161 ⏹️ Video recording stopped in store. Duration: 510025.0s
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+index-DzlXbgY6.js:3339 Clearing survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+Settings-BkOs1VIo.js:171 📊 MeasurementLog: Database change detected, reloading measurements
+Settings-BkOs1VIo.js:171 📊 MeasurementLog: Loading measurements for survey: 79afa27f-a7b9-43cc-8fb3-e8d74b1409c2
+index-DzlXbgY6.js:3339 Survey deactivated: Object
+VehicleMap-DXBKjNBk.js:52 🔄 No active survey, clearing traces
+index-DzlXbgY6.js:3591 App component rendering
+index-DzlXbgY6.js:3144 ✅ Master admin detected, granting app access
+index-DzlXbgY6.js:3144 ✅ App access granted, account approved, and permissions OK, showing protected content
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+Settings-BkOs1VIo.js:139 🔍 handleMeasurementChange: Not logging
+Settings-BkOs1VIo.js:139 🔍 handleMeasurementChange: No active survey
+index-DzlXbgY6.js:3479 Camera overlay synced with survey: null
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+Settings-BkOs1VIo.js:171 Found 0 total measurements
+Settings-BkOs1VIo.js:171 📊 MeasurementLog: Loaded 0 measurements for display
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+Settings-BkOs1VIo.js:169 Survey form submitted: Object
+Settings-BkOs1VIo.js:169 Creating survey with validated data: Object
+index-DzlXbgY6.js:3338 Creating new survey with data: Object
+index-DzlXbgY6.js:3339  Error creating survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_8e312d6a-adca-4e1d-923b-9ddd662e973b' exceeded the quota.
+    at createSurvey (index-DzlXbgY6.js:3338:4535)
+    at x (Settings-BkOs1VIo.js:169:128950)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+createSurvey @ index-DzlXbgY6.js:3339
+Settings-BkOs1VIo.js:169  Error saving survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_8e312d6a-adca-4e1d-923b-9ddd662e973b' exceeded the quota.
+    at createSurvey (index-DzlXbgY6.js:3338:4535)
+    at x (Settings-BkOs1VIo.js:169:128950)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+x @ Settings-BkOs1VIo.js:169
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3339 Loaded 3 surveys from database
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+Settings-BkOs1VIo.js:169 Available surveys in SurveyList: Array(3)
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+Settings-BkOs1VIo.js:169 Loading survey: Object
+Settings-BkOs1VIo.js:169  Error loading survey: ReferenceError: openSurveyDB is not defined
+    at m (Settings-BkOs1VIo.js:169:134972)
+    at onClick (Settings-BkOs1VIo.js:169:136850)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+m @ Settings-BkOs1VIo.js:169
+Settings-BkOs1VIo.js:169 Loading survey: Object
+Settings-BkOs1VIo.js:169  Error loading survey: ReferenceError: openSurveyDB is not defined
+    at m (Settings-BkOs1VIo.js:169:134972)
+    at onClick (Settings-BkOs1VIo.js:169:136850)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+m @ Settings-BkOs1VIo.js:169
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+Settings-BkOs1VIo.js:169 Loading survey: Object
+Settings-BkOs1VIo.js:169  Error loading survey: ReferenceError: openSurveyDB is not defined
+    at m (Settings-BkOs1VIo.js:169:134972)
+    at onClick (Settings-BkOs1VIo.js:169:136850)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+m @ Settings-BkOs1VIo.js:169
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+Settings-BkOs1VIo.js:169 Survey form submitted: Object
+Settings-BkOs1VIo.js:169 Creating survey with validated data: Object
+index-DzlXbgY6.js:3338 Creating new survey with data: Object
+index-DzlXbgY6.js:3339  Error creating survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_f2952227-ead9-4fed-beb7-539beda62c98' exceeded the quota.
+    at createSurvey (index-DzlXbgY6.js:3338:4535)
+    at x (Settings-BkOs1VIo.js:169:128950)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+createSurvey @ index-DzlXbgY6.js:3339
+Settings-BkOs1VIo.js:169  Error saving survey: QuotaExceededError: Failed to execute 'setItem' on 'Storage': Setting the value of 'emergency_survey_f2952227-ead9-4fed-beb7-539beda62c98' exceeded the quota.
+    at createSurvey (index-DzlXbgY6.js:3338:4535)
+    at x (Settings-BkOs1VIo.js:169:128950)
+    at Object.XA (index-DzlXbgY6.js:38:9864)
+    at ek (index-DzlXbgY6.js:38:10018)
+    at tk (index-DzlXbgY6.js:38:10075)
+    at qv (index-DzlXbgY6.js:38:31462)
+    at pE (index-DzlXbgY6.js:38:31879)
+    at index-DzlXbgY6.js:38:36792
+    at o0 (index-DzlXbgY6.js:41:36957)
+    at jb (index-DzlXbgY6.js:38:8999)
+x @ Settings-BkOs1VIo.js:169
+Settings-BkOs1VIo.js:185 🎹 Keyboard Event: Object
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+await in a
+(anonymous) @ Settings-BkOs1VIo.js:169
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: GPS data: {time: '09:30:43', latitude: 43.5147, longitude: -80.1883, altitude: 0, speed: 0, …}
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Creating/updating marker at: (2) [43.5147, -80.1883]
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-DXBKjNBk.js:55 📍 PositionMarker: Centered map on position
+index-DzlXbgY6.js:3591  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+a @ index-DzlXbgY6.js:3591
+await in a
+(anonymous) @ Settings-BkOs1VIo.js:169

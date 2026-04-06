@@ -1,0 +1,374 @@
+You’re working on my app MeasurePRO (React + Vite PWA, offline-first, IndexedDB, workers).
+This app runs installed on Windows and must work 100% offline while logging 5–10 POIs/second and 5,000+ POIs/day.
+
+I can tolerate losing a few seconds / one small batch in a catastrophic crash,
+but losing half a day of survey data is unacceptable.
+
+You already described this architecture (or something very close):
+
+MeasurementFeed in-memory cache (last ~5000 measurements in RAM).
+
+Main thread posts POIs to a logger worker, which batches them.
+
+Logger worker forwards batches to a storage worker.
+
+Storage worker writes to IndexedDB using openSharedSurveyDB() from db.shared.ts.
+
+There is a appendToLocalCSV() function that writes to localStorage per measurement as a backup.
+
+Now I need you to harden this pipeline so that:
+
+UI remains lag-free.
+
+I never silently lose half a day of data.
+
+I have automatic checkpoints (≈ every 10 minutes).
+
+There is at least one test / simulation to validate this behaviour.
+
+1. First: locate the relevant code
+
+Find and open (names may vary slightly, but start with these):
+
+src/lib/survey/MeasurementFeed.ts
+
+src/lib/workers/measurementLoggerWorker.ts (or similar)
+
+src/lib/workers/storageWorker.ts
+
+src/lib/survey/db.shared.ts and src/lib/survey/db.ts
+
+src/lib/survey/measurements.ts or wherever logMeasurement() is defined
+
+The function appendToLocalCSV (and all call sites)
+
+Confirm the data flow you think is implemented now:
+
+UI → logMeasurement() → MeasurementFeed.addMeasurement() → logger worker → storage worker → IndexedDB
+
+If reality differs, update this plan in code accordingly.
+
+2. Add ACK-based tracking of pending writes + storage health
+2.1 Define worker message types
+
+In the shared worker types file (or create one, e.g. src/lib/workers/storageMessages.ts), define message shapes like:
+
+// From main → logger/storage worker
+export type SaveMeasurementsMessage = {
+  type: 'SAVE_MEASUREMENTS';
+  surveyId: string;
+  measurements: Measurement[];
+};
+
+// From storage worker → main
+export type MeasurementsSavedAck = {
+  type: 'MEASUREMENTS_SAVED_ACK';
+  surveyId: string;
+  ids: string[];              // measurement IDs successfully saved
+  committedAt: number;        // Date.now() when IndexedDB commit finished
+};
+
+export type FlushMessage = {
+  type: 'FLUSH';
+};
+
+export type FlushAckMessage = {
+  type: 'FLUSH_ACK';
+};
+
+
+Use these consistently between main, logger worker, and storage worker (update existing message types instead of duplicating if needed).
+
+2.2 Track pending writes + last successful write
+
+In the main thread (where you instantiate workers / log measurements), implement a storage health tracker, e.g. src/lib/survey/storageHealth.ts:
+
+export type StorageHealth = {
+  pendingWrites: number;
+  lastSuccessfulWriteAt: number | null;
+};
+
+const health: StorageHealth = {
+  pendingWrites: 0,
+  lastSuccessfulWriteAt: null,
+};
+
+export function incrementPending(count: number) {
+  health.pendingWrites += count;
+}
+
+export function applyAck(idsCount: number, committedAt: number) {
+  health.pendingWrites = Math.max(0, health.pendingWrites - idsCount);
+  health.lastSuccessfulWriteAt = committedAt;
+}
+
+export function getStorageHealth(): StorageHealth {
+  return { ...health };
+}
+
+
+Hook this into the worker messages:
+
+When sending a SAVE_MEASUREMENTS batch from main → logger/storage worker, call incrementPending(batch.length).
+
+When the main thread receives MEASUREMENTS_SAVED_ACK from the storage worker, call applyAck(ids.length, committedAt).
+
+2.3 Surface a health warning
+
+Add a simple dev/field-visible health check somewhere appropriate (e.g. top bar, or in your existing “Debug/Status” drawer):
+
+If pendingWrites > 500 OR lastSuccessfulWriteAt is older than 3 minutes, show:
+
+⚠ Storage backlog – data not fully committed. Stop survey and export ASAP.
+
+Also log a console error with the current StorageHealth values.
+
+This prevents a broken storage worker from silently killing half a day of data.
+
+3. Remove per-POI localStorage CSV writes
+
+appendToLocalCSV currently writes one row per measurement into localStorage. That is synchronous and will eventually cause UI jank.
+
+Change this:
+
+Stop calling appendToLocalCSV on every measurement.
+
+Comment out or remove those calls from logMeasurement() / measurement save path.
+
+Leave the function itself if you need it for future, but mark it as deprecated in a comment:
+
+// DEPRECATED: do not call per measurement. CSV will be generated from IndexedDB/export.
+
+
+If CSV export is required, re-use your existing export pipeline to generate CSV on demand or during periodic checkpoints (see next section) in a worker, not per-POI on main thread.
+
+4. Implement periodic auto-checkpoints (≤ 10 minutes data loss)
+
+We want automatic survey checkpoints so that even if the DB or app is broken late in the day, the last export is at most ≈10 minutes behind.
+
+4.1 Add a checkpoints store
+
+In db.shared.ts, add a new object store:
+
+// Example
+surveyCheckpoints: {
+  keyPath: 'id'; // e.g. `${surveyId}::${version}`
+  indexes: ['by-survey']; 
+}
+
+
+Checkpoint record example:
+
+export type SurveyCheckpoint = {
+  id: string;              // `${surveyId}::${version}`
+  surveyId: string;
+  version: number;         // incrementing
+  createdAt: string;       // ISO
+  // Either the full export blob or JSON metadata:
+  exportBlobId?: string;   // key into another store with a Blob
+  summary: {
+    totalMeasurements: number;
+    lastMeasurementAt: string | null;
+  };
+};
+
+
+(If you already have an export system that generates a zip, you can store that Blob in a exportBlobs store and reference it by ID from the checkpoint.)
+
+4.2 Implement createSurveyCheckpoint(surveyId: string)
+
+Create a helper in e.g. src/lib/survey/checkpoints.ts:
+
+export async function createSurveyCheckpoint(surveyId: string): Promise<void> {
+  const db = await openSharedSurveyDB();
+
+  // 1. Fetch last checkpoint for this survey (if any)
+  const lastCheckpoint = await getLastCheckpointForSurvey(db, surveyId);
+  const fromTimestamp = lastCheckpoint?.summary.lastMeasurementAt ?? null;
+
+  // 2. Use existing export logic, but you can optimize:
+  //    - Either generate a full export
+  //    - Or just compute summary + maybe a partial export
+  const exportResult = await generateSurveyExportSnapshot(db, surveyId, fromTimestamp);
+
+  const version = (lastCheckpoint?.version ?? 0) + 1;
+
+  const checkpoint: SurveyCheckpoint = {
+    id: `${surveyId}::${version}`,
+    surveyId,
+    version,
+    createdAt: new Date().toISOString(),
+    exportBlobId: exportResult.blobId,
+    summary: {
+      totalMeasurements: exportResult.totalMeasurements,
+      lastMeasurementAt: exportResult.lastMeasurementAt,
+    },
+  };
+
+  await saveCheckpoint(db, checkpoint);
+}
+
+
+Use your existing export code (you just wrote documentation for the export structure) so that generateSurveyExportSnapshot builds the same format you’d normally export, but it’s stored internally.
+
+4.3 Schedule checkpoints every ~10 minutes
+
+In the part of the app that manages an active survey (e.g. SurveySessionManager / useActiveSurvey), add:
+
+const CHECKPOINT_INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
+
+let checkpointTimer: number | null = null;
+
+export function startSurveyCheckpointTimer(surveyId: string) {
+  stopSurveyCheckpointTimer();
+  checkpointTimer = window.setInterval(() => {
+    void createSurveyCheckpoint(surveyId).catch(err => {
+      console.error('[CHECKPOINT] Failed to create checkpoint', err);
+    });
+  }, CHECKPOINT_INTERVAL_MS);
+}
+
+export function stopSurveyCheckpointTimer() {
+  if (checkpointTimer !== null) {
+    clearInterval(checkpointTimer);
+    checkpointTimer = null;
+  }
+}
+
+
+Call:
+
+startSurveyCheckpointTimer(currentSurveyId) when a survey is started / resumed.
+
+stopSurveyCheckpointTimer() when survey ends or app navigates away.
+
+Optionally, show “Last auto-backup: X min ago” in the UI by reading the latest checkpoint’s createdAt.
+
+5. Flush pending batches on tab close / backgrounding
+
+To further reduce exposure, ensure any pending batches are flushed when the app is minimized or closed:
+
+In main thread initialization:
+
+function requestFlush() {
+  loggerWorker.postMessage({ type: 'FLUSH' } as FlushMessage);
+  storageWorker.postMessage({ type: 'FLUSH' } as FlushMessage);
+}
+
+window.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    requestFlush();
+  }
+});
+
+window.addEventListener('beforeunload', () => {
+  requestFlush();
+});
+
+
+In logger/storage workers:
+
+On receiving FLUSH, immediately write any queued measurements and then send back FLUSH_ACK.
+
+This keeps the “uncommitted in RAM/queue” window small even if the user closes the app.
+
+6. Add a high-load test / simulation
+
+I want at least one concrete way to verify this pipeline.
+
+If the project already uses Vitest / Jest, add a test file, e.g. src/lib/workers/storagePipeline.test.ts.
+If not, create a simple dev-only simulation script and hook it as npm run simulate:storage.
+
+6.1 Simulated high-load test (preferred: Vitest)
+
+Create a test that:
+
+Mocks a storage worker implementation in Node/JS environment.
+
+Uses the same batching logic as your logger + storage worker.
+
+Simulates logging 10,000 measurements at 5–10 POIs/s.
+
+Asserts that:
+
+All measurements eventually receive MEASUREMENTS_SAVED_ACK.
+
+getStorageHealth().pendingWrites === 0 at the end.
+
+The number of batches is within reasonable bounds (around total / MAX_BATCH_SIZE).
+
+No unhandled rejections or thrown errors during the pipeline.
+
+Pseudo-test (adapt to your actual architecture):
+
+import { describe, it, expect } from 'vitest';
+import { simulateLoggingPipeline } from './testUtils/simulateLoggingPipeline';
+
+describe('storage pipeline under high load', () => {
+  it('commits all measurements and clears pendingWrites', async () => {
+    const result = await simulateLoggingPipeline({
+      totalMeasurements: 10000,
+      burstRate: 10,  // 10 POIs/s simulated
+    });
+
+    expect(result.pendingWrites).toBe(0);
+    expect(result.totalSaved).toBe(10000);
+    expect(result.errors.length).toBe(0);
+  });
+});
+
+
+Make simulateLoggingPipeline use the real batching and health-tracking code, not a mock.
+
+6.2 Manual field test helper (if tests are hard)
+
+If automated tests are too heavy, at least add a dev-only script:
+
+src/dev/simulateHighLoad.ts that:
+
+Starts a fake survey in the browser,
+
+Generates 10,000 fake POIs and logs them through logMeasurement(),
+
+Displays:
+
+Final pendingWrites,
+
+lastSuccessfulWriteAt,
+
+Time taken,
+
+Count of committed measurements read back from IndexedDB.
+
+Hook via npm run simulate:storage and document in a comment how to run it.
+
+7. Final checklist & what to report back
+
+When you’re done, I want you to:
+
+List all files you modified.
+
+For each of these features, confirm behaviour:
+
+Storage health tracking + UI warning works (describe how to see it).
+
+appendToLocalCSV is no longer called per POI.
+
+Auto-checkpoints are being created every ~10 minutes during an active survey.
+
+Pending batches are flushed on visibilitychange and beforeunload.
+
+The high-load test / simulation runs and shows:
+
+pendingWrites ends at 0.
+
+All simulated measurements are saved.
+
+Tell me the exact command(s) to run:
+
+Unit test (if you added one).
+
+Simulation (if you added a dev script).
+
+Keep changes surgical and do not introduce new database schemas unless needed.
+Re-use the existing export format for checkpoints if at all possible.

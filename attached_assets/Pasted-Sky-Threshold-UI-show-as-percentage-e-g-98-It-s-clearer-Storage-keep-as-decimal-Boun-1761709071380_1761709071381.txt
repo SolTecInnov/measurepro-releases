@@ -1,0 +1,164 @@
+Sky Threshold
+
+
+UI: show as percentage (e.g., 98%). It’s clearer.
+
+
+Storage: keep as decimal.
+
+
+Bounds & mapping:
+
+
+Allowed: 0.95–0.995 (→ 95–99.5%).
+
+
+skyNearMaxFrac = clamp(percent / 100, 0.95, 0.995).
+
+
+
+
+Default: 0.98 (98%).
+
+
+Schema key: global.skyNearMaxFrac: number.
+
+
+Watchdog (feed-rate/timeout)
+
+
+What stream? Laser measurement stream. That’s the gating sensor.
+
+
+Behavior:
+
+
+If TRACKING/HOLD and (laserHz < laserMinHz) OR (now - lastLaserTs > laserTimeoutMs):
+
+
+If abortOnTimeout = true → cancel current event without emitting (hard reset to IDLE) and set a diagnostic flag.
+
+
+Else → mark event degraded (diagnostics), allow HOLD to finish (no new starts until laser recovers).
+
+
+
+
+
+
+Where to check? Inside OverheadAggregator. Track raw laser packet arrivals, not just feed() cadence.
+Expose a tiny hook the serial reader must call:
+aggregator.onLaserPacket(tsMs: number) // call on every raw LDS read
+
+Then in feed(sample) (each tick) evaluate the watchdog.
+
+
+Recommended defaults / schema:
+global.watchdog = {
+  laserMinHz: 8,          // sliding-window estimate over ~2 s
+  laserTimeoutMs: 2000,   // hard gap
+  gpsTimeoutMs: 3000,     // optional: only mark degraded (don’t abort)
+  abortOnTimeout: true
+}
+
+
+
+Sketch:
+// in class
+private lastLaserTs = 0;
+private winStart = 0;
+private laserPkCount = 0;
+
+onLaserPacket(ts:number){ this.lastLaserTs = ts; this.laserPkCount++; }
+
+private laserHz(now:number){
+  const WIN_MS = 2000;
+  if (!this.winStart) this.winStart = now;
+  const dt = now - this.winStart;
+  if (dt >= WIN_MS) { const hz = this.laserPkCount / (dt/1000); this.winStart = now; this.laserPkCount = 0; return hz; }
+  return null; // not enough window yet
+}
+
+// in feed()
+const now = sample.t;
+const hz = this.laserHz(now);
+const noLaser = (now - this.lastLaserTs) > cfg.global.watchdog.laserTimeoutMs;
+if ((phase===TRACKING || phase===HOLD) && (noLaser || (hz!==null && hz < cfg.global.watchdog.laserMinHz))) {
+  if (cfg.global.watchdog.abortOnTimeout) resetToIdleWithoutCommit();
+  diagnostics.watchdogAbort = { noLaser, hz: hz ?? -1 };
+}
+
+
+
+Field Tuning Cheatsheet
+
+
+Yes: a collapsible “📋 Quick Tuning Guide” at the top with 6–8 bullet recipes is perfect.
+
+
+Also keep help tooltips on the most-confused controls (dStart, tEndMs, winCouloirM, minDropForLocal).
+
+
+Suggested bullets (copy):
+
+
+Missing overhead objects? → Lower Start Threshold a bit (e.g., 0.30 → 0.28) or lower End Hold by 50 ms.
+
+
+Too many false alerts? → Raise Start Threshold (0.30 → 0.34) or raise End Hold (+50–100 ms).
+
+
+Trees flicker? → Use Tree/Canopy block: Start 0.35, End 0.22, Hold 350 ms.
+
+
+Downtown wire hell? → City Mode ON; Corridor 20 m, Local Dip 0.20, Min POI spacing 40–60 m, Max /100 m = 0–1.
+
+
+HV logs >3 points? → Wire Separation 0.35–0.45 m (cap stays 3).
+
+
+Distances feel high today? → Run snap-cal; set dailyOffset (e.g., −0.03 m).
+
+
+
+
+Min Dip Epsilon
+
+
+Yes: put dMinEpsilon in an “Advanced” collapsible.
+
+
+What it is: minimum improvement (m) required to update the global minimum during an event.
+
+
+Default: 0.04 m.
+
+
+Range: 0.02–0.10 m.
+
+
+Helps: prevents micro-updates from small noise; stabilizes the single min you’ll log.
+
+
+Schema key: include per-event or global advanced; simplest is global: global.dMinEpsilon.
+
+
+
+Final list of new/confirmed keys
+global: {
+  skyNearMaxFrac: 0.98,
+  watchdog: { laserMinHz: 8, laserTimeoutMs: 2000, gpsTimeoutMs: 3000, abortOnTimeout: true },
+  // optional advanced
+  dMinEpsilon: 0.04
+}
+
+events: {
+  bridge: {...},
+  gantry: {...},
+  tree_canopy: { dStart:0.35, dEnd:0.22, tEndMs:350, winEventMaxM:25 }, // new block
+  wires_util: {...},
+  wires_hv: {...},
+  overhead: {...}
+}
+
+That set keeps the UI understandable, the code robust, and the ops team in control.

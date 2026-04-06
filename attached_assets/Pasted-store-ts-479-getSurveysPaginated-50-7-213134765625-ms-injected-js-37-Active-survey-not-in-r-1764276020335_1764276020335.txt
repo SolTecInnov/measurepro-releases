@@ -1,0 +1,50 @@
+store.ts:479 ⏱️ getSurveysPaginated(50): 7.213134765625 ms
+injected.js:37 ⚠️ Active survey not in recent 50, searching...
+store.ts:511 ⏱️ loadSurveys TOTAL: 8.036865234375 ms
+injected.js:37 ✅ Loaded 1 surveys (including active) in 8ms
+injected.js:37 🔄 Initializing MeasurementFeed for survey 7fb291e2-4464-4dbf-a5d2-d7ee4b574e17
+injected.js:37 ✅ MeasurementFeed primed (historical data loading in background)
+injected.js:37 ✅ Measurement logger worker ready
+injected.js:37 ✅ Measurement logger worker ready
+injected.js:37 ✅ Flushed measurements on unmount
+injected.js:37 📦 Loaded 0 measurements from IndexedDB in 16.7ms
+injected.js:37 [CloseSurvey] Survey marked as inactive: 7fb291e2-4464-4dbf-a5d2-d7ee4b574e17
+injected.js:37 [CloseSurvey] Package generated: a-2025-11-27.zip Size: 5.15 KB
+injected.js:37 [CloseSurvey] Local download initiated
+injected.js:37 [StorageUpload] Converting blob to base64 (5.15 KB)...
+injected.js:37 [StorageUpload] Uploading a-2025-11-27.zip to server...
+injected.js:37 [StorageUpload] Upload complete: {filePath: 'survey-packages/7fb291e2-4464-4dbf-a5d2-d7ee4b574e17/a-2025-11-27.zip', size: '5.15 KB', downloadUrl: 'https://storage.googleapis.com/measureprov1.fireba...'}
+injected.js:37  [StorageUpload] Failed to track upload status: NotFoundError: Failed to execute 'transaction' on 'IDBDatabase': One of the specified object stores was not found.
+    at Proxy.<anonymous> (index.js:125:26)
+    at Proxy.method (index.js:228:25)
+    at trackUploadStatus (storageUpload.ts:181:14)
+    at async uploadSurveyPackage (storageUpload.ts:133:5)
+    at async closeSurveyWithExport (exportUtils.ts:1919:32)
+    at async onClick (SurveyActions.tsx:334:36)
+(anonymous) @ injected.js:37
+trackUploadStatus @ storageUpload.ts:184
+await in trackUploadStatus
+uploadSurveyPackage @ storageUpload.ts:133
+await in uploadSurveyPackage
+closeSurveyWithExport @ exportUtils.ts:1919
+await in closeSurveyWithExport
+onClick @ SurveyActions.tsx:334
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+injected.js:37 [CloseSurvey] Upload complete, download URL: https://storage.googleapis.com/measureprov1.fireba...
+injected.js:37 🗑️ MeasurementFeed cleared
+injected.js:37 🗑️ MeasurementFeed cleared
+injected.js:37 ✅ Flushed measurements on unmount

@@ -1,0 +1,36 @@
+1app:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+localhost:3001/api/gnss/config:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:3001/api/gnss/status:1  Failed to load resource: net::ERR_CONNECTION_REFUSED
+index-DlaYicWz.js:3144 [Settings] Saved to database successfully
+profileComputation-DvFfJSMz.js:21 [DuroGPS] Starting with backend: http://localhost:3001
+leaflet-Cfs2bPeT.js:32 TypeError: Cannot read properties of undefined (reading 'enabled')
+    at Lb (Settings-CKUsqN7z.js:197:82067)
+    at jl (leaflet-Cfs2bPeT.js:30:17030)
+    at Xa (leaflet-Cfs2bPeT.js:32:3139)
+    at Md (leaflet-Cfs2bPeT.js:32:44701)
+    at Cd (leaflet-Cfs2bPeT.js:32:39697)
+    at Pv (leaflet-Cfs2bPeT.js:32:39625)
+    at Wo (leaflet-Cfs2bPeT.js:32:39479)
+    at sl (leaflet-Cfs2bPeT.js:32:35853)
+    at Ld (leaflet-Cfs2bPeT.js:32:34804)
+    at A (leaflet-Cfs2bPeT.js:17:1555)
+Ya @ leaflet-Cfs2bPeT.js:32
+index-DlaYicWz.js:3995 ❌ RouteErrorBoundary caught non-chunk error: Cannot read properties of undefined (reading 'enabled')

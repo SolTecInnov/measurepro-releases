@@ -1,0 +1,46 @@
+You previously suggested a staged approach with:
+	•	Phase 1: pagination, on-demand media, map optimization
+	•	Phase 2: debug panel + benchmarks
+	•	Phase 3: multi-worker rebuild ONLY IF NEEDED
+
+I DO NOT want the multi-worker architecture to be “Phase 3 only if needed”.
+
+For MeasurePro’s real-world use (high-frequency LiDAR/GPS/POI logging for OS/OW transport), the multi-worker + orchestrator architecture is mandatory, non-negotiable, not an optional later refactor.
+
+Please update your plan and implementation accordingly:
+	1.	Treat the following as REQUIRED SCOPE NOW, not “maybe later”:
+	•	A dedicated orchestrator worker that is the ONLY component allowed to write to IndexedDB.
+	•	A set of specialized workers:
+	•	gpsWorker – GPS ingestion + timestamp normalization
+	•	laserWorker – LiDAR events + POI type attachment
+	•	photoWorker – rolling image buffer (1–2 seconds history, timestamped, compressed)
+	•	timelapseWorker – builds a single timelapse/video reference stream
+	•	videoWorker (if video is enabled) – continuous video + timestamp mapping
+	•	mapWorker – precomputes map points/clusters off the main thread
+	•	orchestratorWorker – central coordinator, batching writes, maintaining consistency
+	•	Only orchestratorWorker interacts with IndexedDB. No UI, no other worker writes directly.
+	2.	IndexedDB writing must be redesigned NOW with:
+	•	In-memory queue in orchestratorWorker
+	•	Batching (e.g. 20–50 POIs per transaction)
+	•	Flush on timer OR when batch size is reached
+	•	Single active readwrite transaction at a time
+	•	Hard cap on queue size (e.g. 100–150 events) and clear backpressure behavior
+	3.	Synchronization requirements (must be implemented, not just discussed):
+	•	User button defines current active POI type with timestamp.
+	•	Laser event captures that POI type at the moment of detection.
+	•	Orchestrator matches each laser event with:
+	•	nearest GPS sample
+	•	corresponding image frame from photoWorker (eventTimestamp – offset)
+	•	timelapse/video references
+	•	Each POI event stored in IndexedDB is a single atomic record including POI type, GPS, LiDAR, image ref, and timelapse/video ref. No fragmented records.
+	4.	UI optimizations you proposed (pagination, on-demand media loading, map optimization, worker message compression) are GOOD and should be implemented, but they are in addition to, not instead of, the multi-worker/orchestrator architecture.
+	5.	I still want a proper /debug and /debug/stress panel:
+	•	Show queue sizes, batch write times, number of transactions, backpressure status, errors.
+	•	Stress test must simulate at least 5× real-world logging rate, drive the real pipeline (workers → orchestrator → IndexedDB), and verify:
+	•	zero dropped events,
+	•	correct synchronization between POI type, GPS, laser, image, timelapse/video.
+
+Please:
+	•	Discard the idea of “Phase 3 – Only if Needed” for the multi-worker rebuild.
+	•	Implement the full multi-worker + orchestrator architecture as the baseline, alongside the Phase 1 optimizations.
+	•	When you describe your updated plan, assume that ALL these workers and mechanisms WILL be built and wired now, not later.

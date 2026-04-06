@@ -1,0 +1,47 @@
+Now I can see the real issue! The error changed from 500 to 401 Unauthorized:
+
+/api/roadscope/proxy/surveys:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/roadscope/proxy/auth/validate:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+
+This is different from before. The 401 could mean:
+
+MeasurePRO's proxy isn't forwarding the Authorization header to RoadScope
+MeasurePRO's proxy requires its own authentication before forwarding
+Let me verify by testing RoadScope directly - is the 401 from RoadScope or MeasurePRO's proxy?
+
+
+Executed curl -s -X GET "https://roadscope.app/api/measurepro/surveys" 2>&1
+
+Executed curl -s -X GET "https://roadscope.app/api/measurepro/surveys" \ -H "Authorization: Bearer mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8" 2>&1
+
+Decided on proxy header forwarding (4 seconds)
+The problem is confirmed! RoadScope API works perfectly:
+
+❌ Without auth header → Returns "Missing or invalid authorization header"
+✅ With auth header → Returns 21 surveys successfully
+The issue is MeasurePRO's proxy is NOT forwarding the Authorization header to RoadScope. When MeasurePRO calls /api/roadscope/proxy/surveys, the proxy needs to pass the Authorization: Bearer mpro_... header to RoadScope, but it's not doing that.
+
+For MeasurePRO team - here's the fix:
+
+In the proxy code, make sure to forward the authorization header:
+
+// In MeasurePRO's proxy route handler
+app.all('/api/roadscope/proxy/*', async (req, res) => {
+  const path = req.params[0];
+  
+  const response = await fetch(`https://roadscope.app/api/measurepro/${path}`, {
+    method: req.method,
+    headers: {
+      'Authorization': req.headers.authorization,  // <-- THIS IS MISSING!
+      'Content-Type': 'application/json'
+    },
+    body: req.method !== 'GET' ? JSON.stringify(req.body) : undefined
+  });
+  
+  const data = await response.json();
+  res.status(response.status).json(data);
+});
+
+The key line is: 'Authorization': req.headers.authorization
+
+Without this, the proxy sends requests to RoadScope without any authentication, causing the 401 Unauthorized error.

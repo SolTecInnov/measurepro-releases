@@ -1,0 +1,4698 @@
+[ERROR] Read error: Buffer overrun
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.489 -> 6.489m
+Received: 6.489
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0019.332 -> 19.332m
+Received: 19.332
+[LASER] D 0015.128 -> 15.128m
+Received: 15.128
+[LASER] D 0015.534 -> 15.534m
+Received: 15.534
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0014.221 -> 14.221m
+Received: 14.221
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0254.690 -> 254.69m
+Received: 254.69
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0073.962 -> 73.962m
+Received: 73.962
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0237.415 -> 237.415m
+Received: 237.415
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0088.179 -> 88.179m
+Received: 88.179
+[LASER] D 0061.886 -> 61.886m
+Received: 61.886
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0153.463 -> 153.463m
+Received: 153.463
+[LASER] D 0016.539 -> 16.539m
+Received: 16.539
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0070.388 -> 70.388m
+Received: 70.388
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0196.103 -> 196.103m
+Received: 196.103
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0259.642 -> 259.642m
+Received: 259.642
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0000.599 -> 0.599m
+Received: 0.599
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0059.926 -> 59.926m
+Received: 59.926
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0067.226 -> 67.226m
+Received: 67.226
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0068.918 -> 68.918m
+Received: 68.918
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0168.078 -> 168.078m
+Received: 168.078
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.541 -> 17.541m
+Received: 17.541
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.755 -> 9.755m
+Received: 9.755
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.486 -> 11.486m
+Received: 11.486
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.188 -> 10.188m
+Received: 10.188
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.682 -> 6.682m
+Received: 6.682
+[LASER] D 0011.412 -> 11.412m
+Received: 11.412
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.400 -> 7.4m
+Received: 7.4
+[LASER] D 0069.647 -> 69.647m
+Received: 69.647
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0088.162 -> 88.162m
+Received: 88.162
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0078.903 -> 78.903m
+Received: 78.903
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0107.369 -> 107.369m
+Received: 107.369
+[LASER] D 0112.330 -> 112.33m
+Received: 112.33
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0044.780 -> 44.78m
+Received: 44.78
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0026.847 -> 26.847m
+Received: 26.847
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0074.810 -> 74.81m
+Received: 74.81
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0140.483 -> 140.483m
+Received: 140.483
+[LASER] D 0063.876 -> 63.876m
+Received: 63.876
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0102.640 -> 102.64m
+Received: 102.64
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0022.328 -> 22.328m
+Received: 22.328
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0056.266 -> 56.266m
+Received: 56.266
+[LASER] D 0220.776 -> 220.776m
+Received: 220.776
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.582 -> 11.582m
+Received: 11.582
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.285 -> 13.285m
+Received: 13.285
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0143.780 -> 143.78m
+Received: 143.78
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0002.173 -> 2.173m
+Received: 2.173
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0148.399 -> 148.399m
+Received: 148.399
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0251.491 -> 251.491m
+Received: 251.491
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0261.039 -> 261.039m
+Received: 261.039
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.355 -> 7.355m
+Received: 7.355
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.341 -> 13.341m
+Received: 13.341
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0130.316 -> 130.316m
+Received: 130.316
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0246.071 -> 246.071m
+Received: 246.071
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0015.472 -> 15.472m
+Received: 15.472
+[LASER] D 0026.086 -> 26.086m
+Received: 26.086
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0240.120 -> 240.12m
+Received: 240.12
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0255.466 -> 255.466m
+Received: 255.466
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0231.591 -> 231.591m
+Received: 231.591
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.001 -> 13.001m
+Received: 13.001
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0004.234 -> 4.234m
+Received: 4.234
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0091.767 -> 91.767m
+Received: 91.767
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.233 -> 18.233m
+Received: 18.233
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.641 -> 13.641m
+Received: 13.641
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0052.628 -> 52.628m
+Received: 52.628
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.261 -> 10.261m
+Received: 10.261
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0241.630 -> 241.63m
+Received: 241.63
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0101.204 -> 101.204m
+Received: 101.204
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0221.191 -> 221.191m
+Received: 221.191
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0167.528 -> 167.528m
+Received: 167.528
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0050.310 -> 50.31m
+Received: 50.31
+[LASER] D 0009.975 -> 9.975m
+Received: 9.975
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0220.354 -> 220.354m
+Received: 220.354
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0142.066 -> 142.066m
+Received: 142.066
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.910 -> 6.91m
+Received: 6.91
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0154.671 -> 154.671m
+Received: 154.671
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.693 -> 9.693m
+Received: 9.693
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.968 -> 18.968m
+Received: 18.968
+[LASER] D 0263.203 -> 263.203m
+Received: 263.203
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.907 -> 10.907m
+Received: 10.907
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0213.018 -> 213.018m
+Received: 213.018
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0124.679 -> 124.679m
+Received: 124.679
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0035.281 -> 35.281m
+Received: 35.281
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.293 -> 8.293m
+Received: 8.293
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0246.612 -> 246.612m
+Received: 246.612
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0027.718 -> 27.718m
+Received: 27.718
+[LASER] D 0026.933 -> 26.933m
+Received: 26.933
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0083.218 -> 83.218m
+Received: 83.218
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0083.408 -> 83.408m
+Received: 83.408
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0154.415 -> 154.415m
+Received: 154.415
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0087.262 -> 87.262m
+Received: 87.262
+[LASER] D 0201.125 -> 201.125m
+Received: 201.125
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0080.617 -> 80.617m
+Received: 80.617
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0139.722 -> 139.722m
+Received: 139.722
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0204.536 -> 204.536m
+Received: 204.536
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0168.917 -> 168.917m
+Received: 168.917
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.082 -> 17.082m
+Received: 17.082
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0003.811 -> 3.811m
+Received: 3.811
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0060.965 -> 60.965m
+Received: 60.965
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.860 -> 9.86m
+Received: 9.86
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0005.990 -> 5.99m
+Received: 5.99
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0263.617 -> 263.617m
+Received: 263.617
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0136.038 -> 136.038m
+Received: 136.038
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0058.498 -> 58.498m
+Received: 58.498
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0228.383 -> 228.383m
+Received: 228.383
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0058.560 -> 58.56m
+Received: 58.56
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0065.906 -> 65.906m
+Received: 65.906
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0152.259 -> 152.259m
+Received: 152.259
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0083.692 -> 83.692m
+Received: 83.692
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0047.571 -> 47.571m
+Received: 47.571
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.948 -> 7.948m
+Received: 7.948
+[LASER] D 0150.106 -> 150.106m
+Received: 150.106
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0087.821 -> 87.821m
+Received: 87.821
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0022.364 -> 22.364m
+Received: 22.364
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0206.159 -> 206.159m
+Received: 206.159
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0031.074 -> 31.074m
+Received: 31.074
+[LASER] D 0021.300 -> 21.3m
+Received: 21.3
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0027.448 -> 27.448m
+Received: 27.448
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0190.056 -> 190.056m
+Received: 190.056
+[LASER] D 0006.548 -> 6.548m
+Received: 6.548
+[LASER] D 0027.330 -> 27.33m
+Received: 27.33
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0002.420 -> 2.42m
+Received: 2.42
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0022.000 -> 22m
+Received: 22
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.030 -> 13.03m
+Received: 13.03
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0058.624 -> 58.624m
+Received: 58.624
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0244.020 -> 244.02m
+Received: 244.02
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.908 -> 13.908m
+Received: 13.908
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0060.305 -> 60.305m
+Received: 60.305
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.910 -> 18.91m
+Received: 18.91
+[LASER] D 0012.736 -> 12.736m
+Received: 12.736
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0005.907 -> 5.907m
+Received: 5.907
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0022.826 -> 22.826m
+Received: 22.826
+[LASER] D 0018.140 -> 18.14m
+Received: 18.14
+[LASER] D 0096.349 -> 96.349m
+Received: 96.349
+[LASER] D 0211.888 -> 211.888m
+Received: 211.888
+[LASER] D 0019.367 -> 19.367m
+Received: 19.367
+[LASER] D 0016.436 -> 16.436m
+Received: 16.436
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0024.197 -> 24.197m
+Received: 24.197
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0025.765 -> 25.765m
+Received: 25.765
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.340 -> 7.34m
+Received: 7.34
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.526 -> 18.526m
+Received: 18.526
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0119.304 -> 119.304m
+Received: 119.304
+[LASER] D 0008.360 -> 8.36m
+Received: 8.36
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0002.793 -> 2.793m
+Received: 2.793
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+Sent: 
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0165.417 -> 165.417m
+Received: 165.417
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0063.597 -> 63.597m
+Received: 63.597
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0176.735 -> 176.735m
+Received: 176.735
+[LASER] D 0229.501 -> 229.501m
+Received: 229.501
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0101.581 -> 101.581m
+Received: 101.581
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.781 -> 13.781m
+Received: 13.781
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0229.175 -> 229.175m
+Received: 229.175
+[LASER] D 0014.682 -> 14.682m
+Received: 14.682
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0100.257 -> 100.257m
+Received: 100.257
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0197.471 -> 197.471m
+Received: 197.471
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0023.032 -> 23.032m
+Received: 23.032
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.647 -> 8.647m
+Received: 8.647
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0109.570 -> 109.57m
+Received: 109.57
+[LASER] D 0040.262 -> 40.262m
+Received: 40.262
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.603 -> 8.603m
+Received: 8.603
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0114.817 -> 114.817m
+Received: 114.817
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.373 -> 7.373m
+Received: 7.373
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0217.543 -> 217.543m
+Received: 217.543
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0159.745 -> 159.745m
+Received: 159.745
+[LASER] D 0018.833 -> 18.833m
+Received: 18.833
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0212.919 -> 212.919m
+Received: 212.919
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0028.071 -> 28.071m
+Received: 28.071
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0004.788 -> 4.788m
+Received: 4.788
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.224 -> 10.224m
+Received: 10.224
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.788 -> 11.788m
+Received: 11.788
+[LASER] D 0079.530 -> 79.53m
+Received: 79.53
+[LASER] D 0035.743 -> 35.743m
+Received: 35.743
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0117.567 -> 117.567m
+Received: 117.567
+[LASER] D 0227.926 -> 227.926m
+Received: 227.926
+[LASER] D 0012.041 -> 12.041m
+Received: 12.041
+[LASER] D 0051.057 -> 51.057m
+Received: 51.057
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0084.751 -> 84.751m
+Received: 84.751
+[LASER] D 0016.545 -> 16.545m
+Received: 16.545
+[LASER] D 0016.638 -> 16.638m
+Received: 16.638
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.913 -> 11.913m
+Received: 11.913
+[LASER] D 0114.022 -> 114.022m
+Received: 114.022
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0054.981 -> 54.981m
+Received: 54.981
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0019.917 -> 19.917m
+Received: 19.917
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.335 -> 10.335m
+Received: 10.335
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0142.389 -> 142.389m
+Received: 142.389
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0124.179 -> 124.179m
+Received: 124.179
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0020.952 -> 20.952m
+Received: 20.952
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0029.843 -> 29.843m
+Received: 29.843
+[LASER] D 0015.315 -> 15.315m
+Received: 15.315
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.217 -> 11.217m
+Received: 11.217
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0094.171 -> 94.171m
+Received: 94.171
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0120.953 -> 120.953m
+Received: 120.953
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0154.554 -> 154.554m
+Received: 154.554
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0148.456 -> 148.456m
+Received: 148.456
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0209.282 -> 209.282m
+Received: 209.282
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0091.528 -> 91.528m
+Received: 91.528
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0179.050 -> 179.05m
+Received: 179.05
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0133.787 -> 133.787m
+Received: 133.787
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0005.827 -> 5.827m
+Received: 5.827
+[LASER] D 0130.339 -> 130.339m
+Received: 130.339
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.729 -> 6.729m
+Received: 6.729
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0014.508 -> 14.508m
+Received: 14.508
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.410 -> 8.41m
+Received: 8.41
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0021.496 -> 21.496m
+Received: 21.496
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.172 -> 11.172m
+Received: 11.172
+[LASER] D 0022.080 -> 22.08m
+Received: 22.08
+[LASER] D 0004.150 -> 4.15m
+Received: 4.15
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.955 -> 9.955m
+Received: 9.955
+[LASER] D 0005.133 -> 5.133m
+Received: 5.133
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.120 -> 6.12m
+Received: 6.12
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0037.974 -> 37.974m
+Received: 37.974
+[LASER] D 0009.302 -> 9.302m
+Received: 9.302
+[LASER] D 0009.392 -> 9.392m
+Received: 9.392
+[LASER] D 0006.721 -> 6.721m
+Received: 6.721
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.102 -> 9.102m
+Received: 9.102
+[LASER] D 0031.631 -> 31.631m
+Received: 31.631
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0015.461 -> 15.461m
+Received: 15.461
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0015.703 -> 15.703m
+Received: 15.703
+[LASER] D 0157.125 -> 157.125m
+Received: 157.125
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.164 -> 9.164m
+Received: 9.164
+[LASER] D 0005.176 -> 5.176m
+Received: 5.176
+[LASER] D 0008.473 -> 8.473m
+Received: 8.473
+[LASER] D 0121.594 -> 121.594m
+Received: 121.594
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0257.126 -> 257.126m
+Received: 257.126
+[LASER] D 0004.396 -> 4.396m
+Received: 4.396
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0052.258 -> 52.258m
+Received: 52.258
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0188.726 -> 188.726m
+Received: 188.726
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.277 -> 8.277m
+Received: 8.277
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0142.206 -> 142.206m
+Received: 142.206
+[LASER] D 0098.782 -> 98.782m
+Received: 98.782
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0131.728 -> 131.728m
+Received: 131.728
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0084.921 -> 84.921m
+Received: 84.921
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0052.935 -> 52.935m
+Received: 52.935
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0246.723 -> 246.723m
+Received: 246.723
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0124.107 -> 124.107m
+Received: 124.107
+[LASER] D 0015.067 -> 15.067m
+Received: 15.067
+[LASER] D 0235.831 -> 235.831m
+Received: 235.831
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0239.132 -> 239.132m
+Received: 239.132
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0038.559 -> 38.559m
+Received: 38.559
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.130 -> 18.13m
+Received: 18.13
+[LASER] D 0118.491 -> 118.491m
+Received: 118.491
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0200.268 -> 200.268m
+Received: 200.268
+[LASER] D 0210.980 -> 210.98m
+Received: 210.98
+[LASER] D 0038.816 -> 38.816m
+Received: 38.816
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0016.328 -> 16.328m
+Received: 16.328
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0087.449 -> 87.449m
+Received: 87.449
+[LASER] D 0261.856 -> 261.856m
+Received: 261.856
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0104.509 -> 104.509m
+Received: 104.509
+[LASER] D 0141.043 -> 141.043m
+Received: 141.043
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0229.501 -> 229.501m
+Received: 229.501
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0041.607 -> 41.607m
+Received: 41.607
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0030.228 -> 30.228m
+Received: 30.228
+[LASER] D 0200.322 -> 200.322m
+Received: 200.322
+[LASER] D 0006.696 -> 6.696m
+Received: 6.696
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.736 -> 7.736m
+Received: 7.736
+[LASER] D 0117.255 -> 117.255m
+Received: 117.255
+[LASER] D 0013.938 -> 13.938m
+Received: 13.938
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0154.602 -> 154.602m
+Received: 154.602
+[LASER] D 0007.592 -> 7.592m
+Received: 7.592
+[LASER] D 0018.553 -> 18.553m
+Received: 18.553
+[LASER] D 0186.997 -> 186.997m
+Received: 186.997
+[LASER] D 0019.068 -> 19.068m
+Received: 19.068
+[LASER] D 0020.962 -> 20.962m
+Received: 20.962
+[LASER] D 0013.836 -> 13.836m
+Received: 13.836
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0045.275 -> 45.275m
+Received: 45.275
+[LASER] D 0012.982 -> 12.982m
+Received: 12.982
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.372 -> 8.372m
+Received: 8.372
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0012.053 -> 12.053m
+Received: 12.053
+[LASER] D 0005.710 -> 5.71m
+Received: 5.71
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0121.660 -> 121.66m
+Received: 121.66
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.691 -> 10.691m
+Received: 10.691
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.162 -> 10.162m
+Received: 10.162
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0242.253 -> 242.253m
+Received: 242.253
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0042.681 -> 42.681m
+Received: 42.681
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0246.937 -> 246.937m
+Received: 246.937
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0070.890 -> 70.89m
+Received: 70.89
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.231 -> 10.231m
+Received: 10.231
+[LASER] D 0018.013 -> 18.013m
+Received: 18.013
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0135.409 -> 135.409m
+Received: 135.409
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.340 -> 18.34m
+Received: 18.34
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0175.256 -> 175.256m
+Received: 175.256
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0024.403 -> 24.403m
+Received: 24.403
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.973 -> 17.973m
+Received: 17.973
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0049.334 -> 49.334m
+Received: 49.334
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0045.460 -> 45.46m
+Received: 45.46
+[LASER] D 0202.990 -> 202.99m
+Received: 202.99
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0250.036 -> 250.036m
+Received: 250.036
+[LASER] D 0044.836 -> 44.836m
+Received: 44.836
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0097.864 -> 97.864m
+Received: 97.864
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0012.150 -> 12.15m
+Received: 12.15
+[LASER] D 0100.770 -> 100.77m
+Received: 100.77
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0024.118 -> 24.118m
+Received: 24.118
+[LASER] D 0009.363 -> 9.363m
+Received: 9.363
+[LASER] D 0019.524 -> 19.524m
+Received: 19.524
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.876 -> 9.876m
+Received: 9.876
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0203.459 -> 203.459m
+Received: 203.459
+[LASER] D 0008.429 -> 8.429m
+Received: 8.429
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0019.848 -> 19.848m
+Received: 19.848
+[LASER] D 0069.866 -> 69.866m
+Received: 69.866
+[LASER] D 0107.314 -> 107.314m
+Received: 107.314
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0018.750 -> 18.75m
+Received: 18.75
+[LASER] D 0014.160 -> 14.16m
+Received: 14.16
+[LASER] D 0156.750 -> 156.75m
+Received: 156.75
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.133 -> 13.133m
+Received: 13.133
+[LASER] D 0012.386 -> 12.386m
+Received: 12.386
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.750 -> 13.75m
+Received: 13.75
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.580 -> 8.58m
+Received: 8.58
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0182.741 -> 182.741m
+Received: 182.741
+[LASER] D 0150.555 -> 150.555m
+Received: 150.555
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0091.300 -> 91.3m
+Received: 91.3
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0016.481 -> 16.481m
+Received: 16.481
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0235.693 -> 235.693m
+Received: 235.693
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0090.390 -> 90.39m
+Received: 90.39
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0234.452 -> 234.452m
+Received: 234.452
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0223.933 -> 223.933m
+Received: 223.933
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.323 -> 11.323m
+Received: 11.323
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0055.699 -> 55.699m
+Received: 55.699
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0261.959 -> 261.959m
+Received: 261.959
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.306 -> 11.306m
+Received: 11.306
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0122.218 -> 122.218m
+Received: 122.218
+[LASER] D 0056.734 -> 56.734m
+Received: 56.734
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0034.129 -> 34.129m
+Received: 34.129
+[LASER] D 0230.327 -> 230.327m
+Received: 230.327
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0099.231 -> 99.231m
+Received: 99.231
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0262.839 -> 262.839m
+Received: 262.839
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0161.927 -> 161.927m
+Received: 161.927
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0202.431 -> 202.431m
+Received: 202.431
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0197.789 -> 197.789m
+Received: 197.789
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0107.335 -> 107.335m
+Received: 107.335
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0034.698 -> 34.698m
+Received: 34.698
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.187 -> 6.187m
+Received: 6.187
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0211.094 -> 211.094m
+Received: 211.094
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0086.112 -> 86.112m
+Received: 86.112
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0025.024 -> 25.024m
+Received: 25.024
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0127.341 -> 127.341m
+Received: 127.341
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0088.712 -> 88.712m
+Received: 88.712
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0191.961 -> 191.961m
+Received: 191.961
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0145.345 -> 145.345m
+Received: 145.345
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0058.390 -> 58.39m
+Received: 58.39
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0171.258 -> 171.258m
+Received: 171.258
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0106.468 -> 106.468m
+Received: 106.468
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0026.158 -> 26.158m
+Received: 26.158
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0226.919 -> 226.919m
+Received: 226.919
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.234 -> 17.234m
+Received: 17.234
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0027.205 -> 27.205m
+Received: 27.205
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.767 -> 10.767m
+Received: 10.767
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0045.258 -> 45.258m
+Received: 45.258
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0148.765 -> 148.765m
+Received: 148.765
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0038.015 -> 38.015m
+Received: 38.015
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0212.176 -> 212.176m
+Received: 212.176
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0022.973 -> 22.973m
+Received: 22.973
+[LASER] D 0009.229 -> 9.229m
+Received: 9.229
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0257.908 -> 257.908m
+Received: 257.908
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0045.417 -> 45.417m
+Received: 45.417
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0089.728 -> 89.728m
+Received: 89.728
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0149.441 -> 149.441m
+Received: 149.441
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0132.976 -> 132.976m
+Received: 132.976
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0176.584 -> 176.584m
+Received: 176.584
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0004.743 -> 4.743m
+Received: 4.743
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0006.383 -> 6.383m
+Received: 6.383
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.975 -> 11.975m
+Received: 11.975
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0079.212 -> 79.212m
+Received: 79.212
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0004.066 -> 4.066m
+Received: 4.066
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0242.583 -> 242.583m
+Received: 242.583
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0113.881 -> 113.881m
+Received: 113.881
+[LASER] D 0027.683 -> 27.683m
+Received: 27.683
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0173.825 -> 173.825m
+Received: 173.825
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0013.500 -> 13.5m
+Received: 13.5
+[LASER] D 0186.674 -> 186.674m
+Received: 186.674
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0234.390 -> 234.39m
+Received: 234.39
+[LASER] D 0008.135 -> 8.135m
+Received: 8.135
+[LASER] D 0007.886 -> 7.886m
+Received: 7.886
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0011.025 -> 11.025m
+Received: 11.025
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0133.436 -> 133.436m
+Received: 133.436
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0032.914 -> 32.914m
+Received: 32.914
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0025.590 -> 25.59m
+Received: 25.59
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0093.002 -> 93.002m
+Received: 93.002
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.692 -> 7.692m
+Received: 7.692
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.484 -> 17.484m
+Received: 17.484
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0005.642 -> 5.642m
+Received: 5.642
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0084.515 -> 84.515m
+Received: 84.515
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.863 -> 8.863m
+Received: 8.863
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.195 -> 8.195m
+Received: 8.195
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.230 -> 10.23m
+Received: 10.23
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0024.823 -> 24.823m
+Received: 24.823
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0175.865 -> 175.865m
+Received: 175.865
+[LASER] D 0013.989 -> 13.989m
+Received: 13.989
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.404 -> 10.404m
+Received: 10.404
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0261.482 -> 261.482m
+Received: 261.482
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0226.766 -> 226.766m
+Received: 226.766
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0160.163 -> 160.163m
+Received: 160.163
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0156.708 -> 156.708m
+Received: 156.708
+[LASER] D 0009.988 -> 9.988m
+Received: 9.988
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0067.724 -> 67.724m
+Received: 67.724
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0086.442 -> 86.442m
+Received: 86.442
+[LASER] D 0019.269 -> 19.269m
+Received: 19.269
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0008.122 -> 8.122m
+Received: 8.122
+[LASER] D 0029.813 -> 29.813m
+Received: 29.813
+[LASER] D 0208.496 -> 208.496m
+Received: 208.496
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0143.367 -> 143.367m
+Received: 143.367
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0116.553 -> 116.553m
+Received: 116.553
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0176.115 -> 176.115m
+Received: 176.115
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0152.210 -> 152.21m
+Received: 152.21
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0019.519 -> 19.519m
+Received: 19.519
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0001.734 -> 1.734m
+Received: 1.734
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0115.886 -> 115.886m
+Received: 115.886
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0012.766 -> 12.766m
+Received: 12.766
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0041.175 -> 41.175m
+Received: 41.175
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0012.366 -> 12.366m
+Received: 12.366
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0079.945 -> 79.945m
+Received: 79.945
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0029.128 -> 29.128m
+Received: 29.128
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0079.500 -> 79.5m
+Received: 79.5
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0132.187 -> 132.187m
+Received: 132.187
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0032.349 -> 32.349m
+Received: 32.349
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0133.094 -> 133.094m
+Received: 133.094
+[LASER] D 0084.118 -> 84.118m
+Received: 84.118
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0000.595 -> 0.595m
+Received: 0.595
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0004.796 -> 4.796m
+Received: 4.796
+[LASER] D 0142.684 -> 142.684m
+Received: 142.684
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0254.582 -> 254.582m
+Received: 254.582
+[LASER] D 0119.306 -> 119.306m
+Received: 119.306
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0097.915 -> 97.915m
+Received: 97.915
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0074.704 -> 74.704m
+Received: 74.704
+[LASER] D 0140.761 -> 140.761m
+Received: 140.761
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0074.889 -> 74.889m
+Received: 74.889
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0086.679 -> 86.679m
+Received: 86.679
+[LASER] D 0108.418 -> 108.418m
+Received: 108.418
+[LASER] D 0021.079 -> 21.079m
+Received: 21.079
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0154.541 -> 154.541m
+Received: 154.541
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0075.906 -> 75.906m
+Received: 75.906
+[LASER] D 0076.957 -> 76.957m
+Received: 76.957
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0106.024 -> 106.024m
+Received: 106.024
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0151.222 -> 151.222m
+Received: 151.222
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0020.214 -> 20.214m
+Received: 20.214
+[LASER] D 0149.258 -> 149.258m
+Received: 149.258
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0108.605 -> 108.605m
+Received: 108.605
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0257.032 -> 257.032m
+Received: 257.032
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0255.131 -> 255.131m
+Received: 255.131
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0019.670 -> 19.67m
+Received: 19.67
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0149.206 -> 149.206m
+Received: 149.206
+[LASER] D 0102.271 -> 102.271m
+Received: 102.271
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0014.795 -> 14.795m
+Received: 14.795
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0115.123 -> 115.123m
+Received: 115.123
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0230.387 -> 230.387m
+Received: 230.387
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0234.806 -> 234.806m
+Received: 234.806
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0016.445 -> 16.445m
+Received: 16.445
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0173.037 -> 173.037m
+Received: 173.037
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.704 -> 7.704m
+Received: 7.704
+[LASER] D 0116.147 -> 116.147m
+Received: 116.147
+[LASER] D 0023.688 -> 23.688m
+Received: 23.688
+[LASER] D 0032.278 -> 32.278m
+Received: 32.278
+[LASER] D 0239.046 -> 239.046m
+Received: 239.046
+[LASER] D 0186.401 -> 186.401m
+Received: 186.401
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0002.868 -> 2.868m
+Received: 2.868
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0016.381 -> 16.381m
+Received: 16.381
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0047.998 -> 47.998m
+Received: 47.998
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0123.262 -> 123.262m
+Received: 123.262
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0159.344 -> 159.344m
+Received: 159.344
+[LASER] D 0134.519 -> 134.519m
+Received: 134.519
+[LASER] D 0152.369 -> 152.369m
+Received: 152.369
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0023.757 -> 23.757m
+Received: 23.757
+[LASER] D 0026.280 -> 26.28m
+Received: 26.28
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0178.274 -> 178.274m
+Received: 178.274
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0032.559 -> 32.559m
+Received: 32.559
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0131.813 -> 131.813m
+Received: 131.813
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0239.336 -> 239.336m
+Received: 239.336
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.957 -> 17.957m
+Received: 17.957
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0069.677 -> 69.677m
+Received: 69.677
+[LASER] D 0009.414 -> 9.414m
+Received: 9.414
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0030.577 -> 30.577m
+Received: 30.577
+[LASER] D 0052.904 -> 52.904m
+Received: 52.904
+[LASER] D 0009.315 -> 9.315m
+Received: 9.315
+[LASER] D 0205.340 -> 205.34m
+Received: 205.34
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0015.923 -> 15.923m
+Received: 15.923
+[LASER] D 0017.096 -> 17.096m
+Received: 17.096
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0012.085 -> 12.085m
+Received: 12.085
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0010.022 -> 10.022m
+Received: 10.022
+[LASER] D 0127.679 -> 127.679m
+Received: 127.679
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0021.512 -> 21.512m
+Received: 21.512
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0186.734 -> 186.734m
+Received: 186.734
+[LASER] D 0115.339 -> 115.339m
+Received: 115.339
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0072.823 -> 72.823m
+Received: 72.823
+[LASER] D 0023.903 -> 23.903m
+Received: 23.903
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0000.378 -> 0.378m
+Received: 0.378
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0268.384 -> 268.384m
+Received: 268.384
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0213.334 -> 213.334m
+Received: 213.334
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0239.373 -> 239.373m
+Received: 239.373
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0089.157 -> 89.157m
+Received: 89.157
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0017.389 -> 17.389m
+Received: 17.389
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0173.877 -> 173.877m
+Received: 173.877
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.583 -> 9.583m
+Received: 9.583
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.389 -> 9.389m
+Received: 9.389
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0016.243 -> 16.243m
+Received: 16.243
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0210.583 -> 210.583m
+Received: 210.583
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.042 -> 9.042m
+Received: 9.042
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0026.983 -> 26.983m
+Received: 26.983
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.169 -> 7.169m
+Received: 7.169
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0056.669 -> 56.669m
+Received: 56.669
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0150.021 -> 150.021m
+Received: 150.021
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0009.385 -> 9.385m
+Received: 9.385
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0076.497 -> 76.497m
+Received: 76.497
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0007.899 -> 7.899m
+Received: 7.899
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --
+[LASER] D 0047.536 -> 47.536m
+Received: 47.536
+[LASER] DE02 -> --m
+Received: --
+[LASER] DE02 -> --m
+Received: --

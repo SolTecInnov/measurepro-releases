@@ -1,0 +1,222 @@
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ZED2iCamera-G_szKmIs.js:1  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-G_szKmIs.js:1
+index-B4OHY_x2.js:409   GET https://firestore.googleapis.com/google.firestore.v1.Firestore/Write/channel?gsessionid=4vwjZUdrJ4iesA63LOsB2zq56A1BWHdyQsPAfWq-4N4&VER=8&database=projects%2Fmeasureprov1%2Fdatabases%2F(default)&RID=rpc&SID=iTJRyGFhYGkTc9mzd739PA&AID=0&CI=0&TYPE=xmlhttp&zx=25nop9gqn5t1&t=1 net::ERR_QUIC_PROTOCOL_ERROR.QUIC_TOO_MANY_RTOS 200 (OK)
+e.send @ index-B4OHY_x2.js:409
+e.ea @ index-B4OHY_x2.js:409
+Fe @ index-B4OHY_x2.js:409
+nn @ index-B4OHY_x2.js:409
+e.Fa @ index-B4OHY_x2.js:409
+O @ index-B4OHY_x2.js:409
+Promise.then
+I @ index-B4OHY_x2.js:409
+Zt @ index-B4OHY_x2.js:409
+He @ index-B4OHY_x2.js:409
+Pe.Y @ index-B4OHY_x2.js:409
+Pe.ca @ index-B4OHY_x2.js:409
+ne @ index-B4OHY_x2.js:409
+te @ index-B4OHY_x2.js:409
+Ut @ index-B4OHY_x2.js:409
+e.bb @ index-B4OHY_x2.js:409
+e.Ea @ index-B4OHY_x2.js:409
+Ot @ index-B4OHY_x2.js:409
+e.Pa @ index-B4OHY_x2.js:409
+Promise.then
+Nt @ index-B4OHY_x2.js:409
+e.Sa @ index-B4OHY_x2.js:409
+Promise.then
+e.send @ index-B4OHY_x2.js:409
+e.ea @ index-B4OHY_x2.js:409
+Fe @ index-B4OHY_x2.js:409
+Me @ index-B4OHY_x2.js:409
+e.Ga @ index-B4OHY_x2.js:409
+O @ index-B4OHY_x2.js:409
+Promise.then
+I @ index-B4OHY_x2.js:409
+Qt @ index-B4OHY_x2.js:409
+e.connect @ index-B4OHY_x2.js:409
+fn.m @ index-B4OHY_x2.js:409
+Io @ index-B4OHY_x2.js:1551
+send @ index-B4OHY_x2.js:1535
+a_ @ index-B4OHY_x2.js:1599
+p_ @ index-B4OHY_x2.js:1599
+BS @ index-B4OHY_x2.js:1631
+(anonymous) @ index-B4OHY_x2.js:1599
+(anonymous) @ index-B4OHY_x2.js:1599
+(anonymous) @ index-B4OHY_x2.js:1858
+(anonymous) @ index-B4OHY_x2.js:1858
+Promise.then
+gu @ index-B4OHY_x2.js:1858
+enqueue @ index-B4OHY_x2.js:1858
+enqueueAndForget @ index-B4OHY_x2.js:1858
+(anonymous) @ index-B4OHY_x2.js:1599
+(anonymous) @ index-B4OHY_x2.js:1599
+wo @ index-B4OHY_x2.js:1535
+(anonymous) @ index-B4OHY_x2.js:1551
+setTimeout
+Bo @ index-B4OHY_x2.js:1551
+T_ @ index-B4OHY_x2.js:1599
+P_ @ index-B4OHY_x2.js:1599
+(anonymous) @ index-B4OHY_x2.js:1599
+Promise.then
+auth @ index-B4OHY_x2.js:1599
+start @ index-B4OHY_x2.js:1599
+start @ index-B4OHY_x2.js:1599
+zS @ index-B4OHY_x2.js:1631
+LS @ index-B4OHY_x2.js:1631
+await in LS
+_k @ index-B4OHY_x2.js:1711
+await in _k
+(anonymous) @ index-B4OHY_x2.js:2034
+await in (anonymous)
+(anonymous) @ index-B4OHY_x2.js:1858
+(anonymous) @ index-B4OHY_x2.js:1858
+Promise.then
+gu @ index-B4OHY_x2.js:1858
+enqueue @ index-B4OHY_x2.js:1858
+enqueueAndForget @ index-B4OHY_x2.js:1858
+(anonymous) @ index-B4OHY_x2.js:2034
+iE @ index-B4OHY_x2.js:2034
+rE @ index-B4OHY_x2.js:2034
+LC @ index-B4OHY_x2.js:3272
+o @ index-B4OHY_x2.js:3392
+await in o
+(anonymous) @ index-B4OHY_x2.js:3392
+blob:https://measure-pro.app/8b5330e5-0b28-442c-b6de-3330356a1cfd:1   GET blob:https://measure-pro.app/8b5330e5-0b28-442c-b6de-3330356a1cfd net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/3ed8c4d3-3c41-4011-9da8-1e20edf1330b:1   GET blob:https://measure-pro.app/3ed8c4d3-3c41-4011-9da8-1e20edf1330b net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/5c87f9f2-7417-4d4b-9f32-0f560df16ce6:1   GET blob:https://measure-pro.app/5c87f9f2-7417-4d4b-9f32-0f560df16ce6 net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/389866ea-85d6-48f2-88ef-70ae6e6eadae:1   GET blob:https://measure-pro.app/389866ea-85d6-48f2-88ef-70ae6e6eadae net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/31d69e57-6938-4ef6-ba33-459bc96f4db5:1   GET blob:https://measure-pro.app/31d69e57-6938-4ef6-ba33-459bc96f4db5 net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+The FetchEvent for "https://measure-pro.app/assets/elevator-BH4vgFYi.wav" resulted in a network error response: the promise was rejected.
+Promise.then
+(anonymous) @ workbox-40c80ae4.js:1
+workbox-40c80ae4.js:1  Uncaught (in promise) no-response: no-response :: [{"url":"https://measure-pro.app/assets/elevator-BH4vgFYi.wav","error":{}}]
+    at F.j (workbox-40c80ae4.js:1:19769)
+    at async F.P (workbox-40c80ae4.js:1:12888)
+j @ workbox-40c80ae4.js:1
+await in j
+P @ workbox-40c80ae4.js:1
+await in P
+handleAll @ workbox-40c80ae4.js:1
+handle @ workbox-40c80ae4.js:1
+handleRequest @ workbox-40c80ae4.js:1
+(anonymous) @ workbox-40c80ae4.js:1
+elevator-BH4vgFYi.wav:1   GET https://measure-pro.app/assets/elevator-BH4vgFYi.wav net::ERR_FAILED
+blob:https://measure-pro.app/b56c09e0-f617-442b-a755-4e29760330f0:1   GET blob:https://measure-pro.app/b56c09e0-f617-442b-a755-4e29760330f0 net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/22342541-4557-447e-9601-1efe2f5cbee1:1   GET blob:https://measure-pro.app/22342541-4557-447e-9601-1efe2f5cbee1 net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/d1791b76-10a8-4b51-83b1-7aed40ae3a7e:1   GET blob:https://measure-pro.app/d1791b76-10a8-4b51-83b1-7aed40ae3a7e net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+blob:https://measure-pro.app/b2797f20-9ced-4cbb-a2dd-970d8803a441:1   GET blob:https://measure-pro.app/b2797f20-9ced-4cbb-a2dd-970d8803a441 net::ERR_FILE_NOT_FOUND
+Image
+Cu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Iu @ index-B4OHY_x2.js:31
+Tu @ index-B4OHY_x2.js:31
+(anonymous) @ index-B4OHY_x2.js:31
+Nd @ index-B4OHY_x2.js:31
+hd @ index-B4OHY_x2.js:31
+_ @ index-B4OHY_x2.js:22
+N @ index-B4OHY_x2.js:22
+The FetchEvent for "https://measure-pro.app/assets/interface-DcbAXFtU.wav" resulted in a network error response: the promise was rejected.
+Promise.then
+(anonymous) @ workbox-40c80ae4.js:1
+workbox-40c80ae4.js:1  Uncaught (in promise) no-response: no-response :: [{"url":"https://measure-pro.app/assets/interface-DcbAXFtU.wav","error":{}}]
+    at F.j (workbox-40c80ae4.js:1:19769)
+    at async F.P (workbox-40c80ae4.js:1:12888)
+j @ workbox-40c80ae4.js:1
+await in j
+P @ workbox-40c80ae4.js:1
+await in P
+handleAll @ workbox-40c80ae4.js:1
+handle @ workbox-40c80ae4.js:1
+handleRequest @ workbox-40c80ae4.js:1
+(anonymous) @ workbox-40c80ae4.js:1
+interface-DcbAXFtU.wav:1   GET https://measure-pro.app/assets/interface-DcbAXFtU.wav net::ERR_FAILED

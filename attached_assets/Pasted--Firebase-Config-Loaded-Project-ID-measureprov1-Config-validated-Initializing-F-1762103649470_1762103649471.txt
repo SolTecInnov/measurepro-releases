@@ -1,0 +1,752 @@
+ 🔥 Firebase Config Loaded:
+   Project ID: measureprov1
+   Config validated: ✅
+ 🔥 Initializing Firebase for project: measureprov1
+ ✅ Firebase initialized successfully
+ 🏭 PRODUCTION MODE: Registering service worker...
+ 🚀 main.tsx is executing!
+ Looking for root element...
+ Root element found: true 
+ Creating React root and rendering App...
+ ✅ React render called successfully!
+ Found 0 pending changes
+ App component rendering
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+ 📹 Starting camera auto-detection...
+ 🔧 Clearing old sound configuration...
+ ✅ Sound configuration reset to use new sound files
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ 🔄 Opening IndexedDB database...
+ App: Auto sync setup
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ Device detection: Desktop
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-BumoUdHB.js:1
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ [LaserStore] Setting ground reference height: 0
+ [LaserStore] Validated ground reference height: 0
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ 🔄 Opening IndexedDB database...
+ 🔄 Opening IndexedDB database...
+ ✅ Voice assistant initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📷 Initializing StandardCamera with deviceId: default
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 1
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: ac8a0808dc22a2ae881c7c3d2d76770c568735868cbc969f682a3182eb76c9c7
+ 🔍 Stream label: USB Live Camcra (0c45:6366)
+ 🔍 Expected selectedCamera: 
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ Video metadata loaded, resolution: 1280 x 720
+ ✅ Video playback started successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ ✅ measureDetected sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ ✅ warning sound loaded successfully
+ ✅ critical sound loaded successfully
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ ✅ Browser GPS position obtained successfully
+ 🛰️ GPS permission status updated and saved: true
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  ❌ Failed to open IndexedDB: 
+at @ index-GxfqYXl5.js:3161
+  ⚠️ Using localStorage fallback - limited to ~5MB storage
+KL @ index-GxfqYXl5.js:3161
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  ❌ Error getting auth cache: 
+Jn @ index-GxfqYXl5.js:3144
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  ❌ Failed to open IndexedDB: 
+at @ index-GxfqYXl5.js:3161
+  ⚠️ Using localStorage fallback - limited to ~5MB storage
+KL @ index-GxfqYXl5.js:3161
+ App: Storage initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  Error initializing video recordings database: 
+initDB @ geoVideoRecorder-DJfC6ZzR.js:6
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+  Failed to load from IndexedDB: 
+loadFromIndexedDB @ routeEnforcementStore-BGoBdTG_.js:1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🔄 Upgrading database from version 0 to 6
+ User signed out, ID removed from localStorage
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: No user
+ User signed out, ID removed from localStorage
+ Auth state changed in OfflineStatusIndicator: No user
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: No user
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ SurveyManager: Loaded surveys: Array(0)
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Sound system initialized with AudioContext
+ ✅ measureDetected sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ critical sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ warning sound loaded successfully
+ ✅ App ready to work offline
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🔄 User requested camera restart
+ 🔄 Recreating camera instance...
+ ✅ Standard camera shut down
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+  ⚠️ LiveCamera: cameraType is null, cannot initialize camera
+(anonymous) @ LiveCamera-VX1-5hPw.js:22128
+ ✅ Camera recreation initiated
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📹 Camera monitor state: Object
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📷 Initializing StandardCamera with deviceId: default
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ getUserMedia succeeded
+ ✅ Standard camera initialized: Object
+ ✅ standard camera instance created and initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎬 activeCamera ready, starting video display
+ Starting camera, attempt: 2
+ 📹 Using StandardCamera stream from camera instance
+ 🔍 Stream deviceId: ac8a0808dc22a2ae881c7c3d2d76770c568735868cbc969f682a3182eb76c9c7
+ 🔍 Stream label: USB Live Camcra (0c45:6366)
+ 🔍 Expected selectedCamera: 
+ ✅ Got stream from StandardCamera instance
+ Video tracks obtained, count: 1
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Video metadata loaded, resolution: 1280 x 720
+ ✅ Video playback started successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🎹 Keyboard Event: Object
+ 🎹 Keyboard Event: Object
+ 🎹 Keyboard Event: Object
+ 🎹 Keyboard Event: Object
+ 🎹 Keyboard Event: Object
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🧹 LiveCamera unmounting, cleaning up resources
+ 🧹 Shutting down camera instance
+ ✅ Standard camera shut down
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 📐 Video dimensions (rendered): 444 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 🔄 Shutting down existing camera before creating new one
+ ✅ Standard camera shut down
+ Video element is ready
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📐 Video dimensions (rendered): 444 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+index-GxfqYXl5.js:3317 Loaded 0 surveys from database
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+index-GxfqYXl5.js:3317 Loaded 0 surveys from database
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+Settings-oykBUZiF.js:167 SurveyManager: Loaded surveys: Array(0)
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:29', latitude: 46.29629665365694, longitude: -72.54198984554837, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29629665365694, -72.54198984554837]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 📷 Creating standard camera instance...
+LiveCamera-VX1-5hPw.js:22128 📷 Initializing StandardCamera with deviceId: default
+StandardCamera-CFVDe1pu.js:1 🔧🔧🔧 StandardCamera.initialize() called
+StandardCamera-CFVDe1pu.js:1 🔧 deviceId passed to constructor: 
+StandardCamera-CFVDe1pu.js:1 🔧 getUserMedia constraints: {
+  "video": {
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    },
+    "facingMode": "environment"
+  }
+}
+StandardCamera-CFVDe1pu.js:1 🔧 Calling getUserMedia with deviceId constraint...
+StandardCamera-CFVDe1pu.js:1 ✅ getUserMedia succeeded
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:29', latitude: 46.29647074548048, longitude: -72.54224497857028, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29647074548048, -72.54224497857028]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+StandardCamera-CFVDe1pu.js:1 ✅ Standard camera initialized: {requestedDeviceId: '', actualDeviceId: 'ac8a0808dc22a2ae881c7c3d2d76770c568735868cbc969f682a3182eb76c9c7', name: 'USB Live Camcra (0c45:6366)', resolution: '1280x720', fps: 30}
+LiveCamera-VX1-5hPw.js:22128 ✅ standard camera instance created and initialized
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:29', latitude: 46.29647074548048, longitude: -72.54224497857028, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29647074548048, -72.54224497857028]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 🎬 activeCamera ready, starting video display
+LiveCamera-VX1-5hPw.js:22128 Starting camera, attempt: 1
+LiveCamera-VX1-5hPw.js:22128 📹 Using StandardCamera stream from camera instance
+LiveCamera-VX1-5hPw.js:22128 🔍 Stream deviceId: ac8a0808dc22a2ae881c7c3d2d76770c568735868cbc969f682a3182eb76c9c7
+LiveCamera-VX1-5hPw.js:22128 🔍 Stream label: USB Live Camcra (0c45:6366)
+LiveCamera-VX1-5hPw.js:22128 🔍 Expected selectedCamera: 
+LiveCamera-VX1-5hPw.js:22128 ✅ Got stream from StandardCamera instance
+LiveCamera-VX1-5hPw.js:22128 Video tracks obtained, count: 1
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:29', latitude: 46.29647074548048, longitude: -72.54224497857028, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29647074548048, -72.54224497857028]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (rendered): 444 x 250
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (intrinsic): 1280 x 720
+LiveCamera-VX1-5hPw.js:22128 📹 Video metadata loaded in LiveCamera
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (rendered): 444 x 250
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (intrinsic): 1280 x 720
+LiveCamera-VX1-5hPw.js:22128 ✅ Video metadata loaded, resolution: 1280 x 720
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (rendered): 444 x 250
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (intrinsic): 1280 x 720
+LiveCamera-VX1-5hPw.js:22128 📹 Video playing in LiveCamera
+LiveCamera-VX1-5hPw.js:22128 ✅ Video playback started successfully
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:29', latitude: 46.29647074548048, longitude: -72.54224497857028, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29647074548048, -72.54224497857028]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (rendered): 444 x 250
+LiveCamera-VX1-5hPw.js:22128 📐 Video dimensions (intrinsic): 1280 x 720
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:31', latitude: 46.29662467466856, longitude: -72.54251004849048, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29662467466856, -72.54251004849048]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:32', latitude: 46.296763536723695, longitude: -72.5427952714872, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.296763536723695, -72.5427952714872]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:33', latitude: 46.29692677148183, longitude: -72.5430524172359, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29692677148183, -72.5430524172359]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:34', latitude: 46.29708135078651, longitude: -72.54335522655965, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29708135078651, -72.54335522655965]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:34', latitude: 46.297242469921365, longitude: -72.5436339163387, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.297242469921365, -72.5436339163387]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:36', latitude: 46.297386410374585, longitude: -72.54391070678597, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.297386410374585, -72.54391070678597]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:37', latitude: 46.29752498890992, longitude: -72.54418232558744, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.29752498890992, -72.54418232558744]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: GPS data: {time: '12:12:38', latitude: 46.297658370402125, longitude: -72.54445988511462, altitude: 0, speed: 0, …}
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Creating/updating marker at: (2) [46.297658370402125, -72.54445988511462]
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-nyx0khDl.js:55 📍 PositionMarker: Centered map on position

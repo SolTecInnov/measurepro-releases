@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11 – Training Module | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --green: #4ade80; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #cbd5e1; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  ol, ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .module { border-left: 4px solid var(--brand); padding-left: 1rem; margin-bottom: 1.5rem; }
+  .module-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .module-num { background: var(--brand); color: #000; font-weight: 900; font-size: 0.8rem; border-radius: 0.25rem; padding: 0.2rem 0.5rem; }
+  .module-time { color: var(--muted); font-size: 0.85rem; }
+  .cert-box { background: #0c1a2e; border: 2px solid var(--brand); border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; text-align: center; }
+  .cert-box h3 { color: var(--brand); font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .cert-box p { color: var(--muted); margin-bottom: 0; }
+  .level-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 800; margin: 0.25rem; }
+  .level-1 { background: #052e16; color: #4ade80; }
+  .level-2 { background: #451a03; color: var(--brand); }
+  .level-3 { background: #1e1b4b; color: #a5b4fc; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  .checklist li:last-child { border-bottom: none; }
+  .cb { width: 1.2rem; height: 1.2rem; min-width: 1.2rem; border: 2px solid var(--border); border-radius: 0.2rem; margin-top: 0.25rem; }
+  .placeholder { background: #1e3a5f; border: 1px dashed #3b82f6; border-radius: 0.5rem; padding: 0.85rem; color: #93c5fd; font-style: italic; margin: 0.75rem 0; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="10-maintenance.html">← 10: Maintenance</a>
+  <a href="index.html">Index</a>
+  <a href="12-quick-start-card.html">Next: Quick Start Card →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 11 of 12</div>
+  <h1>Training Module</h1>
+  <p style="color:var(--muted)">You are massively underestimating this. Trained operators protect your reputation. Untrained ones destroy it.</p>
+</div>
+
+<h2>Onboarding Structure (60–90 Minutes)</h2>
+<div class="card">
+  <p>Every new operator must complete all three modules before being permitted to conduct an unsupervised survey. This is non-negotiable.</p>
+
+  <div class="module">
+    <div class="module-header">
+      <span class="module-num">MODULE 1</span>
+      <strong>System Orientation</strong>
+      <span class="module-time">20–30 min</span>
+    </div>
+    <ul>
+      <li>Mission overview — what MeasurePRO does and what it doesn't do (15 min lecture, Doc 01)</li>
+      <li>Hardware identification — name and purpose of each component</li>
+      <li>Data flow walkthrough — how a measurement becomes a deliverable</li>
+      <li>Safety rules — power sequence, no survey under RTK-free GPS, amplitude validation</li>
+      <li>Assessment: trainee must correctly identify all hardware components and state the startup order from memory</li>
+    </ul>
+  </div>
+
+  <div class="module">
+    <div class="module-header">
+      <span class="module-num">MODULE 2</span>
+      <strong>Supervised Practical</strong>
+      <span class="module-time">30–40 min</span>
+    </div>
+    <ul>
+      <li>Trainee completes the Pre-Deployment Checklist (Doc 04) independently — trainer watches without prompting</li>
+      <li>Trainee connects all hardware in correct startup order</li>
+      <li>Trainee runs ground reference calibration and calibration validation pass</li>
+      <li>Trainee conducts a short survey of 10 known structures — trainer evaluates POI capture quality, photo composition, and type selection</li>
+      <li>Trainee exports deliverable and identifies any data gaps</li>
+      <li>Assessment: Trainer signs off on each step. Any step failed must be repeated the next day.</li>
+    </ul>
+  </div>
+
+  <div class="module">
+    <div class="module-header">
+      <span class="module-num">MODULE 3</span>
+      <strong>Edge Cases & Recovery</strong>
+      <span class="module-time">15–20 min</span>
+    </div>
+    <ul>
+      <li>Trainer simulates 5 faults from the Troubleshooting Matrix (Doc 09) — trainee must diagnose and resolve</li>
+      <li>Required scenarios: GPS loss mid-survey, laser constant <code>--</code>, wrong protocol, app crash, LiDAR service disconnect</li>
+      <li>Trainee must complete QC Checklist (Doc 08) on the practical survey data</li>
+      <li>Assessment: All 5 scenarios resolved without assistance</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Certification Levels</h2>
+<div class="cert-box">
+  <h3>MeasurePRO Operator Certification</h3>
+  <p>Three tiers. Operators must re-certify annually or after any major system update.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <span class="level-badge level-1">Level 1 — Certified Operator</span>
+    <p style="margin-top:0.75rem">Can conduct standard vertical clearance surveys unsupervised. Can use USB/Bluetooth GPS. Cannot configure GNSS or laser protocols.</p>
+    <p><strong>Requires:</strong> Modules 1–3 completed and signed off by certified trainer.</p>
+  </div>
+  <div class="card">
+    <span class="level-badge level-2">Level 2 — Senior Operator</span>
+    <p style="margin-top:0.75rem">Can configure all hardware, calibrate ground reference, use Duro GNSS/IMU, export engineering-grade deliverables, operate multi-laser systems.</p>
+    <p><strong>Requires:</strong> Level 1 + 20 supervised surveys + written assessment on Doc 07 deliverables scope.</p>
+  </div>
+  <div class="card">
+    <span class="level-badge level-3">Level 3 — System Administrator</span>
+    <p style="margin-top:0.75rem">Can configure vehicle profiles, manage LiDAR companion service, train new operators, sign off QC checklists, authorise deliverables.</p>
+    <p><strong>Requires:</strong> Level 2 + direct nomination by organisation principal.</p>
+  </div>
+  <div class="card">
+    <h3>Certified Trainer</h3>
+    <p>Delivers Modules 1–3, issues Level 1 certifications. Must hold Level 2 minimum and have conducted &gt;50 surveys.</p>
+    <div class="placeholder">📋 Trainer register maintained at: [FILL IN — your org's training record system]</div>
+  </div>
+</div>
+
+<h2>Operator Sign-Off Card</h2>
+<div class="card">
+  <p>Complete this for every new operator. File with HR or training records.</p>
+  <ul class="checklist">
+    <li><input type="checkbox" class="cb"><span><strong>Module 1 completed</strong> — Date: __________ Trainer: __________</span></li>
+    <li><input type="checkbox" class="cb"><span><strong>Module 2 completed</strong> — Date: __________ Trainer: __________</span></li>
+    <li><input type="checkbox" class="cb"><span><strong>Module 3 completed</strong> — Date: __________ Trainer: __________</span></li>
+    <li><input type="checkbox" class="cb"><span><strong>Operator has read and signed Doc 07 (Deliverables / Scope)</strong></span></li>
+    <li><input type="checkbox" class="cb"><span><strong>Certification level issued:</strong> <span class="level-badge level-1">L1</span> <span class="level-badge level-2">L2</span> <span class="level-badge level-3">L3</span></span></li>
+    <li><input type="checkbox" class="cb"><span><strong>Recertification due:</strong> __________</span></li>
+  </ul>
+  <p style="margin-top:1rem; color:var(--muted); font-size:0.85rem">Operator name: _________________________ &nbsp; Signature: _________________________</p>
+</div>
+
+<h2>Why Certification Matters for Your Business</h2>
+<div class="card">
+  <ul>
+    <li><strong>Authority</strong> — clients trust a certified-operator system over "we trained them on the job"</li>
+    <li><strong>Liability</strong> — when something goes wrong on-site, certification documents that the operator was trained to a defined standard</li>
+    <li><strong>Recurring revenue</strong> — annual recertification creates a natural touchpoint for training fees and system updates</li>
+    <li><strong>Lock-in</strong> — operators trained on MeasurePRO are less likely to switch to a competitor system mid-career</li>
+    <li><strong>Support cost reduction</strong> — the Pre-Deployment Checklist and Troubleshooting Matrix alone eliminate 30–50% of support calls from untrained operators</li>
+  </ul>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="10-maintenance.html">← 10: Maintenance</a>
+  <a href="index.html">Index</a>
+  <a href="12-quick-start-card.html">Next: Quick Start Card →</a>
+</nav>
+</body>
+</html>

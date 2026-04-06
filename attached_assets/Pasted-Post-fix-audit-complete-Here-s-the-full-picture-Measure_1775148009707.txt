@@ -1,0 +1,91 @@
+Post-fix audit complete. Here's the full picture:
+
+MeasurePro v15.3.5 — Post-Fix Audit
+✅ What Was Fixed Correctly
+Task 36 — RSA sky detection ✅ Perfect fix. 0x3FFF is now the correct sentinel for "no return", zero-distance readings are preserved.
+
+Task 37 — Amplitude filter isolation ✅ Each driver now gets its own AmplitudeFilter instance via createFreshAmplitudeFilter(). Clean.
+
+Task 38 — MeasurementFeed worker race ✅ Worker subscription is established before background historical load. Deduplication logic is solid.
+
+Task 35 — LDM71 optional amplitude ✅ Filter only applies when amplitude data is present. Correct for all SolTec variants.
+
+Dead code cleanup ✅ App.bak.tsx, App.original.tsx, duplicate useMeasurementLogging.ts, supabase.ts all deleted.
+
+🔴 Critical Bugs — Remaining or New
+1. Jenoptik regex fix only applied to the NEW driver — the production path is still broken
+src/lib/readers/serialLaserReader.ts ~line 172 and 196
+
+This is the actual path used in production via serialStore.connectToLaser(). Both the detection pattern and the parser still require exactly 4 integer digits:
+
+Copy
+/^D\s+\d{4}\.\d{3}/        // isJenoptikLaserData — still broken
+/^D\s+(\d{4}\.\d{3})…/     // parseJenoptikMeasurement — still broken
+A reading of D 5.234 (5 metres away):
+
+Fails isJenoptikLaserData → goes to parseGenericMeasurement
+Fails that too (has a space before digits)
+Logged as [UNKNOWN] D 5.234 and silently discarded
+Any overpass clearance under 10m on a high-pole laser is dropped. Task #34 was only half done.
+
+2. Duplicate type declarations in serial.ts — TypeScript compilation broken
+src/lib/serial.ts ~line 435
+
+Both LaserType (type union) AND LaserType (enum) are still exported from the same file. Same for MeasuringMode and SerialConfig. TypeScript cannot compile this. The enum also only defines 3 of the 5 valid laser types — rsa-laser and ldm71-lidar2d-v2 are missing from it.
+
+3. New unit tests cannot compile — invalid profile object
+src/lib/hardware/laser/__tests__/jenoptikAsciiDriver.test.ts lines 11–18
+
+The test creates a LaserProfileConfig with a spurious type: 'jenoptik' field (doesn't exist in the type) and is missing required fields: dataBits, parity, stopBits, flowControl, protocol. TypeScript will reject this. The tests Replit added cannot run.
+
+4. laser.worker.ts import path mismatch
+Uses @shared/worker-types (path alias) while gps.worker.ts uses a relative path ../../shared/worker-types that actually works. If the @shared alias isn't configured for the worker bundler context, the laser worker still won't compile. Inconsistency confirms this was not tested.
+
+5. GPS data never reaches the store — parseNMEA doesn't exist
+src/lib/stores/serialStore.ts — connectToGPS function
+
+Copy
+useGPSStore.getState().parseNMEA(data);  // ← method does not exist on GPSStore
+GPSStore exports updateData, addNMEASentence, setConnected — no parseNMEA. GPS data through the serial path is silently swallowed.
+
+🟠 Broken / Non-Functional
+6. multiLaserStore callbacks never called
+multiLaserDataCallbacks arrays can be registered from outside, but _updateMeasurement() never fires them. Any lateral/rear laser subscriber using addLateralCallback receives nothing.
+
+7. serialStore imports SerialPort from ../serial
+SerialPort isn't exported from serial.ts — it's a Web Serial API global. This TypeScript import is broken.
+
+8. src/lib/db.ts — orphaned schema with wrong field names
+Defines MeasurementDB with old fields (mileMarker, poiType, notes) that don't match the current Measurement type (rel, poi_type, note). If accidentally used, it opens the wrong IndexedDB schema and silently corrupts data.
+
+🟡 Serious Issues
+9. Double render on every laser measurement
+serialStore.ts calls set() twice in a row per measurement — lastMeasurement/currentMeasurement then measurementSampleId. At 10 Hz = 20 Zustand notifications/second instead of 10. Three places affected. Merge them.
+
+10. LDM71 measurements logged twice
+processLdm71Data appends to laser output, then emitMeasurement callback appends again. Every reading generates two lines. Output buffer fills twice as fast, UI is noisy.
+
+11. MeasurementFeed.addMeasurement() O(n) filter at capacity
+When the in-memory cache is full (1000+ measurements), it filters the entire array to evict old entries on every single write. At continuous logging rates this becomes a performance problem.
+
+12. AuthContext session token refreshed on every render
+auth/AuthContext.tsx — getIdToken(true) (force refresh) is called inside a useEffect without proper debouncing. On re-renders during active surveys, this hammers Firebase Auth unnecessarily.
+
+🔵 Still Dead / Unused
+src/lib/sync.ts — still present, appears to be legacy. Audit couldn't confirm no callers
+src/lib/laser.ts canonical ambiguity — still unclear if this top-level store or hardware/laser/ is the real path
+src/lib/db.ts — never imported, defines wrong schema, should be deleted
+📋 Final Verdict
+Score
+Before fixes	4/10
+After fixes	6/10
+Real progress was made — the RSA driver, amplitude filter isolation, and MeasurementFeed race are all solid fixes. But 3 of the 5 tasks have incomplete or broken implementations that need immediate attention.
+
+Top 5 remaining priorities:
+
+Fix serialLaserReader.ts regex — this is the production path, short-range readings still silently dropped
+Fix duplicate type/enum exports in serial.ts — app likely can't compile in strict mode
+Fix jenoptikAsciiDriver.test.ts — new tests are broken and can't run
+Fix serialStore.ts GPS path — parseNMEA doesn't exist, GPS serial data is lost
+Fix laser.worker.ts import — use relative path like gps.worker.ts does
+Want me to fix these directly and push the commits myself?

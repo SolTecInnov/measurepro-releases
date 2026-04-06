@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 – Quality Control Checklist | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; --green: #4ade80; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+  .checklist li:last-child { border-bottom: none; }
+  .cb { width: 1.3rem; height: 1.3rem; min-width: 1.3rem; border: 2px solid var(--border); border-radius: 0.25rem; margin-top: 0.2rem; cursor: pointer; }
+  .cb:checked { accent-color: var(--brand); }
+  .item-text strong { display: block; font-weight: 700; }
+  .item-text span { font-size: 0.88rem; color: var(--muted); }
+  .critical strong::after { content: ' ⚠'; color: #f87171; font-size: 0.9rem; }
+  .section-label { font-size: 0.8rem; font-weight: 800; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin: 1.5rem 0 0.5rem; padding: 0.3rem 0.75rem; background: #0f172a; border-radius: 0.25rem; display: inline-block; }
+  .print-note { background: #0f172a; border: 1px dashed var(--border); border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0; font-size: 0.85rem; color: var(--muted); }
+  @media print {
+    body { background: white; color: black; padding: 1cm; }
+    .nav, .print-note { display: none; }
+    .cb { border: 2px solid #000; }
+    .section-label { background: #eee; color: #000; }
+    .item-text span { color: #555; }
+    h2 { color: #000; }
+    .card { background: #f8f8f8; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="07-deliverables.html">← 07: Deliverables</a>
+  <a href="index.html">Index</a>
+  <a href="09-troubleshooting.html">Next: Troubleshooting →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 08 of 12</div>
+  <h1>Quality Control Checklist</h1>
+  <p style="color:var(--muted)">You're not delivering data. You're delivering confidence. Don't skip this.</p>
+</div>
+
+<div class="print-note">
+  🖨️ Print-optimised. Complete before sending any deliverable.<br>
+  Survey ID: _________________________ &nbsp;&nbsp; Reviewer: _________________________ &nbsp;&nbsp; Date: _________________________
+</div>
+
+<div class="card">
+  <div class="section-label">Section A — Data Coverage Verification</div>
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>GPS track is continuous across the survey route</strong>
+        <span>Open route on map. Look for gaps, jumps, or sections where the track doubles back unexpectedly. Any gap &gt;50 m should be noted or re-surveyed.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>All expected structures are present as POIs</strong>
+        <span>Cross-reference against the known route structure list (if available). Compare POI count with expected count from desktop review of satellite imagery.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>No POIs at coordinates 0,0</strong>
+        <span>Sort the CSV by latitude — any rows at exactly 0.000000 indicate GPS was not connected at capture time.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Chainage is continuous and increasing</strong>
+        <span>In the road profile CSV, check that chainage values increase monotonically. A reset to zero mid-route indicates a GPS outage caused a segment split.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="section-label">Section B — GNSS Accuracy Validation</div>
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>RTK fix confirmed for critical sections</strong>
+        <span>Check the survey log for periods where GPS degraded from RTK to SBAS. Flag these in the deliverable comments. Positional accuracy for those sections is ±1–3 m, not ±2 cm.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>No large coordinate jumps (&gt;5 m in &lt;1 second)</strong>
+        <span>These indicate a GPS glitch. Check the raw GeoJSON — a single point wildly off the route. Remove the outlier POI or note it as GPS artifact.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>GPS timestamp is plausible</strong>
+        <span>Verify survey date/time in metadata.json matches the actual survey date. A wrong system clock will corrupt all timestamps.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="section-label">Section C — Clearance Measurement Validation</div>
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text critical">
+        <strong>Calibration control check</strong>
+        <span>Locate the first POI captured during the on-site calibration pass. Its height should match the known reference structure within ±50 mm. If outside tolerance, the entire survey ground reference may be incorrect.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>No clearance values &lt;0.5 m unless flagged as intentional</strong>
+        <span>Sub-0.5 m values typically indicate a ground reflection or noise return. Review the corresponding photo. If no photo or obviously wrong, mark the POI for review.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>No clearance values &gt;18 m unless route has very tall structures</strong>
+        <span>Values above 18 m may indicate sky returns that slipped through the ignoreAbove filter. Verify against photos.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Each clearance POI has a photo</strong>
+        <span>Photos are the evidence layer. Missing photos weaken the deliverable. For any POI without a photo, add a note explaining why (camera failure, obstruction).</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Clearance anomalies reviewed and flagged</strong>
+        <span>Any measurement that is &gt;1 m different from adjacent measurements of the same structure type should be reviewed and either confirmed or marked as suspect.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="section-label">Section D — Deliverable Packaging</div>
+  <ul class="checklist">
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>metadata.json is present and complete</strong>
+        <span>Check: operator name, survey date, ground reference value, app version, calibration method are all populated.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>All requested formats are present in the ZIP</strong>
+        <span>Open the ZIP and confirm every requested format file exists and is non-zero bytes.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Re-import test passed</strong>
+        <span>Drag the delivery ZIP into MeasurePRO. Confirm the survey loads correctly. This validates the archive is intact and the client can independently verify.</span>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" class="cb">
+      <div class="item-text">
+        <strong>Deliverable sent with this QC sign-off attached</strong>
+        <span>Include a completed copy of this checklist (PDF or printed scan) with the deliverable. It documents due diligence.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="07-deliverables.html">← 07: Deliverables</a>
+  <a href="index.html">Index</a>
+  <a href="09-troubleshooting.html">Next: Troubleshooting →</a>
+</nav>
+</body>
+</html>

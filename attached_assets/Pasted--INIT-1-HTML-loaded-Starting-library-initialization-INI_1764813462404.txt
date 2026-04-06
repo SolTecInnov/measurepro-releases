@@ -1,0 +1,208 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: Object
+ [FIREBASE-3] Processed Firebase config: Object
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: production Production: true
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-7] Upgrading test database (creating object store)
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] No auth cache found
+ [AUTHCTX-6] Auth state initialization complete
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [AUTH-4] Auth state changed: Object
+ [AUTH-6] User logged out, clearing localStorage
+ [AUTH-7] Calling auth callback with user: false
+ [AUTHCTX-8] Firebase auth listener callback: Object
+ ⏱️ getSurveysPaginated(50): 9.01806640625 ms
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 85.950927734375 ms
+ ✅ Loaded 0 surveys (including active) in 86ms
+ Legacy scan results: Object
+/welcome:1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+ [LOGIN-1] login() called, isOnline: true email: jfprince@soltec.ca
+ [LOGIN-2] Online login - using Firebase
+ [SIGNIN-1] signInWithEmail() called for email: jfprince@soltec.ca
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [SIGNIN-3] Attempting Firebase sign in...
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ [AUTHCTX-8] Firebase auth listener callback: Object
+ [AUTHCTX-9] User authenticated and online, updating timestamps
+ [SIGNIN-4] ✅ Sign in successful: z2JsOVxJNohWupffvUh28QN1CIs1
+ [LOGIN-3] Firebase sign-in successful, fetching account data...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [LOGIN-4] Account data fetched: Object
+ [LOGIN-5] Caching auth data for offline use...
+ [LOGIN-6] Updating auth state...
+ [LOGIN-7] ✅ Online login successful
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+ ⏱️ getSurveysPaginated(50): 17.670166015625 ms
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 40.177978515625 ms
+ ✅ Loaded 0 surveys (including active) in 40ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+ ✅ Loaded 0 surveys (including active) in 42ms
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+(index):1 [DOM] Password field is not contained in a form: (More info: https://www.chromium.org/developers/design-documents/create-amazing-password-forms) 
+ [SyncControls] Starting import from cloud...
+ [Import] Starting import from Firebase...
+ [Import] Fetching surveys from Firebase...
+ [Firebase] Fetched 32 surveys owned by user z2JsOVxJNohWupffvUh28QN1CIs1
+ [Import] Fetched 32 surveys from Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+ [SyncControls] Import complete, surveys: 32
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BOJU9veW.js:3437
+ ⏱️ getSurveysPaginated(50): 13.612060546875 ms
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 14.847900390625 ms
+ ✅ Loaded 32 surveys (including active) in 15ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BOJU9veW.js:3437
+ ✅ Loaded 32 surveys (including active) in 17ms
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+  [2025-12-04T01:55:59.464Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+  [2025-12-04T01:55:59.464Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+ ⏱️ getSurveysPaginated(50): 9.73779296875 ms
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 10.67919921875 ms
+ ✅ Loaded 32 surveys (including active) in 11ms
+  [ProfileRecording] GPS error: GeolocationPositionError
+b.current.navigator.geolocation.watchPosition.enableHighAccuracy @ Settings-DY8rPonP.js:181
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+(index):1 [DOM] Password field is not contained in a form: (More info: https://www.chromium.org/developers/design-documents/create-amazing-password-forms) 
+ [RoadScope] Validating key: Object
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 to Firebase
+index-BOJU9veW.js:3113 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+index-BOJU9veW.js:3113 [FIREBASE-6] Already initialized, skipping
+index-BOJU9veW.js:3113 [Sync] Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 to Firebase
+index-BOJU9veW.js:233  [2025-12-04T01:56:49.139Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+RS @ index-BOJU9veW.js:233
+index-BOJU9veW.js:233  [2025-12-04T01:56:49.140Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+RS @ index-BOJU9veW.js:233
+Settings-DY8rPonP.js:181 [RoadScope] Requesting: /api/roadscope/proxy/surveys

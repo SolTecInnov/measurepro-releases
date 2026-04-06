@@ -1,0 +1,171 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+index-BucbH5p-.js:3740 [LaserReader] setLaserType called with: high-pole
+index-BucbH5p-.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-BucbH5p-.js:3740 [LaserReader] setLaserType called with: high-pole
+index-BucbH5p-.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-BucbH5p-.js:3740 [LaserReader] setLaserType called with: high-pole
+index-BucbH5p-.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-BucbH5p-.js:3740 [LaserReader] setLaserType called with: high-pole
+index-BucbH5p-.js:3740 [LaserReader] ASCII mode (no RSA driver)
+index-BucbH5p-.js:3861 [INIT-5] main.tsx loaded - Starting React app initialization
+index-BucbH5p-.js:3861 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-BucbH5p-.js:3861 [INIT-6] Build environment: production Production: true
+index-BucbH5p-.js:3861 [INIT-7] Starting localStorage cleanup...
+index-BucbH5p-.js:3861 [INIT-8] Scanning localStorage for problematic keys...
+index-BucbH5p-.js:3861 [INIT-9] No problematic localStorage keys found
+index-BucbH5p-.js:3861 [INIT-11] localStorage cleanup complete
+index-BucbH5p-.js:3861 [INIT-12] Checking library health (Leaflet, etc)...
+index-BucbH5p-.js:3789 Library health check PASSED - All critical libraries loaded
+index-BucbH5p-.js:3861 [INIT-13] ✅ Library health check PASSED
+index-BucbH5p-.js:3861 [INIT-13b] Initializing Firebase auto-sync service...
+index-BucbH5p-.js:3478 [ConnectivityMonitor] Initialized Object
+index-BucbH5p-.js:3478 [AutoSync] Firebase auto-sync initialized
+index-BucbH5p-.js:3861 [INIT-13c] ✅ Firebase auto-sync initialized
+index-BucbH5p-.js:3861 [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+index-BucbH5p-.js:3773 [AutoPartManager] Initializing with threshold: 200
+index-BucbH5p-.js:3861 [INIT-13e] ✅ Auto-Part Manager initialized
+index-BucbH5p-.js:3861 [INIT-14] Rendering React app to root element...
+index-BucbH5p-.js:3861 [INIT-15] ✅ React app rendered successfully
+index-BucbH5p-.js:3773 [APP-1] App component mounted, initializing core workers...
+index-BucbH5p-.js:3773 [APP-2] Checking IndexedDB health before worker initialization...
+index-BucbH5p-.js:3773 [STORAGE-1] Starting IndexedDB health check...
+index-BucbH5p-.js:3773 [STORAGE-3] Checking if indexedDB is defined...
+index-BucbH5p-.js:3773 [STORAGE-4] IndexedDB is defined
+index-BucbH5p-.js:3773 [STORAGE-5] Attempting to open test database...
+index-BucbH5p-.js:3784 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-BucbH5p-.js:3773 [STORAGE-6] Test database opened successfully
+index-BucbH5p-.js:3773 [STORAGE-8] Testing write operation...
+index-BucbH5p-.js:3773 [STORAGE-9] Write test successful
+index-BucbH5p-.js:3773 [STORAGE-10] Test database closed
+index-BucbH5p-.js:3773 [STORAGE-11] Checking storage quota...
+index-BucbH5p-.js:3773 [STORAGE-12] Storage quota: Object
+index-BucbH5p-.js:3773 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-BucbH5p-.js:3784 [APP-3] IndexedDB healthy, initializing workers...
+index-BucbH5p-.js:3784 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-BucbH5p-.js:3784 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-BucbH5p-.js:3784 [APP-5] ✅ Orchestrator worker initialized
+index-BucbH5p-.js:3784 [APP-6] ✅ Flush-on-close handlers initialized
+index-BucbH5p-.js:3480 ⏱️ getSurveysPaginated(50): 51.778076171875 ms
+index-BucbH5p-.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-BucbH5p-.js:3480 ⏱️ loadSurveys TOTAL: 157.85595703125 ms
+index-BucbH5p-.js:3480 ✅ Loaded 0 surveys (including active) in 158ms
+index-BucbH5p-.js:3235  ⚠️ SLOW: loadSurveys (initial) took 158ms
+Vs @ index-BucbH5p-.js:3235
+index-BucbH5p-.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-BucbH5p-.js:3480
+index-BucbH5p-.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-BucbH5p-.js:3480
+index-BucbH5p-.js:3784 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-BucbH5p-.js:3235  ⚠️ SLOW: getSurveysPaginated took 102ms
+Vs @ index-BucbH5p-.js:3235
+index-BucbH5p-.js:3480 ⏱️ getSurveysPaginated(50): 102.196044921875 ms
+index-BucbH5p-.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-BucbH5p-.js:3235  ⚠️ SLOW: getSurveysPaginated took 102ms
+Vs @ index-BucbH5p-.js:3235
+index-BucbH5p-.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-BucbH5p-.js:3480
+index-BucbH5p-.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-BucbH5p-.js:3480 ⏱️ loadSurveys TOTAL: 121.989013671875 ms
+index-BucbH5p-.js:3480 ✅ Loaded 0 surveys (including active) in 122ms
+index-BucbH5p-.js:3235  ⚠️ SLOW: loadSurveys (initial) took 122ms
+Vs @ index-BucbH5p-.js:3235
+index-BucbH5p-.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-BucbH5p-.js:3480
+index-BucbH5p-.js:3480 ✅ Loaded 0 surveys (including active) in 125ms
+index-BucbH5p-.js:3235  ⚠️ SLOW: loadSurveys (initial) took 125ms
+Vs @ index-BucbH5p-.js:3235
+index-BucbH5p-.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+  WebSocket connection to 'ws://localhost:8765/' failed: Error during WebSocket handshake: Unexpected response code: 404
+g @ ZED2iCamera-4Z0xBH-H.js:1
+measure-pro.app/:1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+RoadProfile-GCAGFYYC.js:27 [RoadProfile] Auto-starting DuroGpsService with backend: http://localhost:8765
+DuroCalibrationSettings-h3hfvG-X.js:21 [DuroGPS] Starting with backend: http://localhost:8765
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+index-BucbH5p-.js:3478 [ConnectivityMonitor] User authenticated
+index-BucbH5p-.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/gnss/correction/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/grade-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/road-profile/rail-crossing-events?:1   Failed to load resource: the server responded with a status of 400 ()
+api/gnss/duro/status:1   Failed to load resource: the server responded with a status of 404 ()
+api/road-profile/k-factor-events?:1   Failed to load resource: the server responded with a status of 400 ()
+leaflet-DS5V1m_x.js:32  TypeError: Cannot read properties of undefined (reading 'length')
+    at ut (RoadProfile-GCAGFYYC.js:26:14212)
+    at jl (leaflet-DS5V1m_x.js:30:17030)
+    at Md (leaflet-DS5V1m_x.js:32:43927)
+    at Cd (leaflet-DS5V1m_x.js:32:39697)
+    at Pv (leaflet-DS5V1m_x.js:32:39625)
+    at Wo (leaflet-DS5V1m_x.js:32:39479)
+    at sl (leaflet-DS5V1m_x.js:32:35853)
+    at Pf (leaflet-DS5V1m_x.js:32:36655)
+    at mn (leaflet-DS5V1m_x.js:30:3274)
+    at leaflet-DS5V1m_x.js:32:34189
+Ya @ leaflet-DS5V1m_x.js:32

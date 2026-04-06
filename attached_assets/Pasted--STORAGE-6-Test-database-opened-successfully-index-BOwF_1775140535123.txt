@@ -1,0 +1,37 @@
+[STORAGE-6] Test database opened successfully
+index-BOwFoxOu.js:4272 [STORAGE-8] Testing write operation...
+index-BOwFoxOu.js:4272 [STORAGE-9] Write test successful
+index-BOwFoxOu.js:4272 [STORAGE-10] Test database closed
+index-BOwFoxOu.js:4272 [STORAGE-11] Checking storage quota...
+index-BOwFoxOu.js:3973 [ConnectivityMonitor] Firebase connectivity confirmed
+index-BOwFoxOu.js:4272 [STORAGE-12] Storage quota: {used: '15.0MB', total: '1143967.2MB', percentage: '0.0%'}
+index-BOwFoxOu.js:4272 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-BOwFoxOu.js:4283 [APP-3] IndexedDB healthy, initializing workers...
+index-BOwFoxOu.js:4283 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-BOwFoxOu.js:4283 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-BOwFoxOu.js:4283 [APP-5] ✅ Orchestrator worker initialized
+index-BOwFoxOu.js:4283 [APP-6] ✅ Flush-on-close handlers initialized
+index-BOwFoxOu.js:3975 ⏱️ getSurveysPaginated(50): 22.105224609375 ms
+index-BOwFoxOu.js:3975 ⚠️ Active survey not in recent 50, searching...
+index-BOwFoxOu.js:3975 ⏱️ loadSurveys TOTAL: 36.26220703125 ms
+index-BOwFoxOu.js:3975 ✅ Loaded 0 surveys (including active) in 36ms
+index-BOwFoxOu.js:4283 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ZED2iCamera-4Z0xBH-H.js:1 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+setTimeout
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+g @ ZED2iCamera-4Z0xBH-H.js:1
+s9 @ index-BOwFoxOu.js:3975
+await in s9
+(anonymous) @ index-BOwFoxOu.js:3975
+(anonymous) @ index-BOwFoxOu.js:3975
+$o @ leaflet-Cfs2bPeT.js:32
+ci @ leaflet-Cfs2bPeT.js:32
+(anonymous) @ leaflet-Cfs2bPeT.js:32
+A @ leaflet-Cfs2bPeT.js:17
+ke @ leaflet-Cfs2bPeT.js:17
+index-BOwFoxOu.js:3975 [SoundManager] AudioContext state after create: running
+index-BOwFoxOu.js:3975 [SoundManager] ✅ Initialized successfully
+8login:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+login:1 Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+login:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

@@ -1,0 +1,51 @@
+{
+  "name": "MeasurePRO — LiDAR Road Survey for OS/OW Transport",
+  "short_name": "MeasurePRO",
+  "description": "Professional LiDAR and GPS road survey app for oversize/overweight heavy haul logistics by SolTec Innovation. Measures bridge clearances, lane widths, and road geometry from the field.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "lang": "en",
+  "orientation": "any",
+  "categories": ["business", "productivity", "navigation"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "MeasurePRO — Live Camera with LiDAR Measurement Overlay"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "MeasurePRO — GPS Route Tracking and Survey Map"
+    }
+  ]
+}

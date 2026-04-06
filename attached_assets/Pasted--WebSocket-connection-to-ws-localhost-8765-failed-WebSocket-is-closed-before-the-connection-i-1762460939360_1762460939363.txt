@@ -1,0 +1,1380 @@
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+serialStore.ts:708 🔧 SerialStore: Valid measurement value: 3.311
+serialStore.ts:708 🔧 SerialStore: Valid measurement value: 3.311
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+useMeasurementLogging.ts:1044 🎯 Object Detection: measurement=3.311, isLogging=true, stopRequested=false
+useMeasurementLogging.ts:1122 🎯 Object detected! 3.31m - capturing image
+MeasurementCards.tsx:136 ✅ No alerts triggered - minimum distance is safe
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+useMeasurementLogging.ts:1044 🎯 Object Detection: measurement=--, isLogging=true, stopRequested=false
+useMeasurementLogging.ts:1138 🎯✅ Back to sky - logging minimum: 3.31m
+measurements.ts:22 Adding measurement: Object
+measurements.ts:78  Error adding measurement: DataError: Failed to execute 'put' on 'IDBObjectStore': Evaluating the object store's key path did not yield a value.
+    at Proxy.<anonymous> (index.js:125:26)
+    at Proxy.method (index.js:238:34)
+    at addMeasurement (measurements.ts:48:14)
+    at async handleMeasurementChange (useMeasurementLogging.ts:1164:17)
+addMeasurement @ measurements.ts:78
+measurements.ts:109 Emergency measurement backup saved to localStorage
+measurements.ts:114  Emergency measurement backup also failed: Error: Database temporarily unavailable. Your data has been saved locally and will be restored automatically.
+    at addMeasurement (measurements.ts:112:13)
+    at async handleMeasurementChange (useMeasurementLogging.ts:1164:17)
+addMeasurement @ measurements.ts:114
+useMeasurementLogging.ts:1172  Error logging object detection: Error: Critical error: Unable to save measurement. Please try refreshing the page.
+    at addMeasurement (measurements.ts:115:13)
+    at async handleMeasurementChange (useMeasurementLogging.ts:1164:17)
+handleMeasurementChange @ useMeasurementLogging.ts:1172
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+gpsStore.ts:338 🌍 Attempting to get browser GPS position...
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+LiveCamera.tsx:379 📐 Video dimensions (rendered): 580 x 326
+LiveCamera.tsx:380 📐 Video dimensions (intrinsic): 1280 x 720
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: Object
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:45', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0.05556, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:45', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:45', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+gpsStore.ts:364 ✅ Browser GPS position obtained successfully: {lat: 45.5807890652976, lon: -72.93753861780984, accuracy: 5}
+gpsStore.ts:121 🛰️ GPS permission status updated and saved: true
+gpsStore.ts:126 🛰️ GPS permission granted - starting browser GPS immediately
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:45', latitude: 45.5807890652976, longitude: -72.93753861780984, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.5807890652976, -72.93753861780984]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:45', latitude: 45.5807890652976, longitude: -72.93753861780984, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.5807890652976, -72.93753861780984]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:45', latitude: 45.5807890652976, longitude: -72.93753861780984, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.5807890652976, -72.93753861780984]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:45', latitude: 45.5807890652976, longitude: -72.93753861780984, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.5807890652976, -72.93753861780984]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:46', latitude: 45.58077492454299, longitude: -72.93751976854915, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.58077492454299, -72.93751976854915]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:46', latitude: 45.58077492454299, longitude: -72.93751976854915, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.58077492454299, -72.93751976854915]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '15:28:46', latitude: 45.58077492454299, longitude: -72.93751976854915, altitude: 0, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.58077492454299, -72.93751976854915]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+gpsStore.ts:338 🌍 Attempting to get browser GPS position...
+serialGPSReader.ts:152 GPS Date: 2025-11-06
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+VehicleMap.tsx:119 📍 PositionMarker: Updated accuracy circle
+VehicleMap.tsx:125 📍 PositionMarker: Centered map on position
+VehicleMap.tsx:87 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+VehicleMap.tsx:95 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+VehicleMap.tsx:103 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:46', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:47', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:48', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ ✅ Browser GPS position obtained successfully: {lat: 45.58078514355091, lon: -72.93750254316602, accuracy: 10}
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: {time: '15:28:48', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '15:28:48', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '15:28:49', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '15:28:49', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '15:28:49', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '15:28:49', latitude: 45.58078514355091, longitude: -72.93750254316602, altitude: 0, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.58078514355091, -72.93750254316602]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🌍 Attempting to get browser GPS position...
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ GPS Date: 2025-11-06
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 📍 PositionMarker: GPS data: {time: '20:28:49', latitude: 45.580795, longitude: -72.93750333333334, altitude: 37.3, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.580795, -72.93750333333334]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position

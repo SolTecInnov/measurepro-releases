@@ -1,0 +1,261 @@
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:45 🔥 Firebase Config Loaded:
+firebase.ts:46   Project ID: measureprov1
+firebase.ts:47   Config validated: ✅
+firebase.ts:72 🔥 Initializing Firebase for project: measureprov1
+firebase.ts:77 ✅ Firebase initialized successfully
+gpsStore.ts:478 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:33 🚀 main.tsx is executing!
+main.tsx:34 Looking for root element...
+main.tsx:36 Root element found: true <div id=​"root">​…​</div>​
+main.tsx:39 Creating React root and rendering App...
+main.tsx:50 ✅ React render called successfully!
+sync.ts:371 Found 0 pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+ProtectedRoute.tsx:59 📋 No Firebase user, skipping account status check
+ProtectedRoute.tsx:113 📱 Desktop device - skipping permissions screen
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:26
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+logDeprecation @ deprecations.ts:14
+logV6DeprecationWarnings @ deprecations.ts:37
+(anonymous) @ index.tsx:816
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:284 🛑 Stopping background sync service...
+backgroundSync.ts:56 🛑 Background sync service stopped
+ProtectedRoute.tsx:59 📋 No Firebase user, skipping account status check
+ProtectedRoute.tsx:113 📱 Desktop device - skipping permissions screen
+useCameraAutoDetect.tsx:25 📹 Starting camera auto-detection...
+App.tsx:207 App: Initializing stores...
+db.ts:139 🔄 Opening IndexedDB database...
+poi.ts:59 POI Store: Setting type to: 
+App.tsx:235 App: Store initialization complete
+App.tsx:269 🔄 Initializing background sync service...
+backgroundSync.ts:34 🔄 Starting background sync service...
+backgroundSync.ts:74 ⚠️ No user logged in - skipping background sync
+backgroundSync.ts:45 ✅ Background sync service started (24-hour interval)
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+db.ts:227 🔄 Checking for emergency data to migrate...
+db.ts:148 ✅ IndexedDB database opened successfully
+App.tsx:245 App: Storage initialized
+App.tsx:245 App: Storage initialized
+App.tsx:258 App: Auto sync setup
+App.tsx:258 App: Auto sync setup
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+store.ts:454 Loaded 0 surveys from database
+store.ts:454 Loaded 0 surveys from database
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+ProtectedRoute.tsx:37 ✅ Master admin detected, granting app access
+ProtectedRoute.tsx:186 ✅ App access granted, account approved, and permissions OK, showing protected content
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+App.tsx:218 Loaded laser settings: {}
+App.tsx:218 Loaded gps settings: {}
+App.tsx:218 Loaded camera settings: {}
+App.tsx:218 Loaded map settings: {}
+App.tsx:218 Loaded logging settings: {}
+App.tsx:218 Loaded alerts settings: {}
+Settings.tsx:22   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/survey/index.ts net::ERR_ABORTED 500 (Internal Server Error)
+react.development.js:1407  Uncaught TypeError: Failed to fetch dynamically imported module: https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/pages/Settings.tsx
+react.development.js:1407  Uncaught TypeError: Failed to fetch dynamically imported module: https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/pages/Settings.tsx
+react-dom.development.js:18704  The above error occurred in one of your React components:
+
+    at Lazy
+    at Suspense
+    at ProtectedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/ProtectedRoute.tsx:47:34)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:180:5)
+    at RenderedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4088:5)
+    at Routes (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4558:5)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:180:5)
+    at Suspense
+    at div
+    at Router (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:4501:15)
+    at BrowserRouter (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=f6482b3f:5247:5)
+    at ThemeProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/ThemeProvider.tsx:29:33)
+    at LicenseStartupCheckProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useLicenseStartupCheck.tsx:109:47)
+    at App (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:200:3)
+    at AuthProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/AuthContext.tsx:49:32)
+    at QueryClientProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=f6482b3f:3086:3)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, RouteErrorBoundary.
+logCapturedError @ react-dom.development.js:18704
+update.callback @ react-dom.development.js:18760
+callCallback @ react-dom.development.js:15036
+commitUpdateQueue @ react-dom.development.js:15057
+commitLayoutEffectOnFiber @ react-dom.development.js:23403
+commitLayoutMountEffects_complete @ react-dom.development.js:24727
+commitLayoutEffects_begin @ react-dom.development.js:24713
+commitLayoutEffects_begin @ react-dom.development.js:24695
+commitLayoutEffects @ react-dom.development.js:24651
+commitRootImpl @ react-dom.development.js:26862
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:25931
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+firebase.ts:107 User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+sync.ts:425 Auth state changed, checking pending changes
+sync.ts:425 Auth state changed, checking pending changes
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering
+offlineAuth.ts:204 ✅ Last online timestamp updated
+offlineAuth.ts:230 ✅ Offline mode set to: false
+queryClient.ts:15   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance 401 (Unauthorized)
+apiRequest @ queryClient.ts:15
+checkTermsAcceptance @ App.tsx:164
+await in checkTermsAcceptance
+(anonymous) @ App.tsx:182
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+App.tsx:178  Failed to check terms acceptance: Error: Unauthorized: Invalid or expired token
+    at apiRequest (queryClient.ts:26:11)
+    at async checkTermsAcceptance (App.tsx:164:26)
+checkTermsAcceptance @ App.tsx:178
+await in checkTermsAcceptance
+(anonymous) @ App.tsx:182
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+DeviceRedirector.tsx:36 Device detection: Desktop
+sync.ts:363  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ sync.ts:429
+setTimeout
+(anonymous) @ sync.ts:428
+(anonymous) @ firebase.ts:117
+(anonymous) @ auth_impl.ts:741
+Promise.then
+registerStateListener @ auth_impl.ts:737
+onAuthStateChanged @ auth_impl.ts:544
+onAuthStateChanged @ index.ts:198
+initAuthListener @ firebase.ts:101
+(anonymous) @ AuthContext.tsx:91
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+ZED2iCamera.ts:373  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:373
+setTimeout
+isAvailable @ ZED2iCamera.ts:372
+isZED2iAvailable @ ZED2iCamera.ts:364
+detectAvailableCameras @ CameraInterface.ts:160
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:27
+(anonymous) @ useCameraAutoDetect.tsx:56
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+useCameraAutoDetect.tsx:29 📹 Camera detection results: {hasStandardCamera: true, hasZED2i: false, recommendedCamera: 'standard'}
+useCameraAutoDetect.tsx:39 ✅ Auto-detected camera: standard
+App.tsx:119 App component rendering
+App.tsx:119 App component rendering

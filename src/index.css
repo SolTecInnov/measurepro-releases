@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet CSS fixes */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1 !important;
+}
+
+.leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.leaflet-tile-container {
+  overflow: visible !important;
+}
+
+/* Force all Leaflet panes to be under modals/dialogs */
+.leaflet-map-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-tile-pane {
+  z-index: 2 !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 3 !important;
+}
+
+.leaflet-shadow-pane {
+  z-index: 4 !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 5 !important;
+}
+
+.leaflet-tooltip-pane {
+  z-index: 6 !important;
+}
+
+.leaflet-popup-pane {
+  z-index: 7 !important;
+}
+
+.leaflet-control-container {
+  z-index: 8 !important;
+}
+
+/* Ensure Leaflet popups don't interfere with modals */
+.leaflet-popup {
+  z-index: 7 !important;
+}
+
+/* Print Styles for Marketing Page */
+/* Note: @page orientation is dynamically injected by handlePrint() in MarketingPage.tsx */
+@media print {
+  .no-print,
+  nav,
+  button,
+  .sticky {
+    display: none !important;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+}

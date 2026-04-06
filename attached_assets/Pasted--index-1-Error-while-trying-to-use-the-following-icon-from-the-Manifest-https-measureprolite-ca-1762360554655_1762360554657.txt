@@ -1,0 +1,1802 @@
+(index):1  Error while trying to use the following icon from the Manifest: https://measureprolite.ca/pwa-192x192.png (Download error or resource isn't a valid image)
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,163544.094,V,,,,,,,051125,,,N*43
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-05
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,163544.094,V,,,,,,,051125,,,N*43
+ 🛰️ Processing NMEA sentence: $GPRMC,163544.094,V,,,,,,,051125,,,N*43
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163545.094,,,,,0,0,,,M,,M,,0000*45
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163545.094,,,,,0,0,,,M,,M,,0000*45
+ 🛰️ Processing NMEA sentence: $GPGGA,163545.094,,,,,0,0,,,M,,M,,0000*45
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,163545.094,V,,,,,,,051125,,,N*42
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-05
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,163545.094,V,,,,,,,051125,,,N*42
+ 🛰️ Processing NMEA sentence: $GPRMC,163545.094,V,,,,,,,051125,,,N*42
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163546.094,,,,,0,0,,,M,,M,,0000*46
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163546.094,,,,,0,0,,,M,,M,,0000*46
+ 🛰️ Processing NMEA sentence: $GPGGA,163546.094,,,,,0,0,,,M,,M,,0000*46
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: GS
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,163546.094,V,,,,,,,051125,,,N*41
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-05
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,163546.094,V,,,,,,,051125,,,N*41
+ 🛰️ Processing NMEA sentence: $GPRMC,163546.094,V,,,,,,,051125,,,N*41
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163547.094,,,,,0,0,,,M,,M,,0000*47
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163547.094,,,,,0,0,,,M,,M,,0000*47
+ 🛰️ Processing NMEA sentence: $GPGGA,163547.094,,,,,0,0,,,M,,M,,0000*47
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: GSA
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,163547.094,V,,,,,,,051125,,,N*40
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-05
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,163547.094,V,,,,,,,051125,,,N*40
+ 🛰️ Processing NMEA sentence: $GPRMC,163547.094,V,,,,,,,051125,,,N*40
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ Key pressed: F12 Alt: false Ctrl: false Shift: false
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163548.094,,,,,0,0,,,M,,M,,0000*48
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163548.094,,,,,0,0,,,M,,M,,0000*48
+ 🛰️ Processing NMEA sentence: $GPGGA,163548.094,,,,,0,0,,,M,,M,,0000*48
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: GS
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+index-DNbzKukA.js:550 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 10
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 10 content preview: 1,1,03,32,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 66
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 66 content preview: ,,19,28,,,23,31,,,16*7D
+$GPRMC,163548.094,V,,,,,,
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPGSV,1,1,03,32,,,19,28,,,23,31,,,16*7D
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPGSV,1,1,03,32,,,19,28,,,23,31,,,16*7D
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPGSV,1,1,03,32,,,19,28,,,23,31,,,16*7D
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPRMC,163548.094,V,,,,,,,051125,,,N*4F
+index-DNbzKukA.js:91 🛰️ Parsed GPS speed/course: {speed: 0, course: 0}
+index-DNbzKukA.js:84 🛰️ GPS Store Updated: {time: '11:35:45', latitude: 45.50869223, longitude: -72.89469686, altitude: 0, speed: 0, …}
+index-DNbzKukA.js:91 GPS Date: 2025-11-05
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPRMC,163548.094,V,,,,,,,051125,,,N*4F
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPRMC,163548.094,V,,,,,,,051125,,,N*4F
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+index-DNbzKukA.js:550 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163549.094,,,,,0,0,,,M,,M,,0000*49
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163549.094,,,,,0,0,,,M,,M,,0000*49
+ 🛰️ Processing NMEA sentence: $GPGGA,163549.094,,,,,0,0,,,M,,M,,0000*49
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 2
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 2 content preview: GS
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+index-DNbzKukA.js:550 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPRMC,163549.094,V,,,,,,,051125,,,N*4E
+index-DNbzKukA.js:91 🛰️ Parsed GPS speed/course: {speed: 0, course: 0}
+index-DNbzKukA.js:84 🛰️ GPS Store Updated: {time: '11:35:45', latitude: 45.50869223, longitude: -72.89469686, altitude: 0, speed: 0, …}
+index-DNbzKukA.js:91 GPS Date: 2025-11-05
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPRMC,163549.094,V,,,,,,,051125,,,N*4E
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPRMC,163549.094,V,,,,,,,051125,,,N*4E
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+index-DNbzKukA.js:550 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163550.094,,,,,0,0,,,M,,M,,0000*41
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163550.094,,,,,0,0,,,M,,M,,0000*41
+ 🛰️ Processing NMEA sentence: $GPGGA,163550.094,,,,,0,0,,,M,,M,,0000*41
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 2
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 2 content preview: GS
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+index-DNbzKukA.js:550 🔧 MeasurementCards: groundReferenceHeight: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 3
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 3 content preview: $GP
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+index-DNbzKukA.js:105 🛰️ GPS raw data chunk received, length: 1
+index-DNbzKukA.js:90 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+index-DNbzKukA.js:91 🛰️ Valid NMEA sentence: $GPRMC,163550.094,V,,,,,,,051125,,,N*46
+index-DNbzKukA.js:91 🛰️ Parsed GPS speed/course: {speed: 0, course: 0}
+index-DNbzKukA.js:84 🛰️ GPS Store Updated: {time: '11:35:45', latitude: 45.50869223, longitude: -72.89469686, altitude: 0, speed: 0, …}
+index-DNbzKukA.js:91 GPS Date: 2025-11-05
+index-DNbzKukA.js:91 🛰️ Notifying GPS callback
+index-DNbzKukA.js:105 🛰️ GPS NMEA received: $GPRMC,163550.094,V,,,,,,,051125,,,N*46
+index-DNbzKukA.js:84 🛰️ Processing NMEA sentence: $GPRMC,163550.094,V,,,,,,,051125,,,N*46
+index-DNbzKukA.js:550 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,163551.094,,,,,0,0,,,M,,M,,0000*40
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,163551.094,,,,,0,0,,,M,,M,,0000*40
+ 🛰️ Processing NMEA sentence: $GPGGA,163551.094,,,,,0,0,,,M,,M,,0000*40
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🛰️ Processing NMEA sentence: $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: C
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: V
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,163551.094,V,,,,,,,051125,,,N*47
+ 🛰️ Parsed GPS speed/course: {speed: 0, course: 0}
+ 🛰️ GPS Store Updated: {time: '11:35:45', latitude: 45.50869223, longitude: -72.89469686, altitude: 0, speed: 0, …}
+ GPS Date: 2025-11-05
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,163551.094,V,,,,,,,051125,,,N*47
+ 🛰️ Processing NMEA sentence: $GPRMC,163551.094,V,,,,,,,051125,,,N*47
+ 🔧 MeasurementCards: lastMeasurement changed to: --
+ 🔧 MeasurementCards: groundReferenceHeight: 1.83
+ 🔧 MeasurementCards: Direct effect - validGroundRef: 1.83
+ 🔧 MeasurementCards: lastMeasurement is not a valid number: --

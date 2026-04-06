@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO: title and description scoped to OS/OW road survey professionals -->
+    <title>MeasurePRO — LiDAR Road Survey App for Oversize &amp; Overweight Transport | measure-pro.app</title>
+    <meta name="description" content="MeasurePRO by SolTec Innovation: professional LiDAR &amp; GPS field app for OS/OW heavy haul surveys. Measure bridge clearances, lane widths, road geometry and export permit-ready data. Not a consumer measuring tool." />
+
+    <!-- Robots / indexing -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL (https + non-www) -->
+    <link rel="canonical" href="https://measure-pro.app/" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://measure-pro.app/" />
+    <meta property="og:site_name" content="MeasurePRO" />
+    <meta property="og:title" content="MeasurePRO — LiDAR Road Survey App for Oversize/Overweight Transport" />
+    <meta property="og:description" content="Professional LiDAR and GPS field survey software for heavy haul and OS/OW logistics teams. Capture bridge clearances, lane widths, and road geometry data from the cab." />
+    <meta property="og:image" content="https://measure-pro.app/screenshot-1.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MeasurePRO — LiDAR Road Survey for OS/OW Transport" />
+    <meta name="twitter:description" content="Professional LiDAR &amp; GPS road survey app by SolTec Innovation. Built for heavy haul, oversize load logistics, and permit-route engineering." />
+    <meta name="twitter:image" content="https://measure-pro.app/screenshot-1.png" />
+
+    <!-- Favicons / PWA assets -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Leaflet CSS (styles only; JS is bundled by Vite) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+
+    <!-- JSON-LD structured data: SoftwareApplication + Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "MeasurePRO",
+          "url": "https://measure-pro.app",
+          "description": "Professional LiDAR and GPS road survey application for oversize/overweight (OS/OW) heavy haul transport logistics. Measures bridge clearances, lane widths, and road geometry from the field, with offline-first data logging and permit-ready export formats.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Windows, Chrome OS, iOS, Android",
+          "softwareVersion": "2.0",
+          "offers": {
+            "@type": "Offer",
+            "price": "300",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "billingDuration": "P1M"
+            }
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "SolTec Innovation",
+            "url": "https://soltecinnovation.com"
+          },
+          "featureList": [
+            "LiDAR laser distance measurement (±2mm, 0.2–250m)",
+            "GNSS/GPS route tracking and mapping",
+            "Bridge clearance and lane width measurement",
+            "Offline-first with cloud sync",
+            "CSV, GeoJSON, KML, Shapefile, LandXML export",
+            "AI-powered object detection (MeasurePRO+)",
+            "Swept path analysis for oversize vehicles",
+            "Convoy Guardian multi-vehicle coordination",
+            "Permitted route enforcement",
+            "GNSS road profiling with grade and K-factor analysis"
+          ],
+          "screenshot": [
+            "https://measure-pro.app/screenshot-1.png",
+            "https://measure-pro.app/screenshot-2.png",
+            "https://measure-pro.app/screenshot-3.png",
+            "https://measure-pro.app/screenshot-4.png"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "name": "SolTec Innovation",
+          "url": "https://soltecinnovation.com",
+          "sameAs": [
+            "https://soltec.ca"
+          ],
+          "description": "Canadian engineering firm specialising in oversize/overweight transport technology, LiDAR measurement hardware, and OS/OW route planning software.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "url": "https://measure-pro.app/contact"
+          }
+        }
+      ]
+    }
+    </script>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

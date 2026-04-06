@@ -1,0 +1,65 @@
+We replaced react-window with @tanstack/react-virtual in our MeasurePRO PWA (React + TypeScript). Your job is to harden this change for production.
+
+Context
+
+App: offline-first route/survey logger called MeasurePRO.
+
+We log 5–7 000 items per day, and lists can easily reach 10 000+ entries.
+
+Previously we had a bug related to Object.values(null) and survey reset; we now use @tanstack/react-virtual for the main survey entries list.
+
+Objectives
+
+Review all code using @tanstack/react-virtual and make it robust for large lists (10 000+ rows).
+
+Guarantee we never crash due to null/undefined data passed into the virtualizer or the row renderer.
+
+Ensure smooth scrolling performance and predictable behaviour on survey reset and survey switching.
+
+Add tests and runtime safeguards so this doesn’t regress.
+
+Tasks
+
+Open the components/hooks that use @tanstack/react-virtual (e.g. SurveyEntriesList, VirtualizedList, etc.) and:
+
+Use a stable getItemKey based on the row’s unique ID, not just array index.
+
+Ensure the items / itemData passed to the virtualizer is never null or undefined – normalize to [] or a safe object.
+
+Remove or guard any Object.values(...) or similar logic so it cannot run on null.
+
+Verify the scroll container has a clear fixed or flex height so virtualization works correctly.
+
+Configure a realistic estimateSize and overscan for our typical row height.
+
+Implement explicit logic for survey reset and survey switching:
+
+Decide what should happen with scroll position (usually reset to top) and implement it.
+
+Make sure switching between surveys with 0, 50, 1000, 10 000 rows does not crash or glitch.
+
+Add tests:
+
+Component tests that render the virtualized list with 0, 100, 10 000 mocked entries.
+
+Tests that simulate a “reset survey” action while scrolled in the middle, ensuring no crash and clean UI.
+
+If possible, a simple performance check or at least a dev-only warning if items.length is huge and something pathological happens.
+
+Add an error boundary around the virtualized list so that if anything still throws in production, we show a safe fallback message and log the error details.
+
+Constraints
+
+Keep the existing UI/UX unchanged except where necessary to fix correctness/performance.
+
+TypeScript must compile cleanly with strict settings.
+
+Do not introduce new heavy dependencies beyond @tanstack/react-virtual.
+
+When you’re done, summarize:
+
+Exactly which files you changed.
+
+How keys, scroll behaviour, and null-safety are handled now.
+
+How to run the new tests and what scenarios they cover.

@@ -1,0 +1,341 @@
+# Object Detection Algorithm - Quick Reference Guide
+
+## 🎯 What It Does
+
+The **Auto Object Detection** system automatically logs overhead obstructions (bridges, power lines, etc.) by:
+1. Continuously measuring distance with a laser sensor
+2. Tracking the **minimum clearance height** as you pass under objects
+3. Detecting when the object has **completely passed**
+4. Automatically logging the obstruction with GPS coordinates
+
+---
+
+## 🔑 Key Concept
+
+The algorithm uses a **10-count debounce system**:
+
+```
+Counter = 0  →  Object is PRESENT (actively detecting)
+Counter = 10 →  Object has PASSED (ready to log or idle)
+```
+
+---
+
+## 📊 The Algorithm in 3 Steps
+
+### Step 1: Detect Object Presence
+```
+While passing under object:
+  ✓ Valid laser readings within detection range
+  → Counter stays at 0
+  → Continuously update minimum height
+```
+
+### Step 2: Detect Object Exit
+```
+After passing object:
+  ✓ 10 consecutive "clear" readings
+  → Counter increments from 0 to 10
+  → Minimum height is preserved
+```
+
+### Step 3: Log the Obstruction
+```
+When counter reaches 10:
+  ✓ Create log entry with:
+    - Minimum height detected
+    - GPS coordinates (from minimum point)
+    - Timestamp
+    - Intensity
+    - Notes/obstruction type
+  → Reset for next object
+```
+
+---
+
+## ⚙️ Configuration Parameters
+
+| Parameter | Purpose | Typical Value |
+|-----------|---------|---------------|
+| **Distance Threshold** | Ignore readings too close (ground/vehicle) | 0.5 m |
+| **Intensity Threshold** | Minimum signal strength for valid reading | 50 |
+| **Base Height** | Sensor height above ground | 4-5 m |
+| **Max Height** | Maximum detection range | 30 m |
+| **Counter Max** | Consecutive clear readings needed | 10 |
+
+---
+
+## 🔍 Detection Conditions
+
+### Counter INCREMENTS (No Object) When:
+
+**ANY of these conditions:**
+- ✓ Laser reads beyond max height (> 30m typical)
+- ✓ Distance too close (≤ distance threshold) 
+- ✓ Intensity too weak (≤ intensity threshold)
+
+**AND:**
+- ✓ A valid minimum height was previously recorded
+
+### Counter RESETS (Object Present) When:
+
+- ✓ Laser reading is within valid detection range
+- ✓ Distance: threshold < distance < max height
+- ✓ Intensity: above threshold
+
+---
+
+## 📈 State Diagram
+
+```
+     ┌──────────┐
+     │  IDLE    │  Counter = 10
+     │ No Object│  MinDistance = 30m
+     └────┬─────┘
+          │
+          │ Valid obstruction detected
+          ↓
+     ┌──────────┐
+     │DETECTING │  Counter = 0
+     │ Object   │  Tracking minimum
+     └────┬─────┘
+          │
+          │ Object continues...
+          │ (updating minimum)
+          │
+          │ Laser sees "clear"
+          ↓
+     ┌──────────┐
+     │ EXITING  │  Counter: 1→2→3...→10
+     │ Object   │  (10 consecutive clears)
+     └────┬─────┘
+          │
+          │ Counter reaches 10
+          ↓
+     ┌──────────┐
+     │   LOG    │  Write to CSV
+     │  ENTRY   │  Play notification
+     └────┬─────┘
+          │
+          │ Reset minimum
+          ↓
+     Back to IDLE
+```
+
+---
+
+## 💾 Data Logged
+
+Each obstruction generates a CSV entry containing:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Longitude** | GPS coordinate | -73.5678 |
+| **Latitude** | GPS coordinate | 45.1234 |
+| **Height** | Minimum clearance detected | 5.2 m |
+| **Item** | Obstruction type | Bridge |
+| **Description** | Notes | Main St Bridge |
+| **Date,Time** | Timestamp of minimum | 2025-11-04 14:32:15 |
+| **# GPS Sats** | GPS accuracy indicator | 8 |
+| **Intensity** | Laser signal strength | 125 |
+| **Temperature** | Optional field | 22°C |
+| **Route Segment** | Optional field | Highway 20 |
+
+---
+
+## 🎬 Example Timeline
+
+**Scenario: Driving under a bridge with 5.0m clearance**
+
+```
+Time (seconds):  0    1    2    3    4    5    6    7
+                │    │    │    │    │    │    │    │
+Distance Read: 30m  5.2m 5.0m 5.1m 30m  30m  30m  30m
+                └┘  └───Bridge───┘  └──Clear Sky──┘
+
+Counter:        10   0    0    0    1→  2→  ...  10
+                                    Count up to 10
+
+Min Tracked:    --  5.2m 5.0m 5.0m 5.0m (preserved)  
+                         ↑
+                      LOWEST!
+                      (logged)
+
+Action:       Idle Detect Detect Exit  Exit Exit LOG!
+                          ↓                         ↓
+              GPS captured here              Entry created
+              (45.1234, -73.5678)           with 5.0m height
+```
+
+---
+
+## 🧮 The Core Logic (Simplified)
+
+```python
+for each_laser_reading:
+    
+    # Update minimum if this is lower
+    if reading_is_valid and reading < minimum:
+        minimum = reading
+        save_gps_coordinates()
+        save_timestamp()
+    
+    # Determine if object is present
+    if reading_indicates_no_object:
+        counter += 1  # Count clear readings
+    else:
+        counter = 0   # Reset, object still there
+    
+    # Check if we should log
+    if counter >= 10:
+        log_entry(
+            height = minimum,
+            gps = saved_coordinates,
+            timestamp = saved_timestamp
+        )
+        reset_minimum()
+```
+
+---
+
+## 🚨 Why 10 Consecutive Readings?
+
+The 10-count debounce ensures:
+
+1. **Confirmation**: Object has truly passed (not just a gap)
+2. **Stability**: System is in stable "no object" state
+3. **Noise filtering**: Brief signal loss doesn't trigger false logs
+4. **Time buffer**: ~0.1-0.5 seconds at typical speeds ensures clearance
+
+---
+
+## 📁 Key Files
+
+| File | Lines | Purpose |
+|------|-------|---------|
+| **Program.cs** | 1040-1054 | Main detection logic |
+| **Program.cs** | 425-437 | Counter increment/reset |
+| **Program.cs** | 980-1168 | Data processing loop |
+| **LaserMeasFilterForm.cs** | 17-57 | Parameter configuration |
+
+---
+
+## 🔧 How to Adjust Detection
+
+### Make Detection More Sensitive:
+- ⬇️ Decrease intensity threshold (accept weaker signals)
+- ⬇️ Decrease distance threshold (detect closer objects)
+- ⬇️ Lower counter max (log after fewer clear readings)
+
+### Make Detection More Conservative:
+- ⬆️ Increase intensity threshold (require stronger signals)
+- ⬆️ Increase distance threshold (ignore closer readings)
+- ⬆️ Raise counter max (require more clear readings)
+
+---
+
+## 🎯 Algorithm Strengths
+
+✅ **Automatic**: No manual button pressing needed  
+✅ **Precise**: Records exact minimum clearance  
+✅ **Location-aware**: GPS coordinates at lowest point  
+✅ **Robust**: Filters noise and false positives  
+✅ **Simple**: Uses basic counter logic  
+✅ **Reliable**: Proven debouncing technique  
+
+---
+
+## ⚠️ Important Notes
+
+1. **Minimum is King**: The logged height is always the LOWEST point detected during the entire pass
+2. **GPS Sync**: GPS coordinates are captured at the moment of minimum height (not at log time)
+3. **Edge-Triggered**: Logs on the transition from "object present" to "object absent"
+4. **One Log Per Object**: Each complete pass generates exactly one log entry
+5. **Requires Motion**: System assumes you're moving - won't work if stationary
+
+---
+
+## 🐛 Common Issues & Solutions
+
+### Problem: Not logging obstructions
+**Check:**
+- ✓ Mode set to "Auto Object Detection"
+- ✓ Logging is started (not stopped)
+- ✓ Intensity threshold not too high
+- ✓ Object height within Base to Max range
+
+### Problem: Logging too many entries
+**Check:**
+- ✓ Distance threshold not too low
+- ✓ Laser not bouncing off vehicle/ground
+- ✓ Counter max might need increase
+
+### Problem: Missing low obstructions
+**Check:**
+- ✓ Base height set correctly
+- ✓ Max height high enough
+- ✓ Distance threshold not filtering valid readings
+
+---
+
+## 🔬 Technical Deep Dive References
+
+For detailed explanations, see:
+
+1. **Object_Detection_Algorithm_Explanation.md** - Complete algorithm overview
+2. **Object_Detection_Flowchart.md** - Visual flow diagrams
+3. **Code_Analysis_Detailed.md** - Line-by-line code analysis
+
+---
+
+## 🎓 Key Takeaways
+
+1. **Counter-based state machine**: Simple but effective
+2. **10-reading debounce**: Ensures reliable detection
+3. **Minimum tracking**: Captures most critical measurement
+4. **GPS synchronization**: Location accuracy at minimum point
+5. **Threshold filtering**: Removes noise and invalid data
+
+---
+
+## 📊 Quick Math
+
+```
+Total Height = Laser Distance + Base Height
+
+Example:
+  Laser reads: 5.2 m
+  Base height: 4.0 m
+  ─────────────────
+  Total height: 9.2 m ← This is the clearance above ground
+```
+
+---
+
+## 🚀 Quick Start Checklist
+
+Before using Auto Detection mode:
+
+- [ ] Set base height (sensor height above ground)
+- [ ] Set max height (typically 30m - laser limit)
+- [ ] Configure distance threshold (~0.5m)
+- [ ] Configure intensity threshold (~50)
+- [ ] Verify GPS is working (if required)
+- [ ] Start logging
+- [ ] Switch to "Auto Object Detection" mode
+- [ ] Drive! The system does the rest
+
+---
+
+## 📞 Support Info
+
+For SolTec-specific configuration or issues:
+- Review the detailed documentation files
+- Check configuration in `Vertical_Clearance_Measurement_App_Settings.json`
+- Adjust thresholds via Tools → Laser Measurement Filter Parameters
+
+---
+
+**Last Updated**: November 2025  
+**Application Version**: 1.0.11  
+**Documentation by**: AI Analysis of Source Code

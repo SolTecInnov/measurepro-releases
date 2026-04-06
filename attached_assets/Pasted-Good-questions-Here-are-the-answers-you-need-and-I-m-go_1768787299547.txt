@@ -1,0 +1,224 @@
+Good questions. Here are the answers you need — and I’m going to be blunt where your instincts are trying to overcomplicate this.
+
+1) Companion service language
+
+Choose C# (.NET 8). Period.
+
+Why:
+
+Windows-first
+
+Fast packaging (single-file exe)
+
+Easy WebSocket/HTTP (ASP.NET minimal APIs)
+
+Easy tray app later
+
+Easier for you (and future devs) to maintain than Rust in this context
+
+Rust is great. But you don’t need “cool,” you need shippable and supportable.
+
+Decision: C# .NET 8.
+
+2) Port allocation
+
+Don’t ask me for a port number like it’s a philosophical question.
+
+Default to 17777 (high, unlikely conflict), and make it configurable.
+
+HTTP: http://127.0.0.1:17777
+
+WS: ws://127.0.0.1:17777/ws
+
+Also implement:
+
+If port is occupied → automatically try next ports (17778…17787) and report the chosen port to the PWA via /api/status.
+
+So you don’t brick deployments because someone had a random tool running.
+
+Decision: default 17777 + auto-fallback + configurable.
+
+3) Navigation flow in MeasurePRO
+
+Stop worrying about UI politics. Use the simplest option that won’t rot.
+
+Make it a dedicated route: /lidar
+
+It keeps state clean
+
+You can deep-link
+
+You can develop it without tangling the Settings UI
+
+It will grow (static scans, exports, metrics, calibration pages). A “tab in settings” will become a dumpster fire.
+
+Decision: dedicated route /lidar.
+
+4) Recording independence (background behavior)
+
+Yes — recording must continue even if user navigates away.
+
+Reason:
+
+The service is doing the real work.
+
+The PWA is just a dashboard.
+
+If recording stops because the UI route changed, you’ll lose captures in the field and want to smash the tablet.
+
+Decision: capture lives in the service; UI can disconnect/reconnect freely.
+
+5) POI linking behavior
+
+Do both, but with a clear default so the workflow is fast in the truck.
+
+Default behavior:
+
+Automatic link to “Active POI” if one exists.
+
+Also allow:
+
+“Select POI” dropdown/search
+
+“Create new POI from here” button (fast)
+
+Because sometimes you’ll want to do a scan before creating a POI, or you’ll be stopped on shoulder and don’t want to touch the map.
+
+Decision: auto-link to active POI + manual override + “create POI” shortcut.
+
+6) Capture storage location
+
+Default should be predictable, and the path must be configurable.
+
+Default:
+
+C:\MeasurePRO\Captures\
+
+Not Documents. Not AppData. Not random. You want:
+
+easy to find
+
+easy to copy to external SSD
+
+stable across Windows user profiles
+
+Configurable in settings:
+
+Let user pick path (including external drive like D:\Captures\)
+
+The service should validate write speed / free space and warn if risky
+
+Decision: default C:\MeasurePRO\Captures\ + configurable path.
+
+7) Duro integration path
+
+Here’s the critical part:
+
+Treat Duro as already integrated into MeasurePRO.
+The LiDAR service should not depend on directly talking to Duro for MVP.
+
+MVP time sync assumption:
+
+Pandar is already PPS/time-synced from Duro (hardware wiring)
+
+Service only needs Pandar packets for capture/export
+
+But (important):
+
+You still want metadata:
+
+GNSS position, speed, heading, fix status
+
+optional IMU attitude
+
+So do it like this:
+
+MVP:
+
+LiDAR service ingests Pandar only
+
+MeasurePRO already has GNSS; PWA can POST GNSS snapshots to service during captures:
+
+/api/gnss/heartbeat (5–10Hz)
+
+Service writes those into metadata.json
+
+Phase 2:
+
+Service can optionally ingest NMEA directly (if you want independence)
+
+This avoids you duplicating GNSS code and breaking things.
+
+Decision: MVP = service doesn’t talk to Duro directly; PWA pushes GNSS snapshots to service during capture.
+
+8) Mock mode priority
+
+Yes — build mock mode first, but only as a thin layer so you don’t get stuck in “demo land.”
+
+Mock mode should enable:
+
+full PWA UI wiring
+
+status/metrics streaming
+
+capture start/stop
+
+fake export file generation (valid LAS with dummy points)
+
+Then immediately move to real UDP capture.
+
+Sequence:
+
+Mock mode (1–2 days) to validate UI + workflow
+
+UDP capture “packets/sec + raw dump” (next)
+
+Static capture export (LAS/LAZ) (next)
+
+Metrics (road width / overhead width) (after export works)
+
+Decision: mock first, but short — then real UDP capture ASAP.
+
+Extra things you DIDN’T ask, but will bite you if ignored
+A) Service lifecycle
+
+You want a tray app that auto-starts with Windows eventually.
+For now:
+
+manual start is okay
+
+but implement “health status” and “auto-reconnect” logic early
+
+B) File size control
+
+Add capture limits:
+
+max duration
+
+max disk usage
+
+rolling cleanup option (manual)
+
+Because you will fill disks on a long trip.
+
+Final answer: yes, proceed with these defaults
+
+So you can stop planning and start shipping.
+
+Decisions to implement now
+
+Language: C# .NET 8
+
+Port: 17777 default + auto-fallback + configurable
+
+MeasurePRO UI: route /lidar
+
+Capture: runs in service; survives navigation/UI disconnect
+
+POI linking: auto to active POI + manual override + “create POI”
+
+Storage: C:\MeasurePRO\Captures\ default + configurable
+
+Duro data: PWA sends GNSS snapshots to service (MVP)
+
+Mock: yes first, short, then real UDP

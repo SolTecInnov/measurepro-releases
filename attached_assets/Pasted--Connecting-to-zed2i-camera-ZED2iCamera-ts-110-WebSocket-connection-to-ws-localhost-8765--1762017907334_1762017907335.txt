@@ -1,0 +1,35 @@
+🔌 Connecting to zed2i camera...
+ZED2iCamera.ts:110  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+initialize @ ZED2iCamera.ts:110
+initializeCamera @ LiveCamera.tsx:419
+LiveCamera.tsx:434  Failed to create camera instance: Error: Failed to initialize ZED 2i camera: Failed to connect to ZED 2i server
+    at ZED2iCamera.initialize (ZED2iCamera.ts:165:13)
+    at async initializeCamera (LiveCamera.tsx:419:11)
+initializeCamera @ LiveCamera.tsx:434
+await in initializeCamera
+(anonymous) @ LiveCamera.tsx:440
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+flushSync @ react-dom.development.js:26240
+finishEventHandler @ react-dom.development.js:3976
+batchedUpdates @ react-dom.development.js:3994
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+ZED2iCamera.ts:110  WebSocket connection to 'ws://localhost:8765/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+initialize @ ZED2iCamera.ts:110
+createCamera @ CameraInterface.ts:122
+CameraInterface.ts:126  ⚠️ ZED 2i camera not available, falling back to standard camera: Error: Failed to initialize ZED 2i camera: Failed to connect to ZED 2i server
+    at ZED2iCamera.initialize (ZED2iCamera.ts:165:13)
+    at async createCamera (CameraInterface.ts:122:7)
+    at async handleConnect (CameraSettings.tsx:286:7)

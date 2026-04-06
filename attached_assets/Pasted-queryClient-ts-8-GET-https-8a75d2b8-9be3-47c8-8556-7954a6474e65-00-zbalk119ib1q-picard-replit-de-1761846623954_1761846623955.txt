@@ -1,0 +1,32 @@
+queryClient.ts:8   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/pricing/public 404 (Not Found)
+apiRequest @ queryClient.ts:8
+queryFn @ queryClient.ts:31
+fetchFn @ query.ts:475
+run @ retryer.ts:155
+start @ retryer.ts:221
+fetch @ query.ts:547
+executeFetch_fn @ queryObserver.ts:343
+onSubscribe @ queryObserver.ts:101
+subscribe @ subscribable.ts:11
+(anonymous) @ useBaseQuery.ts:100
+subscribeToStore @ react-dom.development.js:16139
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+workbox-47da91e0.js:44 workbox The request for '/api/pricing/public' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/api/pricing/public' will not be cached. undefined
+workbox-47da91e0.js:44 workbox Precaching did not find a match for /api/pricing/public
+workbox-47da91e0.js:44 workbox Router is responding to: /api/pricing/public
+workbox-47da91e0.js:44 workbox Network request for '/api/pricing/public' returned a response with status '404'.
+workbox-47da91e0.js:44 workbox Using NetworkFirst to respond to '/api/pricing/public'
+workbox-47da91e0.js:44 workbox The response for /api/pricing/public has a 'Vary: Origin' header. Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected.
+workbox-47da91e0.js:44 workbox The request for '/api/pricing/public' returned a response that does not meet the criteria for being cached.
+workbox-47da91e0.js:44 workbox Response '/api/pricing/public' will not be cached. undefined

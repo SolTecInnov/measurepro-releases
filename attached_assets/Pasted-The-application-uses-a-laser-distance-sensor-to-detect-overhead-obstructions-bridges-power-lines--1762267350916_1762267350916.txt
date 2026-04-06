@@ -1,0 +1,324 @@
+The application uses a laser distance sensor to detect overhead obstructions (bridges, power lines, etc.) and automatically logs them when it detects an object has passed. The algorithm tracks consecutive laser measurements to determine when an object begins and ends.
+
+---
+
+## Key Components
+
+### 1. Configuration Parameters
+
+#### Filter Thresholds (LaserMeasFilterForm.cs)
+- **Intensity Threshold** (`iIntensityThreshold`): Minimum laser return intensity to consider a reading valid
+- **Distance Threshold** (`fDistanceThreshold_m`): Minimum distance (in meters) to filter out ground/noise readings
+
+#### Height Configuration
+- **Base Height** (`fBaseHeight_m`): The height from ground to the laser sensor
+- **Max Height** (`fMaxHeight_m`): Maximum height to consider for obstruction detection
+- **Alarm Height** (`fAlarmHeight_m`): Height below which an alarm is triggered (used in other modes)
+
+#### Detection Counter
+- **Object Detection Counter** (`iObjectDetectionCounter`): Tracks consecutive readings indicating "no object"
+- **Maximum Counter Value**: 10 consecutive readings
+
+---
+
+## The Object Detection Algorithm
+
+The algorithm is implemented in `Program.cs` in the `ProcessLaserDataTask()` function (lines 980-1168).
+
+### Step-by-Step Process:
+
+#### 1. **Data Collection**
+```csharp
+// Laser sends 3-byte packets containing:
+// - Bytes 0-1: Distance measurement (14 bits)
+// - Byte 2: Intensity measurement
+```
+
+#### 2. **Data Validation**
+For each laser reading, the algorithm checks:
+- Error code is `enLaserDataError.None`
+- Data buffer contains exactly 3 bytes
+- Distance is within valid range
+- Intensity meets threshold
+
+#### 3. **Distance & Intensity Calculation**
+```csharp
+// Extract distance from first two bytes (line 997)
+distance_m = (((data[0] & 127) << 7) + data[1]) / 100.0
+
+// Extract intensity from third byte (line 998)
+intensity = data[2] * 2
+```
+
+#### 4. **Minimum Height Tracking**
+The algorithm continuously tracks the minimum (closest) obstruction height:
+```csharp
+if (distance < fMinDistance && 
+    distance > fDistanceThreshold_m && 
+    intensity > iIntensityThreshold &&
+    (distance + fBaseHeight_m) <= fMaxHeight_m)
+{
+    fMinDistance = distance;
+    // Store GPS coordinates at this point
+    // Store timestamp
+}
+```
+
+#### 5. **Object Detection Logic** (The Core Algorithm)
+
+**This is the key part** (lines 1040-1054):
+
+```csharp
+if (enumCurrentLoggingMode == Auto_Obj_Detection && bLoggingFlag)
+{
+    // Condition for incrementing counter (OBJECT HAS PASSED OR INVALID READING)
+    if (((distance + fBaseHeight_m > fMaxHeight_m &&           // Beyond max height
+          intensity > iIntensityThreshold &&                    // Valid intensity
+          distance > fDistanceThreshold_m) ||                   // Above threshold
+         distance <= fDistanceThreshold_m ||                    // Too close (ground)
+         intensity <= iIntensityThreshold) &&                   // Weak signal
+        fMinDistance + fBaseHeight_m <= fMaxHeight_m)          // Have valid min
+    {
+        DetectObjectCounterIncrement();  // Count this as "no object"
+    }
+    else
+    {
+        DetectObjectCounterReset();      // Reset - still detecting object
+    }
+}
+```
+
+**Translation**: The counter increments when:
+- The laser sees beyond the maximum detection height (object has passed), OR
+- The reading is too close (hitting ground/vehicle), OR  
+- The intensity is too weak (no valid return)
+
+AND there's a valid minimum height stored.
+
+#### 6. **Auto-Logging Trigger** (line 1056)
+```csharp
+bool flag2 = (enumCurrentLoggingMode == Auto_Obj_Detection && 
+              iObjectDetectionCounter >= 10);
+```
+
+When the counter reaches 10, it means 10 consecutive readings indicated "no object present" - **the object has completely passed**.
+
+#### 7. **Log Entry Creation** (lines 1113-1118)
+```csharp
+if (bLoggingFlag && 
+    a1sLogStrings[2] != "" &&        // Have minimum height data
+    flag2 &&                          // Counter reached 10
+    GPS_conditions_met)               // GPS requirements satisfied
+{
+    QueueLogEntry(...);               // Log the obstruction
+    bNotificationFlag = true;         // Play notification sound
+    ResetMinDistanceNoLog();          // Reset for next object
+}
+```
+
+---
+
+## Visual Representation
+
+```
+Timeline of Laser Readings:
+=====================================================
+
+Before Object:
+└─ Reading: Sky/far distance (>MaxHeight)
+   Counter: 10 → Ready to detect
+
+Approaching Object:
+└─ Reading: Valid obstruction detected
+   Counter: 0 → RESET (object present)
+   MinDistance: Updated continuously
+
+Under Object:
+└─ Reading: Valid obstruction continues
+   Counter: 0 → Stays at 0
+   MinDistance: Tracks lowest point
+
+Object Passed:
+└─ Reading 1: Sky/far (>MaxHeight)
+   Counter: 1 → INCREMENT
+└─ Reading 2: Sky/far
+   Counter: 2 → INCREMENT
+└─ ...
+└─ Reading 10: Sky/far
+   Counter: 10 → TRIGGER LOG ENTRY! 📝
+
+After Logging:
+└─ MinDistance reset
+└─ Counter stays at 10
+└─ Ready for next object
+```
+
+---
+
+## Why 10 Consecutive Readings?
+
+The counter of 10 serves as **debouncing** to:
+1. **Confirm the object has truly passed** (not just a momentary gap)
+2. **Filter out noise** or brief obstructions
+3. **Ensure stable "no object" state** before logging
+
+At typical vehicle speeds and laser sampling rates, 10 readings represent approximately 0.1-0.5 seconds, ensuring the vehicle has fully cleared the obstruction.
+
+---
+
+## Object Detection Conditions Summary
+
+### Counter Increments (Object NOT Present) When:
+✓ Distance reading is beyond MaxHeight (>30m typical) AND intensity is good  
+✓ OR distance is too close (≤DistanceThreshold) - hitting ground/vehicle  
+✓ OR intensity is too weak (≤IntensityThreshold) - no return signal  
+✓ AND a valid minimum height was previously recorded
+
+### Counter Resets (Object Present) When:
+✓ Distance is within detection range (DistanceThreshold < distance < MaxHeight)  
+✓ AND intensity is above threshold  
+✓ Meaning: Laser is actively measuring an obstruction
+
+### Auto-Log Triggers When:
+✓ Counter reaches 10 consecutive "no object" readings  
+✓ AND there's valid minimum height data stored  
+✓ AND GPS requirements are met (if enabled)
+
+---
+
+## Logging Modes
+
+The application has three modes:
+
+1. **Manual Logging**: User manually triggers logs (no auto-detection)
+2. **Auto Object Detection**: Uses the algorithm described above ⭐
+3. **Log All Data**: Continuously logs all measurements (no filtering)
+
+---
+
+## Helper Functions
+
+### `DetectObjectCounterIncrement()`
+- Increments counter if less than 10
+- Maxes out at 10 to prevent overflow
+
+### `DetectObjectCounterReset()`
+- Resets counter to 0
+- Called when object is detected
+
+### `ResetMinDistanceNoLog()`
+- Resets minimum distance to 30.0m
+- Prepares for next object detection
+- Called after logging an entry
+
+---
+
+## Data Flow Diagram
+
+```
+Laser Sensor → Serial Port → Data Queue → ProcessLaserDataTask()
+                                               ↓
+                                          Parse Bytes
+                                               ↓
+                                     Calculate Distance & Intensity
+                                               ↓
+                                     Apply Threshold Filters
+                                               ↓
+                                  ┌────────────┴───────────┐
+                                  ↓                        ↓
+                          Object Present?            No Object?
+                          (Reset Counter)         (Increment Counter)
+                                  ↓                        ↓
+                          Track MinDistance        Counter == 10?
+                                                           ↓
+                                                    Create Log Entry
+                                                           ↓
+                                                     Save to CSV
+```
+
+---
+
+## Configuration File
+
+The settings are stored in `Vertical_Clearance_Measurement_App_Settings.json`:
+
+```json
+{
+  "LaserDataConfig": {
+    "iIntensityThreshold": [value],
+    "fDistanceThreshold_m": [value]
+  },
+  "HeightConfig": {
+    "fBaseHeight_m": [value],
+    "fMaxHeight_m": [value],
+    "fAlarmHeight_m": [value]
+  },
+  "AppConfig": {
+    "enumDefaultLoggingMode": "Auto_Obj_Detection"
+  }
+}
+```
+
+---
+
+## Key Insights
+
+1. **The algorithm is edge-triggered**: It logs when transitioning from "object present" to "object absent"
+
+2. **Minimum tracking**: During object detection, it continuously updates to find the lowest point (closest to ground)
+
+3. **GPS synchronization**: Each minimum distance reading captures the GPS coordinates at that exact moment
+
+4. **Debouncing**: The 10-count ensures stability and prevents false triggers from momentary signal loss
+
+5. **Height calculation**: 
+   ```
+   Total Height = Base Height + Laser Distance
+   ```
+   Where Base Height is the sensor's height above ground.
+
+---
+
+## Example Scenario
+
+**Passing under a bridge:**
+
+1. **Approaching** (500m away):
+   - Laser reads sky: 30m (beyond max)
+   - Counter: 10 (ready)
+
+2. **Bridge edge detected** (20m away):
+   - Laser reads: 5.2m
+   - Counter: **RESET to 0** ← Object detected!
+   - MinDistance: 5.2m stored
+
+3. **Under bridge** (center):
+   - Laser reads: 4.8m (lower!)
+   - Counter: 0
+   - MinDistance: **4.8m** ← Updated!
+
+4. **Leaving bridge** (20m past):
+   - Reading 1: 30m → Counter: 1
+   - Reading 2: 30m → Counter: 2
+   - ...
+   - Reading 10: 30m → Counter: 10 ← **LOG ENTRY CREATED!**
+
+5. **Log Entry Contains**:
+   - Height: 4.8m (the minimum detected)
+   - GPS coordinates (from when 4.8m was measured)
+   - Timestamp
+   - Intensity value
+   - Temperature (if enabled)
+   - Route segment (if enabled)
+
+---
+
+## Conclusion
+
+The auto-detection algorithm is elegant in its simplicity:
+- **Detect** objects by valid laser returns within range
+- **Track** the minimum (most critical) height
+- **Confirm** object has passed with 10 consecutive "clear" readings
+- **Log** the obstruction with its lowest point and location
+
+This approach ensures reliable obstruction logging without false positives, making it ideal for route surveying applications where knowing the exact clearance height at specific GPS coordinates is critical.

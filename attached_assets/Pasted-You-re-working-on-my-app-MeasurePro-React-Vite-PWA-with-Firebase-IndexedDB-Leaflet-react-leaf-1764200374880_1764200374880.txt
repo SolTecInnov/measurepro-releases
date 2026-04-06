@@ -1,0 +1,144 @@
+You’re working on my app MeasurePro (React + Vite PWA with Firebase, IndexedDB, Leaflet + react-leaflet).
+
+CONTEXT
+
+Recent work you did:
+
+2025-11-25-v17-auth-indexeddb-fix
+
+Auth init fallback + IndexedDB version issues.
+
+2025-11-26-v18-leaflet-bundled-fix
+
+Switched from CDN Leaflet + shim to bundled Leaflet from node_modules.
+
+Changed minifier from Terser to esbuild.
+
+Updated Leaflet imports, routing machine, etc.
+
+Current behaviour:
+
+In dev: app loads, login works, map shows, everything looks fine.
+
+In production (published app):
+
+I enter username/password.
+
+App says “Welcome back”.
+
+Then it crashes with the UI error screen:
+
+Component Load Error
+Failed to load component:
+TypeError: Constructor Map requires 'new'
+
+So the app boots, auth works, and then the lazy-loaded map screen blows up in production.
+
+This error still exists right now, even after your “leaflet-cdn-shim” and bundling changes.
+
+WHAT THIS ERROR MEANS
+
+"Constructor Map requires 'new'" is the native error thrown when the built-in ES6 Map class is invoked without new.
+So somewhere in the code (or in a shim / plugin / routing machine glue), there is effectively a call like:
+
+Map(...)        // ❌ should be: new Map(...)
+
+
+or something equivalent after weird re-exports/shadowing.
+
+Your previous explanation that “destructuring the Map constructor breaks it” is wrong – destructuring a constructor works fine:
+
+const { Map } = window;
+new Map(); // ✅ absolutely valid
+
+
+So stop guessing. I need you to find the exact place where the bad call happens.
+
+YOUR TASK
+
+Reproduce the production error
+
+Build and run the app in a way that mimics production (npm run build + npm run preview, or Replit’s production preview).
+
+In the browser devtools console, capture the full stack trace of the error "TypeError: Constructor Map requires 'new'" when the app crashes after login.
+
+Trace it back to source
+
+Use sourcemaps to map the top of the stack back to the actual TS/TSX file and line number.
+
+Identify exactly which module / file is causing it (likely something in Leaflet / routing / map components).
+
+Find the real bug
+
+Search for the following patterns and inspect them carefully:
+
+Map( calls that are not preceded by new.
+
+const { Map } = ...
+
+export const Map = ...
+
+Any code that might shadow the global Map or Leaflet’s L.Map.
+
+Pay special attention to:
+
+src/lib/leaflet/leaflet-cdn-shim.ts or its replacement.
+
+src/lib/leaflet/loadLeafletRoutingMachine.ts.
+
+Any MapView, SurveyMap, or similar map components.
+
+Any glue where leaflet-routing-machine is wired to window.L.
+
+Implement a concrete, minimal fix
+
+Fix the exact offending code instead of adding new hacks.
+
+Do NOT re-introduce the old CDN shim or any “magic” that messes with Map.
+
+We want a clean setup:
+
+leaflet and react-leaflet imported from node_modules.
+
+leaflet-routing-machine only uses window.L if absolutely necessary, and done cleanly.
+
+Example types of acceptable fixes (depending on what you find):
+
+Replace Map(opts) with new Map(opts) if it’s actually the ES6 Map.
+
+If you accidentally exported the global Map instead of Leaflet’s L.Map, fix the export to use L.Map and rename it to avoid collisions (e.g. LeafletMap).
+
+Remove any shim that destructures from window and returns the wrong Map.
+
+Verify both dev and prod
+
+Dev:
+
+App loads.
+
+Login works.
+
+Main map screen renders.
+
+Console has no Map/Leaflet errors.
+
+Production / Preview:
+
+Same as above.
+
+No “Component Load Error”.
+
+No "Constructor Map requires 'new'".
+
+Explain clearly what you fixed
+In your reply, I want:
+
+File + line where the bug was.
+
+Before/after code snippet showing the exact change.
+
+List of all files you touched.
+
+Confirmation that you tested both dev and production as described.
+
+Keep the changes surgical. No more vague “it was the shim” stories. I want the actual root cause fixed and verified.

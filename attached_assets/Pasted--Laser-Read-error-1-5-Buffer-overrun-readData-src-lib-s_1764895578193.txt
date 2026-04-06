@@ -1,0 +1,217 @@
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 6.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 6.62
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+ [Laser Store] Valid measurement received: 1.63
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.63
+ [MeasurementCards] Setting measurement: 6.63
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+ [Laser Store] Valid measurement received: 1.64
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.64
+ [MeasurementCards] Setting measurement: 6.64
+  [Sync] WARNING: checkPendingChanges took 448.7ms (>200ms threshold)
+warn @ /src/lib/utils/logger.ts:17
+checkPendingChanges @ /src/lib/sync.ts:451
+await in checkPendingChanges
+(anonymous) @ /src/lib/sync.ts:507
+  [Sync] WARNING: checkPendingChanges took 448.6ms (>200ms threshold)
+warn @ /src/lib/utils/logger.ts:17
+checkPendingChanges @ /src/lib/sync.ts:451
+await in checkPendingChanges
+(anonymous) @ /src/lib/sync.ts:507
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 6.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 6.65
+ [vite] server connection lost. Polling for restart...
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 6.65
+ [Laser Store] Valid measurement received: 1.65
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.65
+ [MeasurementCards] Setting measurement: 6.65
+  [Laser] Read error (1/5): Buffer overrun
+readData @ /src/lib/stores/serialStore.ts:164
+   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ net::ERR_ABORTED 502 (Bad Gateway)
+ping @ /@vite/client:736
+waitForSuccessfulPing @ /@vite/client:749
+(anonymous) @ /@vite/client:561
+ [Laser] Restarting read loop after error...
+ [Laser] Read loop started
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 6.62
+ [Laser Store] Valid measurement received: 1.62
+ [Laser Store] Dispatching laser-measurement-update event
+ [MeasurementCards] Received laser-measurement-update event: 1.62
+ [MeasurementCards] Setting measurement: 6.62
+ 📱 App going to background - flushing measurements
+   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/ 502 (Bad Gateway)
+(anonymous) @ /@vite/client:562
+TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at index.ts-3ccca066.js:1:3297
+Promise.catch
+(anonymous) @ index.ts-loader3.js:11
+(anonymous) @ index.ts-loader3.js:13
+favicon.ico:1   GET https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/favicon.ico 502 (Bad Gateway)
+Navigated to https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/

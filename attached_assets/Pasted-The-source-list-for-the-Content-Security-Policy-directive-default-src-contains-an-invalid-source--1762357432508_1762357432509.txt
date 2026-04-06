@@ -1,0 +1,1081 @@
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+/t/soltec-innovation:1  The source list for the Content Security Policy directive 'default-src' contains an invalid source: ''unsafe-dynamic''. It will be ignored.
+/t/soltec-innovation:1  The Content-Security-Policy directive 'default-src' contains 'report-uri' as a source expression. Did you want to add it as a directive and forget a semicolon?
+/t/soltec-innovation:1  The source list for Content Security Policy directive 'default-src' contains a source with an invalid path: '/api/4509669501698048/security/?sentry_key=7eb3d90eb4660416caf507087367e67e'. The query component, including the '?', will be ignored.
+774d5548df99f183.js:2 
+      /////////////////////
+   ///////////////////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////        Curious and driven?
+  ///////////////@@@@@@@///////        Work with us!
+  ///////////////@@@@@@@///////
+  ///////////////@@@@@@@///////        https://join.replit.com/hack.with.us
+  ////////@@@@@@@//////////////
+  ////////@@@@@@@//////////////
+  ////////@@@@@@#//////////////
+   ///////////////////////////
+      /////////////////////
+      
+774d5548df99f183.js:2 Download the Apollo DevTools for a better development experience: https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm
+774d5548df99f183.js:2 [LaunchDarkly] LaunchDarkly client initialized
+/t/soltec-innovation:1 Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner.
+774d5548df99f183.js:2  Cache data may be lost when replacing the dealContext field of a Org object.
+
+This could cause additional (usually avoidable) network requests to fetch data that were otherwise cached.
+
+To address this problem (which is not a bug in Apollo Client), either ensure all objects of type OrgDealContext have an ID or a custom merge function, or define a custom merge function for the Org.dealContext field, so InMemoryCache can safely merge these objects:
+
+  existing: {"__typename":"OrgDealContext","dealType":"default","salesContactEmail":null}
+  incoming: {"__typename":"OrgDealContext","dealType":"default"}
+
+For more information about these options, please refer to the documentation:
+
+  * Ensuring entity objects have IDs: https://go.apollo.dev/c/generating-unique-identifiers
+  * Defining custom merge functions: https://go.apollo.dev/c/merging-non-normalized-objects
+
+(anonymous) @ 774d5548df99f183.js:2
+  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'ambient-light-sensor'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'battery'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-not-rendered'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'execution-while-out-of-viewport'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'layout-animations'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'legacy-image-formats'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'navigation-override'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'oversized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'publickey-credentials'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'speaker-selection'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unoptimized-images'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'unsized-media'.
+z @ ed1e693c96a75807.js:2
+  Unrecognized feature: 'pointer-lock'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowfullscreen'.
+z @ ed1e693c96a75807.js:2
+  Allow attribute will take precedence over 'allowpaymentrequest'.
+z @ ed1e693c96a75807.js:2
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+MeasurePro-v30:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+MeasurePro-v30:1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+z @ ed1e693c96a75807.js:2
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'ambient-light-sensor'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'battery'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'execution-while-not-rendered'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'execution-while-out-of-viewport'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'layout-animations'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'legacy-image-formats'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'navigation-override'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'oversized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'publickey-credentials'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'speaker-selection'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'unoptimized-images'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Unrecognized feature: 'unsized-media'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Allow attribute will take precedence over 'allowfullscreen'.
+workspace_iframe.html?initialPath=%2F&id=%3Ar9g%3A:32  Allow attribute will take precedence over 'allowpaymentrequest'.
+ 🔥 Firebase Config Loaded:
+   Project ID: measureprov1
+   Config validated: ✅
+ 🔥 Initializing Firebase for project: measureprov1
+ ✅ Firebase initialized successfully
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ 🔧 DEVELOPMENT MODE: Clearing service workers and caches...
+ ✅ Development mode: Service workers cleared. You will always get fresh code!
+ 🚀 main.tsx is executing!
+ Looking for root element...
+ Root element found: true 
+ Creating React root and rendering App...
+ ✅ React render called successfully!
+ Found 0 pending changes
+ App component rendering
+ App component rendering
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+(anonymous) @ injected.js:27
+  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+(anonymous) @ injected.js:27
+ 📹 Starting camera auto-detection...
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ 🛑 Stopping background sync service...
+ 🛑 Background sync service stopped
+ 📋 No Firebase user, skipping account status check
+ 📱 Desktop device - skipping permissions screen
+ 📹 Starting camera auto-detection...
+ App: Initializing stores...
+ 🔄 Opening IndexedDB database...
+ POI Store: Setting type to: 
+ App: Store initialization complete
+ 🔄 Initializing background sync service...
+ 🔄 Starting background sync service...
+ ⚠️ No user logged in - skipping background sync
+ ✅ Background sync service started (24-hour interval)
+ App component rendering
+ App component rendering
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ 🔄 Checking for emergency data to migrate...
+ ✅ IndexedDB database opened successfully
+ App: Storage initialized
+ App: Storage initialized
+ Loaded 0 surveys from database
+ App: Auto sync setup
+ App: Auto sync setup
+ App component rendering
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded 0 surveys from database
+ App component rendering
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ Loaded laser settings: Object
+ Loaded gps settings: Object
+ Loaded camera settings: Object
+ Loaded map settings: Object
+ Loaded logging settings: Object
+ Loaded alerts settings: Object
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ App component rendering
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ Last online timestamp updated
+ ✅ Offline mode set to: false
+ Device detection: Desktop
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 (Service Unavailable)
+  Failed to check terms acceptance: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:432
+ 📹 Camera detection results: Object
+ ✅ Auto-detected camera: standard
+ App component rendering
+ App component rendering
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ ✅ Master admin detected, granting app access
+ ✅ App access granted, account approved, and permissions OK, showing protected content
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ 🔄 LaserReader: Setting laser type to: high-pole
+ [LaserStore] Setting ground reference height: 2.06
+ [LaserStore] Validated ground reference height: 2.06
+ ✅ Loaded Route Enforcement data from IndexedDB
+ 🔧 About to set isInitialized to true
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 📐 Video dimensions (rendered): 434 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ 🔧 About to set isInitialized to true
+ 🔧 Previous state: Object
+ ✅ Voice assistant initialized
+ 🔊 Stopped speaking
+ 🎙️ Voice assistant stopped
+ 🧹 LiveCamera unmounting, cleaning up resources
+ 🔊 Stopped speaking
+ 🎙️ Voice assistant stopped
+ 🔧 About to set isInitialized to true
+ ✅ Voice assistant initialized
+ Voice recognition stopped
+ 📹 Camera monitor state: Object
+ 📐 Video dimensions (rendered): 434 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 🔍 LiveCamera: Camera initialization effect running Object
+ 📷 Creating standard camera instance...
+ Video element is ready
+ 🔧 About to set isInitialized to true
+ ✅ Voice assistant initialized
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ User signed in, ID stored in localStorage: z2JsOVxJNohWupffvUh28QN1CIs1
+ Auth state changed in OfflineStatusIndicator: jfprince@soltec.ca
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ Auth state changed event in OfflineStatusIndicator: jfprince@soltec.ca
+ 📐 Video dimensions (rendered): 434 x 150
+ 📐 Video dimensions (intrinsic): 0 x 0
+ 🔧 Previous state: Object
+ 🔧 Previous state: Object
+ 🔧 Previous state: Object
+ 🔧 Previous state: Object
+ 🔧 Previous state: Object
+ 🔧 Previous state: Object
+ ✅ measureDetected sound loaded successfully
+ ✅ poiTypeChange sound loaded successfully
+ ✅ logEntry sound loaded successfully
+ ✅ imageCaptured sound loaded successfully
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ ✅ critical sound loaded successfully
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+ 🔧🔧🔧 StandardCamera.initialize() called
+ 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+ 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ 🔧 Calling getUserMedia with deviceId constraint...
+ ✅ warning sound loaded successfully
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ SurveyManager: Loaded surveys: Array(0)
+ ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+ 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+ 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+ Loaded 0 surveys from database
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ SurveyManager: Loaded surveys: Array(0)
+  Failed to create camera instance: 
+(anonymous) @ injected.js:27
+  Failed to create camera instance: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Created new marker
+ 📍 PositionMarker: Created accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+MeasurePro-v30:1  Uncaught (in promise) 
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Failed to initialize browser GPS: GPS timeout - position unavailable
+(anonymous) @ injected.js:27
+  Error details: 
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🛰️ Browser GPS initialization already in progress, skipping...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+  Failed to initialize browser GPS: [object GeolocationPositionError]
+(anonymous) @ injected.js:27
+  Error details: GeolocationPositionError
+(anonymous) @ injected.js:27
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: No GPS data or invalid coordinates
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ Switching to browser GPS failsafe: Object
+ 🌍 Attempting to get browser GPS position...
+  Error checking pending changes: 
+(anonymous) @ injected.js:27
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🌍 Attempting to get browser GPS position...
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+injected.js:27 📐 Video dimensions (rendered): 360 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 🧹 LiveCamera unmounting, cleaning up resources
+injected.js:27 Voice recognition stopped
+injected.js:27 📹 Camera monitor state: Object
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 🔍 LiveCamera: Camera initialization effect running Object
+injected.js:27 📷 Creating standard camera instance...
+injected.js:27 Video element is ready
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Created new marker
+injected.js:27 📍 PositionMarker: Created accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 📍 PositionMarker: GPS data: Object
+injected.js:27 📍 PositionMarker: Creating/updating marker at: Array(2)
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 📐 Video dimensions (rendered): 348 x 150
+injected.js:27 📐 Video dimensions (intrinsic): 0 x 0
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+injected.js:27 📷 Initializing StandardCamera with deviceId: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧🔧🔧 StandardCamera.initialize() called
+injected.js:27 🔧 deviceId passed to constructor: 383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754
+injected.js:27 🔧 getUserMedia constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 🔧 Calling getUserMedia with deviceId constraint...
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27 ℹ️ Retrying without facingMode constraint (for external cameras like GoPro)
+injected.js:27 🔧 Retry constraints: {
+  "video": {
+    "deviceId": {
+      "exact": "383ad3c279985c1b8887ab4408212771fb6514fa5cca6ffd6906fed0af8a8754"
+    },
+    "width": {
+      "ideal": 1280
+    },
+    "height": {
+      "ideal": 720
+    },
+    "frameRate": {
+      "ideal": 30
+    }
+  }
+}
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+initializeCamera @ LiveCamera.tsx:521
+injected.js:27 Loaded 0 surveys from database
+injected.js:27 📍 PositionMarker: GPS data: {time: '10:43:37', latitude: 45.60753963, longitude: -72.97326799, altitude: 0, speed: 0, …}
+injected.js:27 📍 PositionMarker: Creating/updating marker at: (2) [45.60753963, -72.97326799]
+injected.js:27 📍 PositionMarker: Updated marker position
+injected.js:27 📍 PositionMarker: Updated accuracy circle
+injected.js:27 📍 PositionMarker: Centered map on position
+injected.js:27 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+injected.js:27 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+injected.js:27 SurveyManager: Loaded surveys: []
+injected.js:27  Failed to create camera instance: Error: Camera does not support the requested settings. Try different resolution settings.
+    at StandardCamera.initialize (StandardCamera.ts:183:13)
+    at async initializeCamera (LiveCamera.tsx:508:11)
+(anonymous) @ injected.js:27
+initializeCamera @ LiveCamera.tsx:521
+injected.js:27  Error checking pending changes: VersionError: The requested version (3) is less than the existing version (6).
+(anonymous) @ injected.js:27
+checkPendingChanges @ sync.ts:363
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:43

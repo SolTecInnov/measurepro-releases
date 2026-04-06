@@ -1,0 +1,114 @@
+You are a senior frontend engineer specialized in high-performance PWAs and IndexedDB.
+
+Context:
+- App name: MeasurePRO.
+- Tech: React (Vite) PWA, offline-first.
+- Local storage: IndexedDB (NOT SQL/SQLite; must continue using IndexedDB).
+- Remote: Firebase (used for sync, but the app must always work fully offline).
+- Platform: Windows tablets/laptops used inside vehicles (measurements in the field).
+
+Problem:
+- There is a massive lag when logging in / initializing the app once the IndexedDB gets populated.
+- After ~1,500–2,000 entries in IndexedDB, the login/init step becomes extremely slow: ~20–23 seconds of lag before the app becomes usable.
+- Our real-world usage needs to handle 5,000–7,000 new items per day, and keep working correctly even with many days accumulated (tens of thousands of records).
+- This is unacceptable in the field; I need a proper, structural fix, not a superficial patch.
+
+High-level goals:
+1. Fix the lag on login/init and any other critical screens.
+2. Make IndexedDB usage scalable to at least 50,000–100,000 records without noticeable UI freezes.
+3. Maintain strict offline-first behavior: the app must be fully usable with zero network.
+4. Keep the existing app logic and features intact (no regressions).
+5. Provide clear explanations and comments so I can understand the changes.
+
+Constraints:
+- Keep IndexedDB as the local store (no SQLite, no SQL DB).
+- Do not remove the offline-first behavior.
+- Do not break the sync logic with Firebase (if you change anything touching sync, you must adapt it).
+- No huge architectural rewrite; focus on practical, targeted refactors and performance fixes.
+- Only add a new library (e.g. Dexie, idb, etc.) if you can justify it AND wire it correctly across the app.
+
+FIRST, before editing code:
+1. Ask me to provide all relevant files, for example (adjust based on my project structure):
+   - The IndexedDB wrapper / utility file(s) (e.g. db.ts, indexedDbService.ts, etc.).
+   - The login/init / app bootstrap code (e.g. main.tsx, App.tsx, AuthProvider, initial loaders).
+   - Any hooks/services that read large collections at startup (e.g. useItems(), usePOIs(), useLogs(), etc.).
+   - Any sync/replication logic between IndexedDB and Firebase.
+   - Any code that runs immediately after login and might be iterating on large datasets.
+2. Once you see the files, explicitly identify WHERE the lag is coming from (e.g. big getAll() queries, heavy processing, map rendering after massive queries, etc.).
+
+Then perform a detailed analysis and fix, following this checklist:
+
+A. Performance analysis & instrumentation
+- Add simple performance measurements (console.time / console.timeEnd or a small helper) around:
+  - App bootstrap.
+  - IndexedDB init/open.
+  - First major IndexedDB queries (especially any getAll or toArray over big stores).
+  - Initial React data loading and rendering for large lists or maps.
+- Show me (in comments or description) WHICH parts are taking 1+ seconds, and why.
+
+B. IndexedDB usage review
+For each store that might have thousands of entries (e.g. POIs, measurements, photos, logs):
+- Check how records are fetched at startup:
+  - Are we doing db.getAll() / .toArray() on large stores during login?
+  - Are we filtering/sorting in JS after loading everything into memory?
+- Optimize by:
+  - Avoiding full getAll/toArray on startup; use pagination, limits, or lazy loading instead.
+  - Using IndexedDB indexes properly to query only what we need.
+  - Using cursors or chunked reads if necessary, instead of blocking the main thread with a giant array.
+- Ensure all stores have appropriate keyPaths and indexes for the queries we use most often.
+
+C. App initialization / login flow
+- Refactor the login / app-init flow so that:
+  - The user can see the UI and start interacting quickly (under ~1 second for a typical machine), EVEN when there are tens of thousands of records.
+  - Any heavy data loading happens lazily AFTER the initial screen is displayed.
+- Strategy examples (choose and implement what matches my code):
+  - Show an “initial shell” (layout + basic UI) immediately, then stream in data in background.
+  - Load only recent or “current session” records first, then older history on demand.
+  - For large lists (e.g. POIs), use virtualized lists and fetch data page by page or in chunks.
+- Make sure any blocking loops or big synchronous processing runs are split using:
+  - requestIdleCallback, setTimeout batching, or web workers (if a big transformation is unavoidable).
+
+D. React / state management optimization
+- Inspect components that render large datasets on login or immediately after:
+  - Avoid passing huge arrays deep down and causing massive re-renders.
+  - Memoize heavy components and expensive selectors (useMemo, useCallback where relevant).
+  - Implement proper list virtualization for any large list or table.
+- Ensure that we don’t re-run expensive queries or mapping operations on every render.
+
+E. Sync logic (IndexedDB <-> Firebase)
+- Review any startup sync that might be:
+  - Scanning all local records just to compute a small diff.
+  - Rewriting entire stores instead of doing incremental updates.
+- Optimize so that:
+  - Sync uses indexes and incremental logic.
+  - Startup sync does NOT block the UI. If necessary, run sync after initial UI is ready and show a non-blocking “sync in progress” indicator.
+
+F. Data cleanup / retention strategy
+- If the domain allows, propose and implement:
+  - Archiving or pruning old records locally (e.g. keep last N days in “active” store, move old data to an archive store or only on the server).
+  - IndexedDB store compaction if we have a lot of obsolete records.
+- This must be done safely, with clear boundaries so we don’t lose critical data.
+
+G. Target performance
+- Aim for:
+  - < 1 second perceived delay from login to interactive UI with up to ~10,000 records.
+  - Degradation staying reasonable even if we reach 50,000–100,000 records (no 20+ second freezes).
+- After implementing the changes, re-measure and:
+  - Comment in the code or summary WHERE performance improved and by how much (roughly).
+
+H. Code quality & explanation
+- Keep the code readable and maintainable.
+- Add comments on:
+  - Why certain heavy operations were moved or split.
+  - Why certain IndexedDB patterns were changed (e.g. from getAll to cursor-based streaming).
+- Summarize the changes at the end:
+  - What caused the lag originally.
+  - What structural changes you made to remove it.
+  - Any trade-offs or future limits I should be aware of.
+
+If anything in my current implementation prevents achieving those performance goals, clearly explain the limitation and propose the most realistic next step to reach them (while staying with IndexedDB and offline-first).
+
+Start now by:
+1) Asking me for the exact files you need to inspect.
+2) Analyzing where the bottlenecks really are.
+3) Then refactoring and implementing the full set of optimizations described above.

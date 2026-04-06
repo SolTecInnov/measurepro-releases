@@ -1,0 +1,2249 @@
+# MeasurePRO — Insta360 X5 Camera Integration
+## Complete Replit Agent Prompt (Final Version)
+
+---
+
+## CONTEXT & PHILOSOPHY
+
+You are adding 360° camera integration to **MeasurePRO**, a road survey PWA
+(React + TypeScript + Firebase) running in Chrome on a **Windows 11 tablet**
+in a moving survey vehicle.
+
+### Non-negotiable design rules
+
+**The operator is driving.** The laser distance measurement and POI workflow
+are PRIMARY. The 360° camera is a background system — but NOT an ignorable one.
+
+**Camera failure must always be surfaced.** If the camera fails mid-survey,
+the operator must be informed immediately so they can stop safely and fix the
+issue — otherwise they return to the office with 0 usable footage, requiring
+a costly return trip to the field.
+
+**Error philosophy:**
+- Camera WARNINGS (low battery, low storage) → non-intrusive HUD badge only
+- Camera ERRORS (connection lost, recording stopped, write error) → prominent
+  persistent red banner at top of screen that requires manual dismissal
+- Pre-survey camera check → blocking soft-gate with live preview before
+  survey starts (operator must confirm camera OK or explicitly skip)
+- NEVER show modal dialogs while vehicle is in motion
+- All alerts during driving are persistent banners, never popups or modals
+
+**The ideal UX:**
+1. Before survey: operator validates camera via preview + checklist
+2. During survey: camera records silently, HUD shows only a small REC dot
+3. If something breaks: red banner appears immediately, operator stops and fixes
+4. After survey: files download automatically in the background
+
+### Hardware setup
+- Tablet: Windows 11, Chrome browser, MeasurePRO PWA
+- Camera: Insta360 X5, connected via USB-C cable to the tablet
+- GNSS: Swift Navigation Duro, also USB to tablet
+- Internet: Starlink WiFi (always connected, used for Firebase)
+- Camera control: via a Node.js Windows background service (camera-bridge)
+  that sits between the PWA and the Insta360 OSC protocol over USB
+
+---
+
+## ARCHITECTURE
+
+```
+[Chrome — MeasurePRO PWA]
+         ↕  HTTP  fetch('http://localhost:3001/...')
+[camera-bridge — Node.js Windows Service]
+         ↕  OSC HTTP over USB network adapter (192.168.42.1)
+[Insta360 X5]    [Swift Duro GNSS]
+         ↕  USB-C                ↕  USB
+         └──────────[USB Hub]────┘
+                        ↕
+               [Windows 11 Tablet]
+                        ↕  WiFi
+                   [Starlink → Firebase]
+```
+
+The camera-bridge is a standalone Node.js Express server that:
+- Starts automatically on Windows login (via Windows Task Scheduler)
+- Runs silently in background (system tray icon only)
+- Exposes REST API on localhost:3001
+- Communicates with Insta360 X5 via OSC protocol over USB
+  (camera enumerates as USB network adapter at 192.168.42.1)
+- Is completely independent from MeasurePRO PWA
+- Continues running and downloading files even if Chrome is closed
+
+---
+
+## PART 1 — CAMERA BRIDGE SERVICE (Windows Node.js)
+
+### Location
+Create a new top-level directory: `camera-bridge/`
+Completely separate from the MeasurePRO client code.
+
+### `camera-bridge/package.json`
+
+```json
+{
+  "name": "measurepro-camera-bridge",
+  "version": "1.0.0",
+  "description": "MeasurePRO — Insta360 X5 USB bridge service",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "install-service": "node scripts/install-windows-startup.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.2",
+    "winston": "^3.11.0",
+    "systray2": "^2.0.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2"
+  }
+}
+```
+
+### `camera-bridge/src/server.ts`
+
+```typescript
+import express from 'express'
+import cors from 'cors'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
+import { CameraController } from './cameraController'
+import { FileManager } from './fileManager'
+import { logger } from './logger'
+
+const app = express()
+const PORT = 3001
+
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000',
+           'http://localhost:8080', 'app://.']
+}))
+app.use(express.json())
+
+const camera = new CameraController()
+const files = new FileManager()
+
+// ─── Health check ─────────────────────────────────────────────────────────────
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', version: '1.0.0', timestamp: Date.now() })
+})
+
+// ─── Camera connection ────────────────────────────────────────────────────────
+app.get('/camera/ping', async (req, res) => {
+  const connected = await camera.ping()
+  res.json({ connected })
+})
+
+app.get('/camera/info', async (req, res) => {
+  try {
+    const info = await camera.getInfo()
+    res.json({ success: true, data: info })
+  } catch (e: any) {
+    res.status(503).json({ success: false, error: e.message })
+  }
+})
+
+app.get('/camera/status', async (req, res) => {
+  try {
+    const status = await camera.getStatus()
+    res.json({ success: true, data: status })
+  } catch (e: any) {
+    res.status(503).json({ success: false, error: e.message })
+  }
+})
+
+// ─── Recording control ────────────────────────────────────────────────────────
+app.post('/camera/start-recording', async (req, res) => {
+  try {
+    const { resolution, fps, mode } = req.body
+    await camera.startRecording({ resolution, fps, mode })
+    res.json({ success: true, startedAt: Date.now() })
+  } catch (e: any) {
+    logger.error('Start recording failed', e)
+    res.status(500).json({ success: false, error: e.message })
+  }
+})
+
+app.post('/camera/stop-recording', async (req, res) => {
+  try {
+    const result = await camera.stopRecording()
+    res.json({ success: true, ...result })
+  } catch (e: any) {
+    logger.error('Stop recording failed', e)
+    res.status(500).json({ success: false, error: e.message })
+  }
+})
+
+// ─── Photo capture (POI) ──────────────────────────────────────────────────────
+app.post('/camera/capture-photo', async (req, res) => {
+  try {
+    const { lat, lng, altitude, heading, surveyId, poiType, poiLabel } = req.body
+    const result = await camera.capturePhoto()
+    await files.recordPhotoMetadata({
+      filename: result.filename,
+      lat, lng, altitude, heading,
+      surveyId, poiType, poiLabel,
+      capturedAt: Date.now()
+    })
+    res.json({ success: true, filename: result.filename })
+  } catch (e: any) {
+    logger.error('Photo capture failed', e)
+    res.status(500).json({ success: false, error: e.message })
+  }
+})
+
+// ─── Preview snapshot (pre-survey lens check) ────────────────────────────────
+// Captures a single photo and returns it as JPEG for the operator to
+// visually verify lens cleanliness before starting the survey
+app.get('/camera/preview-snapshot', async (req, res) => {
+  try {
+    const result = await camera.capturePreviewSnapshot()
+    const imageBuffer = await fs.promises.readFile(result.localPath)
+    res.set('Content-Type', 'image/jpeg')
+    res.send(imageBuffer)
+    // Clean up temp file after sending
+    fs.unlink(result.localPath, () => {})
+  } catch (e: any) {
+    logger.error('Preview snapshot failed', e)
+    res.status(500).json({ success: false, error: e.message })
+  }
+})
+
+// ─── Settings ─────────────────────────────────────────────────────────────────
+app.get('/camera/settings', async (req, res) => {
+  try {
+    const settings = await camera.getSettings()
+    res.json({ success: true, data: settings })
+  } catch (e: any) {
+    res.status(503).json({ success: false, error: e.message })
+  }
+})
+
+app.post('/camera/settings', async (req, res) => {
+  try {
+    await camera.applySettings(req.body)
+    res.json({ success: true })
+  } catch (e: any) {
+    res.status(500).json({ success: false, error: e.message })
+  }
+})
+
+// ─── File management ──────────────────────────────────────────────────────────
+app.get('/camera/files', async (req, res) => {
+  try {
+    const fileList = await camera.listFiles()
+    res.json({ success: true, files: fileList })
+  } catch (e: any) {
+    res.status(503).json({ success: false, error: e.message })
+  }
+})
+
+app.post('/camera/download-survey', async (req, res) => {
+  const { surveyId, outputDir } = req.body
+  const jobId = files.startDownload(surveyId, outputDir, camera)
+  res.json({ success: true, jobId })
+})
+
+app.get('/camera/download-status/:jobId', (req, res) => {
+  const progress = files.getDownloadProgress(req.params.jobId)
+  res.json(progress)
+})
+
+// ─── Start server ─────────────────────────────────────────────────────────────
+app.listen(PORT, '127.0.0.1', () => {
+  logger.info(`Camera bridge running on http://localhost:${PORT}`)
+})
+```
+
+### `camera-bridge/src/cameraController.ts`
+
+```typescript
+import fetch from 'node-fetch'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
+import { logger } from './logger'
+
+const CAMERA_URL = 'http://192.168.42.1'
+const TIMEOUT_MS = 8000
+
+interface OscCommand {
+  name: string
+  parameters?: Record<string, any>
+}
+
+export class CameraController {
+
+  private async oscExecute(command: OscCommand): Promise<any> {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS)
+    try {
+      const response = await fetch(`${CAMERA_URL}/osc/commands/execute`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          'Accept': 'application/json',
+          'X-XSRF-Protected': '1'
+        },
+        body: JSON.stringify(command),
+        signal: controller.signal
+      })
+      if (!response.ok) throw new Error(`OSC HTTP ${response.status}`)
+      return await response.json()
+    } finally {
+      clearTimeout(timeout)
+    }
+  }
+
+  async ping(): Promise<boolean> {
+    try {
+      const res = await fetch(`${CAMERA_URL}/osc/info`,
+        { signal: AbortSignal.timeout(3000) })
+      return res.ok
+    } catch {
+      return false
+    }
+  }
+
+  async getInfo(): Promise<any> {
+    const res = await fetch(`${CAMERA_URL}/osc/info`)
+    if (!res.ok) throw new Error(`Cannot reach camera at ${CAMERA_URL}`)
+    return res.json()
+  }
+
+  async getStatus(): Promise<{
+    batteryPercent: number
+    storageFreeMB: number
+    isRecording: boolean
+    recordingDuration: number
+    firmwareVersion: string
+  }> {
+    const res = await fetch(`${CAMERA_URL}/osc/state`, {
+      headers: { 'X-XSRF-Protected': '1' }
+    })
+    if (!res.ok) throw new Error(`OSC state error ${res.status}`)
+    const data = await res.json()
+    return {
+      batteryPercent:    data.state?._battery ?? -1,
+      storageFreeMB:     Math.round(data.state?._storageUri ?? 0),
+      isRecording:       data.state?._captureStatus === 'recording',
+      recordingDuration: data.state?._recordingTime ?? 0,
+      firmwareVersion:   data.state?._firmwareVersion ?? 'unknown'
+    }
+  }
+
+  async startRecording(options: {
+    resolution?: '5.7K' | '8K' | '4K'
+    fps?: 24 | 30 | 60
+    mode?: 'standard' | 'timelapse_road'
+  } = {}): Promise<void> {
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: {
+        options: {
+          captureMode: 'video',
+          fileFormat: options.resolution === '8K'
+            ? { type: 'video', width: 7680, height: 3840 }
+            : { type: 'video', width: 5760, height: 2880 }
+        }
+      }
+    })
+    await this.oscExecute({ name: 'camera.startCapture' })
+    logger.info('Recording started', options)
+  }
+
+  async stopRecording(): Promise<{ filename: string }> {
+    const result = await this.oscExecute({ name: 'camera.stopCapture' })
+    logger.info('Recording stopped')
+    return { filename: result.results?.fileUrls?.[0] ?? '' }
+  }
+
+  async capturePhoto(): Promise<{ filename: string }> {
+    // Switch to photo mode
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: { options: { captureMode: 'image' } }
+    })
+    const result = await this.oscExecute({ name: 'camera.takePicture' })
+    // Poll until done
+    let status = result
+    let attempts = 0
+    while (status.state === 'inProgress' && attempts < 30) {
+      await new Promise(r => setTimeout(r, 500))
+      const check = await fetch(`${CAMERA_URL}/osc/commands/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-XSRF-Protected': '1' },
+        body: JSON.stringify({ id: status.id })
+      })
+      status = await check.json()
+      attempts++
+    }
+    // Switch back to video mode
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: { options: { captureMode: 'video' } }
+    })
+    return { filename: status.results?.fileUrls?.[0] ?? '' }
+  }
+
+  // Captures a single low-res preview image for lens inspection
+  // Returns path to a local temp file
+  async capturePreviewSnapshot(): Promise<{ localPath: string }> {
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: {
+        options: {
+          captureMode: 'image',
+          fileFormat: { type: 'image', width: 3840, height: 1920 }
+        }
+      }
+    })
+    const result = await this.oscExecute({ name: 'camera.takePicture' })
+    let status = result
+    let attempts = 0
+    while (status.state === 'inProgress' && attempts < 30) {
+      await new Promise(r => setTimeout(r, 600))
+      const check = await fetch(`${CAMERA_URL}/osc/commands/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-XSRF-Protected': '1' },
+        body: JSON.stringify({ id: status.id })
+      })
+      status = await check.json()
+      attempts++
+    }
+    const fileUrl = status.results?.fileUrls?.[0]
+    if (!fileUrl) throw new Error('Preview capture returned no file URL')
+    // Download the preview file to a temp location
+    const tempPath = path.join(os.tmpdir(), `preview_${Date.now()}.jpg`)
+    const fileRes = await fetch(`${CAMERA_URL}${fileUrl}`)
+    if (!fileRes.ok) throw new Error(`Failed to download preview: ${fileRes.status}`)
+    const buffer = await fileRes.buffer()
+    fs.writeFileSync(tempPath, buffer)
+    // Switch back to video mode
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: { options: { captureMode: 'video' } }
+    })
+    return { localPath: tempPath }
+  }
+
+  async listFiles(): Promise<any[]> {
+    const result = await this.oscExecute({
+      name: 'camera.listFiles',
+      parameters: { fileType: 'all', startPosition: 0, entryCount: 100 }
+    })
+    return result.results?.entries ?? []
+  }
+
+  async getSettings(): Promise<any> {
+    return this.oscExecute({
+      name: 'camera.getOptions',
+      parameters: {
+        optionNames: [
+          'captureMode', 'fileFormat', 'iso', 'shutterSpeed',
+          'whiteBalance', '_videoHDR', '_stabilization'
+        ]
+      }
+    })
+  }
+
+  async applySettings(settings: Record<string, any>): Promise<void> {
+    await this.oscExecute({
+      name: 'camera.setOptions',
+      parameters: { options: settings }
+    })
+  }
+}
+```
+
+### `camera-bridge/src/fileManager.ts`
+
+```typescript
+import fs from 'fs'
+import path from 'path'
+import fetch from 'node-fetch'
+import { CameraController } from './cameraController'
+import { logger } from './logger'
+
+const SURVEY_BASE_DIR = 'C:\\SolTec\\Surveys'
+
+interface PhotoMeta {
+  filename: string
+  lat: number; lng: number; altitude: number; heading: number
+  surveyId: string; poiType: string; poiLabel: string
+  capturedAt: number
+}
+
+interface DownloadJob {
+  jobId: string
+  surveyId: string
+  status: 'running' | 'done' | 'error'
+  totalFiles: number
+  downloadedFiles: number
+  currentFile: string
+  errorMessage?: string
+  outputDir: string
+}
+
+export class FileManager {
+  private jobs = new Map<string, DownloadJob>()
+  private photoMetaBuffer: PhotoMeta[] = []
+
+  recordPhotoMetadata(meta: PhotoMeta): void {
+    this.photoMetaBuffer.push(meta)
+    const dir = path.join(SURVEY_BASE_DIR, meta.surveyId)
+    fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(
+      path.join(dir, 'photo_metadata.json'),
+      JSON.stringify(
+        this.photoMetaBuffer.filter(m => m.surveyId === meta.surveyId),
+        null, 2
+      )
+    )
+  }
+
+  startDownload(
+    surveyId: string,
+    outputDir: string,
+    camera: CameraController
+  ): string {
+    const jobId = `dl_${Date.now()}`
+    const job: DownloadJob = {
+      jobId, surveyId, status: 'running',
+      totalFiles: 0, downloadedFiles: 0, currentFile: '',
+      outputDir: outputDir || path.join(SURVEY_BASE_DIR, surveyId)
+    }
+    this.jobs.set(jobId, job)
+    this.runDownload(job, camera).catch(e => {
+      job.status = 'error'
+      job.errorMessage = e.message
+      logger.error('Download failed', e)
+    })
+    return jobId
+  }
+
+  getDownloadProgress(jobId: string): DownloadJob | { error: string } {
+    return this.jobs.get(jobId) ?? { error: 'Job not found' }
+  }
+
+  private async runDownload(
+    job: DownloadJob,
+    camera: CameraController
+  ): Promise<void> {
+    fs.mkdirSync(job.outputDir, { recursive: true })
+    const files = await camera.listFiles()
+    job.totalFiles = files.length
+    for (const file of files) {
+      job.currentFile = file.name
+      const destPath = path.join(job.outputDir, path.basename(file.name))
+      if (!fs.existsSync(destPath)) {
+        const res = await fetch(`http://192.168.42.1${file.fileUrl}`)
+        const buffer = await res.buffer()
+        fs.writeFileSync(destPath, buffer)
+      }
+      job.downloadedFiles++
+      logger.info(`Downloaded ${job.downloadedFiles}/${job.totalFiles}: ${file.name}`)
+    }
+    fs.writeFileSync(
+      path.join(job.outputDir, 'survey_manifest.json'),
+      JSON.stringify({
+        surveyId: job.surveyId,
+        downloadedAt: Date.now(),
+        files: files.map((f: any) => f.name)
+      }, null, 2)
+    )
+    job.status = 'done'
+    logger.info(`Download complete for survey ${job.surveyId}`)
+  }
+}
+```
+
+### `camera-bridge/src/logger.ts`
+
+```typescript
+import winston from 'winston'
+import path from 'path'
+
+const LOG_DIR = 'C:\\SolTec\\camera-bridge\\logs'
+
+export const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.File({
+      filename: path.join(LOG_DIR, 'error.log'),
+      level: 'error'
+    }),
+    new winston.transports.File({
+      filename: path.join(LOG_DIR, 'combined.log')
+    }),
+    new winston.transports.Console({
+      format: winston.format.simple()
+    })
+  ]
+})
+```
+
+### `camera-bridge/scripts/install-windows-startup.js`
+
+```javascript
+const { exec } = require('child_process')
+const path = require('path')
+const fs = require('fs')
+
+const exePath = path.join(__dirname, '..', 'dist', 'server.js')
+const nodePath = process.execPath
+const logDir = 'C:\\SolTec\\camera-bridge\\logs'
+
+// Ensure log directory exists
+fs.mkdirSync(logDir, { recursive: true })
+
+const taskXml = `<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <Triggers>
+    <LogonTrigger><Enabled>true</Enabled></LogonTrigger>
+  </Triggers>
+  <Actions>
+    <Exec>
+      <Command>${nodePath}</Command>
+      <Arguments>${exePath}</Arguments>
+      <WorkingDirectory>${path.dirname(exePath)}</WorkingDirectory>
+    </Exec>
+  </Actions>
+  <Settings>
+    <Hidden>true</Hidden>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+    <RestartOnFailure>
+      <Interval>PT1M</Interval>
+      <Count>3</Count>
+    </RestartOnFailure>
+  </Settings>
+</Task>`
+
+fs.writeFileSync('camera-bridge-task.xml', taskXml)
+exec(
+  'schtasks /Create /TN "MeasurePRO Camera Bridge" /XML camera-bridge-task.xml /F',
+  (err, stdout) => {
+    if (err) console.error('Failed to register startup task:', err.message)
+    else console.log('Camera bridge registered as Windows startup task.')
+  }
+)
+```
+
+---
+
+## PART 2 — MEASUREPRO PWA ADDITIONS
+
+### `src/services/cameraService.ts`
+
+```typescript
+const BRIDGE = 'http://localhost:3001'
+const FETCH_TIMEOUT = 6000
+
+async function bridgeFetch(path: string, options?: RequestInit): Promise<any> {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT)
+  try {
+    const res = await fetch(`${BRIDGE}${path}`, {
+      ...options,
+      signal: controller.signal,
+      headers: { 'Content-Type': 'application/json', ...options?.headers }
+    })
+    return await res.json()
+  } catch (e: any) {
+    if (e.name === 'AbortError') throw new Error('Camera bridge timeout')
+    if (e.message.includes('fetch')) throw new Error('Camera bridge offline')
+    throw e
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+export const cameraService = {
+  async checkBridge(): Promise<boolean> {
+    try {
+      const res = await bridgeFetch('/health')
+      return res.status === 'ok'
+    } catch { return false }
+  },
+
+  async checkCamera(): Promise<boolean> {
+    try {
+      const res = await bridgeFetch('/camera/ping')
+      return res.connected === true
+    } catch { return false }
+  },
+
+  async getStatus() {
+    return bridgeFetch('/camera/status')
+  },
+
+  async startRecording(options: CameraRecordingOptions = {}) {
+    return bridgeFetch('/camera/start-recording', {
+      method: 'POST',
+      body: JSON.stringify(options)
+    })
+  },
+
+  async stopRecording() {
+    return bridgeFetch('/camera/stop-recording', { method: 'POST' })
+  },
+
+  async capturePhotoPOI(geoData: CameraPhotoPOIData) {
+    return bridgeFetch('/camera/capture-photo', {
+      method: 'POST',
+      body: JSON.stringify(geoData)
+    })
+  },
+
+  // Returns the preview image as a blob URL for display
+  async getPreviewSnapshotUrl(): Promise<string> {
+    const res = await fetch(`${BRIDGE}/camera/preview-snapshot`, {
+      signal: AbortSignal.timeout(20000) // preview can take up to 15s
+    })
+    if (!res.ok) throw new Error(`Preview failed: ${res.status}`)
+    const blob = await res.blob()
+    return URL.createObjectURL(blob)
+  },
+
+  async startPostSurveyDownload(surveyId: string) {
+    return bridgeFetch('/camera/download-survey', {
+      method: 'POST',
+      body: JSON.stringify({
+        surveyId,
+        outputDir: `C:\\SolTec\\Surveys\\${surveyId}`
+      })
+    })
+  },
+
+  async getDownloadProgress(jobId: string) {
+    return bridgeFetch(`/camera/download-status/${jobId}`)
+  },
+
+  async getSettings() {
+    return bridgeFetch('/camera/settings')
+  },
+
+  async saveSettings(settings: CameraSettings) {
+    return bridgeFetch('/camera/settings', {
+      method: 'POST',
+      body: JSON.stringify(settings)
+    })
+  }
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface CameraRecordingOptions {
+  resolution?: '5.7K' | '8K' | '4K'
+  fps?: 24 | 30 | 60
+  mode?: 'standard' | 'timelapse_road'
+}
+
+export interface CameraPhotoPOIData {
+  lat: number
+  lng: number
+  altitude: number
+  heading: number
+  surveyId: string
+  poiType: string
+  poiLabel: string
+}
+
+export interface CameraSettings {
+  resolution: '5.7K' | '8K' | '4K'
+  fps: 24 | 30 | 60
+  autoStartWithSurvey: boolean
+  autoStopWithSurvey: boolean
+  autoDownloadAfterSurvey: boolean
+  capturePhotosAtPOI: boolean
+  showHUD: boolean
+  hudPosition: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+}
+
+export interface CameraStatus {
+  batteryPercent: number
+  storageFreeMB: number
+  isRecording: boolean
+  recordingDuration: number
+  firmwareVersion: string
+}
+
+export interface CameraError {
+  code: 'START_FAILED' | 'RECORDING_STOPPED' | 'CONNECTION_LOST'
+      | 'STORAGE_FULL' | 'WRITE_ERROR' | 'OVERHEAT'
+  message: string
+  detail: string
+  recoverable: boolean
+  action: string
+}
+```
+
+---
+
+### `src/hooks/useCameraControl.ts`
+
+```typescript
+import { useState, useEffect, useCallback, useRef } from 'react'
+import {
+  cameraService,
+  CameraStatus,
+  CameraSettings,
+  CameraError
+} from '../services/cameraService'
+
+const DEFAULT_SETTINGS: CameraSettings = {
+  resolution: '5.7K',
+  fps: 30,
+  autoStartWithSurvey: true,
+  autoStopWithSurvey: true,
+  autoDownloadAfterSurvey: true,
+  capturePhotosAtPOI: false,
+  showHUD: true,
+  hudPosition: 'top-right'
+}
+
+export function useCameraControl() {
+  const [bridgeOnline, setBridgeOnline]           = useState(false)
+  const [cameraConnected, setCameraConnected]     = useState(false)
+  const [status, setStatus]                       = useState<CameraStatus | null>(null)
+  const [settings, setSettings]                   = useState<CameraSettings>(DEFAULT_SETTINGS)
+  const [cameraError, setCameraError]             = useState<CameraError | null>(null)
+  const [cameraWarnings, setCameraWarnings]       = useState<string[]>([])
+  const [isCapturingPhoto, setIsCapturingPhoto]   = useState(false)
+  const [lastPhotoResult, setLastPhotoResult]     = useState<string | null>(null)
+  const [downloadJobId, setDownloadJobId]         = useState<string | null>(null)
+  const [downloadProgress, setDownloadProgress]   = useState<any>(null)
+  const wasRecordingRef                           = useRef(false)
+  const activeSurveyIdRef                        = useRef<string | null>(null)
+  const pollRef                                   = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Load settings from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('measurepro_camera_settings')
+    if (saved) {
+      try { setSettings(JSON.parse(saved)) } catch {}
+    }
+  }, [])
+
+  // Poll every 10 seconds
+  useEffect(() => {
+    checkConnections()
+    pollRef.current = setInterval(checkConnections, 10000)
+    return () => { if (pollRef.current) clearInterval(pollRef.current) }
+  }, [])
+
+  // Poll download progress
+  useEffect(() => {
+    if (!downloadJobId) return
+    const interval = setInterval(async () => {
+      const progress = await cameraService.getDownloadProgress(downloadJobId)
+      setDownloadProgress(progress)
+      if (progress.status === 'done' || progress.status === 'error') {
+        clearInterval(interval)
+      }
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [downloadJobId])
+
+  async function checkConnections() {
+    const bridge = await cameraService.checkBridge()
+    setBridgeOnline(bridge)
+
+    if (!bridge) {
+      // If bridge went offline while survey was active, that's an error
+      if (activeSurveyIdRef.current && cameraConnected) {
+        setCameraError({
+          code: 'CONNECTION_LOST',
+          message: 'Service caméra déconnecté!',
+          detail: 'Le service camera-bridge ne répond plus.',
+          recoverable: true,
+          action: 'Arrêtez le véhicule. Vérifiez le câble USB-C de la caméra.'
+        })
+      }
+      setCameraConnected(false)
+      setStatus(null)
+      return
+    }
+
+    const cam = await cameraService.checkCamera()
+    setCameraConnected(cam)
+
+    if (!cam) {
+      if (activeSurveyIdRef.current) {
+        setCameraError({
+          code: 'CONNECTION_LOST',
+          message: 'Caméra 360° déconnectée!',
+          detail: 'La caméra X5 ne répond plus sur USB.',
+          recoverable: true,
+          action: 'Arrêtez le véhicule. Vérifiez le câble USB-C.'
+        })
+      }
+      setStatus(null)
+      return
+    }
+
+    try {
+      const s = await cameraService.getStatus()
+      if (!s.success) return
+
+      const newStatus: CameraStatus = s.data
+
+      // Detect recording stopped unexpectedly mid-survey
+      if (
+        activeSurveyIdRef.current &&
+        wasRecordingRef.current &&
+        !newStatus.isRecording
+      ) {
+        setCameraError({
+          code: 'RECORDING_STOPPED',
+          message: 'Enregistrement 360° interrompu!',
+          detail: 'La caméra a arrêté d\'enregistrer pendant le survey.',
+          recoverable: true,
+          action: 'Arrêtez le véhicule. Vérifiez le stockage et le câble USB.'
+        })
+      }
+
+      wasRecordingRef.current = newStatus.isRecording
+
+      // Non-blocking warnings (HUD only, no banner)
+      const warnings: string[] = []
+      if (newStatus.batteryPercent < 20 && newStatus.batteryPercent >= 0) {
+        warnings.push(`Batterie faible: ${newStatus.batteryPercent}%`)
+      }
+      if (newStatus.storageFreeMB < 1024) {
+        warnings.push(`Stockage faible: ${(newStatus.storageFreeMB / 1024).toFixed(1)}GB`)
+      }
+      // Storage full is an error, not just a warning
+      if (newStatus.storageFreeMB < 100 && activeSurveyIdRef.current) {
+        setCameraError({
+          code: 'STORAGE_FULL',
+          message: 'Stockage caméra presque plein!',
+          detail: `Seulement ${newStatus.storageFreeMB}MB restants.`,
+          recoverable: false,
+          action: 'Impossible de continuer. Libérez de l\'espace sur la carte SD.'
+        })
+      }
+
+      setCameraWarnings(warnings)
+      setStatus(newStatus)
+    } catch (e) {
+      // Status fetch failed — not critical unless mid-survey
+    }
+  }
+
+  // Called at survey start — sets active survey context for error detection
+  const startForSurvey = useCallback(async (surveyId: string) => {
+    activeSurveyIdRef.current = surveyId
+    if (!settings.autoStartWithSurvey || !cameraConnected) return
+
+    try {
+      const result = await cameraService.startRecording({
+        resolution: settings.resolution,
+        fps: settings.fps
+      })
+      if (!result.success) throw new Error(result.error || 'Unknown error')
+      setCameraError(null)
+      wasRecordingRef.current = true
+    } catch (e: any) {
+      setCameraError({
+        code: 'START_FAILED',
+        message: 'La caméra 360° n\'a pas démarré.',
+        detail: e.message,
+        recoverable: true,
+        action: 'Vérifiez le câble USB-C et cliquez Réessayer.'
+      })
+    }
+  }, [settings, cameraConnected])
+
+  // Called at survey stop
+  const stopForSurvey = useCallback(async (surveyId: string) => {
+    activeSurveyIdRef.current = null
+    wasRecordingRef.current = false
+    setCameraError(null)
+
+    if (!cameraConnected) return
+
+    if (settings.autoStopWithSurvey && status?.isRecording) {
+      try {
+        await cameraService.stopRecording()
+      } catch (e) {
+        // Non-critical at this point — survey is already done
+        console.warn('Camera stop failed:', e)
+      }
+    }
+
+    if (settings.autoDownloadAfterSurvey) {
+      try {
+        const result = await cameraService.startPostSurveyDownload(surveyId)
+        if (result.jobId) setDownloadJobId(result.jobId)
+      } catch (e) {
+        console.warn('Auto-download failed:', e)
+      }
+    }
+  }, [settings, cameraConnected, status])
+
+  // Called when operator taps the manual photo POI button
+  const capturePhotoPOI = useCallback(async (geoData: {
+    lat: number; lng: number; altitude: number; heading: number
+    surveyId: string; poiType: string; poiLabel: string
+  }) => {
+    if (!cameraConnected || isCapturingPhoto) return null
+    setIsCapturingPhoto(true)
+    try {
+      const result = await cameraService.capturePhotoPOI(geoData)
+      if (result.success) {
+        setLastPhotoResult(result.filename)
+        setTimeout(() => setLastPhotoResult(null), 3000)
+        return result.filename
+      }
+      throw new Error(result.error || 'Photo failed')
+    } catch (e: any) {
+      setCameraError({
+        code: 'WRITE_ERROR',
+        message: 'Échec de la photo 360°.',
+        detail: e.message,
+        recoverable: true,
+        action: 'Réessayez. Vérifiez le stockage de la caméra.'
+      })
+      return null
+    } finally {
+      setIsCapturingPhoto(false)
+    }
+  }, [cameraConnected, isCapturingPhoto])
+
+  // Retry after an error
+  const retryAfterError = useCallback(async () => {
+    if (!cameraError) return
+    setCameraError(null)
+
+    if (cameraError.code === 'START_FAILED' || cameraError.code === 'RECORDING_STOPPED') {
+      if (activeSurveyIdRef.current) {
+        await startForSurvey(activeSurveyIdRef.current)
+      }
+    } else {
+      await checkConnections()
+    }
+  }, [cameraError, startForSurvey])
+
+  const dismissError = useCallback(() => {
+    setCameraError(null)
+  }, [])
+
+  const saveSettings = useCallback(async (newSettings: CameraSettings) => {
+    setSettings(newSettings)
+    localStorage.setItem('measurepro_camera_settings', JSON.stringify(newSettings))
+    try { await cameraService.saveSettings(newSettings) } catch {}
+  }, [])
+
+  return {
+    // Connection state
+    bridgeOnline,
+    cameraConnected,
+    status,
+    settings,
+    // Errors and warnings
+    cameraError,
+    cameraWarnings,
+    // Photo capture
+    isCapturingPhoto,
+    lastPhotoResult,
+    // Post-survey download
+    downloadProgress,
+    // Actions
+    startForSurvey,
+    stopForSurvey,
+    capturePhotoPOI,
+    retryAfterError,
+    dismissError,
+    saveSettings,
+    refreshStatus: checkConnections
+  }
+}
+```
+
+---
+
+### `src/components/CameraErrorBanner.tsx`
+
+Persistent red banner shown when a critical camera error occurs.
+Requires manual dismissal — does NOT auto-dismiss.
+Rendered at z-index 9999, above all other UI including the laser HUD.
+
+```tsx
+import { CameraError } from '../services/cameraService'
+
+interface CameraErrorBannerProps {
+  error: CameraError | null
+  onRetry: () => void
+  onDismiss: () => void
+}
+
+export function CameraErrorBanner({ error, onRetry, onDismiss }: CameraErrorBannerProps) {
+  if (!error) return null
+
+  return (
+    <div
+      className="camera-error-banner"
+      role="alert"
+      aria-live="assertive"
+    >
+      <div className="camera-error-banner__icon" aria-hidden>⚠️</div>
+      <div className="camera-error-banner__content">
+        <strong className="camera-error-banner__title">{error.message}</strong>
+        <span className="camera-error-banner__action">{error.action}</span>
+      </div>
+      <div className="camera-error-banner__buttons">
+        {error.recoverable && (
+          <button
+            className="camera-error-btn camera-error-btn--retry"
+            onClick={onRetry}
+          >
+            Réessayer
+          </button>
+        )}
+        <button
+          className="camera-error-btn camera-error-btn--dismiss"
+          onClick={onDismiss}
+        >
+          Continuer sans caméra
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+```css
+/* In camera.css or main stylesheet */
+
+.camera-error-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: #dc2626;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.camera-error-banner__icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.camera-error-banner__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.camera-error-banner__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.camera-error-banner__action {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.camera-error-banner__buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.camera-error-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 80px;
+}
+
+.camera-error-btn--retry {
+  background: white;
+  color: #dc2626;
+}
+
+.camera-error-btn--retry:hover { background: #f1f5f9; }
+
+.camera-error-btn--dismiss {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.camera-error-btn--dismiss:hover {
+  background: rgba(255,255,255,0.3);
+}
+```
+
+---
+
+### `src/components/CameraHUD.tsx`
+
+Minimal non-intrusive HUD. Shows only what is needed.
+Warnings (battery, storage) appear in the badge.
+Errors are handled by CameraErrorBanner, not here.
+
+```tsx
+import { useCameraControl } from '../hooks/useCameraControl'
+
+interface CameraHUDProps {
+  currentPosition: { lat: number; lng: number; altitude: number; heading: number }
+  currentSurveyId: string | null
+  currentPOIType: string
+  currentPOILabel: string
+}
+
+export function CameraHUD({
+  currentPosition,
+  currentSurveyId,
+  currentPOIType,
+  currentPOILabel
+}: CameraHUDProps) {
+  const {
+    bridgeOnline, cameraConnected, status, settings,
+    cameraWarnings, isCapturingPhoto, lastPhotoResult,
+    capturePhotoPOI
+  } = useCameraControl()
+
+  if (!settings.showHUD) return null
+  if (!bridgeOnline) return null
+
+  const positionStyle: React.CSSProperties = {
+    position: 'fixed',
+    zIndex: 900,
+    ...(settings.hudPosition === 'top-right'    && { top: 80, right: 16 }),
+    ...(settings.hudPosition === 'top-left'     && { top: 80, left: 16 }),
+    ...(settings.hudPosition === 'bottom-right' && { bottom: 80, right: 16 }),
+    ...(settings.hudPosition === 'bottom-left'  && { bottom: 80, left: 16 }),
+  }
+
+  // Camera not connected (but bridge is running) — show warning badge
+  if (!cameraConnected) {
+    return (
+      <div style={positionStyle}>
+        <div className="camera-hud-badge camera-hud-badge--warning">
+          <span>📷 Caméra non détectée</span>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div style={positionStyle} className="camera-hud">
+
+      {/* Status badge */}
+      <div className={`camera-hud-badge ${cameraWarnings.length > 0 ? 'camera-hud-badge--warn' : 'camera-hud-badge--ok'}`}>
+        {status?.isRecording && (
+          <span className="camera-hud-rec-dot" aria-label="Enregistrement actif" />
+        )}
+        {cameraWarnings.length > 0 ? (
+          // Show first warning in badge
+          <span className="camera-hud-warn-text">{cameraWarnings[0]}</span>
+        ) : (
+          status?.isRecording && (
+            <span className="camera-hud-duration">
+              {formatDuration(status.recordingDuration)}
+            </span>
+          )
+        )}
+      </div>
+
+      {/* Photo POI button — only during active survey */}
+      {currentSurveyId && (
+        <button
+          className={[
+            'camera-hud-photo-btn',
+            isCapturingPhoto ? 'camera-hud-photo-btn--capturing' : '',
+            lastPhotoResult  ? 'camera-hud-photo-btn--success'   : ''
+          ].join(' ')}
+          onClick={() => capturePhotoPOI({
+            ...currentPosition,
+            surveyId: currentSurveyId,
+            poiType: currentPOIType,
+            poiLabel: currentPOILabel
+          })}
+          disabled={isCapturingPhoto}
+          aria-label="Capturer photo 360° au POI"
+          title="Photo 360° à cette position"
+        >
+          {isCapturingPhoto ? '⏳' : lastPhotoResult ? '✓' : '📷'}
+        </button>
+      )}
+
+    </div>
+  )
+}
+
+function formatDuration(seconds: number): string {
+  const h = Math.floor(seconds / 3600)
+  const m = Math.floor((seconds % 3600) / 60)
+  const s = seconds % 60
+  if (h > 0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`
+  return `${m}:${String(s).padStart(2,'0')}`
+}
+```
+
+```css
+.camera-hud {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.camera-hud-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.camera-hud-badge--ok   { background: rgba(0,0,0,0.35); color: rgba(255,255,255,0.75); }
+.camera-hud-badge--warn { background: rgba(234,179,8,0.85); color: #1a1a00; }
+.camera-hud-badge--warning { background: rgba(251,146,60,0.85); color: white; }
+
+.camera-hud-rec-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  flex-shrink: 0;
+  animation: recpulse 2s ease-in-out infinite;
+}
+
+@keyframes recpulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.camera-hud-duration   { font-family: monospace; }
+.camera-hud-warn-text  { font-weight: 600; }
+
+.camera-hud-photo-btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  pointer-events: all;
+  transition: transform 0.1s, background 0.15s;
+}
+
+.camera-hud-photo-btn:active               { transform: scale(0.91); }
+.camera-hud-photo-btn--capturing           { background: rgba(251,146,60,0.85); }
+.camera-hud-photo-btn--success             { background: rgba(34,197,94,0.85); }
+.camera-hud-photo-btn:disabled             { opacity: 0.45; cursor: not-allowed; }
+```
+
+---
+
+### `src/components/CameraPreCheckModal.tsx`
+
+Shown before survey starts when camera is connected.
+Operator validates lenses via live preview + checklist.
+Cannot be skipped without explicit "Démarrer sans caméra" click.
+
+```tsx
+import { useState, useEffect } from 'react'
+import { cameraService } from '../services/cameraService'
+import { useCameraControl } from '../hooks/useCameraControl'
+
+interface CameraPreCheckModalProps {
+  isOpen: boolean
+  onConfirmWithCamera: () => void
+  onSkipCamera: () => void
+}
+
+export function CameraPreCheckModal({
+  isOpen,
+  onConfirmWithCamera,
+  onSkipCamera
+}: CameraPreCheckModalProps) {
+  const { status, cameraConnected } = useCameraControl()
+
+  const [previewUrl,     setPreviewUrl]     = useState<string | null>(null)
+  const [previewLoading, setPreviewLoading] = useState(false)
+  const [previewError,   setPreviewError]   = useState<string | null>(null)
+
+  const [checklist, setChecklist] = useState({
+    lensClean:    false,
+    mountSecure:  false,
+    batteryOk:    false,
+    storageOk:    false
+  })
+
+  // Auto-fill battery and storage from live status
+  useEffect(() => {
+    if (status) {
+      setChecklist(c => ({
+        ...c,
+        batteryOk: status.batteryPercent > 20,
+        storageOk: status.storageFreeMB  > 2048
+      }))
+    }
+  }, [status])
+
+  // Cleanup preview blob URL when modal closes
+  useEffect(() => {
+    if (!isOpen && previewUrl) {
+      URL.revokeObjectURL(previewUrl)
+      setPreviewUrl(null)
+    }
+  }, [isOpen])
+
+  async function loadPreview() {
+    setPreviewLoading(true)
+    setPreviewError(null)
+    try {
+      const url = await cameraService.getPreviewSnapshotUrl()
+      setPreviewUrl(url)
+    } catch (e: any) {
+      setPreviewError('Impossible de charger le preview: ' + e.message)
+    } finally {
+      setPreviewLoading(false)
+    }
+  }
+
+  function toggle(key: keyof typeof checklist) {
+    setChecklist(c => ({ ...c, [key]: !c[key] }))
+  }
+
+  const allChecked = Object.values(checklist).every(Boolean)
+
+  if (!isOpen) return null
+
+  return (
+    <div className="camera-precheck-overlay" role="dialog" aria-modal="true">
+      <div className="camera-precheck-modal">
+
+        <h2 className="camera-precheck-title">
+          Vérification caméra 360° avant survey
+        </h2>
+
+        {/* Live preview section */}
+        <div className="camera-precheck-preview">
+          {!previewUrl && !previewLoading && !previewError && (
+            <button
+              className="preview-load-btn"
+              onClick={loadPreview}
+              disabled={!cameraConnected}
+            >
+              📷 Charger le preview (vérification des lentilles)
+            </button>
+          )}
+
+          {previewLoading && (
+            <div className="preview-loading">
+              <span className="preview-loading-spinner" />
+              Capture en cours... (~10-15 secondes)
+            </div>
+          )}
+
+          {previewError && (
+            <div className="preview-error">
+              <span>{previewError}</span>
+              <button onClick={loadPreview} className="preview-retry-btn">
+                Réessayer
+              </button>
+            </div>
+          )}
+
+          {previewUrl && (
+            <div className="preview-image-wrap">
+              {/* Show equirectangular flat — sufficient for lens check */}
+              <img
+                src={previewUrl}
+                alt="Preview caméra 360° — vérification des lentilles"
+                className="camera-precheck-image"
+              />
+              <div className="preview-image-footer">
+                <p>Vérifiez que les deux lentilles sont propres sur toute leur surface.</p>
+                <button onClick={loadPreview} className="preview-refresh-btn">
+                  ↺ Actualiser le preview
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Checklist */}
+        <div className="camera-precheck-list">
+          <h3>Checklist pré-départ</h3>
+
+          <label className="precheck-item">
+            <input
+              type="checkbox"
+              checked={checklist.lensClean}
+              onChange={() => toggle('lensClean')}
+            />
+            <span>Lentilles propres et sans obstruction (eau, boue, doigt)</span>
+          </label>
+
+          <label className="precheck-item">
+            <input
+              type="checkbox"
+              checked={checklist.mountSecure}
+              onChange={() => toggle('mountSecure')}
+            />
+            <span>Mount de toit solidement fixé, câble USB-C bien branché</span>
+          </label>
+
+          <label className={`precheck-item ${!checklist.batteryOk ? 'precheck-item--auto-warn' : 'precheck-item--auto-ok'}`}>
+            <input
+              type="checkbox"
+              checked={checklist.batteryOk}
+              readOnly
+              disabled
+            />
+            <span>
+              {checklist.batteryOk
+                ? `Batterie suffisante (${status?.batteryPercent ?? '?'}%)`
+                : `Batterie faible (${status?.batteryPercent ?? '?'}%) — rechargez avant de partir`
+              }
+            </span>
+          </label>
+
+          <label className={`precheck-item ${!checklist.storageOk ? 'precheck-item--auto-warn' : 'precheck-item--auto-ok'}`}>
+            <input
+              type="checkbox"
+              checked={checklist.storageOk}
+              readOnly
+              disabled
+            />
+            <span>
+              {checklist.storageOk
+                ? `Stockage suffisant (${((status?.storageFreeMB ?? 0) / 1024).toFixed(1)} GB libres)`
+                : `Stockage insuffisant (${((status?.storageFreeMB ?? 0) / 1024).toFixed(1)} GB) — libérez de l'espace`
+              }
+            </span>
+          </label>
+        </div>
+
+        {/* Action buttons */}
+        <div className="camera-precheck-actions">
+          <button
+            className="precheck-btn precheck-btn--confirm"
+            onClick={onConfirmWithCamera}
+            disabled={!allChecked}
+          >
+            ✓ Caméra prête — Démarrer le survey
+          </button>
+          <button
+            className="precheck-btn precheck-btn--skip"
+            onClick={onSkipCamera}
+          >
+            Démarrer sans caméra 360°
+          </button>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+```
+
+```css
+.camera-precheck-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.camera-precheck-modal {
+  background: var(--color-background-primary, #fff);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.camera-precheck-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.camera-precheck-preview {
+  min-height: 160px;
+  background: #0f172a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-load-btn {
+  padding: 14px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  min-height: 52px;
+}
+
+.preview-load-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.preview-load-btn:hover:not(:disabled) { background: #2563eb; }
+
+.preview-loading {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.preview-loading-spinner {
+  width: 28px; height: 28px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.preview-error {
+  color: #fca5a5;
+  font-size: 13px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.preview-retry-btn {
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.preview-image-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-precheck-image {
+  width: 100%;
+  display: block;
+  /* Equirectangular is wider than tall — clip to reasonable height */
+  max-height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.preview-image-footer {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.4);
+}
+
+.preview-image-footer p {
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  margin: 0;
+}
+
+.preview-refresh-btn {
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.camera-precheck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.camera-precheck-list h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-secondary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.precheck-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-tertiary, #e2e8f0);
+}
+
+.precheck-item input[type="checkbox"] {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+  accent-color: #22c55e;
+}
+
+.precheck-item--auto-ok   { border-color: #22c55e; background: rgba(34,197,94,0.06); }
+.precheck-item--auto-warn { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+
+.camera-precheck-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.precheck-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 52px;
+  transition: opacity 0.15s;
+}
+
+.precheck-btn--confirm {
+  background: #22c55e;
+  color: white;
+}
+
+.precheck-btn--confirm:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.precheck-btn--confirm:hover:not(:disabled) { background: #16a34a; }
+
+.precheck-btn--skip {
+  background: transparent;
+  color: var(--color-text-secondary, #64748b);
+  border: 1px solid var(--color-border-secondary, #cbd5e1);
+  font-size: 13px;
+}
+
+.precheck-btn--skip:hover { background: var(--color-background-secondary, #f8fafc); }
+```
+
+---
+
+### `src/components/CameraDownloadBanner.tsx`
+
+```tsx
+import { useCameraControl } from '../hooks/useCameraControl'
+
+export function CameraDownloadBanner() {
+  const { downloadProgress } = useCameraControl()
+
+  if (!downloadProgress) return null
+  if (downloadProgress.status === 'done') return null
+
+  const percent = downloadProgress.totalFiles > 0
+    ? Math.round((downloadProgress.downloadedFiles / downloadProgress.totalFiles) * 100)
+    : 0
+
+  const isError = downloadProgress.status === 'error'
+
+  return (
+    <div className={`camera-download-banner ${isError ? 'camera-download-banner--error' : ''}`}>
+      <span className="camera-download-banner__icon">📷</span>
+      <div className="camera-download-banner__content">
+        <span className="camera-download-banner__label">
+          {isError
+            ? `Erreur téléchargement vidéo: ${downloadProgress.errorMessage}`
+            : `Téléchargement vidéo 360° en cours — ${percent}% (${downloadProgress.downloadedFiles}/${downloadProgress.totalFiles} fichiers)`
+          }
+        </span>
+        {!isError && (
+          <div className="camera-download-banner__bar">
+            <div
+              className="camera-download-banner__fill"
+              style={{ width: `${percent}%` }}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+```
+
+```css
+.camera-download-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--color-background-secondary, #f1f5f9);
+  border-top: 1px solid var(--color-border-tertiary, #e2e8f0);
+  font-size: 13px;
+}
+
+.camera-download-banner--error { background: #fef2f2; }
+
+.camera-download-banner__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.camera-download-banner__bar {
+  height: 4px;
+  background: var(--color-border-tertiary, #e2e8f0);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.camera-download-banner__fill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+```
+
+---
+
+### `src/components/CameraSettingsPanel.tsx`
+
+```tsx
+import { useCameraControl } from '../hooks/useCameraControl'
+import { CameraSettings } from '../services/cameraService'
+
+export function CameraSettingsPanel() {
+  const {
+    bridgeOnline, cameraConnected, status,
+    settings, saveSettings, refreshStatus
+  } = useCameraControl()
+
+  function update<K extends keyof CameraSettings>(key: K, value: CameraSettings[K]) {
+    saveSettings({ ...settings, [key]: value })
+  }
+
+  return (
+    <div className="settings-section">
+      <h3>Caméra 360° — Insta360 X5</h3>
+
+      {/* Connection status */}
+      <div className="settings-status-row">
+        <span>Service bridge (Windows)</span>
+        <span className={bridgeOnline ? 'status-ok' : 'status-err'}>
+          {bridgeOnline ? '● Actif' : '● Hors ligne'}
+        </span>
+      </div>
+
+      <div className="settings-status-row">
+        <span>Caméra USB</span>
+        <span className={cameraConnected ? 'status-ok' : 'status-warn'}>
+          {cameraConnected ? '● Connectée' : '● Non détectée'}
+        </span>
+      </div>
+
+      {status && cameraConnected && (
+        <>
+          <div className="settings-status-row">
+            <span>Batterie</span>
+            <span className={status.batteryPercent < 20 ? 'status-warn' : ''}>
+              {status.batteryPercent}%
+            </span>
+          </div>
+          <div className="settings-status-row">
+            <span>Stockage libre</span>
+            <span className={status.storageFreeMB < 1024 ? 'status-warn' : ''}>
+              {(status.storageFreeMB / 1024).toFixed(1)} GB
+            </span>
+          </div>
+          <div className="settings-status-row">
+            <span>Firmware</span>
+            <span>{status.firmwareVersion}</span>
+          </div>
+        </>
+      )}
+
+      <button onClick={refreshStatus} className="settings-refresh-btn">
+        ↺ Actualiser le statut
+      </button>
+
+      <hr />
+
+      <h4>Enregistrement</h4>
+
+      <label className="settings-row">
+        <span>Résolution vidéo</span>
+        <select value={settings.resolution}
+          onChange={e => update('resolution', e.target.value as any)}>
+          <option value="5.7K">5.7K 30fps — Survey routier (recommandé)</option>
+          <option value="8K">8K 30fps — Qualité maximale</option>
+          <option value="4K">4K 60fps — Stockage réduit</option>
+        </select>
+      </label>
+
+      <hr />
+
+      <h4>Automatisation</h4>
+
+      <label className="settings-toggle-row">
+        <span>
+          Démarrer automatiquement avec le survey
+          <small>La caméra démarre quand vous cliquez "Démarrer survey"</small>
+        </span>
+        <input type="checkbox" checked={settings.autoStartWithSurvey}
+          onChange={e => update('autoStartWithSurvey', e.target.checked)} />
+      </label>
+
+      <label className="settings-toggle-row">
+        <span>
+          Arrêter automatiquement avec le survey
+          <small>La caméra s'arrête quand vous cliquez "Terminer survey"</small>
+        </span>
+        <input type="checkbox" checked={settings.autoStopWithSurvey}
+          onChange={e => update('autoStopWithSurvey', e.target.checked)} />
+      </label>
+
+      <label className="settings-toggle-row">
+        <span>
+          Téléchargement automatique après survey
+          <small>Les fichiers .insv sont copiés vers C:\SolTec\Surveys\
+            en arrière-plan après le survey</small>
+        </span>
+        <input type="checkbox" checked={settings.autoDownloadAfterSurvey}
+          onChange={e => update('autoDownloadAfterSurvey', e.target.checked)} />
+      </label>
+
+      <label className="settings-toggle-row">
+        <span>
+          Photo 360° automatique à chaque POI laser
+          <small>
+            ⚠️ Prend une photo à CHAQUE POI créé automatiquement.
+            Désactivé par défaut — utilisez le bouton manuel dans le HUD.
+          </small>
+        </span>
+        <input type="checkbox" checked={settings.capturePhotosAtPOI}
+          onChange={e => update('capturePhotosAtPOI', e.target.checked)} />
+      </label>
+
+      <hr />
+
+      <h4>Affichage HUD</h4>
+
+      <label className="settings-toggle-row">
+        <span>
+          Afficher le HUD caméra
+          <small>Indicateur compact de statut en overlay sur la carte</small>
+        </span>
+        <input type="checkbox" checked={settings.showHUD}
+          onChange={e => update('showHUD', e.target.checked)} />
+      </label>
+
+      <label className="settings-row">
+        <span>Position du HUD</span>
+        <select value={settings.hudPosition}
+          onChange={e => update('hudPosition', e.target.value as any)}>
+          <option value="top-right">Haut droite (défaut)</option>
+          <option value="top-left">Haut gauche</option>
+          <option value="bottom-right">Bas droite</option>
+          <option value="bottom-left">Bas gauche</option>
+        </select>
+      </label>
+
+      <hr />
+
+      <h4>Diagnostic</h4>
+      <p className="settings-note">
+        Le service bridge démarre automatiquement avec Windows.
+        Si la caméra n'est pas détectée, vérifiez le câble USB-C
+        et que le firmware X5 est à jour.<br />
+        Logs: <code>C:\SolTec\camera-bridge\logs\</code>
+      </p>
+
+      {!bridgeOnline && (
+        <div className="settings-bridge-warning">
+          ⚠️ Le service camera-bridge n'est pas démarré.
+          Lancez <code>node dist/server.js</code> dans le dossier
+          camera-bridge, ou relancez Windows pour le démarrage automatique.
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+---
+
+## PART 3 — INTEGRATION INTO EXISTING COMPONENTS
+
+### Modify survey start handler
+
+Find the component with the "Démarrer survey" button. Add:
+
+```typescript
+import { useState } from 'react'
+import { useCameraControl } from '../hooks/useCameraControl'
+import { CameraPreCheckModal } from '../components/CameraPreCheckModal'
+
+// Inside component:
+const { startForSurvey, cameraConnected, settings } = useCameraControl()
+const [showCameraPreCheck, setShowCameraPreCheck] = useState(false)
+
+// Replace direct survey start with:
+async function handleStartSurveyClick() {
+  // If camera is connected and autoStart is on, show pre-check first
+  if (cameraConnected && settings.autoStartWithSurvey) {
+    setShowCameraPreCheck(true)
+    // Modal will call either onConfirmWithCamera or onSkipCamera
+    return
+  }
+  // No camera — start survey directly
+  await doStartSurvey(false)
+}
+
+async function doStartSurvey(withCamera: boolean) {
+  setShowCameraPreCheck(false)
+  const newSurveyId = await createSurveyInFirestore(...)  // existing logic
+
+  if (withCamera) {
+    await startForSurvey(newSurveyId)
+    // Error is handled by CameraErrorBanner — no try/catch needed here
+  }
+}
+
+// In render:
+return (
+  <>
+    {/* Existing survey UI */}
+    <button onClick={handleStartSurveyClick}>Démarrer survey</button>
+
+    {/* Camera pre-check modal */}
+    <CameraPreCheckModal
+      isOpen={showCameraPreCheck}
+      onConfirmWithCamera={() => doStartSurvey(true)}
+      onSkipCamera={() => doStartSurvey(false)}
+    />
+  </>
+)
+```
+
+### Modify survey stop handler
+
+```typescript
+const { stopForSurvey } = useCameraControl()
+
+async function handleStopSurvey() {
+  // Stop camera first (non-blocking)
+  stopForSurvey(currentSurveyId).catch(console.warn)
+  // ... existing survey stop logic ...
+}
+```
+
+### Add CameraErrorBanner and CameraHUD to main survey view
+
+```tsx
+import { CameraErrorBanner } from '../components/CameraErrorBanner'
+import { CameraHUD }         from '../components/CameraHUD'
+import { useCameraControl }  from '../hooks/useCameraControl'
+
+const { cameraError, retryAfterError, dismissError, settings } = useCameraControl()
+const gpsPosition = useGPSStore(s => s.position)
+
+return (
+  <>
+    {/* Error banner — always at top, z-index 9999 */}
+    <CameraErrorBanner
+      error={cameraError}
+      onRetry={retryAfterError}
+      onDismiss={dismissError}
+    />
+
+    {/* Existing map, laser HUD, POI controls... */}
+
+    {/* Camera HUD — below laser HUD, z-index 900 */}
+    <CameraHUD
+      currentPosition={{
+        lat:      gpsPosition?.lat      ?? 0,
+        lng:      gpsPosition?.lng      ?? 0,
+        altitude: gpsPosition?.altitude ?? 0,
+        heading:  gpsPosition?.heading  ?? 0
+      }}
+      currentSurveyId={activeSurveyId}
+      currentPOIType={selectedPOIType}
+      currentPOILabel={selectedPOILabel}
+    />
+  </>
+)
+```
+
+### Modify POI creation (optional auto-photo)
+
+```typescript
+const { capturePhotoPOI, settings } = useCameraControl()
+const gpsPosition = useGPSStore(s => s.position)
+
+async function handleCreatePOI(poiData: POIData) {
+  // Existing POI logic — unchanged
+  await savePoiToFirestore(poiData)
+
+  // Auto-photo if enabled (disabled by default)
+  if (settings.capturePhotosAtPOI && gpsPosition && activeSurveyId) {
+    capturePhotoPOI({
+      lat:      gpsPosition.lat,
+      lng:      gpsPosition.lng,
+      altitude: gpsPosition.altitude ?? 0,
+      heading:  gpsPosition.heading  ?? 0,
+      surveyId: activeSurveyId,
+      poiType:  poiData.type,
+      poiLabel: poiData.label
+    })
+    // Fire-and-forget — errors surface via CameraErrorBanner
+  }
+}
+```
+
+### Add CameraSettingsPanel and CameraDownloadBanner
+
+```tsx
+// In Settings page:
+import { CameraSettingsPanel } from '../components/CameraSettingsPanel'
+<CameraSettingsPanel />
+
+// In survey summary / post-survey screen:
+import { CameraDownloadBanner } from '../components/CameraDownloadBanner'
+<CameraDownloadBanner />
+```
+
+---
+
+## IMPLEMENTATION ORDER
+
+1. `camera-bridge/` — build and test standalone. Verify `/health`,
+   `/camera/ping`, `/camera/status`, start/stop recording, preview snapshot.
+   Do NOT touch MeasurePRO until bridge works with a real X5.
+
+2. `cameraService.ts` — add to MeasurePRO client. Test in browser console
+   that `cameraService.checkBridge()` returns true.
+
+3. `useCameraControl.ts` — verify all state updates correctly.
+
+4. `CameraErrorBanner.tsx` — add to survey view. Test by unplugging the
+   camera mid-survey simulation and confirming the banner appears.
+
+5. `CameraPreCheckModal.tsx` + preview endpoint — test full pre-check flow
+   with a real camera, verify preview image loads and checklist gates work.
+
+6. `CameraSettingsPanel.tsx` — add to settings page.
+
+7. `CameraHUD.tsx` — add to survey view. Verify z-index does not overlap
+   existing laser HUD. Verify photo button works.
+
+8. Survey start/stop integration — wire auto-start and auto-stop.
+
+9. POI integration (auto-photo disabled by default).
+
+10. `CameraDownloadBanner.tsx` — add to post-survey screen.
+
+11. Windows startup script — test auto-start on reboot.
+
+---
+
+## DEPENDENCIES TO INSTALL
+
+**camera-bridge:**
+```bash
+npm install express cors node-fetch winston systray2
+npm install -D typescript @types/express @types/cors @types/node ts-node
+```
+
+**MeasurePRO client:** No new npm dependencies.
+
+---
+
+## CRITICAL CONSTRAINTS — FINAL
+
+1. CameraErrorBanner z-index = 9999, above ALL other UI
+2. CameraPreCheckModal blocks survey start — no bypass without explicit skip
+3. Preview snapshot endpoint on bridge must clean up temp files after sending
+4. Camera polling interval = 10 seconds (not 1s — do not impact GPS performance)
+5. All camera operations in `useCameraControl` must update `cameraError` state
+   on failure — never silently swallow errors
+6. CameraHUD z-index = 900, BELOW existing laser HUD
+7. Photo POI button minimum size = 56x56px (touch-safe)
+8. `activeSurveyIdRef` must be set to null when survey ends so mid-survey
+   error detection stops correctly
+9. The laser/POI workflow must work identically whether camera bridge is
+   online or offline
+
+---
+
+*End of prompt.*
+*Primary: laser measurements and POI workflow — unchanged.*
+*Secondary but never ignorable: 360° camera with full error surfacing.*

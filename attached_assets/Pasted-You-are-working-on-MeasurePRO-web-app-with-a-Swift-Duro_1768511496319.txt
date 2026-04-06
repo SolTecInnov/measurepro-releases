@@ -1,0 +1,279 @@
+You are working on MeasurePRO (web app) with a Swift Duro GNSS/IMU feed and a live profile viewer. Implement a complete “GNSS Profiling Settings — Diagnostics, Calibration & Profile Viewer Controls” suite so the user can identify axes (X/Y/Z), validate roll/pitch/yaw, inspect raw GNSS fields (including altitude reference), calibrate altitude (altimeter-style offset), and test everything directly inside MeasurePRO under GNSS Profiling Settings. Also enhance the Profile Viewer to show live telemetry overlays, fix distance axis for very long profiles, and add icon toggles.
+
+DO NOT hand-wave. Implement the UI, the data capture, the analysis, the live validation, and store results. Provide concrete file paths and changes.
+
+================================================================================
+HIGH-LEVEL OUTCOME
+Everything needed to understand and test the Duro feed (axes + attitude + altitude reference + offsets) must be available directly in:
+Settings -> GNSS Profiling -> Diagnostics & Calibration
+and it must update live while connected to the Duro.
+
+================================================================================
+VEHICLE FRAME CONVENTION (EXPLICIT)
+Use this vehicle coordinate frame (right-handed):
+- X_vehicle: forward (positive forward)
+- Y_vehicle: right (positive right)
+- Z_vehicle: up (positive up)
+
+The app must explicitly show this convention in the UI.
+
+================================================================================
+PART 0 — FIND WHERE THE DURO DATA IS PARSED AND EXPOSE RAW TELEMETRY
+Before building anything, locate the current GNSS/IMU ingest pipeline:
+- The server route(s) / websocket(s) that proxy Duro
+- The frontend service that subscribes to GNSS stream
+- The data model where packets are parsed into lat/lon/heading/altitude/roll/pitch/yaw, accel, gyro
+
+Add a single “Raw Packet Tap” so GNSS Profiling Settings can display the last N raw packets without altering existing business logic.
+- Must not break overhead clearance features.
+- Must include timestamps, and retain the original raw fields as received.
+
+================================================================================
+PART 1 — GNSS PROFILING SETTINGS: “DIAGNOSTICS & CALIBRATION” SECTION
+Add a new section/tab within GNSS Profiling Settings:
+“Diagnostics & Calibration”
+This section contains 6 panels:
+
+1) LIVE TELEMETRY DASHBOARD (Raw + Derived)
+Display live telemetry with both raw and derived fields:
+- Timestamp (device + received)
+- Lat / Lon
+- Heading (deg)
+- Speed (m/s or km/h) if available
+- Fix type (RTK float/fix, etc) if available
+- Satellites / HDOP/PDOP (if available)
+- Altitude (raw candidates + selected + corrected) (see Part 3/4)
+- Roll / Pitch / Yaw (deg)
+- Accel X/Y/Z (m/s²) (if available)
+- Gyro X/Y/Z (deg/s or rad/s) (if available)
+
+UI controls:
+- Connect/Disconnect status + last packet age
+- Pause UI updates (do not stop data stream)
+- “Record sample” buttons: 10s / 20s / 60s
+- “Export diagnostics log” (JSON file) including:
+  - raw packets (ring buffer snapshot)
+  - derived telemetry
+  - chosen axis mapping
+  - chosen altitude source + geoid logic
+  - altitude offset
+  - device/project identifiers
+  - app version/build id
+- “Copy summary” button: copies a human-readable summary for support/debug.
+
+2) RAW PAYLOAD INSPECTOR (Altitude Reference Discovery)
+Show last N raw packets (e.g., 20) in a pretty JSON viewer.
+Add automatic highlighting of altitude-related keys by scanning for:
+alt, altitude, height, msl, ellipsoid, geoid, undulation, geoidSep, separation, egm
+For each packet show an “Altitude Summary” box that includes:
+- candidate explicit MSL field (if present): msl, altitudeMSL, heightMSL, etc
+- candidate ellipsoid field (if present): ellipsoidHeight, heightEllipsoid, etc
+- geoid separation/undulation (if present): geoidSep, undulation, separation
+- derived MSL if possible:
+  altitudeMSL_derived = ellipsoidHeight - geoidSep   (be explicit about signs and units)
+Show a status badge:
+- “MSL available (explicit)”
+- “MSL derivable (ellipsoid + geoid separation)”
+- “Altitude reference ambiguous (only alt/height present)”
+Add a dropdown to choose altitude source strategy used by MeasurePRO:
+- Prefer explicit MSL
+- Derive MSL (ellipsoid - geoid separation)
+- Use raw altitude as-is (warn: ambiguous)
+Persist this choice per device with optional per-project override.
+Always store/export both raw altitude candidate(s) and the selected/derived altitude.
+
+3) ALTITUDE CALIBRATION (Altimeter-style offset)
+Rename any “Elevation” label to:
+“Altitude (MSL)” or “Altitude vs Sea Level (MSL)”
+Implement altitude correction:
+altitude_corrected = altitude_selected_or_derived + altitude_offset_m
+
+Panel elements:
+- Show RAW altitude (selected/derived) vs CORRECTED altitude side-by-side.
+- Field: “Altitude Offset (m)” with increment buttons (+/- 0.5, 1, 5).
+- Reset button (offset = 0).
+- “Calibrate Now” wizard:
+  Step 1: Choose method:
+    A) Known benchmark altitude (recommended) -> user enters known altitude
+    B) Phone reference -> user enters phone altitude (show warning re unreliability)
+    C) Manual map/reference -> user enters trusted altitude
+  Step 2: App reads current selected altitude and computes:
+    offset = referenceAltitude - currentAltitude
+  Step 3: Show before/after; Apply offset.
+- In-app explanation (short and clear):
+  GNSS altitude varies by model/reference and local errors; offset aligns displayed altitude.
+  Recommend recalibrating after moving far (e.g., >200 km), changing hardware mount, or firmware/settings changes.
+Traceability requirement:
+- Exports must include raw altitude fields + selected altitude strategy + offset + corrected altitude.
+- Add “Reset to raw” control.
+
+4) AXIS ORIENTATION TEST WIZARD (Identify X/Y/Z on the user’s physical mount)
+Create a guided wizard “Identify Duro Axes (X/Y/Z)” inside GNSS Profiling Settings.
+Must show:
+- live accel/gyro numeric values
+- a simple axis visualization (arrows/cube) showing current Duro axes and target vehicle axes
+
+Provide 3 guided tests with start/baseline/record/analyze flow:
+
+Test A — Forward Acceleration / Braking (Longitudinal)
+- Baseline at standstill 3–5 seconds (“Capture baseline”).
+- Record 10–20 seconds while user accelerates forward and brakes gently.
+- Detect dominant signed accel axis corresponding to longitudinal acceleration.
+- Output which Duro axis matches +X_vehicle and its sign.
+
+Test B — Right Turn / Left Turn (Lateral)
+- Record 10–20 seconds while user performs a gentle right then left turn.
+- Use lateral accel and/or yaw rate from gyro to detect lateral axis and sign.
+- Output mapping for +Y_vehicle.
+
+Test C — Vertical Bump / Gravity Direction (Vertical)
+- Baseline at standstill; determine gravity vector direction.
+- Record a bump/dip to find strongest vertical spikes.
+- Output mapping for +Z_vehicle and whether device is inverted.
+
+Wizard output:
+- Proposed mapping table:
+  X_vehicle = +/- (X_duro or Y_duro or Z_duro)
+  Y_vehicle = +/- (X_duro or Y_duro or Z_duro)
+  Z_vehicle = +/- (X_duro or Y_duro or Z_duro)
+- Confidence scores per axis (0–100) and “why” explanation.
+- “Apply mapping” button to persist mapping and update downstream attitude interpretation without restart.
+- “Manual adjust” advanced controls:
+  - swap axes
+  - flip sign per axis
+  - show immediate effect on roll/pitch/yaw.
+
+Corrective suggestions:
+If confidence low or results inconsistent:
+- “Likely rotated 90° CW/CCW”
+- “Likely upside down (Z inverted)”
+- “Pitch sign inverted” / “Roll sign inverted”
+- “Too much vibration: repeat slower / smoother road”
+- “Baseline not flat: redo baseline”
+Also show recommended rotation visually.
+
+5) LIVE VALIDATION CHECKS (After mapping applied)
+Add “Validate Orientation” panel:
+- Standstill on flat: roll ≈ 0°, pitch ≈ 0° within tolerance (configurable ±2°)
+- Uphill: pitch sign increases with nose up
+- Road camber/lean: roll sign matches lean direction
+Display pass/fail + suggested corrections (flip sign, swap axis, check mounting).
+
+6) SAFETY / QUALITY CONTROLS
+Add settings:
+- UI update rate (Hz) 5–10
+- ring buffer duration (seconds) for raw packets (e.g., 60–180s)
+- “Enable diagnostics logging” toggle
+Ensure disabling diagnostics removes heavy UI updates but keeps core GNSS working.
+
+================================================================================
+PART 2 — STORE / PERSIST SETTINGS
+Persist these per device (and optionally per project override):
+- Axis mapping (transform between Duro frame and vehicle frame)
+- Altitude source selection (explicit MSL vs derived vs raw ambiguous)
+- Altitude offset (meters)
+Ensure:
+- stored in DB
+- cached locally (IndexedDB/localStorage) for offline
+- visible in a “Current Calibration Summary” card:
+  - Axis mapping + confidence
+  - Altitude strategy
+  - Offset value
+  - Timestamp of last calibration
+  - Device ID / mount name
+
+================================================================================
+PART 3 — APPLY SETTINGS IN THE PIPELINE (NO REGRESSIONS)
+1) Axis mapping must be applied consistently wherever roll/pitch/yaw are computed/used.
+2) Altitude selection/derivation must be applied consistently:
+   - Profile Viewer graph Y axis
+   - Exports/metadata
+   - Any clearance computations that depend on altitude (if any)
+3) Altitude offset must be applied ONLY to “corrected altitude” output; raw must remain accessible.
+
+================================================================================
+PART 4 — PROFILE VIEWER UPGRADES (LIVE OVERLAY + ICON TOGGLES + LONG-DISTANCE AXIS)
+Enhance Profile Viewer:
+
+A) Live telemetry overlay while drawing
+Show a compact overlay panel with:
+- Heading (deg)
+- Lat / Lon
+- Altitude (MSL) corrected (m)
+- Roll / Pitch / Yaw (deg)
+Update at 5–10 Hz. Add expand/collapse for: speed, fix type, sats, HDOP.
+
+B) Convex / Concave k-factor icon toggles
+Add two independent toggles:
+- Show convex k-factor icons
+- Show concave k-factor icons
+Default ON.
+Implement as separate render layers so toggling doesn’t full-recompute profile.
+
+C) Fix distance axis for long profiles (100–300 km)
+- Maintain internal cumulative distance in meters with stable precision.
+- Display units:
+  - meters for short distances
+  - kilometers for long distances (auto-switch, e.g., >2 km)
+- Dynamic tick step selection based on total length / zoom:
+  0.1, 0.2, 0.5, 1, 2, 5, 10, 25, 50 km, etc.
+- Labels must remain readable: avoid overlap; rotate/skip labels as needed.
+- Add view modes:
+  - Full
+  - Last 1 km / 5 km / 10 km
+  - (Optional) pan/zoom if already present
+Acceptance: 200 km profile renders correctly, no NaN, no overflow, readable x-axis.
+
+D) Y-axis labeling + negative altitude
+- Rename “Elevation” to “Altitude (MSL)”
+- Ensure y-axis auto range supports negative altitude values (no clipping)
+- Display sea-level reference clearly.
+- If a corrected altitude makes data near 0, graph must remain stable.
+
+================================================================================
+PART 5 — IMPLEMENTATION NOTES (ENGINEERING)
+- Create modules:
+  calibration/orientation.ts
+    - window capture utilities
+    - axis dominance detection
+    - confidence scoring
+    - mapping application helpers
+  calibration/altitude.ts
+    - altitude field selection + derivation (MSL)
+    - offset application + persistence
+  diagnostics/rawPacketTap.ts
+    - ring buffer storage of last N packets
+    - export formatter
+  ui/components/GnssDiagnosticsPanel.tsx
+  ui/components/GnssAxisWizard.tsx
+  ui/components/GnssAltitudeInspector.tsx
+  ui/components/GnssAltitudeCalibration.tsx
+  ui/components/ProfileTelemetryOverlay.tsx
+  ui/components/ProfileIconToggles.tsx
+  profile/axisScaling.ts (distance axis scaling helpers)
+
+- Add lightweight unit tests:
+  - MSL derivation formula
+  - offset apply
+  - axis mapping detection on synthetic signals
+
+- Performance:
+  - ring buffer uses fixed-size array (circular buffer)
+  - throttle UI updates with requestAnimationFrame or timed sampling
+  - do heavy analysis only on recorded windows, not continuously
+
+================================================================================
+DELIVERABLES
+1) GNSS Profiling Settings includes “Diagnostics & Calibration” with all 6 panels.
+2) User can inspect raw packets and altitude reference (MSL vs ellipsoid vs ambiguous) immediately.
+3) User can run axis wizard and apply mapping with confidence + validation checks.
+4) User can calibrate altitude offset to fix ~-30m mismatch; corrected altitude used in Profile Viewer and exports; raw preserved.
+5) Profile Viewer shows telemetry overlay live, supports toggles for convex/concave icons, and renders long profiles with km axis correctly.
+
+ACCEPTANCE CRITERIA
+- No regressions to existing GNSS connectivity or overhead features.
+- Everything is testable directly inside GNSS Profiling Settings.
+- A 100–300 km profile is readable and correctly scaled.
+- Exports include raw + selected/derived + corrected altitude fields and calibration metadata.
+
+Implement now: create the UI, wire it to the existing data streams, add persistence, and provide a concise summary with file paths and what changed.

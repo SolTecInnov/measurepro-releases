@@ -1,0 +1,35 @@
+Uncaught (in promise) Error: Timeout waiting for command after 3600000ms for:
+e=>!("treatmentApplied"!==e.subscribe||!e.callback)
+2
+MeasurementLog.tsx:783 
+ Uncaught ReferenceError: Edit3 is not defined
+    at MeasurementLog.tsx:783:30
+    at Array.map (<anonymous>)
+    at MeasurementLog.tsx:723:28
+    at Array.map (<anonymous>)
+    at MeasurementLog (MeasurementLog.tsx:721:35)
+injected.js:27 
+ The above error occurred in the <MeasurementLog> component:
+
+    at MeasurementLog (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/src/components/MeasurementLog.tsx?t=1760651726577:29:49)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Settings (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/src/pages/Settings.tsx?t=1760651726577:42:37)
+    at RenderedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/node_modules/.vite/deps/react-router-dom.js?v=323b855c:4088:5)
+    at Routes (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/node_modules/.vite/deps/react-router-dom.js?v=323b855c:4558:5)
+    at Router (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/node_modules/.vite/deps/react-router-dom.js?v=323b855c:4501:15)
+    at BrowserRouter (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/node_modules/.vite/deps/react-router-dom.js?v=323b855c:5247:5)
+    at App (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev:3000/src/App.tsx?t=1760651726577:40:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+react-dom.development.js:12056 
+ Uncaught ReferenceError: Edit3 is not defined
+    at MeasurementLog.tsx:783:30
+    at Array.map (<anonymous>)
+    at MeasurementLog.tsx:723:28
+    at Array.map (<anonymous>)
+    at MeasurementLog (MeasurementLog.tsx:721:35)

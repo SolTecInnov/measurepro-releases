@@ -1,0 +1,974 @@
+AI OBJECT DETECTION TRAINING GUIDE FOR MEASUREPRO
+
+PART 1: Object Detection Architecture Recommendation
+Recommended Architecture: YOLOv8-Small (Custom Trained)
+Why YOLOv8 for Your Use Case:
+
+Real-time performance on CPU (Windows tablet)
+Single-stage detector - fast inference
+Excellent for linear infrastructure detection
+Easy to train on custom datasets
+Multiple export formats (ONNX, TensorFlow.js, TFLite)
+Active community and good documentation
+
+Model Specifications:
+Model: YOLOv8s (Small variant)
+Input Size: 640x640 pixels
+Parameters: ~11M
+Size: ~22MB (can be quantized to ~6MB)
+Inference Speed: 30-80ms on modern tablet CPU
+mAP (expected): 75-85% with good training data
+Alternative Options:
+ModelSizeSpeedAccuracyBest ForYOLOv8n6MB20-40msMediumFast detection, less accuracyYOLOv8s22MB30-80msGoodRECOMMENDED - Best balanceYOLOv8m50MB80-150msHighHigh accuracy, slowerEfficientDet-Lite15MB40-100msGoodMobile optimizationMobileNetV3-SSD10MB25-60msMediumVery fast, lower accuracy
+
+PART 2: Object Classes Definition
+Complete Object Class List (Expandable)
+json{
+  "classes": [
+    // Infrastructure - Overhead (Priority 1)
+    {"id": 0, "name": "bridge", "category": "overhead", "color": "#FF0000"},
+    {"id": 1, "name": "overpass", "category": "overhead", "color": "#FF3333"},
+    {"id": 2, "name": "walkway_overhead", "category": "overhead", "color": "#FF6666"},
+    
+    // Vegetation (Priority 1)
+    {"id": 3, "name": "tree_branch", "category": "vegetation", "color": "#00FF00"},
+    {"id": 4, "name": "tree_full", "category": "vegetation", "color": "#33FF33"},
+    {"id": 5, "name": "vegetation_low", "category": "vegetation", "color": "#66FF66"},
+    
+    // Electrical Infrastructure (Priority 1)
+    {"id": 6, "name": "power_line_high_voltage", "category": "electrical", "color": "#FFFF00"},
+    {"id": 7, "name": "power_line_medium_voltage", "category": "electrical", "color": "#FFFF33"},
+    {"id": 8, "name": "power_line_low_voltage", "category": "electrical", "color": "#FFFF66"},
+    {"id": 9, "name": "electrical_wire", "category": "electrical", "color": "#FFD700"},
+    {"id": 10, "name": "utility_pole", "category": "electrical", "color": "#FFA500"},
+    {"id": 11, "name": "transformer", "category": "electrical", "color": "#FF8C00"},
+    
+    // Traffic Infrastructure (Priority 2)
+    {"id": 12, "name": "traffic_light", "category": "traffic", "color": "#FF00FF"},
+    {"id": 13, "name": "traffic_sign", "category": "traffic", "color": "#FF33FF"},
+    {"id": 14, "name": "street_sign", "category": "traffic", "color": "#FF66FF"},
+    {"id": 15, "name": "speed_limit_sign", "category": "traffic", "color": "#CC00FF"},
+    
+    // Railroad (Priority 2)
+    {"id": 16, "name": "railroad_crossing", "category": "railroad", "color": "#0000FF"},
+    {"id": 17, "name": "railroad_signal", "category": "railroad", "color": "#3333FF"},
+    {"id": 18, "name": "railroad_overhead", "category": "railroad", "color": "#6666FF"},
+    
+    // Additional Infrastructure (Priority 3)
+    {"id": 19, "name": "tunnel_entrance", "category": "infrastructure", "color": "#00FFFF"},
+    {"id": 20, "name": "gantry", "category": "infrastructure", "color": "#33FFFF"},
+    {"id": 21, "name": "building_overhang", "category": "infrastructure", "color": "#66FFFF"},
+    {"id": 22, "name": "awning", "category": "infrastructure", "color": "#99FFFF"},
+    
+    // Communication Infrastructure (Priority 3)
+    {"id": 23, "name": "telecom_cable", "category": "communication", "color": "#FFC0CB"},
+    {"id": 24, "name": "antenna", "category": "communication", "color": "#FFB6C1"},
+    {"id": 25, "name": "street_light", "category": "infrastructure", "color": "#DDA0DD"}
+  ]
+}
+```
+
+**Class Grouping Strategy:**
+- Train in phases, starting with Priority 1 classes
+- Add more classes incrementally as you collect data
+- Some classes can share similar features (e.g., different voltage power lines)
+
+---
+
+## PART 3: Dataset Collection Strategy
+
+### Data Collection Plan
+
+**Required Images Per Class:**
+```
+Minimum: 300 images per class
+Recommended: 500-1000 images per class
+Optimal: 2000+ images per class
+
+Total Dataset Size Estimate:
+- 26 classes × 500 images = 13,000 images minimum
+- With augmentation: 50,000+ training samples
+Collection Methods
+Method 1: Real Survey Data Collection (PRIMARY)
+javascript// Data Collection Module
+class TrainingDataCollector {
+  constructor(videoCapture, gpsTracker, storage) {
+    this.videoCapture = videoCapture;
+    this.gpsTracker = gpsTracker;
+    this.storage = storage;
+    this.collectionMode = false;
+    this.collectionInterval = null;
+  }
+  
+  // Enable data collection mode
+  startCollecting(fps = 2) {
+    this.collectionMode = true;
+    const interval = 1000 / fps;
+    
+    this.collectionInterval = setInterval(async () => {
+      const frame = await this.videoCapture.captureFrame();
+      const metadata = {
+        timestamp: Date.now(),
+        gpsPosition: this.gpsTracker.getCurrentPosition(),
+        distance: this.gpsTracker.getCumulativeDistance(),
+        speed: this.gpsTracker.getCurrentSpeed(),
+        filename: `img_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.jpg`
+      };
+      
+      await this.saveTrainingImage(frame, metadata);
+    }, interval);
+  }
+  
+  async saveTrainingImage(imageBlob, metadata) {
+    // Save to IndexedDB or export folder
+    await this.storage.saveTrainingData({
+      image: imageBlob,
+      metadata: metadata,
+      annotated: false,
+      exported: false
+    });
+  }
+  
+  stopCollecting() {
+    if (this.collectionInterval) {
+      clearInterval(this.collectionInterval);
+      this.collectionMode = false;
+    }
+  }
+  
+  // Export collected images for annotation
+  async exportForAnnotation() {
+    const images = await this.storage.getTrainingData({ exported: false });
+    
+    // Create downloadable ZIP or folder structure
+    // Format: /training_data/YYYY-MM-DD/images/
+    return this.createExportPackage(images);
+  }
+}
+```
+
+**Collection Guidelines:**
+1. **Drive multiple routes** covering different scenarios
+2. **Vary conditions:**
+   - Time of day (morning, noon, afternoon, evening)
+   - Weather (sunny, cloudy, rainy, foggy)
+   - Seasons (if applicable)
+3. **Vary distances:** Objects at different distances from camera
+4. **Vary angles:** Objects from different approach angles
+5. **Include edge cases:** Partially visible, occluded, distant objects
+
+#### Method 2: Public Datasets (SUPPLEMENT)
+
+**Available Datasets to Leverage:**
+
+1. **COCO Dataset** (filtered)
+   - Traffic lights
+   - Street signs
+   - Vehicles (for context)
+   - Download: https://cocodataset.org/
+
+2. **Mapillary Vistas**
+   - Street-level imagery
+   - Infrastructure elements
+   - Download: https://www.mapillary.com/dataset/vistas
+
+3. **BDD100K** (Berkeley DeepDrive)
+   - Driving scenarios
+   - Road infrastructure
+   - Download: https://bdd-data.berkeley.edu/
+
+4. **Cityscapes**
+   - Urban infrastructure
+   - Download: https://www.cityscapes-dataset.com/
+
+5. **Custom Search:**
+   - Google Open Images: https://storage.googleapis.com/openimages/web/index.html
+   - Filter by relevant labels
+
+**Combining Strategy:**
+```
+Your Custom Data (70%): 9,100 images
+Public Datasets (30%): 3,900 images
+Total: 13,000 images minimum
+
+PART 4: Data Annotation Guide
+Recommended Annotation Tools
+Option 1: Roboflow (RECOMMENDED)
+
+Pros: Web-based, easy to use, built-in augmentation, export to YOLO format
+Cons: Free tier limited (1,000 images)
+URL: https://roboflow.com/
+
+Option 2: CVAT (Computer Vision Annotation Tool)
+
+Pros: Open source, self-hosted, powerful features
+Cons: Requires setup
+URL: https://cvat.ai/
+
+Option 3: LabelImg
+
+Pros: Free, offline, simple
+Cons: Manual process, no augmentation
+URL: https://github.com/heartexlabs/labelImg
+
+Annotation Workflow
+bash# Recommended: Roboflow Workflow
+
+1. Create Roboflow Account
+2. Create New Project: "MeasurePro Infrastructure Detection"
+3. Upload Images (batch upload 500-1000 at a time)
+4. Define Classes (use JSON above)
+5. Annotate Objects:
+   - Draw bounding boxes around objects
+   - Assign class labels
+   - Use keyboard shortcuts for speed
+6. Review & Quality Check
+7. Generate Dataset with Augmentation
+8. Export in YOLOv8 format
+```
+
+### Annotation Guidelines
+
+**Bounding Box Rules:**
+```
+✅ GOOD ANNOTATION:
+- Tight boxes around entire object
+- Include all visible parts
+- No excessive empty space
+- Consistent labeling across images
+
+❌ BAD ANNOTATION:
+- Box too loose or too tight
+- Missing parts of object
+- Inconsistent labeling
+- Overlapping boxes for same object
+Specific Object Guidelines:
+
+Power Lines / Wires:
+
+Box should encompass entire visible span
+For multiple parallel lines, one box if close together
+Separate boxes for clearly distinct lines
+Label voltage level if distinguishable
+
+
+Trees:
+
+tree_branch: Only overhanging branches
+tree_full: Entire tree visible including trunk
+Box includes foliage, not just trunk
+
+
+Bridges/Overpasses:
+
+Include entire structure width
+From edge to edge as visible
+Include supports if visible
+
+
+Signs:
+
+Tight box around sign face
+Include pole only if very short
+Separate box for pole if needed
+
+
+Traffic Lights:
+
+Include housing and lights
+All light heads in one box if same unit
+
+
+
+Quality Metrics:
+
+Annotation time: 20-40 seconds per image (with practice)
+Quality check: Review 10% of annotations randomly
+Inter-annotator agreement: >90% for consistent labeling
+
+
+PART 5: Data Augmentation
+Augmentation Strategy (Built-in to Roboflow)
+python# Roboflow augmentation configuration
+augmentation_config = {
+    # Flip
+    "horizontal_flip": True,  # 50% chance
+    "vertical_flip": False,   # Not needed for road survey
+    
+    # Rotation
+    "rotation": {
+        "enabled": True,
+        "degrees": 15  # ±15 degrees for slight camera tilt
+    },
+    
+    # Crop
+    "crop": {
+        "enabled": True,
+        "min": 0,
+        "max": 20  # Up to 20% crop
+    },
+    
+    # Brightness & Exposure
+    "brightness": {
+        "enabled": True,
+        "variance": 25  # ±25% to simulate different lighting
+    },
+    
+    "exposure": {
+        "enabled": True,
+        "variance": 25
+    },
+    
+    # Blur (simulate motion)
+    "blur": {
+        "enabled": True,
+        "pixels": 2.5  # Slight blur for motion simulation
+    },
+    
+    # Noise
+    "noise": {
+        "enabled": True,
+        "variance": 5  # Up to 5% noise
+    },
+    
+    # Cutout (occlusion simulation)
+    "cutout": {
+        "enabled": True,
+        "boxes": 3,
+        "size_percent": 10
+    },
+    
+    # Mosaic (YOLO-specific, optional)
+    "mosaic": {
+        "enabled": False  # Can slow training, test both ways
+    }
+}
+
+# Expected output: 3-5x original dataset size
+# 13,000 images → 40,000-65,000 training samples
+Manual Augmentation (If needed)
+python# Python script for additional augmentation
+import albumentations as A
+import cv2
+import os
+
+transform = A.Compose([
+    A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3, p=0.5),
+    A.HueSaturationValue(hue_shift_limit=10, sat_shift_limit=20, val_shift_limit=20, p=0.5),
+    A.GaussianBlur(blur_limit=(3, 7), p=0.3),
+    A.MotionBlur(blur_limit=7, p=0.3),
+    A.RandomFog(fog_coef_lower=0.1, fog_coef_upper=0.3, p=0.2),
+    A.RandomRain(slant_lower=-10, slant_upper=10, drop_length=20, p=0.2),
+    A.RandomShadow(num_shadows_lower=1, num_shadows_upper=2, p=0.3),
+], bbox_params=A.BboxParams(format='yolo', label_fields=['class_labels']))
+
+def augment_dataset(input_dir, output_dir, num_augments=3):
+    for img_file in os.listdir(input_dir):
+        if img_file.endswith('.jpg'):
+            img = cv2.imread(os.path.join(input_dir, img_file))
+            
+            # Load corresponding YOLO annotation
+            label_file = img_file.replace('.jpg', '.txt')
+            bboxes, labels = load_yolo_annotation(label_file)
+            
+            for i in range(num_augments):
+                transformed = transform(image=img, bboxes=bboxes, class_labels=labels)
+                
+                # Save augmented image and annotation
+                save_augmented(transformed, output_dir, f"{img_file[:-4]}_aug{i}")
+
+PART 6: Training Pipeline
+Setup Training Environment
+Option 1: Local Training (If you have GPU)
+bash# Install dependencies
+pip install ultralytics
+pip install torch torchvision  # With CUDA if GPU available
+
+# Verify installation
+yolo version
+Option 2: Cloud Training (RECOMMENDED for faster training)
+Google Colab (Free):
+python# In Colab notebook
+!pip install ultralytics roboflow
+
+from roboflow import Roboflow
+from ultralytics import YOLO
+
+# Download your dataset from Roboflow
+rf = Roboflow(api_key="YOUR_API_KEY")
+project = rf.workspace("your-workspace").project("measurepro-detection")
+dataset = project.version(1).download("yolov8")
+Other Options:
+
+Paperspace Gradient: Pay-as-you-go GPU
+AWS SageMaker: More expensive but scalable
+Kaggle Notebooks: Free GPU (30h/week)
+
+YOLOv8 Training Configuration
+yaml# data.yaml - Dataset configuration
+path: /path/to/dataset  # Dataset root directory
+train: train/images     # Train images (relative to 'path')
+val: valid/images       # Validation images (relative to 'path')
+test: test/images       # Test images (relative to 'path')
+
+# Classes (26 classes)
+nc: 26
+names:
+  0: bridge
+  1: overpass
+  2: walkway_overhead
+  3: tree_branch
+  4: tree_full
+  5: vegetation_low
+  6: power_line_high_voltage
+  7: power_line_medium_voltage
+  8: power_line_low_voltage
+  9: electrical_wire
+  10: utility_pole
+  11: transformer
+  12: traffic_light
+  13: traffic_sign
+  14: street_sign
+  15: speed_limit_sign
+  16: railroad_crossing
+  17: railroad_signal
+  18: railroad_overhead
+  19: tunnel_entrance
+  20: gantry
+  21: building_overhang
+  22: awning
+  23: telecom_cable
+  24: antenna
+  25: street_light
+Training Script
+pythonfrom ultralytics import YOLO
+
+# Load pretrained YOLOv8 model
+model = YOLO('yolov8s.pt')  # Start with YOLOv8-small pretrained
+
+# Train the model
+results = model.train(
+    data='data.yaml',           # Path to data config
+    epochs=100,                 # Number of training epochs
+    imgsz=640,                  # Input image size
+    batch=16,                   # Batch size (adjust based on GPU memory)
+    patience=20,                # Early stopping patience
+    save=True,                  # Save checkpoints
+    device=0,                   # GPU device (0 for first GPU, 'cpu' for CPU)
+    workers=8,                  # Number of data loader workers
+    project='measurepro',       # Project name
+    name='infrastructure_v1',   # Run name
+    exist_ok=True,              # Overwrite existing
+    
+    # Hyperparameters
+    lr0=0.01,                   # Initial learning rate
+    lrf=0.01,                   # Final learning rate factor
+    momentum=0.937,             # SGD momentum
+    weight_decay=0.0005,        # Optimizer weight decay
+    warmup_epochs=3.0,          # Warmup epochs
+    warmup_momentum=0.8,        # Warmup momentum
+    box=7.5,                    # Box loss gain
+    cls=0.5,                    # Class loss gain
+    dfl=1.5,                    # DFL loss gain
+    
+    # Augmentation
+    hsv_h=0.015,                # Image HSV-Hue augmentation
+    hsv_s=0.7,                  # Image HSV-Saturation augmentation
+    hsv_v=0.4,                  # Image HSV-Value augmentation
+    degrees=15.0,               # Rotation (+/- degrees)
+    translate=0.1,              # Translation (+/- fraction)
+    scale=0.5,                  # Scale (+/- gain)
+    shear=0.0,                  # Shear (+/- degrees)
+    perspective=0.0,            # Perspective (+/- fraction)
+    flipud=0.0,                 # Flip up-down probability
+    fliplr=0.5,                 # Flip left-right probability
+    mosaic=1.0,                 # Mosaic augmentation probability
+    mixup=0.0,                  # Mixup augmentation probability
+    copy_paste=0.0,             # Copy-paste augmentation probability
+)
+
+# Evaluate model
+metrics = model.val()
+
+# Export for deployment
+model.export(format='onnx')  # For ONNX Runtime Web
+model.export(format='tfjs')  # For TensorFlow.js (alternative)
+Training Tips
+Expected Training Time:
+
+Google Colab (Free T4 GPU): 4-8 hours for 100 epochs
+Local RTX 3060: 2-4 hours
+CPU Only: 24-48 hours (not recommended)
+
+Monitoring Training:
+python# TensorBoard for monitoring
+from torch.utils.tensorboard import SummaryWriter
+
+# View training progress
+# tensorboard --logdir runs/
+```
+
+**Key Metrics to Watch:**
+```
+mAP50: Mean Average Precision at IoU 0.5 (target: >0.75)
+mAP50-95: mAP at IoU 0.5-0.95 (target: >0.60)
+Precision: How many detections are correct (target: >0.80)
+Recall: How many objects are detected (target: >0.75)
+Loss: Should decrease steadily
+
+PART 7: Model Optimization for Offline Deployment
+Step 1: Export to ONNX
+pythonfrom ultralytics import YOLO
+
+# Load trained model
+model = YOLO('runs/detect/infrastructure_v1/weights/best.pt')
+
+# Export to ONNX
+model.export(
+    format='onnx',
+    imgsz=640,
+    optimize=True,      # Optimize for deployment
+    simplify=True,      # Simplify model graph
+    opset=12,           # ONNX opset version
+    dynamic=False       # Fixed input shape for better optimization
+)
+
+# Output: best.onnx (~22MB for YOLOv8s)
+Step 2: Quantization (Reduce size to ~6MB)
+pythonimport onnx
+from onnxruntime.quantization import quantize_dynamic, QuantType
+
+# Load ONNX model
+model_path = 'best.onnx'
+quantized_model_path = 'best_quantized.onnx'
+
+# Dynamic quantization (INT8)
+quantize_dynamic(
+    model_path,
+    quantized_model_path,
+    weight_type=QuantType.QUInt8  # 8-bit quantization
+)
+
+# Size reduction: ~22MB → ~6MB
+# Speed improvement: 1.5-2x faster on CPU
+# Accuracy loss: Minimal (<2% mAP drop)
+Step 3: Deploy in PWA
+javascript// onnx-detection.js - ONNX Runtime Web implementation
+
+import * as ort from 'onnxruntime-web';
+
+class ONNXObjectDetection {
+  constructor() {
+    this.session = null;
+    this.modelPath = '/models/best_quantized.onnx';
+    this.inputShape = [1, 3, 640, 640];  // NCHW format
+    this.classNames = [...];  // Load from classes.json
+    this.numClasses = 26;
+  }
+  
+  async loadModel() {
+    try {
+      // Configure ONNX Runtime
+      ort.env.wasm.numThreads = 4;  // Use 4 threads
+      ort.env.wasm.simd = true;     // Enable SIMD
+      
+      // Load model from cache
+      this.session = await ort.InferenceSession.create(
+        this.modelPath,
+        {
+          executionProviders: ['wasm'],  // WebAssembly backend
+          graphOptimizationLevel: 'all'
+        }
+      );
+      
+      console.log('ONNX model loaded successfully');
+      return true;
+    } catch (error) {
+      console.error('Model loading failed:', error);
+      return false;
+    }
+  }
+  
+  async detect(imageData) {
+    if (!this.session) return null;
+    
+    try {
+      // Preprocess image
+      const tensor = await this.preprocessImage(imageData);
+      
+      // Run inference
+      const startTime = performance.now();
+      const results = await this.session.run({ images: tensor });
+      const inferenceTime = performance.now() - startTime;
+      
+      console.log(`Inference time: ${inferenceTime.toFixed(2)}ms`);
+      
+      // Post-process results
+      const detections = this.postProcess(results);
+      
+      return {
+        detections: detections,
+        inferenceTime: inferenceTime
+      };
+    } catch (error) {
+      console.error('Detection error:', error);
+      return null;
+    }
+  }
+  
+  async preprocessImage(imageData) {
+    // Convert image to tensor
+    // 1. Resize to 640x640
+    // 2. Normalize to [0, 1]
+    // 3. Convert to NCHW format (batch, channels, height, width)
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = 640;
+    canvas.height = 640;
+    const ctx = canvas.getContext('2d');
+    
+    // Draw and resize image
+    const img = await this.loadImage(imageData);
+    ctx.drawImage(img, 0, 0, 640, 640);
+    
+    // Get pixel data
+    const imageDataResized = ctx.getImageData(0, 0, 640, 640);
+    const pixels = imageDataResized.data;
+    
+    // Convert to float array (NCHW format)
+    const float32Data = new Float32Array(1 * 3 * 640 * 640);
+    
+    for (let i = 0; i < 640 * 640; i++) {
+      float32Data[i] = pixels[i * 4] / 255.0;           // R
+      float32Data[640 * 640 + i] = pixels[i * 4 + 1] / 255.0;  // G
+      float32Data[640 * 640 * 2 + i] = pixels[i * 4 + 2] / 255.0;  // B
+    }
+    
+    // Create tensor
+    const tensor = new ort.Tensor('float32', float32Data, [1, 3, 640, 640]);
+    return tensor;
+  }
+  
+  postProcess(results) {
+    // YOLOv8 output format: [1, 84, 8400]
+    // 84 = 4 bbox coords + 80 class scores (COCO) or your custom classes
+    // 8400 = number of anchor points
+    
+    const output = results.output0.data;
+    const detections = [];
+    const confidenceThreshold = 0.45;  // Adjust as needed
+    const iouThreshold = 0.45;
+    
+    // Parse detections
+    for (let i = 0; i < 8400; i++) {
+      // Extract bbox and scores
+      const x = output[i];
+      const y = output[8400 + i];
+      const w = output[16800 + i];
+      const h = output[25200 + i];
+      
+      // Find max class score
+      let maxScore = 0;
+      let maxClass = 0;
+      for (let c = 0; c < this.numClasses; c++) {
+        const score = output[(4 + c) * 8400 + i];
+        if (score > maxScore) {
+          maxScore = score;
+          maxClass = c;
+        }
+      }
+      
+      if (maxScore > confidenceThreshold) {
+        detections.push({
+          x: x,
+          y: y,
+          width: w,
+          height: h,
+          confidence: maxScore,
+          classId: maxClass,
+          className: this.classNames[maxClass]
+        });
+      }
+    }
+    
+    // Apply Non-Maximum Suppression
+    const finalDetections = this.applyNMS(detections, iouThreshold);
+    
+    return finalDetections;
+  }
+  
+  applyNMS(detections, iouThreshold) {
+    // Sort by confidence
+    detections.sort((a, b) => b.confidence - a.confidence);
+    
+    const keep = [];
+    const suppressed = new Set();
+    
+    for (let i = 0; i < detections.length; i++) {
+      if (suppressed.has(i)) continue;
+      
+      keep.push(detections[i]);
+      
+      for (let j = i + 1; j < detections.length; j++) {
+        if (suppressed.has(j)) continue;
+        
+        const iou = this.calculateIOU(detections[i], detections[j]);
+        if (iou > iouThreshold) {
+          suppressed.add(j);
+        }
+      }
+    }
+    
+    return keep;
+  }
+  
+  calculateIOU(box1, box2) {
+    const x1_min = box1.x - box1.width / 2;
+    const y1_min = box1.y - box1.height / 2;
+    const x1_max = box1.x + box1.width / 2;
+    const y1_max = box1.y + box1.height / 2;
+    
+    const x2_min = box2.x - box2.width / 2;
+    const y2_min = box2.y - box2.height / 2;
+    const x2_max = box2.x + box2.width / 2;
+    const y2_max = box2.y + box2.height / 2;
+    
+    const intersect_x_min = Math.max(x1_min, x2_min);
+    const intersect_y_min = Math.max(y1_min, y2_min);
+    const intersect_x_max = Math.min(x1_max, x2_max);
+    const intersect_y_max = Math.min(y1_max, y2_max);
+    
+    const intersect_area = Math.max(0, intersect_x_max - intersect_x_min) *
+                          Math.max(0, intersect_y_max - intersect_y_min);
+    
+    const box1_area = box1.width * box1.height;
+    const box2_area = box2.width * box2.height;
+    const union_area = box1_area + box2_area - intersect_area;
+    
+    return intersect_area / union_area;
+  }
+  
+  loadImage(imageData) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      
+      if (imageData instanceof Blob) {
+        img.src = URL.createObjectURL(imageData);
+      } else {
+        img.src = imageData;
+      }
+    });
+  }
+}
+
+// Usage
+const detector = new ONNXObjectDetection();
+await detector.loadModel();
+const results = await detector.detect(imageBlob);
+
+PART 8: Performance Optimization
+Optimization Checklist
+javascript// 1. Use Web Workers for parallel processing
+const detectionWorker = new Worker('detection-worker.js');
+
+detectionWorker.postMessage({ image: imageData, type: 'detect' });
+detectionWorker.onmessage = (e) => {
+  const detections = e.data.detections;
+  // Process detections
+};
+
+// 2. Implement frame skipping
+let frameCounter = 0;
+const detectEveryNFrames = 5;  // Run detection every 5 frames
+
+if (frameCounter % detectEveryNFrames === 0) {
+  await detector.detect(currentFrame);
+}
+frameCounter++;
+
+// 3. Use RequestAnimationFrame for smooth UI
+function detectionLoop() {
+  if (shouldDetect) {
+    detectObjects().then(() => {
+      requestAnimationFrame(detectionLoop);
+    });
+  }
+}
+
+// 4. Reduce input resolution for speed
+// Instead of 1920x1080, use 1280x720 or even 640x480
+// Model still expects 640x640, but preprocessing is faster
+
+// 5. Batch processing when possible
+// Process multiple frames in one inference call (if model supports)
+
+// 6. Cache recent detections
+const detectionCache = new Map();
+const cacheLifetime = 2000; // 2 seconds
+
+function getCachedDetection(frameId) {
+  const cached = detectionCache.get(frameId);
+  if (cached && Date.now() - cached.timestamp < cacheLifetime) {
+    return cached.detections;
+  }
+  return null;
+}
+```
+
+### Performance Targets
+```
+Target Metrics (Windows Tablet):
+- Inference time: <100ms per frame
+- Frame rate: 10-15 FPS for detection
+- Display frame rate: 30 FPS (with detection overlay)
+- Memory usage: <300MB for model + processing
+- CPU usage: <60% sustained
+
+Optimization Priority:
+1. Model quantization (2x speed boost)
+2. SIMD/WebAssembly (1.5x speed boost)
+3. Frame skipping (5x fewer inferences)
+4. Web Workers (no main thread blocking)
+5. Reduced resolution (1.5x faster preprocessing)
+
+Expected: 20-40ms inference with all optimizations
+
+PART 9: Testing & Validation
+Test Dataset Creation
+python# Split dataset
+# Train: 70%
+# Validation: 20%
+# Test: 10%
+
+# Test should include:
+# - Edge cases (distant objects, occlusions)
+# - Different weather conditions
+# - Various lighting conditions
+# - Different speeds
+# - New routes not in training data
+Validation Metrics
+python# Evaluate on test set
+from ultralytics import YOLO
+
+model = YOLO('best.pt')
+metrics = model.val(data='data.yaml', split='test')
+
+print(f"mAP50: {metrics.box.map50:.3f}")        # Target: >0.75
+print(f"mAP50-95: {metrics.box.map:.3f}")       # Target: >0.60
+print(f"Precision: {metrics.box.p:.3f}")        # Target: >0.80
+print(f"Recall: {metrics.box.r:.3f}")           # Target: >0.75
+
+# Per-class performance
+for i, name in enumerate(class_names):
+    print(f"{name}: mAP={metrics.box.maps[i]:.3f}")
+Field Testing Protocol
+javascriptclass FieldTester {
+  constructor(detector, groundTruth) {
+    this.detector = detector;
+    this.groundTruth = groundTruth;  // Manually verified detections
+    this.results = {
+      truePositives: 0,
+      falsePositives: 0,
+      falseNegatives: 0,
+      detectionTimes: []
+    };
+  }
+  
+  async testRoute(videoStream) {
+    // Run detection on recorded route
+    // Compare with ground truth annotations
+    
+    for (const frame of videoStream) {
+      const startTime = performance.now();
+      const detections = await this.detector.detect(frame);
+      const detectionTime = performance.now() - startTime;
+      
+      this.results.detectionTimes.push(detectionTime);
+      
+      // Compare with ground truth
+      this.compareWithGroundTruth(detections, frame.groundTruth);
+    }
+    
+    return this.calculateMetrics();
+  }
+  
+  calculateMetrics() {
+    const precision = this.results.truePositives / 
+                     (this.results.truePositives + this.results.falsePositives);
+    const recall = this.results.truePositives / 
+                  (this.results.truePositives + this.results.falseNegatives);
+    const f1Score = 2 * (precision * recall) / (precision + recall);
+    
+    const avgDetectionTime = this.results.detectionTimes.reduce((a, b) => a + b, 0) / 
+                            this.results.detectionTimes.length;
+    
+    return {
+      precision: precision,
+      recall: recall,
+      f1Score: f1Score,
+      avgDetectionTime: avgDetectionTime,
+      truePositives: this.results.truePositives,
+      falsePositives: this.results.falsePositives,
+      falseNegatives: this.results.falseNegatives
+    };
+  }
+}
+
+PART 10: Continuous Improvement
+Model Retraining Pipeline
+python# Collect misclassifications during usage
+# Periodically retrain with new data
+
+class ModelUpdater:
+    def __init__(self, base_model_path, new_data_dir):
+        self.base_model = YOLO(base_model_path)
+        self.new_data_dir = new_data_dir
+        
+    def incremental_train(self, epochs=50):
+        """Continue training on new data"""
+        results = self.base_model.train(
+            data='updated_data.yaml',
+            epochs=epochs,
+            resume=True,  # Continue from previous weights
+            patience=10
+        )
+        return results
+    
+    def evaluate_improvement(self):
+        """Compare old vs new model"""
+        old_metrics = self.base_model.val()
+        new_metrics = self.updated_model.val()
+        
+        improvement = {
+            'mAP50': new_metrics.box.map50 - old_metrics.box.map50,
+            'precision': new_metrics.box.p - old_metrics.box.p,
+            'recall': new_metrics.box.r - old_metrics.box.r
+        }
+        
+        return improvement
+Active Learning Strategy
+javascript// Flag uncertain predictions for review
+class ActiveLearner {
+  async flagUncertainPredictions(detection) {
+    const uncertainty = this.calculateUncertainty(detection);
+    
+    if (uncertainty > threshold) {
+      // Save for manual review and retraining
+      await this.saveForReview(detection);
+    }
+  }
+  
+  calculateUncertainty(detection) {
+    // Low confidence predictions
+    if (detection.confidence < 0.65) return 'low_confidence';
+    
+    // Multiple similar detections (confusion)
+    if (this.hasMultipleSimilarClasses(detection)) return 'class_confusion';
+    
+    // Object at edge of frame
+    if (this.isAtEdge(detection.bbox)) return 'edge_case';
+    
+    return 'confident';
+  }
+}

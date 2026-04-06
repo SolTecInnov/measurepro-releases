@@ -1,0 +1,49 @@
+How to Survey Bridge Clearances for Oversize Loads with LiDAR and MeasurePRO
+Moving oversize and overweight loads safely comes down to one question: will the load clear every structure on the route. Traditional “eye test” methods, old drawings, or rough GPS notes are no longer enough when fines, delays, and safety are on the line.
+MeasurePRO, paired with the SolTec LiDAR 2D laser system and RTK‑GNSS, gives you a repeatable workflow for measuring bridge clearances from the cab and producing permit‑ready data for engineering and permitting teams.
+1. Hardware setup on the survey vehicle
+Before heading out, the survey vehicle is prepared as a rolling measurement platform:
+•	A LiDAR 2D laser rangefinder is mounted on the cab to measure vertical distances to overhead structures.
+•	A rugged Windows tablet runs MeasurePRO and connects to the LiDAR and professional GPS module.
+•	The GPS/RTK system provides high‑accuracy coordinates for every measurement along the route.
+•	Power and mounting hardware are installed so the equipment survives real‑world conditions (vibration, weather, long shifts).
+Once configured, this setup allows a surveyor or pilot car driver to measure clearances while driving the candidate OS/OW route.
+2. Configuring MeasurePRO for a clearance survey
+In MeasurePRO, the surveyor creates a new project specifically for bridge and overhead clearance measurements:
+•	Define the survey name, route description, and vehicle or envelope profile that matches the planned load.
+•	Confirm LiDAR and GPS connections, and verify fix quality and satellite count before leaving the yard.
+•	Set up logging preferences (e.g., continuous logging with voice‑triggered POIs) and check that offline mode is ready if the route crosses poor coverage zones.
+This preparation ensures that every measurement will be time‑stamped, geo‑referenced, and tied to the correct project.
+3. Driving and measuring bridge clearances
+During the run, the surveyor focuses on safe driving while MeasurePRO handles data capture:
+•	As the vehicle approaches a bridge or overhead structure, the LiDAR measures the distance from the sensor to the lowest point of the structure.
+•	MeasurePRO combines the LiDAR reading with vehicle geometry and GPS position to calculate a clearance value at that location.
+•	Voice commands or quick controls mark a Point of Interest (POI) such as “Bridge” or “Overhead Utility” and capture photos or video as needed.
+•	The system logs each measurement with RTK‑GNSS coordinates, clearance value, and any operator notes.
+Because the app is designed for hands‑free operation, the driver can keep both hands on the wheel while still capturing consistent, survey‑grade data.
+4. Adding context with photos, video, and notes
+For each critical structure, MeasurePRO lets you attach more than just a number:
+•	Photos and short video clips show the approach, lane alignment, and surrounding constraints.
+•	Voice notes record observations like deck condition, signage, lane shifts, or nearby obstructions.
+•	POI categories (bridge, signal, power line, etc.) make it easy to filter and review specific hazards later.
+This context is invaluable when engineers and permit planners review the route days or weeks after the field survey.
+5. Exporting permit‑ready data
+Once the survey is complete, MeasurePRO exports the dataset in standard engineering formats:
+•	CSV for quick tabular reports and spreadsheets.
+•	GeoJSON and Shapefile for GIS workflows and mapping applications.
+•	LandXML and DXF for AutoCAD Civil 3D and other design tools.
+Exports include coordinates, clearance values, POI types, and timestamps, so engineering teams can generate bridge clearance tables, maps, and structural checklists directly from the field data.
+6. Using RoadScope for corridor‑wide clearance analysis
+After export, many teams load the survey into RoadScope to see the entire corridor at once:
+•	All measured clearances appear along the candidate route, with color‑coding for warning and critical thresholds.
+•	Engineers can quickly identify low structures, compare them to planned load height, and decide whether the move is feasible, requires mitigation, or needs a different route.
+•	The same dataset feeds both internal safety reviews and external OS/OW permit applications.
+This end‑to‑end path—from LiDAR measurements in the cab to corridor‑wide analysis—reduces guesswork and creates an auditable record of how clearances were verified.
+7. Best practices for reliable clearance surveys
+To get the most from a MeasurePRO clearance survey:
+•	Use RTK‑level positioning whenever possible for maximum accuracy.
+•	Drive at a consistent speed where conditions allow, and avoid abrupt lane changes under structures.
+•	Capture at least one clear photo or video clip of every critical bridge or overhead feature.
+•	Repeat surveys on high‑risk routes when major construction or seasonal changes occur.
+•	Keep hardware calibration and software updates current before each survey season.
+By standardizing on this workflow, heavy haul and OS/OW teams can document bridge clearances with confidence, reduce last‑minute surprises on move day, and provide stronger evidence for both regulators and customers.

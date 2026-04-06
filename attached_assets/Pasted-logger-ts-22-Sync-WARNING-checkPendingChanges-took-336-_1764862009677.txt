@@ -1,0 +1,1005 @@
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 336.2ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:736
+setTimeout
+(anonymous) @ sync.ts:735
+(anonymous) @ firebase.ts:158
+(anonymous) @ auth_impl.ts:741
+Promise.then
+registerStateListener @ auth_impl.ts:737
+onAuthStateChanged @ auth_impl.ts:544
+onAuthStateChanged @ index.ts:198
+initAuthListener @ firebase.ts:134
+(anonymous) @ AuthContext.tsx:100
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+App.tsx:352 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+App.tsx:352 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ZED2iCamera.ts:588  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+setTimeout
+isAvailable @ ZED2iCamera.ts:587
+isZED2iAvailable @ ZED2iCamera.ts:579
+detectAvailableCameras @ CameraInterface.ts:167
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:25
+(anonymous) @ useCameraAutoDetect.tsx:44
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+ZED2iCamera.ts:588  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+setTimeout
+isAvailable @ ZED2iCamera.ts:587
+isZED2iAvailable @ ZED2iCamera.ts:579
+detectAvailableCameras @ CameraInterface.ts:167
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:25
+(anonymous) @ useCameraAutoDetect.tsx:44
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+(anonymous) @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+logger.ts:29 🔄 Initializing MeasurementFeed for survey 10d67f44-9222-4a51-868a-0744ea7c9be1
+logger.ts:29 ✅ MeasurementFeed primed (historical data loading in background)
+useProfileRecording.ts:151 [Violation] Only request geolocation information in response to a user gesture.
+(anonymous) @ useProfileRecording.ts:151
+(anonymous) @ useProfileRecording.ts:203
+(anonymous) @ useProfileRecording.ts:278
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+firebase.ts:135 [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+firebase.ts:146 [AUTH-5] User logged in, saving to localStorage
+firebase.ts:154 [AUTH-7] Calling auth callback with user: true
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+store.ts:535 ⏱️ getSurveysPaginated(50): 60.18798828125 ms
+store.ts:567 ⏱️ loadSurveys TOTAL: 75.489013671875 ms
+store.ts:568 ✅ Loaded 32 surveys (including active) in 76ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:568 ✅ Loaded 32 surveys (including active) in 97ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:568 ✅ Loaded 32 surveys (including active) in 108ms
+db.ts:67  ⚠️ SLOW: loadSurveys (initial) took 108ms
+perfLog @ db.ts:67
+loadSurveys @ store.ts:569
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+db.ts:67  ⚠️ SLOW: getSurveysPaginated took 107ms
+perfLog @ db.ts:67
+getSurveysPaginated @ db.ts:539
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+store.ts:568 ✅ Loaded 32 surveys (including active) in 119ms
+db.ts:67  ⚠️ SLOW: loadSurveys (initial) took 119ms
+perfLog @ db.ts:67
+loadSurveys @ store.ts:569
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+logger.ts:29 📦 Loaded 81 measurements from IndexedDB in 345.5ms
+logger.ts:29 ✅ Browser GPS position obtained successfully: {lat: 45.605933681955975, lon: -72.97038677225608, accuracy: 66}
+logger.ts:29 🛰️ GPS permission status updated and saved: true
+logger.ts:29 🛰️ GPS permission granted - starting browser GPS immediately
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+firebase.ts:451   POST https://firestore.googleapis.com/google.firestore.v1.Firestore/Write/channel?VER=8&database=projects%2Fmeasureprov1%2Fdatabases%2F(default)&gsessionid=pgm1eDY91iEFolqSB3xDhGCCqhBKVWjOk-4rdsd4Tgc&SID=T8B1I1Li1rxatC7S1AND3g&RID=49439&AID=3&zx=gezufhkwui56&t=1 400 (Bad Request)
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+ed @ webchannel_blob_es2018.js:73
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+Ub @ webchannel_blob_es2018.js:77
+M2.Y @ webchannel_blob_es2018.js:34
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+Mc @ webchannel_blob_es2018.js:56
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+ed @ webchannel_blob_es2018.js:73
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+Y2.o @ webchannel_blob_es2018.js:83
+Io @ webchannel_connection.ts:268
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+m_ @ persistent_stream.ts:881
+__PRIVATE_addToWritePipeline @ remote_store.ts:739
+__PRIVATE_fillWritePipeline @ remote_store.ts:694
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+(anonymous) @ write_batch.ts:41
+commit @ write_batch.ts:234
+syncMeasurementsToFirebase @ firebase.ts:451
+onSurveyExport @ autoSync.ts:160
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}}
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}}
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+IndexedDB
+(anonymous) @ index.js:125
+getSurveysPaginated @ db.ts:522
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+firebase.ts:451   POST https://firestore.googleapis.com/google.firestore.v1.Firestore/Write/channel?VER=8&database=projects%2Fmeasureprov1%2Fdatabases%2F(default)&gsessionid=_tMAGrqAocAbcNpbFZzR0ymSvtAj5lRc-YRE26hInJE&SID=9J88DqzvPZP4Eyc4fFou3Q&RID=16346&AID=5&zx=m4j2o79hwq6r&t=1 400 (Bad Request)
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+ed @ webchannel_blob_es2018.js:73
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+Ub @ webchannel_blob_es2018.js:77
+M2.Y @ webchannel_blob_es2018.js:34
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+Mc @ webchannel_blob_es2018.js:56
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+ed @ webchannel_blob_es2018.js:73
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+Y2.o @ webchannel_blob_es2018.js:83
+Io @ webchannel_connection.ts:268
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+m_ @ persistent_stream.ts:881
+__PRIVATE_addToWritePipeline @ remote_store.ts:739
+__PRIVATE_fillWritePipeline @ remote_store.ts:694
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+(anonymous) @ write_batch.ts:41
+commit @ write_batch.ts:234
+syncMeasurementsToFirebase @ firebase.ts:451
+onSurveyExport @ autoSync.ts:160
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+IndexedDB
+(anonymous) @ index.js:125
+getSurveysPaginated @ db.ts:522
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+IndexedDB
+(anonymous) @ index.js:125
+getSurveysPaginated @ db.ts:522
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+client.ts:124 [RoadScope] Validation response: {success: true, data: {…}}
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:77 [RoadScope] Response (201): {success: true, data: {…}, message: 'Survey created successfully'}
+syncService.ts:292 [RoadScope Sync] Looking for measurements with surveyId: 10d67f44-9222-4a51-868a-0744ea7c9be1
+syncService.ts:297 [RoadScope Sync] Found 81 total measurements for survey
+syncService.ts:312 [RoadScope Sync] Unsynced measurements: 81 (0 already synced)
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/pois
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 335.8ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+setInterval
+(anonymous) @ OfflineStatusIndicator.tsx:40
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+IndexedDB
+(anonymous) @ index.js:125
+getSurveysPaginated @ db.ts:522
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+(anonymous) @ SurveyManager.tsx:35
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+client.ts:71   POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/pois 413 (Request Entity Too Large)
+request @ client.ts:71
+batchUpsertPOIs @ client.ts:180
+syncSurveyToRoadScope @ syncService.ts:536
+await in syncSurveyToRoadScope
+handleSync @ RoadScopeSyncDialog.tsx:136
+await in handleSync
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+client.ts:89  [RoadScope] Request error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+request @ client.ts:89
+await in request
+batchUpsertPOIs @ client.ts:180
+syncSurveyToRoadScope @ syncService.ts:536
+await in syncSurveyToRoadScope
+handleSync @ RoadScopeSyncDialog.tsx:136
+await in handleSync
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/upload-urls
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}}
+RoadScopeSyncDialog.tsx:174  [RoadScope] Sync failed: TypeError: urlsResult.data.uploadUrls is not iterable
+    at syncSurveyToRoadScope (syncService.ts:644:47)
+    at async handleSync (RoadScopeSyncDialog.tsx:136:26)
+handleSync @ RoadScopeSyncDialog.tsx:174
+await in handleSync
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+await in onSurveyExport
+exportSurveyFunction @ export.ts:354
+await in exportSurveyFunction
+handleExport @ SurveyManager.tsx:92
+(anonymous) @ SurveyManager.tsx:51
+setTimeout
+(anonymous) @ SurveyManager.tsx:50
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+IndexedDB
+(anonymous) @ index.js:125
+getSurveysPaginated @ db.ts:522
+await in getSurveysPaginated
+loadSurveys @ store.ts:534
+await in loadSurveys
+loadAllSurveys @ SurveyManager.tsx:74
+(anonymous) @ SurveyManager.tsx:77
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+performSyncWorkOnRoot @ react-dom.development.js:26115
+flushSyncCallbacks @ react-dom.development.js:12042
+commitRootImpl @ react-dom.development.js:26998
+commitRoot @ react-dom.development.js:26721
+finishConcurrentRender @ react-dom.development.js:26020
+performConcurrentWorkOnRoot @ react-dom.development.js:25848
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate

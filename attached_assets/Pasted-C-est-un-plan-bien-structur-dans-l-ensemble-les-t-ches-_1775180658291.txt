@@ -1,0 +1,20 @@
+C'est un plan bien structuré dans l'ensemble — les tâches sont claires, le scope est bien délimité, et la séparation entre le mode existant (re-routing) et le nouveau mode "locked" est une bonne décision architecturale. Voici mon analyse critique :
+Ce qui est solide ✅
+
+La séparation SurveyRouteNavigator vs RouteNavigator existant est la bonne approche — zéro risque de régression sur le mode actuel.
+Garder fullGeometry pour la détection hors-route et routeGeometry simplifié pour le rendu est exactement la bonne stratégie. RDP à ε ≈ 0.00005° est raisonnable pour des routes routières.
+Le HUD minimaliste (distance restante + prochain changement de cap) correspond parfaitement au besoin réel d'un conducteur d'équipe de relevé.
+Le "Out of scope" est bien discipliné — pas de voice TBT, pas de recalcul, pas de cache offline dans ce ticket.
+
+Points à surveiller ⚠️
+
+"Nearest point on route" pour la distance restante — L'algo de projection sur polyline peut être coûteux si la géométrie simplifiée a encore des milliers de points. Il faudra s'assurer que c'est calculé sur la géométrie simplifiée, pas la full geometry.
+Le seuil de cap à 30° pour le "next bearing change" est arbitraire et pourrait générer trop de bruit sur des routes sinueuses. Mieux vaudrait filtrer aussi par distance minimale (ex : ignorer les changements < 50m apart).
+Le toast "internet required" est one-time — mais "one-time" par session ou persistent via localStorage ? À préciser pour éviter qu'il spam à chaque montage du composant.
+GPX avec des milliers de track points — La simplification est appliquée à l'import, ce qui est bien, mais si l'utilisateur réimporte le même fichier, est-ce que la fullGeometry brute est préservée quelque part dans le store/Firestore, ou recalculée ? À vérifier.
+La tâche 5 (RouteManager integration) suppose que routeGeometry est toujours populé pour les routes importées — mais si des routes plus anciennes dans Firestore n'ont pas ce champ, le bouton "Survey Nav" n'apparaîtra pas sans avertissement. Un fallback ou une migration serait prudent.
+
+Ce qui manque à mon avis 🔍
+
+Aucune mention de la gestion du wakelock écran (navigator.wakeLock) — critique en navigation active, le téléphone ne doit pas s'éteindre.
+Pas de spec sur le comportement si le GPS signal est perdu (banner différente ? silence ?).

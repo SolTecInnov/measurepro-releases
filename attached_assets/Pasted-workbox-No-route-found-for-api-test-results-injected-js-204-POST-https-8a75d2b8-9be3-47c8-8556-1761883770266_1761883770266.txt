@@ -1,0 +1,58 @@
+workbox No route found for: /api/test-results
+injected.js:204   POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/test-results 400 (Bad Request)
+apply @ injected.js:204
+apiRequest @ queryClient.ts:15
+mutationFn @ TestingPage.tsx:810
+fn @ mutation.ts:190
+run @ retryer.ts:155
+start @ retryer.ts:221
+execute @ mutation.ts:233
+await in execute
+mutate @ mutationObserver.ts:142
+handleTestStatus @ TestingPage.tsx:844
+onClick @ TestingPage.tsx:985
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+workbox-47da91e0.js:44 workbox No route found for: /api/test-results
+injected.js:204   POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/test-results 400 (Bad Request)
+apply @ injected.js:204
+apiRequest @ queryClient.ts:15
+mutationFn @ TestingPage.tsx:810
+fn @ mutation.ts:190
+run @ retryer.ts:155
+start @ retryer.ts:221
+execute @ mutation.ts:233
+await in execute
+mutate @ mutationObserver.ts:142
+handleTestStatus @ TestingPage.tsx:844
+onClick @ TestingPage.tsx:993
+callCallback2 @ react-dom.development.js:4164
+invokeGuardedCallbackDev @ react-dom.development.js:4213
+invokeGuardedCallback @ react-dom.development.js:4277
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:4291
+executeDispatch @ react-dom.development.js:9041
+processDispatchQueueItemsInOrder @ react-dom.development.js:9073
+processDispatchQueue @ react-dom.development.js:9086
+dispatchEventsForPlugins @ react-dom.development.js:9097
+(anonymous) @ react-dom.development.js:9288
+batchedUpdates$1 @ react-dom.development.js:26179
+batchedUpdates @ react-dom.development.js:3991
+dispatchEventForPluginEventSystem @ react-dom.development.js:9287
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ react-dom.development.js:6465
+dispatchEvent @ react-dom.development.js:6457
+dispatchDiscreteEvent @ react-dom.development.js:6430
+workbox-47da91e0.js:44 workbox No route found for: /api/test-results
+injected.js:204   POST https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/api/test-results 400 (Bad Request)

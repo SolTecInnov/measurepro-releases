@@ -1,0 +1,323 @@
+logger.ts:29 Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 with 24 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+logger.ts:29 Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b with 10 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+firebase.ts:396  [2025-12-04T15:31:40.500Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:387
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+__PRIVATE_startWriteStream @ remote_store.ts:756
+__PRIVATE_fillWritePipeline @ remote_store.ts:702
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+setDoc @ reference_impl.ts:342
+syncSurveyToFirebase @ firebase.ts:396
+startSync @ sync.ts:194
+await in startSync
+(anonymous) @ sync.ts:722
+firebase.ts:396  [2025-12-04T15:31:40.500Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:388
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+__PRIVATE_startWriteStream @ remote_store.ts:756
+__PRIVATE_fillWritePipeline @ remote_store.ts:702
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+setDoc @ reference_impl.ts:342
+syncSurveyToFirebase @ firebase.ts:396
+startSync @ sync.ts:194
+await in startSync
+(anonymous) @ sync.ts:722
+client.ts:124 [RoadScope] Validation response: {success: true, data: {…}}
+syncService.ts:292 [RoadScope Sync] Looking for measurements with surveyId: 10d67f44-9222-4a51-868a-0744ea7c9be1
+syncService.ts:297 [RoadScope Sync] Found 81 total measurements for survey
+syncService.ts:312 [RoadScope Sync] Unsynced measurements: 81 (0 already synced)
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/pois
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}, message: 'Processed 81 POIs'}
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/upload-urls
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}}
+syncService.ts:645 [RoadScope Sync] Upload URLs response: {"uploads":[{"filename":"00e952bd-a3b8-4f19-bcd3-ad2ada0e7368_photo.jpg","uploadUrl":"https://storage.googleapis.com/os-hub-db.firebasestorage.app/measurepro/64I6b2w2Y9q8JnLEIt2m/undefined/1764862307388_00e952bd-a3b8-4f19-bcd3-ad2ada0e7368_photo.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=compute-engine%40os-hub-db.iam.gserviceaccount.com%2F20251204%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251204T153147Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Signat
+syncService.ts:648 [RoadScope Sync] No upload URLs returned, skipping file upload
+client.ts:67 [RoadScope] Auth header present: true
+client.ts:70 [RoadScope] Requesting: /api/roadscope/proxy/surveys/64I6b2w2Y9q8JnLEIt2m/upload-urls
+client.ts:77 [RoadScope] Response (200): {success: true, data: {…}}
+syncService.ts:645 [RoadScope Sync] Upload URLs response: {"uploads":[{"filename":"df7d7ec8-a25f-4fc3-ba0e-8f0d105aa596_photo_1.jpg","uploadUrl":"https://storage.googleapis.com/os-hub-db.firebasestorage.app/measurepro/64I6b2w2Y9q8JnLEIt2m/undefined/1764862307719_df7d7ec8-a25f-4fc3-ba0e-8f0d105aa596_photo_1.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=compute-engine%40os-hub-db.iam.gserviceaccount.com%2F20251204%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251204T153147Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Si
+syncService.ts:648 [RoadScope Sync] No upload URLs returned, skipping file upload

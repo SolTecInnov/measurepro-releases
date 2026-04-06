@@ -1,0 +1,314 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [LaserReader] setLaserType called with: high-pole
+ [LaserReader] ASCII mode (no RSA driver)
+ [LaserReader] setLaserType called with: high-pole
+ [LaserReader] ASCII mode (no RSA driver)
+ [LaserReader] setLaserType called with: high-pole
+ [LaserReader] ASCII mode (no RSA driver)
+ [LaserReader] setLaserType called with: high-pole
+ [LaserReader] ASCII mode (no RSA driver)
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+index-tUnpb20f.js:3861 [INIT-6] Build environment: production Production: true
+index-tUnpb20f.js:3861 [INIT-7] Starting localStorage cleanup...
+index-tUnpb20f.js:3861 [INIT-8] Scanning localStorage for problematic keys...
+index-tUnpb20f.js:3861 [INIT-9] No problematic localStorage keys found
+index-tUnpb20f.js:3861 [INIT-11] localStorage cleanup complete
+index-tUnpb20f.js:3861 [INIT-12] Checking library health (Leaflet, etc)...
+index-tUnpb20f.js:3789 Library health check PASSED - All critical libraries loaded
+index-tUnpb20f.js:3861 [INIT-13] ✅ Library health check PASSED
+index-tUnpb20f.js:3861 [INIT-13b] Initializing Firebase auto-sync service...
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Initialized Object
+index-tUnpb20f.js:3478 [AutoSync] Firebase auto-sync initialized
+index-tUnpb20f.js:3861 [INIT-13c] ✅ Firebase auto-sync initialized
+index-tUnpb20f.js:3861 [INIT-13d] Initializing Auto-Part Manager (400 POI threshold)...
+index-tUnpb20f.js:3773 [AutoPartManager] Initializing with threshold: 200
+index-tUnpb20f.js:3861 [INIT-13e] ✅ Auto-Part Manager initialized
+index-tUnpb20f.js:3861 [INIT-14] Rendering React app to root element...
+index-tUnpb20f.js:3861 [INIT-15] ✅ React app rendered successfully
+index-tUnpb20f.js:3773 [APP-1] App component mounted, initializing core workers...
+index-tUnpb20f.js:3773 [APP-2] Checking IndexedDB health before worker initialization...
+index-tUnpb20f.js:3773 [STORAGE-1] Starting IndexedDB health check...
+index-tUnpb20f.js:3773 [STORAGE-3] Checking if indexedDB is defined...
+index-tUnpb20f.js:3773 [STORAGE-4] IndexedDB is defined
+index-tUnpb20f.js:3773 [STORAGE-5] Attempting to open test database...
+index-tUnpb20f.js:3784 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+index-tUnpb20f.js:3773 [STORAGE-1] Starting IndexedDB health check...
+index-tUnpb20f.js:3773 [STORAGE-3] Checking if indexedDB is defined...
+index-tUnpb20f.js:3773 [STORAGE-4] IndexedDB is defined
+index-tUnpb20f.js:3773 [STORAGE-5] Attempting to open test database...
+index-tUnpb20f.js:3773 [STORAGE-7] Upgrading test database (creating object store)
+index-tUnpb20f.js:3773 [STORAGE-6] Test database opened successfully
+index-tUnpb20f.js:3773 [STORAGE-8] Testing write operation...
+index-tUnpb20f.js:3773 [STORAGE-6] Test database opened successfully
+index-tUnpb20f.js:3773 [STORAGE-8] Testing write operation...
+index-tUnpb20f.js:3773 [STORAGE-9] Write test successful
+index-tUnpb20f.js:3773 [STORAGE-10] Test database closed
+index-tUnpb20f.js:3773 [STORAGE-11] Checking storage quota...
+index-tUnpb20f.js:3773 [STORAGE-9] Write test successful
+index-tUnpb20f.js:3773 [STORAGE-10] Test database closed
+index-tUnpb20f.js:3773 [STORAGE-11] Checking storage quota...
+index-tUnpb20f.js:3773 [STORAGE-12] Storage quota: Object
+index-tUnpb20f.js:3773 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-tUnpb20f.js:3784 [APP-3] IndexedDB healthy, initializing workers...
+index-tUnpb20f.js:3784 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+index-tUnpb20f.js:3784 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+index-tUnpb20f.js:3784 [APP-5] ✅ Orchestrator worker initialized
+index-tUnpb20f.js:3784 [APP-6] ✅ Flush-on-close handlers initialized
+index-tUnpb20f.js:3773 [STORAGE-12] Storage quota: Object
+index-tUnpb20f.js:3773 [STORAGE-14] ✅ IndexedDB health check PASSED
+index-tUnpb20f.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 123ms
+Vs @ index-tUnpb20f.js:3235
+index-tUnpb20f.js:3235  ⚠️ SLOW: openSurveyDB (fresh) took 122ms
+Vs @ index-tUnpb20f.js:3235
+index-tUnpb20f.js:3480 ⏱️ getSurveysPaginated(50): 1.244873046875 ms
+index-tUnpb20f.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-tUnpb20f.js:3480 ⏱️ loadSurveys TOTAL: 124.6640625 ms
+index-tUnpb20f.js:3480 ✅ Loaded 0 surveys (including active) in 125ms
+index-tUnpb20f.js:3235  ⚠️ SLOW: loadSurveys (initial) took 125ms
+Vs @ index-tUnpb20f.js:3235
+index-tUnpb20f.js:3768 Legacy scan results: Object
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-4Z0xBH-H.js:1
+/welcome:1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+index-tUnpb20f.js:3784 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+index-tUnpb20f.js:3478 [ConnectivityMonitor] User authenticated
+index-tUnpb20f.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+index-tUnpb20f.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480 ⏱️ getSurveysPaginated(50): 14.0400390625 ms
+index-tUnpb20f.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-tUnpb20f.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-tUnpb20f.js:3480 ⏱️ loadSurveys TOTAL: 39.22705078125 ms
+index-tUnpb20f.js:3480 ✅ Loaded 0 surveys (including active) in 39ms
+index-tUnpb20f.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-tUnpb20f.js:3480
+index-tUnpb20f.js:3480 ✅ Loaded 0 surveys (including active) in 42ms
+index-tUnpb20f.js:3129 [Settings] Loaded from database successfully: 13 settings categories
+localhost:8765/api/gnss/config:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS config: TypeError: Failed to fetch
+    at N (Settings-B47kyR38.js:232:79168)
+    at Settings-B47kyR38.js:232:79617
+    at $o (leaflet-Bz8b9eTr.js:32:24252)
+    at ci (leaflet-Bz8b9eTr.js:32:42283)
+    at Lv (leaflet-Bz8b9eTr.js:32:41132)
+    at Sn (leaflet-Bz8b9eTr.js:32:40185)
+    at Pf (leaflet-Bz8b9eTr.js:32:36802)
+    at mn (leaflet-Bz8b9eTr.js:30:3274)
+    at leaflet-Bz8b9eTr.js:32:34189
+N @ Settings-B47kyR38.js:232
+localhost:8765/api/gnss/status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS status: TypeError: Failed to fetch
+    at y (Settings-B47kyR38.js:232:79494)
+    at Settings-B47kyR38.js:232:79621
+    at $o (leaflet-Bz8b9eTr.js:32:24252)
+    at ci (leaflet-Bz8b9eTr.js:32:42283)
+    at Lv (leaflet-Bz8b9eTr.js:32:41132)
+    at Sn (leaflet-Bz8b9eTr.js:32:40185)
+    at Pf (leaflet-Bz8b9eTr.js:32:36802)
+    at mn (leaflet-Bz8b9eTr.js:30:3274)
+    at leaflet-Bz8b9eTr.js:32:34189
+y @ Settings-B47kyR38.js:232
+localhost:8765/api/gnss/reconnect:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:8765/api/gnss/status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS status: TypeError: Failed to fetch
+    at y (Settings-B47kyR38.js:232:79494)
+y @ Settings-B47kyR38.js:232
+localhost:8765/api/gnss/test-connection:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+localhost:8765/api/gnss/status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+localhost:8765/api/gnss/status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+localhost:3001/api/gnss/config:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS config: TypeError: Failed to fetch
+    at N (Settings-B47kyR38.js:232:79168)
+    at Settings-B47kyR38.js:232:79617
+    at $o (leaflet-Bz8b9eTr.js:32:24252)
+    at ci (leaflet-Bz8b9eTr.js:32:42283)
+    at Lv (leaflet-Bz8b9eTr.js:32:41132)
+    at Sn (leaflet-Bz8b9eTr.js:32:40185)
+    at Pf (leaflet-Bz8b9eTr.js:32:36802)
+    at mn (leaflet-Bz8b9eTr.js:30:3274)
+    at leaflet-Bz8b9eTr.js:32:34189
+N @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS status: TypeError: Failed to fetch
+    at y (Settings-B47kyR38.js:232:79494)
+    at Settings-B47kyR38.js:232:79621
+    at $o (leaflet-Bz8b9eTr.js:32:24252)
+    at ci (leaflet-Bz8b9eTr.js:32:42283)
+    at Lv (leaflet-Bz8b9eTr.js:32:41132)
+    at Sn (leaflet-Bz8b9eTr.js:32:40185)
+    at Pf (leaflet-Bz8b9eTr.js:32:36802)
+    at mn (leaflet-Bz8b9eTr.js:30:3274)
+    at leaflet-Bz8b9eTr.js:32:34189
+y @ Settings-B47kyR38.js:232
+localhost:3001/api/gnss/reconnect:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS status: TypeError: Failed to fetch
+    at y (Settings-B47kyR38.js:232:79494)
+y @ Settings-B47kyR38.js:232
+localhost:3001/api/gnss/test-connection:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+  Failed to fetch GNSS status: 
+y @ Settings-B47kyR38.js:232
+status:1   Failed to load resource: net::ERR_CONNECTION_REFUSED
+Settings-B47kyR38.js:232  Failed to fetch GNSS status: TypeError: Failed to fetch
+    at y (Settings-B47kyR38.js:232:79494)
+y @ Settings-B47kyR38.js:232
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+/api/gnss/live:1   Failed to load resource: the server responded with a status of 404 ()
+Settings-B47kyR38.js:232   GET https://measure-pro.app/api/gnss/live 404 (Not Found)
+(anonymous) @ Settings-B47kyR38.js:232
+Settings-B47kyR38.js:232   GET https://measure-pro.app/api/gnss/live 404 (Not Found)
+(anonymous) @ Settings-B47kyR38.js:232
+Settings-B47kyR38.js:232   GET https://measure-pro.app/api/gnss/live 404 (Not Found)
+(anonymous) @ Settings-B47kyR38.js:232

@@ -1,0 +1,104 @@
+It sounds good — but this summary is exactly the kind of “demo-level” write-up that can hide major cracks. I don’t care that it “works on their machine.” I care that it’s correct, robust, and defendable for 100–300 km routes and real field chaos.
+
+Here’s what I think: 80% promising, 20% red flags. You need to verify a few non-negotiables before you trust it.
+
+⸻
+
+The good (if true)
+	•	Split view + bidirectional sync is the right architecture.
+	•	Offline-first IndexedDB is correct for MeasurePRO.
+	•	ZIP bundle export is exactly what you need for portability and audit.
+	•	Creating alignments from driven paths + simplification is practical.
+
+⸻
+
+The red flags / what’s likely wrong
+
+1) “Snap to nearest sample point” can be a mistake
+
+They changed profile→map sync to snap to nearest sample instead of using stationing continuously. That can be fine only if your sampling is dense enough and uniform.
+
+If your samples are sparse (or you filter points), snapping causes:
+	•	the marker to jump
+	•	station to drift
+	•	mismatch between alignment geometry and displayed station
+
+Better approach: snap to station on alignment (continuous) and interpolate profile value at station (linear / spline).
+Snapping to samples is a workaround for a deeper mapping issue.
+
+✅ Acceptable if they ALSO show “sample spacing” and allow interpolation.
+❌ Bad if it’s the only mode.
+
+2) “Elevation” wording — they say elevation again
+
+They wrote “elevation profile graph” and “CSV with station, elevation.”
+You explicitly standardized on Altitude (MSL) and corrected altitude.
+
+This isn’t just naming. It’s semantics:
+	•	raw altitude vs corrected altitude
+	•	MSL vs ellipsoid
+	•	offset applied
+
+The export must include:
+	•	station (s)
+	•	raw altitude candidates (if stored)
+	•	selected/derived altitude
+	•	corrected altitude
+	•	altitude strategy + offset metadata
+
+If they export “elevation” as a single number with no provenance, it’s not audit-proof.
+
+3) Alignment-from-driving-path can create garbage geometry
+
+Douglas–Peucker simplification is fine, but it can:
+	•	cut corners on curves
+	•	break stationing accuracy
+	•	create false “shortcuts” at intersections/loops
+	•	make projection to alignment wrong
+
+You need:
+	•	constraints (max lateral deviation)
+	•	handling of loops / backtracking
+	•	a way to edit alignment manually or re-fit
+
+If they didn’t address loops, your stationing becomes nonsense.
+
+4) They didn’t mention “lateral offset” or side-of-road sign
+
+For convoys, you need:
+	•	lateral offset from alignment
+	•	sign (right positive)
+	•	heading delta (vehicle vs alignment tangent)
+
+Without offset, “alignment” is just a pretty line. It doesn’t quantify clearance corridor positioning.
+
+5) No mention of projection math quality
+
+You need to know:
+	•	do they project point-to-polyline in meters with proper geo conversion?
+	•	are they using a correct local planar projection (e.g., Web Mercator approximations are okay locally, but can drift)?
+	•	do they precompute cumulative distances correctly?
+
+If their projection is sloppy, stationing errors accumulate and the linkage becomes “feels right” but wrong.
+
+⸻
+
+The 10 checks you must demand (no excuses)
+
+Tell them to demonstrate these, with numbers on screen:
+	1.	Station correctness: pick 3 known points; station increases smoothly; no jumps.
+	2.	Interpolation: drag cursor between samples — does the marker move smoothly or jump?
+	3.	Sample spacing display: show average distance between samples.
+	4.	Loop/backtrack handling: drive a loop; does alignment creation produce sane stationing?
+	5.	Lateral offset: show offset (m) from alignment for the live point.
+	6.	Heading delta: show difference between alignment bearing and GNSS heading.
+	7.	Long distance: load 200–300 km alignment/profile; no lag, no NaN, usable axis.
+	8.	Export audit: ZIP includes metadata.json with:
+	•	altitude strategy
+	•	offset
+	•	axis mapping id/confidence (if relevant)
+	•	timestamps
+	9.	Re-import: can you import the ZIP and reproduce same stationing?
+	10.	Offline boot: airplane mode; fresh reload; can you still load/switch alignments/profiles?
+
+If they can’t demo these, it’s not “complete,” it’s a prototype.

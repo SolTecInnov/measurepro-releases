@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>09 – Troubleshooting Matrix | MeasurePRO Field Kit</title>
+<style>
+  :root { --brand: #f59e0b; --dark: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem; }
+  .doc-header { border-left: 4px solid var(--brand); padding-left: 1.5rem; margin-bottom: 2.5rem; }
+  .doc-header .doc-num { color: var(--brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  h1 { font-size: 2rem; font-weight: 800; margin: 0.25rem 0 0.5rem; }
+  h2 { font-size: 1.2rem; font-weight: 700; color: var(--brand); margin: 2rem 0 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; overflow-x: auto; }
+  .nav { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .nav a { color: var(--brand); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  thead tr { background: #0f172a; }
+  th { color: var(--brand); text-align: left; padding: 0.75rem 1rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.03); }
+  td:first-child { font-weight: 700; color: #fbbf24; white-space: nowrap; }
+  td:nth-child(2) { color: var(--muted); }
+  td:nth-child(3) { color: #93c5fd; }
+  .category-row td { background: #0f172a; color: var(--brand); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; padding: 0.4rem 1rem; }
+  code { background: #0f172a; padding: 0.1rem 0.35rem; border-radius: 0.2rem; font-size: 0.82rem; color: #7dd3fc; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="08-quality-control.html">← 08: Quality Control</a>
+  <a href="index.html">Index</a>
+  <a href="10-maintenance.html">Next: Maintenance →</a>
+</nav>
+
+<div class="doc-header">
+  <div class="doc-num">Document 09 of 12</div>
+  <h1>Troubleshooting Matrix</h1>
+  <p style="color:var(--muted)">Problem → Cause → Action. Find your issue, follow the action. No guessing.</p>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Problem</th>
+        <th>Likely Cause</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- LASER -->
+      <tr class="category-row"><td colspan="3">Vertical Clearance Laser</td></tr>
+      <tr>
+        <td>No laser readings in app</td>
+        <td>Serial port not connected or wrong port selected</td>
+        <td>Settings → Laser → disconnect, select correct COM port, reconnect. Confirm USB cable is plugged in directly (not via hub).</td>
+      </tr>
+      <tr>
+        <td>Laser shows <code>--</code> constantly</td>
+        <td>Beam hitting sky / no return; ignoreAbove too low; amplitude filter too strict; DE02 error</td>
+        <td>1. Aim at a solid surface within 15 m. 2. Check ignoreAbove setting. 3. Lower amplitude filter threshold. 4. If outside, ensure laser faces upward with clear path to overhead objects.</td>
+      </tr>
+      <tr>
+        <td>Readings jump ±0.5 m randomly</td>
+        <td>Laser mount vibrating; cable connector loose; weak return signal</td>
+        <td>Tighten mount bolts. Check USB connector is firmly seated. Increase amplitude filter minimum to reject weak returns. Reduce vehicle speed over rough road.</td>
+      </tr>
+      <tr>
+        <td>All readings exactly 0.000 m</td>
+        <td>Wrong laser protocol selected</td>
+        <td>Settings → Laser Protocol — confirm RSA vs LDM71 matches hardware. RSA = 3-byte binary; LDM71 = ASCII. Reconnect after changing.</td>
+      </tr>
+      <tr>
+        <td>Readings consistently 0.3–0.8 m too low</td>
+        <td>Ground reference not set; laser tilted &gt;2°</td>
+        <td>Re-run ground reference calibration. Check laser vertical alignment with spirit level.</td>
+      </tr>
+      <tr>
+        <td>Laser connects then immediately disconnects</td>
+        <td>Serial port taken by another process; USB hub power issue</td>
+        <td>Close any other serial terminal software. Replug to direct USB port. Windows: check Device Manager for port conflicts.</td>
+      </tr>
+
+      <!-- GPS / GNSS -->
+      <tr class="category-row"><td colspan="3">GPS / GNSS</td></tr>
+      <tr>
+        <td>GPS indicator stays red / no fix</td>
+        <td>Duro not powered; wrong IP/port; TCP bridge not running</td>
+        <td>Confirm Duro LED is active. Check TCP bridge server is running on the controller laptop. Verify IP and port in Settings → GNSS → Duro Config.</td>
+      </tr>
+      <tr>
+        <td>GPS position shows correct road but shifts 20–30 m</td>
+        <td>RTK fix lost — degraded to SBAS or autonomous mode</td>
+        <td>Check RTK indicator in GNSS panel. If degraded, wait for Duro to re-acquire RTK baseline. Note the section in survey comments. Do not use for precision engineering until RTK restored.</td>
+      </tr>
+      <tr>
+        <td>Duro connected but USB GPS also showing</td>
+        <td>Both sources active; USB GPS should be silenced by priority logic</td>
+        <td>Duro takes priority automatically when it has sent data within 5 seconds. If both are active simultaneously, disconnect USB GPS in Settings → GPS Sources.</td>
+      </tr>
+      <tr>
+        <td>GPS track shows vehicle teleporting</td>
+        <td>GNSS multipath or interference near large metal structures</td>
+        <td>Expected near bridges and under power pylons. The app will record the jump but filter outliers during export processing. Note the location.</td>
+      </tr>
+      <tr>
+        <td>No GPS in tunnel</td>
+        <td>No satellite signal underground</td>
+        <td>Expected. Record entry and exit GPS coordinates before/after the tunnel. The export will show a straight-line interpolation through the tunnel. Note in deliverable.</td>
+      </tr>
+
+      <!-- LiDAR -->
+      <tr class="category-row"><td colspan="3">Hesai LiDAR (Companion Service)</td></tr>
+      <tr>
+        <td>LiDAR service not connecting in app</td>
+        <td>Service not running; wrong port; Windows firewall</td>
+        <td>1. Confirm <code>MeasurePROLidarService.exe</code> is running. 2. Default port 17777 — check app LiDAR settings match. 3. Add firewall exception for ports 17777–17787. 4. Check service logs in <code>C:\MeasurePRO\Logs\</code>.</td>
+      </tr>
+      <tr>
+        <td>LiDAR data streaming but no point cloud</td>
+        <td>Capture not started; disk full</td>
+        <td>Press "Start Static Capture" or "Start Segment Capture" in app. Confirm <code>C:\MeasurePRO\Captures\</code> has free space (&gt;10 GB recommended per hour).</td>
+      </tr>
+      <tr>
+        <td>Service crashes mid-capture</td>
+        <td>Memory overload; UDP packet loss</td>
+        <td>Restart service. Capture to this point is saved. Restart the session as a new capture segment and note the gap. Ensure no other UDP-heavy applications running on the LiDAR network interface.</td>
+      </tr>
+
+      <!-- App / PWA -->
+      <tr class="category-row"><td colspan="3">App / PWA</td></tr>
+      <tr>
+        <td>App not loading (blank screen)</td>
+        <td>Service worker cache stale; browser not supported</td>
+        <td>Hard refresh: Ctrl+Shift+R (Windows) / Cmd+Shift+R (Mac). If still blank: Settings → Clear site data in Chrome. Use Chrome or Edge only — Safari/Firefox do not support Web Serial API.</td>
+      </tr>
+      <tr>
+        <td>"Cannot connect to serial port" error</td>
+        <td>Browser does not have permission; wrong browser</td>
+        <td>Must use Chrome or Edge version 89+. When connecting for first time, browser shows a port selection dialog — user must manually grant access. If permission was previously denied, reset in Chrome → Settings → Privacy → Site Settings → Serial.</td>
+      </tr>
+      <tr>
+        <td>Survey data missing after app crash</td>
+        <td>IndexedDB write behind on flush</td>
+        <td>App flushes to IndexedDB every 30 seconds. Reopen app — survey should restore from last flush. If data lost: last resort is to re-survey the section from the last confirmed POI.</td>
+      </tr>
+      <tr>
+        <td>Cloud sync not completing (spinner stays)</td>
+        <td>No internet connection; Firebase quota</td>
+        <td>Data is safe in IndexedDB locally. Connect to internet and sync will resume automatically. Check Firebase console for quota warnings if persistent.</td>
+      </tr>
+      <tr>
+        <td>POIs appear in wrong location on map</td>
+        <td>GPS was degraded at time of capture; CRS mismatch in export</td>
+        <td>Check GPS accuracy indicator at time of capture (visible in survey log). For export CRS issues: re-export with the correct CRS for the client's GIS system.</td>
+      </tr>
+
+      <!-- Road Profile -->
+      <tr class="category-row"><td colspan="3">Road Profiling & GNSS</td></tr>
+      <tr>
+        <td>Road Profile panel not appearing</td>
+        <td>Module not enabled; wrong GPS source</td>
+        <td>Settings → Road Profile → Enable Road Profile Recording. Requires Duro with RTK Fixed fix — USB GPS, Bluetooth, and browser geolocation do not support Road Profiling.</td>
+      </tr>
+      <tr>
+        <td>Grade values look wrong or jump</td>
+        <td>RTK fix not achieved; fast speed over short segment</td>
+        <td>Confirm RTK Fixed (green indicator, not Float). Grade accuracy improves at constant speed. K-factor spikes on short crest/sag curves are normal.</td>
+      </tr>
+      <tr>
+        <td>Banking / cross-slope reads 0° constantly</td>
+        <td>IMU not available; USB or BT GPS in use</td>
+        <td>Cross-slope requires the Duro's IMU output. Confirm the Duro is connected and providing roll data — check the raw GNSS panel for IMU roll field.</td>
+      </tr>
+
+      <!-- Voice Commands -->
+      <tr class="category-row"><td colspan="3">Voice Commands</td></tr>
+      <tr>
+        <td>Microphone icon missing / voice control not available</td>
+        <td>Settings not enabled; browser permission denied</td>
+        <td>Settings → Voice Commands → Enable Voice Assistant. Grant microphone permission in browser (click lock icon in address bar → Microphone → Allow). Reload page.</td>
+      </tr>
+      <tr>
+        <td>Commands not recognized</td>
+        <td>No internet; wrong language; background noise</td>
+        <td>Voice recognition requires internet. Confirm Settings → Voice Commands → Language matches your speech. Reduce background noise. Use Chrome or Edge — Firefox has limited support; Safari is not supported.</td>
+      </tr>
+      <tr>
+        <td>Voice notes won't save</td>
+        <td>Microphone permission denied; storage full</td>
+        <td>Voice notes use a separate local recording — check microphone permission. Check available device storage: Survey Manager → Settings → Storage. Voice notes are stored in IndexedDB, not cloud.</td>
+      </tr>
+
+      <!-- Multi-laser -->
+      <tr class="category-row"><td colspan="3">Multi-Laser (Lateral / Rear)</td></tr>
+      <tr>
+        <td>Left or right lateral laser not reading</td>
+        <td>Port not assigned; protocol mismatch</td>
+        <td>Settings → Multi-Laser → assign each laser to its USB port. Protocol must be soltec-old (19200 baud, 7E1). USB adapters must be individually labelled — label confusion is the most common cause.</td>
+      </tr>
+      <tr>
+        <td>Lateral width reading is implausible (too wide/narrow)</td>
+        <td>Vehicle offset not configured; single vs dual mode mismatch</td>
+        <td>Settings → Lateral Laser Settings → confirm vehicle half-width offsets and single/dual laser mode are correct.</td>
+      </tr>
+      <tr>
+        <td>Rear overhang alarm triggering at rest</td>
+        <td>Threshold set too low; blade measurement not started yet</td>
+        <td>Check rear overhang threshold in Settings — default 80 m. If alarm fires before blade is loaded, confirm the laser is reading the actual blade end, not a nearby wall.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<nav class="nav" style="margin-top:2rem; margin-bottom:0">
+  <a href="08-quality-control.html">← 08: Quality Control</a>
+  <a href="index.html">Index</a>
+  <a href="10-maintenance.html">Next: Maintenance →</a>
+</nav>
+</body>
+</html>

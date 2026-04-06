@@ -1,0 +1,207 @@
+MeasurePRO File Registration Fix
+Issue Summary
+Files are uploaded to Firebase Storage successfully, but RoadScope shows 0 files because the registration step is never called.
+
+What's Working
+Upload URL generation: RoadScope provides signed URLs
+File uploads: 54 files upload to Firebase Storage successfully
+POI sync: 80+ POIs sync correctly
+What's Missing
+File registration: After uploads complete, MeasurePRO must call POST /files to register them with RoadScope's database
+Evidence
+RoadScope Server Logs
+📤 Generated 50 upload URLs for survey vbWMP5OOyAGofI963vGi    ✅ Working
+📂 [FILES] Retrieved 0 active files for survey ...             ❌ No registrations exist
+
+Missing log entry (should appear after uploads):
+
+📁 [MeasurePRO FILES] POST /surveys/vbWMP5OOyAGofI963vGi/files - Registering files
+
+The Fix
+Step 1: Locate the File Upload Code
+In syncService.ts, find where parallel uploads complete:
+
+// EXISTING CODE (around line 780-790):
+console.log(`[RoadScope Sync] Parallel upload complete: ${successCount}/${uploadResults.length} successful`);
+
+Step 2: Add File Registration Call
+Add this code AFTER the parallel upload completes:
+
+// After: "Parallel upload complete: X/Y successful"
+// ADD THIS BLOCK:
+// Collect successful uploads that need registration
+const filesToRegister = uploadResults
+  .filter(r => r.success && r.storageUrl)
+  .map(r => ({
+    filename: r.filename,
+    storageUrl: r.storageUrl,           // CRITICAL: From upload-urls response
+    category: r.category || 'photos',
+    contentType: r.mimeType || 'application/octet-stream',
+    size: r.size || 0,
+    linkedPoiExternalId: r.poiExternalId || null,
+    linkedRouteExternalId: r.routeExternalId || null
+  }));
+if (filesToRegister.length > 0) {
+  console.log(`[RoadScope Sync] Registering ${filesToRegister.length} files with RoadScope...`);
+  console.log(`[RoadScope Sync] Sample file:`, JSON.stringify(filesToRegister[0], null, 2));
+  
+  try {
+    // Batch into groups of 50 (RoadScope limit)
+    const batches = [];
+    for (let i = 0; i < filesToRegister.length; i += 50) {
+      batches.push(filesToRegister.slice(i, i + 50));
+    }
+    
+    for (let i = 0; i < batches.length; i++) {
+      const batch = batches[i];
+      console.log(`[RoadScope Sync] Registering batch ${i + 1}/${batches.length} (${batch.length} files)`);
+      
+      const registerResponse = await this.client.post(
+        `/surveys/${roadscopeSurveyId}/files`,
+        { files: batch }
+      );
+      
+      if (registerResponse.data?.success) {
+        console.log(`[RoadScope Sync] ✅ Batch ${i + 1} registered successfully`);
+        console.log(`[RoadScope Sync] Registration result:`, registerResponse.data);
+      } else {
+        console.error(`[RoadScope Sync] ❌ Batch ${i + 1} registration failed:`, registerResponse.data);
+      }
+    }
+  } catch (error: any) {
+    console.error(`[RoadScope Sync] ❌ File registration error:`, error.message);
+    console.error(`[RoadScope Sync] Response:`, error.response?.data);
+  }
+} else {
+  console.log(`[RoadScope Sync] No files to register (all uploads failed or no storageUrl)`);
+}
+
+API Specification
+Endpoint
+POST /api/roadscope/proxy/surveys/:surveyId/files
+
+This proxies to RoadScope:
+
+POST /api/measurepro/surveys/:surveyId/files
+
+Request Body
+{
+  "files": [
+    {
+      "filename": "IMG_20241204_123456.jpg",
+      "storageUrl": "measurepro/vbWMP5OOyAGofI963vGi/photos/abc123/1733345696_IMG_20241204_123456.jpg",
+      "category": "photos",
+      "contentType": "image/jpeg",
+      "size": 2456789,
+      "linkedPoiExternalId": "abc123",
+      "linkedRouteExternalId": null
+    }
+  ]
+}
+
+Required Fields
+Field	Type	Description
+filename	string	Original filename
+storageUrl	string	CRITICAL: The storage path from upload-urls response
+category	string	One of: photos, drawings, timelapse, videos, files
+contentType	string	MIME type (e.g., image/jpeg)
+size	number	File size in bytes
+Optional Fields
+Field	Type	Description
+linkedPoiExternalId	string	Links file to a POI
+linkedRouteExternalId	string	Links file to a route
+Response
+{
+  "success": true,
+  "data": {
+    "registered": 50,
+    "errors": 0,
+    "results": [
+      { "filename": "photo1.jpg", "id": "abc123", "linkedTo": "POI:xyz789" }
+    ]
+  }
+}
+
+Proxy Configuration Check
+Verify Proxy Route Exists
+In MeasurePRO's roadscopeRoutes.ts or similar, ensure this path is forwarded:
+
+// The proxy should forward this:
+app.post('/api/roadscope/proxy/surveys/:surveyId/files', async (req, res) => {
+  // Forward to RoadScope
+  const response = await fetch(
+    `${ROADSCOPE_URL}/api/measurepro/surveys/${req.params.surveyId}/files`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-MeasurePro-API-Key': apiKey
+      },
+      body: JSON.stringify(req.body)
+    }
+  );
+  // ...
+});
+
+Body Size Limit
+Ensure the proxy allows large payloads (50 files with metadata):
+
+app.use('/api/roadscope/proxy', express.json({ limit: '10mb' }));
+
+Verification Steps
+1. Check MeasurePRO Console Logs
+After sync, you should see:
+
+[RoadScope Sync] Registering 54 files with RoadScope...
+[RoadScope Sync] Sample file: { filename: "...", storageUrl: "...", ... }
+[RoadScope Sync] Registering batch 1/2 (50 files)
+[RoadScope Sync] ✅ Batch 1 registered successfully
+[RoadScope Sync] Registering batch 2/2 (4 files)
+[RoadScope Sync] ✅ Batch 2 registered successfully
+
+2. Check RoadScope Server Logs
+You should see:
+
+📁 [MeasurePRO FILES] POST /surveys/vbWMP5OOyAGofI963vGi/files - Registering files
+📁 [MeasurePRO FILES] Request body keys: [ 'files' ]
+📁 [MeasurePRO FILES] Files count: 50
+
+3. Verify Files Appear in RoadScope
+After successful registration:
+
+Open the survey in RoadScope
+Check the Files tab
+Files should now appear with correct categories and POI links
+Common Issues
+Issue: "No files to register"
+Cause: Upload results don't have storageUrl Fix: Ensure you're saving the storageUrl from the upload-urls response:
+
+// When getting upload URLs:
+const uploadUrlResponse = await this.client.post(`/surveys/${surveyId}/upload-urls`, { files: [...] });
+const uploads = uploadUrlResponse.data.data.uploads;
+// Each upload contains:
+// { filename, uploadUrl, storageUrl, expiresAt }
+//                        ^^^^^^^^^^^ SAVE THIS!
+
+Issue: 413 Payload Too Large
+Cause: Proxy body limit too small Fix: Increase proxy body limit to 10MB
+
+Issue: 401 Unauthorized
+Cause: API key not forwarded by proxy Fix: Ensure proxy includes X-MeasurePro-API-Key header
+
+Issue: 404 Not Found
+Cause: Proxy route for /files endpoint missing Fix: Add the route to proxy configuration
+
+Testing Checklist
+ Sync a survey with 5-10 files
+ Check MeasurePRO console for registration logs
+ Check RoadScope server logs for POST /files
+ Verify files appear in RoadScope UI
+ Test with 50+ files (batching)
+ Test with mixed categories (photos, drawings, videos)
+Contact
+If registration still fails after implementing these changes:
+
+Share MeasurePRO browser console logs (filter for [RoadScope Sync])
+Share RoadScope server logs (filter for [MeasurePRO FILES])
+Include the exact error messages

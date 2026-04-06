@@ -1,0 +1,1057 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+client:495 [vite] connecting...
+client:618 [vite] connected.
+react-dom.development.js:29895 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+firebase.ts:31 [FIREBASE-1] Loading Firebase configuration...
+firebase.ts:32 [FIREBASE-2] Environment variables: Object
+firebase.ts:51 [FIREBASE-3] Processed Firebase config: Object
+firebase.ts:62 [FIREBASE-4] Firebase configured: true
+firebase.ts:116 [FIREBASE-15] Auto-initializing Firebase on module load...
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: false
+firebase.ts:80 [FIREBASE-7] Firebase is configured, initializing...
+firebase.ts:84 [FIREBASE-8] Existing Firebase apps: 0
+firebase.ts:96 [FIREBASE-11] Creating new Firebase app...
+firebase.ts:101 [FIREBASE-12] ✅ Firebase initialized (new app)
+logger.ts:29 🛰️ Loading saved GPS permission - permission was previously granted
+main.tsx:14 [INIT-5] main.tsx loaded - Starting React app initialization
+main.tsx:19 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+main.tsx:20 [INIT-6] Build environment: development Production: false
+main.tsx:25 [INIT-7] Starting localStorage cleanup...
+main.tsx:32 [INIT-8] Scanning localStorage for problematic keys...
+main.tsx:87 [INIT-9] No problematic localStorage keys found
+main.tsx:107 [INIT-11] localStorage cleanup complete
+main.tsx:242 [INIT-12] Checking library health (Leaflet, etc)...
+libraryHealthCheck.ts:24 Library health check PASSED - All critical libraries loaded
+main.tsx:253 [INIT-13] ✅ Library health check PASSED
+main.tsx:255 [INIT-13b] Initializing Firebase auto-sync service...
+connectivityMonitor.ts:48 [ConnectivityMonitor] Initialized Object
+syncService.ts:56 [SyncService] Initialized
+autoSync.ts:50 [AutoSync] Firebase auto-sync initialized
+main.tsx:258 [INIT-13c] ✅ Firebase auto-sync initialized
+main.tsx:266 [INIT-14] Rendering React app to root element...
+main.tsx:279 [INIT-15] ✅ React app rendered successfully
+logger.ts:29 Found 0 pending changes
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ deprecations.ts:9
+deprecations.ts:9  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ deprecations.ts:9
+App.tsx:303 [APP-1] App component mounted, initializing core workers...
+App.tsx:306 [APP-2] Checking IndexedDB health before worker initialization...
+indexedDBHealth.ts:9 [STORAGE-1] Starting IndexedDB health check...
+indexedDBHealth.ts:18 [STORAGE-3] Checking if indexedDB is defined...
+indexedDBHealth.ts:24 [STORAGE-4] IndexedDB is defined
+indexedDBHealth.ts:27 [STORAGE-5] Attempting to open test database...
+App.tsx:407 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+AuthContext.tsx:65 [AUTHCTX-1] Initializing AuthContext...
+AuthContext.tsx:68 [AUTHCTX-2] Loading cached auth state...
+AuthContext.tsx:99 [AUTHCTX-7] Setting up Firebase auth listener...
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+AuthContext.tsx:112 [AUTHCTX-10] Firebase auth listener registered
+AuthContext.tsx:114 [AUTHCTX-11] Unregistering Firebase auth listener
+App.tsx:303 [APP-1] App component mounted, initializing core workers...
+App.tsx:306 [APP-2] Checking IndexedDB health before worker initialization...
+indexedDBHealth.ts:9 [STORAGE-1] Starting IndexedDB health check...
+indexedDBHealth.ts:18 [STORAGE-3] Checking if indexedDB is defined...
+indexedDBHealth.ts:24 [STORAGE-4] IndexedDB is defined
+indexedDBHealth.ts:27 [STORAGE-5] Attempting to open test database...
+App.tsx:407 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+AuthContext.tsx:65 [AUTHCTX-1] Initializing AuthContext...
+AuthContext.tsx:68 [AUTHCTX-2] Loading cached auth state...
+AuthContext.tsx:99 [AUTHCTX-7] Setting up Firebase auth listener...
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+AuthContext.tsx:112 [AUTHCTX-10] Firebase auth listener registered
+indexedDBHealth.ts:31 [STORAGE-6] Test database opened successfully
+indexedDBHealth.ts:52 [STORAGE-8] Testing write operation...
+indexedDBHealth.ts:31 [STORAGE-6] Test database opened successfully
+indexedDBHealth.ts:52 [STORAGE-8] Testing write operation...
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+indexedDBHealth.ts:58 [STORAGE-9] Write test successful
+indexedDBHealth.ts:68 [STORAGE-10] Test database closed
+indexedDBHealth.ts:71 [STORAGE-11] Checking storage quota...
+AuthContext.tsx:71 [AUTHCTX-3] Auth cache found: Object
+AuthContext.tsx:71 [AUTHCTX-3] Auth cache found: Object
+indexedDBHealth.ts:78 [STORAGE-12] Storage quota: Object
+indexedDBHealth.ts:91 [STORAGE-14] ✅ IndexedDB health check PASSED
+App.tsx:326 [APP-3] IndexedDB healthy, initializing workers...
+logger.ts:29 ✅ MeasurementLoggerClient initialized
+App.tsx:330 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+logger.ts:29 🔄 Auto-flush triggers initialized (visibility + memory pressure)
+App.tsx:334 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+App.tsx:338 [APP-5] ✅ Orchestrator worker initialized
+logger.ts:29 ✅ Flush-on-close handlers initialized
+App.tsx:342 [APP-6] ✅ Flush-on-close handlers initialized
+indexedDBHealth.ts:58 [STORAGE-9] Write test successful
+indexedDBHealth.ts:68 [STORAGE-10] Test database closed
+indexedDBHealth.ts:71 [STORAGE-11] Checking storage quota...
+AuthContext.tsx:82 [AUTHCTX-4] Days offline: 0
+AuthContext.tsx:90 [AUTHCTX-6] Auth state initialization complete
+AuthContext.tsx:82 [AUTHCTX-4] Days offline: 0
+AuthContext.tsx:90 [AUTHCTX-6] Auth state initialization complete
+indexedDBHealth.ts:78 [STORAGE-12] Storage quota: Object
+indexedDBHealth.ts:91 [STORAGE-14] ✅ IndexedDB health check PASSED
+App.tsx:326 [APP-3] IndexedDB healthy, initializing workers...
+App.tsx:330 [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+App.tsx:334 [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+App.tsx:338 [APP-5] ✅ Orchestrator worker initialized
+App.tsx:342 [APP-6] ✅ Flush-on-close handlers initialized
+store.ts:535 ⏱️ getSurveysPaginated(50): 39.29296875 ms
+store.ts:567 ⏱️ loadSurveys TOTAL: 52.84814453125 ms
+store.ts:568 ✅ Loaded 32 surveys (including active) in 53ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+store.ts:568 ✅ Loaded 32 surveys (including active) in 56ms
+connectivityMonitor.ts:115 [ConnectivityMonitor] Firebase connectivity confirmed
+App.tsx:352 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+App.tsx:352 [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+connectivityMonitor.ts:90 [ConnectivityMonitor] User authenticated
+syncService.ts:89 [SyncService] Starting queue processing...
+firebase.ts:135 [AUTH-4] Auth state changed: Object
+firebase.ts:146 [AUTH-5] User logged in, saving to localStorage
+firebase.ts:154 [AUTH-7] Calling auth callback with user: true
+AuthContext.tsx:101 [AUTHCTX-8] Firebase auth listener callback: Object
+AuthContext.tsx:105 [AUTHCTX-9] User authenticated and online, updating timestamps
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 Auth state changed, checking pending changes
+syncService.ts:95 [SyncService] Queue empty, nothing to process
+connectivityMonitor.ts:115 [ConnectivityMonitor] Firebase connectivity confirmed
+syncService.ts:60 [SyncService] Firebase ready for sync, processing queue...
+syncService.ts:89 [SyncService] Starting queue processing...
+syncService.ts:79 [SyncService] Already processing queue, skipping...
+syncService.ts:95 [SyncService] Queue empty, nothing to process
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 304.2ms (>200ms threshold)
+warn @ logger.ts:22
+ZED2iCamera.ts:588  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+logger.ts:29 🔄 Initializing MeasurementFeed for survey 10d67f44-9222-4a51-868a-0744ea7c9be1
+logger.ts:29 ✅ MeasurementFeed primed (historical data loading in background)
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+store.ts:526  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:526
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+firebase.ts:135 [AUTH-4] Auth state changed: Object
+firebase.ts:146 [AUTH-5] User logged in, saving to localStorage
+firebase.ts:154 [AUTH-7] Calling auth callback with user: true
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+store.ts:533  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:533
+logger.ts:29 ✅ Measurement logger worker ready
+logger.ts:29 ✅ Measurement logger worker ready
+ZED2iCamera.ts:588  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:29 ✅ Flushed measurements on unmount
+store.ts:535 ⏱️ getSurveysPaginated(50): 52.601806640625 ms
+store.ts:567 ⏱️ loadSurveys TOTAL: 64.748046875 ms
+store.ts:568 ✅ Loaded 32 surveys (including active) in 65ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+store.ts:568 ✅ Loaded 32 surveys (including active) in 87ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+store.ts:568 ✅ Loaded 32 surveys (including active) in 92ms
+store.ts:535  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:535
+store.ts:567  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:567
+store.ts:568 ✅ Loaded 32 surveys (including active) in 100ms
+logger.ts:29 📦 Loaded 81 measurements from IndexedDB in 301.8ms
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+logger.ts:29 ✅ Browser GPS position obtained successfully: Object
+logger.ts:29 🛰️ GPS permission status updated and saved: true
+logger.ts:29 🛰️ GPS permission granted - starting browser GPS immediately
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+autoSync.ts:134 [AutoSync] Survey exported: 10d67f44-9222-4a51-868a-0744ea7c9be1 - "Lotbiniere 8 "
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+/api/roadscope/proxy/surveys:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+client.ts:74 [RoadScope] Response (401): Object
+client.ts:77  [RoadScope] Error response: Object
+request @ client.ts:77
+/api/roadscope/proxy/surveys:1   Failed to load resource: the server responded with a status of 401 (Unauthorized)
+client.ts:74 [RoadScope] Response (401): Object
+client.ts:77  [RoadScope] Error response: Object
+request @ client.ts:77
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:88 [SyncQueue] Enqueued survey_export for survey 10d67f44-9222-4a51-868a-0744ea7c9be1 sync_10d67f44-9222-4a51-868a-0744ea7c9be1_1764859629022_tw5y02
+syncService.ts:89 [SyncService] Starting queue processing...
+syncService.ts:99 [SyncService] Processing 1 pending items
+syncService.ts:124 [SyncService] Processing survey_export for survey 10d67f44-9222-4a51-868a-0744ea7c9be1
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+syncService.ts:153 [SyncService] Syncing 81 measurements for survey 10d67f44-9222-4a51-868a-0744ea7c9be1
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+firestore.googleapis.com/google.firestore.v1.Firestore/Write/channel?VER=8&database=projects%2Fmeasureprov1%2Fdatabases%2F(default)&gsessionid=bY0DFomzjasnPbq617B_H7eSZ5XMvVWUhgRj5xhPdzU&SID=m3XQavHnop-3fiyarZayMg&RID=38417&AID=6&zx=3d9qv4xzojkt&t=1:1   Failed to load resource: the server responded with a status of 400 ()
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 307.9ms (>200ms threshold)
+warn @ logger.ts:22
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+autoSync.ts:171  [AutoSync] Export sync failed, queueing: Error: Failed to sync measurements
+    at onSurveyExport (autoSync.ts:162:17)
+    at async exportSurveyFunction (export.ts:354:7)
+    at async handleExport (SurveyManager.tsx:92:7)
+onSurveyExport @ autoSync.ts:171
+syncQueue.ts:70 [SyncQueue] Survey 10d67f44-9222-4a51-868a-0744ea7c9be1 already queued for survey_export, skipping duplicate
+syncService.ts:176  [SyncService] Failed to sync survey 10d67f44-9222-4a51-868a-0744ea7c9be1: Failed to sync measurement batch 1
+processItem @ syncService.ts:176
+logger.ts:29 Found 6 pending changes during periodic check, starting sync
+logger.ts:29 Starting sync process
+logger.ts:29 Found 32 surveys to sync
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 568.8ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 568.5ms (>200ms threshold)
+warn @ logger.ts:22
+firebase.ts:397 [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+logger.ts:29 Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e with 3 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+logger.ts:29 Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 with 24 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+logger.ts:29 Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b with 10 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+logger.ts:115  [2025-12-04T14:47:34.753Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-04T14:47:34.753Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 310.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 with 19 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 to Firebase
+logger.ts:29 Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+logger.ts:29 Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 3 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 to Firebase
+logger.ts:29 Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb to Firebase
+logger.ts:29 Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b to Firebase
+logger.ts:29 Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 to Firebase
+logger.ts:29 Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 to Firebase
+logger.ts:29 Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 to Firebase
+logger.ts:115  [2025-12-04T14:47:56.694Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-04T14:47:56.694Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 759.7ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 760.0ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+[Violation] Only request geolocation information in response to a user gesture.
+[Violation] Only request geolocation information in response to a user gesture.
+[Violation] Only request geolocation information in response to a user gesture.
+[Violation] Only request geolocation information in response to a user gesture.
+[Violation] Only request geolocation information in response to a user gesture.
+logger.ts:29 📱 App going to background - flushing measurements
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 335.3ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 521.5ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 522.5ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 346.6ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 525.9ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 526.5ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:29 Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 with 19 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 to Firebase
+logger.ts:29 Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 with 28 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b to Firebase
+logger.ts:29 Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b with 1 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 to Firebase
+firebase.ts:396  [2025-12-04T14:49:09.114Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:387
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+__PRIVATE_startWriteStream @ remote_store.ts:756
+__PRIVATE_fillWritePipeline @ remote_store.ts:702
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+setDoc @ reference_impl.ts:342
+syncSurveyToFirebase @ firebase.ts:396
+startSync @ sync.ts:194
+firebase.ts:396  [2025-12-04T14:49:09.114Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:388
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+__PRIVATE_startWriteStream @ remote_store.ts:756
+__PRIVATE_fillWritePipeline @ remote_store.ts:702
+await in __PRIVATE_fillWritePipeline
+__PRIVATE_syncEngineWrite @ sync_engine_impl.ts:542
+await in __PRIVATE_syncEngineWrite
+(anonymous) @ firestore_client.ts:558
+await in (anonymous)
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+__PRIVATE_firestoreClientWrite @ firestore_client.ts:556
+executeWrite @ reference_impl.ts:834
+setDoc @ reference_impl.ts:342
+syncSurveyToFirebase @ firebase.ts:396
+startSync @ sync.ts:194
+logger.ts:29 ✅ Browser GPS position obtained successfully: {lat: 45.605933681955975, lon: -72.97038677225608, accuracy: 66}
+logger.ts:29 🛰️ GPS permission status updated and saved: true
+logger.ts:29 🛰️ GPS permission granted - starting browser GPS immediately
+logger.ts:29 ✅ Browser GPS position obtained successfully: {lat: 45.60592160413376, lon: -72.97039365591917, accuracy: 63}
+logger.ts:29 🛰️ GPS permission status updated and saved: true
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 315.2ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 550.8ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 552.9ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 324.6ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:29 Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 with 16 measurements
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:397 [Sync] Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb to Firebase
+logger.ts:115  [2025-12-04T14:50:01.127Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:387
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+(anonymous) @ persistent_stream.ts:561
+(anonymous) @ backoff.ts:137
+(anonymous) @ async_queue.ts:196
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+handleDelayElapsed @ async_queue.ts:193
+(anonymous) @ async_queue.ts:160
+logger.ts:115  [2025-12-04T14:50:01.127Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:388
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+(anonymous) @ persistent_stream.ts:561
+(anonymous) @ backoff.ts:137
+(anonymous) @ async_queue.ts:196
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+handleDelayElapsed @ async_queue.ts:193
+(anonymous) @ async_queue.ts:160
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 525.4ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 525.7ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+firebase.ts:121 [AUTH-1] initAuthListener() called
+firebase.ts:72 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:75 [FIREBASE-6] Already initialized, skipping
+firebase.ts:133 [AUTH-3] Setting up Firebase auth state listener...
+firebase.ts:135 [AUTH-4] Auth state changed: {hasUser: true, uid: 'z2JsOVxJNohWupffvUh28QN1CIs1', email: 'jfprince@soltec.ca'}
+firebase.ts:146 [AUTH-5] User logged in, saving to localStorage
+firebase.ts:154 [AUTH-7] Calling auth callback with user: true
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 ✅ Flushed measurements on unmount
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 298.0ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:736
+setTimeout
+(anonymous) @ sync.ts:735
+(anonymous) @ firebase.ts:158
+(anonymous) @ auth_impl.ts:741
+Promise.then
+registerStateListener @ auth_impl.ts:737
+onAuthStateChanged @ auth_impl.ts:544
+onAuthStateChanged @ index.ts:198
+initAuthListener @ firebase.ts:134
+(anonymous) @ SyncControls.tsx:31
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+react-dom.development.js:4161 [Violation] 'click' handler took 1702ms
+[Violation] 'click' handler took 1702ms
+(index):1 [DOM] Password field is not contained in a form: (More info: https://www.chromium.org/developers/design-documents/create-amazing-password-forms) <input type=​"password" class=​"flex h-10 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-gray-100 placeholder:​text-gray-400 focus:​outline-none focus:​ring-2 focus:​ring-blue-500 focus:​border-transparent disabled:​cursor-not-allowed disabled:​opacity-50 font-mono bg-gray-900 border-gray-700" placeholder=​"mpro_..." data-testid=​"input-roadscope-api-key" value=​"mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8">​
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 325.7ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+RoadScopeSettings.tsx:94 [RoadScope] Validating key: {length: 69, startsWithMpro: true}
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 294.3ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ SyncControls.tsx:37
+setInterval
+(anonymous) @ SyncControls.tsx:36
+commitHookEffectListMount @ react-dom.development.js:23189
+invokePassiveEffectMountInDEV @ react-dom.development.js:25193
+invokeEffectsInDev @ react-dom.development.js:27390
+commitDoubleInvokeEffectsInDEV @ react-dom.development.js:27369
+flushPassiveEffectsImpl @ react-dom.development.js:27095
+flushPassiveEffects @ react-dom.development.js:27023
+commitRootImpl @ react-dom.development.js:26974
+commitRoot @ react-dom.development.js:26721
+performSyncWorkOnRoot @ react-dom.development.js:26156
+flushSyncCallbacks @ react-dom.development.js:12042
+(anonymous) @ react-dom.development.js:25690
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+client.ts:74 [RoadScope] Response (200): {success: true, data: {…}}
+client.ts:74 [RoadScope] Response (200): {success: true, data: {…}}
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 309.6ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 301.6ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ SyncControls.tsx:37

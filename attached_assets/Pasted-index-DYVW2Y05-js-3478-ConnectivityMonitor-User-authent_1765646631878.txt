@@ -1,0 +1,294 @@
+index-DYVW2Y05.js:3478 [ConnectivityMonitor] User authenticated
+index-DYVW2Y05.js:3478 [ConnectivityMonitor] Firebase connectivity confirmed
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] ASCII mode (no RSA driver)
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] setLaserType called with: high-pole
+indexedDbStore-BKmUwlpw.js:2 [LaserReader] ASCII mode (no RSA driver)
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 17.115966796875 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 28.347900390625 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 28ms
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Ld @ leaflet-Bz8b9eTr.js:32
+A @ leaflet-Bz8b9eTr.js:17
+ke @ leaflet-Bz8b9eTr.js:17
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 31ms
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 9.446044921875 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 11.029052734375 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 11ms
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 13ms
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 7.266845703125 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 7.84619140625 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 8ms
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 10.4619140625 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 11.69189453125 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 0 surveys (including active) in 12ms
+Settings-D8iJauIv.js:179 [SyncControls] Starting import from cloud...
+Settings-D8iJauIv.js:179 [SyncControls] Import complete, surveys: 38
+Settings-D8iJauIv.js:179 [SyncControls] Starting import from cloud...
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 13.388916015625 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 15.85791015625 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 38 surveys (including active) in 16ms
+index-DYVW2Y05.js:3480  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ index-DYVW2Y05.js:3480
+await in loadSurveys
+(anonymous) @ Settings-D8iJauIv.js:171
+(anonymous) @ Settings-D8iJauIv.js:171
+$o @ leaflet-Bz8b9eTr.js:32
+ci @ leaflet-Bz8b9eTr.js:32
+Lv @ leaflet-Bz8b9eTr.js:32
+Sn @ leaflet-Bz8b9eTr.js:32
+Pf @ leaflet-Bz8b9eTr.js:32
+mn @ leaflet-Bz8b9eTr.js:30
+(anonymous) @ leaflet-Bz8b9eTr.js:32
+index-DYVW2Y05.js:3480 ✅ Loaded 38 surveys (including active) in 18ms
+index-DYVW2Y05.js:233  [2025-12-13T17:23:08.986Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+gE @ index-DYVW2Y05.js:233
+error @ index-DYVW2Y05.js:233
+gn @ index-DYVW2Y05.js:465
+close @ index-DYVW2Y05.js:1548
+I_ @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1792
+(anonymous) @ index-DYVW2Y05.js:1792
+Promise.then
+gu @ index-DYVW2Y05.js:1792
+enqueue @ index-DYVW2Y05.js:1792
+enqueueAndForget @ index-DYVW2Y05.js:1792
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+So @ index-DYVW2Y05.js:1488
+(anonymous) @ index-DYVW2Y05.js:1503
+(anonymous) @ index-DYVW2Y05.js:1503
+Re @ index-DYVW2Y05.js:412
+Ee @ index-DYVW2Y05.js:412
+Gs.ta @ index-DYVW2Y05.js:420
+tu @ index-DYVW2Y05.js:417
+Sn.Y @ index-DYVW2Y05.js:416
+Sn.ca @ index-DYVW2Y05.js:416
+Re @ index-DYVW2Y05.js:412
+Ee @ index-DYVW2Y05.js:412
+op @ index-DYVW2Y05.js:419
+r.bb @ index-DYVW2Y05.js:419
+r.Ea @ index-DYVW2Y05.js:419
+io @ index-DYVW2Y05.js:418
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+index-DYVW2Y05.js:233  [2025-12-13T17:23:08.987Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+gE @ index-DYVW2Y05.js:233
+error @ index-DYVW2Y05.js:233
+gn @ index-DYVW2Y05.js:465
+close @ index-DYVW2Y05.js:1548
+I_ @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1792
+(anonymous) @ index-DYVW2Y05.js:1792
+Promise.then
+gu @ index-DYVW2Y05.js:1792
+enqueue @ index-DYVW2Y05.js:1792
+enqueueAndForget @ index-DYVW2Y05.js:1792
+(anonymous) @ index-DYVW2Y05.js:1548
+(anonymous) @ index-DYVW2Y05.js:1548
+So @ index-DYVW2Y05.js:1488
+(anonymous) @ index-DYVW2Y05.js:1503
+(anonymous) @ index-DYVW2Y05.js:1503
+Re @ index-DYVW2Y05.js:412
+Ee @ index-DYVW2Y05.js:412
+Gs.ta @ index-DYVW2Y05.js:420
+tu @ index-DYVW2Y05.js:417
+Sn.Y @ index-DYVW2Y05.js:416
+Sn.ca @ index-DYVW2Y05.js:416
+Re @ index-DYVW2Y05.js:412
+Ee @ index-DYVW2Y05.js:412
+op @ index-DYVW2Y05.js:419
+r.bb @ index-DYVW2Y05.js:419
+r.Ea @ index-DYVW2Y05.js:419
+io @ index-DYVW2Y05.js:418
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+Promise.then
+rp @ index-DYVW2Y05.js:417
+r.Pa @ index-DYVW2Y05.js:417
+index-DYVW2Y05.js:3480 ⏱️ getSurveysPaginated(50): 17.2021484375 ms
+index-DYVW2Y05.js:3480 ⚠️ Active survey not in recent 50, searching...
+index-DYVW2Y05.js:3480 ⏱️ loadSurveys TOTAL: 19.22509765625 ms
+index-DYVW2Y05.js:3480 ✅ Loaded 38 surveys (including active) in 19ms
+Settings-D8iJauIv.js:179 [SyncControls] Import complete, surveys: 38
+index-DYVW2Y05.js:3478 [AutoSync] Survey exported: d51b4bfa-4756-41be-9615-4c15d4405e0a - "y"

@@ -1,0 +1,2513 @@
+(index):1  Error while trying to use the following icon from the Manifest: https://measure-pro.app/favicon.png (Resource size is not correct - typo in the Manifest?)
+/api/terms/check-acceptance:1   Failed to load resource: the server responded with a status of 503 ()
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera-BumoUdHB.js:1
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001200-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001124-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001000-0000-1000-8000-00805f9b34fb, name='Bluetooth 5.1 Keyboard'
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+(index):1  Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,162006.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,162006.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*72
+ 🛰️ Processing NMEA sentence: $GPRMC,162006.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+  Error checking pending changes: 
+a @ index-CYkdEdFr.js:3569
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 5
+ 🛰️ GPS Raw data chunk received, length: 5 content preview: ,1620
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: -
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 31
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,162007.000,4535.9492,N,07257.7282,W,1,10,0....
+ 🛰️ Parsed GPS data: Object
+ 🛰️ GPS Store Updated: Object
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,162007.000,4535.9492,N,07257.7282,W,1,10,0.8,34.7,M,-31.3,M,,0000*50
+ 🛰️ Processing NMEA sentence: $GPGGA,162007.000,4535.9492,N,07257.7282,W,1,10,0....
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 25
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8,1.2*35
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: PR
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: MC
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: Object
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: Array(2)
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: 35
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,162007.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 🛰️ Parsed GPS speed/course: Object
+ 🛰️ GPS Store Updated: Object
+ GPS Date: 2025-11-06
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,162007.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*73
+ 🛰️ Processing NMEA sentence: $GPRMC,162007.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: Object
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 200
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 8.
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 4
+ 🛰️ GPS Raw data chunk received, length: 4 content preview: ,34.
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: -
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 1.
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: F
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,162008.000,4535.9492,N,07257.7282,W,1,10,0....
+ 🛰️ Parsed GPS data: Object
+ 🛰️ GPS Store Updated: Object
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,162008.000,4535.9492,N,07257.7282,W,1,10,0.8,34.7,M,-31.3,M,,0000*5F
+ 🛰️ Processing NMEA sentence: $GPGGA,162008.000,4535.9492,N,07257.7282,W,1,10,0....
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: A,A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 0,0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8,1.2*35
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: V,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: Object
+ 📍 PositionMarker: Creating/updating marker at: Array(2)
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 3,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 1,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 198
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 198 content preview: 251,33,25,42,063,35*7B
+$GPGSV,3,2,11,26,24,192,36
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPGSV,3,1,11,28,82,310,32,32,61,100,35,31,51,251,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPGSV,3,1,11,28,82,310,32,32,61,100,35,31,51,251,33,25,42,063,35*7B
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPGSV,3,1,11,28,82,310,32,32,61,100,35,31,51,251,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPGSV,3,2,11,26,24,192,36,10,21,171,31,03,21,318,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPGSV,3,2,11,26,24,192,36,10,21,171,31,03,21,318,31,12,16,040,32*7B
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPGSV,3,2,11,26,24,192,36,10,21,171,31,03,21,318,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPGSV,3,3,11,01,14,283,18,02,05,257,18,29,04,105,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPGSV,3,3,11,01,14,283,18,02,05,257,18,29,04,105,20*4A
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPGSV,3,3,11,01,14,283,18,02,05,257,18,29,04,105,...
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 3
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 3 content preview: 0,1
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 11
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 11 content preview: 35.02,06112
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 3
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 3 content preview: 5,,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 4
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 4 content preview: A*7C
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: 
+
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPRMC,162008.000,A,4535.9492,N,07257.7282,W,0.00,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Parsed GPS speed/course: {speed: 0, course: 135.02}
+index-CYkdEdFr.js:3160 🛰️ GPS Store Updated: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+LiveCamera-B-ozmsiC.js:18 GPS Date: 2025-11-06
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPRMC,162008.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*7C
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPRMC,162008.000,A,4535.9492,N,07257.7282,W,0.00,...
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+VehicleMap-5x6aLN21.js:52 🔄 Trace interval tick - Fresh GPS: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:52 🔄 Skipping trace point - distance too small: 0
+ 🛰️ GPS raw data chunk received, length: 6
+ 🛰️ GPS Raw data chunk received, length: 6 content preview: $GPGGA
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 9.0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:08', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 3
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 3 content preview: .7,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: -
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 3
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 3 content preview: 1.3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,M
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: E
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 
+$
+ 🛰️ Valid NMEA sentence: $GPGGA,162009.000,4535.9492,N,07257.7282,W,1,10,0....
+ 🛰️ Parsed GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, fixQuality: 'GPS Fix', …}
+ 🛰️ GPS Store Updated: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,162009.000,4535.9492,N,07257.7282,W,1,10,0.8,34.7,M,-31.3,M,,0000*5E
+ 🛰️ Processing NMEA sentence: $GPGGA,162009.000,4535.9492,N,07257.7282,W,1,10,0....
+ 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 5
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 5 content preview: GPGSA
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,A
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 4
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 4 content preview: ,25,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8,1.2*35
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 4
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 4 content preview: $GPR
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 6
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 6 content preview: MC,162
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: 00
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 3
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 3 content preview: 135
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: D
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPRMC,162009.000,A,4535.9492,N,07257.7282,W,0.00,...
+LiveCamera-B-ozmsiC.js:18 🛰️ Parsed GPS speed/course: {speed: 0, course: 135.02}
+index-CYkdEdFr.js:3160 🛰️ GPS Store Updated: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+LiveCamera-B-ozmsiC.js:18 GPS Date: 2025-11-06
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPRMC,162009.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*7D
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPRMC,162009.000,A,4535.9492,N,07257.7282,W,0.00,...
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+VehicleMap-5x6aLN21.js:52 🔄 Trace interval tick - Fresh GPS: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:52 🔄 Skipping trace point - distance too small: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 4
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 4 content preview: 6201
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:09', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: M,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: -
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: 1.
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,162010.000,4535.9492,N,07257.7282,W,1,10,0....
+ 🛰️ Parsed GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, fixQuality: 'GPS Fix', …}
+ 🛰️ GPS Store Updated: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,162010.000,4535.9492,N,07257.7282,W,1,10,0.8,34.7,M,-31.3,M,,0000*56
+ 🛰️ Processing NMEA sentence: $GPGGA,162010.000,4535.9492,N,07257.7282,W,1,10,0....
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: $GP
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+LiveCamera-B-ozmsiC.js:37 🔍 Infinity code or invalid measurement detected: --
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 2
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 2 content preview: ,0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS raw data chunk received, length: 1
+LiveCamera-B-ozmsiC.js:17 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+LiveCamera-B-ozmsiC.js:18 🛰️ Valid NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+LiveCamera-B-ozmsiC.js:18 🛰️ Notifying GPS callback
+LiveCamera-B-ozmsiC.js:32 🛰️ GPS NMEA received: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8,1.2*35
+index-CYkdEdFr.js:3160 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated marker position
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Updated accuracy circle
+VehicleMap-5x6aLN21.js:55 📍 PositionMarker: Centered map on position
+Settings-CKwzat7Y.js:183 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+Settings-CKwzat7Y.js:183 ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 4
+ 🛰️ GPS Raw data chunk received, length: 4 content preview: MC,1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 4
+ 🛰️ GPS Raw data chunk received, length: 4 content preview: .00,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,162010.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 🛰️ Parsed GPS speed/course: {speed: 0, course: 135.02}
+ 🛰️ GPS Store Updated: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ GPS Date: 2025-11-06
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,162010.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*75
+ 🛰️ Processing NMEA sentence: $GPRMC,162010.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔄 Trace interval tick - Fresh GPS: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 🔄 Skipping trace point - distance too small: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: $
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 12
+ 🛰️ GPS Raw data chunk received, length: 12 content preview: 62011.000,45
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 5.9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 92,
+ 🛰️ GPS raw data chunk received, length: 6
+ 🛰️ GPS Raw data chunk received, length: 6 content preview: N,0725
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: .7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 5
+ 🛰️ GPS Raw data chunk received, length: 5 content preview: ,W,1,
+ Timelapse frame 623 captured
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 7
+ 🛰️ GPS Raw data chunk received, length: 7 content preview: 10,0.8,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:10', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 4
+ 🛰️ GPS Raw data chunk received, length: 4 content preview: 34.7
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: -
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGGA,162011.000,4535.9492,N,07257.7282,W,1,10,0....
+ 🛰️ Parsed GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, fixQuality: 'GPS Fix', …}
+ 🛰️ GPS Store Updated: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGGA,162011.000,4535.9492,N,07257.7282,W,1,10,0.8,34.7,M,-31.3,M,,0000*57
+ 🛰️ Processing NMEA sentence: $GPGGA,162011.000,4535.9492,N,07257.7282,W,1,10,0....
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: S
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 31,
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 25,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: ,0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8,1.2*35
+ 🛰️ Processing NMEA sentence: $GPGSA,A,3,28,32,31,25,26,10,03,12,01,02,,,1.5,0.8...
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: $G
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: P
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: R
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: M
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: C,
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: 162
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 2
+ 🛰️ GPS Raw data chunk received, length: 2 content preview: 1.
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 3
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 9
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: N
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 8
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: W
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🛰️ GPS raw data chunk received, length: 3
+ 🛰️ GPS Raw data chunk received, length: 3 content preview: ,13
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: .
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 0
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 6
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 1
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 2
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 5
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: ,
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: A
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: *
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 7
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 4
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+ 🛰️ GPS raw data chunk received, length: 1
+ 🛰️ GPS Raw data chunk received, length: 1 content preview: 
+
+ 🛰️ Valid NMEA sentence: $GPRMC,162011.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 🛰️ Parsed GPS speed/course: {speed: 0, course: 135.02}
+ 🛰️ GPS Store Updated: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ GPS Date: 2025-11-06
+ 🛰️ Notifying GPS callback
+ 🛰️ GPS NMEA received: $GPRMC,162011.000,A,4535.9492,N,07257.7282,W,0.00,135.02,061125,,,A*74
+ 🛰️ Processing NMEA sentence: $GPRMC,162011.000,A,4535.9492,N,07257.7282,W,0.00,...
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --
+ 📍 PositionMarker: GPS data: {time: '16:20:11', latitude: 45.599153333333334, longitude: -72.96213666666667, altitude: 34.7, speed: 0, …}
+ 📍 PositionMarker: Creating/updating marker at: (2) [45.599153333333334, -72.96213666666667]
+ 📍 PositionMarker: Updated marker position
+ 📍 PositionMarker: Updated accuracy circle
+ 📍 PositionMarker: Centered map on position
+ 🟢 VoiceCommandBridge: Registering minimal callbacks (most use keyboard shortcuts now)
+ ✅ VoiceCommandBridge: Callbacks registered (most actions use keyboard shortcuts)
+ 🔍 Infinity code or invalid measurement detected: --
+ 🔍 Infinity code or invalid measurement detected: --

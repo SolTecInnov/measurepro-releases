@@ -1,0 +1,104 @@
+import { QueryClient } from '@tanstack/react-query';
+import { getAuthHeader } from './authedFetch';
+import { API_BASE_URL } from './config/environment';
+
+const REQUEST_TIMEOUT_MS = 15_000;
+
+/** Combine an optional caller-supplied AbortSignal with a timeout signal */
+function withTimeout(signal?: AbortSignal | null): { signal: AbortSignal; cleanup: () => void } {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+  let combined: AbortSignal;
+  if (signal) {
+    if (typeof AbortSignal.any === 'function') {
+      combined = AbortSignal.any([signal, controller.signal]);
+    } else {
+      signal.addEventListener('abort', () => controller.abort(), { once: true });
+      combined = controller.signal;
+    }
+  } else {
+    combined = controller.signal;
+  }
+
+  return { signal: combined, cleanup: () => clearTimeout(timeoutId) };
+}
+
+async function fetchWithTimeout(url: string, options: RequestInit = {}): Promise<Response> {
+  const { signal, cleanup } = withTimeout(options.signal as AbortSignal | undefined);
+
+  // In Electron, relative /api/... URLs need the production server base
+  const resolvedUrl = url.startsWith('/') && API_BASE_URL
+    ? `${API_BASE_URL}${url}`
+    : url;
+
+  try {
+    return await fetch(resolvedUrl, { ...options, signal });
+  } catch (err) {
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      throw new Error('Server unreachable — please check your connection');
+    }
+    throw err;
+  } finally {
+    cleanup();
+  }
+}
+
+// Helper function for API requests
+export async function apiRequest<T = any>(
+  url: string,
+  options?: RequestInit
+): Promise<T> {
+  let body = options?.body;
+  
+  // Only stringify if body is an object (not already a string or FormData)
+  if (body && typeof body === 'object' && !(body instanceof FormData)) {
+    body = JSON.stringify(body);
+  }
+  
+  const response = await fetchWithTimeout(url, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(options?.headers || {}),
+    },
+    body,
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ error: 'Request failed' }));
+    throw new Error(error.error || `HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+// Create a query client instance
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: async ({ queryKey }) => {
+        const url = queryKey[0] as string;
+        const authHeader = await getAuthHeader().catch(() => ({}));
+        const response = await apiRequest<any>(url, { headers: authHeader });
+        
+        // If response has a success property, unwrap the data
+        if (response && typeof response === 'object' && 'success' in response) {
+          // Return the data from common response patterns
+          if ('pricing' in response) return response.pricing;
+          if ('terms' in response) return response.terms;
+          if ('data' in response) return response.data;
+          // If no specific data property, return the whole response minus success
+          const { success, ...data } = response;
+          return Object.keys(data).length === 1 ? Object.values(data)[0] : data;
+        }
+        
+        return response;
+      },
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});

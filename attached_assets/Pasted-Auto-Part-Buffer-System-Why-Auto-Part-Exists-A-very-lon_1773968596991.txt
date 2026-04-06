@@ -1,0 +1,49 @@
+Auto-Part Buffer System
+Why Auto-Part Exists
+A very long survey (e.g., 500+ km, 5000+ POIs) stored in a single part creates two problems: the browser's memory fills up with data, and a single large export file becomes slow or unresponsive. The Auto-Part system solves this by automatically splitting a long survey into sequential numbered parts — without stopping the laser, GPS, or requiring any operator action. The survey continues seamlessly; only the internal data bucket is swapped.
+
+Configuration
+Default threshold
+200 POIs
+Configurable range
+100 – 1000 POIs
+Warning notification at
+threshold − 50 POIs
+Configure in Settings → Survey → Auto-Part Manager. You can also enable/disable auto-part here, or trigger a manual part transition at any time.
+
+For short surveys (under 150 POIs expected), you can leave auto-part enabled — it simply won't trigger. For very dense routes, reduce the threshold to 100–150.
+What Stays Running During a Part Transition
+Laser — keeps streaming, not disconnected
+GPS / GNSS — keeps logging, no reconnect needed
+Video recording — if active, saved and restarted in new part
+Bluetooth connections — stay paired
+Timelapse — saved and closed; restarts in new part
+Cloud upload — runs in background if online; skipped if offline
+What Happens During Auto-Part Transition — Step by Step
+1.
+Audible alert + notification
+A confirmation sound plays and a toast notification appears on screen: "Part X complete — saving and continuing in Part Y."
+
+2.
+Save Part X to hard drive (mandatory)
+A ZIP package (survey data + all photos + metadata.json) is generated and downloaded to the device automatically. This always happens, even offline.
+
+3.
+Upload to cloud (if online + enabled)
+The ZIP package is uploaded to Firebase Storage. If offline, this step is skipped — the file is already safe on disk.
+
+4.
+Email notification (if configured)
+An email is sent to the survey owner and any completion email list recipients: "Part X auto-saved at N POIs. Continuing in Part Y."
+
+5.
+RoadScope sync (if configured)
+POI data (not media files, for speed) is pushed to the RoadScope platform via API key.
+
+6.
+Memory cache cleared
+All POI data for Part X is evicted from the in-memory cache. IndexedDB still holds the data until the operator deletes the survey.
+
+7.
+New Part Y created, survey continues
+A new survey record is created with the same project details, linked to the root survey via rootSurveyId. Laser and GPS continue without any interruption. The operator may not even notice the transition beyond the sound and notification.

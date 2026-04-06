@@ -1,0 +1,120 @@
+logger.ts:115  [2025-12-05T00:25:09.800Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:387
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+(anonymous) @ persistent_stream.ts:561
+(anonymous) @ backoff.ts:137
+(anonymous) @ async_queue.ts:196
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+handleDelayElapsed @ async_queue.ts:193
+(anonymous) @ async_queue.ts:160
+logger.ts:115  [2025-12-05T00:25:09.800Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.

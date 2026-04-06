@@ -1,0 +1,718 @@
+ [INIT-1] HTML loaded - Starting library initialization
+ [INIT-4] Body rendering - Root div created
+ [vite] connecting...
+ [vite] connected.
+ Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+ [FIREBASE-1] Loading Firebase configuration...
+ [FIREBASE-2] Environment variables: Object
+ [FIREBASE-3] Processed Firebase config: Object
+ [FIREBASE-4] Firebase configured: true
+ [FIREBASE-15] Auto-initializing Firebase on module load...
+ [FIREBASE-5] initializeFirebase() called, isInitialized: false
+ [FIREBASE-7] Firebase is configured, initializing...
+ [FIREBASE-8] Existing Firebase apps: 0
+ [FIREBASE-11] Creating new Firebase app...
+ [FIREBASE-12] ✅ Firebase initialized (new app)
+ 🛰️ Loading saved GPS permission - permission was previously granted
+ [INIT-5] main.tsx loaded - Starting React app initialization
+ 🚀 MeasurePRO Build: 2025-11-26-v19-map-icon-fix
+ [INIT-6] Build environment: development Production: false
+ [INIT-7] Starting localStorage cleanup...
+ [INIT-8] Scanning localStorage for problematic keys...
+ [INIT-9] No problematic localStorage keys found
+ [INIT-11] localStorage cleanup complete
+ [INIT-12] Checking library health (Leaflet, etc)...
+ Library health check PASSED - All critical libraries loaded
+ [INIT-13] ✅ Library health check PASSED
+ [INIT-13b] Initializing Firebase auto-sync service...
+ [ConnectivityMonitor] Initialized Object
+ [SyncService] Initialized
+ [AutoSync] Firebase auto-sync initialized
+ [INIT-13c] ✅ Firebase auto-sync initialized
+ [INIT-14] Rendering React app to root element...
+ [INIT-15] ✅ React app rendered successfully
+ Found 0 pending changes
+  ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=b5b3f49c:4413
+  ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=b5b3f49c:4413
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [AUTHCTX-11] Unregistering Firebase auth listener
+ [APP-1] App component mounted, initializing core workers...
+ [APP-2] Checking IndexedDB health before worker initialization...
+ [STORAGE-1] Starting IndexedDB health check...
+ [STORAGE-3] Checking if indexedDB is defined...
+ [STORAGE-4] IndexedDB is defined
+ [STORAGE-5] Attempting to open test database...
+ 🔧 Debug utilities available: window.orphanedMeasurements.export(), .delete(), .find()
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:400
+ [AUTHCTX-1] Initializing AuthContext...
+ [AUTHCTX-2] Loading cached auth state...
+ [AUTHCTX-7] Setting up Firebase auth listener...
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ [AUTHCTX-10] Firebase auth listener registered
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+ [STORAGE-6] Test database opened successfully
+ [STORAGE-8] Testing write operation...
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:403
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [AUTHCTX-3] No auth cache found
+ [AUTHCTX-6] Auth state initialization complete
+ [AUTHCTX-3] No auth cache found
+ [AUTHCTX-6] Auth state initialization complete
+ [STORAGE-9] Write test successful
+ [STORAGE-10] Test database closed
+ [STORAGE-11] Checking storage quota...
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ ✅ MeasurementLoggerClient initialized
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ 🔄 Auto-flush triggers initialized (visibility + memory pressure)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ ✅ Flush-on-close handlers initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [STORAGE-12] Storage quota: Object
+ [STORAGE-14] ✅ IndexedDB health check PASSED
+ [APP-3] IndexedDB healthy, initializing workers...
+ [APP-4] ✅ Measurement logger worker initialized (PRIMARY)
+ [APP-4.5] ✅ Auto-flush triggers initialized (background, memory pressure)
+ [APP-5] ✅ Orchestrator worker initialized
+ [APP-6] ✅ Flush-on-close handlers initialized
+ [ConnectivityMonitor] Firebase connectivity confirmed
+ ⏱️ getSurveysPaginated(50): 42.35595703125 ms
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:405
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 50.73095703125 ms
+ ✅ Loaded 32 surveys (including active) in 51ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:427
+ ✅ Loaded 32 surveys (including active) in 52ms
+ [ConnectivityMonitor] User authenticated
+ [SyncService] Starting queue processing...
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ [AUTHCTX-8] Firebase auth listener callback: Object
+ [AUTHCTX-9] User authenticated and online, updating timestamps
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ [SyncService] Queue empty, nothing to process
+ [ConnectivityMonitor] Firebase connectivity confirmed
+ [SyncService] Firebase ready for sync, processing queue...
+ [SyncService] Starting queue processing...
+ [SyncService] Already processing queue, skipping...
+ [SyncService] Queue empty, nothing to process
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+ [APP-7] 🎉 Core workers initialized - Feature-specific workers load on demand
+  [Sync] WARNING: checkPendingChanges took 314.7ms (>200ms threshold)
+warn @ logger.ts:17
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ 🗑️ MeasurementFeed cleared
+ 🗑️ MeasurementFeed cleared
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:400
+ [AUTH-1] initAuthListener() called
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [AUTH-3] Setting up Firebase auth state listener...
+ 🗑️ MeasurementFeed cleared
+ 🗑️ MeasurementFeed cleared
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:400
+  Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:400
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:403
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ [AUTH-4] Auth state changed: Object
+ [AUTH-5] User logged in, saving to localStorage
+ [AUTH-7] Calling auth callback with user: true
+ Auth state changed, checking pending changes
+ Auth state changed, checking pending changes
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:403
+  Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:403
+ ✅ Measurement logger worker ready
+ ✅ Measurement logger worker ready
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ✅ Flushed measurements on unmount
+ ⏱️ getSurveysPaginated(50): 24.21484375 ms
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:405
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:405
+ ⚠️ Active survey not in recent 50, searching...
+  Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:405
+ ⚠️ Active survey not in recent 50, searching...
+ ⏱️ loadSurveys TOTAL: 35.474853515625 ms
+ ✅ Loaded 32 surveys (including active) in 35ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:427
+ ✅ Loaded 32 surveys (including active) in 42ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:427
+ ✅ Loaded 32 surveys (including active) in 49ms
+  Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:427
+ ✅ Loaded 32 surveys (including active) in 61ms
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:409
+  WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:409
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ 🛰️ GPS permission granted - starting browser GPS immediately
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110c-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110e-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000110b-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=0000111e-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+(index):1 Chooser dialog is not displaying a port blocked by the Serial blocklist: bluetoothServiceClassId=00001108-0000-1000-8000-00805f9b34fb, name='Between 3 JFP'
+ [Laser] Connecting RSA Vertical Clearance at 921600 baud
+ ✅ Browser GPS position obtained successfully: Object
+ 🛰️ GPS permission status updated and saved: true
+ [Laser] Starting continuous mode with command: "DT\r"
+ [Laser] Sending command: "DT\r" bytes: 3
+  [Sync] WARNING: checkPendingChanges took 283.0ms (>200ms threshold)
+warn @ logger.ts:17
+ Found 6 pending changes during periodic check, starting sync
+ Starting sync process
+ Found 32 surveys to sync
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e to Firebase
+  [Sync] WARNING: checkPendingChanges took 564.8ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 566.4ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey f16f10d8-da7a-4f56-8e57-3101eacdfb4e with 3 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 to Firebase
+ Successfully synced survey 08ff6c98-0b76-4307-999c-6a2337e6d737 with 24 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b to Firebase
+ Successfully synced survey b0ef90b7-39da-4464-a87c-5eb22395289b with 10 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 to Firebase
+  [2025-12-05T00:17:01.789Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [2025-12-05T00:17:01.789Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [Sync] WARNING: checkPendingChanges took 281.0ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 371.5ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 371.6ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey a06ae7f7-b3f4-463c-971f-eb23de5a8b28 with 19 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 to Firebase
+ Successfully synced survey 974e729f-e7e9-4e73-b6b7-0e28199bd9f5 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf to Firebase
+ Successfully synced survey 9da7defb-85fa-4fee-b726-60e1f118c5bf with 3 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 to Firebase
+ Successfully synced survey c37f23e4-8e05-4cc6-af0f-7787d9c3c0a7 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb to Firebase
+ Successfully synced survey 30e4f3a0-d9a0-4eec-b67e-cfb2f79636cb with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b to Firebase
+ Successfully synced survey 5d203a0d-cdf6-4436-9970-bbf7c8996f6b with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 to Firebase
+ Successfully synced survey 93225d38-db77-43aa-ba60-0d7f3ac9de44 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 to Firebase
+ Successfully synced survey 15b4ce13-dce0-484a-8169-9859fb6286a4 with 1 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 to Firebase
+  [2025-12-05T00:17:37.361Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [2025-12-05T00:17:37.361Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ chunk-E5FV4JFZ.js?v=b5b3f49c:1063
+  [Sync] WARNING: checkPendingChanges took 267.5ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 367.1ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 367.2ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 285.0ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 360.9ms (>200ms threshold)
+warn @ logger.ts:17
+  [Sync] WARNING: checkPendingChanges took 361.0ms (>200ms threshold)
+warn @ logger.ts:17
+ Successfully synced survey db3fd3d1-ffc7-4b6c-99f3-80d7a5ec4ed3 with 19 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 10d67f44-9222-4a51-868a-0744ea7c9be1 to Firebase
+  [Sync] Error syncing measurements for survey 10d67f44-9222-4a51-868a-0744ea7c9be1: 
+syncMeasurementsToFirebase @ firebase.ts:374
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+ [Sync] Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 to Firebase
+ Successfully synced survey 6c89ee1e-8610-4c63-8fff-cdd8d6a2df98 with 28 measurements
+ [FIREBASE-5] initializeFirebase() called, isInitialized: true
+ [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b to Firebase
+logger.ts:29 Successfully synced survey 0bed7b1e-087a-4622-b0a6-6bf8cb70955b with 1 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 to Firebase
+logger.ts:115  [2025-12-05T00:18:37.465Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-05T00:18:37.465Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 277.2ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 368.5ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 368.8ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 267.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 379.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 379.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 271.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 367.2ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 367.1ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey 24e26bdf-354d-4d10-a14f-3684e7f404e9 with 16 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb to Firebase
+logger.ts:115  [2025-12-05T00:20:00.740Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-05T00:20:00.740Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 280.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 362.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 362.1ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 291.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey 80a070ba-ddf0-4d89-95ba-d64c0bed0dcb with 10 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey ee0ba98b-0f3b-4ce0-b64c-36cd67b41efd to Firebase
+logger.ts:115  [2025-12-05T00:20:54.570Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-05T00:20:54.570Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 387.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 387.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 286.9ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 368.8ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 368.9ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 290.2ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 377.9ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 377.8ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey ee0ba98b-0f3b-4ce0-b64c-36cd67b41efd with 26 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey 53f91d6b-9832-4ab5-b48e-cbc518cc61d1 to Firebase
+logger.ts:115  [2025-12-05T00:22:07.975Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-05T00:22:07.975Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 277.5ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 389.8ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 390.5ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey 53f91d6b-9832-4ab5-b48e-cbc518cc61d1 with 32 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey cc8c206b-b944-4f1b-ac19-2a1475fb8328 to Firebase
+logger.ts:115  [2025-12-05T00:22:38.668Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+logger.ts:115  [2025-12-05T00:22:38.668Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 283.9ms (>200ms threshold)
+warn @ logger.ts:22
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:576 [Laser] Sending command: "\u001b" bytes: 1
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:576 [Laser] Sending command: "\u001b" bytes: 1
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 362.4ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 362.6ms (>200ms threshold)
+warn @ logger.ts:22
+serialStore.ts:168 [Laser] Connecting RSA Vertical Clearance at 921600 baud
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 296.6ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 375.0ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 375.1ms (>200ms threshold)
+warn @ logger.ts:22
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:576 [Laser] Sending command: "DM\r" bytes: 3
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:576 [Laser] Sending command: "\u001b" bytes: 1
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+serialStore.ts:501 [Laser] Starting continuous mode with command: "DT\r"
+serialStore.ts:576 [Laser] Sending command: "DT\r" bytes: 3
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 282.0ms (>200ms threshold)
+warn @ logger.ts:22
+serialStore.ts:168 [Laser] Connecting RSA Vertical Clearance at 921600 baud
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 394.2ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 394.1ms (>200ms threshold)
+warn @ logger.ts:22
+logger.ts:29 Successfully synced survey cc8c206b-b944-4f1b-ac19-2a1475fb8328 with 20 measurements
+firebase.ts:123 [FIREBASE-5] initializeFirebase() called, isInitialized: true
+firebase.ts:126 [FIREBASE-6] Already initialized, skipping
+firebase.ts:451 [Sync] Successfully synced survey eabc6863-3d60-4096-883a-0ddfb654ea28 to Firebase
+logger.ts:115  [2025-12-05T00:24:06.674Z]  @firebase/firestore: Firestore (10.14.1): FirebaseError: [code=resource-exhausted]: Write stream exhausted maximum allowed queued writes.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:387
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+(anonymous) @ persistent_stream.ts:561
+(anonymous) @ backoff.ts:137
+(anonymous) @ async_queue.ts:196
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+handleDelayElapsed @ async_queue.ts:193
+(anonymous) @ async_queue.ts:160
+logger.ts:115  [2025-12-05T00:24:06.674Z]  @firebase/firestore: Firestore (10.14.1): Using maximum backoff delay to prevent overloading the backend.
+defaultLogHandler @ logger.ts:115
+error @ logger.ts:210
+__PRIVATE_logError @ log.ts:59
+close @ persistent_stream.ts:388
+I_ @ persistent_stream.ts:580
+(anonymous) @ persistent_stream.ts:533
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:532
+So @ stream_bridge.ts:94
+(anonymous) @ webchannel_connection.ts:384
+(anonymous) @ webchannel_connection.ts:294
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Z2.ta @ webchannel_blob_es2018.js:84
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:30
+fd @ webchannel_blob_es2018.js:76
+h.Fa @ webchannel_blob_es2018.js:75
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+ec @ webchannel_blob_es2018.js:74
+Rb @ webchannel_blob_es2018.js:39
+M2.Y @ webchannel_blob_es2018.js:33
+M2.ca @ webchannel_blob_es2018.js:30
+ab @ webchannel_blob_es2018.js:25
+F2 @ webchannel_blob_es2018.js:23
+Wc @ webchannel_blob_es2018.js:62
+h.bb @ webchannel_blob_es2018.js:61
+h.Ea @ webchannel_blob_es2018.js:61
+Lc @ webchannel_blob_es2018.js:57
+h.Pa @ webchannel_blob_es2018.js:55
+Promise.then
+Nc @ webchannel_blob_es2018.js:55
+h.Sa @ webchannel_blob_es2018.js:55
+Promise.then
+h.send @ webchannel_blob_es2018.js:52
+h.ea @ webchannel_blob_es2018.js:60
+Jb @ webchannel_blob_es2018.js:29
+Hb @ webchannel_blob_es2018.js:28
+h.Ga @ webchannel_blob_es2018.js:72
+Da @ webchannel_blob_es2018.js:14
+Promise.then
+x2 @ webchannel_blob_es2018.js:14
+fc @ webchannel_blob_es2018.js:70
+h.connect @ webchannel_blob_es2018.js:68
+Y2.m @ webchannel_blob_es2018.js:82
+Io @ webchannel_connection.ts:260
+send @ stream_bridge.ts:70
+a_ @ persistent_stream.ts:322
+p_ @ persistent_stream.ts:861
+__PRIVATE_onWriteStreamOpen @ remote_store.ts:762
+(anonymous) @ persistent_stream.ts:528
+(anonymous) @ persistent_stream.ts:595
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+(anonymous) @ persistent_stream.ts:593
+(anonymous) @ persistent_stream.ts:508
+wo @ stream_bridge.ts:86
+(anonymous) @ webchannel_connection.ts:417
+setTimeout
+Bo @ webchannel_connection.ts:412
+T_ @ persistent_stream.ts:801
+P_ @ persistent_stream.ts:503
+(anonymous) @ persistent_stream.ts:477
+Promise.then
+auth @ persistent_stream.ts:467
+start @ persistent_stream.ts:264
+start @ persistent_stream.ts:788
+(anonymous) @ persistent_stream.ts:561
+(anonymous) @ backoff.ts:137
+(anonymous) @ async_queue.ts:196
+(anonymous) @ async_queue_impl.ts:136
+(anonymous) @ async_queue_impl.ts:187
+Promise.then
+gu @ async_queue_impl.ts:185
+enqueue @ async_queue_impl.ts:130
+enqueueAndForget @ async_queue_impl.ts:94
+handleDelayElapsed @ async_queue.ts:193
+(anonymous) @ async_queue.ts:160
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 287.1ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 376.9ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 376.9ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ sync.ts:715
+logger.ts:22  [Sync] WARNING: checkPendingChanges took 271.8ms (>200ms threshold)
+warn @ logger.ts:22
+checkPendingChanges @ sync.ts:650
+await in checkPendingChanges
+(anonymous) @ OfflineStatusIndicator.tsx:41

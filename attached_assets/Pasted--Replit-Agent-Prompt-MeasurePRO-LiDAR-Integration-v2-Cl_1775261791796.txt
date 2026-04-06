@@ -1,0 +1,794 @@
+# Replit Agent Prompt — MeasurePRO LiDAR Integration v2
+## Clearance Detection + Static Scan + Live Minimap + Bridge Fix
+
+---
+
+## ⚠️ CRITICAL RULES — READ BEFORE DOING ANYTHING
+
+1. **ALL code, comments, variable names, function names, component names,
+   file names, console logs, error messages, and UI text MUST be in English.**
+   No French anywhere in the codebase.
+
+2. **DO NOT rewrite existing files.** Before creating or modifying any file:
+   - First READ the existing file
+   - Identify what already works correctly
+   - Only ADD or FIX what is missing or broken
+   - Preserve all existing logic, imports, and structure
+
+3. **DO NOT break other LiDAR sensors already integrated.**
+   MeasurePRO may already have integrations for LDS-30, LDS70A, AR2700.
+   These must continue to work exactly as before.
+
+4. **AUDIT FIRST, CODE SECOND.** Your first action must be to read and
+   audit all existing LiDAR-related files before writing a single line of code.
+   Report what exists, what works, and what is missing.
+
+5. **Fix the bridge before anything else.** The UDP→WebSocket bridge is
+   currently broken. This is the foundation everything else depends on.
+   It must be fixed and verified working before implementing any features.
+
+---
+
+## STEP 1 — MANDATORY AUDIT (do this first, report findings)
+
+Read every file in the following locations and report their status:
+
+```
+server/
+  - Find any file named: bridge, lidar, udp, proxy, websocket
+  - Report: filename, purpose, what it does, what is broken
+
+src/lidar/          (may or may not exist)
+src/components/     (find any LiDAR-related components)
+src/hooks/          (find any LiDAR-related hooks)
+src/types/          (find lidar.types.ts or similar)
+```
+
+For each existing LiDAR file, report:
+- ✅ Works correctly
+- ⚠️ Partially working (describe what's broken)
+- ❌ Broken (describe the error)
+- 🔲 Missing (needs to be created)
+
+Do NOT start coding until this audit is complete and reported.
+
+---
+
+## STEP 2 — FIX THE UDP→WEBSOCKET BRIDGE
+
+The bridge is the Node.js server that receives UDP packets from the
+Pandar40P LiDAR on port 2368 and forwards them to the React frontend
+via WebSocket.
+
+### Known issues to look for and fix:
+
+**Issue 1 — UDP socket not binding correctly**
+```javascript
+// WRONG — binds to specific interface, may miss packets
+udpSocket.bind(2368, '192.168.1.100');
+
+// CORRECT — bind to all interfaces to receive broadcast
+udpSocket.bind(2368, '0.0.0.0');
+```
+
+**Issue 2 — UDP socket missing multicast/broadcast membership**
+```javascript
+// Add after bind:
+udpSocket.setBroadcast(true);
+udpSocket.setMulticastLoopback(true);
+```
+
+**Issue 3 — WebSocket sending string instead of binary**
+```javascript
+// WRONG — converts binary to string, corrupts data
+ws.send(msg.toString());
+ws.send(JSON.stringify(data));
+
+// CORRECT — forward raw binary buffer
+ws.send(msg, { binary: true });
+```
+
+**Issue 4 — Missing error handling causing silent crashes**
+```javascript
+// Add to UDP socket:
+udpSocket.on('error', (err) => {
+  console.error('[LiDAR Bridge] UDP error:', err);
+  // Attempt rebind after 2 seconds
+  setTimeout(() => bindUDP(), 2000);
+});
+
+// Add to WebSocket server:
+wss.on('error', (err) => {
+  console.error('[LiDAR Bridge] WebSocket server error:', err);
+});
+```
+
+**Issue 5 — No packet rate monitoring (can't tell if data is flowing)**
+```javascript
+// Add packet counter
+let packetCount = 0;
+let lastRateLog = Date.now();
+
+udpSocket.on('message', (msg) => {
+  packetCount++;
+  const now = Date.now();
+  if (now - lastRateLog > 5000) {
+    const pps = packetCount / 5;
+    console.log(`[LiDAR Bridge] Packet rate: ${pps.toFixed(1)} pps`);
+    packetCount = 0;
+    lastRateLog = now;
+  }
+  // forward to WebSocket clients
+  broadcastToClients(msg);
+});
+```
+
+**Issue 6 — Bridge crashes if no WebSocket clients connected**
+```javascript
+function broadcastToClients(buffer) {
+  wss.clients.forEach((client) => {
+    if (client.readyState === WebSocket.OPEN) {
+      try {
+        client.send(buffer, { binary: true });
+      } catch (err) {
+        console.error('[LiDAR Bridge] Send error:', err.message);
+      }
+    }
+  });
+}
+```
+
+### Complete corrected bridge (create/replace as server/lidarBridge.js):
+
+```javascript
+const dgram = require('dgram');
+const WebSocket = require('ws');
+
+const LIDAR_UDP_PORT = 2368;
+const WS_PORT = 8765;
+
+const udpSocket = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+const wss = new WebSocket.Server({ port: WS_PORT });
+
+let packetCount = 0;
+let clientCount = 0;
+let lastRateLog = Date.now();
+let isRunning = false;
+
+// WebSocket server events
+wss.on('listening', () => {
+  console.log(`[LiDAR Bridge] WebSocket server listening on ws://localhost:${WS_PORT}`);
+});
+
+wss.on('connection', (ws, req) => {
+  clientCount++;
+  console.log(`[LiDAR Bridge] Client connected. Total: ${clientCount}`);
+
+  ws.on('close', () => {
+    clientCount--;
+    console.log(`[LiDAR Bridge] Client disconnected. Total: ${clientCount}`);
+  });
+
+  ws.on('error', (err) => {
+    console.error('[LiDAR Bridge] WebSocket client error:', err.message);
+  });
+
+  // Send status message to new client
+  ws.send(JSON.stringify({
+    type: 'status',
+    message: 'Bridge connected',
+    udpPort: LIDAR_UDP_PORT,
+    wsPort: WS_PORT
+  }));
+});
+
+wss.on('error', (err) => {
+  console.error('[LiDAR Bridge] WebSocket server error:', err);
+});
+
+// UDP socket events
+function bindUDP() {
+  udpSocket.bind(LIDAR_UDP_PORT, '0.0.0.0', () => {
+    udpSocket.setBroadcast(true);
+    console.log(`[LiDAR Bridge] UDP socket bound on port ${LIDAR_UDP_PORT}`);
+    isRunning = true;
+  });
+}
+
+udpSocket.on('message', (msg) => {
+  packetCount++;
+
+  const now = Date.now();
+  if (now - lastRateLog > 5000) {
+    const pps = (packetCount / 5).toFixed(1);
+    console.log(`[LiDAR Bridge] Rate: ${pps} pps | Clients: ${clientCount}`);
+    packetCount = 0;
+    lastRateLog = now;
+  }
+
+  // Only forward if we have connected clients
+  if (clientCount === 0) return;
+
+  // Forward raw binary buffer to all WebSocket clients
+  wss.clients.forEach((client) => {
+    if (client.readyState === WebSocket.OPEN) {
+      try {
+        client.send(msg, { binary: true });
+      } catch (err) {
+        console.error('[LiDAR Bridge] Send error:', err.message);
+      }
+    }
+  });
+});
+
+udpSocket.on('error', (err) => {
+  console.error('[LiDAR Bridge] UDP error:', err);
+  isRunning = false;
+  setTimeout(bindUDP, 2000);
+});
+
+udpSocket.on('close', () => {
+  console.warn('[LiDAR Bridge] UDP socket closed unexpectedly');
+  isRunning = false;
+  setTimeout(bindUDP, 2000);
+});
+
+// Start
+bindUDP();
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('[LiDAR Bridge] Shutting down...');
+  udpSocket.close();
+  wss.close();
+  process.exit(0);
+});
+
+process.on('SIGINT', () => {
+  console.log('[LiDAR Bridge] Shutting down...');
+  udpSocket.close();
+  wss.close();
+  process.exit(0);
+});
+
+console.log('[LiDAR Bridge] Starting...');
+console.log(`  UDP listening on  : 0.0.0.0:${LIDAR_UDP_PORT}`);
+console.log(`  WebSocket serving : ws://localhost:${WS_PORT}`);
+```
+
+### After implementing the bridge, verify it works:
+1. Start the bridge: `node server/lidarBridge.js`
+2. Confirm output: `[LiDAR Bridge] UDP socket bound on port 2368`
+3. With LiDAR connected, confirm within 10 seconds you see packet rate > 0 pps
+4. Open a test WebSocket client (wscat or browser console) and confirm binary frames arrive
+
+DO NOT proceed to Step 3 until the bridge is verified working.
+
+---
+
+## STEP 3 — AUDIT EXISTING LIDAR CODE IN FRONTEND
+
+After the bridge works, audit what already exists in the React frontend:
+
+**For each file found**, determine if it handles the Pandar40P specifically
+or if it's generic/for other sensors. Do NOT modify files for other sensors (LDS-30, LDS70A, AR2700).
+
+If a `PandarPacketParser`, `PointCloudFrame`, or similar already exists:
+- Test it against a known-good packet structure
+- Fix only what's broken
+- Do not rewrite from scratch if the logic is mostly correct
+
+---
+
+## STEP 4 — IMPLEMENT MISSING COMPONENTS
+
+Only implement what the audit confirmed is MISSING or BROKEN.
+Use the specifications below as the reference.
+
+### File structure (only create files confirmed missing):
+
+```
+src/
+  lidar/
+    PandarPacketParser.ts       ← Binary UDP packet parser
+    PointCloudFrame.ts          ← Frame assembler (360° rotation)
+    ClearanceDetector.ts        ← Height/width clearance algorithm
+    StaticScanAccumulator.ts    ← Multi-frame accumulation for static scan
+    LidarWebSocketClient.ts     ← WebSocket client with reconnect
+  components/
+    ClearanceHUD.tsx            ← Real-time survey overlay
+    LivePointCloudMinimap.tsx   ← Live 3D minimap (NEW)
+    StaticScanViewer.tsx        ← Interactive 3D static scan viewer
+    StaticScanControls.tsx      ← Start/stop/export controls
+  hooks/
+    useLidarStream.ts           ← LiDAR stream React hook
+    useClearanceDetection.ts    ← Clearance detection hook
+    useStaticScan.ts            ← Static scan hook
+  types/
+    lidar.types.ts              ← All TypeScript interfaces
+```
+
+---
+
+## SPECIFICATIONS
+
+### PandarPacketParser.ts
+
+Pandar40P UDP packet structure (1262 bytes payload):
+- 12 data blocks, each containing:
+  - 2 bytes: azimuth (horizontal angle × 100, little-endian uint16)
+  - 32 channels × 3 bytes: distance (uint16 little-endian, unit = 2mm) + reflectivity (uint8)
+- Additional info at end:
+  - Return mode byte: 0x39=strongest, 0x3B=last, 0x3C=dual
+  - Timestamp: 4 bytes uint32 little-endian (microseconds since top of second)
+  - UDP sequence (if enabled): 4 bytes uint32 little-endian
+
+In Dual Return Mode, blocks alternate: [strongest, last] for same azimuth.
+
+```typescript
+interface RawPoint {
+  azimuth: number;       // degrees 0–359.99
+  channel: number;       // 0–39
+  distance: number;      // metres
+  reflectivity: number;  // 0–255
+  returnType: 'strongest' | 'last';
+  timestamp: number;     // µs
+}
+
+interface ParsedPacket {
+  points: RawPoint[];
+  timestamp: number;
+  returnMode: 'strongest' | 'last' | 'dual';
+  sequenceNumber?: number;
+}
+```
+
+Rules:
+- Use DataView to read binary buffer
+- azimuth = rawUint16 / 100 (degrees)
+- distance = rawUint16 * 0.002 (metres, since unit is 2mm)
+- Skip points where distance === 0 (no return)
+- Log a warning when sequence numbers are not consecutive (dropped packet)
+
+---
+
+### PointCloudFrame.ts
+
+Pandar40P elevation angles per channel (exact values, do not approximate):
+```
+Ch 0: -25.0°  Ch 1: -15.0°  Ch 2: -13.0°  Ch 3: -11.0°
+Ch 4:  -9.0°  Ch 5:  -7.0°  Ch 6:  -5.0°  Ch 7:  -3.0°
+Ch 8:  -2.0°  Ch 9:  -1.67° Ch10:  -1.33° Ch11:  -1.0°
+Ch12: -0.67°  Ch13: -0.33°  Ch14:   0.0°  Ch15:  +0.33°
+Ch16: +0.67°  Ch17:  +1.0°  Ch18:  +1.33° Ch19:  +1.67°
+Ch20:  +2.0°  Ch21:  +2.33° Ch22:  +2.67° Ch23:  +3.0°
+Ch24:  +3.33° Ch25:  +3.67° Ch26:  +4.0°  Ch27:  +4.33°
+Ch28:  +4.67° Ch29:  +5.0°  Ch30:  +5.67° Ch31:  +6.33°
+Ch32:  +7.0°  Ch33:  +8.0°  Ch34:  +9.0°  Ch35: +10.0°
+Ch36: +11.0°  Ch37: +12.0°  Ch38: +13.0°  Ch39: +15.0°
+```
+
+Spherical to Cartesian conversion:
+```typescript
+const elevRad = elevationDeg * Math.PI / 180;
+const azimRad  = azimuthDeg  * Math.PI / 180;
+const x = distance * Math.cos(elevRad) * Math.sin(azimRad);
+const y = distance * Math.cos(elevRad) * Math.cos(azimRad);
+const z = distance * Math.sin(elevRad);
+```
+
+Frame is complete when azimuth wraps from ~359° back to ~0°.
+Expected points per complete frame: ~28,800 (40ch × 720 azimuths × dual return).
+
+---
+
+### ClearanceDetector.ts
+
+```typescript
+interface ClearanceConfig {
+  sensorMountHeight: number;    // metres above ground (e.g. 3.245)
+  vehicleWidth: number;         // metres (e.g. 2.590)
+  sensorLateralOffset: number;  // metres, 0 if centered
+  minHeightAlert: number;       // alert threshold metres (e.g. 4.500)
+  minWidthAlert: number;        // alert threshold metres (e.g. 3.200)
+  zFilterMin: number;           // ignore points below this Z (e.g. 1.0)
+  clusterMinPoints: number;     // min points to validate obstacle (e.g. 8)
+  lookAheadDistance: number;    // max Y distance ahead in metres (e.g. 35.0)
+}
+
+interface ClearanceResult {
+  frameId: number;
+  timestamp: number;
+  heightClearance: number | null;
+  widthClearance: number | null;
+  heightAlert: boolean;
+  widthAlert: boolean;
+  obstacleDistanceAhead: number | null;
+  confidenceScore: number;       // 0.0–1.0
+  clusterCount: number;
+}
+```
+
+Height detection algorithm:
+1. Filter: keep points where z > zFilterMin AND y > 0 AND y < lookAheadDistance
+2. Filter: keep points in forward cone (azimuth between 315°–360° or 0°–45°)
+3. Group into 0.3m voxel grid clusters
+4. For each cluster with >= clusterMinPoints:
+   - clearance = sensorMountHeight + cluster.zMin
+   - flag alert if clearance < minHeightAlert
+5. Return minimum clearance across all valid clusters
+
+Width detection algorithm:
+1. Use channels 0–8 (looking downward, sees lateral structures)
+2. Filter points: y between 0 and 20m ahead
+3. Find leftmost X point (most negative) and rightmost X (most positive) at each Y depth slice
+4. widthClearance = |xLeft| + |xRight|
+5. Flag alert if widthClearance < minWidthAlert
+
+---
+
+### StaticScanAccumulator.ts
+
+```typescript
+interface StaticScanConfig {
+  targetFrameCount: number;     // e.g. 200 = 10 seconds at 20Hz
+  voxelSize: number;            // deduplication voxel in metres (e.g. 0.02)
+  minReflectivity: number;      // discard dim points (e.g. 10)
+}
+
+interface StaticScan {
+  scanId: string;
+  startTimestamp: number;
+  endTimestamp: number;
+  frameCount: number;
+  totalPoints: number;
+  points: Point3D[];
+  boundingBox: BoundingBox3D;
+  measurements: ScanMeasurement[];
+}
+
+interface ScanMeasurement {
+  id: string;
+  type: 'height' | 'width' | 'depth' | 'custom';
+  value: number;          // metres
+  point1: Point3D;
+  point2: Point3D;
+  label: string;
+  createdAt: number;
+}
+```
+
+Behavior:
+- Accumulate points from N frames
+- Apply voxel deduplication to prevent memory overflow
+- Fire onProgress(current, total) each frame
+- Fire onComplete(scan) when targetFrameCount reached
+- Cap total accumulated points at 2,000,000 (downsample if exceeded)
+
+---
+
+### LidarWebSocketClient.ts
+
+```typescript
+class LidarWebSocketClient extends EventEmitter {
+  connect(wsUrl: string): void;
+  disconnect(): void;
+  isConnected(): boolean;
+  getPacketRate(): number;    // packets per second received
+  getDropRate(): number;      // % dropped (from sequence numbers)
+
+  // Events emitted:
+  // 'packet'   : (buffer: ArrayBuffer) => void
+  // 'connect'  : () => void
+  // 'disconnect': () => void
+  // 'error'    : (err: Error) => void
+  // 'metrics'  : (pps: number, dropRate: number) => void
+}
+```
+
+Features:
+- Auto-reconnect with exponential backoff (1s, 2s, 4s, 8s, max 30s)
+- Circular packet buffer (100 packets) to absorb bursts
+- Track sequence numbers to detect dropped packets
+- Emit metrics every 2 seconds
+
+---
+
+### LivePointCloudMinimap.tsx (NEW)
+
+A compact, always-visible 3D point cloud viewer displayed as a
+floating panel during survey mode. Shows the live LiDAR output in
+real time so the operator can visually confirm the sensor is working
+and seeing obstacles correctly.
+
+**Visual design:**
+- Fixed panel, 320×320px, positioned bottom-right of the survey screen
+- Dark background (#0a0a0a)
+- Points colored by height Z: blue (low) → green (mid) → red (high)
+- Thin white cross-hair at center (sensor position)
+- Top-down view (bird's eye) by default, with a small toggle button for front view
+- Points fade out / are replaced each new frame (no accumulation in this mode)
+- Thin colored ring around panel edge: green=connected, red=no signal
+- Semi-transparent overlay, does not block the map underneath
+
+**Performance requirements:**
+- MUST use Three.js BufferGeometry with Float32Array for position data
+- MUST update geometry in-place (do not recreate on every frame)
+- Target: update at full 20Hz without dropping frames
+- Use `requestAnimationFrame` for rendering, not `setInterval`
+- Subsample points if frame has > 15,000 points (take every Nth point)
+- Do NOT clone the entire point array — write directly to BufferGeometry attributes
+
+**Props:**
+```typescript
+interface LivePointCloudMinimapProps {
+  frame: PointCloudFrame | null;
+  isConnected: boolean;
+  packetRate: number;
+  clearanceResult: ClearanceResult | null;
+  config: ClearanceConfig;
+  className?: string;
+}
+```
+
+**What to show:**
+- All points from current frame, colored by Z height
+- A horizontal plane indicator at Z=0 (ground reference)
+- Green cone overlay showing the forward detection zone (for clearance algo)
+- Red points highlighted when they fall within the clearance detection cluster
+- Small text overlay: `${packetRate.toFixed(0)} pps` and point count
+
+**Toggle views:**
+- `TOP` (default): Camera looking straight down (Z axis), shows X/Y spread
+- `FRONT`: Camera looking from the front, shows height profile
+
+**Collapse behavior:**
+- Small collapse button (chevron icon) to minimize to just a status dot
+- Collapsed state shows: colored dot (green/red) + pps number
+
+---
+
+### ClearanceHUD.tsx
+
+Full-screen overlay displayed during mobile survey.
+
+Elements:
+- Large centered number: height clearance in metres (e.g. **5.82m**)
+- Secondary number: width clearance (e.g. **4.15m**)
+- Left/right bar showing vehicle width vs available width
+- Distance to obstacle ahead (e.g. "Obstacle 18.3m ahead")
+- Color state: GREEN (safe) → YELLOW (within 20% of alert threshold) → RED (alert)
+- Pulsing red animation when alert triggered
+- LiDAR status indicator (dot + pps)
+- "Static Scan" button to switch modes
+- Minimap component embedded in bottom-right corner
+
+Color thresholds:
+```typescript
+const getAlertColor = (clearance: number, threshold: number) => {
+  if (clearance < threshold) return 'red';
+  if (clearance < threshold * 1.2) return 'yellow';
+  return 'green';
+};
+```
+
+---
+
+### StaticScanViewer.tsx
+
+Full interactive 3D viewer for completed static scans using Three.js.
+
+Features:
+- Points colored by Z height (blue→green→red gradient)
+- Toggle: color by reflectivity instead
+- Orbit controls (mouse drag to rotate, scroll to zoom)
+- XYZ axes helper
+- Bounding box wireframe
+- **Click-to-measure tool:**
+  - Click point 1 → highlighted in yellow
+  - Click point 2 → line drawn between them, distance shown
+  - Measurement added to `scan.measurements` list
+  - Use Three.js Raycaster for point picking
+- Side panel: list all measurements with value, type, editable label
+- Performance: use BufferGeometry, implement LOD for > 500k points
+
+---
+
+### StaticScanControls.tsx
+
+```typescript
+interface StaticScanControlsProps {
+  onStart: (config: StaticScanConfig) => void;
+  onStop: () => void;
+  onExport: (format: 'json' | 'pcd' | 'csv') => void;
+  onSave: () => Promise<void>;
+  progress: number;           // 0–100
+  isScanning: boolean;
+  pointCount: number;
+  currentScan: StaticScan | null;
+}
+```
+
+UI:
+- Duration selector: 5s / 10s / 30s / 60s (radio buttons)
+- Large green START button
+- During scan: progress bar + live point count + elapsed time
+- Large red STOP button (appears during scan)
+- Export buttons: JSON, PCD, CSV (disabled until scan complete)
+- Save to Firebase button with location tag (disabled until scan complete)
+
+---
+
+## HOOKS
+
+### useLidarStream.ts
+```typescript
+function useLidarStream(wsUrl: string): {
+  isConnected: boolean;
+  currentFrame: PointCloudFrame | null;
+  packetRate: number;
+  dropRate: number;
+  error: string | null;
+  reconnectAttempts: number;
+}
+```
+
+### useClearanceDetection.ts
+```typescript
+function useClearanceDetection(
+  frame: PointCloudFrame | null,
+  config: ClearanceConfig
+): {
+  result: ClearanceResult | null;
+  history: ClearanceResult[];      // last 100 frames
+  minHeightInSession: number | null;
+  minWidthInSession: number | null;
+}
+```
+
+### useStaticScan.ts
+```typescript
+function useStaticScan(config: StaticScanConfig): {
+  isScanning: boolean;
+  progress: number;               // 0–100
+  currentScan: StaticScan | null;
+  pointCount: number;
+  elapsedSeconds: number;
+  startScan: () => void;
+  stopScan: () => void;
+  exportScan: (format: 'json' | 'pcd' | 'csv') => void;
+  saveScan: () => Promise<string>; // returns Firebase scanId
+}
+```
+
+---
+
+## TYPESCRIPT TYPES (lidar.types.ts)
+
+```typescript
+export interface Point3D {
+  x: number;
+  y: number;
+  z: number;
+  distance: number;
+  azimuth: number;
+  elevation: number;
+  channel: number;
+  reflectivity: number;
+  returnType: 'strongest' | 'last';
+  timestamp: number;
+}
+
+export interface PointCloudFrame {
+  frameId: number;
+  timestamp: number;
+  points: Point3D[];
+  isComplete: boolean;
+  droppedPackets: number;
+  pointCount: number;
+}
+
+export interface BoundingBox3D {
+  xMin: number; xMax: number;
+  yMin: number; yMax: number;
+  zMin: number; zMax: number;
+  width: number;
+  depth: number;
+  height: number;
+}
+
+export interface LidarConnectionState {
+  connected: boolean;
+  wsUrl: string;
+  packetRate: number;
+  dropRate: number;
+  lastPacketTime: number;
+  reconnectAttempts: number;
+}
+
+export type SurveyMode = 'idle' | 'mobile' | 'static';
+export type PointColorMode = 'height' | 'reflectivity' | 'channel';
+export type MinimapView = 'top' | 'front';
+```
+
+---
+
+## FIREBASE SCHEMA — static scans collection
+
+```
+scans/{scanId}
+  surveyId:      string
+  vehicleId:     string
+  timestamp:     Timestamp
+  gpsPosition:   GeoPoint (lat/lng at scan start)
+  frameCount:    number
+  totalPoints:   number
+  durationSec:   number
+  boundingBox:   map { xMin, xMax, yMin, yMax, zMin, zMax, width, depth, height }
+  measurements:  array of { id, type, value, label, point1, point2, createdAt }
+  storageUrl:    string (Firebase Storage URL for the point cloud JSON)
+  notes:         string
+  sensorConfig:  map { mountHeight, vehicleWidth, firmwareVersion }
+```
+
+---
+
+## DEFAULT CONFIGURATION
+
+```typescript
+export const DEFAULT_LIDAR_CONFIG: ClearanceConfig = {
+  sensorMountHeight: 3.245,
+  vehicleWidth: 2.590,
+  sensorLateralOffset: 0,
+  minHeightAlert: 4.500,
+  minWidthAlert: 3.200,
+  zFilterMin: 1.000,
+  clusterMinPoints: 8,
+  lookAheadDistance: 35.0,
+};
+
+export const DEFAULT_STATIC_SCAN_CONFIG: StaticScanConfig = {
+  targetFrameCount: 200,   // 10 seconds at 20Hz
+  voxelSize: 0.02,
+  minReflectivity: 10,
+};
+
+export const LIDAR_WS_URL = 'ws://localhost:8765';
+export const LIDAR_UDP_PORT = 2368;
+export const LIDAR_SENSOR_IP = '192.168.1.201';
+```
+
+---
+
+## VALIDATION CHECKLIST
+
+After all implementation, verify each item:
+
+- [ ] Bridge: `node server/lidarBridge.js` starts without errors
+- [ ] Bridge: Shows packet rate > 0 pps when LiDAR is connected
+- [ ] Bridge: Binary packets arrive at WebSocket client (not empty/corrupted)
+- [ ] Parser: Returns points with distance 1–100m and azimuth 0–360°
+- [ ] Frame: Complete frame contains ~28,800 points
+- [ ] Frame: X/Y/Z coordinates are in metres and look physically correct
+- [ ] Clearance: Z=2.5m point + sensorHeight=3.5m → reports 6.0m clearance
+- [ ] Minimap: Updates visually at 20Hz without UI freezing
+- [ ] Minimap: Toggle between top/front views works
+- [ ] HUD: Shows green/yellow/red correctly based on thresholds
+- [ ] StaticScan: Accumulates points from multiple frames correctly
+- [ ] StaticScan: 3D viewer renders and allows orbit rotation
+- [ ] StaticScan: Click-to-measure adds entry to measurements list
+- [ ] StaticScan: Export to JSON produces valid parseable file
+- [ ] Other sensors (LDS-30, LDS70A, AR2700): Still work, not broken
+
+---
+
+## TECH STACK REMINDER
+
+- React 18 + TypeScript (strict mode)
+- Vite build tool
+- Firebase SDK v9 (modular imports)
+- Three.js (already installed)
+- Node.js backend with `ws` and `dgram` packages
+- PWA — must work on mobile and desktop
+- All measurements displayed in metres, 2 decimal places
+- All code and UI text in English

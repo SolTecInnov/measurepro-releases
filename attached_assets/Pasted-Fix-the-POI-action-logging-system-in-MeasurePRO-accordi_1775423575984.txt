@@ -1,0 +1,148 @@
+Fix the POI action logging system in MeasurePRO according to the following spec.
+Read ALL relevant files in full before making any changes.
+
+--- RELEVANT FILES ---
+src/components/POISelector.tsx
+src/components/KeyboardShortcutHandler.tsx
+src/lib/poiActions.ts
+src/hooks/useMeasurementLogging.ts
+src/components/POIHeightRow.tsx
+src/pages/Settings.tsx (lines 491–688, and line 849)
+
+--- ROOT CAUSE ---
+The trigger model is backwards. In POISelector.tsx (line 52), selecting a POI type
+immediately calls triggerActionForType. KeyboardShortcutHandler does the same at
+line 117. Both bypass all prerequisite checks and create phantom log entries with
+no valid measurement, no active survey, and wrong note text.
+
+For height-clearance POIs (auto-capture-and-log), the laser measurement arriving
+through the measurement pipeline must be the ONLY trigger for creating a log entry.
+For measurement-free POIs (auto-capture-no-measurement), selection is the trigger
+— but only when all guards pass.
+
+--- TASK 1: Remove immediate trigger for auto-capture-and-log ---
+In POISelector.tsx (line 52) and KeyboardShortcutHandler.tsx (line 117):
+- When a POI type with action 'auto-capture-and-log' is selected (dropdown or
+  keyboard shortcut), ONLY set the active POI type in the store.
+- Do NOT call triggerActionForType or handleAutoCaptureAndLog.
+- Do NOT create any log entry.
+- The active POI type stays set until the user explicitly changes it. Do NOT
+  auto-reset to '' after a capture. A driver may run for hours logging the same
+  POI type (e.g. "Wire") with zero manual interaction — the pipeline fires on
+  every qualifying measurement as long as the type remains selected.
+
+--- TASK 2: Wire handleAutoCaptureAndLog into the measurement pipeline ---
+CRITICAL: handleAutoCaptureAndLog is currently ONLY called from POISelector and
+KeyboardShortcutHandler. After Task 1 removes those calls, there will be NO code
+path that invokes it. You must wire it into useMeasurementLogging.ts.
+
+In useMeasurementLogging.ts, at the point where a valid measurement is processed:
+- Check if the active POI type has action 'auto-capture-and-log'
+- If yes, proceed based on the active detection mode:
+
+  SINGLE-SHOT MODE:
+  - If the measurement is within ignore-above / ignore-below thresholds, call
+    handleAutoCaptureAndLog immediately with the single measurement.
+  - If out of threshold, silently discard — no entry, no toast.
+
+  COUNTER DETECTION & BUFFER DETECTION MODES:
+  - These modes collect multiple measurements for one physical object before
+    committing. Each individual measurement is added to a temporary set.
+  - When the detection cycle completes (counter reached or buffer window closes),
+    pass the FULL set of collected measurements to handleAutoCaptureAndLog.
+  - Do NOT call handleAutoCaptureAndLog on each individual measurement — only
+    once per completed detection cycle, with all readings in the set.
+  - Out-of-threshold measurements are excluded from the set silently.
+
+This wiring is the most critical step. Without it, height-clearance POI logging
+is completely broken after Task 1.
+
+--- TASK 3: Add prerequisite guards to auto-capture-no-measurement,
+            open-manual-modal, and voice-note ---
+Before executing any of these actions (in both POISelector and
+KeyboardShortcutHandler), verify:
+  Guard A: activeSurvey exists (from useSurveyStore in Settings.tsx)
+  Guard B: loggingMode is selected (not "none" / "off")
+  Guard C: isLogging === true (auto-capture-no-measurement only)
+
+If any guard fails, show a descriptive toast:
+  - No active survey → "No active survey — create one first"
+  - No logging mode → "Select a logging mode first"
+  - Not logging → "Start logging first"
+
+THREADING: loggingMode and isLogging are returned from useMeasurementLogging
+(Settings.tsx line 849). They must be threaded:
+  - Settings.tsx → POIHeightRow → POISelector (as props)
+  - Settings.tsx → KeyboardShortcutHandler (as props)
+activeSurvey must also be passed as a prop to both components — it comes from
+useSurveyStore in Settings.tsx.
+Neither POISelector nor KeyboardShortcutHandler currently have any awareness of
+logging state — this prop threading is new work.
+
+--- TASK 4: Harden handleAutoCaptureAndLog (pipeline-only from now on) ---
+This function must only be called from useMeasurementLogging.ts. Add internal
+guards at the top:
+  - Active survey exists
+  - Logging mode is selected
+  - Measurement(s) provided and at least one is within ignore-above / ignore-below
+    thresholds
+If any guard fails, silently return — no toast.
+This function must no longer be exported to or called from UI components.
+
+--- TASK 5: handleAutoCaptureAndLog — measurement handling and note format ---
+The function receives either a single measurement (single-shot) or an array of
+measurements (counter/buffer detection).
+
+SINGLE-SHOT:
+  - rel (height column): the single measurement value
+  - note: "Height: X.XXm | GND REF: X.XXm | {label}"
+
+COUNTER / BUFFER DETECTION (array of measurements passed in):
+  - rel (height column): the LOWEST value in the measurement set
+  - note: "Readings: X.XXm, X.XXm, X.XXm | Min: X.XXm | GND REF: X.XXm | {label}"
+    (list all raw readings in the set, then the minimum, then GND REF, then label)
+
+RULES THAT APPLY TO BOTH:
+  - GND REF must ALWAYS appear in the note, even when the value is 0.00m.
+    It is required for audit and traceability — never omit it.
+  - Remove all "Visual documentation" text from notes entirely.
+  - The label comes from the active POI type's display name.
+
+--- TASK 6: Fix notes for measurement-free POIs ---
+In handleAutoCaptureNoMeasurement:
+  - Set rel to null. Confirm no downstream DB write or worker back-fills a height
+    for entries created by this function.
+  - Replace the note with just the POI type label (e.g. "Intersection",
+    "Grade Up"). No "Visual documentation" text, no height, no GND REF.
+
+--- TASK 7: Fix the "None" POI type default ---
+In src/lib/poiActions.ts, in DEFAULT_POI_ACTIONS:
+  Change the '' (empty string) key from 'auto-capture-and-log' to 'select-only'.
+
+--- OUT OF SCOPE — DO NOT TOUCH ---
+- The internal logic of detection mode pipelines (counterDetection, buffer, etc.)
+  — only the point where a completed cycle hands off its results needs to change
+- POI type list (no additions or removals)
+- UI layout or visual design
+- The select-only, open-manual-modal, and voice-note action logic itself
+  (beyond adding the guards from Task 3)
+
+--- VERIFICATION CHECKLIST ---
+After making changes, confirm every item below before marking done:
+
+[ ] Selecting a height-clearance POI type creates zero log entries immediately
+[ ] After a successful capture, the active POI type remains selected (no reset)
+[ ] A valid measurement in useMeasurementLogging triggers a POI entry when a
+    height-clearance type is active (single-shot mode)
+[ ] Counter/buffer detection passes all collected measurements to
+    handleAutoCaptureAndLog at end of cycle — rel = minimum, note lists all readings
+[ ] Measurements outside ignore-above/ignore-below thresholds are silently
+    discarded — no POI, no toast
+[ ] Selecting a measurement-free POI type with no active survey → toast, no entry
+[ ] Selecting a measurement-free POI type with no logging mode → toast, no entry
+[ ] Measurement-free POI entries have rel: null (never a numeric height)
+[ ] No POI entry note contains "Visual documentation" text
+[ ] GND REF always appears in height-clearance POI notes, including when 0.00m
+[ ] Single-shot note format: "Height: X.XXm | GND REF: X.XXm | {label}"
+[ ] Counter/buffer note format: "Readings: ... | Min: X.XXm | GND REF: X.XXm | {label}"
+[ ] Selecting POI type '' / "None" does nothing (select-only, no action)

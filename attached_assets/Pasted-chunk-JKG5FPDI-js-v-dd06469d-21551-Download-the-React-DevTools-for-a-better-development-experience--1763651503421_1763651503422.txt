@@ -1,0 +1,243 @@
+chunk-JKG5FPDI.js?v=dd06469d:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+logger.ts:29 🛰️ Loading saved GPS permission - permission was previously granted
+logger.ts:29 Found 0 pending changes
+react-router-dom.js?v=dd06469d:4393 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+warnOnce @ react-router-dom.js?v=dd06469d:4393
+logDeprecation @ react-router-dom.js?v=dd06469d:4396
+logV6DeprecationWarnings @ react-router-dom.js?v=dd06469d:4399
+(anonymous) @ react-router-dom.js?v=dd06469d:5271
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+commitPassiveMountOnFiber @ chunk-JKG5FPDI.js?v=dd06469d:18156
+commitPassiveMountEffects_complete @ chunk-JKG5FPDI.js?v=dd06469d:18129
+commitPassiveMountEffects_begin @ chunk-JKG5FPDI.js?v=dd06469d:18119
+commitPassiveMountEffects @ chunk-JKG5FPDI.js?v=dd06469d:18109
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19490
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+react-router-dom.js?v=dd06469d:4393 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+warnOnce @ react-router-dom.js?v=dd06469d:4393
+logDeprecation @ react-router-dom.js?v=dd06469d:4396
+logV6DeprecationWarnings @ react-router-dom.js?v=dd06469d:4402
+(anonymous) @ react-router-dom.js?v=dd06469d:5271
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+commitPassiveMountOnFiber @ chunk-JKG5FPDI.js?v=dd06469d:18156
+commitPassiveMountEffects_complete @ chunk-JKG5FPDI.js?v=dd06469d:18129
+commitPassiveMountEffects_begin @ chunk-JKG5FPDI.js?v=dd06469d:18119
+commitPassiveMountEffects @ chunk-JKG5FPDI.js?v=dd06469d:18109
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19490
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+store.ts:459 Timer '⏱️ loadSurveys TOTAL' already exists
+loadSurveys @ store.ts:459
+(anonymous) @ App.tsx:290
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+invokePassiveEffectMountInDEV @ chunk-JKG5FPDI.js?v=dd06469d:18324
+invokeEffectsInDev @ chunk-JKG5FPDI.js?v=dd06469d:19701
+commitDoubleInvokeEffectsInDEV @ chunk-JKG5FPDI.js?v=dd06469d:19686
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19503
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+store.ts:466 Timer '⏱️ getSurveysPaginated(50)' already exists
+loadSurveys @ store.ts:466
+await in loadSurveys
+(anonymous) @ App.tsx:290
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+invokePassiveEffectMountInDEV @ chunk-JKG5FPDI.js?v=dd06469d:18324
+invokeEffectsInDev @ chunk-JKG5FPDI.js?v=dd06469d:19701
+commitDoubleInvokeEffectsInDEV @ chunk-JKG5FPDI.js?v=dd06469d:19686
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19503
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+store.ts:468 ⏱️ getSurveysPaginated(50): 28.349853515625 ms
+store.ts:500 ⏱️ loadSurveys TOTAL: 63.55810546875 ms
+store.ts:501 ✅ Loaded 1 surveys (including active) in 64ms
+store.ts:468 Timer '⏱️ getSurveysPaginated(50)' does not exist
+loadSurveys @ store.ts:468
+await in loadSurveys
+(anonymous) @ App.tsx:290
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+invokePassiveEffectMountInDEV @ chunk-JKG5FPDI.js?v=dd06469d:18324
+invokeEffectsInDev @ chunk-JKG5FPDI.js?v=dd06469d:19701
+commitDoubleInvokeEffectsInDEV @ chunk-JKG5FPDI.js?v=dd06469d:19686
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19503
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+store.ts:500 Timer '⏱️ loadSurveys TOTAL' does not exist
+loadSurveys @ store.ts:500
+await in loadSurveys
+(anonymous) @ App.tsx:290
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+invokePassiveEffectMountInDEV @ chunk-JKG5FPDI.js?v=dd06469d:18324
+invokeEffectsInDev @ chunk-JKG5FPDI.js?v=dd06469d:19701
+commitDoubleInvokeEffectsInDEV @ chunk-JKG5FPDI.js?v=dd06469d:19686
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19503
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+store.ts:501 ✅ Loaded 1 surveys (including active) in 64ms
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 Auth state changed, checking pending changes
+logger.ts:29 [Sync] Pending changes check completed: 0 items in 4.6ms
+ZED2iCamera.ts:588 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+setTimeout
+isAvailable @ ZED2iCamera.ts:587
+isZED2iAvailable @ ZED2iCamera.ts:579
+detectAvailableCameras @ CameraInterface.ts:167
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:25
+(anonymous) @ useCameraAutoDetect.tsx:44
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+invokePassiveEffectMountInDEV @ chunk-JKG5FPDI.js?v=dd06469d:18324
+invokeEffectsInDev @ chunk-JKG5FPDI.js?v=dd06469d:19701
+commitDoubleInvokeEffectsInDEV @ chunk-JKG5FPDI.js?v=dd06469d:19686
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19503
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+ZED2iCamera.ts:588 WebSocket connection to 'ws://localhost:8765/' failed: WebSocket is closed before the connection is established.
+(anonymous) @ ZED2iCamera.ts:588
+setTimeout
+isAvailable @ ZED2iCamera.ts:587
+isZED2iAvailable @ ZED2iCamera.ts:579
+detectAvailableCameras @ CameraInterface.ts:167
+await in detectAvailableCameras
+runDetection @ useCameraAutoDetect.tsx:25
+(anonymous) @ useCameraAutoDetect.tsx:44
+commitHookEffectListMount @ chunk-JKG5FPDI.js?v=dd06469d:16915
+commitPassiveMountOnFiber @ chunk-JKG5FPDI.js?v=dd06469d:18156
+commitPassiveMountEffects_complete @ chunk-JKG5FPDI.js?v=dd06469d:18129
+commitPassiveMountEffects_begin @ chunk-JKG5FPDI.js?v=dd06469d:18119
+commitPassiveMountEffects @ chunk-JKG5FPDI.js?v=dd06469d:18109
+flushPassiveEffectsImpl @ chunk-JKG5FPDI.js?v=dd06469d:19490
+flushPassiveEffects @ chunk-JKG5FPDI.js?v=dd06469d:19447
+(anonymous) @ chunk-JKG5FPDI.js?v=dd06469d:19328
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+logger.ts:29 ✅ Browser GPS position obtained successfully: {lat: 45.5018869, lon: -73.5673919, accuracy: 792449.2894275521}
+logger.ts:29 🛰️ GPS permission status updated and saved: true
+logger.ts:29 🛰️ GPS permission granted - starting browser GPS immediately
+react-window.js?v=dd06469d:466 Uncaught TypeError: Cannot convert undefined or null to object
+    at Object.values (<anonymous>)
+    at de (react-window.js?v=dd06469d:466:52)
+    at Ae (react-window.js?v=dd06469d:734:13)
+    at renderWithHooks (chunk-JKG5FPDI.js?v=dd06469d:11548:26)
+    at mountIndeterminateComponent (chunk-JKG5FPDI.js?v=dd06469d:14926:21)
+    at beginWork (chunk-JKG5FPDI.js?v=dd06469d:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-JKG5FPDI.js?v=dd06469d:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-JKG5FPDI.js?v=dd06469d:3699:24)
+    at invokeGuardedCallback (chunk-JKG5FPDI.js?v=dd06469d:3733:39)
+    at beginWork$1 (chunk-JKG5FPDI.js?v=dd06469d:19765:15)
+de @ react-window.js?v=dd06469d:466
+Ae @ react-window.js?v=dd06469d:734
+renderWithHooks @ chunk-JKG5FPDI.js?v=dd06469d:11548
+mountIndeterminateComponent @ chunk-JKG5FPDI.js?v=dd06469d:14926
+beginWork @ chunk-JKG5FPDI.js?v=dd06469d:15914
+callCallback2 @ chunk-JKG5FPDI.js?v=dd06469d:3674
+invokeGuardedCallbackDev @ chunk-JKG5FPDI.js?v=dd06469d:3699
+invokeGuardedCallback @ chunk-JKG5FPDI.js?v=dd06469d:3733
+beginWork$1 @ chunk-JKG5FPDI.js?v=dd06469d:19765
+performUnitOfWork @ chunk-JKG5FPDI.js?v=dd06469d:19198
+workLoopConcurrent @ chunk-JKG5FPDI.js?v=dd06469d:19189
+renderRootConcurrent @ chunk-JKG5FPDI.js?v=dd06469d:19164
+performConcurrentWorkOnRoot @ chunk-JKG5FPDI.js?v=dd06469d:18678
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+react-window.js?v=dd06469d:466 Uncaught TypeError: Cannot convert undefined or null to object
+    at Object.values (<anonymous>)
+    at de (react-window.js?v=dd06469d:466:52)
+    at Ae (react-window.js?v=dd06469d:734:13)
+    at renderWithHooks (chunk-JKG5FPDI.js?v=dd06469d:11548:26)
+    at mountIndeterminateComponent (chunk-JKG5FPDI.js?v=dd06469d:14926:21)
+    at beginWork (chunk-JKG5FPDI.js?v=dd06469d:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-JKG5FPDI.js?v=dd06469d:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-JKG5FPDI.js?v=dd06469d:3699:24)
+    at invokeGuardedCallback (chunk-JKG5FPDI.js?v=dd06469d:3733:39)
+    at beginWork$1 (chunk-JKG5FPDI.js?v=dd06469d:19765:15)
+de @ react-window.js?v=dd06469d:466
+Ae @ react-window.js?v=dd06469d:734
+renderWithHooks @ chunk-JKG5FPDI.js?v=dd06469d:11548
+mountIndeterminateComponent @ chunk-JKG5FPDI.js?v=dd06469d:14926
+beginWork @ chunk-JKG5FPDI.js?v=dd06469d:15914
+callCallback2 @ chunk-JKG5FPDI.js?v=dd06469d:3674
+invokeGuardedCallbackDev @ chunk-JKG5FPDI.js?v=dd06469d:3699
+invokeGuardedCallback @ chunk-JKG5FPDI.js?v=dd06469d:3733
+beginWork$1 @ chunk-JKG5FPDI.js?v=dd06469d:19765
+performUnitOfWork @ chunk-JKG5FPDI.js?v=dd06469d:19198
+workLoopSync @ chunk-JKG5FPDI.js?v=dd06469d:19137
+renderRootSync @ chunk-JKG5FPDI.js?v=dd06469d:19116
+recoverFromConcurrentError @ chunk-JKG5FPDI.js?v=dd06469d:18736
+performConcurrentWorkOnRoot @ chunk-JKG5FPDI.js?v=dd06469d:18684
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+chunk-JKG5FPDI.js?v=dd06469d:14032 The above error occurred in the <Ae> component:
+
+    at Ae (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-window.js?v=dd06469d:719:13)
+    at div
+    at div
+    at MeasurementLog (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/MeasurementLog.tsx:32:27)
+    at div
+    at div
+    at CardWrapper (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/CardWrapper.tsx:19:3)
+    at div
+    at div
+    at div
+    at Settings (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/pages/Settings.tsx:54:37)
+    at Suspense
+    at ProtectedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/ProtectedRoute.tsx:47:34)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:186:5)
+    at RenderedRoute (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=dd06469d:4088:5)
+    at Routes (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=dd06469d:4558:5)
+    at RouteErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:186:5)
+    at Suspense
+    at div
+    at Router (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=dd06469d:4501:15)
+    at BrowserRouter (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=dd06469d:5247:5)
+    at ThemeProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/ThemeProvider.tsx:29:33)
+    at LicenseStartupCheckProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/hooks/useLicenseStartupCheck.tsx:101:47)
+    at App (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/App.tsx:205:3)
+    at AuthProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/lib/auth/AuthContext.tsx:49:32)
+    at QueryClientProvider (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=dd06469d:3086:3)
+    at ErrorBoundary (https://8a75d2b8-9be3-47c8-8556-7954a6474e65-00-zbalk119ib1q.picard.replit.dev/src/components/ErrorBoundary.tsx:15:5)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, RouteErrorBoundary.
+logCapturedError @ chunk-JKG5FPDI.js?v=dd06469d:14032
+update.callback @ chunk-JKG5FPDI.js?v=dd06469d:14069
+callCallback @ chunk-JKG5FPDI.js?v=dd06469d:11248
+commitUpdateQueue @ chunk-JKG5FPDI.js?v=dd06469d:11265
+commitLayoutEffectOnFiber @ chunk-JKG5FPDI.js?v=dd06469d:17075
+commitLayoutMountEffects_complete @ chunk-JKG5FPDI.js?v=dd06469d:17980
+commitLayoutEffects_begin @ chunk-JKG5FPDI.js?v=dd06469d:17969
+commitLayoutEffects_begin @ chunk-JKG5FPDI.js?v=dd06469d:17950
+commitLayoutEffects @ chunk-JKG5FPDI.js?v=dd06469d:17920
+commitRootImpl @ chunk-JKG5FPDI.js?v=dd06469d:19353
+commitRoot @ chunk-JKG5FPDI.js?v=dd06469d:19277
+finishConcurrentRender @ chunk-JKG5FPDI.js?v=dd06469d:18760
+performConcurrentWorkOnRoot @ chunk-JKG5FPDI.js?v=dd06469d:18718
+workLoop @ chunk-JKG5FPDI.js?v=dd06469d:197
+flushWork @ chunk-JKG5FPDI.js?v=dd06469d:176
+performWorkUntilDeadline @ chunk-JKG5FPDI.js?v=dd06469d:384
+logger.ts:29 ✅ Browser GPS position obtained successfully: {lat: 45.5018869, lon: -73.5673919, accuracy: 792449.2894275521}
+logger.ts:29 🛰️ GPS permission status updated and saved: true

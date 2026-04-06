@@ -1,0 +1,359 @@
+🔧 Build Me: Overhead Aggregator (Laser+GPS only) with “Sky” gating, wire clustering, HV 3-phase cap, and City mode
+0) Goals (do this, nothing else)
+
+Consume synchronized GPS and LDS-30 distance samples and emit minimal, useful POIs:
+
+Bridges/gantries/trees → one POI: the lowest clearance under the object.
+
+Utility wires (dense) → one POI per 10 m corridor (lowest only).
+
+High-voltage lines → up to 3 POIs (the 3 lowest conductors), never more.
+
+Use LDS-30 “sky/no-return” as a hard signal to segment events (start/stop).
+
+Provide speed-aware presets (e.g., Highway/Suburban/City) and a “City mode” switch to aggressively suppress wire spam on ultra-dense streets (hundreds of drops).
+
+Expose a clean TypeScript API (no UI) that Replit can call from elsewhere. Storage/logging is out of scope here—just return POIs.
+
+1) Inputs and cadence
+
+Call feed(sample) at 10–20 Hz with the fused sample:
+
+type Sample = {
+  t: number;                   // monotonic ms
+  lat: number; lon: number;    // degrees
+  headingDeg: number;          // 0..360
+  speedKph?: number;           // GPS speed
+  rawDistM?: number | null;    // raw LDS value in meters (may be null or near-max)
+  status?: {                   // optional parsed LDS status
+    noTarget?: boolean; overRange?: boolean;
+  };
+};
+
+
+Normalize laser to distM:
+
+If status.noTarget || status.overRange || rawDistM == null || rawDistM >= maxRange * skyThresholdFrac, then distM = null (treat as SKY).
+
+Else distM = rawDistM.
+
+2) Outputs (POIs)
+
+Return POIs only at commit time:
+
+type POI = {
+  kind: 'bridge'|'gantry'|'tree_canopy'|'wires_util'|'wires_hv'|'overhead';
+  distance_m: number;         // min clearance for this item (meters, 2 decimals)
+  lat: number; lon: number;   // WGS84
+  s_from_start_m: number;     // meters traveled during the event until the min
+  t: number;                  // monotonic ms at min
+  source: 'laser';
+  tags?: string[];            // e.g., ['city_mode'] if City mode was active
+};
+
+3) Event model (state machine)
+
+IDLE → waiting for start.
+
+TRACKING → under an overhead object/line: collect minima and distance-along track.
+
+HOLD → end candidate; wait brief persistence before commit.
+
+Start condition (strict):
+
+We were in SKY for at least skyMinBeforeStartMs.
+
+We now have valid measurements persisting for solidMinToStartMs.
+
+Drop vs baseline Δd = (baseline - distM) ≥ dStart.
+
+End condition:
+
+Either we return to SKY, or Δd ≤ dEnd, then wait tEndMs (HOLD).
+
+Also cut if sTraveled >= winEventMaxM (safety stop).
+
+Commit:
+
+If current tag is bridge|gantry|tree_canopy|overhead → one POI: global minimum.
+
+If wires_util → split series into corridors of winCouloirM meters along the path and take one lowest per corridor.
+
+If wires_hv → per corridor, cluster by height with gap ≥ minSepWireM and keep the 3 lowest clusters only.
+
+Note on tags: Tags are optional labels set by the host app (e.g., via Stream Deck). Implement both:
+
+setPendingTag(tag) to apply to the next event.
+
+setCurrentTag(tag) to apply to the current (TRACKING/HOLD) event.
+If no tag is set, default to overhead.
+
+4) Baseline and “Sky-aware” logic
+
+Maintain a baseline representing “open sky” reading:
+
+Do not update baseline while distM == null (SKY)—keep last value.
+
+While under object (non-SKY), update baseline with a very slow EMA to avoid chasing dips:
+
+baseline = (1-α_obj)*baseline + α_obj*distM, with α_obj very small (e.g., 0.03).
+
+Optionally allow a slightly faster EMA when recently back to sky (e.g., α_sky = 0.08) to re-lock quickly.
+
+Compute drop vs baseline: Δd = baseline - distM (0 if distM null).
+
+5) Distance-along (s) and projection formula
+
+Track sTraveled by summing haversine increments between consecutive samples:
+
+haversine_m = 2R * asin( sqrt( sin²((lat2-lat1)/2) + cos(lat1)*cos(lat2)*sin²((lon2-lon1)/2) ) )
+R = 6 371 000 m; angles in radians
+
+
+Store s_from_start_m at the min point.
+
+6) Wire algorithms (formulas)
+
+Minima detection (for wires)
+
+While TRACKING, append a point whenever:
+
+New global minimum (distM < dMin - dMinEpsilon)
+
+Or “local dip” with amplitude ≥ minDropForLocal.
+
+Each point stored as:
+
+type MinimaPoint = { s:number; d:number; t:number; lat:number; lon:number };
+
+
+Corridor grouping
+
+Sort series by s.
+
+Partition into buckets where (s - s_base) ≤ winCouloirM; when exceeded, start new corridor.
+
+Inside each corridor, keep only the lowest dip (min d).
+(For HV we still need height clustering, see below.)
+
+Height clustering (HV only)
+
+Sort all points in corridor by d ascending.
+
+Greedy 1-D clustering: start cluster with the lowest d; add points within minSepWireM of the last in cluster; else start a new cluster.
+
+Represent each cluster by its lowest d.
+
+Keep up to 3 lowest clusters per corridor.
+
+7) Speed-aware presets and City mode
+
+Implement three presets and a City mode (toggle) that overrides wire behavior:
+
+Presets (auto-select by speedKph each feed):
+
+Highway (> 60 km/h): faster end, longer window
+
+tEndMs -= 50, winEventMaxM += 10
+
+Suburban (15–60 km/h): nominal values
+
+LowSpeed (< 15 km/h): slightly easier start, longer hold
+
+dStart -= 0.05, tEndMs += 100
+
+City mode (explicit toggle, independent of speed):
+
+Goal: log far fewer wires in ultra-dense streets.
+
+Effects when cityMode=true and tag is wires_util:
+
+Increase corridor width: winCouloirM_city = max(winCouloirM, 20)
+
+Increase local-dip threshold: minDropForLocal_city = max(minDropForLocal, 0.20)
+
+Hard rate limit per 100 m: e.g., maxUtilLogsPer100m = 1
+
+Optional min separation by distance: if last util POI is within minPOIDistM_city (e.g., 40 m) → suppress.
+
+For wires_hv in City mode: still allow up to 3, but drop corridors where the lowest d is above a “not-interesting” threshold (e.g., ignoreIfAboveM = 9.0), configurable.
+
+All values configurable; defaults in section 8.
+
+8) Configuration schema (with safe bounds)
+
+Use zod to validate:
+
+import { z } from 'zod';
+
+export const EventCfg = z.object({
+  dStart: z.number().min(0.05).max(1.5),
+  dEnd: z.number().min(0.05).max(1.5),
+  tEndMs: z.number().min(100).max(1500),
+  winEventMaxM: z.number().min(5).max(200),
+  // wires-only
+  winCouloirM: z.number().min(3).max(100).optional(),
+  minSepWireM: z.number().min(0.1).max(2.0).optional(),
+  minDropForLocal: z.number().min(0.05).max(1.0).optional(),
+  maxWiresHV: z.number().min(1).max(3).optional(),
+});
+
+export const GlobalCfg = z.object({
+  maxRangeM: z.number().min(5).max(200).default(30),
+  skyThresholdFrac: z.number().min(0.90).max(0.999).default(0.98),
+  skyMinBeforeStartMs: z.number().min(50).max(500).default(80),
+  solidMinToStartMs: z.number().min(50).max(500).default(80),
+  baselineAlphaSky: z.number().min(0.01).max(0.2).default(0.08),
+  baselineAlphaObject: z.number().min(0.01).max(0.1).default(0.03),
+  fusionHz: z.number().min(5).max(30).default(15),
+
+  // Speed presets thresholds
+  lowSpeedKph: z.number().min(0).max(40).default(15),
+  highwayKph: z.number().min(30).max(130).default(60),
+
+  // City-mode controls
+  cityMode: z.boolean().default(false),
+  winCouloirM_city: z.number().min(5).max(100).default(20),
+  minDropForLocal_city: z.number().min(0.05).max(1.0).default(0.20),
+  maxUtilLogsPer100m: z.number().min(0).max(10).default(1),
+  minPOIDistM_city: z.number().min(0).max(200).default(40),
+  hvIgnoreIfAboveM: z.number().min(0).max(30).default(9.0),
+
+  // Hotkeys (host app may use)
+  hotkeys: z.record(
+    z.enum(['bridge','gantry','tree_canopy','wires_util','wires_hv','overhead']),
+    z.string()
+  ).optional()
+});
+
+export const AppCfg = z.object({
+  version: z.string(),
+  profileName: z.string(),
+  events: z.object({
+    bridge: EventCfg, gantry: EventCfg, tree_canopy: EventCfg,
+    wires_util: EventCfg, wires_hv: EventCfg, overhead: EventCfg
+  }),
+  global: GlobalCfg
+});
+
+export type TAppCfg = z.infer<typeof AppCfg>;
+
+
+Recommended defaults (daytime, fair weather):
+
+const Defaults: TAppCfg = {
+  version: '1.0.0',
+  profileName: 'Fair Weather',
+  events: {
+    bridge:      { dStart:0.30, dEnd:0.20, tEndMs:300, winEventMaxM:25 },
+    gantry:      { dStart:0.30, dEnd:0.20, tEndMs:300, winEventMaxM:25 },
+    tree_canopy: { dStart:0.35, dEnd:0.22, tEndMs:350, winEventMaxM:25 },
+    wires_util:  { dStart:0.30, dEnd:0.20, tEndMs:300, winEventMaxM:25,
+                   winCouloirM:10, minSepWireM:0.25, minDropForLocal:0.12, maxWiresHV:1 },
+    wires_hv:    { dStart:0.30, dEnd:0.20, tEndMs:300, winEventMaxM:25,
+                   winCouloirM:10, minSepWireM:0.25, minDropForLocal:0.12, maxWiresHV:3 },
+    overhead:    { dStart:0.30, dEnd:0.20, tEndMs:300, winEventMaxM:25 }
+  },
+  global: {
+    maxRangeM:30, skyThresholdFrac:0.98,
+    skyMinBeforeStartMs:80, solidMinToStartMs:80,
+    baselineAlphaSky:0.08, baselineAlphaObject:0.03,
+    fusionHz:15, lowSpeedKph:15, highwayKph:60,
+    cityMode:false, winCouloirM_city:20,
+    minDropForLocal_city:0.20, maxUtilLogsPer100m:1,
+    minPOIDistM_city:40, hvIgnoreIfAboveM:9.0
+  }
+};
+
+9) Public API (what the rest of the app calls)
+
+Implement a class OverheadAggregator with:
+
+class OverheadAggregator {
+  constructor(cfg?: Partial<TAppCfg>);
+
+  // main
+  feed(sample: Sample): POI[]; // returns [] most frames; returns 1..N POIs at commit
+
+  // tagging (no UI here; host will wire to hotkeys)
+  setPendingTag(tag: POI['kind'] | null): void;  // apply to next event
+  setCurrentTag(tag: POI['kind'] | null): void;  // apply to current event
+  clearCurrentTag(): void;
+
+  // configuration
+  setConfig(patch: Partial<TAppCfg>): void;      // hot-reload safe
+  getConfig(): TAppCfg;
+
+  // city mode
+  setCityMode(enabled: boolean): void;
+  getCityMode(): boolean;
+
+  // reset and diagnostics
+  reset(): void;                                  // reset state machine
+  getDiagnostics(): {
+    phase: 'IDLE'|'TRACKING'|'HOLD';
+    baseline: number | null;
+    lastDistM: number | null;
+    skySinceMs: number;
+    solidSinceMs: number;
+    dMinCurrent: number | null;
+    sTraveledCurrent: number;
+    eventsEmittedTotal: number;
+  };
+}
+
+10) Rate limiting and City mode enforcement
+
+Keep a sliding distance window of the last 100 m (sum of haversine steps). Track how many util POIs emitted in that window. If ≥ maxUtilLogsPer100m, suppress additional util POIs until old ones fall outside the 100 m window.
+
+Also apply minPOIDistM_city: if the distance from last util POI (haversine(lat,lon,lastUtil.lat,lastUtil.lon)) < threshold, suppress.
+
+11) Edge cases & guards
+
+If GPS fix is poor, allow logging but include a warning flag in diagnostics (host app decides what to do).
+
+If distM oscillates quickly around thresholds, the HOLD hysteresis prevents chatter.
+
+If an event runs longer than winEventMaxM, force commit with whatever minima collected.
+
+If wires_hv lowest d > hvIgnoreIfAboveM and cityMode=true, drop the corridor entirely (not interesting enough in dense city context).
+
+12) Test harness (include a minimal one)
+
+Provide a tiny in-memory replay tool that feeds prerecorded samples to verify:
+
+One bridge → one POI at min.
+
+Util wires in 10 m span → exactly one POI.
+
+HV with 3 conductors → ≤ 3 POIs.
+
+City mode on dense street → rate-limited util POIs (≤ maxUtilLogsPer100m), and min spacing enforced.
+
+13) Performance
+
+Target 10–20 Hz; all operations O(1) or O(n) per event (n = points in current event only).
+
+No external dependencies except zod (optional) for config validation.
+
+14) Deliverables
+
+overhead-aggregator.ts (class + types)
+
+config.schema.ts (zod + defaults)
+
+replay.test.ts (simple test harness with synthetic samples)
+
+No UI; no storage. Exported pure logic.
+
+Important notes for implementer
+
+Never emit more than 3 POIs for HV per corridor.
+
+In City mode, aggressively suppress util wires by corridor widening, local-dip threshold, and rate limit + min spacing.
+
+Treat LDS “no-return/overflow/near-max” as SKY (null distance).
+
+Baseline must be stable; do not let it chase the object’s underside.
+
+Build exactly this.

@@ -1,0 +1,332 @@
+MeasurePRO → RoadScope Proxy Fix Instructions
+Problem Summary
+MeasurePRO's proxy at /api/roadscope/proxy/* is returning 401 Unauthorized errors when attempting to sync with RoadScope. The root cause is that the proxy is NOT forwarding the Authorization header to RoadScope's API.
+
+Diagnosis Evidence
+From MeasurePRO console logs:
+
+client.ts:67 [RoadScope] Requesting: /api/roadscope/proxy/surveys
+/api/roadscope/proxy/surveys:1 Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/roadscope/proxy/auth/validate:1 Failed to load resource: the server responded with a status of 401 (Unauthorized)
+
+The 401 comes from RoadScope because it receives no Authorization header. When tested directly with the header, RoadScope works perfectly and returns data.
+
+RoadScope API Specification
+Base URL: https://roadscope.app/api/measurepro
+
+Authentication: Bearer token in Authorization header
+
+Authorization: Bearer mpro_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+API Endpoints:
+
+Method	Endpoint	Description
+GET	/health	Health check (no auth required)
+POST	/auth/validate	Validate API key and get user info
+GET	/poi-types	Get available POI types
+GET	/surveys	List user's surveys
+POST	/surveys	Create or update a survey
+POST	/surveys/:surveyId/pois	Batch upsert POIs (max 500/batch)
+POST	/surveys/:surveyId/routes	Batch upsert routes (max 100/batch)
+POST	/surveys/:surveyId/upload-urls	Get signed URLs for file uploads
+POST	/surveys/:surveyId/files	Register uploaded files
+Required Proxy Implementation
+The MeasurePRO proxy must forward ALL requests to RoadScope with the proper headers.
+
+Server-Side Proxy Route (Node.js/Express)
+import express from 'express';
+const router = express.Router();
+// Proxy all requests to RoadScope API
+router.all('/api/roadscope/proxy/*', async (req, res) => {
+  try {
+    // Extract the path after /api/roadscope/proxy/
+    const targetPath = req.params[0] || '';
+    const targetUrl = `https://roadscope.app/api/measurepro/${targetPath}`;
+    
+    // Build headers - CRITICAL: Forward the Authorization header
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    
+    // Forward Authorization header if present
+    if (req.headers.authorization) {
+      headers['Authorization'] = req.headers.authorization;
+    }
+    
+    // Forward other relevant headers
+    if (req.headers['x-request-id']) {
+      headers['X-Request-Id'] = req.headers['x-request-id'] as string;
+    }
+    
+    // Prepare fetch options
+    const fetchOptions: RequestInit = {
+      method: req.method,
+      headers,
+    };
+    
+    // Add body for non-GET requests
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      fetchOptions.body = JSON.stringify(req.body);
+    }
+    
+    console.log(`[RoadScope Proxy] ${req.method} ${targetUrl}`);
+    console.log(`[RoadScope Proxy] Auth header present: ${!!req.headers.authorization}`);
+    
+    // Make the request to RoadScope
+    const response = await fetch(targetUrl, fetchOptions);
+    
+    // Get response data
+    const contentType = response.headers.get('content-type');
+    let data;
+    
+    if (contentType?.includes('application/json')) {
+      data = await response.json();
+    } else {
+      data = await response.text();
+    }
+    
+    console.log(`[RoadScope Proxy] Response: ${response.status}`);
+    
+    // Forward the response status and data
+    res.status(response.status);
+    
+    if (typeof data === 'string') {
+      res.send(data);
+    } else {
+      res.json(data);
+    }
+    
+  } catch (error) {
+    console.error('[RoadScope Proxy] Error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Proxy error: Failed to connect to RoadScope API',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+});
+export default router;
+
+Alternative: Simpler Implementation
+app.all('/api/roadscope/proxy/*', async (req, res) => {
+  const path = req.params[0];
+  const url = `https://roadscope.app/api/measurepro/${path}`;
+  
+  try {
+    const response = await fetch(url, {
+      method: req.method,
+      headers: {
+        'Authorization': req.headers.authorization || '',  // <-- CRITICAL!
+        'Content-Type': 'application/json'
+      },
+      body: ['GET', 'HEAD'].includes(req.method) ? undefined : JSON.stringify(req.body)
+    });
+    
+    const data = await response.json();
+    res.status(response.status).json(data);
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'Proxy connection failed' });
+  }
+});
+
+Client-Side Code (RoadScope Client)
+The client should send requests to the local proxy with the API key:
+
+// client/src/lib/roadscope/client.ts
+const PROXY_BASE = '/api/roadscope/proxy';
+export async function request<T>(
+  path: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const apiKey = localStorage.getItem('roadscope_api_key');
+  
+  if (!apiKey) {
+    throw new Error('RoadScope API key not configured');
+  }
+  
+  const url = `${PROXY_BASE}/${path}`;
+  
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`,  // <-- MUST include this!
+  };
+  
+  console.log(`[RoadScope] Requesting: ${url}`);
+  console.log(`[RoadScope] Auth: Bearer ${apiKey.substring(0, 20)}...`);
+  
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      ...headers,
+      ...options.headers,
+    },
+  });
+  
+  const data = await response.json();
+  
+  console.log(`[RoadScope] Response (${response.status}):`, data);
+  
+  if (!response.ok) {
+    throw new Error(data.error || `Request failed with status ${response.status}`);
+  }
+  
+  return data;
+}
+// Example usage:
+export async function validateApiKey(): Promise<boolean> {
+  try {
+    const result = await request<{ success: boolean }>('auth/validate', {
+      method: 'POST'
+    });
+    return result.success;
+  } catch {
+    return false;
+  }
+}
+export async function listSurveys() {
+  return request<{ success: boolean; data: { surveys: any[] } }>('surveys');
+}
+export async function syncPOIs(surveyId: string, pois: any[]) {
+  return request(`surveys/${surveyId}/pois`, {
+    method: 'POST',
+    body: JSON.stringify({
+      mode: 'upsert',
+      pois
+    })
+  });
+}
+
+Common Mistakes to Avoid
+1. Missing Authorization Header Forwarding
+// WRONG - Authorization header not forwarded
+fetch(targetUrl, {
+  method: req.method,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+// CORRECT - Authorization header forwarded
+fetch(targetUrl, {
+  method: req.method,
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': req.headers.authorization  // <-- MUST INCLUDE
+  }
+});
+
+2. Wrong Header Case
+// WRONG - Wrong case
+headers['authorization'] = req.headers['Authorization'];
+// CORRECT - Express normalizes headers to lowercase
+headers['Authorization'] = req.headers.authorization;
+
+3. Not Handling POST Body
+// WRONG - Body not included for POST requests
+fetch(targetUrl, { method: 'POST', headers });
+// CORRECT - Include body for POST/PUT/PATCH
+fetch(targetUrl, {
+  method: 'POST',
+  headers,
+  body: JSON.stringify(req.body)
+});
+
+4. Not Forwarding Status Code
+// WRONG - Always returns 200
+const data = await response.json();
+res.json(data);
+// CORRECT - Forward the actual status code
+const data = await response.json();
+res.status(response.status).json(data);
+
+Testing the Fix
+Test 1: Health Check (no auth required)
+curl http://localhost:5173/api/roadscope/proxy/health
+# Expected: {"status":"ok","timestamp":"..."}
+
+Test 2: Auth Validation (requires auth)
+curl -X POST http://localhost:5173/api/roadscope/proxy/auth/validate \
+  -H "Authorization: Bearer mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8" \
+  -H "Content-Type: application/json"
+# Expected: {"success":true,"data":{"userId":"...","email":"...","scopes":[...]}}
+
+Test 3: List Surveys (requires auth)
+curl http://localhost:5173/api/roadscope/proxy/surveys \
+  -H "Authorization: Bearer mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8"
+# Expected: {"success":true,"data":{"surveys":[...],"count":21}}
+
+Test 4: Create POI (requires auth)
+curl -X POST http://localhost:5173/api/roadscope/proxy/surveys/HVGRoJbUfp0S5n7vfD3t/pois \
+  -H "Authorization: Bearer mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "mode": "upsert",
+    "pois": [{
+      "externalId": "test-poi-001",
+      "type": "PowerLine",
+      "name": "Test Power Line",
+      "latitude": 45.5017,
+      "longitude": -73.5673
+    }]
+  }'
+# Expected: {"success":true,"data":{"created":1,"updated":0,"failed":0}}
+
+Debug Logging
+Add these logs to your proxy to diagnose issues:
+
+app.all('/api/roadscope/proxy/*', async (req, res) => {
+  const path = req.params[0];
+  
+  console.log('=== RoadScope Proxy Debug ===');
+  console.log('Method:', req.method);
+  console.log('Path:', path);
+  console.log('Target URL:', `https://roadscope.app/api/measurepro/${path}`);
+  console.log('Authorization header present:', !!req.headers.authorization);
+  console.log('Authorization header value:', req.headers.authorization?.substring(0, 30) + '...');
+  console.log('Body:', req.body);
+  console.log('=============================');
+  
+  // ... rest of proxy code
+});
+
+Checklist Before Testing
+ Proxy route is registered and accessible at /api/roadscope/proxy/*
+ Proxy forwards Authorization header from incoming request
+ Proxy forwards request body for POST/PUT/PATCH requests
+ Proxy forwards response status code from RoadScope
+ Client sends Authorization: Bearer <api_key> header with every request
+ API key is stored and retrieved correctly (localStorage or settings)
+ CORS is not blocking the proxy requests (shouldn't be an issue for same-origin)
+RoadScope API Response Formats
+Success Response
+{
+  "success": true,
+  "data": { ... }
+}
+
+Error Response
+{
+  "success": false,
+  "error": "Error message here"
+}
+
+Common Error Messages
+"Missing or invalid authorization header" - Authorization header not sent
+"Invalid or expired API key" - API key is wrong or revoked
+"Insufficient permissions" - API key lacks required scope
+"Survey not found" - Survey ID doesn't exist or user has no access
+API Key Information
+The test API key for jfprince@soltec.ca:
+
+mpro_82d49874fa9349d74081561b27c5f87d01beb0e2e10a43c30405793409f9bbd8
+
+Scopes: surveys:read, surveys:write, pois:read, pois:write, routes:read, routes:write, files:upload, files:read
+
+Summary
+The fix is simple: forward the Authorization header from the client request to RoadScope. The proxy must include:
+
+headers: {
+  'Authorization': req.headers.authorization,  // THIS IS THE KEY FIX
+  'Content-Type': 'application/json'
+}
+
+Without this single line, RoadScope receives unauthenticated requests and returns 401 Unauthorized.

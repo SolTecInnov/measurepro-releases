@@ -1,0 +1,386 @@
+MeasurePRO to RoadScope Sync Specification
+Overview
+This document specifies how MeasurePRO PWA must sync POIs and photos to RoadScope to ensure automatic linking and proper display on the map.
+
+1. POI Sync Requirements
+1.1 ExternalId Generation (CRITICAL)
+Every POI created in MeasurePRO MUST have a unique externalId generated on the device:
+
+// Generate unique externalId when POI is created
+const externalId = `mp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+// Example: "mp_1733948273845_k7x9m2n4p"
+
+Why this matters:
+
+Prevents ID collisions even if user restarts surveys multiple times
+Used to link photos to POIs during sync
+Must remain consistent across sync operations
+1.2 Required POI Fields for Full Display
+MeasurePRO must send ALL these fields for POIs to display correctly in RoadScope:
+
+interface MeasureProPOI {
+  // REQUIRED - Identity & Location
+  externalId: string;              // Unique device-generated ID (CRITICAL)
+  coordinates: {
+    latitude: number;              // GPS latitude
+    longitude: number;             // GPS longitude  
+    altitude?: number;             // GPS altitude in meters
+  };
+  type: string;                    // POI type (e.g., "Bridge", "PowerLine", "Wire")
+  
+  // REQUIRED - Display
+  name: string;                    // Display name (e.g., "POI 001 Bridge")
+  poiNumber?: string;              // Sequential number within survey
+  roadNumber?: string;             // Road identifier
+  
+  // MEASUREMENTS (send all that apply)
+  measurements?: {
+    heightClearance?: number;      // Height in meters or feet
+    widthClearance?: number;       // Width in meters or feet
+    length?: number;               // Length in meters or feet
+    weight?: number;               // Weight limit in lbs or kg
+    unit: 'meters' | 'feet';       // Measurement unit
+    weightUnit?: 'lbs' | 'kg';     // Weight unit
+  };
+  
+  // GPS DATA
+  gpsData?: {
+    satellites?: number;           // Number of satellites
+    hdop?: number;                 // Horizontal dilution of precision
+    speed?: number;                // Speed at capture
+    course?: number;               // Heading at capture
+    accuracy?: number;             // GPS accuracy in meters
+  };
+  
+  // METADATA
+  capturedAt?: string;             // ISO timestamp of capture
+  capturedDate?: string;           // Date string YYYY-MM-DD
+  capturedTime?: string;           // Time string HH:MM:SS
+  mileMarker?: string;             // Mile marker if applicable
+  notes?: string;                  // Public notes (visible in reports)
+  privateNotes?: string;           // Private notes (not in reports)
+  
+  // BADGES & ALERTS
+  badges?: string[];               // Status badges (e.g., ["danger", "work_required"])
+  alerts?: string[];               // Alert messages
+  
+  // MEDIA REFERENCES (for tracking, actual files sent separately)
+  photos?: MediaReference[];       // Can be empty, populated by file sync
+  videos?: MediaReference[];
+  timelapse?: MediaReference[];
+  voiceNote?: MediaReference;
+  drawing?: DrawingReference;
+  
+  // VIDEO SYNC
+  videoTime?: number;              // Timestamp in route video
+  
+  // SOURCE
+  source?: string;                 // Always "measurepro"
+  metadata?: Record<string, any>;  // Additional custom metadata
+}
+interface MediaReference {
+  id: string;
+  url: string;
+  thumbnail?: string;
+  name: string;
+  filename: string;
+  size?: number;
+  fileType?: string;
+  captureTime?: string;
+  caption?: string;
+}
+interface DrawingReference {
+  url: string;
+  filename: string;
+}
+
+1.3 POI Sync API Call
+Endpoint: POST /api/measurepro/surveys/:surveyId/pois
+
+Headers:
+
+Authorization: Bearer <api_key>
+Content-Type: application/json
+
+Request Body:
+
+{
+  "mode": "upsert",
+  "pois": [
+    {
+      "externalId": "mp_1733948273845_k7x9m2n4p",
+      "coordinates": {
+        "latitude": 41.2565,
+        "longitude": -95.9345,
+        "altitude": 350.5
+      },
+      "type": "Bridge",
+      "name": "POI 001 Bridge",
+      "poiNumber": "001",
+      "roadNumber": "1",
+      "measurements": {
+        "heightClearance": 4.87,
+        "widthClearance": 12.5,
+        "unit": "meters"
+      },
+      "gpsData": {
+        "satellites": 12,
+        "hdop": 0.8,
+        "accuracy": 2.5
+      },
+      "capturedAt": "2024-12-11T14:30:00.000Z",
+      "notes": "Low clearance bridge on Highway 30",
+      "badges": ["danger"],
+      "source": "measurepro"
+    }
+  ]
+}
+
+Response:
+
+{
+  "success": true,
+  "data": {
+    "results": [
+      {
+        "externalId": "mp_1733948273845_k7x9m2n4p",
+        "id": "abc123FirestoreId",
+        "status": "created"
+      }
+    ],
+    "created": 1,
+    "updated": 0,
+    "errors": 0
+  }
+}
+
+2. Photo Sync Requirements
+2.1 Sync Order (CRITICAL)
+Photos MUST be synced AFTER POIs:
+
+1. Sync Survey metadata first
+2. Sync ALL POIs (with externalId)
+3. Upload photos to Firebase Storage
+4. Register files with linkedPoiExternalId
+
+2.2 Photo Storage Path Format
+Photos MUST be uploaded to this exact path structure:
+
+measurepro/{surveyId}/photos/{poiExternalId}/{filename}
+
+Example:
+
+measurepro/survey_abc123/photos/mp_1733948273845_k7x9m2n4p/photo_001.jpg
+
+Why this path matters:
+
+The poiExternalId in the path is used for automatic linking
+RoadScope extracts this ID to find the correct POI
+Wrong path = photos won't link automatically
+2.3 Photo Upload Process
+Step 1: Get Upload URLs
+
+POST /api/measurepro/surveys/:surveyId/upload-urls
+
+{
+  "files": [
+    {
+      "filename": "photo_001.jpg",
+      "contentType": "image/jpeg",
+      "size": 1234567,
+      "category": "photos",
+      "poiExternalId": "mp_1733948273845_k7x9m2n4p"
+    }
+  ]
+}
+
+Step 2: Upload to Signed URL
+
+Use the returned uploadUrl to PUT the file directly to Firebase Storage.
+
+Step 3: Register Files
+
+POST /api/measurepro/surveys/:surveyId/files
+
+{
+  "files": [
+    {
+      "filename": "photo_001.jpg",
+      "storageUrl": "measurepro/survey_abc123/photos/mp_1733948273845_k7x9m2n4p/photo_001.jpg",
+      "publicUrl": "https://storage.googleapis.com/bucket/measurepro/...",
+      "category": "photos",
+      "linkedPoiExternalId": "mp_1733948273845_k7x9m2n4p",
+      "contentType": "image/jpeg",
+      "size": 1234567,
+      "metadata": {
+        "captureTime": "2024-12-11T14:30:05.000Z",
+        "caption": "Bridge underpass view"
+      }
+    }
+  ]
+}
+
+2.4 What Happens Automatically
+When file registration includes linkedPoiExternalId:
+
+RoadScope finds POI by externalId in RoadScope-POIs collection
+Creates media object with url, thumbnail, filename, etc.
+Uses FieldValue.arrayUnion() to add photo to POI's photos array
+POI is updated with photo - visible immediately on map
+3. Complete Sync Flow
+3.1 Full Sync Sequence
+async function syncSurveyToRoadScope(survey, apiKey) {
+  const baseUrl = 'https://roadscope.app/api/measurepro';
+  const headers = {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json'
+  };
+  
+  // STEP 1: Create/Update Survey
+  const surveyResponse = await fetch(`${baseUrl}/surveys`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      externalId: survey.externalId,
+      name: survey.name,
+      description: survey.description,
+      status: 'active'
+    })
+  });
+  const { data: { id: surveyId } } = await surveyResponse.json();
+  
+  // STEP 2: Sync ALL POIs first (with externalId)
+  const poisToSync = survey.pois.map(poi => ({
+    externalId: poi.externalId,  // CRITICAL
+    coordinates: poi.coordinates,
+    type: poi.type,
+    name: poi.name,
+    poiNumber: poi.poiNumber,
+    roadNumber: poi.roadNumber,
+    measurements: poi.measurements,
+    gpsData: poi.gpsData,
+    capturedAt: poi.capturedAt,
+    notes: poi.notes,
+    badges: poi.badges,
+    source: 'measurepro'
+  }));
+  
+  await fetch(`${baseUrl}/surveys/${surveyId}/pois`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      mode: 'upsert',
+      pois: poisToSync
+    })
+  });
+  
+  // STEP 3: Upload photos to storage
+  for (const poi of survey.pois) {
+    for (const photo of poi.photos) {
+      // Upload with correct path structure
+      const storagePath = `measurepro/${surveyId}/photos/${poi.externalId}/${photo.filename}`;
+      await uploadToStorage(photo.data, storagePath);
+    }
+  }
+  
+  // STEP 4: Register files with linkedPoiExternalId
+  const filesToRegister = [];
+  for (const poi of survey.pois) {
+    for (const photo of poi.photos) {
+      filesToRegister.push({
+        filename: photo.filename,
+        storageUrl: `measurepro/${surveyId}/photos/${poi.externalId}/${photo.filename}`,
+        category: 'photos',
+        linkedPoiExternalId: poi.externalId,  // CRITICAL for auto-linking
+        contentType: 'image/jpeg',
+        size: photo.size,
+        metadata: {
+          captureTime: photo.captureTime
+        }
+      });
+    }
+  }
+  
+  await fetch(`${baseUrl}/surveys/${surveyId}/files`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ files: filesToRegister })
+  });
+  
+  console.log('Sync complete - photos automatically linked to POIs');
+}
+
+4. Valid POI Types
+RoadScope has exactly 35 preset POI types. MeasurePRO must send one of these exact type names:
+
+Photo
+Label
+DronePhoto
+Road
+Intersection
+Bridge
+PowerLine
+Trees
+Signalization
+Railroad
+Structure
+WeightLimit
+TurnRestriction
+RestArea
+FuelStation
+WeighStation
+Custom
+Signpost
+OriginPoint
+DestinationPoint
+Overpass
+Roundabout
+TrafficLight
+Parking
+EmergencyParking
+Danger
+Information
+WorkRequired
+TruckStop
+PayToll
+Culvert
+Wire
+OpticalFiber
+OverheadStructure
+LateralObstruction
+
+Type is case-sensitive. Send exactly as shown above.
+
+If MeasurePRO sends an unknown type, it will be mapped to Custom.
+
+5. Troubleshooting
+Photos Not Linking Automatically?
+Check externalId exists on POI - POI must have externalId field
+Check linkedPoiExternalId in file registration - Must match POI's externalId exactly
+Check storage path format - Must be measurepro/{surveyId}/photos/{poiExternalId}/{filename}
+Check sync order - POIs MUST be synced before photos
+Check POI exists - File registration looks up POI by externalId, returns warning if not found
+POI Fields Not Displaying?
+Check coordinates - latitude and longitude are required
+Check type - Must be a valid POI type
+Check measurements format - Must include unit field
+Check measurements values - Must be valid numbers, not strings
+Common Errors
+Error	Cause	Fix
+"POI not found for externalId"	POI not synced yet	Sync POIs before photos
+"Invalid coordinates"	Missing/invalid lat/lng	Ensure valid GPS data
+"POI with this externalId already exists"	Duplicate sync with mode=create	Use mode=upsert
+6. API Endpoints Summary
+Endpoint	Method	Purpose
+/api/measurepro/surveys	POST	Create/update survey
+/api/measurepro/surveys/:id/pois	POST	Batch sync POIs
+/api/measurepro/surveys/:id/upload-urls	POST	Get signed upload URLs
+/api/measurepro/surveys/:id/files	POST	Register uploaded files
+/api/measurepro/surveys/:id/discover-files	POST	Auto-discover unregistered files
+7. Best Practices
+Always generate externalId on POI creation - Never leave it null
+Use upsert mode - Prevents duplicate errors on re-sync
+Batch POI syncs - Send up to 50 POIs per request
+Batch file registrations - Send up to 50 files per request
+Handle offline gracefully - Queue syncs and retry on connection
+Log linkedPoiExternalId - For debugging photo linking issues
