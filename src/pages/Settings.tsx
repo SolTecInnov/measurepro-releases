@@ -153,6 +153,16 @@ async function calculateNextRel(surveyId: string, currentLat: number, currentLon
 const Settings: React.FC = () => {
   // State management
   const [activeTab, setActiveTab] = useState('home');
+
+  // Listen for Electron Settings menu tab navigation
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { tab } = (e as CustomEvent).detail;
+      if (tab) setActiveTab(tab);
+    };
+    window.addEventListener('electron-open-tab', handler);
+    return () => window.removeEventListener('electron-open-tab', handler);
+  }, []);
   const [showSurveyDialog, setShowSurveyDialog] = useState(false);
   const [pendingPhotos, setPendingPhotos] = useState<string[]>([]);
   const [capturedData, setCapturedData] = useState<any[]>([]);

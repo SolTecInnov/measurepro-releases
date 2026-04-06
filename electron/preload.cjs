@@ -15,6 +15,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   showOpenDialog: (options) => ipcRenderer.invoke('show-open-dialog', options),
   onMenuAbout: (callback) => ipcRenderer.on('menu-about', callback),
   onMenuNavigate: (callback) => ipcRenderer.on('menu-navigate', (_event, route) => callback(route)),
+  onMenuNavigateTab: (callback) => ipcRenderer.on('menu-navigate-tab', (_event, tab) => callback(tab)),
 
   // ── Auto-updater ─────────────────────────────────────────────────
   updater: {

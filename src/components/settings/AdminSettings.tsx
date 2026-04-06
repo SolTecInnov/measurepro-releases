@@ -11,9 +11,8 @@ import SubscriptionManager from './admin/SubscriptionManager';
 import ViolationsViewer from './admin/ViolationsViewer';
 import SoundTestPanel from './admin/SoundTestPanel';
 import TrainingDataManager from './admin/TrainingDataManager';
-import { getAdminViewOverride, setAdminViewOverride, type AdminViewOverride } from '../../lib/auth/masterAdmin';
-
-const ADMIN_PASSWORD = 'AdminPRO2025';
+import { getAdminViewOverride, setAdminViewOverride, isMasterAdmin, type AdminViewOverride } from '../../lib/auth/masterAdmin';
+import { useAuth } from '../../lib/auth/AuthContext';
 
 const NAV_PAGES = [
   {
@@ -92,92 +91,34 @@ const NAV_PAGES = [
 
 const AdminSettings = () => {
   const navigate = useNavigate();
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [passwordInput, setPasswordInput] = useState('');
-  const [passwordError, setPasswordError] = useState(false);
+  const { user, isMasterAdmin: cachedIsMasterAdmin } = useAuth();
   const [activeTab, setActiveTab] = useState('pages');
   const [viewOverride, setViewOverride] = useState<AdminViewOverride>(() => getAdminViewOverride());
 
-  useEffect(() => {
-    const unlocked = sessionStorage.getItem('admin_unlocked') === 'true';
-    setIsUnlocked(unlocked);
-  }, []);
+  const isAdmin = cachedIsMasterAdmin || isMasterAdmin(user?.email);
 
   const handleViewOverrideChange = (view: AdminViewOverride) => {
     setViewOverride(view);
     setAdminViewOverride(view);
   };
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const envPassword = import.meta.env.VITE_ADMIN_PASSWORD;
-    const passwordToCheck = envPassword || ADMIN_PASSWORD;
-    if (passwordInput === passwordToCheck) {
-      setIsUnlocked(true);
-      sessionStorage.setItem('admin_unlocked', 'true');
-      setPasswordError(false);
-      setPasswordInput('');
-    } else {
-      setPasswordError(true);
-      setPasswordInput('');
-    }
-  };
-
-  const handleLock = () => {
-    setIsUnlocked(false);
-    sessionStorage.removeItem('admin_unlocked');
-  };
-
-  if (!isUnlocked) {
+  // Block access — not master admin
+  if (!isAdmin) {
     return (
       <div className="flex items-center justify-center min-h-[600px]">
-        <div className="bg-gray-800 border border-gray-700 rounded-lg p-8 max-w-md w-full mx-4">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-3 bg-blue-600 rounded-full">
-              <Shield className="w-8 h-8" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-100">Admin Access</h2>
-              <p className="text-sm text-gray-400">Password required</p>
-            </div>
+        <div className="bg-gray-800 border border-red-800 rounded-lg p-8 max-w-md w-full mx-4 text-center">
+          <div className="p-3 bg-red-600/20 rounded-full w-fit mx-auto mb-4">
+            <Shield className="w-8 h-8 text-red-400" />
           </div>
-
-          <form onSubmit={handlePasswordSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Administrator Password
-              </label>
-              <input
-                type="password"
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
-                placeholder="Enter admin password"
-                autoFocus
-                data-testid="input-admin-password"
-              />
-              {passwordError && (
-                <p className="text-red-400 text-sm mt-2">
-                  Incorrect password. Please try again.
-                </p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors"
-              data-testid="button-submit-admin-password"
-            >
-              Unlock Admin Panel
-            </button>
-          </form>
-
-          <div className="mt-6 p-4 bg-blue-900/20 border border-blue-800/30 rounded-lg">
-            <p className="text-sm text-blue-200">
-              <strong>Admin Features:</strong> Customer management, subscription control, violation logs,
-              sound system testing, AI training data management, and all admin pages.
-            </p>
-          </div>
+          <h2 className="text-xl font-bold text-white mb-2">Access Denied</h2>
+          <p className="text-gray-400 text-sm">
+            Admin panel requires master administrator privileges.<br />
+            Contact <span className="text-blue-400">support@soltecinnovation.com</span> if you need access.
+          </p>
+        </div>
+      </div>
+    );
+  }
         </div>
       </div>
     );
@@ -222,14 +163,10 @@ const AdminSettings = () => {
               MeasurePRO+ View
             </button>
           </div>
-          <button
-            onClick={handleLock}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
-            data-testid="button-lock-admin"
-          >
-            <Lock className="w-4 h-4" />
-            Lock Panel
-          </button>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-green-900/20 border border-green-800/30 rounded-lg">
+            <Shield className="w-4 h-4 text-green-400" />
+            <span className="text-green-400 text-sm font-medium">Master Admin</span>
+          </div>
         </div>
       </div>
 

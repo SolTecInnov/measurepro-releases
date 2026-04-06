@@ -24,6 +24,7 @@ import UpdateNotification from './components/UpdateNotification';
 import OnlineBanner from './components/OnlineBanner';
 import { GracePeriodBanner } from './components/GracePeriodBanner';
 import { GracePeriodLockout } from './components/GracePeriodLockout';
+import { TrialLockout } from './components/TrialLockout';
 import { SessionEvictionBanner } from './components/auth/SessionEvictionBanner';
 import StorageHealthBanner from './components/StorageHealthBanner';
 import { LicenseStartupCheckProvider } from './hooks/useLicenseStartupCheck';
@@ -390,9 +391,16 @@ function ElectronMenuHandler() {
       navigate(route);
     });
 
-    // Help > About MeasurePRO — navigate to about section in Settings
+    // Help > About MeasurePRO
     window.electronAPI.onMenuAbout(() => {
-      navigate('/settings?tab=about');
+      navigate('/');
+      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab: 'about' } })), 100);
+    });
+
+    // Settings menu — navigate to specific settings tab
+    window.electronAPI.onMenuNavigateTab((tab: string) => {
+      navigate('/');
+      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab } })), 100);
     });
   }, [navigate]);
 
@@ -901,6 +909,7 @@ function App() {
       
       {/* Grace Period Lockout (blocks everything when active) */}
       <GracePeriodLockout />
+      <TrialLockout />
 
       {/* Concurrent session eviction countdown — non-blocking 60s warning before forced logout */}
       <SessionEvictionBanner />

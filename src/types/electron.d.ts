@@ -36,6 +36,7 @@ interface ElectronAPI {
   showOpenDialog: (options: any) => Promise<{ canceled: boolean; filePaths?: string[] }>;
   onMenuAbout: (callback: () => void) => void;
   onMenuNavigate: (callback: (route: string) => void) => void;
+  onMenuNavigateTab: (callback: (tab: string) => void) => void;
   updater: {
     check:      () => Promise<{ status: string; message?: string }>;
     download:   () => Promise<void>;

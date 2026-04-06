@@ -1,20 +1,21 @@
 /**
- * Beta Trial Management System
+ * Trial Management System
  * 
- * Tracks beta user trial periods with:
- * - 14-day standard trial period
+ * Tracks all user trial periods with:
+ * - 7-day standard trial period for ALL new users
  * - Reminder at 2 days before expiration
- * - 2-day grace period after expiration
+ * - 1-day grace period after expiration
  * - Server-side validation via Firebase Firestore (server is ALWAYS source of truth)
+ * - Admin creates full licence after trial (monthly/annual/custom)
  */
 
 import { isBetaTestAccount } from './masterAdmin';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 import { getApps } from 'firebase/app';
 
-const TRIAL_DURATION_DAYS = 14;
+const TRIAL_DURATION_DAYS = 7;  // 7-day trial for all new users
 const REMINDER_DAYS_BEFORE = 2;
-const GRACE_PERIOD_DAYS = 2;
+const GRACE_PERIOD_DAYS = 1;    // 1 day grace then locked
 const BETA_TRIAL_KEY = 'beta_trial_start';
 const BETA_TRIALS_COLLECTION = 'beta_trials';
 
@@ -166,8 +167,20 @@ export function getTrialStartDate(email: string): Date | null {
  * - If offline and no local cache, return null (show "connect to activate" message)
  * Returns the authoritative trial start date from Firebase
  */
+/**
+ * Check if a user needs trial management.
+ * ALL users get a 7-day trial — master admins and licensed users are exempt.
+ */
+export function isTrialUser(email: string | null | undefined): boolean {
+  if (!email) return false;
+  // Master admins never get trial restrictions
+  const { isMasterAdmin } = require('./masterAdmin');
+  if (isMasterAdmin(email)) return false;
+  return true; // All other users go through trial
+}
+
 export async function syncTrialFromFirebase(email: string): Promise<Date | null> {
-  if (!email || !isBetaTestAccount(email)) return null;
+  if (!email) return null;
   
   try {
     const firebaseDate = await getFirebaseTrialStartDate(email);
@@ -215,7 +228,7 @@ export function getBetaTrialStatus(email: string | null | undefined): BetaTrialS
     reminderMessage: ''
   };
   
-  if (!email || !isBetaTestAccount(email)) {
+  if (!email || !isTrialUser(email)) {
     return defaultStatus;
   }
   
@@ -284,19 +297,19 @@ export function getBetaTrialStatus(email: string | null | undefined): BetaTrialS
   // Generate appropriate reminder message
   let reminderMessage = '';
   if (isExpired) {
-    reminderMessage = 'Your beta trial has expired. Please contact sales to upgrade.';
+    reminderMessage = 'Your 7-day trial has expired. Contact support@soltecinnovation.com to activate your licence.';
   } else if (isInGracePeriod) {
-    reminderMessage = `Grace period: ${daysUntilGraceEnd} day${daysUntilGraceEnd !== 1 ? 's' : ''} remaining. Contact sales to continue.`;
+    reminderMessage = `Trial ended — grace period: ${daysUntilGraceEnd} day${daysUntilGraceEnd !== 1 ? 's' : ''} remaining. Contact support@soltecinnovation.com.`;
   } else if (showReminder) {
     if (daysRemaining === 0) {
-      reminderMessage = 'Your beta trial expires today!';
+      reminderMessage = 'Your 7-day trial expires today! Contact support@soltecinnovation.com to continue.';
     } else if (daysRemaining === 1) {
-      reminderMessage = 'Your beta trial expires tomorrow!';
+      reminderMessage = 'Your trial expires tomorrow! Contact support@soltecinnovation.com to activate your licence.';
     } else {
-      reminderMessage = `Your beta trial expires in ${daysRemaining} days.`;
+      reminderMessage = `Your trial expires in ${daysRemaining} days. Contact support@soltecinnovation.com to activate your licence.`;
     }
   } else if (isInTrial) {
-    reminderMessage = `${daysRemaining} day${daysRemaining !== 1 ? 's' : ''} remaining in your beta trial.`;
+    reminderMessage = `Free trial: ${daysRemaining} day${daysRemaining !== 1 ? 's' : ''} remaining.`;
   }
   
   return {
@@ -318,8 +331,8 @@ export function getBetaTrialStatus(email: string | null | undefined): BetaTrialS
  * If no trial date is available and offline, block access
  */
 export function canBetaUserAccess(email: string | null | undefined): boolean {
-  if (!email || !isBetaTestAccount(email)) {
-    return true; // Non-beta users are not affected
+  if (!email || !isTrialUser(email)) {
+    return true; // Master admins and exempt users always have access
   }
   
   const status = getBetaTrialStatus(email);

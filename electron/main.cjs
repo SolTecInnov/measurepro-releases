@@ -183,6 +183,37 @@ function createMenu() {
       ]
     },
     {
+      label: 'Settings',
+      submenu: [
+        // Hardware
+        { label: '📡 Laser & GPS',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'laser-gps') },
+        { label: '⇄ Lateral / Rear Laser', click: () => mainWindow.webContents.send('menu-navigate-tab', 'lateral-rear') },
+        { label: '🛰 GNSS / Duro',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'gnss') },
+        { label: '📷 Camera',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'camera') },
+        { label: '🎯 Calibration',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'calibration') },
+        { type: 'separator' },
+        // Detection
+        { label: '📶 Detection',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'detection') },
+        { label: '🧠 AI+',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'ai') },
+        { type: 'separator' },
+        // Display
+        { label: '🖼️ Logo',               click: () => mainWindow.webContents.send('menu-navigate-tab', 'logo') },
+        { label: '🗺️ Map',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'map') },
+        { label: '🖥️ Display',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'display') },
+        { type: 'separator' },
+        // Data
+        { label: '📄 Logging',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'logging') },
+        { label: '🔔 Alerts',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'alerts') },
+        { label: '📧 Email',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'email') },
+        { label: '💾 Backup',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'backup') },
+        { type: 'separator' },
+        // System
+        { label: '🎤 Voice',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'voice') },
+        { label: '⌨️ Keyboard',           click: () => mainWindow.webContents.send('menu-navigate-tab', 'keyboard') },
+        { label: '🔧 Developer',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'developer') },
+      ]
+    },
+    {
       label: 'Help',
       submenu: [
         {
