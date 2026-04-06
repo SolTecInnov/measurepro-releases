@@ -1979,7 +1979,7 @@ export const useMeasurementLogging = ({
   // COUNTER DETECTION STATE (vehicle-mounted laser pointing UP)
   // State flow: sky_baseline → object_detected → counting_sky → log → sky_baseline
   const counterDetectionStateRef = useRef<{
-    mode: "sky_baseline" | "object_detected" | "counting_sky";
+    mode: "sky_baseline" | "object_detected" | "counting_sky" | "idle";
     buffer: number[]; // All valid measurements while under object
     intensityBuffer: number[]; // RSA intensity values for diagnostics
     minValue: number | null;
@@ -2125,7 +2125,7 @@ export const useMeasurementLogging = ({
 
       // Get threshold from config
       const configJson = localStorage.getItem("overhead_detection_config");
-      let counterThreshold = 2; // BUGFIX: Lowered from 10 to 2 - was causing POIs to never log
+      let counterThreshold = 10; // Default: 10 consecutive sky readings to confirm end of object
       if (configJson) {
         try {
           const config = JSON.parse(configJson);
@@ -2235,6 +2235,9 @@ export const useMeasurementLogging = ({
         // Overhead object detected (bridge, sign, wire)
         const valueMeters = parseFloat(measurementMatch[1]);
 
+        // BUGFIX: 'idle' is set after handleAutoCaptureAndLog — treat same as sky_baseline
+        if (state.mode === "idle") state.mode = "sky_baseline";
+
         if (state.mode === "sky_baseline") {
           // ISSUE 3 FIX: Apply filter check BEFORE capture to avoid wasting resources
           const adjustedValue = valueMeters + groundReferenceHeight;
@@ -2309,12 +2312,15 @@ export const useMeasurementLogging = ({
         }
       } else if (isSky) {
         // Sky detected
+        // BUGFIX: 'idle' after a successful POI log — treat as sky_baseline
+        if (state.mode === "idle") state.mode = "sky_baseline";
+
         if (state.mode === "object_detected") {
           // First sky after object - start counting
           state.mode = "counting_sky";
           state.skyCount = 1;
           logger.debug(
-            `🔢 ✅ Sky after object! Counting: 1/${counterThreshold}`,
+            `Counter Detection: Sky after object! Counting: 1/${counterThreshold}`,
           );
         } else if (state.mode === "counting_sky") {
           // Continue counting
@@ -2327,7 +2333,9 @@ export const useMeasurementLogging = ({
               `🔢✅ Threshold reached! Logging minimum: ${state.minValue?.toFixed(2)}m`,
             );
 
-            if (state.minValue !== null && activeSurvey) {
+            // BUGFIX: Always read activeSurvey from store (not closure) to handle auto-split surveys
+            const currentActiveSurvey = useSurveyStore.getState().activeSurvey;
+            if (state.minValue !== null && currentActiveSurvey) {
               // Apply ground reference
               const adjustedValue = state.minValue + groundReferenceHeight;
 
@@ -2341,9 +2349,15 @@ export const useMeasurementLogging = ({
                   selectedPOIType || getSelectedType() || "overhead";
 
                 const cdPoiAction = usePOIActionsStore.getState().getActionForPOI(currentPOIType);
-                if (cdPoiAction === 'auto-capture-and-log' && handleAutoCaptureAndLog && shouldRecordHeightClearance(currentPOIType)) {
+                // BUGFIX: For HEIGHT_CLEARANCE types, always use handleAutoCaptureAndLog
+                // even if cdPoiAction is not explicitly 'auto-capture-and-log' (stale localStorage)
+                const isHeightClearancePOI = shouldRecordHeightClearance(currentPOIType);
+                const shouldDelegate = handleAutoCaptureAndLog && isHeightClearancePOI && 
+                  (cdPoiAction === 'auto-capture-and-log' || cdPoiAction === 'auto-capture-no-measurement');
+                
+                if (shouldDelegate) {
                   const rawValues = [...state.buffer];
-                  logger.debug(`🔢 CounterDetection: delegating ${rawValues.length} measurements to handleAutoCaptureAndLog`);
+                  logger.debug(`CounterDetection: delegating ${rawValues.length} measurements to handleAutoCaptureAndLog (action=${cdPoiAction})`);
                   await handleAutoCaptureAndLog(rawValues);
                   state.mode = "idle";
                   state.buffer = [];

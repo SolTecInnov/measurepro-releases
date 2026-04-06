@@ -499,13 +499,25 @@ const Settings: React.FC = () => {
   } | null>(null);
 
   const handleAutoCaptureAndLog = React.useCallback(async (measurementData: number | number[]) => {
-    if (!activeSurvey) return;
+    if (!activeSurvey) {
+      // Survey may have just auto-split — try to get the latest active survey
+      const { useSurveyStore } = await import('@/lib/survey');
+      const currentSurvey = useSurveyStore.getState().activeSurvey;
+      if (!currentSurvey) {
+        toast.error('No active survey', { description: 'Create a survey before logging POI.' });
+        return;
+      }
+    }
 
     const currentSelectedType = usePOIStore.getState().selectedType;
-    if (!currentSelectedType) return;
+    if (!currentSelectedType) {
+      toast.warning('No POI type selected', { description: 'Select a POI type first (Stream Deck or keyboard shortcut).' });
+      return;
+    }
 
-    const actionType = usePOIActionsStore.getState().getActionForPOI(currentSelectedType);
-    if (actionType !== 'auto-capture-and-log') return;
+    // NOTE: Action check removed — caller already verified action type.
+    // Double-checking here caused silent failures when localStorage config was stale.
+    // If called, we always proceed with auto-capture-and-log behavior.
 
     const measurements = Array.isArray(measurementData) ? measurementData : [measurementData];
     if (measurements.length === 0) return;

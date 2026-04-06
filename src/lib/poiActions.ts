@@ -246,7 +246,14 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
     poiActions: loadSavedActions(),
     
     getActionForPOI: (poiType: POIType) => {
-      return get().poiActions[poiType] || 'auto-capture-no-measurement';
+      // Check store first, then official defaults, then safe fallback
+      const stored = get().poiActions[poiType];
+      if (stored) return stored;
+      // Fall back to official defaults (not 'auto-capture-no-measurement' which silently blocks logging)
+      const auth = getAuth();
+      const isBeta = isBetaUser(auth.currentUser);
+      const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
+      return baseDefaults[poiType as POIType] || 'auto-capture-and-log'; // HEIGHT_CLEARANCE types default to auto-capture-and-log
     },
     
     setActionForPOI: (poiType: POIType, action: POIAction) => {
