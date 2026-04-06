@@ -3,6 +3,7 @@
  * and shows a non-intrusive banner at the bottom of the screen.
  */
 import React, { useEffect, useState } from 'react';
+import { CheckCircle, Download, RefreshCw } from 'lucide-react';
 
 interface UpdateState {
   status: 'idle' | 'downloading' | 'progress' | 'ready';
@@ -63,7 +64,7 @@ export default function UpdateNotification() {
       {update.status === 'ready' && (
         <div>
           <p className="text-white text-sm font-medium mb-1">
-            ✅ Mise à jour prête — MeasurePRO {update.version}
+            <CheckCircle className="w-4 h-4 text-green-400 inline mr-1" /> Mise à jour prête — MeasurePRO {update.version}
           </p>
           <p className="text-gray-400 text-xs mb-3">
             Sera installée à la fermeture de l'app.

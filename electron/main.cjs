@@ -199,38 +199,38 @@ function createMenu() {
       label: 'Settings',
       submenu: [
         // Hardware
-        { label: '📡 Laser & GPS',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'laser-gps') },
+        { label: 'Laser & GPS',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'laser-gps') },
         { label: '⇄ Lateral / Rear Laser', click: () => mainWindow.webContents.send('menu-navigate-tab', 'lateral-rear') },
-        { label: '🛰 GNSS / Duro',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'gnss') },
-        { label: '📷 Camera',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'camera') },
-        { label: '🎯 Calibration',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'calibration') },
+        { label: 'GNSS / Duro',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'gnss') },
+        { label: 'Camera',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'camera') },
+        { label: 'Calibration',        click: () => mainWindow.webContents.send('menu-navigate-tab', 'calibration') },
         { type: 'separator' },
         // Detection
-        { label: '📶 Detection',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'detection') },
-        { label: '🧠 AI+',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'ai') },
+        { label: 'Detection',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'detection') },
+        { label: 'AI+',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'ai') },
         { type: 'separator' },
         // Display
-        { label: '🖼️ Logo',               click: () => mainWindow.webContents.send('menu-navigate-tab', 'logo') },
-        { label: '🗺️ Map',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'map') },
-        { label: '🖥️ Display',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'display') },
+        { label: 'Logo',               click: () => mainWindow.webContents.send('menu-navigate-tab', 'logo') },
+        { label: 'Map',                click: () => mainWindow.webContents.send('menu-navigate-tab', 'map') },
+        { label: 'Display',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'display') },
         { type: 'separator' },
         // Data
-        { label: '📄 Logging',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'logging') },
-        { label: '🔔 Alerts',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'alerts') },
-        { label: '📧 Email',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'email') },
-        { label: '💾 Backup',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'backup') },
+        { label: 'Logging',            click: () => mainWindow.webContents.send('menu-navigate-tab', 'logging') },
+        { label: 'Alerts',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'alerts') },
+        { label: 'Email',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'email') },
+        { label: 'Backup',             click: () => mainWindow.webContents.send('menu-navigate-tab', 'backup') },
         { type: 'separator' },
         // System
-        { label: '🎤 Voice',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'voice') },
-        { label: '⌨️ Keyboard',           click: () => mainWindow.webContents.send('menu-navigate-tab', 'keyboard') },
-        { label: '🔧 Developer',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'developer') },
+        { label: 'Voice',              click: () => mainWindow.webContents.send('menu-navigate-tab', 'voice') },
+        { label: 'Keyboard',           click: () => mainWindow.webContents.send('menu-navigate-tab', 'keyboard') },
+        { label: 'Developer',          click: () => mainWindow.webContents.send('menu-navigate-tab', 'developer') },
       ]
     },
     {
       label: 'Help',
       submenu: [
         {
-          label: '📖 User Manual',
+          label: 'User Manual',
           click: () => {
             const manualWin = new BrowserWindow({
               width: 1100,
@@ -252,25 +252,25 @@ function createMenu() {
           }
         },
         {
-          label: '❓ Help & FAQ',
+          label: 'Help & FAQ',
           click: () => mainWindow.webContents.send('menu-navigate', '/help')
         },
         {
-          label: '🚀 Quick Start Guide',
+          label: 'Quick Start Guide',
           click: () => mainWindow.webContents.send('menu-navigate', '/welcome')
         },
         { type: 'separator' },
         {
-          label: '🎫 Submit a Support Ticket',
+          label: 'Submit Support Ticket',
           click: () => shell.openExternal('mailto:support@soltecinnovation.com?subject=MeasurePRO%20Support%20Request')
         },
         {
-          label: '🌐 Visit soltecinnovation.com',
+          label: 'Visit soltecinnovation.com',
           click: () => shell.openExternal('https://soltecinnovation.com')
         },
         { type: 'separator' },
         {
-          label: '🔄 Vérifier les mises à jour',
+          label: 'Check for Updates',
           click: () => {
             if (!autoUpdater || isDev) {
               dialog.showMessageBox(mainWindow, {
@@ -297,22 +297,22 @@ function createMenu() {
           }
         },
         {
-          label: '⚙️ Préférences de mise à jour',
+          label: 'Update Preferences',
           submenu: [
             {
-              label: '🔄 Automatique (recommandé)',
+              label: 'Automatic (recommended)',
               type: 'radio',
               checked: getUpdatePref() === 'auto',
               click: () => setUpdatePref('auto')
             },
             {
-              label: '🔔 Notifier seulement',
+              label: 'Notify only',
               type: 'radio',
               checked: getUpdatePref() === 'notify',
               click: () => setUpdatePref('notify')
             },
             {
-              label: '🔒 Manuel',
+              label: 'Manual',
               type: 'radio',
               checked: getUpdatePref() === 'manual',
               click: () => setUpdatePref('manual')
@@ -321,7 +321,7 @@ function createMenu() {
         },
         { type: 'separator' },
         {
-          label: 'ℹ️ About MeasurePRO',
+          label: 'About MeasurePRO',
           click: () => mainWindow.webContents.send('menu-about')
         }
       ]
@@ -571,15 +571,15 @@ function createTray() {
   const trayMenu = Menu.buildFromTemplate([
     { label: 'MeasurePRO v' + app.getVersion(), enabled: false },
     { type: 'separator' },
-    { label: '💻 Open MeasurePRO', click: () => {
+    { label: 'Open MeasurePRO', click: () => {
       if (mainWindow) { mainWindow.show(); mainWindow.focus(); }
     }},
     { type: 'separator' },
-    { label: '🔄 Check for Updates', click: () => {
+    { label: 'Check for Updates', click: () => {
       if (autoUpdater && !isDev) autoUpdater.checkForUpdates().catch(() => {});
     }},
     { type: 'separator' },
-    { label: '❌ Quit MeasurePRO', click: () => app.quit() },
+    { label: 'Quit MeasurePRO', click: () => app.quit() },
   ]);
 
   tray.setContextMenu(trayMenu);

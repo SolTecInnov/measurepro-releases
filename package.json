@@ -1,6 +1,6 @@
 {
   "name": "measurepro-desktop",
-  "version": "15.3.9",
+  "version": "15.4.0",
   "description": "MeasurePRO Desktop - Professional Measurement Application",
   "author": "Soltec Innovation <support@soltecinnovation.com>",
   "license": "UNLICENSED",
@@ -131,7 +131,7 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "soltecinnovation",
+      "owner": "SolTecInnov",
       "repo": "measurepro-releases"
     },
     "asar": true,
