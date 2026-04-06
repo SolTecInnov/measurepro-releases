@@ -5,6 +5,37 @@ const { SerialPort } = require('serialport');
 
 const isDev = process.env.IS_DEV === 'true';
 
+// ── Icon resolver ───────────────────────────────────────────────────────────
+function getIconPath() {
+  const iconName = process.platform === 'win32' ? 'icon.ico' : 'icon.png';
+  const candidates = [
+    path.join(__dirname, iconName),                          // electron/icon.ico (in asar)
+    path.join(__dirname, '..', '..', iconName),              // resources/icon.ico (extraResources)
+    path.join(process.resourcesPath || '', iconName),        // Electron resourcesPath
+    path.join(__dirname, '..', 'build-resources', iconName), // legacy dev path
+  ];
+  return candidates.find(p => fs.existsSync(p)) || candidates[0];
+}
+
+// Prevent ugly Electron error dialogs for non-fatal errors
+// Log them instead and keep the app running
+process.on('uncaughtException', (err) => {
+  const msg = err?.message || String(err);
+  // Skip known non-fatal errors
+  if (msg.includes('icon') || msg.includes('tray') || msg.includes('Tray')) {
+    console.warn('[WARN] Non-fatal error suppressed:', msg);
+    return;
+  }
+  console.error('[UNCAUGHT]', msg);
+  // Only show dialog for truly unexpected errors in production
+  if (!isDev) {
+    try {
+      const { dialog } = require('electron');
+      dialog.showErrorBox('MeasurePRO — Unexpected Error', msg);
+    } catch(e) {}
+  }
+});
+
 // ── Auto-Updater ────────────────────────────────────────────────────────────
 let autoUpdater = null;
 try {
@@ -46,7 +77,7 @@ function createWindow() {
     minWidth: 1024,
     minHeight: 768,
     title: 'MeasurePRO',
-    icon: process.platform === 'win32' ? path.join(__dirname, '../build-resources/icon.ico') : path.join(__dirname, '../build-resources/icon.png'),
+    icon: getIconPath(),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -236,9 +267,7 @@ function createMenu() {
               width: 1100,
               height: 800,
               title: 'MeasurePRO — User Manual',
-              icon: process.platform === 'win32'
-                ? path.join(__dirname, '../build-resources/icon.ico')
-                : path.join(__dirname, '../build-resources/icon.png'),
+              icon: getIconPath(),
               webPreferences: { contextIsolation: true, nodeIntegration: false },
             });
             const manualPath = isDev
@@ -520,9 +549,7 @@ function createSplash() {
     width: 480, height: 320,
     frame: false, transparent: true, alwaysOnTop: true,
     skipTaskbar: true, resizable: false,
-    icon: process.platform === 'win32'
-      ? path.join(__dirname, '../build-resources/icon.ico')
-      : path.join(__dirname, '../build-resources/icon.png'),
+    icon: getIconPath(),
     webPreferences: { contextIsolation: true, nodeIntegration: false },
   });
 
@@ -561,9 +588,11 @@ body {
 // ── System Tray ────────────────────────────────────────────────────────────
 let tray = null;
 function createTray() {
-  const iconPath = process.platform === 'win32'
-    ? path.join(__dirname, '../build-resources/icon.ico')
-    : path.join(__dirname, '../build-resources/icon.png');
+  const iconPath = getIconPath();
+  if (!fs.existsSync(iconPath)) {
+    writeLog('WARN', 'Tray icon not found — skipping tray: ' + iconPath);
+    return;
+  }
 
   tray = new Tray(iconPath);
   tray.setToolTip('MeasurePRO v' + app.getVersion());
@@ -602,14 +631,28 @@ app.whenReady().then(() => {
   createWindow();
   mainWindow.hide();
 
-  // When main window is ready, hide splash and show main
+  // Helper to close splash and show main window
+  let splashClosed = false;
+  const closeSplash = () => {
+    if (splashClosed) return;
+    splashClosed = true;
+    try { if (!splash.isDestroyed()) splash.close(); } catch(e) {}
+    mainWindow.show();
+    mainWindow.focus();
+    try { createTray(); } catch(e) { writeLog('WARN', 'Tray creation failed: ' + e.message); }
+  };
+
+  // Close splash when main window finishes loading
   mainWindow.webContents.once('did-finish-load', () => {
-    setTimeout(() => {
-      splash.close();
-      mainWindow.show();
-      mainWindow.focus();
-      createTray();
-    }, 1800); // Show splash for at least 1.8s
+    setTimeout(closeSplash, 1800);
+  });
+
+  // FAILSAFE: Always close splash after 8 seconds no matter what
+  setTimeout(closeSplash, 8000);
+
+  // Also close splash on load failure (so user can see error)
+  mainWindow.webContents.once('did-fail-load', () => {
+    setTimeout(closeSplash, 500);
   });
 
   app.on('activate', () => {
