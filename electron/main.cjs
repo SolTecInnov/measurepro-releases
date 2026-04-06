@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, shell, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, Menu, Tray, nativeImage } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { SerialPort } = require('serialport');
@@ -79,6 +79,19 @@ function createWindow() {
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
+  });
+
+  // Minimize to tray instead of closing
+  mainWindow.on('close', (event) => {
+    if (tray && !app.isQuiting) {
+      event.preventDefault();
+      mainWindow.hide();
+      tray.displayBalloon && tray.displayBalloon({
+        iconType: 'info',
+        title: 'MeasurePRO',
+        content: 'MeasurePRO is still running. Click the tray icon to reopen.'
+      });
+    }
   });
 
   createMenu();
@@ -501,9 +514,104 @@ ipcMain.handle('show-open-dialog', async (_event, options) => {
   return dialog.showOpenDialog(mainWindow, options);
 });
 
+// ── Splash Screen ────────────────────────────────────────────────────────────
+function createSplash() {
+  const splash = new BrowserWindow({
+    width: 480, height: 320,
+    frame: false, transparent: true, alwaysOnTop: true,
+    skipTaskbar: true, resizable: false,
+    icon: process.platform === 'win32'
+      ? path.join(__dirname, '../build-resources/icon.ico')
+      : path.join(__dirname, '../build-resources/icon.png'),
+    webPreferences: { contextIsolation: true, nodeIntegration: false },
+  });
+
+  const splashHtml = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:480px; height:320px;
+  background: linear-gradient(135deg, #001a3a 0%, #002B5C 60%, #003f80 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.logo { font-size: 72px; margin-bottom: 8px; filter: drop-shadow(0 4px 16px rgba(59,158,255,0.6)); }
+.title { font-size: 32px; font-weight: 800; color: white; letter-spacing: 1px; }
+.subtitle { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 3px; text-transform: uppercase; }
+.version { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 24px; }
+.bar { width: 200px; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 16px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #3B9EFF, #60c4ff); border-radius: 2px; animation: load 1.8s ease forwards; }
+@keyframes load { to { width: 100%; } }
+</style></head>
+<body>
+  <div class="logo">⚡</div>
+  <div class="title">MeasurePRO</div>
+  <div class="subtitle">by Soltec Innovation</div>
+  <div class="bar"><div class="bar-fill"></div></div>
+  <div class="version">v${app.getVersion()}</div>
+</body></html>`;
+
+  splash.loadURL('data:text/html,' + encodeURIComponent(splashHtml));
+  return splash;
+}
+
+// ── System Tray ────────────────────────────────────────────────────────────
+let tray = null;
+function createTray() {
+  const iconPath = process.platform === 'win32'
+    ? path.join(__dirname, '../build-resources/icon.ico')
+    : path.join(__dirname, '../build-resources/icon.png');
+
+  tray = new Tray(iconPath);
+  tray.setToolTip('MeasurePRO v' + app.getVersion());
+
+  const trayMenu = Menu.buildFromTemplate([
+    { label: 'MeasurePRO v' + app.getVersion(), enabled: false },
+    { type: 'separator' },
+    { label: '💻 Open MeasurePRO', click: () => {
+      if (mainWindow) { mainWindow.show(); mainWindow.focus(); }
+    }},
+    { type: 'separator' },
+    { label: '🔄 Check for Updates', click: () => {
+      if (autoUpdater && !isDev) autoUpdater.checkForUpdates().catch(() => {});
+    }},
+    { type: 'separator' },
+    { label: '❌ Quit MeasurePRO', click: () => app.quit() },
+  ]);
+
+  tray.setContextMenu(trayMenu);
+
+  // Click on tray icon → show/focus window
+  tray.on('click', () => {
+    if (mainWindow) {
+      if (mainWindow.isVisible()) { mainWindow.focus(); }
+      else { mainWindow.show(); }
+    }
+  });
+}
+
 // App lifecycle
 app.whenReady().then(() => {
+  // Show splash first
+  const splash = createSplash();
+
+  // Create main window hidden
   createWindow();
+  mainWindow.hide();
+
+  // When main window is ready, hide splash and show main
+  mainWindow.webContents.once('did-finish-load', () => {
+    setTimeout(() => {
+      splash.close();
+      mainWindow.show();
+      mainWindow.focus();
+      createTray();
+    }, 1800); // Show splash for at least 1.8s
+  });
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
@@ -511,4 +619,10 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
+});
+
+// Set quiting flag so close handler knows it's a real quit
+app.on('before-quit', () => {
+  app.isQuiting = true;
+  if (tray) tray.destroy();
 });

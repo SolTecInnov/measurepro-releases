@@ -220,7 +220,22 @@ export const createUser = async (email: string, password: string) => {
   
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    return userCredential.user;
+    const newUser = userCredential.user;
+
+    // Notify admin of new registration (fire & forget)
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    fetch(`${apiUrl}/api/email/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: 'MeasurePRO System',
+        email: 'support@soltecinnovation.com',
+        subject: `[MeasurePRO] New user registered — ${email}`,
+        message: `A new user just registered on MeasurePRO.\n\nEmail: ${email}\nUID: ${newUser.uid}\nTime: ${new Date().toISOString()}\n\n7-day trial started automatically.\n\nAdmin panel → License Admin → Create Licence when ready.`,
+      }),
+    }).catch(() => {}); // Silent fail — don't block registration
+
+    return newUser;
   } catch (error: any) {
     // Provide user-friendly error messages
     if (error.code === 'auth/email-already-in-use') {
