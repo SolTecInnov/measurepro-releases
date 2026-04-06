@@ -1,7 +1,11 @@
 import { create } from 'zustand';
 import type { POIType } from './poi';
+import { HEIGHT_CLEARANCE_POI_TYPES } from './poi';
 import { isBetaUser } from './auth/masterAdmin';
 import { getAuth } from 'firebase/auth';
+
+// Fast lookup set for height clearance types
+const HEIGHT_CLEARANCE_POI_TYPES_SET = new Set<POIType>(HEIGHT_CLEARANCE_POI_TYPES);
 
 // Available actions that can be assigned to POI types
 export type POIAction = 
@@ -222,19 +226,40 @@ interface POIActionsStore {
 }
 
 export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
+  // Config version — bump this when defaults change to force a reset of stale localStorage
+  const CONFIG_VERSION = '15.4.1';
+  const CONFIG_VERSION_KEY = 'poi_action_config_version';
+
   // Load from localStorage or use defaults
   const loadSavedActions = (): Record<string, POIAction> => {
-    // Check if beta user (not logged in OR has beta license) to use beta defaults
     const auth = getAuth();
     const isBeta = isBetaUser(auth.currentUser);
     const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
-    
+
     try {
+      // Check if saved config matches current version
+      // If not, wipe stale config and use fresh defaults
+      const savedVersion = localStorage.getItem(CONFIG_VERSION_KEY);
+      if (savedVersion !== CONFIG_VERSION) {
+        console.log('[POIActions] Config version mismatch — resetting to defaults', savedVersion, '→', CONFIG_VERSION);
+        localStorage.removeItem('poi_action_config');
+        localStorage.setItem(CONFIG_VERSION_KEY, CONFIG_VERSION);
+        return baseDefaults;
+      }
+
       const saved = localStorage.getItem('poi_action_config');
       if (saved) {
         const parsed = JSON.parse(saved);
         // Merge with defaults to ensure all POI types are present
-        return { ...baseDefaults, ...parsed };
+        // Defaults WIN for any HEIGHT_CLEARANCE types to prevent broken logging
+        const merged = { ...parsed, ...baseDefaults }; // defaults override stale saved values
+        // But allow user customizations for non-height-clearance types
+        Object.keys(parsed).forEach(key => {
+          if (!HEIGHT_CLEARANCE_POI_TYPES_SET.has(key as POIType)) {
+            merged[key] = parsed[key];
+          }
+        });
+        return merged;
       }
     } catch (error) {
       console.error('Failed to load POI action config:', error);
@@ -260,6 +285,7 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
       const newActions = { ...get().poiActions, [poiType]: action };
       set({ poiActions: newActions });
       localStorage.setItem('poi_action_config', JSON.stringify(newActions));
+      localStorage.setItem('poi_action_config_version', '15.4.1');
     },
     
     resetToDefaults: () => {
