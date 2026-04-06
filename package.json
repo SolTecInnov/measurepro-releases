@@ -1,6 +1,6 @@
 {
   "name": "measurepro-desktop",
-  "version": "15.3.7",
+  "version": "15.3.8",
   "description": "MeasurePRO Desktop - Professional Measurement Application",
   "author": "Soltec Innovation <support@soltecinnovation.com>",
   "license": "UNLICENSED",
@@ -126,7 +126,8 @@
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "MeasurePROSetup.exe"
     },
     "publish": {
       "provider": "github",
@@ -137,6 +138,7 @@
     "asarUnpack": [
       "node_modules/@serialport/bindings-cpp/**/*",
       "node_modules/node-gyp-build/**/*"
-    ]
+    ],
+    "artifactName": "MeasurePROSetup.exe"
   }
 }
