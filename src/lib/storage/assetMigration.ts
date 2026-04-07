@@ -343,7 +343,7 @@ export async function runMigrationWithUI(): Promise<MigrationStats | null> {
     const status = await getMigrationStatus();
     
     if (!status.needsMigration) {
-      toast.success('No migration needed - all assets are already optimized!', { id: toastId });
+      /* toast removed */
       return null;
     }
     
@@ -360,10 +360,7 @@ export async function runMigrationWithUI(): Promise<MigrationStats | null> {
     });
     
     const savingsFormatted = formatBytes(stats.savingsBytes);
-    toast.success(
-      `Migration complete!\n• ${stats.migratedImages} images optimized\n• ${stats.migratedDrawings} drawings optimized\n• ${savingsFormatted} saved (${stats.savingsPercent}%)`,
-      { id: toastId, duration: 10000 }
-    );
+    /* toast removed */
     
     return stats;
     

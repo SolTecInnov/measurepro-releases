@@ -79,7 +79,7 @@ const RouteCreator: React.FC<RouteCreatorProps> = ({
         }));
         
         setAddressSearch('');
-        toast.success(`Added ${pointType} point: ${data.results[0].formatted_address}`);
+        // toast suppressed
       } else {
         toast.error('Address not found. Please try a different address.');
       }
@@ -279,7 +279,7 @@ const RouteCreator: React.FC<RouteCreatorProps> = ({
                   <button
                     onClick={() => {
                       setRouteCreationMode('origin');
-                      toast.info('Click on map to set origin point');
+                      // toast suppressed
                     }}
                     disabled={tempRoute.points.some(p => p.type === 'origin')}
                     className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
@@ -290,7 +290,7 @@ const RouteCreator: React.FC<RouteCreatorProps> = ({
                   <button
                     onClick={() => {
                       setRouteCreationMode('destination');
-                      toast.info('Click on map to set destination point');
+                      // toast suppressed
                     }}
                     disabled={tempRoute.points.some(p => p.type === 'destination')}
                     className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
@@ -301,7 +301,7 @@ const RouteCreator: React.FC<RouteCreatorProps> = ({
                   <button
                     onClick={() => {
                       setRouteCreationMode('waypoint');
-                      toast.info('Click on map to add waypoint');
+                      // toast suppressed
                     }}
                     className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-blue-600 hover:bg-blue-700 rounded text-xs"
                   >

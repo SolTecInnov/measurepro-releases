@@ -42,7 +42,7 @@ const ConvoySettings = () => {
     });
     
     if (enabled && !currentSettings.enabled) {
-      toast.success('Convoy Guardian enabled successfully');
+      // toast suppressed
     }
   };
 

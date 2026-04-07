@@ -48,12 +48,12 @@ const DryRunSettings = () => {
     };
     addZone(newZone);
     setExpandedZone(newZone.id);
-    toast.success('Detection zone added');
+    // toast suppressed
   };
 
   const handleRemoveZone = (zoneId: string) => {
     removeZone(zoneId);
-    toast.success('Detection zone removed');
+    // toast suppressed
   };
 
   const getSideLabel = (side: DetectionSide): string => {
@@ -339,7 +339,7 @@ const DryRunSettings = () => {
           size="sm"
           onClick={() => {
             resetToDefaults();
-            toast.success('Reset to defaults');
+            // toast suppressed
           }}
           data-testid="reset-defaults-button"
         >

@@ -1,13 +1,26 @@
+/**
+ * SlaveAppWithPairing — Firestore-based pairing (no WebSocket server needed)
+ */
 import { useState, useEffect, useRef } from 'react';
 import { SlaveAppCodeEntry } from './SlaveAppCodeEntry';
 import SlaveApp from '../SlaveApp';
 import { toast } from 'sonner';
+import {
+  getFirestore, initializeFirestore, memoryLocalCache,
+  doc, onSnapshot, setDoc, serverTimestamp, collection,
+  addDoc, type Unsubscribe,
+} from 'firebase/firestore';
+import { getApp } from 'firebase/app';
 
 const SESSION_KEY_STANDALONE = 'field_standalone_state';
-const SESSION_KEY_PAIRING_CODE = 'field_last_pairing_code';
+const SESSION_KEY_CODE       = 'field_last_pairing_code';
+
+function getDb() {
+  try { return initializeFirestore(getApp(), { localCache: memoryLocalCache() }); }
+  catch { return getFirestore(getApp()); }
+}
 
 interface PairedState {
-  ws: WebSocket;
   code: string;
   surveyData: any | null;
 }
@@ -18,117 +31,124 @@ interface StandaloneState {
 }
 
 export function SlaveAppWithPairing() {
-  const [paired, setPaired] = useState<PairedState | null>(null);
+  const [paired, setPaired]       = useState<PairedState | null>(null);
   const [standalone, setStandalone] = useState<StandaloneState | null>(null);
   const [isDisconnected, setIsDisconnected] = useState(false);
-  const wsRef = useRef<WebSocket | null>(null);
   const ackCallbackRef = useRef<((id: string, failed: boolean) => void) | null>(null);
+  const unsubRef = useRef<Unsubscribe[]>([]);
 
-  // On mount, check if we were in standalone mode and auto-resume
+  const cleanup = () => {
+    unsubRef.current.forEach(u => u());
+    unsubRef.current = [];
+  };
+
+  // Auto-resume standalone on mount
   useEffect(() => {
     const saved = sessionStorage.getItem(SESSION_KEY_STANDALONE);
     if (saved) {
       try {
         const { surveyName, surveyorName } = JSON.parse(saved);
-        if (surveyName && surveyorName) {
-          handleStandalone(surveyName, surveyorName, true);
-        }
+        if (surveyName && surveyorName) handleStandalone(surveyName, surveyorName, true);
       } catch {}
     }
+    return cleanup;
   }, []);
 
-  const handlePaired = (ws: WebSocket, code: string) => {
-    setPaired({ ws, code, surveyData: null });
-    setStandalone(null);
-    wsRef.current = ws;
-    setIsDisconnected(false);
+  // ── Paired via Firestore ─────────────────────────────────────────────────
 
-    // Persist the pairing code so it can be pre-filled on reload
-    sessionStorage.setItem(SESSION_KEY_PAIRING_CODE, code);
-    // Clear any standalone state since we're now in paired mode
+  const handlePaired = (code: string, initUnsub: Unsubscribe) => {
+    cleanup();
+    setPaired({ code, surveyData: null });
+    setStandalone(null);
+    setIsDisconnected(false);
+    sessionStorage.setItem(SESSION_KEY_CODE, code);
     sessionStorage.removeItem(SESSION_KEY_STANDALONE);
 
-    // Keep the connection alive through reverse-proxy idle timeouts
-    const heartbeat = setInterval(() => {
-      if (ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({ type: 'ping' }));
+    const db = getDb();
+
+    // Listen for survey data + master disconnect
+    const sessionUnsub = onSnapshot(doc(db, 'pairing', code), snap => {
+      if (!snap.exists()) { setIsDisconnected(true); return; }
+      const data = snap.data();
+      if (!data.masterOnline) { setIsDisconnected(true); toast.error('Tablet disconnected'); }
+      if (data.surveyData) {
+        setPaired(prev => prev ? { ...prev, surveyData: data.surveyData } : null);
+        localStorage.setItem('mainApp_activeSurvey', JSON.stringify(data.surveyData));
       }
-    }, 10_000);
+    });
 
-    ws.onmessage = (event) => {
-      try {
-        const message = JSON.parse(event.data);
-        switch (message.type) {
-          case 'survey_data':
-            setPaired(prev => prev ? { ...prev, surveyData: message.data } : null);
-            localStorage.setItem('mainApp_activeSurvey', JSON.stringify(message.data));
-            toast.success('Survey synchronized from master tablet');
-            break;
-          case 'master_disconnected':
-            toast.error('Master device disconnected');
-            clearInterval(heartbeat);
-            setIsDisconnected(true);
-            break;
-          case 'slave_measurement_ack':
-            if (ackCallbackRef.current) {
-              ackCallbackRef.current(message.id, !!message.failed);
-            }
-            break;
+    // Listen for messages from master → slave (toSlave subcollection)
+    let lastMsgId: string | null = null;
+    const msgUnsub = onSnapshot(collection(db, 'pairing', code, 'toSlave'), snap => {
+      snap.forEach(msgDoc => {
+        if (msgDoc.id === lastMsgId) return;
+        lastMsgId = msgDoc.id;
+        const msg = msgDoc.data();
+        if (msg.type === 'survey_data' && msg.data) {
+          setPaired(prev => prev ? { ...prev, surveyData: msg.data } : null);
+          localStorage.setItem('mainApp_activeSurvey', JSON.stringify(msg.data));
+          // toast suppressed
         }
-      } catch {}
-    };
+        if (msg.type === 'slave_measurement_ack') {
+          ackCallbackRef.current?.(msg.id, !!msg.failed);
+        }
+      });
+    });
 
-    ws.onclose = () => { clearInterval(heartbeat); setIsDisconnected(true); };
-    ws.onerror = () => { clearInterval(heartbeat); setIsDisconnected(true); };
+    // Heartbeat to keep slave presence
+    const hb = setInterval(() => {
+      setDoc(doc(db, 'pairing', code), { slaveLastSeen: serverTimestamp() }, { merge: true }).catch(() => {});
+    }, 15000);
+
+    unsubRef.current = [
+      initUnsub,
+      sessionUnsub,
+      msgUnsub,
+      () => clearInterval(hb),
+    ];
   };
 
-  // resuming = true when auto-resuming from sessionStorage (skip toast)
+  // Send measurement from slave to master via Firestore
+  const sendMeasurement = async (measurement: any) => {
+    if (!paired?.code) return;
+    const db = getDb();
+    await addDoc(collection(db, 'pairing', paired.code, 'toMaster'), {
+      type: 'slave_measurement',
+      measurement,
+      ts: serverTimestamp(),
+    });
+  };
+
+  // ── Standalone ───────────────────────────────────────────────────────────
+
   const handleStandalone = (surveyName: string, surveyorName: string, resuming = false) => {
     setStandalone({ surveyName, surveyorName });
-    setPaired(null);
-    setIsDisconnected(false);
-
-    // Persist standalone state so it survives page reloads
+    setPaired(null); setIsDisconnected(false);
     sessionStorage.setItem(SESSION_KEY_STANDALONE, JSON.stringify({ surveyName, surveyorName }));
-    // Clear pairing code since we're in standalone
-    sessionStorage.removeItem(SESSION_KEY_PAIRING_CODE);
-
-    // Create a local survey context so SlaveApp shows the banner correctly
-    const localSurvey = {
-      id: `standalone-${Date.now()}`,
-      name: surveyName,
-      surveyor: surveyorName,
-      surveyTitle: surveyName,
-      surveyorName,
-    };
+    sessionStorage.removeItem(SESSION_KEY_CODE);
+    const localSurvey = { id: `standalone-${Date.now()}`, name: surveyName, surveyor: surveyorName, surveyTitle: surveyName, surveyorName };
     localStorage.setItem('mainApp_activeSurvey', JSON.stringify(localSurvey));
-    if (!resuming) {
-      toast.info('Standalone mode — captures saved offline');
-    }
+    // if-toast suppressed
   };
 
-  const handleDisconnect = () => {
-    wsRef.current?.close();
-    wsRef.current = null;
+  // ── Disconnect ───────────────────────────────────────────────────────────
 
-    // Clear persisted state so auto-resume doesn't kick in on next visit
+  const handleDisconnect = async () => {
+    if (paired?.code) {
+      const db = getDb();
+      await setDoc(doc(db, 'pairing', paired.code), { slaveOnline: false }, { merge: true }).catch(() => {});
+    }
+    cleanup();
     sessionStorage.removeItem(SESSION_KEY_STANDALONE);
-    sessionStorage.removeItem(SESSION_KEY_PAIRING_CODE);
-
-    if (paired) toast.info('Disconnected from master device');
-    if (standalone) toast.info('Exited standalone mode');
-
-    setPaired(null);
-    setStandalone(null);
-    setIsDisconnected(false);
+    sessionStorage.removeItem(SESSION_KEY_CODE);
+    // if-toast suppressed
+    // if-toast suppressed
+    setPaired(null); setStandalone(null); setIsDisconnected(false);
     localStorage.removeItem('mainApp_activeSurvey');
   };
 
-  useEffect(() => {
-    return () => { wsRef.current?.close(); };
-  }, []);
+  // ── Disconnect screen ────────────────────────────────────────────────────
 
-  // Disconnection screen (only for live pairing loss)
   if (paired && isDisconnected) {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center p-6">
@@ -139,32 +159,20 @@ export function SlaveAppWithPairing() {
             </svg>
           </div>
           <h2 className="text-xl font-bold text-white mb-2">Connection Lost</h2>
-          <p className="text-gray-400 text-sm mb-4">
-            Your captures are saved offline and will sync automatically when reconnected.
-          </p>
+          <p className="text-gray-400 text-sm mb-4">Your captures are saved. Reconnect to sync.</p>
           <div className="space-y-2">
-            <button
-              onClick={handleDisconnect}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors"
-            >
+            <button onClick={handleDisconnect}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors">
               Reconnect to Tablet
             </button>
-            <button
-              onClick={() => {
-                setIsDisconnected(false);
-                setPaired(null);
-                // Keep in standalone mode with existing survey
-                const raw = localStorage.getItem('mainApp_activeSurvey');
-                const survey = raw ? JSON.parse(raw) : null;
-                const surveyName = survey?.name || 'Field Survey';
-                const surveyorName = survey?.surveyor || 'Field Crew';
-                // Persist the transition to standalone
-                sessionStorage.setItem(SESSION_KEY_STANDALONE, JSON.stringify({ surveyName, surveyorName }));
-                sessionStorage.removeItem(SESSION_KEY_PAIRING_CODE);
-                setStandalone({ surveyName, surveyorName });
-              }}
-              className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-xl transition-colors text-sm"
-            >
+            <button onClick={() => {
+              setIsDisconnected(false); setPaired(null);
+              const raw = localStorage.getItem('mainApp_activeSurvey');
+              const survey = raw ? JSON.parse(raw) : null;
+              sessionStorage.setItem(SESSION_KEY_STANDALONE, JSON.stringify({ surveyName: survey?.name || 'Field Survey', surveyorName: survey?.surveyor || 'Field Crew' }));
+              setStandalone({ surveyName: survey?.name || 'Field Survey', surveyorName: survey?.surveyor || 'Field Crew' });
+            }}
+              className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
               Continue Offline
             </button>
           </div>
@@ -173,22 +181,18 @@ export function SlaveAppWithPairing() {
     );
   }
 
-  // Pairing / standalone entry screen
+  // ── Entry screen ─────────────────────────────────────────────────────────
   if (!paired && !standalone) {
-    return (
-      <SlaveAppCodeEntry
-        onPaired={handlePaired}
-        onStandalone={handleStandalone}
-      />
-    );
+    return <SlaveAppCodeEntry onPaired={handlePaired} onStandalone={handleStandalone} />;
   }
 
-  // Main slave app (paired or standalone)
+  // ── Main slave app ───────────────────────────────────────────────────────
   return (
     <SlaveApp
-      wsConnection={paired?.ws}
+      wsConnection={null}  // No WebSocket — Firestore handles messaging
       onDisconnect={handleDisconnect}
-      onRegisterAckCallback={(cb) => { ackCallbackRef.current = cb; }}
+      onRegisterAckCallback={cb => { ackCallbackRef.current = cb; }}
+      onSendMeasurement={sendMeasurement}
     />
   );
 }

@@ -38,11 +38,7 @@ export default function ForgotPasswordPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        toast.success(
-          contactMethod === 'email'
-            ? 'Verification code sent to your email'
-            : 'Verification code sent via SMS'
-        );
+        /* toast removed */
         setStep('verify');
       } else {
         toast.error(data.error || 'Failed to send verification code. Please try again.');
@@ -73,7 +69,7 @@ export default function ForgotPasswordPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        toast.success('Code verified! Please set your new password.');
+        /* toast removed */
         setStep('password');
       } else {
         toast.error(data.error || 'Invalid or expired code. Please try again.');
@@ -114,7 +110,7 @@ export default function ForgotPasswordPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        toast.success('Password updated successfully!');
+        /* toast removed */
         setDone(true);
       } else {
         toast.error(data.error || 'Failed to update password. Please start over.');

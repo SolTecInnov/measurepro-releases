@@ -97,7 +97,7 @@ const CompanyManager: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('Company created');
+      // toast suppressed
       setActiveDialog(null);
       form.reset();
     },
@@ -112,7 +112,7 @@ const CompanyManager: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('Company updated');
+      // toast suppressed
       setActiveDialog(null);
       setEditingCompany(null);
       form.reset();
@@ -125,7 +125,7 @@ const CompanyManager: React.FC = () => {
       authedRequest(`/api/companies/${id}`, { method: 'DELETE' }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('Company deleted');
+      // toast suppressed
       setDeleteConfirmId(null);
       setActiveDialog(null);
     },
@@ -140,7 +140,7 @@ const CompanyManager: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('Add-ons updated');
+      // toast suppressed
       setActiveDialog(null);
       // Notify active sessions that company add-ons changed.
       // Custom event covers the current tab; BroadcastChannel covers other open tabs.
@@ -168,7 +168,7 @@ const CompanyManager: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('Member added successfully');
+      // toast suppressed
       setActiveDialog(null);
       setDesignateEmail('');
       setDesignateFullName('');
@@ -191,7 +191,7 @@ const CompanyManager: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      toast.success('New user account created and added to company');
+      // toast suppressed
       setActiveDialog(null);
       setCreateUserEmail('');
       setCreateUserFullName('');
@@ -217,7 +217,7 @@ const CompanyManager: React.FC = () => {
       authedRequest(`/api/companies/${companyId}/members/${memberId}`, { method: 'DELETE' }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies', selectedCompany?.id, 'members'] });
-      toast.success('Member removed');
+      // toast suppressed
     },
     onError: (e: Error) => toast.error(e.message || 'Failed to remove member'),
   });
@@ -255,10 +255,10 @@ const CompanyManager: React.FC = () => {
     if (!isOnline) {
       if (editingCompany) {
         await enqueue({ type: 'update_company', companyId: editingCompany.id, payload: { ...data, pendingSync: true } as Record<string, unknown> });
-        toast.info('Update queued — will sync when you reconnect');
+        // toast suppressed
       } else {
         await enqueue({ type: 'create_company', companyId: 'pending', payload: { ...data, pendingSync: true } as Record<string, unknown> });
-        toast.info('Company creation queued — will sync when you reconnect');
+        // toast suppressed
       }
       setActiveDialog(null);
       form.reset();
@@ -289,7 +289,7 @@ const CompanyManager: React.FC = () => {
     if (!selectedCompany) return;
     if (!isOnline) {
       await enqueue({ type: 'update_addons', companyId: selectedCompany.id, payload: { enabledAddons: addonEditing } });
-      toast.info('Add-on changes queued — will sync when you reconnect');
+      // toast suppressed
       setActiveDialog(null);
       return;
     }
@@ -314,7 +314,7 @@ const CompanyManager: React.FC = () => {
         if (!designateFullName && found.displayName) {
           setDesignateFullName(found.displayName);
         }
-        toast.success(`User found: ${found.email}`);
+        // toast suppressed
       }
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'User not found';
@@ -387,7 +387,7 @@ const CompanyManager: React.FC = () => {
           pendingSync: true,
         },
       });
-      toast.info('Member designation queued — will sync when you reconnect');
+      // toast suppressed
       setActiveDialog(null);
       setDesignateEmail('');
       setDesignateFullName('');

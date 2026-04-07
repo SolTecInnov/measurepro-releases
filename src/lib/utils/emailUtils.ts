@@ -1,7 +1,22 @@
 import { toast } from 'sonner';
 import QRCode from 'qrcode';
 
-const API_BASE_URL = '/api';
+// In Electron, use the configured VITE_API_URL; in browser use relative path
+const API_BASE_URL = (() => {
+  const viteUrl = import.meta.env.VITE_API_URL;
+  if (viteUrl && typeof window !== 'undefined' && (window as any).electronAPI?.isElectron) {
+    return `${viteUrl}/api`;
+  }
+  return '/api';
+})();
+
+// Check if email server is available before attempting sends
+async function isEmailServerAvailable(): Promise<boolean> {
+  try {
+    const r = await fetch(`${API_BASE_URL}/health`, { method: 'HEAD', signal: AbortSignal.timeout(3000) });
+    return r.ok;
+  } catch { return false; }
+}
 
 // Helper to convert file/blob to base64
 export async function fileToBase64(file: Blob): Promise<string> {
@@ -123,9 +138,7 @@ export async function sendAlertThresholdEmail(
 
     if (result.success) {
       const recipientList = alertData.to.length > 0 ? alertData.to.join(', ') : 'recipients';
-      toast.success(`${alertData.alertType} alert emailed!`, {
-        description: `Sent to ${recipientList}`,
-      });
+      /* toast removed */
       return true;
     } else {
       toast.error('Failed to email alert', {
@@ -200,9 +213,7 @@ export async function sendDataExportEmail(
       : { success: true };
 
     if (result.success) {
-      toast.success('Data export emailed successfully!', {
-        description: `Sent to ${recipientEmail}`,
-      });
+      /* toast removed */
       return true;
     } else {
       toast.error('Failed to email data export', {
@@ -265,9 +276,7 @@ export async function sendLiveMonitorQREmail(
       : { success: true };
 
     if (result.success) {
-      toast.success('Live monitor access emailed!', {
-        description: `QR code sent to ${recipientEmail}`,
-      });
+      /* toast removed */
       return true;
     } else {
       toast.error('Failed to email live monitor access', {
@@ -323,9 +332,7 @@ export async function sendSyncCompletionEmail(
       : { success: true };
 
     if (result.success) {
-      toast.success('Sync report emailed!', {
-        description: `Sent to ${recipientEmail}`,
-      });
+      /* toast removed */
       return true;
     } else {
       toast.error('Failed to email sync report', {
@@ -360,6 +367,14 @@ export async function sendMeasurementLogEmail(
   },
   images: Array<{ url: string; filename: string }> = []
 ) {
+  // In Electron, check server availability first to avoid confusing error toasts
+  if ((window as any).electronAPI?.isElectron) {
+    const available = await isEmailServerAvailable();
+    if (!available) {
+      console.warn('[Email] Server not reachable — skipping email send');
+      return false;
+    }
+  }
   try {
     const attachments = [];
 
@@ -452,9 +467,7 @@ export async function sendMeasurementLogEmail(
     if (result.success) {
       const recipientList = surveyData.to.length > 0 ? surveyData.to.join(', ') : 'recipients';
       const totalAttachments = attachments.length + imageAttachments.length;
-      toast.success('Measurement log emailed successfully!', {
-        description: `Sent to ${recipientList} with ${totalAttachments} attachments`,
-      });
+      /* toast removed */
       return true;
     } else {
       toast.error('Failed to email measurement log', {

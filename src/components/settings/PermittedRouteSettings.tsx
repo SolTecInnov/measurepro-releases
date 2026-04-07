@@ -44,7 +44,7 @@ const PermittedRouteSettings = () => {
     });
     
     if (enabled && !currentSettings.enabled) {
-      toast.success('Permitted Route Enforcement enabled successfully');
+      // toast suppressed
     }
   };
 

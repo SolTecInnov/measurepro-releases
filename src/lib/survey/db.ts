@@ -84,9 +84,7 @@ export const openSurveyDB = async () => {
     // Add UI-specific toast notification for blocked upgrades
     // (Note: This can't be done in the shared module since it's worker-safe)
     dbInstance.addEventListener?.('versionchange', () => {
-      toast.warning('Database update needed', {
-        description: 'Please close other tabs using MeasurePRO to allow database upgrade'
-      });
+      /* toast removed */
     });
     
     // Migrate any existing localStorage data to IndexedDB
@@ -183,9 +181,7 @@ const migrateFromLocalStorage = async () => {
       // Clear old localStorage data after successful migration
       localStorage.removeItem(STORAGE_KEY);
       
-      toast.success('Data upgraded', {
-        description: `Successfully migrated ${migratedCount} items to improved storage`
-      });
+      /* toast removed */
     }
   } catch (error) {
   }
@@ -238,9 +234,7 @@ const migrateEmergencyData = async () => {
     }
     
     if (migrated > 0) {
-      toast.success('Emergency data recovered', {
-        description: `Restored ${migrated} items from emergency backups`
-      });
+      /* toast removed */
     }
   } catch (error) {
   }
@@ -296,9 +290,7 @@ function createLocalStorageFallback() {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
           
-          toast.warning('Storage space limited', {
-            description: 'Old backups removed. Consider exporting surveys or enabling IndexedDB in browser settings.'
-          });
+          /* toast removed */
           return;
         } catch (retryError) {
           throw new Error('Storage is full. Please export and delete old surveys, or enable IndexedDB in browser settings.');

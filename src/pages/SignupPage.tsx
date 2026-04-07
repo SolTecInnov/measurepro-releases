@@ -341,9 +341,7 @@ export default function SignupPage() {
 
       setShowEmailVerify(true);
       setEmailVerifyCode('');
-      toast.success('Verification code sent!', {
-        description: `Check your inbox at ${data.email}`,
-      });
+      /* toast removed */
     } catch (error: any) {
       toast.error('Failed to save account information', {
         description: error.message || 'Please try again.',
@@ -362,7 +360,7 @@ export default function SignupPage() {
         method: 'POST',
         body: JSON.stringify({ signupId, code: emailVerifyCode.trim() }),
       });
-      toast.success('Email verified! Now verify your phone.');
+      /* toast removed */
       // Transition to SMS sub-step
       setShowEmailVerify(false);
       setSmsVerifyCode('');
@@ -392,7 +390,7 @@ export default function SignupPage() {
         body: JSON.stringify({ signupId }),
       });
       setEmailVerifyCode('');
-      toast.success('New email verification code sent');
+      /* toast removed */
     } catch (error: any) {
       toast.error('Failed to resend code', {
         description: error.message || 'Please try again.',
@@ -413,7 +411,7 @@ export default function SignupPage() {
       });
       setShowSmsVerify(false);
       setCurrentStep(2);
-      toast.success('Phone verified! Proceeding to company details.');
+      /* toast removed */
     } catch (error: any) {
       toast.error('SMS verification failed', {
         description: error.message || 'Invalid or expired code. Please try again.',
@@ -434,7 +432,7 @@ export default function SignupPage() {
       });
       setSmsDevMode(smsResp.devMode || false);
       setSmsVerifyCode('');
-      toast.success('New SMS code sent');
+      /* toast removed */
     } catch (error: any) {
       toast.error('Failed to resend SMS', {
         description: error.message || 'Please try again.',
@@ -460,7 +458,7 @@ export default function SignupPage() {
       });
 
       setFormData((prev) => ({ ...prev, step2: data }));
-      toast.success('Company details saved!');
+      /* toast removed */
       setCurrentStep(3);
     } catch (error: any) {
       toast.error('Failed to save company details', {
@@ -483,7 +481,7 @@ export default function SignupPage() {
       });
       if (resp.valid) {
         setVoucherValidated(true);
-        toast.success('Voucher validated!', { description: resp.message });
+        /* toast removed */
       } else {
         setVoucherError(resp.error || 'Invalid voucher code');
         setVoucherValidated(false);
@@ -545,12 +543,12 @@ export default function SignupPage() {
 
       // Free tiers skip payment and go straight to Step 4
       if (FREE_TIERS.includes(selectedTier)) {
-        toast.success(selectedTier === 'hardware_bundle' ? 'Hardware bundle activated!' : 'Plan selected!');
+        /* toast removed */
         setCurrentStep(4);
         return;
       }
 
-      toast.success('Subscription selection saved!');
+      /* toast removed */
       setPaymentError(null);
       setShowPaymentForm(true);
       // Initialise the Square card form after the DOM renders
@@ -622,7 +620,7 @@ export default function SignupPage() {
 
       const responseData = response as any;
       setPaymentId(responseData.paymentId || null);
-      toast.success(responseData.deferred ? 'Payment details recorded (development mode)' : 'Payment successful!');
+      /* toast removed */
       setShowPaymentForm(false);
       setCurrentStep(4);
     } catch (error: any) {
@@ -678,7 +676,7 @@ export default function SignupPage() {
           acceptedAll: acceptAll,
         },
       }));
-      toast.success('Terms acceptance recorded!');
+      /* toast removed */
       setCurrentStep(5);
     } catch (error: any) {
       toast.error('Failed to record terms acceptance', {
@@ -754,7 +752,7 @@ export default function SignupPage() {
         }),
       });
 
-      toast.success('Hardware checklist completed!');
+      /* toast removed */
       setCurrentStep(6);
     } catch (error: any) {
       toast.error('Failed to save hardware checklist', {
@@ -792,7 +790,7 @@ export default function SignupPage() {
         body: JSON.stringify({ password: confirmationPassword }),
       });
 
-      toast.success('Signup completed successfully! Redirecting to login...');
+      /* toast removed */
       
       // Clear password from memory
       setConfirmationPassword('');

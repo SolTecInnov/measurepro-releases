@@ -86,7 +86,7 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
   },
   {
     id: 'road-profile',
-    name: 'Road Profile',
+    name: 'GNSS Road Profile',
     defaultPosition: { column: 1, row: 10, span: 'full' },
     visible: false,
     collapsed: false,
@@ -127,6 +127,14 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
     position: { column: 2, row: 2, span: 'full' }
   },
   {
+    id: 'insta360',
+    name: 'Insta360 X5',
+    defaultPosition: { column: 2, row: 3, span: 'full' },
+    visible: true,  // Visible by default — auto-hides when camera not connected
+    collapsed: false,
+    position: { column: 2, row: 3, span: 'full' }
+  },
+  {
     id: 'timelapse',
     name: 'Timelapse',
     defaultPosition: { column: 2, row: 3, span: 'full' },
@@ -155,7 +163,8 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
 // Layout version - increment this when adding/removing cards (not for full reset)
 // v3: Added GNSS Status and Road Profile cards
 // v4: Timelapse hidden by default
-const LAYOUT_VERSION = 4;
+// v5: Insta360 card added
+const LAYOUT_VERSION = 5;
 
 export const useLayoutCustomization = () => {
   const [layoutConfig, setLayoutConfig] = useState<LayoutCard[]>(() => {

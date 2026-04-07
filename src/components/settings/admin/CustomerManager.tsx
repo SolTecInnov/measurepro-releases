@@ -47,7 +47,7 @@ const CustomerManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/customers'] });
-      toast.success('Customer created successfully');
+      // toast suppressed
       setShowDialog(false);
       form.reset();
     },
@@ -66,7 +66,7 @@ const CustomerManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/customers'] });
-      toast.success('Customer updated successfully');
+      // toast suppressed
       setShowDialog(false);
       setEditingCustomer(null);
       form.reset();
@@ -85,7 +85,7 @@ const CustomerManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/customers'] });
-      toast.success('Customer deleted successfully');
+      // toast suppressed
       setDeleteConfirmId(null);
     },
     onError: (error: Error) => {

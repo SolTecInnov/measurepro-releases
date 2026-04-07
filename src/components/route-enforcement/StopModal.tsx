@@ -31,12 +31,14 @@ export default function StopModal({
       soundManager.playCritical();
       
       // Create audio element for continuous alarm
+      void (async () => {
       const { soundPath } = await import('@/lib/sounds');
       const audio = new Audio(soundPath('security-facility-breach-alarm-994.wav'));
       audio.loop = true;
       audio.volume = 0.8;
       audio.play().catch(() => {});
       audioRef.current = audio;
+      })();
       
       return () => {
         if (audioRef.current) {

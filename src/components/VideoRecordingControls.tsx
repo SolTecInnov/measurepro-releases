@@ -99,7 +99,7 @@ const VideoRecordingControls: React.FC<VideoRecordingControlsProps> = ({
       useCameraStore.getState().setIsRecording(false);
       
       if (recording) {
-        toast.success('Video saved to buffer');
+        // toast suppressed
         
         // Call callback if provided
         if (onVideoSaved && recording.videoBlob instanceof Blob) {
@@ -117,7 +117,7 @@ const VideoRecordingControls: React.FC<VideoRecordingControlsProps> = ({
       const recording = await videoRecorder.saveBuffer();
       
       if (recording) {
-        toast.success('Buffer saved as video');
+        // toast suppressed
         
         // Call callback if provided
         if (onVideoSaved && recording.videoBlob instanceof Blob) {
@@ -151,7 +151,7 @@ const VideoRecordingControls: React.FC<VideoRecordingControlsProps> = ({
       // Use FileSaver to download the video (videoBlob is guaranteed to be Blob here)
         saveAs(videoBlob as Blob, `video-${new Date(video.timestamp).toISOString().replace(/[:.]/g, '-')}.webm`);
       
-      toast.success('Video download started');
+      // toast suppressed
       } catch (error) {
       toast.error('Failed to download video');
       }

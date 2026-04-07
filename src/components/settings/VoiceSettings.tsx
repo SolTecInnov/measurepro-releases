@@ -97,7 +97,7 @@ const VoiceSettings: React.FC = () => {
 
   const handleLanguageChange = (language: SupportedLanguage) => {
     voiceActions.setLanguage(language);
-    toast.success(`Language changed to ${getLanguageName(language)}`);
+    /* toast removed */
   };
 
   const handleVoiceTalksToggle = () => {
@@ -111,7 +111,7 @@ const VoiceSettings: React.FC = () => {
       voiceActions.setVolume(0);
     }
     
-    toast.success(newValue ? 'Voice responses enabled' : 'Voice responses disabled');
+    // toast suppressed
   };
 
   const handleConfidenceChange = (threshold: number) => {
@@ -124,7 +124,7 @@ const VoiceSettings: React.FC = () => {
     localStorage.setItem('preferred_voice_name', voiceName);
     voiceActions.setPreferredVoice(voiceName);
     const gender = detectGender(voiceName);
-    toast.success(`Voice changed to ${voiceName}${gender ? ` (${gender})` : ''}`);
+    /* toast removed */
   };
 
   const handleTestVoice = async () => {
@@ -152,7 +152,7 @@ const VoiceSettings: React.FC = () => {
       voiceActions.setVolume(0);
     }
 
-    toast.success('Test message played');
+    // toast suppressed
   };
 
   const getLanguageName = (lang: SupportedLanguage): string => {

@@ -81,12 +81,12 @@ export function ProfileControls({
     const sessionId = sessionInput.trim() || `session-${Date.now()}`;
     setSessionInput(sessionId);
     onStartRecording(sessionId);
-    toast.success(`Recording started: ${sessionId}`);
+    // toast suppressed
   };
 
   const handleStopRecording = () => {
     onStopRecording();
-    toast.success('Recording stopped');
+    // toast suppressed
   };
 
   const handleSaveProfile = async () => {
@@ -135,7 +135,7 @@ export function ProfileControls({
         console.warn('[ProfileControls] Server save failed, profile saved locally:', serverError);
       }
 
-      toast.success(`Profile saved: ${profile.id} (${profile.points.length} points)`);
+      /* toast removed */
       setShowSaveModal(false);
       await loadSavedProfiles();
     } catch (error) {
@@ -151,7 +151,7 @@ export function ProfileControls({
 
     try {
       await deleteProfile(profileId);
-      toast.success('Profile deleted');
+      // toast suppressed
       await loadSavedProfiles();
     } catch (error) {
       toast.error('Failed to delete profile');
@@ -165,7 +165,7 @@ export function ProfileControls({
         onProfileSelect(profile);
       }
       setShowHistoryModal(false);
-      toast.success('Profile loaded');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to load profile');
     }

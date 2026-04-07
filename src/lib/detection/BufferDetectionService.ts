@@ -34,15 +34,15 @@ export interface BufferConfig {
 }
 
 export const DEFAULT_BUFFER_CONFIGS: Partial<Record<POIType, BufferConfig>> = {
-  wire: { enabled: true, distanceMeters: 400, timeSeconds: 30, mode: 'distance' },
-  tree: { enabled: true, distanceMeters: 100, timeSeconds: 10, mode: 'distance' },
-  bridgeAndWires: { enabled: true, distanceMeters: 150, timeSeconds: 15, mode: 'distance' },
-  powerLine: { enabled: true, distanceMeters: 100, timeSeconds: 10, mode: 'distance' },
-  trafficLight: { enabled: true, distanceMeters: 100, timeSeconds: 10, mode: 'distance' },
-  overpass: { enabled: true, distanceMeters: 150, timeSeconds: 15, mode: 'distance' },
-  signalization: { enabled: true, distanceMeters: 50, timeSeconds: 5, mode: 'distance' },
-  opticalFiber: { enabled: true, distanceMeters: 50, timeSeconds: 5, mode: 'distance' },
-  overheadStructure: { enabled: true, distanceMeters: 100, timeSeconds: 10, mode: 'distance' },
+  wire:              { enabled: true, distanceMeters: 100, timeSeconds: 15, mode: 'distance' },
+  tree:              { enabled: true, distanceMeters:  50, timeSeconds: 10, mode: 'distance' },
+  bridgeAndWires:    { enabled: true, distanceMeters: 100, timeSeconds: 15, mode: 'distance' },
+  powerLine:         { enabled: true, distanceMeters: 100, timeSeconds: 15, mode: 'distance' },
+  trafficLight:      { enabled: true, distanceMeters:  50, timeSeconds:  8, mode: 'distance' },
+  overpass:          { enabled: true, distanceMeters: 100, timeSeconds: 15, mode: 'distance' },
+  signalization:     { enabled: true, distanceMeters:  30, timeSeconds:  5, mode: 'distance' },
+  opticalFiber:      { enabled: true, distanceMeters:  50, timeSeconds:  8, mode: 'distance' },
+  overheadStructure: { enabled: true, distanceMeters:  50, timeSeconds: 10, mode: 'distance' },
 };
 
 export const BUFFER_ENABLED_POI_TYPES: POIType[] = [
@@ -303,6 +303,14 @@ export const useBufferDetectionStore = create<BufferDetectionStore>((set, get) =
     
     if (currentSession.mode === 'distance') {
       isComplete = progress.traveledDistanceMeters >= currentSession.targetDistanceMeters;
+      // Fallback: if GPS not moving (no fix), complete on time instead
+      if (!isComplete && currentSession.targetTimeSeconds) {
+        const hasGpsFix = !!(currentSession.startPosition.latitude || currentSession.startPosition.longitude);
+        if (!hasGpsFix || progress.traveledDistanceMeters < 1) {
+          // GPS at 0,0 or no movement detected — fall back to time completion
+          isComplete = progress.elapsedTimeSeconds >= currentSession.targetTimeSeconds;
+        }
+      }
     } else if (currentSession.targetTimeSeconds) {
       isComplete = progress.elapsedTimeSeconds >= currentSession.targetTimeSeconds;
     }

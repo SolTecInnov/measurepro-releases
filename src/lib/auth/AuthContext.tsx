@@ -318,9 +318,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           const needsReauth = await isReauthRequired(currentUser.uid);
           if (!needsReauth) {
             await refreshAuth();
-            toast.success('Back online', {
-              description: 'Your data will be synced automatically',
-            });
+            /* toast removed */
           }
         }
       } catch (error) {
@@ -339,9 +337,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const days = await getDaysOffline();
         setDaysOffline(days);
         
-        toast.info('You are offline', {
-          description: 'Using cached data. Some features may be limited.',
-        });
+        /* toast removed */
       } catch (error) {
         // Silent fail
       }
@@ -523,9 +519,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         
         const remaining = 14 - days;
         logger.debug('[LOGIN-15] ✅ Offline login successful,', days, 'days offline');
-        toast.success('Offline login successful', {
-          description: `${days} days offline. ${remaining > 0 ? remaining + ' days remaining.' : 'Please connect soon.'}`,
-        });
+        /* toast removed */
 
         // Log offline login (fire-and-forget — will queue if truly offline)
         logLogin({
@@ -699,23 +693,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const triggerBackgroundSync = async (): Promise<void> => {
     try {
       if (!isOnline) {
-        toast.warning('Cannot sync while offline', {
-          description: 'Please connect to the internet to sync your data',
-        });
+        /* toast removed */
         return;
       }
 
       const currentUser = getCurrentUser();
       if (!currentUser) {
-        toast.warning('Not authenticated', {
-          description: 'Please log in to sync your data',
-        });
+        /* toast removed */
         return;
       }
 
-      toast.info('Syncing...', {
-        description: 'Updating license status and syncing data to cloud',
-      });
+      /* toast removed */
 
       // Import the background sync service dynamically
       const { backgroundSyncService } = await import('../backgroundSync');
@@ -736,9 +724,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           });
         }
 
-        toast.success('Sync completed', {
-          description: 'Your data has been synced successfully',
-        });
+        /* toast removed */
       } else {
         toast.error('Sync failed', {
           description: 'Some data could not be synced. Please try again.',

@@ -78,9 +78,7 @@ export const TimelapseViewer = () => {
       if (frameIndex !== -1) {
         setCurrentFrameIndex(frameIndex);
         setIsPlaying(false);
-        toast.success(`Jumped to frame ${frameNumber}`, {
-          description: 'POI frame loaded'
-        });
+        // toast suppressed
       } else {
         toast.error(`Frame ${frameNumber} not found`, {
           description: 'This POI may not have a timelapse frame'
@@ -113,9 +111,7 @@ export const TimelapseViewer = () => {
         throw new Error('Failed to create ZIP folder');
       }
 
-      toast.info('Preparing download...', {
-        description: `Compressing ${displayFrames.length} frames`
-      });
+      // toast suppressed
 
       for (const frame of displayFrames) {
         const response = await fetch(frame.imageUrl);
@@ -135,9 +131,7 @@ export const TimelapseViewer = () => {
         console.error('Failed to clear frames from IndexedDB:', cleanupError);
       }
       
-      toast.success('Download complete', {
-        description: `${displayFrames.length} frames downloaded`
-      });
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to download frames');
     }
@@ -157,7 +151,7 @@ export const TimelapseViewer = () => {
         console.error('Failed to clear frames from IndexedDB:', cleanupError);
       }
       
-      toast.success('Timelapse frames cleared');
+      // toast suppressed
     }
   };
 

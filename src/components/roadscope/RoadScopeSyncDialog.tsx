@@ -177,9 +177,9 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
       }
 
       if (syncResult.success) {
-        toast.success('Survey synced to RoadScope successfully');
+        // toast suppressed
       } else if (syncResult.errors.length > 0) {
-        toast.warning(`Sync completed with ${syncResult.errors.length} errors`);
+        // toast suppressed
       }
     } catch (error) {
       console.error('[RoadScope] Sync failed:', error);
@@ -487,7 +487,7 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
                           try {
                             const cleared = await clearFileSyncState(survey.id);
                             setForceResyncFiles(true);
-                            toast.success(`Reset sync state for ${cleared} files. Click "Start Sync" to re-upload.`);
+                            // toast suppressed
                           } catch (err) {
                             toast.error('Failed to reset file sync state');
                           } finally {

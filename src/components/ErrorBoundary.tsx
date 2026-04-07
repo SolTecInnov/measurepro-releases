@@ -50,10 +50,7 @@ export class ErrorBoundary extends Component<Props, State> {
       
       // Don't show error toast for expected offline errors
       if (!isOffline) {
-        toast.warning('Network issue detected', {
-          description: 'Some features may be limited. Working in offline mode.',
-          duration: 3000,
-        });
+        // toast suppressed
       }
       
       // Don't escalate offline errors - reset error state so app continues

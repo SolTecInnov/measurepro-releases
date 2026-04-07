@@ -18,14 +18,9 @@ export function CameraSettingsPanel() {
 
   return (
     <div className="camera-settings-section" data-testid="panel-camera-settings">
-      <h3>360° Camera — Insta360 X5</h3>
+      <h3>360° Camera — Insta360 X5 <span style={{fontSize:11,color:"#4ade80",fontWeight:400}}>(Direct USB-C)</span></h3>
 
-      <div className="settings-status-row">
-        <span>Bridge service (Windows)</span>
-        <span className={bridgeOnline ? 'status-ok' : 'status-err'} data-testid="status-bridge-online">
-          {bridgeOnline ? '● Active' : '● Offline'}
-        </span>
-      </div>
+      {/* Bridge service row hidden — Insta360 X5 uses direct WiFi/USB-C (no bridge needed) */}
 
       <div className="settings-status-row">
         <span>USB camera</span>

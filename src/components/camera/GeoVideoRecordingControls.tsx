@@ -49,7 +49,7 @@ const GeoVideoRecordingControls: React.FC<GeoVideoRecordingControlsProps> = ({
     try {
       const recordingId = await geoVideoRecorder.startRecording(videoRef.current, surveyId);
       startRecording(recordingId, surveyId);
-      toast.success('📹 Video recording started');
+      // toast suppressed
     } catch (error) {
       toast.error(`Failed to start recording: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
@@ -62,9 +62,9 @@ const GeoVideoRecordingControls: React.FC<GeoVideoRecordingControlsProps> = ({
       
       if (result) {
         const sizeMB = (result.blob.size / 1024 / 1024).toFixed(2);
-        toast.success(`Video saved (${result.duration.toFixed(1)}s, ${sizeMB}MB)`);
+        /* toast removed */
       } else {
-        toast.warning('No recording to save');
+        // toast suppressed
       }
     } catch (error) {
       toast.error('Failed to stop recording');

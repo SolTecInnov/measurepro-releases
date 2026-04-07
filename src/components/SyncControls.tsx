@@ -96,7 +96,7 @@ const SyncControls: React.FC = () => {
     
     try {
       await signInWithEmail(email, password);
-      toast.success('Signed in successfully');
+      // toast suppressed
       
       // Update current user state
       setCurrentUser(getCurrentUser());
@@ -131,7 +131,7 @@ const SyncControls: React.FC = () => {
     
     try {
       await createUser(email, password);
-      toast.success('Account created successfully');
+      // toast suppressed
       
       // Update current user state
       setCurrentUser(getCurrentUser());
@@ -156,7 +156,7 @@ const SyncControls: React.FC = () => {
       // Update current user state
       setCurrentUser(null);
       
-      toast.success('Signed out successfully');
+      // toast suppressed
     } catch (error: any) {
       toast.error('Sign out failed', {
         description: error.message
@@ -204,9 +204,7 @@ const SyncControls: React.FC = () => {
         await Promise.all(cacheNames.map(name => caches.delete(name)));
       }
 
-      toast.success('Cache cleared successfully', {
-        description: 'All local data has been removed. The page will now reload.'
-      });
+      // toast suppressed
 
       // Reload the page after a short delay
       setTimeout(() => {
@@ -238,9 +236,7 @@ const SyncControls: React.FC = () => {
       // Dispatch offline event
       window.dispatchEvent(new Event('offline'));
       
-      toast.info('Test offline mode enabled', {
-        description: 'The app will behave as if you are offline. Data will be stored locally only.'
-      });
+      // toast suppressed
     } else {
       // Disable test offline mode
       // Restore the original navigator.onLine property
@@ -251,9 +247,7 @@ const SyncControls: React.FC = () => {
         window.dispatchEvent(new Event('online'));
       }
       
-      toast.info('Test offline mode disabled', {
-        description: 'The app will now use your actual network connection status.'
-      });
+      // toast suppressed
     }
   };
 

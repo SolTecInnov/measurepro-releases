@@ -310,9 +310,7 @@ export const createSyncManager = (): SyncManager => {
       }));
 
       if (successCount > 0) {
-        toast.success(`Sync completed successfully`, {
-          description: `${syncedItems} of ${totalItems} items synced to cloud`
-        });
+        // toast suppressed
 
         // Send sync completion email notification (rate limited to prevent spam)
         // Require explicit opt-in (=== true) to prevent emails before settings hydrate

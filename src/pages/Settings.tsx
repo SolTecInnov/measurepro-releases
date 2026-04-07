@@ -34,6 +34,7 @@ import LiveCamera from '../components/LiveCamera';
 import CapturedImages from '../components/CapturedImages';
 import TabManager from '../components/TabManager';
 import { TimelapseCard } from '../components/TimelapseCard';
+import { Insta360Card } from '../components/camera/Insta360Card';
 import ColumnResizer from '../components/ColumnResizer';
 import { WifiStatusDialog, DatabaseStatusDialog } from '../components/StatusDialogs';
 import { CardWrapper } from '../components/CardWrapper';
@@ -410,7 +411,7 @@ const Settings: React.FC = () => {
     cameraPosition: CameraPosition;
   }) => {
     if (!activeSurvey) {
-      toast.warning('No active survey - measurement not logged');
+      /* toast removed */
       return;
     }
 
@@ -471,9 +472,7 @@ const Settings: React.FC = () => {
         }
       }
 
-      toast.success(`${label} POI logged!`, {
-        description: `POI ${newMeasurement.id.substring(0, 8)} - ${poiData.measurement?.toFixed(2) ?? 'N/A'}m`
-      });
+      /* toast removed */
     } catch (error) {
       console.error('[LateralRear] Failed to log POI:', error);
       toast.error('Failed to log lateral/rear POI');
@@ -518,7 +517,7 @@ const Settings: React.FC = () => {
 
     const currentSelectedType = usePOIStore.getState().selectedType;
     if (!currentSelectedType) {
-      toast.warning('No POI type selected', { description: 'Select a POI type first (Stream Deck or keyboard shortcut).' });
+      /* toast removed */
       return;
     }
 
@@ -630,9 +629,7 @@ const Settings: React.FC = () => {
         setPendingPhotos([]);
         setCapturedData([]);
         
-        toast.success(`${poiTypeLabel} logged!`, {
-          description: `POI ${newMeasurement.id.substring(0, 8)} captured and saved`
-        });
+        /* toast removed */
 
         soundManager.playInterface();
       } catch (uiError) {
@@ -717,9 +714,7 @@ const Settings: React.FC = () => {
         setPendingPhotos([]);
         setCapturedData([]);
         
-        toast.success(`${poiTypeLabel} logged!`, {
-          description: `POI ${newMeasurement.id.substring(0, 8)} captured (no measurement)`
-        });
+        /* toast removed */
 
         soundManager.playInterface();
       } catch (uiError) {
@@ -832,9 +827,7 @@ const Settings: React.FC = () => {
       // Reset POI type to None
       setSelectedType('');
       
-      toast.success('Voice note POI logged!', {
-        description: `POI ${newMeasurement.id.substring(0, 8)} with voice note saved`
-      });
+      /* toast removed */
       
       soundManager.playInterface();
     } catch (error) {
@@ -868,9 +861,7 @@ const Settings: React.FC = () => {
       soundManager.playInterface();
       
       // Show success toast
-      toast.success(`POI ${deletedMeasurement.id.substring(0, 8)} deleted`, {
-        description: 'Measurement has been removed'
-      });
+      /* toast removed */
     } catch (error) {
       toast.error('Failed to delete measurement', {
         description: error instanceof Error ? error.message : 'Unknown error occurred'
@@ -937,26 +928,7 @@ const Settings: React.FC = () => {
           isMobile={isMobile}
         />
 
-        {/* LiDAR HUD toggle button */}
-        <div className="flex justify-end mb-2">
-          <button
-            data-testid="button-lidar-hud-toggle"
-            onClick={() => {
-              const next = !lidarHudEnabled;
-              setLidarHudEnabled(next);
-              useSettingsStore.getState().setUISettings({ lidarHudEnabled: next });
-            }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono border transition-colors ${
-              lidarHudEnabled
-                ? 'bg-green-700/80 border-green-500 text-green-100 hover:bg-green-700'
-                : 'bg-gray-800 border-gray-600 text-gray-400 hover:bg-gray-700 hover:text-gray-200'
-            }`}
-            title={lidarHudEnabled ? 'Hide LiDAR HUD overlay' : 'Show LiDAR HUD overlay'}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            LiDAR HUD
-          </button>
-        </div>
+        {/* LiDAR HUD button hidden — moved to Tools menu (future) */}
 
         {/* Conditional rendering: Only render ONE layout at a time */}
         {!isDesktop ? (
@@ -1227,6 +1199,18 @@ const Settings: React.FC = () => {
                         setCapturedData([]);
                       }}
                     />
+                  </CardWrapper>
+                );
+              case 'insta360':
+                return (
+                  <CardWrapper
+                    key={card.id}
+                    cardId={card.id}
+                    title="Insta360 X5"
+                    collapsed={card.collapsed}
+                    onToggleCollapse={toggleCardCollapsed}
+                  >
+                    <Insta360Card />
                   </CardWrapper>
                 );
               case 'timelapse':
@@ -1590,6 +1574,13 @@ const Settings: React.FC = () => {
                       />
                     </CardWrapper>
                   );
+                case 'insta360':
+                  return (
+                    <CardWrapper key={card.id} cardId={card.id} title="Insta360 X5"
+                      collapsed={card.collapsed} onToggleCollapse={toggleCardCollapsed}>
+                      <Insta360Card />
+                    </CardWrapper>
+                  );
                 case 'timelapse':
                   if (isBeta) return null;
                   return (
@@ -1768,6 +1759,13 @@ const Settings: React.FC = () => {
                           setCapturedData([]);
                         }}
                       />
+                    </CardWrapper>
+                  );
+                case 'insta360':
+                  return (
+                    <CardWrapper key={card.id} cardId={card.id} title="Insta360 X5"
+                      collapsed={card.collapsed} onToggleCollapse={toggleCardCollapsed}>
+                      <Insta360Card />
                     </CardWrapper>
                   );
                 case 'timelapse':

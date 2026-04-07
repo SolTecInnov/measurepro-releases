@@ -235,9 +235,7 @@ export const exportSurveyFunction = async (activeSurvey: Survey | null, format: 
       URL.revokeObjectURL(url);
       
       if (!silent) {
-        toast.success(`Survey exported as GeoJSON`, {
-          description: `File saved as ${filename}`
-        });
+        /* toast removed */
       }
       
       try {
@@ -306,9 +304,7 @@ export const exportSurveyFunction = async (activeSurvey: Survey | null, format: 
       }
       
       if (!silent) {
-        toast.success(`Survey exported as ${format.toUpperCase()}`, {
-          description: `File saved as ${filename}`
-        });
+        /* toast removed */
       }
     } else {
       // Use the CSV data from storage
@@ -344,9 +340,7 @@ export const exportSurveyFunction = async (activeSurvey: Survey | null, format: 
       }
       
       if (!silent) {
-        toast.success(`Survey exported as ${format.toUpperCase()}`, {
-          description: `File saved as ${filename}`
-        });
+        /* toast removed */
       }
     }
     

@@ -480,9 +480,7 @@ const SurveyList: React.FC<SurveyListProps> = ({
 
       window.dispatchEvent(new CustomEvent('dbchange'));
       toast.dismiss('recover-disk-survey');
-      toast.success(`Survey "${recoveredSurvey.name}" recovered from disk`, {
-        description: 'Survey has been imported into the local database'
-      });
+      // toast suppressed
       onClose();
     } catch (error) {
       toast.error('Failed to recover survey from disk', {
@@ -528,11 +526,7 @@ const SurveyList: React.FC<SurveyListProps> = ({
       // Close the survey list
       onClose();
       
-      toast.success(`Survey "${survey.name || survey.surveyTitle}" loaded`, {
-        description: survey.closureReason === 'end_of_day'
-          ? 'Day resume marker logged. Have a great day!'
-          : 'You can now continue working on this survey'
-      });
+      // toast suppressed
       
     } catch (error) {
       toast.error('Failed to load survey', {

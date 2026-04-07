@@ -28,7 +28,7 @@ export function ExportDialog({ open, onOpenChange, scanId }: ExportDialogProps) 
 
     try {
       // Load scan data from IndexedDB
-      toast.info('Loading scan data...');
+      // toast suppressed
       setProgress(10);
       
       const { frames, metadata } = await exportScanData(scanId);
@@ -39,13 +39,13 @@ export function ExportDialog({ open, onOpenChange, scanId }: ExportDialogProps) 
       }
 
       setProgress(30);
-      toast.info('Merging point cloud frames...');
+      // toast suppressed
 
       // Merge all frames
       const { points, colors } = mergePointCloudFrames(frames);
       
       setProgress(60);
-      toast.info(`Exporting to ${format.toUpperCase()}...`);
+      /* toast removed */
 
       // Export based on format
       let blob: Blob;
@@ -80,7 +80,7 @@ export function ExportDialog({ open, onOpenChange, scanId }: ExportDialogProps) 
       URL.revokeObjectURL(url);
 
       setProgress(100);
-      toast.success(`Exported ${filename} successfully!`);
+      // toast suppressed
       
       setTimeout(() => {
         onOpenChange(false);

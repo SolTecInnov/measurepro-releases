@@ -65,7 +65,7 @@ export default function LoginPage() {
         if (reloading) return;
         
         if (isOnline) {
-          toast.success('Welcome back!');
+          /* toast removed */
         }
         
         const postLoginRedirect = sessionStorage.getItem('post_login_redirect');

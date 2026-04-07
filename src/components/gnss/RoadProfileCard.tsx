@@ -430,6 +430,8 @@ const RoadProfileCard: React.FC = () => {
     }));
   }, [displayPoints]);
 
+
+
   const handleMarkSection = () => {
     if (inSection) {
       markSectionEnd(sectionLabel || undefined);

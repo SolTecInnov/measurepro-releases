@@ -211,7 +211,7 @@ export default function ExportSurvey() {
       saveAs(blob, filename);
       
       setProgress(100);
-      toast.success(`Export complete: ${filename}`);
+      /* toast removed */
       
       // Step 6: Delete survey if requested
       if (options.deleteSurveyAfter) {
@@ -232,7 +232,7 @@ export default function ExportSurvey() {
         const legacyDb = await openSurveyDB();
         await legacyDb.delete('surveys', activeSurvey.id);
         
-        toast.success('Survey data deleted');
+        /* toast removed */
       }
       
     } catch (error) {

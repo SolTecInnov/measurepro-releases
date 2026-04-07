@@ -300,9 +300,7 @@ export const useSurveyStore = create<SurveyStore>((set, get) => ({
         surveys: surveys.map(s => s.id === closedSurvey.id ? closedSurvey : s)
       });
       
-      toast.success('Survey closed', {
-        description: `"${closedSurvey.surveyTitle || closedSurvey.name}" has been saved`
-      });
+      /* toast removed */
     }
   },
 
@@ -337,9 +335,7 @@ export const useSurveyStore = create<SurveyStore>((set, get) => ({
         surveys: surveys.map(s => s.id === pausedSurvey.id ? pausedSurvey : s)
       });
       
-      toast.success('Survey paused for end of day', {
-        description: `"${pausedSurvey.surveyTitle || pausedSurvey.name}" has been saved and paused`
-      });
+      /* toast removed */
     }
   },
 
@@ -496,10 +492,7 @@ export const useSurveyStore = create<SurveyStore>((set, get) => ({
       // }
       
       // Show success toast
-      toast.success('Import completed successfully', {
-        id: 'import-surveys',
-        description: `Imported ${newSurveys.length} new surveys from the cloud`
-      });
+      /* toast removed */
       
     } catch (error: unknown) {
       toast.error('Failed to import surveys', {

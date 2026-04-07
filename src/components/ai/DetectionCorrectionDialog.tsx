@@ -40,7 +40,7 @@ const DetectionCorrectionDialog: React.FC<DetectionCorrectionDialogProps> = ({
     }
 
     onSubmit(detection.id, selectedClass);
-    toast.success('Detection corrected successfully');
+    // toast suppressed
     onClose();
   };
 

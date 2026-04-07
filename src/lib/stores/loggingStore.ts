@@ -27,31 +27,31 @@ export const useLoggingStore = create<LoggingState>((set, get) => ({
       manualDetection: 'Manual Detection',
       counterDetection: 'Counter Detection'
     };
-    toast.success(`Logging mode: ${modeNames[mode]}`);
+    /* toast removed */
   },
   startLogging: () => {
     set({ isLogging: true, isPaused: false });
-    toast.success('Logging started');
+    /* toast removed */
   },
   stopLogging: () => {
     set({ isLogging: false, isPaused: false });
-    toast.info('Logging stopped');
+    /* toast removed */
   },
   pauseLogging: () => {
     const { isLogging, isPaused } = get();
     if (isLogging && !isPaused) {
       set({ isPaused: true });
-      toast.warning('Logging paused - POI recording suspended');
+      /* toast removed */
     }
   },
   resumeLogging: () => {
     const { isLogging, isPaused } = get();
     if (isLogging && isPaused) {
       set({ isPaused: false });
-      toast.success('Logging resumed');
+      /* toast removed */
     } else if (!isLogging) {
       set({ isLogging: true, isPaused: false });
-      toast.success('Logging started');
+      /* toast removed */
     }
   }
 }));

@@ -86,6 +86,10 @@ export interface KeyboardMapping {
   videoRecording: {
     toggleRecording: KeyboardShortcut;
   };
+  insta360: {
+    toggleRecording: KeyboardShortcut;
+    takePhoto: KeyboardShortcut;
+  };
   lateralRearCapture: {
     captureLeft: KeyboardShortcut;
     captureRight: KeyboardShortcut;
@@ -131,6 +135,10 @@ const defaultMapping: KeyboardMapping = {
   },
   videoRecording: {
     toggleRecording: { key: 'V', alt: true, description: 'Start/Stop Video Recording' }
+  },
+  insta360: {
+    toggleRecording: { key: 'R', alt: true, shift: true, description: 'Insta360: Start/Stop Recording' },
+    takePhoto:       { key: 'P', alt: true, shift: true, description: 'Insta360: Take Photo' },
   },
   lateralRearCapture: {
     captureLeft: { key: '[', alt: true, description: 'Capture Left Lateral Clearance POI' },
@@ -276,7 +284,7 @@ export const useKeyboardStore = create<KeyboardStore>((set) => ({
     
     // Check main actions
     for (const [action, existing] of Object.entries(mapping)) {
-      if (action === 'poiTypes' || action === 'loggingControls' || action === 'aiDetection' || action === 'videoRecording' || action === 'envelopeMonitoring' || action === 'detectionControls' || action === 'nonePoiType' || action === 'manualLogEntry' || action === excludeAction) continue;
+      if (action === 'poiTypes' || action === 'loggingControls' || action === 'aiDetection' || action === 'videoRecording' || action === 'insta360' || action === 'envelopeMonitoring' || action === 'detectionControls' || action === 'nonePoiType' || action === 'manualLogEntry' || action === excludeAction) continue;
       if (isShortcutEqual(shortcut, existing as KeyboardShortcut)) {
         return (existing as KeyboardShortcut).description;
       }

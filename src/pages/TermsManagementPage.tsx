@@ -117,9 +117,7 @@ export default function TermsManagementPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Terms version created', {
-        description: 'New terms version has been created successfully.',
-      });
+      /* toast removed */
       setShowCreateDialog(false);
       setVersionStr('');
       setTitle('');
@@ -149,9 +147,7 @@ export default function TermsManagementPage() {
       });
     },
     onSuccess: (data: any) => {
-      toast.success('Users notified', {
-        description: `${data.notified} users have been notified via email.`,
-      });
+      /* toast removed */
     },
     onError: (error: any) => {
       toast.error('Notification failed', {

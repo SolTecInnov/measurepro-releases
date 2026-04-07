@@ -134,12 +134,9 @@ const OfflineStatusIndicator: React.FC<OfflineStatusIndicatorProps> = ({ classNa
       const success = await syncAllPending();
       
       if (success) {
-        toast.success('Sync completed', { id: 'manual-sync' });
+        // toast suppressed
       } else {
-        toast.warning('Sync partially completed', { 
-          id: 'manual-sync',
-          description: 'Some items may still need syncing'
-        });
+        // toast suppressed
       }
       
       // Refresh pending count
@@ -203,9 +200,7 @@ const OfflineStatusIndicator: React.FC<OfflineStatusIndicatorProps> = ({ classNa
         await Promise.all(cacheNames.map(name => caches.delete(name)));
       }
 
-      toast.success('Cache cleared successfully', {
-        description: 'All local data has been removed. The page will now reload.'
-      });
+      // toast suppressed
 
       // Reload the page after a short delay
       setTimeout(() => {

@@ -117,17 +117,17 @@ export function AxisOrientationWizard() {
       setBaselineWindow(window);
       const vertResult = orientationCalibration.analyzeVerticalTest(window);
       setVerticalResult(vertResult);
-      toast.success(`Baseline captured: ${window.samples.length} samples`);
+      // toast suppressed
       setStep('forward');
     } else if (type === 'forward' && baselineWindow) {
       const result = orientationCalibration.analyzeForwardTest(baselineWindow, window);
       setForwardResult(result);
-      toast.success('Forward test complete');
+      // toast suppressed
       setStep('lateral');
     } else if (type === 'lateral' && baselineWindow) {
       const result = orientationCalibration.analyzeLateralTest(baselineWindow, window);
       setLateralResult(result);
-      toast.success('Lateral test complete');
+      // toast suppressed
       setStep('results');
     }
   };
@@ -153,7 +153,7 @@ export function AxisOrientationWizard() {
     
     orientationCalibration.applyMapping(mappingResult.mapping);
     orientationCalibration.updateConfidence(mappingResult.confidence);
-    toast.success('Axis mapping applied');
+    // toast suppressed
     setStep('validation');
   };
 

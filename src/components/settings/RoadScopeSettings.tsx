@@ -161,7 +161,7 @@ export function RoadScopeSettings() {
 
         await fetchSettings();
         setApiKeyInput('');
-        toast.success('API key saved successfully');
+        // toast suppressed
       } else {
         toast.error(json.error || 'Failed to save API key');
       }
@@ -222,7 +222,7 @@ export function RoadScopeSettings() {
       if (json.success) {
         setValidationResult(null);
         await fetchSettings();
-        toast.success('API key removed');
+        // toast suppressed
       } else {
         toast.error(json.error || 'Failed to remove API key');
       }

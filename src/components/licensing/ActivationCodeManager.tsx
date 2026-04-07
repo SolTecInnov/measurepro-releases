@@ -89,7 +89,7 @@ const ActivationCodeManager = () => {
       }
 
       await createActivationCode(formData);
-      toast.success('Activation code created successfully');
+      // toast suppressed
       setShowEditor(false);
       resetForm();
       loadData();
@@ -101,7 +101,7 @@ const ActivationCodeManager = () => {
   const handleDeactivate = async (id: string) => {
     try {
       await deactivateActivationCode(id);
-      toast.success('Activation code deactivated');
+      // toast suppressed
       loadData();
     } catch (error) {
       toast.error('Failed to deactivate code');
@@ -111,7 +111,7 @@ const ActivationCodeManager = () => {
   const handleDelete = async (id: string) => {
     try {
       await deleteActivationCode(id);
-      toast.success('Activation code deleted');
+      // toast suppressed
       setDeleteConfirmId(null);
       loadData();
     } catch (error) {
@@ -142,7 +142,7 @@ const ActivationCodeManager = () => {
 
   const copyCode = (code: string) => {
     navigator.clipboard.writeText(code);
-    toast.success('Code copied to clipboard');
+    // toast suppressed
   };
 
   const toggleCodeVisibility = (id: string) => {

@@ -75,6 +75,9 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
   const isBeta = isBetaUser(auth.currentUser, features);
 
   const [isWebcamLoading, setIsWebcamLoading] = useState(true);
+  const [overlayScale, setOverlayScale] = useState<number>(() => {
+    try { return parseFloat(localStorage.getItem('overlay_scale') || '1'); } catch { return 1; }
+  });
   const [webcamError, setWebcamError] = useState<string | null>(null);
   const [isVideoElementReady, setIsVideoElementReady] = useState(false);
   const [cameraStartAttempts, setCameraStartAttempts] = useState(0);
@@ -205,13 +208,13 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
         const recording = await videoRecorder.stopRecording();
         setIsRecording(false);
         if (recording) {
-          toast.success('Video recording stopped');
+          // toast suppressed
         }
       } else {
         videoRecorder.initialize(videoRef.current.srcObject as MediaStream, videoRef.current);
         videoRecorder.startRecording();
         setIsRecording(true);
-        toast.success('Video recording started');
+        // toast suppressed
       }
     } catch (error) {
       toast.error('Failed to toggle video recording');
@@ -223,7 +226,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
     if (currentDetection) {
       handleAccept(currentDetection);
     } else {
-      toast.info('No pending detection to accept');
+      // toast suppressed
     }
   };
 
@@ -231,7 +234,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
     if (currentDetection) {
       handleReject(currentDetection);
     } else {
-      toast.info('No pending detection to reject');
+      // toast suppressed
     }
   };
 
@@ -239,7 +242,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
     if (currentDetection) {
       handleCorrect(currentDetection);
     } else {
-      toast.info('No pending detection to correct');
+      // toast suppressed
     }
   };
 
@@ -270,7 +273,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
         e.preventDefault();
         setShowDepthView(prev => {
           const newValue = !prev;
-          toast.info(newValue ? '🔍 Depth View Enabled' : '🔍 Depth View Disabled');
+          // toast suppressed
           return newValue;
         });
       }
@@ -280,7 +283,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
         e.preventDefault();
         setShowStereoView(prev => {
           const newValue = !prev;
-          toast.info(newValue ? '👁️ Stereo View Enabled' : '👁️ Stereo View Disabled');
+          // toast suppressed
           return newValue;
         });
       }
@@ -804,9 +807,11 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
       style={{ maxHeight: `${cardHeight}px` }}
       data-testid="container-live-camera"
     >
-      <div className="p-2 border-b border-gray-700">
+      {/* Header bar — only shows if AI, envelope, swept path, or mock mode is active */}
+      {(aiSettings?.enabled || isEnvelopeMonitoring || sweptPathSettings?.enabled || aiSettings?.mockDetectionMode) && (
+      <div className="p-1.5 border-b border-gray-700">
         {/* Header with status icons */}
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-1">
           {/* Status Icons - Show on larger screens */}
           <div className="hidden md:flex items-center gap-2">
             {/* AI Brain Icon - Pulsing when AI is enabled */}
@@ -918,28 +923,11 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
             <AnalyzeTurnButton />
           )}
           
-          <CameraControls
-            onStartCamera={handleManualStartCamera}
-            onCaptureImage={captureImage}
-            onRestartCamera={handleRestartCamera}
-            onStopCamera={handleStopCamera}
-            isLoading={isWebcamLoading}
-            hasError={!!webcamError}
-            isCameraRunning={!!activeCamera && !!videoRef.current?.srcObject && !webcamError}
-          />
-          
-          {/* Geo-Referenced Video Recording Controls (Hidden for beta users) */}
-          {!isBeta && (
-            <GeoVideoRecordingControls 
-              videoRef={videoRef}
-              surveyId={activeSurvey?.id || null}
-            />
-          )}
-          
-          {/* Camera Status - compact inline badges (Hidden for beta users) */}
-          {!isBeta && <CameraStatusBadge compact={true} />}
+          {/* Camera Controls hidden — live preview only */}
+          {/* CameraControls, GeoVideoRecordingControls, CameraStatusBadge removed per JF request */}
         </div>
       </div>
+      )}
       <div className="relative bg-black w-full">
         {/* Camera Reconnection Banner */}
         {reconnecting && (
@@ -1040,6 +1028,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
             {/* Metadata Overlay - hide survey/GPS data when envelope monitoring is active */}
             <CameraOverlay
               enabled={showOverlay && !!overlayOptions.enabled}
+              overlayScale={overlayScale}
               options={isEnvelopeMonitoring ? {
                 ...overlayOptions,
                 showPOI: false,
@@ -1136,7 +1125,7 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
       
       {/* Video Recording Controls (Hidden for beta users) */}
       {videoMode && !isBeta && (
-        <VideoRecordingControls videoRef={videoRef} />
+        {/* VideoRecordingControls hidden — live preview only */}
       )}
       
       {/* Correction Dialog */}

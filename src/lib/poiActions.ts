@@ -250,14 +250,12 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
       const saved = localStorage.getItem('poi_action_config');
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Merge with defaults to ensure all POI types are present
-        // Defaults WIN for any HEIGHT_CLEARANCE types to prevent broken logging
-        const merged = { ...parsed, ...baseDefaults }; // defaults override stale saved values
-        // But allow user customizations for non-height-clearance types
+        // Merge: defaults provide missing keys, but USER SAVED VALUES WIN
+        // Only HEIGHT_CLEARANCE types use defaults to prevent broken logging
+        const merged = { ...baseDefaults }; // start with defaults for missing keys
         Object.keys(parsed).forEach(key => {
-          if (!HEIGHT_CLEARANCE_POI_TYPES_SET.has(key as POIType)) {
-            merged[key] = parsed[key];
-          }
+          // User values always win (even for height clearance types - user knows what they want)
+          merged[key as POIType] = parsed[key];
         });
         return merged;
       }

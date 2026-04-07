@@ -84,7 +84,7 @@ export function LiveTelemetryDashboard({ onRecordComplete }: LiveTelemetryDashbo
     setRecordDuration(0);
     setRecordTarget(durationSeconds);
     rawPacketTap.clear();
-    toast.info(`Recording ${durationSeconds}s of GNSS data...`);
+    // toast suppressed
   };
 
   const stopRecording = () => {
@@ -92,7 +92,7 @@ export function LiveTelemetryDashboard({ onRecordComplete }: LiveTelemetryDashbo
     if (recordingRef.current) clearInterval(recordingRef.current);
     
     const packets = rawPacketTap.getPackets();
-    toast.success(`Recorded ${packets.length} packets`);
+    // toast suppressed
     onRecordComplete?.(packets);
   };
 
@@ -114,13 +114,13 @@ export function LiveTelemetryDashboard({ onRecordComplete }: LiveTelemetryDashbo
     a.download = `gnss-diagnostics-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
-    toast.success('Diagnostics exported');
+    // toast suppressed
   };
 
   const copySummary = () => {
     const summary = rawPacketTap.generateSummary();
     navigator.clipboard.writeText(summary);
-    toast.success('Summary copied to clipboard');
+    // toast suppressed
   };
 
   const formatCoord = (value: number | null | undefined, decimals = 6) => {

@@ -65,7 +65,7 @@ export function SyncStatusIndicator({ userId, compact = false }: SyncStatusIndic
 
     const result = await calibrationSync.syncNow();
     if (result.success) {
-      toast.success(`Synced ${result.synced} calibration(s)`);
+      /* toast removed */
       if (result.conflicts.length > 0) {
         setConflicts(result.conflicts);
         setShowConflictDialog(true);
@@ -80,7 +80,7 @@ export function SyncStatusIndicator({ userId, compact = false }: SyncStatusIndic
       const json = await calibrationSync.exportAllCalibrationsAsync();
       const blob = new Blob([json], { type: 'application/json' });
       saveAs(blob, `calibrations-export-${Date.now()}.json`);
-      toast.success('Calibrations exported');
+      // toast suppressed
     } catch (e) {
       toast.error('Export failed');
     }
@@ -101,7 +101,7 @@ export function SyncStatusIndicator({ userId, compact = false }: SyncStatusIndic
       if (result.errors.length > 0) {
         toast.error(`Imported with ${result.errors.length} error(s)`);
       } else {
-        toast.success(`Imported ${result.altitude} altitude + ${result.orientation} orientation calibration(s)`);
+        /* toast removed */
       }
     } catch (e) {
       toast.error('Import failed - invalid file');
@@ -113,7 +113,7 @@ export function SyncStatusIndicator({ userId, compact = false }: SyncStatusIndic
   const handleResolveConflict = async (conflict: ConflictItem, resolution: 'keep_local' | 'keep_remote') => {
     await calibrationSync.resolveConflict(conflict.type, conflict.local.id, resolution);
     setConflicts(prev => prev.filter(c => c.local.id !== conflict.local.id));
-    toast.success('Conflict resolved');
+    // toast suppressed
     
     if (conflicts.length <= 1) {
       setShowConflictDialog(false);

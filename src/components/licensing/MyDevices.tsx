@@ -38,7 +38,7 @@ const MyDevices = () => {
     setIsDeactivating(deviceId);
     try {
       await deactivateDevice(deviceId);
-      toast.success('Device deactivated successfully');
+      // toast suppressed
       await loadDevices();
       setDeleteConfirmId(null);
     } catch (error) {

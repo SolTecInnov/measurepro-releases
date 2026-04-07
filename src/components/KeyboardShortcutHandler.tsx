@@ -245,7 +245,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
           
           localStorage.setItem('overhead_detection_config', JSON.stringify(parsed));
           
-          toast.success(newCityMode ? 'City Mode Enabled' : 'City Mode Disabled');
+          // toast suppressed
           
           window.dispatchEvent(new CustomEvent('overhead-config-updated'));
         } catch (error) {
@@ -259,7 +259,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
         const store = useEnvelopeStore.getState();
         const newEnabled = !store.settings.enabled;
         store.updateSettings({ enabled: newEnabled });
-        toast.success(newEnabled ? 'Envelope Monitoring Enabled' : 'Envelope Monitoring Disabled');
+        // toast suppressed
         return;
       }
 
@@ -274,7 +274,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
         
         if (nextProfile) {
           store.updateSettings({ activeProfileId: nextProfile.id });
-          toast.success(`Switched to: ${nextProfile.name}`);
+          // toast suppressed
         }
         return;
       }

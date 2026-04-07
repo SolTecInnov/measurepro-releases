@@ -134,7 +134,7 @@ const TabManager: React.FC<TabManagerProps> = ({
   const navigate = useNavigate();
   const [showLayoutCustomizer, setShowLayoutCustomizer] = React.useState(false);
   const [sidebarExpanded, setSidebarExpanded] = useState(() => {
-    try { return localStorage.getItem('settings-sidebar-expanded') !== 'false'; } catch { return true; }
+    try { return localStorage.getItem('settings-sidebar-expanded') === 'true'; } catch { return false; }
   });
 
   const toggleSidebar = () => setSidebarExpanded(prev => {
@@ -387,7 +387,7 @@ const TabManager: React.FC<TabManagerProps> = ({
         {/* ── Collapsible Sidebar Nav ── */}
         <nav
           className="flex-shrink-0 border-r border-gray-700/60 bg-gray-900/50 flex flex-col transition-all duration-200"
-          style={{ width: sidebarExpanded ? '152px' : '44px' }}
+          style={{ width: sidebarExpanded ? '120px' : '40px' }}
           data-testid="settings-sidebar"
         >
           {/* Toggle button */}
@@ -407,7 +407,7 @@ const TabManager: React.FC<TabManagerProps> = ({
             onClick={() => setActiveTab('home')}
             title={sidebarExpanded ? undefined : 'Home'}
             className={`w-full flex items-center py-2.5 transition-colors ${
-              sidebarExpanded ? 'gap-2 px-3 justify-start' : 'justify-center px-0'
+              sidebarExpanded ? 'gap-1.5 px-2 justify-start' : 'justify-center px-0'
             } ${
               activeTab === 'home'
                 ? 'bg-blue-600 text-white'
@@ -416,7 +416,7 @@ const TabManager: React.FC<TabManagerProps> = ({
             data-testid="sidebar-nav-home"
           >
             <Home className="w-4 h-4 flex-shrink-0" />
-            {sidebarExpanded && <span className="text-sm font-medium truncate">Home</span>}
+            {sidebarExpanded && <span className="text-xs font-medium truncate">Home</span>}
           </button>
 
           {/* Category groups */}
@@ -435,7 +435,7 @@ const TabManager: React.FC<TabManagerProps> = ({
                   onClick={() => tab.id === 'admin' ? navigate('/admin') : tab.id === 'company' ? navigate('/company-admin') : setActiveTab(tab.id)}
                   title={sidebarExpanded ? undefined : `${category.name} › ${tab.name}`}
                   className={`w-full flex items-center py-2 transition-colors ${
-                    sidebarExpanded ? 'gap-2 px-3 justify-start' : 'justify-center px-0'
+                    sidebarExpanded ? 'gap-1.5 px-2 justify-start' : 'justify-center px-0'
                   } ${
                     activeTab === tab.id
                       ? 'bg-blue-600 text-white'

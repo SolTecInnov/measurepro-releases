@@ -55,7 +55,7 @@ export function ForcePasswordChange({ onComplete }: ForcePasswordChangeProps) {
         // Non-fatal — flag will be cleared on next login if this fails
       }
 
-      toast.success('Password updated successfully!');
+      // toast suppressed
       // Clear the requiresPasswordChange flag from AuthContext and IndexedDB cache
       await clearPasswordChange();
       onComplete();

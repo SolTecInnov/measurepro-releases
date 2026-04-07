@@ -50,7 +50,7 @@ export function VoiceNoteRecorder({ measurementId, language, onSave, onCancel }:
       // Start waveform visualization
       drawRecordingWaveform();
 
-      toast.success('Recording started');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to start recording', {
         description: 'Please ensure microphone permissions are granted'
@@ -70,7 +70,7 @@ export function VoiceNoteRecorder({ measurementId, language, onSave, onCancel }:
         cancelAnimationFrame(animationIdRef.current);
       }
 
-      toast.success('Recording stopped');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to stop recording');
     }
@@ -81,7 +81,7 @@ export function VoiceNoteRecorder({ measurementId, language, onSave, onCancel }:
 
     try {
       await managerRef.current.saveVoiceNote(measurementId, audioBlob, language);
-      toast.success('Voice note saved');
+      // toast suppressed
       onSave();
     } catch (error) {
       toast.error('Failed to save voice note');

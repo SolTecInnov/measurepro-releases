@@ -260,8 +260,7 @@ function ShortcutsTab() {
           <ShortcutRow label="Test Detection" keys="Alt+0" />
           <ShortcutRow label="Toggle Envelope Monitoring" keys="Alt+Shift+E" />
           <ShortcutRow label="Cycle Vehicle Profiles" keys="Alt+Shift+P" />
-          <ShortcutRow label="Toggle City Mode" keys="Alt+Shift+Y" />
-        </ShortcutGroup>
+</ShortcutGroup>
 
         <ShortcutGroup title="Lateral & Rear Capture" icon={<Layers className="w-4 h-4 text-amber-300" />} color="bg-amber-900/40 text-amber-300">
           <ShortcutRow label="Capture Left Lateral Clearance POI" keys="Alt+[" />
@@ -419,7 +418,7 @@ function QuickRefTab() {
             </li>
             <li className="flex items-center gap-2">
               <span className="bg-gray-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shrink-0">3</span>
-              <div><span className="text-white font-medium">Bluetooth GPS</span> <span className="text-xs text-gray-400">— Fallback</span></div>
+              <div><span className="text-white font-medium">Bluetooth GPS</span> <span className="text-xs text-gray-400">— Fallback (serial or Web Bluetooth)</span></div>
             </li>
           </ol>
         </div>

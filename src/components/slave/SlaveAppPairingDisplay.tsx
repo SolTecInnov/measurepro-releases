@@ -15,14 +15,16 @@ export function SlaveAppPairingDisplay({ className }: SlaveAppPairingDisplayProp
 
   const getPairingUrl = () => {
     if (!pairingCode) return '';
-    return `${window.location.origin}/slave-app?code=${pairingCode}`;
+    // Always use production URL — window.location.origin returns file:// in Electron
+    const base = import.meta.env.VITE_API_URL || 'https://measure-pro.app';
+    return `${base}/slave-app?code=${pairingCode}`;
   };
 
   const copyCode = () => {
     if (!pairingCode) return;
     navigator.clipboard.writeText(pairingCode);
     setCopied(true);
-    toast.success('Code copied to clipboard');
+    // toast suppressed
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -31,7 +33,7 @@ export function SlaveAppPairingDisplay({ className }: SlaveAppPairingDisplayProp
     if (!url) return;
     navigator.clipboard.writeText(url);
     setCopiedLink(true);
-    toast.success('Pairing link copied!');
+    // toast suppressed
     setTimeout(() => setCopiedLink(false), 2000);
   };
 

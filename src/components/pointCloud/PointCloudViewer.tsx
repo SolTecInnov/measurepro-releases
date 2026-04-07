@@ -291,7 +291,7 @@ export function PointCloudViewer({ scanId, width = 800, height = 600 }: PointClo
 
         setPointCount(totalPoints);
         setLoading(false);
-        toast.success(`Loaded ${totalPoints.toLocaleString()} points from ${frames.length} frame(s)`);
+        /* toast removed */
 
       } catch (error) {
         toast.error('Failed to load point cloud data');
@@ -330,7 +330,7 @@ export function PointCloudViewer({ scanId, width = 800, height = 600 }: PointClo
           // Calculate distance
           const dist = newPoints[0].distanceTo(newPoints[1]);
           setDistance(dist);
-          toast.success(`Distance: ${dist.toFixed(3)} meters`);
+          /* toast removed */
           
           // Reset after showing distance
           setTimeout(() => {

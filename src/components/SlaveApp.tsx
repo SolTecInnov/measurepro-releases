@@ -35,9 +35,10 @@ interface SlaveCapture {
 }
 
 interface SlaveAppProps {
-  wsConnection?: WebSocket;
+  wsConnection?: WebSocket | null;
   onDisconnect?: () => void;
   onRegisterAckCallback?: (cb: (id: string, failed: boolean) => void) => void;
+  onSendMeasurement?: (measurement: any) => Promise<void>;
 }
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
@@ -83,7 +84,7 @@ function compressImage(dataUrl: string, maxWidth = 1024, quality = 0.72): Promis
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAppProps) => {
+const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback, onSendMeasurement }: SlaveAppProps) => {
   const { displaySettings } = useSettingsStore();
   const displayUnits = displaySettings?.units || 'metric';
 
@@ -135,7 +136,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
           localStorage.setItem(OFFLINE_QUEUE_KEY, JSON.stringify(queue));
           setOfflineCount(queue.length);
         }
-        toast.warning('Tablet not reachable — capture kept in offline queue');
+        // toast suppressed
         setSyncStatus('error');
         setTimeout(() => setSyncStatus('idle'), 3000);
       } else {
@@ -155,7 +156,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
         }
         setSyncStatus('done');
         setTimeout(() => setSyncStatus('idle'), 3000);
-        toast.success('Capture confirmed by tablet ✓');
+        // toast suppressed
       }
     });
   }, [onRegisterAckCallback]);
@@ -267,6 +268,11 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
   // ── Drain offline queue when WS opens ─────────────────────────────────────
 
   useEffect(() => {
+    // Use Firestore relay if no WebSocket (new architecture)
+    if (!wsConnection && onSendMeasurement) {
+      onSendMeasurement(buildPayload(capture)).catch(console.error);
+      return;
+    }
     if (!wsConnection) return;
 
     const drainQueue = () => {
@@ -290,7 +296,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
               localStorage.setItem(OFFLINE_QUEUE_KEY, JSON.stringify(currentQueue));
               setOfflineCount(currentQueue.length);
             }
-            toast.warning('No acknowledgement from tablet — capture re-queued for retry');
+            // toast suppressed
           }, 8000);
         });
       } catch {}
@@ -431,7 +437,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
     const dataUrl = canvasRef.current.toDataURL('image/png');
     setDrawings(prev => [...prev, dataUrl]);
     setShowSketch(false);
-    toast.success('Sketch saved');
+    // toast suppressed
   };
 
 
@@ -467,7 +473,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
       poiNumber: nextPoiNumber,
     };
 
-    const isWsOpen = wsConnection && wsConnection.readyState === WebSocket.OPEN;
+    const isWsOpen = (wsConnection && wsConnection.readyState === WebSocket.OPEN) || !!onSendMeasurement;
 
     if (isWsOpen) {
       setSyncStatus('syncing');
@@ -487,7 +493,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
         }
         setSyncStatus('error');
         setTimeout(() => setSyncStatus('idle'), 3000);
-        toast.warning('No acknowledgement from tablet — capture saved offline for retry');
+        // toast suppressed
       }, 8000);
     } else {
       // Queue offline
@@ -496,7 +502,7 @@ const SlaveApp = ({ wsConnection, onDisconnect, onRegisterAckCallback }: SlaveAp
       queue.push(capture);
       localStorage.setItem(OFFLINE_QUEUE_KEY, JSON.stringify(queue));
       setOfflineCount(queue.length);
-      toast.info(`Saved offline (${queue.length} pending). Will sync when reconnected.`);
+      /* toast removed */
     }
 
     // Add to local history

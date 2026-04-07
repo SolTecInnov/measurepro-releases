@@ -382,9 +382,7 @@ const EnvelopeClearanceOverlay: React.FC<EnvelopeClearanceOverlayProps> = ({
           note
         });
 
-        toast.success(`Envelope ${status} violation logged`, {
-          description: `Clearance: ${clearanceData.clearance.toFixed(2)}m`
-        });
+        /* toast removed */
 
       } catch (error) {
         toast.error('Failed to log envelope violation', {

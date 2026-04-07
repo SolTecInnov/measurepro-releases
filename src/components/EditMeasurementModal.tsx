@@ -55,9 +55,7 @@ const EditMeasurementModal: React.FC<EditMeasurementModalProps> = ({
       soundManager.playInterface();
 
       // Show success toast
-      toast.success(`POI ${measurement.id.substring(0, 8)} updated`, {
-        description: 'Measurement has been successfully updated'
-      });
+      // toast suppressed
 
       onClose();
     } catch (error) {

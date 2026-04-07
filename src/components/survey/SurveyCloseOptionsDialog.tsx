@@ -163,7 +163,7 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
       setCurrentStep('Saving to your computer...');
       const { saveAs } = await import('file-saver');
       saveAs(packageData.blob, packageData.filename);
-      toast.success('Survey saved to your computer');
+      // toast suppressed
       
       let downloadUrl: string | undefined;
       
@@ -185,12 +185,12 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
             
             if (uploadResult.success && uploadResult.downloadUrl) {
               downloadUrl = uploadResult.downloadUrl;
-              toast.success('Uploaded to cloud storage');
+              // toast suppressed
             }
           }
         } catch (err) {
           console.error('[SurveyClose] Firebase upload failed:', err);
-          toast.warning('Cloud upload failed - survey saved locally');
+          // toast suppressed
         }
       }
       
@@ -219,10 +219,10 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
             downloadUrl,
             packageSize: formatBytes(packageData.blob.size)
           });
-          toast.success('Email notification sent');
+          // toast suppressed
         } catch (err) {
           console.error('[SurveyClose] Email failed:', err);
-          toast.warning('Email failed to send');
+          // toast suppressed
         }
       }
       
@@ -272,24 +272,18 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
             const result = await Promise.race([syncPromise, timeoutPromise]);
             
             if (result.success) {
-              toast.success('Synced to RoadScope', {
-                description: `${result.poisSynced} POIs, ${result.filesSynced || 0} files`
-              });
+              // toast suppressed
             } else {
               console.warn('[SurveyClose] RoadScope sync errors:', result.errors);
-              toast.warning('RoadScope sync incomplete', {
-                description: result.errors?.[0] || 'Some data may not have synced'
-              });
+              // toast suppressed
             }
           } else {
             console.warn('[SurveyClose] No userId for RoadScope sync');
-            toast.warning('RoadScope sync skipped - not authenticated');
+            // toast suppressed
           }
         } catch (err) {
           console.error('[SurveyClose] RoadScope sync failed:', err);
-          toast.warning('RoadScope sync failed', {
-            description: (err as Error).message || 'Unknown error'
-          });
+          // toast suppressed
         }
       }
       
@@ -302,9 +296,7 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
       // If end of day, do NOT purge from IndexedDB — data must stay for resume
       if (mode === 'end_of_day') {
         setActiveSurvey(null);
-        toast.success('Survey paused — End of Day', {
-          description: 'Resume tomorrow from the survey list to continue'
-        });
+        // toast suppressed
         onClose();
         return;
       }
@@ -367,10 +359,10 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
         await db.put('surveys', continuationSurvey);
         setActiveSurvey(continuationSurvey);
         
-        toast.success(`Part ${currentPart} closed. Now recording Part ${nextPart}`);
+        // toast suppressed
       } else {
         setActiveSurvey(null);
-        toast.success('Survey completed and saved');
+        // toast suppressed
       }
       
       onClose();

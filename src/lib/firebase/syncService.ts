@@ -240,9 +240,7 @@ class FirebaseSyncService {
       
       logger.debug(`[SyncService] Successfully synced survey ${surveyId} to Firebase`);
       
-      toast.success('Survey synced to cloud', {
-        description: `"${survey.surveyTitle || survey.name}" saved to Firebase`
-      });
+      /* toast removed */
 
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : String(error);
@@ -316,17 +314,17 @@ class FirebaseSyncService {
           logger.debug('[SyncService] Could not update cloudUploadStatus after manual sync:', statusErr);
         }
 
-        toast.success('Survey saved to cloud', { id: 'manual-sync' });
+        /* toast removed */
         return true;
       } else {
         await this.processQueue();
         
         const stats = await getQueueStats();
         if (stats.pending === 0 && stats.failed === 0) {
-          toast.success('All surveys synced', { id: 'manual-sync' });
+          /* toast removed */
           return true;
         } else {
-          toast.warning(`Sync incomplete: ${stats.pending + stats.failed} items remaining`, { id: 'manual-sync' });
+          /* toast removed */
           return false;
         }
       }

@@ -40,9 +40,7 @@ const LateralRearLaserSettings: React.FC = () => {
 
   const handleRearSettingChange = async (key: string, value: any) => {
     if (key === 'clearanceThresholdMeters' && value > 40) {
-      toast.warning('Threshold over 40m requires laser reconfiguration', {
-        description: 'Standard lasers are set to max 40m range. Please reconfigure laser settings to extend range up to 80m.'
-      });
+      // toast suppressed
     }
     const newSettings = { ...localRearSettings, [key]: value };
     setLocalRearSettings(newSettings);
@@ -55,7 +53,7 @@ const LateralRearLaserSettings: React.FC = () => {
       if (port) {
         const position = side === 'left' ? 'leftLateral' : 'rightLateral';
         await connectLaser(position, port);
-        toast.success(`${side.charAt(0).toUpperCase() + side.slice(1)} lateral laser connected`);
+        /* toast removed */
       }
     } catch (error) {
       toast.error(`Failed to connect ${side} laser: ${(error as Error).message}`);
@@ -67,7 +65,7 @@ const LateralRearLaserSettings: React.FC = () => {
       const port = await requestPort();
       if (port) {
         await connectLaser('rear', port);
-        toast.success('Rear overhang laser connected');
+        // toast suppressed
       }
     } catch (error) {
       toast.error(`Failed to connect rear laser: ${(error as Error).message}`);

@@ -177,7 +177,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     }
     
     if (!activeSurvey && mode === 'counterDetection') {
-      toast.warning('Object Detection: No survey active', { description: 'Objects will be detected but NOT logged. Create a survey to save measurements.' });
+      // toast suppressed
     }
     
     if ((mode === 'all' || mode === 'detection' || mode === 'manualDetection' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
@@ -388,7 +388,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
       setPendingPhotos([]);
       soundManager.playLogEntry();
       // Toast notification disabled per user request
-      // toast.success(`Logged measurement with road=${currentRoadNumber}, poi=${poiNumber}, type=${selectedPOIType || 'none'}`);
+      // // toast suppressed
     } catch (error) {
       toast.error('Failed to log measurement');
     }

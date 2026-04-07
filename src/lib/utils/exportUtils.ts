@@ -414,9 +414,7 @@ export const exportMeasurementsToCSV = async (measurements: Measurement[], filen
     // Create and download file
     await downloadFile(csvData, `${filename}.csv`, 'text/csv;charset=utf-8;');
 
-    toast.success('CSV exported successfully', {
-      description: `${measurements.length} measurements exported`
-    });
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to export CSV', {
       description: (error as Error).message
@@ -475,9 +473,7 @@ export const exportMeasurementsToGeoJSON = async (measurements: Measurement[], f
     // Create and download file
     await downloadFile(geoJsonData, `${filename}.geojson`, 'application/json');
 
-    toast.success('GeoJSON exported successfully', {
-      description: `${measurements.length} measurements exported`
-    });
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to export GeoJSON', {
       description: (error as Error).message
@@ -713,10 +709,7 @@ Exported on: ${new Date().toLocaleString()}
     const zipBlob = await zip.generateAsync({ type: 'blob' });
     await downloadFile(zipBlob, `${filename}.zip`, 'application/zip');
 
-    toast.success('Export with media completed', {
-      id: 'export-measurements-with-media',
-      description: `${measurements.length} measurements, ${imageCount} images, ${videoCount} videos, ${drawingCount} drawings exported`
-    });
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to export with media', {
       id: 'export-measurements-with-media',
@@ -1116,9 +1109,7 @@ export const exportSurvey = async (survey: Survey | null, format: 'csv' | 'json'
     }
     
     if (!silent) {
-      toast.success(`Survey exported as ${format.toUpperCase()}`, {
-        description: `File saved as ${filename}`
-      });
+      /* toast removed */
     }
   } catch (error) {
     if (!silent) {
@@ -1693,9 +1684,7 @@ export const exportSurveyWithMedia = async (survey: Survey | null): Promise<void
     // STAGE 2: Show toast with ALL skip counts if any (but export was successful)
     const totalSkipped = skippedProfiles + skippedSamples + skippedEvents;
     if (totalSkipped > 0) {
-      toast.warning('Legacy Data Skipped', {
-        description: `Skipped ${skippedProfiles} profiles, ${skippedSamples} samples, ${skippedEvents} events. Retry Stage 1 migration to fix.`
-      });
+      /* toast removed */
     }
     
     // ACTIVITY LOGS EXPORT
@@ -1982,10 +1971,7 @@ For technical support, contact SolTec Innovation.
     // Save the zip file
     await downloadFile(zipBlob, filename, 'application/zip');
 
-    toast.success('Complete survey export finished', {
-      id: 'export-with-media',
-      description: `${processedCount} POIs, ${imageCount} images, ${videoCount} videos, ${timelapseCount} timelapse frames, ${voiceNoteCount} voice notes, ${geoVideoCount} geo-videos, ${alerts.length} activity logs exported as ${filename}`
-    });
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to export complete survey', {
       id: 'export-with-media',
@@ -2115,10 +2101,7 @@ export const exportSurveyWithImages = async (survey: Survey | null): Promise<voi
     // Save the zip file
     await downloadFile(zipBlob, filename, 'application/zip');
 
-    toast.success('Survey export with images completed', {
-      id: 'export-with-images',
-      description: `${processedCount} POIs, ${imageCount} images exported as ${filename}`
-    });
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to export survey with images', {
       id: 'export-with-images',
@@ -2561,7 +2544,7 @@ export const closeSurveyWithExport = async (
         }
       } else {
         console.warn('[CloseSurvey] No recipients found - ownerEmail and completionEmailList are empty');
-        toast.warning('No email recipients configured for this survey');
+        /* toast removed */
       }
     }
 
@@ -2595,16 +2578,10 @@ export const closeSurveyWithExport = async (
           
           if (result.success) {
             console.log(`[CloseSurvey] RoadScope sync complete: ${result.poisSynced} POIs, ${result.filesSynced} files`);
-            toast.success('Synced to RoadScope', {
-              id: 'close-survey',
-              description: `${result.poisSynced} POIs and ${result.filesSynced || 0} files synced`
-            });
+            /* toast removed */
           } else {
             console.warn('[CloseSurvey] RoadScope sync failed:', result.errors);
-            toast.warning('RoadScope sync incomplete', {
-              id: 'close-survey',
-              description: 'Some data may not have synced'
-            });
+            /* toast removed */
           }
         } else {
           console.log('[CloseSurvey] RoadScope not configured, skipping sync');
@@ -2900,10 +2877,7 @@ export const importSurveyFromZip = async (file: File): Promise<{
       }
     }
     
-    toast.success('Survey imported successfully', {
-      id: 'import-survey',
-      description: `${metadata.name}: ${measurementCount} measurements`
-    });
+    /* toast removed */
     
     return {
       success: true,
@@ -2982,10 +2956,7 @@ export const getIndexedDBStats = async (): Promise<{
  */
 export const showIndexedDBStats = async (): Promise<void> => {
   const stats = await getIndexedDBStats();
-  toast.info(`IndexedDB Stats for ${stats.hostname}`, {
-    description: `${stats.surveys} surveys, ${stats.measurements} measurements, ~${stats.estimatedSizeMB}MB`,
-    duration: 10000
-  });
+  /* toast removed */
 };
 
 /**
@@ -3210,10 +3181,7 @@ export const exportFullDatabaseBackup = async (): Promise<{
     const filename = `measurepro-backup-${safeHostname}-${timestamp}.zip`;
     await downloadFile(zipBlob, filename, 'application/zip');
 
-    toast.success('Full database backup complete!', {
-      id: 'full-backup',
-      description: `${stats.surveys} surveys, ${stats.measurements} measurements saved to ${filename}`
-    });
+    /* toast removed */
 
     console.log('[FullBackup] Complete:', stats);
     return { success: true, filename, stats };
@@ -3353,10 +3321,7 @@ export const restoreFullDatabaseBackup = async (file: File): Promise<{
       console.log(`[Restore] Restored ${stats.profiles} road profiles`);
     }
 
-    toast.success('Backup restored successfully!', {
-      id: 'restore-backup',
-      description: `${stats.surveys} surveys, ${stats.measurements} measurements restored`
-    });
+    /* toast removed */
 
     console.log('[Restore] Complete:', stats);
     return { success: true, stats };

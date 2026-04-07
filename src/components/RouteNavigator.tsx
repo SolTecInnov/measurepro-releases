@@ -391,9 +391,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
       speakInstruction(`Starting navigation for route ${route.name}. Follow the instructions on screen.`);
     }
     
-    toast.success('Navigation started', {
-      description: `Following route: ${route.name}`
-    });
+    // toast suppressed
   };
   
   // Stop navigation
@@ -405,7 +403,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
       speakInstruction('Navigation stopped.');
     }
     
-    toast.info('Navigation stopped');
+    // toast suppressed
     onClose();
   };
   

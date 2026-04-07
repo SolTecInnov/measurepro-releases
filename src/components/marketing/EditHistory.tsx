@@ -41,7 +41,7 @@ export function EditHistory({ documentId, documentTitle }: EditHistoryProps) {
       queryClient.invalidateQueries({ queryKey: ['/api/marketing/edits', documentId] });
       setEditorName('');
       setEditNote('');
-      toast.success('Edit recorded successfully!');
+      // toast suppressed
     },
     onError: (error: Error) => {
       toast.error('Failed to record edit', {

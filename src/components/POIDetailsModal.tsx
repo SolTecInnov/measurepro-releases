@@ -118,7 +118,7 @@ const POIDetailsModal: React.FC<POIDetailsModalProps> = ({
       onEdit(updatedData);
     }
     setIsEditing(false);
-    toast.success('POI updated successfully');
+    // toast suppressed
   };
 
   // Handle delete

@@ -215,7 +215,7 @@ const SurveyRouteNavigator: React.FC<SurveyRouteNavigatorProps> = ({ route, onCl
   useEffect(() => {
     if (!hasShownOnlineNotice) {
       hasShownOnlineNotice = true;
-      toast.info('Survey navigation requires an active internet connection for map tiles.');
+      // toast suppressed
     }
   }, []);
 
@@ -241,13 +241,13 @@ const SurveyRouteNavigator: React.FC<SurveyRouteNavigatorProps> = ({ route, onCl
   const startNavigation = useCallback(async () => {
     setIsNavigating(true);
     await acquireWakeLock();
-    toast.success('Survey navigation started', { description: route.name });
+    // toast suppressed
   }, [acquireWakeLock, route.name]);
 
   const stopNavigation = useCallback(() => {
     setIsNavigating(false);
     releaseWakeLock();
-    toast.info('Survey navigation stopped');
+    // toast suppressed
     onClose();
   }, [releaseWakeLock, onClose]);
 

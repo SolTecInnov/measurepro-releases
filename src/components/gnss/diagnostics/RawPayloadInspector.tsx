@@ -51,7 +51,7 @@ export function RawPayloadInspector({ maxPackets = 20 }: RawPayloadInspectorProp
   const handleStrategyChange = (newStrategy: AltitudeSourceStrategy) => {
     setStrategy(newStrategy);
     altitudeCalibration.setStrategy(newStrategy);
-    toast.success(`Altitude source strategy set to: ${newStrategy.replace('_', ' ')}`);
+    /* toast removed */
   };
 
   const getStatusBadge = (status: AltitudeSummary['status']) => {
@@ -142,7 +142,7 @@ export function RawPayloadInspector({ maxPackets = 20 }: RawPayloadInspectorProp
     const exportData = rawPacketTap.exportDiagnostics(metadata);
     const blob = new Blob([exportData], { type: 'application/json' });
     saveAs(blob, `gnss-diagnostics-${Date.now()}.json`);
-    toast.success('Diagnostics log exported successfully');
+    // toast suppressed
   };
 
   return (

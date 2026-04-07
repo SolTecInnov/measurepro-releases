@@ -357,7 +357,7 @@ const LiveMonitor = () => {
         }, 15 * 60 * 1000);
       }
 
-      toast.success(`Connected to ${userInfo.displayName}`);
+      /* toast removed */
     } catch (error) {
       toast.error('Failed to connect to remote user');
       setRemoteConnectionStatus('error');
@@ -398,7 +398,7 @@ const LiveMonitor = () => {
     setRemoteUserId(null);
     setRemoteUserName(null);
     setRemoteConnectionStatus('disconnected');
-    toast.success('Disconnected from remote user');
+    /* toast removed */
   };
 
   useEffect(() => {

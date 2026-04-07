@@ -58,9 +58,7 @@ export default function ContactPage() {
       const result = await response.json();
 
       if (result.success) {
-        toast.success('Message sent successfully!', {
-          description: 'We will get back to you as soon as possible.',
-        });
+        /* toast removed */
         reset();
       } else {
         toast.error('Failed to send message', {

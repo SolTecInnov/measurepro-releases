@@ -73,7 +73,7 @@ export function DetectionDebugPanel() {
               <li>• <strong>Bridge Detection:</strong> Single POI at minimum clearance</li>
               <li>• <strong>Utility Wires:</strong> One POI per 10m corridor (lowest only)</li>
               <li>• <strong>HV Wires:</strong> Max 3 POIs per corridor (3 lowest conductors)</li>
-              <li>• <strong>City Mode:</strong> Aggressive suppression and rate limiting</li>
+              
             </ul>
           </div>
 

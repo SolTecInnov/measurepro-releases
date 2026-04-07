@@ -178,12 +178,7 @@ export const appendToLocalCSV = async (measurement: Measurement) => {
         }
         
         // Notify user that CSV backup has moved to device storage
-        toast.warning('CSV backup moved to device storage', {
-          description: 'Your browser storage is full. The CSV backup has moved to device storage — your data is still safe.',
-          duration: 8000,
-          dismissible: true,
-          id: `csv-quota-${surveyId}`,
-        });
+        /* toast removed */
       }
     }
     

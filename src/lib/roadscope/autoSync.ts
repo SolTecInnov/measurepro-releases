@@ -80,7 +80,7 @@ async function performAutoSync(surveyId: string, userId: string, poiCount: numbe
     const status = await getSyncStatus(surveyId);
     
     logger.info(`[RoadScopeAutoSync] Auto-syncing survey ${surveyId} at ${poiCount} POIs`);
-    toast.info(`Auto-syncing to RoadScope (${poiCount} POIs)...`);
+    /* toast removed */
     
     // Perform the sync
     const result = await syncSurveyToRoadScope(survey, userId, {
@@ -94,7 +94,7 @@ async function performAutoSync(surveyId: string, userId: string, poiCount: numbe
     if (result.success) {
       lastSyncedCounts.set(surveyId, poiCount);
       logger.info(`[RoadScopeAutoSync] Successfully synced ${result.poisSynced} POIs to RoadScope`);
-      toast.success(`RoadScope sync complete (${result.poisSynced} POIs)`);
+      /* toast removed */
     } else {
       logger.warn('[RoadScopeAutoSync] Sync failed:', result.errors);
       // Don't show error toast for auto-sync to avoid spam

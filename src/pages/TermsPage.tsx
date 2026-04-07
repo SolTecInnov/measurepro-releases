@@ -59,7 +59,7 @@ export default function TermsPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Terms accepted');
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/terms/check-acceptance'] });
     },
     onError: (error: any) => {

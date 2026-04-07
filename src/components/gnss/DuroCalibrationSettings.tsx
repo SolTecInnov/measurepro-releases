@@ -103,7 +103,7 @@ export function DuroCalibrationSettings() {
   const handleSave = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(calibration));
     setHasChanges(false);
-    toast.success('Calibration settings saved');
+    // toast suppressed
   };
 
   const handleReset = () => {

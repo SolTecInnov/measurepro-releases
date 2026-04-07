@@ -484,10 +484,8 @@ export const useMeasurementLogging = ({
 
         setOfflineItems((prev) => prev + 1);
         soundManager.playLogEntry();
-
-        toast.success(`Buffered POI logged: ${adjustedMeasurementValue.toFixed(2)}m`, {
-          description: `${session.measurements.length} readings collected${groundRef > 0 ? ` (incl. ${groundRef.toFixed(2)}m ground ref)` : ''}`,
-        });
+        // Sound confirms the log — no toast needed (reduces distraction while driving)
+        // toast.success suppressed intentionally
 
         logger.debug(`[BufferDetection] POI created successfully: ${adjustedMeasurementValue.toFixed(2)}m (${session.measurements.length} readings, groundRef=${groundRef.toFixed(2)}m)`);
       } catch (error) {
@@ -957,10 +955,8 @@ export const useMeasurementLogging = ({
       lastMeasurement === "--" ||
       lastMeasurement === "infinity"
     ) {
-      toast.error("No laser reading", {
-        description: "Connect the laser and wait for a valid measurement before logging.",
-        duration: 3000,
-      });
+      // DE02 = no target (sky) - not an error, just no object in range
+      // Silent return - sound already indicates no valid reading
       return;
     }
     logger.debug(
@@ -1144,11 +1140,7 @@ export const useMeasurementLogging = ({
         gpsData.fixQuality === 'No Fix' ? 'no GPS fix' :
         gpsAge >= GPS_STALE_THRESHOLD_MS ? `stale GPS data (${Math.round(gpsAge / 1000)}s old)` :
         'coordinates at 0,0';
-      toast.warning(`Measurement logged without valid GPS (${reason})`, {
-        description: "The entry is tagged 'noGpsFix' so it can be corrected later.",
-        duration: 4000,
-        id: "no-gps-fix-warning",
-      });
+      // toast suppressed
     }
 
     let newMeasurement = {
@@ -1266,10 +1258,7 @@ export const useMeasurementLogging = ({
       logger.debug(
         "⚠️ No active survey - cannot trigger alert (no database save)",
       );
-      toast.warning("Cannot trigger alert - no active survey", {
-        description: `${adjustedValue.toFixed(2)}m crossed ${severity} threshold (${thresholdValue.toFixed(2)}m) but was not saved. Please create a survey first.`,
-        duration: 5000,
-      });
+      /* toast removed */
       return;
     }
 
@@ -2116,12 +2105,10 @@ export const useMeasurementLogging = ({
   // NEW: Process Counter Detection - uses RSA buffer for high-speed, laserOutput for ASCII
   const processCounterDetection = async () => {
     try {
-      // CRITICAL: Skip processing entirely if current POI type doesn't record height clearance
-      const currentPOIType = selectedPOIType || getSelectedType();
-      if (currentPOIType && !shouldRecordHeightClearance(currentPOIType)) {
-        // Non-height-clearance POI type - don't auto-record measurements
-        return;
-      }
+      // Use current POI type, fall back to 'wire' if not a height-clearance type
+      const rawPOIType = selectedPOIType || getSelectedType();
+      // If selected type isn't for height clearance, default to 'wire' in counter detection mode
+      const currentPOIType = shouldRecordHeightClearance(rawPOIType) ? rawPOIType : 'wire';
 
       // Get threshold from config
       const configJson = localStorage.getItem("overhead_detection_config");
@@ -2658,10 +2645,7 @@ export const useMeasurementLogging = ({
       logger.debug(
         "⚠️ Object Detection mode starting WITHOUT survey - objects will be detected but NOT logged",
       );
-      toast.warning("Object Detection: No survey active", {
-        description:
-          "Objects will be detected but NOT logged. Create a survey to save measurements.",
-      });
+      // toast suppressed
     }
 
     // Check device connections for automated modes (wired OR Bluetooth)
@@ -2758,7 +2742,7 @@ export const useMeasurementLogging = ({
   const pauseLogging = () => {
     if (isLogging && !isPaused) {
       setIsPaused(true);
-      toast.warning("Logging paused - POI recording suspended");
+      // toast suppressed
     }
   };
 
@@ -2767,7 +2751,7 @@ export const useMeasurementLogging = ({
     if (isLogging && isPaused) {
       // Already logging, just unpause
       setIsPaused(false);
-      toast.success("Logging resumed");
+      // toast suppressed
     } else if (!isLogging) {
       // If not logging, delegate to startLogging for full initialization
       startLogging();
@@ -2779,6 +2763,8 @@ export const useMeasurementLogging = ({
     const handleMeasurementChange = async () => {
       // Store the current measurement for comparison
       const currentMeasurement = lastMeasurement;
+      // BUGFIX: Always read activeSurvey from store (not closure) to handle auto-split
+      const liveActiveSurvey = useSurveyStore.getState().activeSurvey;
 
       // AUTOMATIC ALERT THRESHOLD LOGGING - runs independently of logging mode
       // NOTE: Disabled for Object Detection (counterDetection) mode as it uses buffer logging instead
@@ -2845,14 +2831,14 @@ export const useMeasurementLogging = ({
       if (
         !isLogging ||
         isPaused ||
-        (requiresSurvey && !activeSurvey) ||
+        (requiresSurvey && !liveActiveSurvey) ||
         stopRequested.current
       ) {
         // Debug: Log why we're returning early
         if (!isLogging) logger.debug("🔍 handleMeasurementChange: Not logging");
         if (isPaused)
           logger.debug("🔍 handleMeasurementChange: Logging paused");
-        if (requiresSurvey && !activeSurvey)
+        if (requiresSurvey && !liveActiveSurvey)
           logger.debug("🔍 handleMeasurementChange: No active survey");
         if (stopRequested.current)
           logger.debug("🔍 handleMeasurementChange: Stop requested");
@@ -2962,20 +2948,19 @@ export const useMeasurementLogging = ({
                       const groundRef = useLaserStore.getState().groundReferenceHeight || 0;
 
                       if (!bufferDetectionService.isActive()) {
-                        // BUG 2 FIX: Skip starting buffer if GPS is at 0,0 (no fix yet)
-                        // Distance-based completion would never trigger with invalid coordinates
-                        if (!currentGpsData.latitude && !currentGpsData.longitude) {
-                          logger.debug('[BufferDetection] GPS at 0,0 - skipping buffer start (no fix)');
-                        } else {
-                        // Start a new buffer session
+                        const hasGpsFix = !!(currentGpsData.latitude || currentGpsData.longitude);
+                        if (!hasGpsFix) {
+                          // No GPS fix — override to time-based mode so buffer can still complete
+                          logger.debug('[BufferDetection] No GPS fix — using time mode fallback');
+                        }
+                        // Start a new buffer session (use 0,0 coords if no GPS — will use time mode)
                         const started = bufferDetectionService.start(
                           selectedPOIType as any,
-                          { latitude: currentGpsData.latitude, longitude: currentGpsData.longitude },
+                          { latitude: currentGpsData.latitude || 0, longitude: currentGpsData.longitude || 0 },
                           groundRef
                         );
                         if (started) {
-                          logger.debug(`[BufferDetection] Started buffer for ${selectedPOIType}`);
-                        }
+                          logger.debug(`[BufferDetection] Started buffer for ${selectedPOIType} (GPS: ${hasGpsFix ? 'yes' : 'no-fix/time-fallback'})`);
                         }
                       }
                       
@@ -3306,9 +3291,7 @@ export const useMeasurementLogging = ({
             }
 
             // Show toast notification that object detection has started
-            toast.info("Object detection started", {
-              description: "Tracking object measurements...",
-            });
+            // toast suppressed
           }
           // If we're already detecting an object and got another measurement valid for display, add to buffer
           else if (isDetectingObject.current && isValidForDisplay) {

@@ -233,7 +233,7 @@ export function DuroLiveDataViewer() {
                 if (duroGpsEnabled) {
                   duroGpsService.stop();
                   setDuroGpsEnabled(false);
-                  toast.info('Duro GPS disabled');
+                  // toast suppressed
                 } else {
                   if (!backendUrl) {
                     toast.error('Set Backend URL first');
@@ -252,7 +252,7 @@ export function DuroLiveDataViewer() {
                     duroGpsService.start();
                   }
                   setDuroGpsEnabled(true);
-                  toast.success('Duro GNSS connected via TCP');
+                  // toast suppressed
                 }
               }}
               data-testid="button-toggle-duro-gps"

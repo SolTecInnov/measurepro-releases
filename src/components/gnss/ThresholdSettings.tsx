@@ -58,7 +58,7 @@ export function ThresholdSettings() {
       // Optionally save to backend via API
       // await updateThresholds(thresholds);
       
-      toast.success('Threshold settings saved');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to save threshold settings');
     } finally {
@@ -68,7 +68,7 @@ export function ThresholdSettings() {
 
   const handleReset = () => {
     setThresholds(DEFAULT_THRESHOLDS);
-    toast.success('Reset to default thresholds');
+    // toast suppressed
   };
 
   const updateThreshold = (key: keyof ThresholdConfig, value: number) => {

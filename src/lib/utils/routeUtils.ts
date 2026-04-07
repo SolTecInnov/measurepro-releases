@@ -106,9 +106,7 @@ export const getDirections = async (positions: [number, number][]): Promise<[num
       const path = decodePolyline(route.overview_polyline.points);
       
       // Update toast
-      toast.success('Route calculated successfully', {
-        id: 'route-calculation'
-      });
+      /* toast removed */
       
       return path;
     } catch (error) {
@@ -117,9 +115,7 @@ export const getDirections = async (positions: [number, number][]): Promise<[num
     }
   } catch (error) {
     // Fall back to straight lines between points
-    toast.info('Falling back to straight lines between points', {
-      id: 'route-calculation'
-    });
+    /* toast removed */
     
     // Create a simple straight-line path between all points
     const straightLinePath: [number, number][] = [];
@@ -168,16 +164,12 @@ export const getDirectionsFromOSRM = async (positions: [number, number][]): Prom
       (coord: [number, number]) => [coord[1], coord[0]]
     );
     
-    toast.success('Route calculated successfully using OSRM', {
-      id: 'route-calculation'
-    });
+    /* toast removed */
     
     return path;
   } catch (error) {
     // Fall back to straight lines
-    toast.info('Falling back to straight lines between points', {
-      id: 'route-calculation'
-    });
+    /* toast removed */
     
     return positions;
   }
@@ -434,7 +426,7 @@ export const saveRoute = async (route: Omit<Route, 'id' | 'createdAt' | 'updated
       await db.put('route-points', pointWithRouteId);
     }
     
-    toast.success('Route saved successfully', { id: 'save-route' });
+    /* toast removed */
     return newRoute;
   } catch (error) {
     toast.error('Failed to save route', { id: 'save-route' });
@@ -505,7 +497,7 @@ export const updateRoute = async (route: Route) => {
     
     await tx.done;
     
-    toast.success('Route updated successfully', { id: 'update-route' });
+    /* toast removed */
     return updatedRoute;
   } catch (error) {
     toast.error('Failed to update route', { id: 'update-route' });
@@ -550,7 +542,7 @@ export const deleteRoute = async (routeId: string) => {
     // Then delete the route
     await db.delete('routes', routeId);
     
-    toast.success('Route deleted successfully');
+    /* toast removed */
   } catch (error) {
     toast.error('Failed to delete route');
     throw error;
@@ -813,9 +805,7 @@ export const importRouteFromGPX = async (fileContent: string, surveyId: string):
     
     const savedRoute = await saveRoute(route);
     
-    toast.success(`GPX route imported successfully`, {
-      description: `${coordinates.length} points imported`
-    });
+    /* toast removed */
     
     return savedRoute;
   } catch (error) {

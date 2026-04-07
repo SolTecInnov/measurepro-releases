@@ -21,6 +21,8 @@ import { getEffectiveStorageQuota, refreshStorageEstimate } from './lib/utils/st
 import OfflineBanner from './components/OfflineBanner';
 import PwaUpdatePrompt from './components/PwaUpdatePrompt';
 import UpdateNotification from './components/UpdateNotification';
+import { DroneImportToast } from './components/drone/DroneImportToast';
+import { DroneImportPanel } from './components/drone/DroneImportPanel';
 import OnlineBanner from './components/OnlineBanner';
 import { GracePeriodBanner } from './components/GracePeriodBanner';
 import { GracePeriodLockout } from './components/GracePeriodLockout';
@@ -432,6 +434,15 @@ function PostLoginRedirectHandler() {
 function App() {
   // IndexedDB blocked warning state
   const [showIndexedDBWarning, setShowIndexedDBWarning] = useState(false);
+  const [showDroneImport, setShowDroneImport] = useState(false);
+  const [droneImportDevice, setDroneImportDevice] = useState<any>(null);
+
+  // Listen for drone import open event from Tools menu
+  useEffect(() => {
+    const handler = () => { setDroneImportDevice(null); setShowDroneImport(true); };
+    window.addEventListener('open-drone-import', handler);
+    return () => window.removeEventListener('open-drone-import', handler);
+  }, []);
   
   // Crash recovery dialog state
   const [showCrashRecovery, setShowCrashRecovery] = useState(false);
@@ -487,16 +498,6 @@ function App() {
         const isHealthy = await checkIndexedDBHealth();
         if (!isHealthy) {
           console.warn('⚠️ IndexedDB unavailable — running in online-only mode');
-          toast.warning('Offline Mode Unavailable', {
-            description: 'IndexedDB is unavailable. App will work in online mode only. Offline features disabled.',
-            duration: 10000,
-            action: {
-              label: 'Help',
-              onClick: () => {
-                alert('Storage is unavailable (Safari private mode, quota exceeded, or browser restriction).\n\nApp will work normally but:\n✅ Online features: ENABLED\n❌ Offline features: DISABLED\n\nTo fix:\n1. Exit private browsing\n2. Clear browser data for this site\n3. Reload the page\n\nOr run: window.clearAllDatabases() in console, then reload.');
-              }
-            }
-          });
           return;
         }
 
@@ -606,9 +607,7 @@ function App() {
           const result = await runStage1Migration(setMigrationProgress);
           if (result.success) {
             localStorage.setItem('migration_stage1_v1', 'completed');
-            toast.success('Data Migration Complete', {
-              description: `Backfilled ${result.backfilled} records, quarantined ${result.quarantined} records`
-            });
+            /* toast removed */
           } else if (result.errors.length > 0) {
             localStorage.setItem('migration_stage1_v1', 'completed_with_errors');
             toast.error('Migration completed with errors', {
@@ -722,7 +721,7 @@ function App() {
           const fbUser = getCurrentUser();
           const token = fbUser ? await fbUser.getIdToken() : undefined;
           await flushPendingActions(() => {
-            toast.success('Offline company changes synced');
+            /* toast removed */
           }, token, fbUser?.uid);
         } catch {
           // Best-effort
@@ -786,9 +785,7 @@ function App() {
           const { checkStorageHealth } = await import('./lib/utils/storageManager');
           const health = await checkStorageHealth();
           if (!health.healthy) {
-            toast.warning(health.warning, {
-              duration: 10000 // Show for 10 seconds
-            });
+            /* toast removed */
           }
         } catch (healthError) {
           // Silent fail
@@ -862,8 +859,12 @@ function App() {
     backgroundSyncService.start();
     
     // Add event listener to trigger sync when going back online
-    const handleOnline = async () => {
-      await backgroundSyncService.performSync();
+    // IMPORTANT: Do NOT await — this must be non-blocking to prevent UI freeze
+    const handleOnline = () => {
+      // Defer to next tick so the online banner renders first
+      setTimeout(() => {
+        backgroundSyncService.performSync().catch(() => {});
+      }, 100);
     };
     
     window.addEventListener('online', handleOnline);
@@ -894,6 +895,13 @@ function App() {
       {/* PWA update prompt — shown when a new version is available in production */}
       <PwaUpdatePrompt />
       <UpdateNotification />
+      <DroneImportToast onImportRequest={(device) => { setDroneImportDevice(device); setShowDroneImport(true); }} />
+      {showDroneImport && (
+        <DroneImportPanel
+          initialDevice={droneImportDevice}
+          onClose={() => { setShowDroneImport(false); setDroneImportDevice(null); }}
+        />
+      )}
       
       {/* Demo Mode Provider - auto-starts demo data when in demo mode */}
       <DemoModeProvider />

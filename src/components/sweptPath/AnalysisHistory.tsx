@@ -14,12 +14,12 @@ const AnalysisHistory = () => {
 
   const handleLoadAnalysis = (_analysis: any) => {
     // TODO: Load full analysis with snapshots from IndexedDB
-    toast.info('Loading analysis...');
+    // toast suppressed
   };
 
   const handleDeleteAnalysis = (id: string) => {
     removeFromHistory(id);
-    toast.success('Analysis deleted');
+    // toast suppressed
   };
 
   const getVerdictIcon = (verdict: string) => {

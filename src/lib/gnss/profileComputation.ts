@@ -47,6 +47,12 @@ export function computeProfileFromSamples(
   const validSamples = samples.filter(s => 
     s.latitude !== 0 && s.longitude !== 0 && s.altitude !== null && s.altitude !== undefined
   );
+
+  // Smooth altitude with a 5-sample moving average to reduce GPS noise
+  const smoothedAltitudes = validSamples.map((_, idx) => {
+    const window = validSamples.slice(Math.max(0, idx - 2), idx + 3);
+    return window.reduce((sum, s) => sum + (s.altitude ?? 0), 0) / window.length;
+  });
   
   if (validSamples.length < 2) {
     return null;
@@ -71,18 +77,22 @@ export function computeProfileFromSamples(
       cumulativeDistance += dist;
     }
 
-    const altitude = sample.altitude ?? 0;
+    const altitude = smoothedAltitudes[i] ?? sample.altitude ?? 0;
     
     let grade = 0;
     if (i > 0) {
       const prev = sortedSamples[i - 1];
-      const prevAlt = prev.altitude ?? 0;
+      const prevAlt = smoothedAltitudes[i - 1] ?? prev.altitude ?? 0;
       const segmentDist = haversineDistance(
         prev.latitude, prev.longitude,
         sample.latitude, sample.longitude
       );
-      if (segmentDist > 0) {
-        grade = ((altitude - prevAlt) / segmentDist) * 100;
+      // GNSS altitude is noisy — require minimum 2m travel before computing grade
+      // This prevents 300%+ grades from GPS jitter on stationary or slow-moving vehicle
+      if (segmentDist >= 2.0) {
+        const rawGrade = ((altitude - prevAlt) / segmentDist) * 100;
+        // Clamp to ±50% — anything beyond that is GPS noise (real roads < 20% max)
+        grade = Math.max(-50, Math.min(50, rawGrade));
       }
     }
 

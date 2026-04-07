@@ -131,7 +131,7 @@ const RouteManager: React.FC<RouteManagerProps> = ({
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
       
-      toast.success('Route exported successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to export route');
     }
@@ -235,7 +235,7 @@ const RouteManager: React.FC<RouteManagerProps> = ({
           onShowRoute(route);
         }
         
-        toast.success('Route imported successfully');
+        // toast suppressed
       }
     } catch (error) {
       toast.error('Failed to import route');

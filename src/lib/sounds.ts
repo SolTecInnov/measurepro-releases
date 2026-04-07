@@ -51,7 +51,6 @@ export {
   logEntrySound, 
   warningSound, 
   criticalSound,
-  soundPath,
   // New clean sounds
   notifySoftSound, notifyCleanSound, poiLogSound, warningSoftSound,
   criticalAlertSound, poiConfirmSound, cameraClickSound, modeChangeSound,

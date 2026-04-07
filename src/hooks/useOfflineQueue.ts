@@ -27,7 +27,7 @@ export function useOfflineQueue() {
   const tryFlushQueue = async (silent = false) => {
     const token = await getCurrentIdToken();
     if (!token) {
-      if (!silent) toast.warning('Cannot sync offline actions: not authenticated');
+      // if-toast suppressed
       return;
     }
     const currentUid = getAuth().currentUser?.uid;
@@ -39,19 +39,14 @@ export function useOfflineQueue() {
     const requiresManual = needsInputActions.filter(a => getSessionCredential(a.id) === null);
     if (!silent) {
       if (requiresManual.length > 0) {
-        toast.info(`${requiresManual.length} queued action(s) need your input to complete`, {
-          description: 'Open the Company Admin panel and use the "Pending Actions" section to complete them.',
-          duration: 10000,
-        });
+        // toast suppressed
       }
       if (canAutoReplay.length > 0) {
-        toast.info(`Replaying ${canAutoReplay.length} credential action(s) from this session…`);
+        /* toast removed */
       }
     }
     await flushPendingActions(() => {
-      toast.success('Offline changes synced', {
-        description: 'Your queued company actions have been applied.',
-      });
+      // toast suppressed
     }, token, currentUid);
   };
 
@@ -113,7 +108,7 @@ export function useOnlineRequired() {
     }
     const outcome = await enqueueOrExecute(action, onlineExecutor);
     if (outcome.queued) {
-      toast.info('Action queued — will sync when you reconnect');
+      // toast suppressed
     }
     return { ...outcome, blocked: false };
   };

@@ -236,7 +236,7 @@ const MeasurementLog: React.FC<MeasurementLogProps> = ({ onEditMeasurement }) =>
         poi_type: editForm.poiType
       });
       setEditingId(null);
-      toast.success('Measurement updated');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to update measurement');
     }
@@ -263,7 +263,7 @@ const MeasurementLog: React.FC<MeasurementLogProps> = ({ onEditMeasurement }) =>
     if (confirm('Are you sure you want to clear all detection logs?')) {
       localStorage.removeItem('objectDetectionLogs');
       setDetectionLogs([]);
-      toast.success('Detection logs cleared');
+      // toast suppressed
     }
   };
 
@@ -418,9 +418,7 @@ const MeasurementLog: React.FC<MeasurementLogProps> = ({ onEditMeasurement }) =>
         }
       }
       
-      toast.success(`Imported ${importedCount} measurements`, {
-        description: errorCount > 0 ? `${errorCount} rows had errors and were skipped` : undefined
-      });
+      // toast suppressed
       
       // Reset file input
       if (fileInputRef.current) {

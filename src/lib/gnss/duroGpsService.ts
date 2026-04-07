@@ -383,7 +383,7 @@ class DuroGpsService {
           if (!this.wasConnected) {
             this.wasConnected = true;
             useGPSStore.getState().updateData({ source: 'duro' });
-            toast.success('Duro GNSS connected', { description: `${status.host}:${status.port}` });
+            /* toast removed */
           }
         } else {
           if (this.wasConnected) {

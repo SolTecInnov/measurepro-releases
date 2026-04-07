@@ -30,9 +30,7 @@ const AboutSettings = () => {
     const handleOnline = () => {
       if (sessionStorage.getItem('pending_pw_change_flag')) {
         setShowChangePw(true);
-        toast.info('You are back online', {
-          description: 'You can now complete your password change — open the Change Password form below.',
-        });
+        // toast suppressed
       }
     };
     window.addEventListener('online', handleOnline);
@@ -62,9 +60,7 @@ const AboutSettings = () => {
     if (!navigator.onLine) {
       sessionStorage.setItem('pending_pw_change_flag', '1');
       setPendingOfflineChange(true);
-      toast.info('Connect to change password', {
-        description: 'You are offline. Reconnect to the internet, then return here to complete the password change.',
-      });
+      // toast suppressed
       setShowChangePw(false);
       setCurrentPw('');
       setNewPw('');
@@ -101,7 +97,7 @@ const AboutSettings = () => {
         setPendingOfflineChange(false);
       }
 
-      toast.success('Password changed successfully!');
+      // toast suppressed
       setShowChangePw(false);
       setCurrentPw('');
       setNewPw('');
@@ -117,9 +113,7 @@ const AboutSettings = () => {
         // Connectivity dropped — record intent flag only, no credentials stored
         sessionStorage.setItem('pending_pw_change_flag', '1');
         setPendingOfflineChange(true);
-        toast.info('Connection lost', {
-          description: 'When you reconnect, the form will reopen so you can complete the password change.',
-        });
+        // toast suppressed
         setShowChangePw(false);
         setCurrentPw('');
         setNewPw('');

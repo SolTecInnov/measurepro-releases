@@ -1,5 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getFirestore, collection, doc, setDoc, getDoc, getDocs, query, where, onSnapshot, Timestamp, writeBatch, updateDoc } from 'firebase/firestore';
+import { getFirestore, initializeFirestore, memoryLocalCache, collection, doc, setDoc, getDoc, getDocs, query, where, onSnapshot, Timestamp, writeBatch, updateDoc } from 'firebase/firestore';
 import { getAuth, signInAnonymously, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { Survey, Measurement } from './survey/types';
 import { toast } from 'sonner';
@@ -111,7 +111,11 @@ const initializeFirebase = () => {
       const existingApps = getApps();
       if (existingApps.length > 0) {
         app = existingApps[0];
-        db = getFirestore(app);
+        try {
+          db = initializeFirestore(app, { localCache: memoryLocalCache() });
+        } catch {
+          db = getFirestore(app);
+        }
         auth = getAuth(app);
         isInitialized = true;
         // Expose app globally for liveMonitorService and other services
@@ -120,7 +124,12 @@ const initializeFirebase = () => {
       }
       
       app = initializeApp(firebaseConfig);
-      db = getFirestore(app);
+      // Use memoryLocalCache to avoid IndexedDB issues in Electron (file:// protocol)
+      try {
+        db = initializeFirestore(app, { localCache: memoryLocalCache() });
+      } catch {
+        db = getFirestore(app); // fallback if already initialized
+      }
       auth = getAuth(app);
       isInitialized = true;
       
@@ -320,7 +329,7 @@ export const importSurveysFromFirebase = async (): Promise<Survey[]> => {
     logger.debug('[Import] Fetched', surveys.length, 'surveys from Firebase');
     
     if (surveys.length === 0) {
-      toast.info('No surveys found to import');
+      // toast suppressed
       return [];
     }
 
@@ -368,7 +377,7 @@ export const importSurveysFromFirebase = async (): Promise<Survey[]> => {
       }
     }
 
-    toast.success(`Imported ${savedCount} new surveys and ${measurementCount} POIs`);
+    // toast suppressed
     return surveys;
   } catch (error) {
     toast.error('Failed to import surveys', {

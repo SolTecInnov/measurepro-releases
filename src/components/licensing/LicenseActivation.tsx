@@ -53,7 +53,7 @@ const LicenseActivation = ({ onActivationSuccess }: LicenseActivationProps) => {
           message: 'License activated successfully!',
           licenseDetails: result.license,
         });
-        toast.success('License activated successfully!');
+        // toast suppressed
         setActivationCode('');
         
         if (onActivationSuccess) {

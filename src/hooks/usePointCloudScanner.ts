@@ -95,7 +95,7 @@ export function usePointCloudScanner() {
     }
 
     if (!gpsStatus.available) {
-      toast.warning('GPS not available - scans will lack geo-referencing');
+      // toast suppressed
     }
 
     // Check REAL device storage (not artificial quota)
@@ -128,7 +128,7 @@ export function usePointCloudScanner() {
     setRecordingStatus('recording');
     setError(null);
 
-    toast.success(`Started scan: ${scanName}`);
+    // toast suppressed
 
     // Start frame capture loop (1 fps)
     startFrameCapture();
@@ -141,7 +141,7 @@ export function usePointCloudScanner() {
     if (recordingStatus === 'recording') {
       setRecordingStatus('paused');
       stopFrameCapture();
-      toast.info('Scan paused');
+      // toast suppressed
     }
   }, [recordingStatus, setRecordingStatus]);
 
@@ -152,7 +152,7 @@ export function usePointCloudScanner() {
     if (recordingStatus === 'paused') {
       setRecordingStatus('recording');
       startFrameCapture();
-      toast.success('Scan resumed');
+      // toast suppressed
     }
   }, [recordingStatus, setRecordingStatus]);
 
@@ -170,9 +170,7 @@ export function usePointCloudScanner() {
     resetCurrentScan();
     scanIdRef.current = null;
 
-    toast.success(`Scan completed: ${scanData.scanName}`, {
-      description: `${scanData.frameCount} frames, ${scanData.pointCount.toLocaleString()} points`,
-    });
+    /* toast removed */
 
     // Sync to Firebase Firestore (optional cloud backup)
     if (scanData.scanId) {

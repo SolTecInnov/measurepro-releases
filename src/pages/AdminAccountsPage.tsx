@@ -205,7 +205,7 @@ export default function AdminAccountsPage() {
       return apiRequest(`/api/admin/accounts/${accountId}/approve`, { method: 'POST', headers });
     },
     onSuccess: () => {
-      toast.success('Account approved', { description: 'The user has been notified via email.' });
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/admin/accounts/pending'] });
     },
     onError: (error: any) => {
@@ -220,7 +220,7 @@ export default function AdminAccountsPage() {
       return apiRequest('/api/admin/create-beta-account', { method: 'POST', headers });
     },
     onSuccess: (data: any) => {
-      toast.success('Beta account created successfully!', { description: `Account: ${data.credentials?.email}` });
+      /* toast removed */
     },
     onError: (error: any) => {
       toast.error('Failed to create beta account', { description: error.message || 'Please try manual creation instead.' });
@@ -238,7 +238,7 @@ export default function AdminAccountsPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Account rejected', { description: 'The user has been notified via email.' });
+      /* toast removed */
       setShowRejectDialog(false);
       setRejectionReason('');
       setSelectedAccount(null);
@@ -271,7 +271,7 @@ export default function AdminAccountsPage() {
       });
     },
     onSuccess: (data: any) => {
-      toast.success('User created successfully', { description: `${createForm.email} — UID: ${data.uid}` });
+      /* toast removed */
       setShowCreateForm(false);
       setCreateForm({
         email: '', password: '', fullName: '', company: '', title: '',
@@ -305,7 +305,7 @@ export default function AdminAccountsPage() {
     },
     onSuccess: (data: any) => {
       setGeneratedTempPassword(data.temporaryPassword || null);
-      toast.success('Password reset', { description: 'Share the temporary password with the user.' });
+      /* toast removed */
     },
     onError: (error: any) => {
       toast.error('Failed to reset password', { description: error.message || 'Please try again.' });
@@ -329,7 +329,7 @@ export default function AdminAccountsPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Subscription updated');
+      /* toast removed */
       setShowSubDialog(false);
       setSubEditUser(null);
       queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
@@ -353,7 +353,7 @@ export default function AdminAccountsPage() {
       });
     },
     onSuccess: (data: any) => {
-      toast.success('Welcome email sent', { description: data.message || `Email sent to ${resendEmailUser?.email}` });
+      /* toast removed */
       setShowResendEmailDialog(false);
       setResendEmailUser(null);
       setResendNewPassword('');
@@ -398,7 +398,7 @@ export default function AdminAccountsPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Company & add-ons updated');
+      /* toast removed */
       setShowCompanyDialog(false);
       setCompanyEditUser(null);
       queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
@@ -414,7 +414,7 @@ export default function AdminAccountsPage() {
       return apiRequest(`/api/admin/users/${uid}/company`, { method: 'DELETE', headers });
     },
     onSuccess: () => {
-      toast.success('Company membership and all add-on overrides removed');
+      /* toast removed */
       setCompanyMembership(null);
       setSelectedCompanyId('');
       setAddonToggles({});
@@ -1196,7 +1196,7 @@ export default function AdminAccountsPage() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => { navigator.clipboard.writeText(generatedTempPassword); toast.success('Copied!'); }}
+                  onClick={() => { navigator.clipboard.writeText(generatedTempPassword); /* toast removed */ }}
                   data-testid="button-copy-password"
                 >
                   Copy

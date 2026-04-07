@@ -133,7 +133,7 @@ export default function PricingManagementPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Pricing item created successfully');
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/pricing'] });
       setShowAddModal(false);
       setNewItem({
@@ -169,7 +169,7 @@ export default function PricingManagementPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Pricing item updated successfully');
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/pricing'] });
       setEditingId(null);
       setEditingField(null);
@@ -195,7 +195,7 @@ export default function PricingManagementPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Pricing item deleted successfully');
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/pricing'] });
     },
     onError: (error: any) => {

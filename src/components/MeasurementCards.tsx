@@ -9,8 +9,10 @@ import { isInvalidMeasurement } from '../lib/utils/laserUtils';
 // Import refactored components
 import CurrentMeasureCard from './measurement/CurrentMeasureCard';
 import LastMeasureCard from './measurement/LastMeasureCard';
+import MinimumDistanceCard from './measurement/MinimumDistanceCard';
 import HistorySettingsModal from './measurement/HistorySettingsModal';
 import { calculateOptimalColumns } from './measurement/utils';
+import { formatMeasurementDual } from '../lib/utils/unitConversion';
 
 const MeasurementCards = () => {
   const { groundReferenceHeight } = useLaserStore();
@@ -58,6 +60,7 @@ const MeasurementCards = () => {
   const [minDistanceColumns, setMinDistanceColumns] = React.useState(2);
   const [maxDistanceColumns, setMaxDistanceColumns] = React.useState(2);
   const lastMeasureCardRef = React.useRef<HTMLDivElement>(null);
+  const [sessionMin, setSessionMin] = React.useState<string>('--');
   const minDistanceCardRef = React.useRef<HTMLDivElement>(null);
   const maxDistanceCardRef = React.useRef<HTMLDivElement>(null);
   const averageDistanceCardRef = React.useRef<HTMLDivElement>(null);
@@ -125,6 +128,15 @@ const MeasurementCards = () => {
   React.useEffect(() => {
     localStorage.setItem('minDistanceHistoryCount', minDistanceHistoryCount.toString());
   }, [minDistanceHistoryCount]);
+
+  // Track session minimum
+  React.useEffect(() => {
+    if (!filteredMeasurement || filteredMeasurement === '--' || isNaN(parseFloat(filteredMeasurement))) return;
+    const val = parseFloat(filteredMeasurement) + (isNaN(groundReferenceHeight) ? 0 : groundReferenceHeight);
+    if (val > 0 && (sessionMin === '--' || val < parseFloat(sessionMin))) {
+      setSessionMin(val.toFixed(2));
+    }
+  }, [filteredMeasurement, groundReferenceHeight]);
 
   // SESSION-BASED ALERT EFFECT - Triggers on new samples or threshold changes
   // Uses measurementSampleId to detect new measurements and re-trigger alerts
@@ -432,8 +444,9 @@ const MeasurementCards = () => {
       />
       
       <div className="space-y-4">
-        {/* Row 1 - Current and Last Measure ONLY */}
+        {/* Row 1 - Current (big) | Last + Min (half size) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Current Measure - full column */}
             <CurrentMeasureCard
               measurementInMeters={measurementInMeters}
               measurementInFeet={measurementInFeet}
@@ -442,14 +455,67 @@ const MeasurementCards = () => {
               thresholds={thresholds}
             />
 
-            <LastMeasureCard
-              filteredMeasurement={filteredMeasurement}
-              groundReferenceHeight={groundReferenceHeight}
-              measurementHistory={measurementHistory}
-              lastMeasureColumns={lastMeasureColumns}
-              onShowHistorySettings={() => setShowHistorySettings(true)}
-              cardRef={lastMeasureCardRef}
-            />
+            {/* Right column: Last + Min stacked at half size */}
+            <div className="flex flex-col gap-2">
+              {/* Last Measure - half size text */}
+              <div className="bg-gray-800 px-3 py-2 rounded-xl flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="text-xs font-medium text-gray-400 flex items-center gap-1.5">
+                    <span>🕐</span> Last Measure
+                  </h3>
+                  <button onClick={() => setShowHistorySettings(true)} className="p-0.5 hover:bg-gray-700 rounded">
+                    <span className="text-gray-500 text-xs">⚙</span>
+                  </button>
+                </div>
+                <div className="font-mono">
+                  {(() => {
+                    const val = filteredMeasurement !== '--' && !isNaN(parseFloat(filteredMeasurement))
+                      ? parseFloat(filteredMeasurement) + groundReferenceHeight : null;
+                    const primary = val !== null ? `${val.toFixed(2)}m` : '--';
+                    const ftIn = val !== null ? `${Math.floor(val * 3.28084)}' ${Math.round((val * 3.28084 % 1) * 12)}"` : '--';
+                    return (
+                      <>
+                        <div className="text-xl font-bold">{primary}</div>
+                        <div className="text-sm text-gray-400">{ftIn}</div>
+                      </>
+                    );
+                  })()}
+                </div>
+                {measurementHistory.length > 1 && (
+                  <div className="mt-1 flex gap-1 flex-wrap">
+                    {measurementHistory.slice(1, 4).map((m, i) => {
+                      const v = parseFloat(m) + groundReferenceHeight;
+                      return <span key={i} className="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded font-mono">{isNaN(v) ? '--' : v.toFixed(2)}m</span>;
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Session Minimum */}
+              <div className="bg-gray-800 px-3 py-2 rounded-xl flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="text-xs font-medium text-gray-400 flex items-center gap-1.5">
+                    <span>⬇</span> Session Min
+                  </h3>
+                  <button onClick={() => setSessionMin('--')} className="p-0.5 hover:bg-gray-700 rounded" title="Reset minimum">
+                    <span className="text-gray-500 text-xs">↺</span>
+                  </button>
+                </div>
+                <div className="font-mono">
+                  {(() => {
+                    const val = sessionMin !== '--' && !isNaN(parseFloat(sessionMin)) ? parseFloat(sessionMin) : null;
+                    const primary = val !== null ? `${val.toFixed(2)}m` : '--';
+                    const ftIn = val !== null ? `${Math.floor(val * 3.28084)}ft ${Math.round((val * 3.28084 % 1) * 12)}in` : '--';
+                    return (
+                      <>
+                        <div className={`text-xl font-bold ${val !== null && val < (thresholds.warningThreshold || 99) ? 'text-orange-400' : ''}`}>{primary}</div>
+                        <div className="text-sm text-gray-400">{ftIn}</div>
+                      </>
+                    );
+                  })()}
+                </div>
+              </div>
+            </div>
         </div>
       </div>
       

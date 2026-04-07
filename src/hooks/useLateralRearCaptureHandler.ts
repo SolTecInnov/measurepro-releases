@@ -28,7 +28,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
 
   const captureLeftLateral = useCallback(() => {
     if (lateralLaserSettings.mode === 'off') {
-      toast.warning('Lateral measurement mode is disabled');
+      // toast suppressed
       return;
     }
 
@@ -43,7 +43,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
     const measurement = leftClearance.clearanceWithVehicle ?? leftClearance.clearanceWithoutVehicle;
     
     soundManager.playLogEntry();
-    toast.success(`Left lateral: ${measurement?.toFixed(2)}m captured`);
+    /* toast removed */
 
     if (onCapturePOI) {
       onCapturePOI({
@@ -63,7 +63,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
 
   const captureRightLateral = useCallback(() => {
     if (lateralLaserSettings.mode === 'off') {
-      toast.warning('Lateral measurement mode is disabled');
+      // toast suppressed
       return;
     }
 
@@ -78,7 +78,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
     const measurement = rightClearance.clearanceWithVehicle ?? rightClearance.clearanceWithoutVehicle;
     
     soundManager.playLogEntry();
-    toast.success(`Right lateral: ${measurement?.toFixed(2)}m captured`);
+    /* toast removed */
 
     if (onCapturePOI) {
       onCapturePOI({
@@ -98,7 +98,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
 
   const captureTotalWidth = useCallback(() => {
     if (lateralLaserSettings.mode === 'off') {
-      toast.warning('Lateral measurement mode is disabled');
+      // toast suppressed
       return;
     }
 
@@ -113,7 +113,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
     }
     
     soundManager.playLogEntry();
-    toast.success(`Total width: ${totalWidth.toFixed(2)}m captured`);
+    /* toast removed */
 
     if (onCapturePOI) {
       onCapturePOI({
@@ -135,7 +135,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
 
   const captureRearOverhang = useCallback(() => {
     if (!rearOverhangSettings.enabled) {
-      toast.warning('Rear overhang monitoring is disabled');
+      // toast suppressed
       return;
     }
 
@@ -148,7 +148,7 @@ export const useLateralRearCaptureHandler = ({ onCapturePOI }: LateralRearCaptur
     }
     
     soundManager.playLogEntry();
-    toast.success(`Rear overhang: ${rearMeasurement.distanceMeters.toFixed(1)}m captured`);
+    /* toast removed */
 
     if (onCapturePOI) {
       onCapturePOI({

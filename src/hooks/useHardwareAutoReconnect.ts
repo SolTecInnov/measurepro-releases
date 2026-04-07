@@ -102,9 +102,9 @@ export function useHardwareAutoReconnect(): AutoReconnectState {
         performAutoConnect(result.laserPort, result.gpsPort, result.profile, result.profile.duroUrl || getDuroUrl())
           .then(({ laserConnected, gpsConnected }) => {
             if (laserConnected && gpsConnected) {
-              toast.success('Hardware reconnected — Laser + GPS ready');
+              // toast suppressed
             } else if (laserConnected) {
-              toast.success('Hardware reconnected — Laser ready');
+              // toast suppressed
             } else {
               console.log('[AutoReconnect] No devices actually connected after match');
             }
@@ -118,7 +118,7 @@ export function useHardwareAutoReconnect(): AutoReconnectState {
         console.log('[AutoReconnect] Duro-only — connecting silently');
         startDuroSilently(result.duroUrl)
           .then(() => {
-            toast.success('Hardware reconnected — GPS ready');
+            // toast suppressed
           })
           .finally(() => {
             console.log('[AutoReconnect] Duro-only connect complete — checking GND REF');
@@ -235,9 +235,9 @@ export function useHardwareAutoReconnect(): AutoReconnectState {
     performAutoConnect(laserPort, gpsPort, profile, duroUrl)
       .then(({ laserConnected, gpsConnected }) => {
         if (laserConnected && gpsConnected) {
-          toast.success('Hardware reconnected — Laser + GPS ready');
+          // toast suppressed
         } else if (laserConnected) {
-          toast.success('Hardware reconnected — Laser ready');
+          // toast suppressed
         }
       })
       .finally(() => {

@@ -274,7 +274,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
         );
         if (matchedType && matchedType.type !== '') {
           setFormData(prev => ({ ...prev, poiType: matchedType.type as POIType }));
-          toast.success(`POI type set to ${matchedType.label}`);
+          // toast suppressed
           return true;
         }
       }
@@ -284,21 +284,21 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
     const heightMatch = lowerText.match(heightPattern);
     if (heightMatch) {
       setFormData(prev => ({ ...prev, heightMeasure: heightMatch[1] }));
-      toast.success(`Height set to ${heightMatch[1]}${displayUnits === 'imperial' ? 'ft' : 'm'}`);
+      // toast suppressed
       return true;
     }
     
     const widthMatch = lowerText.match(widthPattern);
     if (widthMatch) {
       setFormData(prev => ({ ...prev, widthMeasure: widthMatch[1] }));
-      toast.success(`Width set to ${widthMatch[1]}${displayUnits === 'imperial' ? 'ft' : 'm'}`);
+      // toast suppressed
       return true;
     }
     
     const lengthMatch = lowerText.match(lengthPattern);
     if (lengthMatch) {
       setFormData(prev => ({ ...prev, lengthMeasure: lengthMatch[1] }));
-      toast.success(`Length set to ${lengthMatch[1]}${displayUnits === 'imperial' ? 'ft' : 'm'}`);
+      // toast suppressed
       return true;
     }
     
@@ -306,14 +306,14 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
     const roadMatch = lowerText.match(roadPattern);
     if (roadMatch) {
       setFormData(prev => ({ ...prev, roadNumber: parseInt(roadMatch[1]) }));
-      toast.success(`Road number set to ${roadMatch[1]}`);
+      // toast suppressed
       return true;
     }
     
     const poiNumberMatch = lowerText.match(poiPattern);
     if (poiNumberMatch) {
       setFormData(prev => ({ ...prev, poiNumber: parseInt(poiNumberMatch[1]) }));
-      toast.success(`POI number set to ${poiNumberMatch[1]}`);
+      // toast suppressed
       return true;
     }
     
@@ -321,14 +321,14 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
     const noteMatch = lowerText.match(notePattern);
     if (noteMatch) {
       setFormData(prev => ({ ...prev, note: noteMatch[1] }));
-      toast.success('Note added');
+      // toast suppressed
       return true;
     }
     
     // Action commands
     if (lowerText.includes('take photo') || lowerText.includes('capture image')) {
       handleCapturePhoto();
-      toast.success('Capturing photo...');
+      // toast suppressed
       return true;
     }
     
@@ -368,7 +368,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
       setTranscript('');
     } else {
       setIsListening(true);
-      toast.success('Voice control activated');
+      // toast suppressed
     }
   };
 
@@ -460,7 +460,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
     const dataUrl = canvasRef.current.toDataURL('image/png');
     setDrawingCanvas(dataUrl);
     setShowDrawingModal(false);
-    toast.success('Drawing saved');
+    // toast suppressed
   };
 
   // Update recording time
@@ -532,7 +532,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
       };
       
       setCapturedMedia(prev => [...prev, newMedia]);
-      toast.success('Photo captured with overlay and EXIF metadata');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to capture photo');
     }
@@ -583,7 +583,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
             };
             
             setCapturedMedia(prev => [...prev, newMedia]);
-            toast.success('Video recorded');
+            // toast suppressed
           }
         };
       };
@@ -702,9 +702,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
       soundManager.playLogEntry();
       
       // Toast notification disabled per user request
-      // toast.success('Manual entry logged successfully', {
-      //   description: `${measurementNote} - ${formData.poiType}`
-      // });
+      // // toast suppressed
 
       onClose();
     } catch (error) {

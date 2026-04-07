@@ -20,7 +20,7 @@ const SweptPathSettings = () => {
     setSettings({ enabled });
     
     if (enabled && !settings.enabled) {
-      toast.success('Swept Path Analysis enabled successfully');
+      // toast suppressed
     }
   };
 

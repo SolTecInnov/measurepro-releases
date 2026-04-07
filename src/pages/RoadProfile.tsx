@@ -184,7 +184,7 @@ export default function RoadProfilePage() {
             gpsSource: 'duro'
           });
           
-          toast.success(`Restored recording session with ${samples.length} samples`);
+          /* toast removed */
         }
       }
       setSessionRestored(true);
@@ -432,7 +432,7 @@ export default function RoadProfilePage() {
     // Switch to live view tab to see the new recording
     setActiveTab('live-gnss');
     
-    toast.success(`Recording started: ${sessionId}`);
+    /* toast removed */
   }, []);
 
   // Stop recording
@@ -452,14 +452,14 @@ export default function RoadProfilePage() {
     
     setIsRecording(false);
     setRecordingStartTime(null);
-    toast.success('Recording stopped');
+    /* toast removed */
   }, [accumulatedSamples, currentSessionId]);
 
   // Handle profile selection from history
   const handleProfileSelect = useCallback((profile: RoadProfile) => {
     setCurrentProfile(profile);
     setActiveTab('profile-viewer');
-    toast.success(`Loaded profile: ${profile.label || profile.id}`);
+    /* toast removed */
   }, []);
 
   // Handle view profile from library
@@ -477,7 +477,7 @@ export default function RoadProfilePage() {
   // Handle new profile creation
   const handleNewProfile = useCallback(() => {
     setActiveTab('live-gnss');
-    toast.info('Ready to create new profile. Start recording to begin.');
+    /* toast removed */
   }, []);
 
   // Handle event click (highlight on profile)
@@ -488,7 +488,7 @@ export default function RoadProfilePage() {
 
   // Handle profile point click
   const handlePointClick = useCallback((point: ProfilePoint) => {
-    toast.info(`Distance: ${point.distance_m.toFixed(1)}m, Elevation: ${point.altitude.toFixed(2)}m, Grade: ${point.grade_pct.toFixed(2)}%`);
+    /* toast removed */
   }, []);
 
   // Manual rail crossing trigger
@@ -500,7 +500,7 @@ export default function RoadProfilePage() {
 
     try {
       await logRailCrossing(latestSample.latitude, latestSample.longitude, 'Manual trigger');
-      toast.success('Rail crossing logged');
+      /* toast removed */
     } catch (error) {
       toast.error('Failed to log rail crossing');
     }
@@ -524,7 +524,7 @@ export default function RoadProfilePage() {
           break;
         case 's':
           // Save profile - would trigger save modal
-          toast.info('Press Save Profile button to save');
+          /* toast removed */
           break;
         case 'm':
           handleManualRailCrossing();
@@ -865,7 +865,7 @@ export default function RoadProfilePage() {
                   onSelectLinkedSet={(alignment, linkedProfile) => {
                     setSelectedAlignment(alignment);
                     setSelectedLinkedProfile(linkedProfile);
-                    toast.success(`Loaded linked set: ${alignment.name}`);
+                    /* toast removed */
                   }}
                 />
                 

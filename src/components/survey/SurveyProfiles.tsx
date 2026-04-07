@@ -216,7 +216,7 @@ const SurveyProfiles: React.FC<SurveyProfilesProps> = ({ activeSurvey }) => {
       const filename = `road_profile_${profile.label || profile.id}_${new Date().toISOString().split('T')[0]}.zip`;
       saveAs(blob, filename);
       
-      toast.success('Profile exported successfully');
+      // toast suppressed
     } catch (error) {
       console.error('Export failed:', error);
       toast.error('Failed to export profile');

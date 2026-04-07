@@ -175,13 +175,13 @@ export default function LidarSourcePage() {
   const handleCopy = async () => {
     await navigator.clipboard.writeText(selectedFile.content);
     setCopied(true);
-    toast.success('Copied to clipboard');
+    /* toast removed */
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleDownload = () => {
     window.location.href = '/api/downloads/lidar-service.zip';
-    toast.success('Downloading LiDAR service package...');
+    /* toast removed */
   };
 
   return (

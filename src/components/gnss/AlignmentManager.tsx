@@ -115,10 +115,7 @@ export function AlignmentManager({
       // Check for loops and backtracking
       const { hasLoop, hasBacktrack, warnings } = detectLoopsAndBacktracking(simplified, cumDistM);
       
-      // Show warnings if detected
-      if (warnings.length > 0) {
-        warnings.forEach(w => toast.warning(w, { duration: 6000 }));
-      }
+      // Show warnings if detected (toast suppressed)
       
       const alignment = createNewAlignment(
         projectId,
@@ -140,12 +137,12 @@ export function AlignmentManager({
         const statusMsg = hasLoop || hasBacktrack 
           ? `Created alignment with ${simplified.length} vertices and linked profile (warnings detected)`
           : `Created alignment with ${simplified.length} vertices and linked profile`;
-        toast.success(statusMsg);
+        // toast suppressed
       } else {
         const statusMsg = hasLoop || hasBacktrack
           ? `Created alignment with ${simplified.length} vertices (warnings detected)`
           : `Created alignment with ${simplified.length} vertices`;
-        toast.success(statusMsg);
+        // toast suppressed
       }
       
       setCreateDialogOpen(false);
@@ -228,7 +225,7 @@ export function AlignmentManager({
         `${alignment.name} - Profile ${Date.now()}`
       );
       await saveLinkedProfile(linkedProfile);
-      toast.success('Profile linked to alignment');
+      // toast suppressed
       setLinkDialogOpen(false);
       loadAlignments();
     } catch (e) {
@@ -241,9 +238,9 @@ export function AlignmentManager({
     try {
       const result = await deleteAlignment(id);
       if (result.profilesAffected > 0) {
-        toast.warning(`Deleted alignment. ${result.profilesAffected} profile(s) are now orphaned.`);
+        /* toast removed */
       } else {
-        toast.success('Alignment deleted');
+        // toast suppressed
       }
       setDeleteConfirmId(null);
       loadAlignments();
@@ -256,7 +253,7 @@ export function AlignmentManager({
   const handleViewAlignment = async (alignment: Alignment) => {
     const profiles = await getProfilesByAlignment(alignment.id);
     if (profiles.length === 0) {
-      toast.info('No profiles linked to this alignment yet');
+      // toast suppressed
       return;
     }
     onSelectLinkedSet(alignment, profiles[0]);

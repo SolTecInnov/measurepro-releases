@@ -58,7 +58,7 @@ const VoiceNotePOIModal: React.FC<VoiceNotePOIModalProps> = ({ isOpen, onClose, 
       // Initialize audio analysis for waveform and silence detection
       await initializeAudioAnalysis();
       
-      toast.success('🎙️ Recording started');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to start recording. Please check microphone permissions.');
       onClose();
@@ -141,7 +141,7 @@ const VoiceNotePOIModal: React.FC<VoiceNotePOIModalProps> = ({ isOpen, onClose, 
       setIsRecording(false);
       cleanup();
       
-      toast.success('Voice note saved');
+      // toast suppressed
       onSave(audioBlob);
       onClose();
     } catch (error) {
@@ -155,7 +155,7 @@ const VoiceNotePOIModal: React.FC<VoiceNotePOIModalProps> = ({ isOpen, onClose, 
     cleanup();
     onSave(null);
     onClose();
-    toast.info('Voice note cancelled');
+    // toast suppressed
   };
 
   const cleanup = () => {

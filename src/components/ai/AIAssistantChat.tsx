@@ -107,7 +107,7 @@ const AIAssistantChat = () => {
       const result = await assistant.applyPreviewedChanges(changes);
       
       if (result.success) {
-        toast.success(`Applied ${result.affectedCount} changes`);
+        // toast suppressed
         
         setMessages(prev => prev.map(msg => 
           msg.id === messageId 
@@ -132,7 +132,7 @@ const AIAssistantChat = () => {
       const result = await assistant.undoOperation(operationId);
       
       if (result.success) {
-        toast.success(`Undone: ${result.affectedCount} changes reverted`);
+        // toast suppressed
         refreshHistory();
         
         // Update messages to reflect the undo
@@ -155,7 +155,7 @@ const AIAssistantChat = () => {
     const assistant = getAIAssistant();
     assistant.clearHistory();
     setMessages([]);
-    toast.success('Chat history cleared');
+    // toast suppressed
   };
 
   if (showSettings) {

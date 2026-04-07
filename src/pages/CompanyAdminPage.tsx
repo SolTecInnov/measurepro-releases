@@ -59,7 +59,7 @@ function MemberAccessPanel({ member, companyAddons, companyId, isSelf }: MemberA
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      toast.success('Member access updated');
+      /* toast removed */
       setSaving(false);
     },
     onError: (e: Error) => {
@@ -239,7 +239,7 @@ export default function CompanyAdminPage() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      toast.success('Company profile updated');
+      /* toast removed */
       setEditingProfile(false);
     },
     onError: (e: Error) => toast.error(e.message),
@@ -249,7 +249,7 @@ export default function CompanyAdminPage() {
     if (!companyId) return;
     if (!isOnline) {
       await enqueuePendingAction({ type: 'update_company', companyId, payload: profileForm as Record<string, unknown> });
-      toast.success('Changes queued — will sync when online');
+      /* toast removed */
       setEditingProfile(false);
       return;
     }
@@ -274,7 +274,7 @@ export default function CompanyAdminPage() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      toast.success('User created — a password set-up email has been sent to them');
+      /* toast removed */
       setShowCreateMember(false);
       setNewMember({ email: '', fullName: '', role: 'member' });
     },
@@ -300,10 +300,7 @@ export default function CompanyAdminPage() {
           pendingSync: true,
         },
       });
-      toast.info('User creation queued', {
-        description: 'Will be created automatically when you reconnect. The new user will receive a password reset email.',
-        duration: 6000,
-      });
+      /* toast removed */
       setShowCreateMember(false);
       setNewMember({ email: '', fullName: '', role: 'member' });
       return;
@@ -319,7 +316,7 @@ export default function CompanyAdminPage() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      toast.success('User removed from company');
+      /* toast removed */
     },
     onError: (e: Error) => toast.error(e.message),
   });
@@ -343,7 +340,7 @@ export default function CompanyAdminPage() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      toast.success('Role updated');
+      /* toast removed */
     },
     onError: (e: Error) => toast.error(e.message),
   });
@@ -352,7 +349,7 @@ export default function CompanyAdminPage() {
     if (!companyId) return;
     if (!isOnline) {
       await enqueuePendingAction({ type: 'update_member_role', companyId, payload: { memberId: member.id, role: newRole } });
-      toast.success('Role change queued — will apply when online');
+      /* toast removed */
       return;
     }
     changeRoleMutation.mutate({ memberId: member.id, role: newRole });
@@ -367,10 +364,7 @@ export default function CompanyAdminPage() {
       });
     },
     onSuccess: () => {
-      toast.success('Password reset email sent', {
-        description: 'The user will receive an email with a link to set their password.',
-        duration: 5000,
-      });
+      /* toast removed */
       setResetPasswordTarget(null);
     },
     onError: (e: Error) => toast.error(e.message),
@@ -388,10 +382,7 @@ export default function CompanyAdminPage() {
           memberEmail: resetPasswordTarget.email,
         },
       });
-      toast.info('Password reset queued', {
-        description: 'A reset email will be sent to the user automatically when you reconnect.',
-        duration: 6000,
-      });
+      /* toast removed */
       setResetPasswordTarget(null);
       return;
     }

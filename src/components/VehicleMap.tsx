@@ -141,7 +141,7 @@ const MapClickHandler = ({
         const { lat, lng } = e.latlng;
         onAddPoint([lat, lng], routeCreationMode);
         onClearMode();
-        toast.success(`${routeCreationMode} point added`);
+        // toast suppressed
       }
     }
   });
@@ -328,7 +328,7 @@ const VehicleMap: React.FC = () => {
       setShowRouteCreator(false);
       setRouteCreationMode(null);
       
-      toast.success('Route created successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to save route');
     }
@@ -612,7 +612,7 @@ const VehicleMap: React.FC = () => {
                       onClick={() => {
                         setRouteCreationMode('origin');
                         setShowRouteCreator(false);
-                        toast.info('Click on map to set origin point');
+                        // toast suppressed
                       }}
                       disabled={tempRoute.points.some(p => p.type === 'origin')}
                       className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
@@ -624,7 +624,7 @@ const VehicleMap: React.FC = () => {
                       onClick={() => {
                         setRouteCreationMode('destination');
                         setShowRouteCreator(false);
-                        toast.info('Click on map to set destination point');
+                        // toast suppressed
                       }}
                       disabled={tempRoute.points.some(p => p.type === 'destination')}
                       className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
@@ -636,7 +636,7 @@ const VehicleMap: React.FC = () => {
                       onClick={() => {
                         setRouteCreationMode('waypoint');
                         setShowRouteCreator(false);
-                        toast.info('Click on map to add waypoint');
+                        // toast suppressed
                       }}
                       className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-blue-600 hover:bg-blue-700 rounded text-xs"
                     >
@@ -812,9 +812,7 @@ const VehicleMap: React.FC = () => {
                     path: navigationPath
                   });
                   
-                  toast.success('Navigating to route start point', {
-                    description: `Following roads to ${route.name}`
-                  });
+                  // toast suppressed
                 } else {
                   // Fallback to straight line if routing fails
                   setNavigationToStart({
@@ -822,7 +820,7 @@ const VehicleMap: React.FC = () => {
                     path: [currentPosition, startPoint.position]
                   });
                   
-                  toast.info('Using direct path to route start');
+                  // toast suppressed
                 }
               } catch (error) {
                 // Fallback to straight line
@@ -859,7 +857,7 @@ const VehicleMap: React.FC = () => {
                 m.id === updatedPOI.id ? updatedPOI : m
               ));
               
-              toast.success('POI updated successfully');
+              // toast suppressed
               setShowPOIDetails(false);
               setSelectedPOI(null);
             } catch (error) {
@@ -876,7 +874,7 @@ const VehicleMap: React.FC = () => {
               // Update local state
               setMeasurements(prev => prev.filter(m => m.id !== poiId));
               
-              toast.success('POI deleted successfully');
+              // toast suppressed
               setShowPOIDetails(false);
               setSelectedPOI(null);
             } catch (error) {

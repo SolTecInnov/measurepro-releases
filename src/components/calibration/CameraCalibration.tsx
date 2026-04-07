@@ -118,7 +118,7 @@ export function CameraCalibration() {
         setCameraStarted(true);
         setStatusMessage('Camera started');
         setStatusType('success');
-        toast.success('Camera started successfully');
+        // toast suppressed
       }
     } catch (error) {
       setStatusMessage('Failed to start camera');
@@ -164,7 +164,7 @@ export function CameraCalibration() {
         setPreviewCorners(result.corners);
         setStatusMessage(result.message);
         setStatusType('success');
-        toast.success(result.message);
+        // toast suppressed
 
         drawCornersOnCanvas(result.corners);
       } else {
@@ -263,7 +263,7 @@ export function CameraCalibration() {
         setCalibrationData(calibData);
         setStatusMessage(result.message);
         setStatusType('success');
-        toast.success(result.message);
+        // toast suppressed
       } else {
         setStatusMessage(result.message);
         setStatusType('error');
@@ -288,7 +288,7 @@ export function CameraCalibration() {
     try {
       const success = await saveCalibrationToStorage(calibrationData);
       if (success) {
-        toast.success('Calibration saved successfully');
+        // toast suppressed
       } else {
         toast.error('Failed to save calibration');
       }
@@ -302,11 +302,11 @@ export function CameraCalibration() {
       const loaded = await loadCalibrationFromStorage();
       if (loaded) {
         setCalibrationData(loaded);
-        toast.success('Calibration loaded successfully');
+        // toast suppressed
         setStatusMessage('Calibration loaded from storage');
         setStatusType('success');
       } else {
-        toast.info('No saved calibration found');
+        // toast suppressed
       }
     } catch (error) {
       toast.error('Failed to load calibration');
@@ -318,7 +318,7 @@ export function CameraCalibration() {
       'https://raw.githubusercontent.com/opencv/opencv/master/doc/pattern.png',
       '_blank'
     );
-    toast.success('Opening chessboard pattern in new tab');
+    // toast suppressed
   };
 
   const getQualityColor = (quality: string) => {

@@ -35,7 +35,7 @@ const DeviceManager = () => {
   const handleDeactivate = async (deviceId: string) => {
     try {
       await deactivateDevice(deviceId);
-      toast.success('Device deactivated');
+      // toast suppressed
       loadData();
     } catch (error) {
       toast.error('Failed to deactivate device');
@@ -45,7 +45,7 @@ const DeviceManager = () => {
   const handleDelete = async (deviceId: string) => {
     try {
       await deleteDevice(deviceId);
-      toast.success('Device deleted');
+      // toast suppressed
       setDeleteConfirmId(null);
       loadData();
     } catch (error) {

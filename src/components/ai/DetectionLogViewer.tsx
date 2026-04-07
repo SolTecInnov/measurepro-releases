@@ -129,7 +129,7 @@ const DetectionLogViewer: React.FC = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    toast.success(`Exported ${filteredDetections.length} detections to CSV`);
+    // toast suppressed
   };
 
   const getStatusIcon = (status: DetectionLogEntry['status']) => {

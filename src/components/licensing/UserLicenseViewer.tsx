@@ -43,7 +43,7 @@ const UserLicenseViewer = () => {
   const handleDeactivate = async (id: string) => {
     try {
       await deactivateUserLicense(id);
-      toast.success('License deactivated');
+      // toast suppressed
       loadData();
     } catch (error) {
       toast.error('Failed to deactivate license');

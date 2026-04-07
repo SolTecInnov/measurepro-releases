@@ -8,6 +8,8 @@ interface UseKeyboardShortcutsProps {
   onCorrectDetection?: () => void;
   onTestDetection?: () => void;
   onToggleVideoRecording?: () => void;
+  onInsta360ToggleRecording?: () => void;
+  onInsta360TakePhoto?: () => void;
   enabled?: boolean;
 }
 
@@ -27,6 +29,8 @@ export const useKeyboardShortcuts = ({
   onCorrectDetection,
   onTestDetection,
   onToggleVideoRecording,
+  onInsta360ToggleRecording,
+  onInsta360TakePhoto,
   enabled = true,
 }: UseKeyboardShortcutsProps) => {
   const { mapping } = useKeyboardStore();
@@ -75,7 +79,7 @@ export const useKeyboardShortcuts = ({
         if (onAcceptDetection) {
           onAcceptDetection();
         } else {
-          toast.info('Accept Detection - No handler configured');
+          // toast suppressed
         }
         return;
       }
@@ -85,7 +89,7 @@ export const useKeyboardShortcuts = ({
         if (onRejectDetection) {
           onRejectDetection();
         } else {
-          toast.info('Reject Detection - No handler configured');
+          // toast suppressed
         }
         return;
       }
@@ -95,7 +99,7 @@ export const useKeyboardShortcuts = ({
         if (onCorrectDetection) {
           onCorrectDetection();
         } else {
-          toast.info('Correct Detection - No handler configured');
+          // toast suppressed
         }
         return;
       }
@@ -105,7 +109,7 @@ export const useKeyboardShortcuts = ({
         if (onTestDetection) {
           onTestDetection();
         } else {
-          toast.info('Test Detection - No handler configured');
+          // toast suppressed
         }
         return;
       }
@@ -116,7 +120,39 @@ export const useKeyboardShortcuts = ({
         if (onToggleVideoRecording) {
           onToggleVideoRecording();
         } else {
-          toast.info('Video Recording - No handler configured');
+          // toast suppressed
+        }
+        return;
+      }
+
+      // Handle Insta360 shortcuts (Stream Deck buttons)
+      if (matchShortcut(mapping.insta360.toggleRecording)) {
+        e.preventDefault();
+        if (onInsta360ToggleRecording) {
+          onInsta360ToggleRecording();
+        } else if ((window as any).electronAPI?.insta360) {
+          // Direct call if no handler provided
+          const api = (window as any).electronAPI.insta360;
+          api.getStatus().then((s: any) => {
+            if (s.state?.state?._captureStatus === 'recording') {
+              api.stopRecording();
+              // toast suppressed
+            } else {
+              api.startRecording();
+              // toast suppressed
+            }
+          });
+        }
+        return;
+      }
+
+      if (matchShortcut(mapping.insta360.takePhoto)) {
+        e.preventDefault();
+        if (onInsta360TakePhoto) {
+          onInsta360TakePhoto();
+        } else if ((window as any).electronAPI?.insta360) {
+          (window as any).electronAPI.insta360.takePhoto();
+          // toast suppressed
         }
         return;
       }

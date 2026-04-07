@@ -47,7 +47,7 @@ export const TimelapseControls = ({ videoRef }: TimelapseControlsProps) => {
   const handleSaveSettings = () => {
     setTimelapseSettings(localSettings);
     setShowSettings(false);
-    toast.success('Timelapse settings saved');
+    // toast suppressed
   };
 
   const frameCountWithPOIs = timelapseFrames.filter(f => f.hasPOI).length;

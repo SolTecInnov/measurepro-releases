@@ -65,9 +65,7 @@ export default function SubscriptionPage() {
       method: 'POST',
     }),
     onSuccess: () => {
-      toast.success('Subscription Paused', {
-        description: 'Your subscription has been paused. You have 90 days before data deletion.',
-      });
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/subscription/current'] });
       setShowPauseDialog(false);
     },
@@ -103,9 +101,7 @@ export default function SubscriptionPage() {
       method: 'POST',
     }),
     onSuccess: () => {
-      toast.success('Subscription Resumed', {
-        description: 'Your subscription has been resumed and is now active.',
-      });
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/subscription/current'] });
     },
     onError: (error: any) => {
@@ -121,9 +117,7 @@ export default function SubscriptionPage() {
       method: 'POST',
     }),
     onSuccess: () => {
-      toast.success('Cancellation Reversed', {
-        description: 'Your subscription cancellation has been reversed and is now active.',
-      });
+      /* toast removed */
       queryClient.invalidateQueries({ queryKey: ['/api/subscription/current'] });
     },
     onError: (error: any) => {
@@ -159,9 +153,7 @@ export default function SubscriptionPage() {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      toast.success('Data Exported', {
-        description: 'Your data has been downloaded successfully.',
-      });
+      /* toast removed */
     } catch (error: any) {
       toast.error('Export Failed', {
         description: error.message || 'Failed to export data',

@@ -77,8 +77,10 @@ export function useProfileRecording(): UseProfileRecordingReturn {
 
   // Create POI for profile alert (grade, K-factor).
   // Debounce is handled by the caller (processNewAlertPoints) before calling this function.
-  const createAlertPOI = useCallback(async (alertPOI: ProfileAlertPOI): Promise<void> => {
-    if (!activeSurvey?.id) return;
+  const createAlertPOI = useCallback(async (_alertPOI: ProfileAlertPOI): Promise<void> => {
+    // DISABLED: GNSS auto-POI creation disabled — too noisy on flat ground
+    // Will be re-enabled once grade computation is validated on real terrain
+    return;
     
     // Create measurement entry for the alert POI
     const measurementLogger = getMeasurementLogger();
@@ -112,8 +114,10 @@ export function useProfileRecording(): UseProfileRecordingReturn {
   }, [activeSurvey?.id, gpsData]);
 
   // Create POI for grade segment event (10-12%, 12-14%, 14%+)
-  const createGradeSegmentPOI = useCallback(async (segment: GradeSegmentEvent) => {
-    if (!activeSurvey?.id) return;
+  const createGradeSegmentPOI = useCallback(async (_segment: GradeSegmentEvent) => {
+    // DISABLED: GNSS grade auto-POI creation disabled — triggers false positives on flat ground
+    // Will be re-enabled once grade smoothing is validated
+    return;
     
     const poiType = gradeCategoryToPOIType(segment.category, segment.direction);
     if (!poiType) return;

@@ -121,8 +121,33 @@ const normalizeGnssConfig = (data: Partial<GnssConfig>): GnssConfig => ({
   },
 });
 
+// ── Electron-native GNSS helpers ─────────────────────────────────────────────
+const GNSS_CONFIG_KEY = 'gnss_config';
+
+function loadElectronGnssConfig(): Partial<GnssConfig> {
+  try {
+    const raw = localStorage.getItem(GNSS_CONFIG_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function saveElectronGnssConfig(cfg: Partial<GnssConfig>) {
+  try { localStorage.setItem(GNSS_CONFIG_KEY, JSON.stringify(cfg)); } catch {}
+}
+
+const isElectron = !!(window as any).electronAPI?.isElectron;
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 const GnssSettings: React.FC = () => {
-  const [config, setConfig] = useState<GnssConfig>(DEFAULT_CONFIG);
+  const [config, setConfig] = useState<GnssConfig>(() => {
+    // In Electron, load from localStorage instead of bridge
+    if (isElectron) {
+      const saved = loadElectronGnssConfig();
+      return normalizeGnssConfig(saved);
+    }
+    return DEFAULT_CONFIG;
+  });
   const [status, setStatus] = useState<GnssStatus | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -132,6 +157,7 @@ const GnssSettings: React.FC = () => {
   const [backendUrlInput, setBackendUrlInput] = useState<string>(getStoredBackendUrl());
   const [showGuide, setShowGuide] = useState(true);
   const [simActive, setSimActive] = useState(gnssSimulator.isActive);
+  const [electronDuroConnected, setElectronDuroConnected] = useState(false);
 
   // Heavy haul safety settings (banking/cross-slope and curve radius)
   const { profileSettings, setProfileSettings } = useSettingsStore();
@@ -160,13 +186,40 @@ const GnssSettings: React.FC = () => {
     return gnssSimulator.subscribe(() => setSimActive(gnssSimulator.isActive));
   }, []);
 
+  // ── Electron: listen for Duro connection status ───────────────────────────────────
+  useEffect(() => {
+    if (!isElectron) return;
+    const electronAPI = (window as any).electronAPI;
+    if (!electronAPI?.duro) return;
+
+    // Check current status
+    electronAPI.duro.getStatus().then((s: any) => {
+      setElectronDuroConnected(s.connected);
+      if (s.connected) {
+        setStatus({ connected: true, host: s.host, port: s.port, uptimeSec: 0, totalSamples: 0 } as any);
+      }
+    });
+
+    // Listen for status changes
+    electronAPI.duro.onStatus((s: any) => {
+      setElectronDuroConnected(s.connected);
+      if (s.connected) {
+        setStatus({ connected: true, host: config.host, port: config.nmeaPort, uptimeSec: 0, totalSamples: 0 } as any);
+        // toast suppressed
+      } else {
+        setStatus(null);
+        if (s.error) toast.error('Duro disconnected', { description: s.error });
+      }
+    });
+  }, []);
+
   const toggleSimulation = () => {
     if (gnssSimulator.isActive) {
       gnssSimulator.stop();
-      toast.info('GNSS training simulation stopped');
+      // toast suppressed
     } else {
       gnssSimulator.start();
-      toast.success('GNSS training simulation started — simulating RTK data');
+      // toast suppressed
     }
     setSimActive(gnssSimulator.isActive);
   };
@@ -180,7 +233,7 @@ const GnssSettings: React.FC = () => {
         localStorage.removeItem(BACKEND_URL_KEY);
       }
       setBackendUrl(url);
-      toast.success(url ? `Backend URL set to: ${url}` : 'Using default backend (current origin)');
+      /* toast removed */
     } catch (error) {
       toast.error('Failed to save backend URL');
     }
@@ -245,6 +298,30 @@ const GnssSettings: React.FC = () => {
   }, [backendUrl]); // Refetch when backend URL changes
 
   const handleSave = async () => {
+    // ── Electron: save to localStorage + connect/disconnect ────────────────────
+    if (isElectron) {
+      setSaving(true);
+      saveElectronGnssConfig(config);
+
+      const electronAPI = (window as any).electronAPI;
+      if (config.enabled && electronAPI?.duro) {
+        try {
+          await electronAPI.duro.connect({ host: config.host, port: config.nmeaPort });
+          // toast suppressed
+        } catch(e: any) {
+          toast.error('Failed to connect', { description: e.message });
+        }
+      } else if (!config.enabled && electronAPI?.duro) {
+        await electronAPI.duro.disconnect();
+        // toast suppressed
+      } else {
+        // toast suppressed
+      }
+      setSaving(false);
+      return;
+    }
+
+    // ── Browser/PWA: original bridge path ─────────────────────────────────
     try {
       setSaving(true);
       const url = buildApiUrl('/api/gnss/config', backendUrl);
@@ -257,7 +334,7 @@ const GnssSettings: React.FC = () => {
       if (response.ok) {
         const saved = await response.json();
         setConfig(normalizeGnssConfig(saved));
-        toast.success('GNSS configuration saved');
+        // toast suppressed
         fetchStatus();
       } else {
         const error = await response.json();
@@ -272,18 +349,28 @@ const GnssSettings: React.FC = () => {
   };
 
   const handleReconnect = async () => {
+    // Electron: disconnect then reconnect via IPC
+    if (isElectron) {
+      const electronAPI = (window as any).electronAPI;
+      if (!electronAPI?.duro) return;
+      await electronAPI.duro.disconnect();
+      await new Promise(r => setTimeout(r, 500));
+      await electronAPI.duro.connect({ host: config.host, port: config.nmeaPort });
+      // toast suppressed
+      return;
+    }
     try {
       const url = buildApiUrl('/api/gnss/reconnect', backendUrl);
       const response = await fetch(url, { method: 'POST' });
       const data = await response.json();
       
       if (response.ok) {
-        toast.success('Reconnecting to Duro...');
+        // toast suppressed
         setTimeout(fetchStatus, 2000);
       } else {
         toast.error(data.error || 'Failed to reconnect');
         if (data.details?.suggestion) {
-          toast.info(data.details.suggestion);
+          // toast suppressed
         }
       }
     } catch (error) {
@@ -309,11 +396,11 @@ const GnssSettings: React.FC = () => {
       setTestResult(result);
 
       if (result.success) {
-        toast.success(`Connection successful! (${result.latencyMs}ms)`);
+        /* toast removed */
       } else {
         toast.error(`Connection failed: ${result.error || result.status}`);
         if (result.suggestion) {
-          toast.info(result.suggestion);
+          // toast suppressed
         }
       }
     } catch (error) {
@@ -434,8 +521,8 @@ const GnssSettings: React.FC = () => {
         </div>
       )}
 
-      {/* ── Getting Started: Duro Bridge Guide ── */}
-      <div className="bg-gray-900 border border-green-500/30 rounded-xl overflow-hidden">
+      {/* ── Getting Started: Duro Bridge Guide — only for web/PWA users, not Electron ── */}
+      {!isElectron && <div className="bg-gray-900 border border-green-500/30 rounded-xl overflow-hidden">
         {/* Header — always visible, click to toggle */}
         <button
           onClick={() => setShowGuide(v => !v)}
@@ -565,10 +652,10 @@ const GnssSettings: React.FC = () => {
             </div>
           </div>
         )}
-      </div>
+      </div>}
 
-      {/* Backend URL Configuration - for local hardware testing */}
-      <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+      {/* Backend URL Configuration — hidden in Electron (uses native TCP) */}
+      {!isElectron && <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-3">
           <Server className="w-5 h-5 text-blue-400" />
           <h3 className="font-semibold text-blue-200">Backend Server URL</h3>
@@ -614,24 +701,45 @@ const GnssSettings: React.FC = () => {
             <span className="font-mono text-green-300">{backendUrl}</span>
           </div>
         )}
-      </div>
+      </div>}
+
+      {/* ── Electron: Simple "How to connect" guide ── */}
+      {isElectron && (
+        <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
+          <div className="flex items-start gap-3">
+            <div className="p-2 bg-green-500/20 rounded-lg flex-shrink-0">
+              <Satellite className="w-5 h-5 text-green-400" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-green-300 mb-2">How to connect your Duro</h3>
+              <ol className="space-y-1.5 text-sm text-gray-300">
+                <li className="flex items-start gap-2"><span className="text-green-400 font-bold flex-shrink-0">1.</span>Power on your Duro receiver and connect it to your truck network (Ethernet or WiFi)</li>
+                <li className="flex items-start gap-2"><span className="text-green-400 font-bold flex-shrink-0">2.</span>Enter the Duro IP address below (default: <span className="font-mono text-green-300">192.168.0.222</span>) and port <span className="font-mono text-green-300">2101</span></li>
+                <li className="flex items-start gap-2"><span className="text-green-400 font-bold flex-shrink-0">3.</span>Toggle <strong>Enable Duro TCP Connection</strong> → green = connected</li>
+                <li className="flex items-start gap-2"><span className="text-green-400 font-bold flex-shrink-0">4.</span>No bridge software needed — MeasurePRO connects directly</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="bg-gray-900 rounded-lg p-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-semibold flex items-center gap-2">
-            {status?.connected ? (
+            {(isElectron ? electronDuroConnected : status?.connected) ? (
               <Wifi className="w-5 h-5 text-green-400" />
             ) : (
               <WifiOff className="w-5 h-5 text-red-400" />
             )}
             Duro Connection Status
+            {isElectron && <span className="text-xs text-blue-400 font-normal">(Native TCP)</span>}
           </h3>
           <div className={`px-3 py-1 rounded-full text-sm ${
-            status?.connected 
+            (isElectron ? electronDuroConnected : status?.connected)
               ? 'bg-green-500/20 text-green-400' 
               : 'bg-red-500/20 text-red-400'
           }`}>
-            {status?.connected ? 'Connected' : 'Disconnected'}
+            {(isElectron ? electronDuroConnected : status?.connected) ? 'Connected' : 'Disconnected'}
           </div>
         </div>
         

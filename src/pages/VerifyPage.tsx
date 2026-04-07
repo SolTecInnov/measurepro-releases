@@ -54,9 +54,7 @@ export default function VerifyPage() {
         body: JSON.stringify(data),
       });
 
-      toast.success('Email verified!', {
-        description: 'Now verify your phone number via SMS.',
-      });
+      /* toast removed */
 
       // Store accountId for subsequent pages
       localStorage.setItem('registration_accountId', response.accountId);
@@ -82,9 +80,7 @@ export default function VerifyPage() {
         body: JSON.stringify({ email }),
       });
 
-      toast.success('Verification code resent!', {
-        description: 'Please check your email for the new code.',
-      });
+      /* toast removed */
     } catch (error: any) {
       toast.error('Failed to resend code', {
         description: error.message || 'Please try again later.',

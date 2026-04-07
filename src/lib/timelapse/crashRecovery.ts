@@ -66,10 +66,7 @@ export async function checkForOrphanedFrames(): Promise<void> {
     }
     
     // Show informational toast (not a decision prompt)
-    toast.success('Timelapse frames recovered', {
-      description: `${unsavedFrames.length} frame${unsavedFrames.length !== 1 ? 's' : ''} automatically restored from previous session`,
-      duration: 5000,
-    });
+    /* toast removed */
     
   } catch (error) {
     console.error('Failed to auto-recover timelapse frames:', error);
@@ -95,9 +92,7 @@ export async function clearOrphanedFrames(silent: boolean = false): Promise<void
     
     // Only show toast if not silent (e.g., after successful restore)
     if (!silent) {
-      toast.success('Orphaned frames cleared', {
-        description: 'Previous timelapse frames have been discarded',
-      });
+      /* toast removed */
     }
     
   } catch (error) {

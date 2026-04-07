@@ -1110,7 +1110,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
     useSettingsStore.getState().setUISettings({ onboardingCompleted: true, onboardingCompletedDate: now });
     onComplete();
     onClose();
-    toast.success('Onboarding completed! You\'re ready to start measuring.');
+    // toast suppressed
   };
 
   if (!isOpen) return null;

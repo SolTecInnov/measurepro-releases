@@ -94,7 +94,19 @@ export const useCameraStore360 = create<CameraStore360>((set, get) => ({
 
   _checkConnections: async () => {
     const state = get()
+    const electronAPI = (window as any).electronAPI
 
+    // ── Electron native path (no bridge needed) ───────────────────────────
+    if (electronAPI?.insta360) {
+      const result = await electronAPI.insta360.getStatus().catch(() => ({ connected: false }))
+      set({ bridgeOnline: result.connected, cameraConnected: result.connected })
+      if (!result.connected && state.cameraConnected) {
+        set({ status: null })
+      }
+      return
+    }
+
+    // ── Browser/PWA path (bridge required) ─────────────────────────────
     const bridge = await cameraService.checkBridge()
     set({ bridgeOnline: bridge })
 
@@ -213,11 +225,17 @@ export const useCameraStore360 = create<CameraStore360>((set, get) => ({
     if (!state.settings.autoStartWithSurvey || !state.cameraConnected) return
 
     try {
-      const result = await cameraService.startRecording({
-        resolution: state.settings.resolution,
-        fps: state.settings.fps
-      })
-      if (!result.success) throw new Error(result.error || 'Unknown error')
+      const electronAPI = (window as any).electronAPI
+      if (electronAPI?.insta360) {
+        const result = await electronAPI.insta360.startRecording()
+        if (!result.ok) throw new Error(result.error || 'Failed to start')
+      } else {
+        const result = await cameraService.startRecording({
+          resolution: state.settings.resolution,
+          fps: state.settings.fps
+        })
+        if (!result.success) throw new Error(result.error || 'Unknown error')
+      }
       set({ cameraError: null, _wasRecording: true })
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
@@ -242,7 +260,12 @@ export const useCameraStore360 = create<CameraStore360>((set, get) => ({
 
     if (state.settings.autoStopWithSurvey && state.status?.isRecording) {
       try {
-        await cameraService.stopRecording()
+        const electronAPI = (window as any).electronAPI
+        if (electronAPI?.insta360) {
+          await electronAPI.insta360.stopRecording()
+        } else {
+          await cameraService.stopRecording()
+        }
       } catch (e) {
         console.warn('Camera stop failed:', e)
       }

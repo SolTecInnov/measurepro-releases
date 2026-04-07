@@ -97,14 +97,7 @@ export default function BackupSettings() {
     const storedVersion = localStorage.getItem('measurepro_app_version');
     
     if (storedVersion && storedVersion !== APP_VERSION) {
-      toast.info('App Version Updated', {
-        description: `Updated from v${storedVersion} to v${APP_VERSION}. Consider creating a backup before using new features.`,
-        duration: 10000,
-        action: {
-          label: 'Backup Now',
-          onClick: () => handleExport()
-        }
-      });
+      /* toast removed */
     }
     
     localStorage.setItem('measurepro_app_version', APP_VERSION);
@@ -119,14 +112,7 @@ export default function BackupSettings() {
     const hoursSinceBackup = (Date.now() - lastBackupTime) / (1000 * 60 * 60);
     
     if (hoursSinceBackup >= 24) {
-      toast.info('Daily Backup Reminder', {
-        description: "It's been 24 hours since your last backup. Create one now?",
-        duration: 15000,
-        action: {
-          label: 'Backup Now',
-          onClick: () => handleExport()
-        }
-      });
+      /* toast removed */
     }
   };
 
@@ -135,22 +121,14 @@ export default function BackupSettings() {
     setAutoBackupEnabled(newValue);
     localStorage.setItem('measurepro_auto_backup_enabled', newValue.toString());
     
-    toast.success(newValue ? 'Auto-backup enabled' : 'Auto-backup disabled', {
-      description: newValue 
-        ? 'You will be reminded to backup every 24 hours.' 
-        : 'Auto-backup reminders are now disabled.',
-      duration: 3000
-    });
+    // toast suppressed
   };
 
   const handleShowDbStats = async () => {
     try {
       const stats = await getIndexedDBStats();
       setDbStats(stats);
-      toast.info(`IndexedDB: ${stats.hostname}`, {
-        description: `${stats.surveys} surveys, ${stats.measurements} measurements, ~${stats.estimatedSizeMB}MB`,
-        duration: 8000
-      });
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to get database stats');
     }
@@ -212,10 +190,7 @@ export default function BackupSettings() {
       localStorage.setItem('measurepro_last_backup', now);
       setLastBackup(now);
 
-      toast.success('Backup created successfully!', {
-        description: 'Your data has been exported to a ZIP file.',
-        duration: 5000
-      });
+      // toast suppressed
     } catch (error) {
       toast.error('Backup failed', {
         description: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -239,10 +214,7 @@ export default function BackupSettings() {
         setRestoreProgress(progress);
       });
 
-      toast.success('Restore completed successfully!', {
-        description: 'Your data has been restored from the backup.',
-        duration: 5000
-      });
+      // toast suppressed
 
       // Reload page to show restored data
       setTimeout(() => {

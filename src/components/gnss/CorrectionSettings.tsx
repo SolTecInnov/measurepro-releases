@@ -54,7 +54,7 @@ export function CorrectionSettings() {
         enabled,
         ntrip: correctionType === 'rtk' || correctionType === 'ppp' ? ntripSettings : undefined,
       });
-      toast.success('Correction settings saved');
+      // toast suppressed
       await loadStatus();
     } catch (error) {
       toast.error('Failed to save correction settings');

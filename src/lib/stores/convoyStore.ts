@@ -126,9 +126,7 @@ export const useConvoyStore = create<ConvoyStore>((set, get) => ({
         
         // Show lightweight notification for unexpected disconnects
         if (!event.wasClean) {
-          toast.warning('Convoy connection lost', {
-            description: 'Reconnect or check your network connection'
-          });
+          /* toast removed */
         }
       }
     };

@@ -160,7 +160,7 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
       const updated = [...regions, newRegion];
       saveRegions(updated);
       setRegions(updated);
-      toast.success(`Region "${newRegion.name}" cached`, { description: `${done} tiles downloaded for offline use` });
+      // toast suppressed
       setRegionName('');
     }
     setIsDownloading(false);
@@ -182,7 +182,7 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
       const updated = regions.filter((_, i) => i !== idx);
       saveRegions(updated);
       setRegions(updated);
-      toast.success(`Removed "${region.name}"`, { description: `${deleted} tiles cleared from offline cache` });
+      // toast suppressed
       refreshStorage();
     } catch {
       toast.error('Failed to delete region');
@@ -427,9 +427,7 @@ const MapSettings = () => {
       }
     });
     
-    toast.success('API keys saved successfully', {
-      description: 'Your API keys have been saved and will persist on reload'
-    });
+    // toast suppressed
   };
 
   return (

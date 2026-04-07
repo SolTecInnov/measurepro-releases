@@ -115,7 +115,7 @@ export function CalibrationSummary({
     };
     const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     saveAs(blob, `calibrations-${deviceId}-${Date.now()}.json`);
-    toast.success('Calibrations exported');
+    // toast suppressed
   };
 
   if (loading) {

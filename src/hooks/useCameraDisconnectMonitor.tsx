@@ -76,15 +76,11 @@ export function useCameraDisconnectMonitor() {
         setCameraType('standard');
         setCameraConnected(true);
         
-        toast.success('Switched to standard camera successfully', {
-          duration: 3000,
-        });
+        /* toast removed */
         
         // Log state preservation
         if (isRecording || isTimelapseActive) {
-          toast.info('Recording/timelapse state preserved during camera switch', {
-            duration: 3000,
-          });
+          /* toast removed */
         }
         
       } catch (error) {
@@ -102,9 +98,7 @@ export function useCameraDisconnectMonitor() {
       });
       
       if (isRecording || isTimelapseActive) {
-        toast.warning('Recording/timelapse may be interrupted. Attempting to continue...', {
-          duration: 5000,
-        });
+        /* toast removed */
       }
     }
     

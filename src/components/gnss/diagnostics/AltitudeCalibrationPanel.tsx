@@ -60,7 +60,7 @@ export function AltitudeCalibrationPanel() {
   const resetOffset = () => {
     setOffset(0);
     altitudeCalibration.resetOffset();
-    toast.success('Altitude offset reset to 0');
+    // toast suppressed
   };
 
   const startWizard = () => {
@@ -98,7 +98,7 @@ export function AltitudeCalibrationPanel() {
     const ref = parseFloat(referenceAltitude);
     if (currentAltitude !== null) {
       altitudeCalibration.calibrateWithReference(ref, currentAltitude, selectedMethod);
-      toast.success(`Altitude calibrated. Offset: ${calculatedOffset.toFixed(2)}m`);
+      /* toast removed */
     }
     setWizardStep('idle');
   };

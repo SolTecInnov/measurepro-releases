@@ -76,7 +76,7 @@ const MyLicenses = () => {
         await syncFeatureSnapshot(currentUser);
       }
       await loadLastVerifiedAt();
-      toast.success('Licenses verified and cache refreshed.');
+      // toast suppressed
     } catch {
       toast.error('Could not verify licenses. Check your connection and try again.');
     } finally {

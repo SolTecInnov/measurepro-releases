@@ -70,7 +70,7 @@ const EnvelopeSettings = () => {
     toggleEnabled();
     
     if (enabled && !settings.enabled) {
-      toast.success('Envelope Clearance enabled successfully');
+      // toast suppressed
     }
   };
 

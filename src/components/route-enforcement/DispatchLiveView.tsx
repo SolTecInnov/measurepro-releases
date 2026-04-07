@@ -67,7 +67,7 @@ export default function DispatchLiveView() {
         if (message.type === 'off_route_alert' && message.data.incident) {
           // Play alert sound
           soundManager.playSound('warning');
-          toast.warning(`Off-route alert: ${message.data.member.name}`);
+          // toast suppressed
         }
       } catch (error) {
       }
@@ -94,7 +94,7 @@ export default function DispatchLiveView() {
       }));
     }
     
-    toast.success('Incident acknowledged');
+    // toast suppressed
   };
 
   const handleClearIncident = (incident: RouteIncident) => {
@@ -114,7 +114,7 @@ export default function DispatchLiveView() {
       }));
     }
     
-    toast.success('Incident cleared - driver can continue');
+    // toast suppressed
     soundManager.playSound('confirmation');
   };
 

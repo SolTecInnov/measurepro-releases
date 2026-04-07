@@ -32,7 +32,7 @@ export function WindBladeSettings() {
     setIsSaving(true);
     try {
       saveWindBladeConfig(config);
-      toast.success('Wind blade settings saved');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to save settings');
     } finally {
@@ -42,7 +42,7 @@ export function WindBladeSettings() {
 
   const handleReset = () => {
     setConfig(DEFAULT_WIND_BLADE_CONFIG);
-    toast.success('Reset to default values');
+    // toast suppressed
   };
 
   const updateConfig = (key: keyof WindBladeConfig, value: number | boolean) => {

@@ -164,7 +164,7 @@ export function SurveyExportDialog({
       }
 
       setExportComplete(true);
-      toast.success(`Exported ${results.length} file(s) successfully`);
+      /* toast removed */
     } catch (error) {
       console.error('[SurveyExportDialog] Export failed:', error);
       toast.error('Export failed: ' + (error instanceof Error ? error.message : 'Unknown error'));

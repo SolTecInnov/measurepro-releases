@@ -52,7 +52,7 @@ export function ScanListPanel() {
     try {
       await deleteIndexedDBScan(scanId);
       removeSavedScan(scanId);
-      toast.success('Scan deleted successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to delete scan');
     }

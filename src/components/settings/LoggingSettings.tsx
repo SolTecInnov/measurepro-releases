@@ -260,7 +260,7 @@ const LoggingSettings = () => {
                 Format: {'{SurveyTitle}_{Date}_{Time}_part{N}.zip'}
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                Each auto-save creates a new part number. ZIP includes: POIs, images, videos, timelapse, and drawings.
+                Each auto-save creates a new part number. ZIP includes: POIs, images, videos, and drawings.
               </p>
               
               {/* Last Save Information */}
@@ -287,7 +287,7 @@ const LoggingSettings = () => {
                   </div>
                   
                   <div className="text-xs text-gray-400 mt-2">
-                    Last saved file includes all POIs, images, videos, timelapse, and drawings
+                    Last saved file includes all POIs, images, videos, and drawings
                   </div>
                 </div>
               )}
@@ -361,7 +361,7 @@ const LoggingSettings = () => {
               <ul className="space-y-1 text-gray-300">
                 <li>• When POI count reaches threshold, survey is automatically saved</li>
                 <li>• A new part is created seamlessly without interrupting laser/GPS</li>
-                <li>• Active timelapse recordings are saved before transition</li>
+                <li></li>
                 <li>• Data is uploaded to cloud if configured</li>
                 <li>• Email notification sent if enabled</li>
               </ul>
@@ -428,7 +428,7 @@ const LoggingSettings = () => {
           <div className="bg-purple-900/20 border border-purple-800/30 rounded-lg p-4 mt-6">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-5 h-5 text-purple-400" />
-              <h3 className="text-lg font-semibold">Timelapse POI Filter</h3>
+              {/* Timelapse filter hidden — feature disabled */}
             </div>
             
             <p className="text-sm text-gray-400 mb-4">

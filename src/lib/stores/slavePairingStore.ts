@@ -1,16 +1,45 @@
-import { create } from 'zustand';
-import { useSurveyStore } from '@/lib/survey';
+/**
+ * MeasurePRO — Slave App Pairing Store v3 (Firestore-based relay)
+ *
+ * Architecture: Uses Firestore as the relay — no custom server needed.
+ * Master creates a session document, slave joins by code.
+ * Real-time bidirectional messaging via Firestore subcollections.
+ * Works everywhere Firebase works — fully serverless, always online.
+ *
+ * /pairing/{code}/            — session doc
+ * /pairing/{code}/toSlave/    — messages from master to slave
+ * /pairing/{code}/toMaster/   — messages from slave to master
+ */
 
-// Module-level singletons — survive component mount/unmount
-let _ws: WebSocket | null = null;
-let _reconnectTimeout: ReturnType<typeof setTimeout> | null = null;
-let _heartbeatInterval: ReturnType<typeof setInterval> | null = null;
-let _intentionalClose = false;
+import { create } from 'zustand';
+import {
+  getFirestore,
+  doc, setDoc, getDoc, onSnapshot, deleteDoc,
+  collection, addDoc, serverTimestamp, query, orderBy, limit,
+  type Unsubscribe,
+} from 'firebase/firestore';
+import { initializeFirestore, memoryLocalCache } from 'firebase/firestore';
+import { getApp } from 'firebase/app';
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+function getDb() {
+  try { return initializeFirestore(getApp(), { localCache: memoryLocalCache() }); }
+  catch { return getFirestore(getApp()); }
+}
+
+function randomCode(): string {
+  return String(Math.floor(100000 + Math.random() * 900000));
+}
+
+// ── Store ──────────────────────────────────────────────────────────────────
 
 interface SlavePairingState {
   pairingCode: string | null;
-  isServerConnected: boolean;
+  isServerConnected: boolean;  // true = Firestore session doc created
   isSlaveConnected: boolean;
+  _unsubSlave: Unsubscribe | null;
+  _unsubMessages: Unsubscribe | null;
 
   connect: () => void;
   disconnect: () => void;
@@ -18,129 +47,129 @@ interface SlavePairingState {
   refreshCode: () => void;
 }
 
-function clearHeartbeat() {
-  if (_heartbeatInterval) {
-    clearInterval(_heartbeatInterval);
-    _heartbeatInterval = null;
-  }
+async function createSession(code: string, surveyData: any) {
+  const db = getDb();
+  await setDoc(doc(db, 'pairing', code), {
+    createdAt: serverTimestamp(),
+    expiresAt: Date.now() + 10 * 60 * 1000,
+    masterOnline: true,
+    slaveOnline: false,
+    surveyData: surveyData ?? null,
+  });
 }
 
-function startHeartbeat() {
-  clearHeartbeat();
-  _heartbeatInterval = setInterval(() => {
-    if (_ws && _ws.readyState === WebSocket.OPEN) {
-      _ws.send(JSON.stringify({ type: 'ping' }));
-    }
-  }, 10_000);
+async function sendToSlave(code: string, msg: object) {
+  const db = getDb();
+  await addDoc(collection(db, 'pairing', code, 'toSlave'), {
+    ...msg,
+    ts: serverTimestamp(),
+  });
 }
 
-export const useSlavePairingStore = create<SlavePairingState>((set) => {
-  function connectWs() {
-    if (_ws && (_ws.readyState === WebSocket.OPEN || _ws.readyState === WebSocket.CONNECTING)) return;
-    _intentionalClose = false;
+async function cleanupSession(code: string) {
+  try {
+    const db = getDb();
+    await setDoc(doc(db, 'pairing', code), { masterOnline: false }, { merge: true });
+  } catch {}
+}
 
-    try {
-      // Electron uses file:// — must connect to remote relay server over internet
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://measurepro.soltecinnovation.com';
-      const protocol = apiUrl.startsWith('https') ? 'wss:' : 'ws:';
-      const host = apiUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
-      const ws = new WebSocket(`${protocol}//${host}/api`);
-      _ws = ws;
+export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
 
-      ws.onopen = () => {
-        set({ isServerConnected: true });
-        ws.send(JSON.stringify({ type: 'slave_pairing_request_code' }));
-        startHeartbeat();
-      };
+  let _unsubSlave: Unsubscribe | null = null;
+  let _unsubMessages: Unsubscribe | null = null;
 
-      ws.onmessage = (event) => {
-        try {
-          const msg = JSON.parse(event.data as string);
-          switch (msg.type) {
-            case 'pairing_code': {
-              set({ pairingCode: msg.code });
-              // Push existing active survey immediately so slave gets it on connect
-              const survey = useSurveyStore.getState().activeSurvey;
-              if (survey && _ws?.readyState === WebSocket.OPEN) {
-                _ws.send(JSON.stringify({ type: 'slave_pairing_update_survey', surveyData: survey }));
-              }
-              break;
-            }
-            case 'slave_connected': {
-              set({ isSlaveConnected: true });
-              // Push survey immediately when slave joins
-              const survey = useSurveyStore.getState().activeSurvey;
-              if (survey && _ws?.readyState === WebSocket.OPEN) {
-                _ws.send(JSON.stringify({ type: 'slave_pairing_update_survey', surveyData: survey }));
-              }
-              window.dispatchEvent(new CustomEvent('slavePairing:slaveConnected'));
-              break;
-            }
-            case 'slave_disconnected':
-              set({ isSlaveConnected: false });
-              window.dispatchEvent(new CustomEvent('slavePairing:slaveDisconnected'));
-              break;
-            case 'slave_measurement':
-              window.dispatchEvent(new CustomEvent('slavePairing:measurement', { detail: msg.data }));
-              break;
-            case 'pong':
-              break;
-            default:
-              break;
-          }
-        } catch (e) {
-          console.error('[SlavePairing] Error parsing WS message:', e);
+  async function setupSession(code: string) {
+    const db = getDb();
+
+    // Create session doc
+    await createSession(code, null);
+
+    // Watch for slave joining (slaveOnline: true)
+    _unsubSlave = onSnapshot(doc(db, 'pairing', code), (snap) => {
+      if (!snap.exists()) return;
+      const data = snap.data();
+      if (data.slaveOnline && !get().isSlaveConnected) {
+        set({ isSlaveConnected: true });
+        window.dispatchEvent(new CustomEvent('slavePairing:slaveConnected'));
+        // Push current survey to slave immediately
+        const { sendSurveyUpdate } = get();
+        // Re-send survey after slave connects
+        import('../survey/store').then(({ useSurveyStore }) => {
+          const survey = useSurveyStore.getState().activeSurvey;
+          if (survey) sendSurveyUpdate(survey);
+        });
+      }
+      if (!data.slaveOnline && get().isSlaveConnected) {
+        set({ isSlaveConnected: false });
+      }
+    });
+
+    // Watch for messages from slave → master
+    const q = query(
+      collection(db, 'pairing', code, 'toMaster'),
+      orderBy('ts', 'desc'),
+      limit(1)
+    );
+    let lastMsgId: string | null = null;
+    _unsubMessages = onSnapshot(q, (snap) => {
+      snap.forEach((msgDoc) => {
+        if (msgDoc.id === lastMsgId) return;
+        lastMsgId = msgDoc.id;
+        const msg = msgDoc.data();
+        // Dispatch to app
+        window.dispatchEvent(new CustomEvent('slavePairing:message', { detail: msg }));
+        // ACK back to slave
+        if (msg.type === 'slave_measurement' || msg.type === 'slave_pairing_measurement') {
+          const measurement = msg.measurement ?? msg.data;
+          sendToSlave(code, {
+            type: 'slave_measurement_ack',
+            id: measurement?.id ?? msg.id,
+            failed: false,
+          });
+          // Forward to master app
+          window.dispatchEvent(new CustomEvent('slavePairing:measurement', { detail: measurement }));
         }
-      };
+      });
+    });
 
-      ws.onerror = () => {
-        console.error('[SlavePairing] WebSocket error');
-      };
-
-      ws.onclose = () => {
-        clearHeartbeat();
-        set({ isServerConnected: false, pairingCode: null, isSlaveConnected: false });
-        _ws = null;
-
-        if (!_intentionalClose) {
-          if (_reconnectTimeout) clearTimeout(_reconnectTimeout);
-          _reconnectTimeout = setTimeout(() => {
-            console.log('[SlavePairing] Reconnecting…');
-            connectWs();
-          }, 5_000);
-        }
-      };
-    } catch (e) {
-      console.error('[SlavePairing] Failed to open WebSocket:', e);
-    }
+    set({ isServerConnected: true });
   }
 
   return {
     pairingCode: null,
     isServerConnected: false,
     isSlaveConnected: false,
+    _unsubSlave: null,
+    _unsubMessages: null,
 
-    connect: connectWs,
+    connect() {
+      const code = randomCode();
+      set({ pairingCode: code, isServerConnected: false, isSlaveConnected: false });
+      setupSession(code).catch(console.error);
+    },
 
-    disconnect: () => {
-      _intentionalClose = true;
-      clearHeartbeat();
-      if (_reconnectTimeout) { clearTimeout(_reconnectTimeout); _reconnectTimeout = null; }
-      if (_ws) { _ws.close(); _ws = null; }
+    disconnect() {
+      const { pairingCode } = get();
+      if (_unsubSlave)   { _unsubSlave();   _unsubSlave = null;   }
+      if (_unsubMessages){ _unsubMessages(); _unsubMessages = null; }
+      if (pairingCode) cleanupSession(pairingCode);
       set({ pairingCode: null, isServerConnected: false, isSlaveConnected: false });
     },
 
-    sendSurveyUpdate: (survey: any) => {
-      if (_ws && _ws.readyState === WebSocket.OPEN) {
-        _ws.send(JSON.stringify({ type: 'slave_pairing_update_survey', surveyData: survey }));
-      }
+    sendSurveyUpdate(survey: any) {
+      const { pairingCode } = get();
+      if (!pairingCode) return;
+      const db = getDb();
+      setDoc(doc(db, 'pairing', pairingCode), { surveyData: survey }, { merge: true }).catch(console.error);
+      sendToSlave(pairingCode, { type: 'survey_data', data: survey }).catch(console.error);
     },
 
-    refreshCode: () => {
-      _intentionalClose = false;
-      set({ pairingCode: null, isSlaveConnected: false });
-      if (_ws) { _ws.close(); _ws = null; }
-      connectWs();
+    refreshCode() {
+      get().disconnect();
+      setTimeout(() => get().connect(), 300);
     },
   };
 });
+
+// Auto-connect when module loads
+useSlavePairingStore.getState().connect();

@@ -223,6 +223,15 @@ export function useLicenseCheck(featureKey: string): {
         }
       }
 
+      // 0. Check localStorage cache for master admin (works fully offline)
+      const cachedEmail = localStorage.getItem('last_logged_in_email') || localStorage.getItem('auth_email_cache');
+      if (cachedEmail && isMasterAdmin(cachedEmail)) {
+        setHasAccess(true);
+        setIsLoading(false);
+        setError(null);
+        return;
+      }
+
       // 1. Check cached master admin flag FIRST (works offline)
       if (cachedIsMasterAdmin) {
         setHasAccess(true);
@@ -234,6 +243,8 @@ export function useLicenseCheck(featureKey: string): {
       // 2. Check Firebase user (only works online)
       if (!auth.currentUser) {
         if (authContextUser?.email && isMasterAdmin(authContextUser.email)) {
+          // Cache email for offline use
+          try { localStorage.setItem('last_logged_in_email', authContextUser.email); } catch {}
           setHasAccess(true);
           setIsLoading(false);
           setError(null);
@@ -246,6 +257,8 @@ export function useLicenseCheck(featureKey: string): {
 
       // 3. Check Firebase user email
       if (isMasterAdmin(auth.currentUser.email)) {
+        // Cache email so feature access works offline next session
+        try { localStorage.setItem('last_logged_in_email', auth.currentUser.email || ''); } catch {}
         setHasAccess(true);
         setIsLoading(false);
         setError(null);

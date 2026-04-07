@@ -125,7 +125,7 @@ export default function DriverInterface() {
       updateDriverStatus('on_route');
       if (hasActiveIncident) {
         setHasActiveIncident(false);
-        toast.success('Back on route');
+        // toast suppressed
       }
     }
   }, [gpsState, driverSession, violationStartTime, hasActiveIncident, updateDriverStatus, ws]);
@@ -212,7 +212,7 @@ export default function DriverInterface() {
       connectToConvoy(convoy.id, convoy.qrToken, formData);
       
       setShowJoinForm(false);
-      toast.success('Joined convoy successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to join convoy. Please check your connection and try again.');
     }
@@ -222,7 +222,7 @@ export default function DriverInterface() {
     disconnect();
     setDriverSession(null);
     setShowJoinForm(true);
-    toast.info('Left convoy');
+    // toast suppressed
   };
 
   if (showJoinForm) {

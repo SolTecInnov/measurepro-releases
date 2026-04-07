@@ -51,9 +51,7 @@ export class TimelapseRecorder {
       this.captureFrame();
     }, settings.interval * 1000);
 
-    toast.success('Timelapse started', {
-      description: `Capturing frame every ${settings.interval} seconds`
-    });
+    /* toast removed */
   }
 
   /**
@@ -74,9 +72,7 @@ export class TimelapseRecorder {
 
     const frameCount = useCameraStore.getState().timelapseFrames.length;
     
-    toast.success('Timelapse stopped', {
-      description: `Captured ${frameCount} frame${frameCount !== 1 ? 's' : ''}`
-    });
+    /* toast removed */
   }
 
   /**

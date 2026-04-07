@@ -108,11 +108,7 @@ export function useMeasurementLogger(): MeasurementLoggerHook {
         fallbackModeNotificationShown.current = false;
         logger.log('✅ Exited fallback mode - worker recovered');
         
-        toast.success('Worker recovered', {
-          description: 'Measurement logging has returned to normal performance.',
-          duration: 3000,
-          id: 'worker-recovered'
-        });
+        // toast suppressed
       }
       
       // Schedule UI update using requestAnimationFrame (smooth 60fps)
@@ -185,11 +181,7 @@ export function useMeasurementLogger(): MeasurementLoggerHook {
         } else if (data.type === 'permanentFailure') {
           // Only show individual failure toasts if not in sustained fallback mode
           if (!inFallbackMode.current) {
-            toast.warning('Measurement recovered', {
-              description: `Worker failed after ${data.retries} retries. Saved via main thread.`,
-              duration: 3000,
-              id: `fallback-${data.measurement.id}` // Unique per measurement
-            });
+            // toast suppressed
           }
         }
         
@@ -359,11 +351,7 @@ export function useMeasurementLogger(): MeasurementLoggerHook {
           fallbackModeNotificationShown.current = false;
           logger.log('✅ Exited fallback mode - worker accepting measurements again');
           
-          toast.success('Worker recovered', {
-            description: 'Measurement logging has returned to normal performance.',
-            duration: 3000,
-            id: 'worker-recovered'
-          });
+          // toast suppressed
         }
       } catch (workerError) {
         // Worker rejected the measurement (e.g., degraded mode, init failure)

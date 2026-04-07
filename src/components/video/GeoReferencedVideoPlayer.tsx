@@ -145,7 +145,7 @@ const GeoReferencedVideoPlayer: React.FC<GeoReferencedVideoPlayerProps> = ({
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success('Video download started');
+    // toast suppressed
   };
 
   const formatTime = (seconds: number): string => {

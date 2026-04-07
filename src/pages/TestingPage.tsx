@@ -630,7 +630,7 @@ function TesterRegistrationForm({ onSuccess }: { onSuccess: (tester: Tester, ses
       
       if (existingResponse.ok) {
         tester = await existingResponse.json();
-        toast.success('Welcome back! Starting new test session...');
+        /* toast removed */
       } else {
         tester = await createTesterMutation.mutateAsync({
           name,
@@ -642,7 +642,7 @@ function TesterRegistrationForm({ onSuccess }: { onSuccess: (tester: Tester, ses
           temperature: parseInt(temperature, 10),
           location: location || null,
         });
-        toast.success('Tester registered successfully!');
+        /* toast removed */
       }
 
       const session = await createSessionMutation.mutateAsync({

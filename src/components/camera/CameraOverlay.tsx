@@ -12,6 +12,7 @@ type ClearanceStatus = 'safe' | 'warning' | 'critical';
 
 interface CameraOverlayProps {
   enabled: boolean;
+  overlayScale?: number;  // 0.25 to 1.0, affects live display only (not burned images)
   options: {
     showPOI: boolean;
     showPOIType: boolean;
@@ -47,6 +48,7 @@ function formatDateTimeDisplay(date: Date): string {
 
 const CameraOverlay: React.FC<CameraOverlayProps> = ({ 
   enabled, 
+  overlayScale = 1,
   options, 
   measurements,
   currentMeasure
@@ -131,7 +133,7 @@ const CameraOverlay: React.FC<CameraOverlayProps> = ({
       return '--m';
     }
     
-    return adjustedValue.toFixed(3) + 'm';
+    return adjustedValue.toFixed(2) + 'm';
   };
 
   const getClearanceDisplay = () => {
@@ -263,7 +265,7 @@ const CameraOverlay: React.FC<CameraOverlayProps> = ({
     <div className={`absolute inset-0 pointer-events-none z-10 ${clearanceDisplay?.status === 'critical' ? 'animate-pulse border-4 border-red-500' : ''}`}>
       
       {/* Logo and overlay card container - bottom left */}
-      <div className="absolute bottom-4 left-4 flex flex-col items-start gap-2">
+      <div className="absolute bottom-4 left-4 flex flex-col items-start gap-2" style={{ transform: `scale(${overlayScale})`, transformOrigin: 'bottom left', transition: 'transform 0.15s' }}>
         {/* Logo without background - 20% smaller */}
         {logoUrl && (
           <img 

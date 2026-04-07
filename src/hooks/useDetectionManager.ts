@@ -91,7 +91,7 @@ export const useDetectionManager = (props?: UseDetectionManagerProps) => {
           try {
             await tensorFlowDetectorRef.current.initialize();
             setModelLoadStatus('loaded');
-            toast.success('AI model loaded successfully');
+            // toast suppressed
           } catch (error) {
             setModelLoadStatus('error');
             const errorMsg = error instanceof Error ? error.message : String(error);
@@ -144,7 +144,7 @@ export const useDetectionManager = (props?: UseDetectionManagerProps) => {
         // Reinitialize the detector
         await tensorFlowDetectorRef.current.initialize();
         setModelLoadStatus('loaded');
-        toast.success(`AI detector reinitialized with ${(aiSettings.detectionConfidence * 100).toFixed(0)}% confidence`);
+        /* toast removed */
       } catch (error) {
         setModelLoadStatus('error');
         const errorMsg = error instanceof Error ? error.message : String(error);

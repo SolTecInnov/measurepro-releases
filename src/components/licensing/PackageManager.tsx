@@ -49,7 +49,7 @@ const PackageManager = () => {
   const handleCreate = async () => {
     try {
       await createLicensePackage(formData);
-      toast.success('Package created successfully');
+      // toast suppressed
       setShowEditor(false);
       resetForm();
       loadData();
@@ -62,7 +62,7 @@ const PackageManager = () => {
     if (!editingPackage) return;
     try {
       await updateLicensePackage(editingPackage.id, formData);
-      toast.success('Package updated successfully');
+      // toast suppressed
       setShowEditor(false);
       setEditingPackage(null);
       resetForm();
@@ -75,7 +75,7 @@ const PackageManager = () => {
   const handleDelete = async (id: string) => {
     try {
       await deleteLicensePackage(id);
-      toast.success('Package deleted successfully');
+      // toast suppressed
       setDeleteConfirmId(null);
       loadData();
     } catch (error) {

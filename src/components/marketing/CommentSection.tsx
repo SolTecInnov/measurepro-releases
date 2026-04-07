@@ -40,7 +40,7 @@ export function CommentSection({ documentId }: CommentSectionProps) {
       queryClient.invalidateQueries({ queryKey: ['/api/marketing/comments', documentId] });
       setAuthorName('');
       setCommentText('');
-      toast.success('Comment added successfully!');
+      // toast suppressed
     },
     onError: (error: Error) => {
       toast.error('Failed to add comment', {

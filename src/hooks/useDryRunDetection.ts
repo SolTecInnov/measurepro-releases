@@ -86,9 +86,7 @@ export function useDryRunDetection({
         poiId: measurement.id 
       });
 
-      toast.success(`${sideLabel} detection logged`, {
-        description: `POI ${measurement.id.substring(0, 8)} - ${zoneName}`,
-      });
+      /* toast removed */
     } catch (error) {
       console.error('[DryRun] Failed to create detection POI:', error);
       toast.error('Failed to log detection POI');

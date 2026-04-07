@@ -60,9 +60,7 @@ export default function RegisterPage() {
         body: JSON.stringify(data),
       });
 
-      toast.success('Verification code sent!', {
-        description: 'Please check your email for the verification code.',
-      });
+      /* toast removed */
 
       // Store email, phone and accountId for the verification pages
       localStorage.setItem('registration_email', data.email);

@@ -337,9 +337,7 @@ class GnssPersistence {
       const skipped = unsyncedSamples.length - strictSamples.length;
       if (skipped > 0) {
         console.warn(`[GnssPersistence] Filtered out ${skipped} legacy samples from sync`);
-        toast.warning('Legacy Samples Skipped', {
-          description: `${skipped} samples skipped during sync due to missing identifiers.`
-        });
+        /* toast removed */
       }
       
       if (strictSamples.length === 0) {
@@ -486,7 +484,7 @@ class GnssPersistence {
 
       if (recoveredCount > 0) {
         console.log(`[GNSS Persistence] Recovered ${recoveredCount} samples from emergency storage`);
-        toast.success(`Recovered ${recoveredCount} GNSS samples from previous session`);
+        /* toast removed */
       }
     } catch (error) {
       console.error('[GNSS Persistence] Emergency recovery failed:', error);

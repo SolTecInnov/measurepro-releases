@@ -79,13 +79,13 @@ export class CommandRegistry {
 
     this.register('clear_warnings', async (lang) => {
       this.clearWarningsCallback?.();
-      toast.success(getResponse(lang, 'clear_warnings'));
+      /* toast removed */
       return getResponse(lang, 'clear_warnings');
     });
 
     this.register('clear_critical', async (lang) => {
       this.clearCriticalCallback?.();
-      toast.success(getResponse(lang, 'clear_critical'));
+      /* toast removed */
       return getResponse(lang, 'clear_critical');
     });
 
@@ -103,7 +103,7 @@ export class CommandRegistry {
 
     this.register('manual_log', async (lang) => {
       this.manualLogCallback?.();
-      toast.success(getResponse(lang, 'manual_log'));
+      /* toast removed */
       return getResponse(lang, 'manual_log');
     });
 
@@ -170,7 +170,7 @@ export class CommandRegistry {
     });
 
     this.register('mode_counter_detection', async (lang) => {
-      toast.info('Counter detection mode has no keyboard shortcut yet');
+      /* toast removed */
       return getResponse(lang, 'mode_counter_detection');
     });
 

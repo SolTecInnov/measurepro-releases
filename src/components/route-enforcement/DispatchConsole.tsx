@@ -119,7 +119,7 @@ export default function DispatchConsole() {
           pointCount: routeData.routeGeometry.length,
         });
         
-        toast.success(`Route loaded: ${routeData.routeGeometry.length} points, ${(totalDistance / 1000).toFixed(2)} km`);
+        /* toast removed */
       } else {
         toast.error('No route data found in GPX file');
       }
@@ -180,7 +180,7 @@ export default function DispatchConsole() {
     };
 
     addConvoy(convoy);
-    toast.success(`Convoy "${convoy.convoyName}" created successfully`);
+    // toast suppressed
     
     // Reset form
     setShowCreateForm(false);
@@ -197,7 +197,7 @@ export default function DispatchConsole() {
   const handleToggleConvoyStatus = (convoyId: string, currentStatus: 'active' | 'paused' | 'ended') => {
     const newStatus = currentStatus === 'active' ? 'paused' : 'active';
     updateConvoy(convoyId, { status: newStatus });
-    toast.success(`Convoy ${newStatus === 'active' ? 'resumed' : 'paused'}`);
+    // toast suppressed
   };
 
   const handleEndConvoy = (convoyId: string) => {
@@ -205,15 +205,15 @@ export default function DispatchConsole() {
     // After 5 seconds, remove it from active list
     setTimeout(() => {
       removeConvoy(convoyId);
-      toast.info('Convoy removed from active list');
+      // toast suppressed
     }, 5000);
-    toast.success('Convoy ended');
+    // toast suppressed
   };
 
   const handleCopyToken = (token: string) => {
     navigator.clipboard.writeText(token);
     setCopiedToken(token);
-    toast.success('Token copied to clipboard');
+    // toast suppressed
     setTimeout(() => setCopiedToken(null), 2000);
   };
 

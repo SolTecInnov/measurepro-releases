@@ -43,7 +43,7 @@ const FeatureManager = () => {
   const handleCreate = async () => {
     try {
       await createLicenseFeature(formData);
-      toast.success('Feature created successfully');
+      // toast suppressed
       setShowEditor(false);
       resetForm();
       loadFeatures();
@@ -56,7 +56,7 @@ const FeatureManager = () => {
     if (!editingFeature) return;
     try {
       await updateLicenseFeature(editingFeature.id, formData);
-      toast.success('Feature updated successfully');
+      // toast suppressed
       setShowEditor(false);
       setEditingFeature(null);
       resetForm();
@@ -69,7 +69,7 @@ const FeatureManager = () => {
   const handleDelete = async (id: string) => {
     try {
       await deleteLicenseFeature(id);
-      toast.success('Feature deleted successfully');
+      // toast suppressed
       setDeleteConfirmId(null);
       loadFeatures();
     } catch (error) {

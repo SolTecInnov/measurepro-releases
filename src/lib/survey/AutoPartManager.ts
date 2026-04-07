@@ -147,10 +147,7 @@ class AutoPartManager {
           this.lastCheckedCount < this.config.threshold - 50 ||
           (remaining <= 10 && this.lastCheckedCount !== currentCount)
         ) {
-          toast.info(`${remaining} POIs until auto-save`, {
-            description: 'Survey will automatically save and continue.',
-            duration: 3000
-          });
+          /* toast removed */
         }
       }
 
@@ -265,10 +262,7 @@ class AutoPartManager {
       useSurveyStore.getState().setActiveSurvey(continuationSurvey);
       this.lastCheckedCount = 0;
 
-      toast.success(`Part ${currentPart} saved — now recording Part ${nextPart}`, {
-        description: `${poiCount} POIs captured. Survey continues seamlessly.`,
-        duration: 5000
-      });
+      /* toast removed */
 
       console.log(`[AutoPartManager] Survey switched. Part ${nextPart} is now active.`);
 

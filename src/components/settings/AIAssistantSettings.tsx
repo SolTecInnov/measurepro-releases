@@ -68,7 +68,7 @@ const AIAssistantSettings = () => {
         await setAIAssistantSettings({ ...aiAssistantSettings, openaiApiKey: apiKey, enabled: true });
         await forceSyncNow();
         setKeyStatus('valid');
-        toast.success('API key validated and saved!');
+        // toast suppressed
       } else if (response.status === 401) {
         setKeyStatus('invalid');
         toast.error('Invalid API key. Please check your key and try again.');
@@ -89,7 +89,7 @@ const AIAssistantSettings = () => {
     await forceSyncNow();
     setApiKey('');
     setKeyStatus('none');
-    toast.success('API key removed');
+    // toast suppressed
   };
 
   const validateAndSaveZendesk = async () => {
@@ -120,7 +120,7 @@ const AIAssistantSettings = () => {
         await forceSyncNow();
         setZendeskSubdomain(subdomain);
         setZendeskStatus('valid');
-        toast.success(`Zendesk connected — signed in as ${data.user?.name ?? email}`);
+        // toast suppressed
       } else {
         setZendeskStatus('invalid');
         toast.error(`Zendesk: ${data.error ?? 'Authentication failed'}`, { duration: 10000 });
@@ -146,7 +146,7 @@ const AIAssistantSettings = () => {
     setZendeskEmail('');
     setZendeskToken('');
     setZendeskStatus('none');
-    toast.success('Zendesk integration removed');
+    // toast suppressed
   };
 
   // Fetch existing (masked) admin trial key when admin is unlocked
@@ -196,7 +196,7 @@ const AIAssistantSettings = () => {
         setAdminTrialKeyMasked(`sk-...${trialKey.trim().slice(-4)}`);
         setTrialKey('');
         resetTrialCache();
-        toast.success('Shared trial key saved — new users will now have AI access for 45 days');
+        // toast suppressed
       } else {
         setTrialKeyStatus('error');
         toast.error(data.error ?? 'Failed to save trial key');
@@ -222,7 +222,7 @@ const AIAssistantSettings = () => {
       setAdminTrialKeyMasked(null);
       setTrialKeyStatus('none');
       resetTrialCache();
-      toast.success('Shared trial key removed');
+      // toast suppressed
     } catch {
       toast.error('Failed to remove trial key');
     }

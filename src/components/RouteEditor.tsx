@@ -114,7 +114,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
       // Fallback to using current GPS position if available
       if (gpsData.latitude !== 0 && gpsData.longitude !== 0) {
         addPointAtPosition([gpsData.latitude, gpsData.longitude], type);
-        toast.success(`Added ${type} at current position`);
+        // toast suppressed
       } else {
         toast.error('No GPS position available');
       }
@@ -217,9 +217,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
             onRouteUpdated(result);
           }
           
-          toast.success('Route updated successfully', {
-            id: 'route-calculation'
-          });
+          // toast suppressed
         } else {
           // Create new route
           const newRoute = {
@@ -236,7 +234,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
             onRouteCreated(result);
           }
           
-          toast.success('Route created successfully');
+          // toast suppressed
         }
       } catch (error) {
         toast.error('Failed to save route');
@@ -291,7 +289,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
         setIsEditing(true);
         setRouteId(route.id);
         
-        toast.success('Route imported successfully');
+        // toast suppressed
       }
     } catch (error) {
       toast.error('Failed to import route');
@@ -334,7 +332,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
       
-      toast.success('Route exported successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to export route');
     }
@@ -362,7 +360,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
       
       setPoints(optimized.points);
       
-      toast.success('Route optimized successfully');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to optimize route');
     }

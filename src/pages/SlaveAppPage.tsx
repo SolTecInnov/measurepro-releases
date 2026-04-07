@@ -92,10 +92,7 @@ const SlaveAppPage: React.FC = () => {
         try {
           const measurements = JSON.parse(measurementsJson);
           if (measurements.length > 0) {
-            toast.info(`${measurements.length} measurements available from slave app`, {
-              description: 'Go to the main app to import them',
-              duration: 5000
-            });
+            /* toast removed */
           }
         } catch (error) {
         }

@@ -72,7 +72,7 @@ export function DuroBridgeConnectionSettings({ onConnectionChange }: DuroBridgeC
 
   const handleSave = () => {
     localStorage.setItem(BACKEND_URL_KEY, backendUrl);
-    toast.success('Backend URL saved');
+    // toast suppressed
     
     if (backendUrl) {
       // ── Electron: start direct TCP connection ─────────────────────────────

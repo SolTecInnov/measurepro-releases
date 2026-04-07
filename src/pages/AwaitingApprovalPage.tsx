@@ -33,9 +33,7 @@ export default function AwaitingApprovalPage() {
 
       // If account is approved, navigate to home
       if (updatedAccount.status === 'approved') {
-        toast.success('Account approved!', {
-          description: 'Welcome to MeasurePRO! You now have full access.',
-        });
+        /* toast removed */
         navigate('/');
       }
 

@@ -59,9 +59,7 @@ export default function VerifySmsPage() {
         method: 'POST',
         body: JSON.stringify({ accountId, code }),
       });
-      toast.success('Phone verified!', {
-        description: 'Please create a password for your account.',
-      });
+      /* toast removed */
       navigate('/set-password');
     } catch (error: any) {
       toast.error('Verification failed', {
@@ -82,7 +80,7 @@ export default function VerifySmsPage() {
       });
       setDevMode(resp.devMode || false);
       setCode('');
-      toast.success('New SMS code sent');
+      /* toast removed */
     } catch (error: any) {
       toast.error('Failed to resend SMS', {
         description: error.message || 'Please try again.',

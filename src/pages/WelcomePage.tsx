@@ -56,7 +56,7 @@ export default function WelcomePage() {
     
     if (password === 'SolTec') {
       localStorage.setItem('app_access', 'true');
-      toast.success('Access granted!');
+      /* toast removed */
       navigate('/app', { replace: true });
     } else {
       toast.error('Incorrect password');

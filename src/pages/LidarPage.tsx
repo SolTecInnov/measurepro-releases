@@ -92,7 +92,7 @@ export default function LidarPage() {
   useEffect(() => {
     const prevId = prevActiveCaptureRef.current;
     if (prevId && !activeCapture) {
-      toast.success('Scan completed automatically');
+      /* toast removed */
       getCapture(prevId)
         .then((completed) => {
           setCaptures((prev) => {
@@ -136,7 +136,7 @@ export default function LidarPage() {
   const handleStartStaticScan = async () => {
     try {
       await startStaticScan(staticDuration, linkedPoiId ?? undefined);
-      toast.success(`Static scan started${linkedPoiId ? ` (linked to POI ${linkedPoiId.substring(0, 8)})` : ''} (auto-stops after ${staticDuration}s)`);
+      /* toast removed */
     } catch (e) {
       toast.error(`Failed to start scan: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
@@ -145,7 +145,7 @@ export default function LidarPage() {
   const handleStartSegment = async () => {
     try {
       await startSegment(segmentDuration, linkedPoiId ?? undefined);
-      toast.success(`Segment capture started (${segmentDuration}s)`);
+      /* toast removed */
     } catch (e) {
       toast.error(`Failed to start segment: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
@@ -155,14 +155,14 @@ export default function LidarPage() {
     const result = await stopCapture();
     if (result) {
       setCaptures((prev) => [result, ...prev]);
-      toast.success(`Capture stopped: ${result.pointCount.toLocaleString()} points`);
+      /* toast removed */
     }
   };
   
   const handleExport = async (captureId: string) => {
     const path = await exportCapture(captureId, 'laz');
     if (path) {
-      toast.success(`Exported to: ${path}`);
+      /* toast removed */
       setCaptures((prev) =>
         prev.map((c) => (c.id === captureId ? { ...c, exportPath: path } : c))
       );
@@ -628,9 +628,7 @@ export default function LidarPage() {
                     onCheckedChange={(checked: boolean) => {
                       setMockModeEnabled(checked);
                       useSettingsStore.getState().setUISettings({ lidarMockMode: checked });
-                      toast.info(checked 
-                        ? 'Mock mode enabled - Remember to set MockMode: true in appsettings.json on the service' 
-                        : 'Mock mode disabled');
+                      /* toast removed */
                     }}
                     data-testid="switch-mock-mode"
                   />
@@ -705,7 +703,7 @@ export default function LidarPage() {
                     className="bg-orange-600 hover:bg-orange-700 border-orange-700 text-white"
                     onClick={() => {
                       window.location.href = '/api/downloads/lidar-service.zip';
-                      toast.success('Downloading LiDAR service package...');
+                      /* toast removed */
                     }}
                     data-testid="btn-download-installer"
                   >

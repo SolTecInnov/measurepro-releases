@@ -166,9 +166,7 @@ const MeasurementLogs: React.FC<MeasurementLogsProps> = ({
         }
       }
       
-      toast.success(`Imported ${importedCount} measurements`, {
-        description: errorCount > 0 ? `${errorCount} rows had errors and were skipped` : undefined
-      });
+      // toast suppressed
       
       // Reset file input
       if (fileInputRef.current) {

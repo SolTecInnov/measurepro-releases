@@ -34,12 +34,12 @@ const AnalyzeTurnButton = () => {
 
     setIsAnalyzing(true);
     setDebugState({ isAnalyzing: true, roadBoundaries: null, confidence: 0 });
-    toast.info('Analyzing turn... This may take a few seconds.');
+    // toast suppressed
 
     try {
       // Initialize OpenCV.js if not already loaded
       if (!isOpenCVReady()) {
-        toast.info('Loading AI image processing library...');
+        // toast suppressed
         const opencvLoaded = await initializeOpenCV();
         if (!opencvLoaded) {
           throw new Error('Failed to load OpenCV.js. Please check your internet connection and try again.');
@@ -158,7 +158,7 @@ const AnalyzeTurnButton = () => {
         captureImageUrl,
       } as any);
 
-      toast.success(`Analysis complete: ${verdict.toUpperCase()}`);
+      /* toast removed */
     } catch (error) {
       toast.error(`Analysis failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {

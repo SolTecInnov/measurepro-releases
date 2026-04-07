@@ -55,9 +55,7 @@ const HardwareVoucherManager = () => {
       }),
     onSuccess: (result) => {
       qc.invalidateQueries({ queryKey: ['/api/admin/vouchers'] });
-      toast.success(`${result.vouchers.length} voucher${result.vouchers.length > 1 ? 's' : ''} generated`, {
-        description: result.vouchers.map((v) => v.code).join(' · '),
-      });
+      // toast suppressed
       setNotes('');
     },
     onError: (err: any) => {

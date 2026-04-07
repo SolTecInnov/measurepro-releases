@@ -93,9 +93,7 @@ export default function SetPasswordPage() {
         }),
       });
 
-      toast.success('Account created successfully!', {
-        description: 'Your account is pending admin approval.',
-      });
+      /* toast removed */
 
       // Clear registration data from localStorage
       localStorage.removeItem('registration_email');

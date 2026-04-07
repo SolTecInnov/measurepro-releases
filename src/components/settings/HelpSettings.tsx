@@ -2866,7 +2866,7 @@ const HelpSettings = () => {
             </div>
             
             <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-4">
-              <h4 className="font-semibold text-red-400 mb-3">Live Monitor (Real-time Collaboration):</h4>
+              {/* Live Monitor removed — feature disabled */}
               <p className="text-gray-300 mb-3">
                 Monitor measurements from multiple devices in real-time:
               </p>

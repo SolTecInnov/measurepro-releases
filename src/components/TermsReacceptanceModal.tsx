@@ -87,9 +87,7 @@ export default function TermsReacceptanceModal({
       });
     },
     onSuccess: () => {
-      toast.success('Terms accepted', {
-        description: 'You have accepted the updated terms and conditions.',
-      });
+      // toast suppressed
       onAccepted();
     },
     onError: (error: any) => {

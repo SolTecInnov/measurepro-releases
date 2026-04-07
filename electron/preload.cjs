@@ -34,6 +34,42 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getAutoSavePath: (filename) => ipcRenderer.invoke('fs:getAutoSavePath', filename),
   pickSoundFile:  ()         => ipcRenderer.invoke('fs:pickSoundFile'),
 
+  // ── Insta360 X5 Native (no bridge) ─────────────────────────────────────────
+  insta360: {
+    getStatus:        ()  => ipcRenderer.invoke('insta360:getStatus'),
+    startRecording:   ()  => ipcRenderer.invoke('insta360:startRecording'),
+    stopRecording:    ()  => ipcRenderer.invoke('insta360:stopRecording'),
+    takePhoto:        ()  => ipcRenderer.invoke('insta360:takePhoto'),
+    getLensStatus:    ()  => ipcRenderer.invoke('insta360:getLensStatus'),
+    getInfo:          ()  => ipcRenderer.invoke('insta360:getInfo'),
+    getLivePreviewUrl:()  => ipcRenderer.invoke('insta360:getLivePreviewUrl'),
+    setCustomIp:  (ip)    => ipcRenderer.invoke('insta360:setCustomIp', ip),
+    onConnection: (cb)    => ipcRenderer.on('insta360:connection', (_e, d) => cb(d)),
+    onStatus:     (cb)    => ipcRenderer.on('insta360:status',     (_e, d) => cb(d)),
+    removeListeners: ()   => {
+      ipcRenderer.removeAllListeners('insta360:connection');
+      ipcRenderer.removeAllListeners('insta360:status');
+    },
+  },
+
+  // ── Drone Import ─────────────────────────────────────────────────
+  drone: {
+    scan:         ()      => ipcRenderer.invoke('drone:scan'),
+    preview:      (args)  => ipcRenderer.invoke('drone:preview', args),
+    match:        (args)  => ipcRenderer.invoke('drone:match', args),
+    importGroup:  (args)  => ipcRenderer.invoke('drone:import-group', args),
+    getHistory:   ()      => ipcRenderer.invoke('drone:get-history'),
+    clearHistory: ()      => ipcRenderer.invoke('drone:clear-history'),
+    onDeviceDetected: (cb) => ipcRenderer.on('drone:device-detected', (_e, d) => cb(d)),
+    onDeviceRemoved:  (cb) => ipcRenderer.on('drone:device-removed',  (_e, d) => cb(d)),
+    onProgress:       (cb) => ipcRenderer.on('drone:progress',        (_e, d) => cb(d)),
+    removeListeners:  ()  => {
+      ipcRenderer.removeAllListeners('drone:device-detected');
+      ipcRenderer.removeAllListeners('drone:device-removed');
+      ipcRenderer.removeAllListeners('drone:progress');
+    },
+  },
+
   // ── Duro GNSS TCP ─────────────────────────────────────────────
   duro: {
     connect:    (config) => ipcRenderer.invoke('duro:connect', config),

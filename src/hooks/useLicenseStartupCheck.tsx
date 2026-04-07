@@ -111,20 +111,7 @@ export function useLicenseStartupCheck() {
               `Hi SolTec Support,\n\nI would like to renew my MeasurePRO license.\n\nAccount email: ${userEmail}\nLicense(s) expiring: ${licenseTypes}\nExpiry date: ${expiryDateStr}\n\nThank you.`
             );
             const renewUrl = `mailto:support@soltec.ca?subject=${renewSubject}&body=${renewBody}`;
-            toast.warning(
-              `License expiring ${daysRemaining === 1 ? 'tomorrow' : `in ${daysRemaining} days`} (${expiryDateStr})`,
-              {
-                duration: 15000,
-                description: (
-                  <a
-                    href={renewUrl}
-                    className="underline text-yellow-200 hover:text-white"
-                  >
-                    Contact support@soltec.ca to renew →
-                  </a>
-                ),
-              }
-            );
+            /* toast removed */
             await markExpiryWarnShown();
           }
         }

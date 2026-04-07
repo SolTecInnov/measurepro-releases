@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, Lock, Zap, Brain, Building2, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode } from 'lucide-react';
+import { Smartphone, Activity, Lock, Zap, Brain, Building2, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
 import { useSurveyStore } from '../lib/survey';
 import { getCurrentUser } from '../lib/firebase';
 import { useVoiceAssistant } from '../hooks/useVoiceAssistant';
@@ -183,7 +183,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
         await logger.logMeasurement(measurementObject);
         getMeasurementFeed().addMeasurement(measurementObject);
         window.dispatchEvent(new Event('dbchange'));
-        toast.success('Field app capture saved!');
+        // toast suppressed
       } catch (err) {
         console.error('[AppHeader] Failed to save slave measurement:', err);
         toast.error('Failed to save field app capture');
@@ -228,7 +228,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
       // setOverheadDetectionConfig mirrors to localStorage and triggers cloud sync
       useSettingsStore.getState().setOverheadDetectionConfig(updated);
       
-      toast.success(newCityMode ? 'City Mode Enabled' : 'City Mode Disabled');
+      // toast suppressed
     } catch (error) {
       toast.error('Failed to toggle city mode');
     }
@@ -338,6 +338,23 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <Bot className="w-4 h-4" />
                 <span>AI Assistant</span>
               </button>
+              <div className="border-t border-gray-700 my-1" />
+
+              {/* Drone Import */}
+              {(window as any).electronAPI?.drone && (
+                <button
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('open-drone-import'));
+                    setShowToolsMenu(false);
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-blue-400 hover:bg-gray-800 transition-colors"
+                  data-testid="button-drone-import"
+                >
+                  <ScanEye className="w-4 h-4" />
+                  <span>Drone Import</span>
+                </button>
+              )}
+
               <div className="border-t border-gray-700 my-1" />
 
               {/* City Mode removed — feature not in use */}
@@ -473,8 +490,19 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </Link>
               )}
 
-              {/* 3D LiDAR Scanning - Premium Feature */}
-              {hasFeature('point_cloud_scanning') && (
+              {/* Lidar HUD — moved here from main screen, hidden for now */}
+              {false && (
+                <button
+                  onClick={() => setShowToolsMenu(false)}
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-green-400 hover:bg-gray-800 transition-colors"
+                >
+                  <Layers className="w-4 h-4" />
+                  <span>LiDAR HUD</span>
+                </button>
+              )}
+
+              {/* 3D LiDAR Scanning - disabled (future) */}
+              {false && hasFeature('point_cloud_scanning') && (
                 <Link
                   to="/lidar"
                   onClick={() => {
