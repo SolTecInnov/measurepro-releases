@@ -2,7 +2,8 @@
 const fs = require('fs');
 const https = require('https');
 
-const TOKEN = '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';
+const TOKEN = process.env.GH_TOKEN;
+if (!TOKEN) { console.error('Set GH_TOKEN env var first'); process.exit(1); }
 const REPO = 'SolTecInnov/measurepro-releases';
 const RELEASE_DIR = '/mnt/c/Users/jfpri/measurepro-electron/release-builds';
 

@@ -2,11 +2,18 @@
 const https = require('https');
 const fs = require('fs');
 
-const TOKEN = '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';
+// Token from environment variable - never hardcode!
+// Set with: $env:GH_TOKEN = 'ghp_...' before running
+const TOKEN = process.env.GH_TOKEN;
+if (!TOKEN) {
+  console.error('ERROR: GH_TOKEN environment variable not set');
+  console.error('Run: $env:GH_TOKEN = "ghp_your_token_here"');
+  process.exit(1);
+}
+
 const REPO = 'SolTecInnov/measurepro-releases';
 const RELEASE_DIR = '/mnt/c/Users/jfpri/measurepro-electron/release-builds';
-
-const VERSION = process.argv[2] || '15.4.3';
+const VERSION = process.argv[2] || '15.0.0';
 const TAG = `v${VERSION}`;
 const BODY = process.argv[3] || `MeasurePRO ${TAG}`;
 
@@ -51,7 +58,7 @@ async function main() {
     tag_name: TAG, name: `MeasurePRO ${TAG}`, body: BODY, draft: false, prerelease: false
   }, { 'Content-Type': 'application/json' });
 
-  if (!release.id) { console.error('Failed:', release); process.exit(1); }
+  if (!release.id) { console.error('Failed:', release.message); process.exit(1); }
   console.log(`Release created: id=${release.id}`);
 
   const files = [

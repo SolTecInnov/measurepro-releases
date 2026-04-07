@@ -30,3 +30,4 @@ app-extracted/
 # Staging dirs
 $staging/
 release-builds/
+attached_assets/
