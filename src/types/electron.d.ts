@@ -37,6 +37,7 @@ interface ElectronAPI {
   onMenuAbout: (callback: () => void) => void;
   onMenuNavigate: (callback: (route: string) => void) => void;
   onMenuNavigateTab: (callback: (tab: string) => void) => void;
+  onMenuOpenSupportTicket: (callback: () => void) => void;
   updater: {
     check:      () => Promise<{ status: string; message?: string }>;
     download:   () => Promise<void>;
@@ -47,6 +48,25 @@ interface ElectronAPI {
     onStatus:   (cb: (data: { status: string; version?: string; percent?: number; speed?: number }) => void) => void;
   };
   writeFile: (filePath: string, data: ArrayBuffer | number[]) => Promise<{ success: boolean }>;
+  getAutoSavePath: (filename: string) => Promise<string | null>;
+  pickSoundFile:   () => Promise<string | null>;
+  duro: {
+    connect:         (config: { host: string; port: number }) => Promise<{ ok: boolean }>;
+    disconnect:      () => Promise<{ ok: boolean }>;
+    getStatus:       () => Promise<{ connected: boolean; host: string; port: number; enabled: boolean }>;
+    onData:          (cb: (data: DuroNMEAData) => void) => void;
+    onStatus:        (cb: (status: { connected: boolean; host?: string; port?: number; error?: string }) => void) => void;
+    removeListeners: () => void;
+  };
+}
+
+interface DuroNMEAData {
+  type: 'position' | 'velocity' | 'imu' | 'dop';
+  lat?: number; lon?: number; altitude?: number; satellites?: number; hdop?: number; fixQuality?: number;
+  speedKnots?: number; speedMps?: number; speedKph?: number;
+  heading?: number | null; pitch?: number | null; roll?: number | null; heaveRate?: number | null;
+  pdop?: number | null; vdop?: number | null; mode?: number | null;
+  timestamp: number; raw: string;
   serial: ElectronSerialAPI;
 }
 

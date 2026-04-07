@@ -724,17 +724,17 @@ export const useSettingsStore = create<{
   },
   alertSettings: {
     soundConfig: {
-      logEntry: '/src/assets/sounds/interface.wav',
-      warning: '/src/assets/sounds/alert-alarm-1005.wav',
+      logEntry: '/sounds/interface.wav',
+      warning: '/sounds/alert-alarm-1005.wav',
       warningLoop: false,
-      critical: '/src/assets/sounds/facility-alarm-sound-999.wav',
+      critical: '/sounds/facility-alarm-sound-999.wav',
       criticalLoop: true,
       volume: 1.0,
-      poiTypeChange: '/src/assets/sounds/long-pop-2358.wav',
+      poiTypeChange: '/sounds/long-pop-2358.wav',
       poiTypeChangeEnabled: true,
-      imageCaptured: '/src/assets/sounds/elevator-tone-2863.wav',
+      imageCaptured: '/sounds/elevator-tone-2863.wav',
       imageCapturedEnabled: true,
-      measureDetected: '/src/assets/sounds/message-pop-alert-2354.mp3',
+      measureDetected: '/sounds/message-pop-alert-2354.mp3',
       measureDetectedEnabled: true,
       alertSoundsEnabled: true
     },

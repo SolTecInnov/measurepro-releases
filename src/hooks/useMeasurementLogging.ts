@@ -2135,6 +2135,11 @@ export const useMeasurementLogging = ({
         } catch (e) {}
       }
 
+      // Get current laser type for format-aware parsing
+      const currentLaserType = useSerialStore.getState().laserType;
+      // soltec-standard = LDM71 ASCII (D xxxx.xxx format)
+      // soltec-legacy   = Jenoptik-style ASCII ([LASER] D -> x.xxxm format)
+
       // ASCII LASER PATH: Use module-level laser log
       const rawOutput = getLaserLog();
       if (!rawOutput) {
@@ -2149,15 +2154,15 @@ export const useMeasurementLogging = ({
 
       const lastLine = lines[lines.length - 1];
 
-      // Check for valid measurement in FIVE formats:
-      // 1. "[LASER] D xxxx.xxx [quality] -> y.yyyy m" (Astech/Jenoptik ASCII)
-      //    Format with optional quality field: "D 0002.192 021.9 -> 2.192m"
-      //    Format without quality field:       "D 0002.192 -> 2.192m"
-      //    Regex: match anything between [LASER] and "-> value m"
+      // Check for valid measurement in SIX formats:
+      // 1. "[LASER] D xxxx.xxx [quality] -> y.yyyy m" (Astech/Jenoptik ASCII wrapped)
       // 2. "Received: y.yyyy" (fallback from serialStore callback)
       // 3. "[LDM71] y.yyyym"
-      // 4. "[RSA] y.yyyym" (legacy, no longer emitted but kept for robustness)
-      // 5. "[SolTec] y.yyyym (xdB)" (new soltec-standard LDM71 driver path)
+      // 4. "[RSA] y.yyyym" (legacy)
+      // 5. "[SolTec] y.yyyym (xdB)" (old soltec path)
+      // 6. "D xxxx.xxx [amplitude]" (RAW Soltec LDM71 line via rawLineCallback)
+      //    e.g. "D 0002.192 021.9" or "D 0002.192"
+      //    This is the PRIMARY format for soltec-standard laser type!
       let measurementMatch = lastLine.match(
         /\[LASER\].*->\s+([\d.]+)m/,
       );
@@ -2171,6 +2176,15 @@ export const useMeasurementLogging = ({
       if (!measurementMatch) {
         // Try LDM71 format: "[LDM71] 2.530m (18.6dB)"
         measurementMatch = lastLine.match(/\[LDM71\]\s+(\d+\.?\d+)m/);
+      }
+      if (!measurementMatch) {
+        // RAW Soltec LDM71 format (soltec-standard):
+        // With amplitude:    "D 0002.192 021.9"
+        // Without amplitude: "D 0002.192"
+        // Also handles very short range: "D 0000.192"
+        // Note: amplitude field is ignored for distance extraction
+        const rawLdm71 = lastLine.match(/^D\s+(\d+\.\d+)(?:\s+[\d.]+)?$/);
+        if (rawLdm71) measurementMatch = rawLdm71;
       }
       if (!measurementMatch) {
         // Try RSA format: "[RSA] 5.230m (intensity: 120, raw: aa bb cc)"
@@ -2192,14 +2206,20 @@ export const useMeasurementLogging = ({
       // CRITICAL: Only check the LAST LINE for sky indicators, not recent history
       // Otherwise a single DE02 would poison subsequent valid measurements
       let isSky =
+        // Soltec LDM71 raw error codes (De02 = no target = sky)
+        /^[Dd][Ee]\d+$/.test(lastLine.trim()) ||
+        /^[Ee]\d+$/.test(lastLine.trim()) ||
         lastLine.includes("DE02") ||
+        lastLine.includes("De02") ||
+        // Other laser formats
         lastLine.includes("-> --m") ||
         lastLine.includes("Received: --") ||
         lastLine.includes("Received: Sky") ||
         lastLine.includes("[RSA] Sky") ||
         lastLine.includes("[RSA] Invalid reading") ||
         lastLine.includes("[LDM71] --") ||
-        lastLine.includes("[SolTec] --");
+        lastLine.includes("[SolTec] --") ||
+        lastLine.includes("[ERR]"); // LDM71 error prefix
 
       // CRITICAL: Also treat measurements <= 0.1m as sky (noise/ground reflection)
       if (!isSky && measurementMatch) {
@@ -2440,8 +2460,16 @@ export const useMeasurementLogging = ({
                   images: imagesToSave, // All captured images as data URLs
                   videoTimestamp, // Video timestamp in milliseconds
                   note: isMeasurementFree 
-                    ? `${currentPOIType} marker (no clearance measurement)` 
-                    : `min=${adjustedValue.toFixed(2)}m from ${state.buffer.length} readings (${state.buffer.map((v) => v.toFixed(2) + 'm').join(', ')})${state.intensityBuffer.length > 0 ? `. Signal: min=${state.minIntensity}, avg=${Math.round(state.intensityBuffer.reduce((a, b) => a + b, 0) / state.intensityBuffer.length)}` : ''}${groundReferenceHeight > 0 ? `. Ground ref: ${groundReferenceHeight.toFixed(2)}m` : ''}`,
+                    ? `POI: ${currentPOIType} | No clearance measurement | GND REF: ${groundReferenceHeight.toFixed(2)}m | Time: ${new Date().toISOString()}` 
+                    : [
+                        `POI: ${currentPOIType}`,
+                        `Min: ${adjustedValue.toFixed(2)}m`,
+                        `Avg: ${(state.buffer.reduce((a,b) => a+b, 0) / state.buffer.length + groundReferenceHeight).toFixed(2)}m`,
+                        `Readings (${state.buffer.length}): ${state.buffer.map(v => (v + groundReferenceHeight).toFixed(2) + 'm').join(', ')}`,
+                        `GND REF: ${groundReferenceHeight.toFixed(2)}m`,
+                        state.intensityBuffer.length > 0 ? `Signal: min=${state.minIntensity}dB avg=${Math.round(state.intensityBuffer.reduce((a,b)=>a+b,0)/state.intensityBuffer.length)}dB` : null,
+                        `Time: ${new Date().toISOString()}`,
+                      ].filter(Boolean).join(' | '),
                   createdAt: new Date().toISOString(),
                   user_id: activeSurvey.id,
                   source: "counterDetection",

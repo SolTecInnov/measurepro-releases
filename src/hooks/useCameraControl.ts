@@ -8,6 +8,10 @@ export function useCameraControl() {
   const { activeSurvey } = useSurveyStore()
 
   useEffect(() => {
+    // PERF: Only check 360 camera bridge if user has it configured
+    // Avoids HTTP error on every mount when bridge is not running
+    const has360Camera = localStorage.getItem('camera360_enabled') === 'true';
+    if (!has360Camera) return;
     store.refreshStatus()
   }, [])
 

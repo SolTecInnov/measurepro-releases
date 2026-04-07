@@ -393,14 +393,16 @@ function ElectronMenuHandler() {
 
     // Help > About MeasurePRO
     window.electronAPI.onMenuAbout(() => {
-      navigate('/');
-      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab: 'about' } })), 100);
+      sessionStorage.setItem('electron-pending-tab', 'about');
+      navigate('/app');
+      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab: 'about' } })), 150);
     });
 
-    // Settings menu — navigate to specific settings tab
+    // Settings menu — store tab BEFORE navigating so Settings reads it on mount
     window.electronAPI.onMenuNavigateTab((tab: string) => {
-      navigate('/');
-      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab } })), 100);
+      sessionStorage.setItem('electron-pending-tab', tab);
+      navigate('/app');
+      setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab } })), 150);
     });
   }, [navigate]);
 

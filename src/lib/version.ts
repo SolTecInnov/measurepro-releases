@@ -1,5 +1,6 @@
-// Application version — kept in sync with package.json
-export const APP_VERSION = "15.4.0";
+// Application version — auto-injected from package.json at build time
+// In Electron, also available via window.electronAPI.getVersion()
+export const APP_VERSION = __APP_VERSION__;
 export const BUILD_DATE = new Date().toISOString().split('T')[0];
 export const APP_NAME = "MeasurePRO";
 export const COMPANY_NAME = "Soltec Innovation";

@@ -2,57 +2,55 @@ import React from 'react';
 import { useLoadSettings } from '../../lib/hooks';
 import { useSettingsStore } from '../../lib/settings';
 import { soundManager,
-  alertAlarmSound,
-  classicAlarmSound,
-  confirmationSound,
-  criticalMp3Sound,
-  doubleBeepSound,
-  elevatorToneSound,
-  elevatorSound,
-  facilityAlarmSound,
-  interfaceHintSound,
-  interfaceSound,
-  logEntryMp3Sound,
-  longPopSound,
-  messagePopSound,
-  retroConfirmationSound,
-  sciFiAlarmSound,
-  securityBreachSound,
-  slotMachineSound,
-  warningMp3Sound
+  // New clean sounds
+  notifySoftSound, notifyCleanSound, poiLogSound, warningSoftSound,
+  criticalAlertSound, poiConfirmSound, cameraClickSound, modeChangeSound,
+  successChimeSound, alertToneSound,
+  // Legacy sounds
+  alertAlarmSound, classicAlarmSound, confirmationSound, criticalMp3Sound,
+  doubleBeepSound, elevatorToneSound, elevatorSound, facilityAlarmSound,
+  interfaceHintSound, interfaceSound, logEntryMp3Sound, longPopSound,
+  messagePopSound, retroConfirmationSound, sciFiAlarmSound, securityBreachSound,
+  slotMachineSound, warningMp3Sound, soundPath
 } from '../../lib/sounds';
 import { metersToFeetInches, feetInchesToMeters } from '../../lib/utils/unitConversion';
 
-// All available sounds for dropdowns
+// All available sounds for dropdowns — new clean tones first, legacy at bottom
 const availableSounds = {
   logEntry: [
-    { value: interfaceSound, label: 'Interface (Default)' },
-    { value: confirmationSound, label: 'Confirmation' },
-    { value: messagePopSound, label: 'Message Pop' },
-    { value: longPopSound, label: 'Long Pop' },
-    { value: doubleBeepSound, label: 'Double Beep' },
+    { value: poiLogSound,          label: '✨ POI Logged (clean)' },
+    { value: notifySoftSound,      label: '✨ Soft Notification' },
+    { value: notifyCleanSound,     label: '✨ Clean Double Beep' },
+    { value: poiConfirmSound,      label: '✨ POI Confirm' },
+    { value: successChimeSound,    label: '✨ Success Chime' },
+    { value: cameraClickSound,     label: '✨ Camera Click' },
+    { value: modeChangeSound,      label: '✨ Mode Change' },
+    // Legacy
+    { value: interfaceSound,       label: 'Interface Click' },
+    { value: confirmationSound,    label: 'Confirmation' },
+    { value: longPopSound,         label: 'Long Pop' },
+    { value: doubleBeepSound,      label: 'Double Beep' },
     { value: retroConfirmationSound, label: 'Retro Confirmation' },
-    { value: elevatorToneSound, label: 'Elevator Tone' },
-    { value: interfaceHintSound, label: 'Interface Hint' },
-    { value: logEntryMp3Sound, label: 'Log Entry' },
-    { value: elevatorSound, label: 'Elevator' }
   ],
   warning: [
-    { value: alertAlarmSound, label: 'Alert Alarm (Default)' },
-    { value: classicAlarmSound, label: 'Classic Alarm' },
-    { value: elevatorSound, label: 'Elevator Warning' },
-    { value: sciFiAlarmSound, label: 'Sci-Fi Alarm' },
-    { value: slotMachineSound, label: 'Slot Machine Alarm' },
-    { value: warningMp3Sound, label: 'Warning Sound' },
-    { value: doubleBeepSound, label: 'Double Beep Alert' }
+    { value: warningSoftSound,     label: '✨ Soft Warning (clean)' },
+    { value: alertToneSound,       label: '✨ Alert Tone' },
+    { value: notifyCleanSound,     label: '✨ Double Beep' },
+    // Legacy
+    { value: alertAlarmSound,      label: 'Alert Alarm' },
+    { value: classicAlarmSound,    label: 'Classic Alarm' },
+    { value: doubleBeepSound,      label: 'Double Beep Alert' },
+    { value: sciFiAlarmSound,      label: 'Sci-Fi Alarm' },
+    { value: warningMp3Sound,      label: 'Warning Sound' },
   ],
   critical: [
-    { value: facilityAlarmSound, label: 'Facility Alarm (Default)' },
-    { value: securityBreachSound, label: 'Security Breach' },
-    { value: sciFiAlarmSound, label: 'Sci-Fi Critical' },
-    { value: classicAlarmSound, label: 'Classic Critical' },
-    { value: criticalMp3Sound, label: 'Critical Alert' },
-    { value: alertAlarmSound, label: 'Alert Critical' }
+    { value: criticalAlertSound,   label: '✨ Critical Alert (clean)' },
+    { value: alertToneSound,       label: '✨ Alert Tone' },
+    // Legacy
+    { value: facilityAlarmSound,   label: 'Facility Alarm' },
+    { value: securityBreachSound,  label: 'Security Breach' },
+    { value: sciFiAlarmSound,      label: 'Sci-Fi Critical' },
+    { value: classicAlarmSound,    label: 'Classic Critical' },
   ],
   notification: [
     { value: confirmationSound, label: 'Confirmation' },
@@ -102,7 +100,8 @@ const AlertSettings = () => {
   const runAudioDiagnostic = async () => {
     setAudioTestResult({ status: 'testing', message: 'Testing browser audio...' });
     try {
-      const audio = new Audio('/sounds/confirmation.wav');
+      const { soundPath } = await import('@/lib/sounds');
+      const audio = new Audio(soundPath('confirmation.wav'));
       audio.volume = 0.8;
       await audio.play();
       audio.addEventListener('ended', () => audio.remove());
@@ -217,17 +216,34 @@ const AlertSettings = () => {
                   ))}
                 </select>
               </div>
-              <button
-                onClick={async () => {
-                  await soundManager.initialize();
-                  setSoundSystemReady(true);
-                  await soundManager.playLogEntry();
-                }}
-                className="mt-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm"
-                data-testid="button-test-log-sound"
-              >
-                Test Sound
-              </button>
+              <div className="flex gap-2 mt-2">
+                <button
+                  onClick={async () => {
+                    await soundManager.initialize();
+                    setSoundSystemReady(true);
+                    await soundManager.playLogEntry();
+                  }}
+                  className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm"
+                  data-testid="button-test-log-sound"
+                >
+                  Test Sound
+                </button>
+                {(window as any).electronAPI?.pickSoundFile && (
+                  <button
+                    onClick={async () => {
+                      const path = await (window as any).electronAPI.pickSoundFile();
+                      if (path) {
+                        const url = `file:///${path.replace(/\\/g, '/')}`;
+                        soundManager.setSound('logEntry', url);
+                        forceUpdate({});
+                      }
+                    }}
+                    className="px-3 py-1.5 bg-gray-600 hover:bg-gray-500 rounded-lg text-sm"
+                  >
+                    📂 Browse
+                  </button>
+                )}
+              </div>
             </div>
             
             {/* Warning Sound */}

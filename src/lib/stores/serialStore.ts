@@ -107,6 +107,13 @@ export const clearLaserDataCallbacks = () => {
 let lastDispatchTime = 0;
 const DISPATCH_THROTTLE_MS = 66;
 
+// Throttle Zustand set() for lastMeasurement to avoid 16 re-renders per laser reading
+// Laser fires at ~10Hz, UI only needs ~5Hz (200ms) for smooth display
+let lastStoreUpdateTime = 0;
+const STORE_UPDATE_THROTTLE_MS = 100; // 10fps max re-renders
+let pendingMeasurement: string | null = null;
+let storeUpdateTimer: ReturnType<typeof setTimeout> | null = null;
+
 // Migrate stored laser type on init
 const storedLaserType = (() => {
   try {
@@ -810,6 +817,19 @@ export const useSerialStore = create<SerialState>((set, get) => ({
   },
 
   setLastLaserData: (data) => {
+    // PERF FIX: Throttle store updates to 10fps max
+    // Laser fires at ~10-20Hz — updating 16 React subscribers at full rate causes lag
+    // Counter detection still processes every reading via getLaserLog() (not store)
+    const now = Date.now();
+    const shouldUpdate = now - lastStoreUpdateTime >= STORE_UPDATE_THROTTLE_MS;
+
+    if (!shouldUpdate) {
+      // Laser log is already populated by serialLaserReader.ts directly
+      // No need to append here — just skip the Zustand set() to avoid re-renders
+      return;
+    }
+    lastStoreUpdateTime = now;
+
     // Filter out GPS NMEA data that might be mixed in
     if (typeof data === 'string' && (
         data.startsWith('$GP') || data.startsWith('$GN') || data.startsWith('$GL') ||

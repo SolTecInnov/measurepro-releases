@@ -242,13 +242,36 @@ export const autoSaveSurvey = async (survey: Survey | null): Promise<void> => {
     // Generate filename
     const filename = generateAutoSaveFilename(survey);
     
-    // Generate and download ZIP
+    // Generate ZIP
     const blob = await zip.generateAsync({ 
       type: 'blob',
       compression: 'DEFLATE',
       compressionOptions: { level: 6 }
     });
-    
+
+    // PERF/UX FIX: In Electron, save silently to Documents/MeasurePRO/surveys/
+    // without showing a save dialog every time (was interrupting driving!)
+    if (window.electronAPI?.isElectron && window.electronAPI?.writeFile) {
+      try {
+        const buffer = await blob.arrayBuffer();
+        // Use a fixed auto-save path — no dialog
+        const autoSavePath = await window.electronAPI.getAutoSavePath?.(filename);
+        if (autoSavePath) {
+          await window.electronAPI.writeFile(autoSavePath, Array.from(new Uint8Array(buffer)));
+          console.log('[AutoSave] Saved silently to:', autoSavePath);
+        } else {
+          // Fallback: use saveFileNative which shows dialog
+          const { saveFileNative } = await import('./exportUtils');
+          // Don't show dialog for auto-save — just skip
+          console.log('[AutoSave] Silent save unavailable, skipping dialog in Electron');
+        }
+        return; // Done — don't fall through to saveAs
+      } catch(e) {
+        console.warn('[AutoSave] Silent save failed, falling back:', e);
+      }
+    }
+
+    // Browser fallback: use file-saver (triggers download in browser)
     saveAs(blob, filename);
     
     console.log(`[AutoSave] Complete! Saved ${filename} with:`, summary.counts);

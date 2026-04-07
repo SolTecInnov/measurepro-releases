@@ -1,52 +1,97 @@
-// Reference all sound files from public/sounds/ — no Vite bundling, no duplication in dist
-const alertAlarmSound = '/sounds/alert-alarm-1005.wav';
-const classicAlarmSound = '/sounds/classic-alarm-995.wav';
-const confirmationSound = '/sounds/confirmation.wav';
-const criticalMp3Sound = '/sounds/critical.mp3';
-const doubleBeepSound = '/sounds/double-beep-tone-alert-2868.wav';
-const elevatorToneSound = '/sounds/elevator-tone-2863.wav';
-const elevatorSound = '/sounds/elevator.wav';
-const facilityAlarmSound = '/sounds/facility-alarm-sound-999.wav';
-const interfaceHintSound = '/sounds/interface-hint-notification-911.wav';
-const interfaceSound = '/sounds/interface.wav';
-const logEntryMp3Sound = '/sounds/log-entry.mp3';
-const longPopSound = '/sounds/long-pop-2358.wav';
-const messagePopSound = '/sounds/message-pop-alert-2354.mp3';
-const retroConfirmationSound = '/sounds/retro-confirmation-tone-2860.wav';
-const sciFiAlarmSound = '/sounds/scanning-sci-fi-alarm-905.wav';
-const securityBreachSound = '/sounds/security-facility-breach-alarm-994.wav';
-const slotMachineSound = '/sounds/slot-machine-win-alarm-1995.wav';
-const warningMp3Sound = '/sounds/warning.mp3';
+// Resolve sound path for Electron (file://) vs browser (relative URL)
+// Exported so other components can use it
+export function soundPath(file: string): string {
+  // In Electron, window.location is file:// — build absolute path to dist/sounds/
+  if (typeof window !== 'undefined' && window.location.protocol === 'file:') {
+    // Get the directory of the current HTML file (dist/) and append sounds/
+    const base = window.location.pathname.replace(/\/[^/]*$/, '');
+    return `file://${base}/sounds/${file}`;
+  }
+  return `/sounds/${file}`;
+}
 
-// Default sound assignments
-const logEntrySound = interfaceSound;
-const warningSound = alertAlarmSound;
-const criticalSound = facilityAlarmSound;
+// ── New professional sounds (generated clean tones) ──────────────────────────
+const notifySoftSound      = soundPath('notify-soft.wav');
+const notifyCleanSound     = soundPath('notify-clean.wav');
+const poiLogSound          = soundPath('poi-log.wav');
+const warningSoftSound     = soundPath('warning-soft.wav');
+const criticalAlertSound   = soundPath('critical-alert.wav');
+const poiConfirmSound      = soundPath('poi-confirm.wav');
+const cameraClickSound     = soundPath('camera-click.wav');
+const modeChangeSound      = soundPath('mode-change.wav');
+const successChimeSound    = soundPath('success-chime.wav');
+const alertToneSound       = soundPath('alert-tone.wav');
+
+// ── Legacy sounds (kept for backward compat) ──────────────────────────────────
+const alertAlarmSound = soundPath('alert-alarm-1005.wav');
+const classicAlarmSound = soundPath('classic-alarm-995.wav');
+const confirmationSound = soundPath('confirmation.wav');
+const criticalMp3Sound = soundPath('critical.mp3');
+const doubleBeepSound = soundPath('double-beep-tone-alert-2868.wav');
+const elevatorToneSound = soundPath('elevator-tone-2863.wav');
+const elevatorSound = soundPath('elevator.wav');
+const facilityAlarmSound = soundPath('facility-alarm-sound-999.wav');
+const interfaceHintSound = soundPath('interface-hint-notification-911.wav');
+const interfaceSound = soundPath('interface.wav');
+const logEntryMp3Sound = soundPath('log-entry.mp3');
+const longPopSound = soundPath('long-pop-2358.wav');
+const messagePopSound = soundPath('message-pop-alert-2354.mp3');
+const retroConfirmationSound = soundPath('retro-confirmation-tone-2860.wav');
+const sciFiAlarmSound = soundPath('scanning-sci-fi-alarm-905.wav');
+const securityBreachSound = soundPath('security-facility-breach-alarm-994.wav');
+const slotMachineSound = soundPath('slot-machine-win-alarm-1995.wav');
+const warningMp3Sound = soundPath('warning.mp3');
+
+// Default sound assignments — using new clean tones
+const logEntrySound = poiLogSound;          // Was: interfaceSound (generic click)
+const warningSound = warningSoftSound;       // Was: alertAlarmSound (annoying)
+const criticalSound = criticalAlertSound;    // Was: facilityAlarmSound (facility alarm!)
 
 export { 
   logEntrySound, 
   warningSound, 
   criticalSound,
-  // Export all available sounds
-  alertAlarmSound,
-  classicAlarmSound,
-  confirmationSound,
-  criticalMp3Sound,
-  doubleBeepSound,
-  elevatorToneSound,
-  elevatorSound,
-  facilityAlarmSound,
-  interfaceHintSound,
-  interfaceSound,
-  logEntryMp3Sound,
-  longPopSound,
-  messagePopSound,
-  retroConfirmationSound,
-  sciFiAlarmSound,
-  securityBreachSound,
-  slotMachineSound,
-  warningMp3Sound
+  soundPath,
+  // New clean sounds
+  notifySoftSound, notifyCleanSound, poiLogSound, warningSoftSound,
+  criticalAlertSound, poiConfirmSound, cameraClickSound, modeChangeSound,
+  successChimeSound, alertToneSound,
+  // Legacy sounds
+  alertAlarmSound, classicAlarmSound, confirmationSound, criticalMp3Sound,
+  doubleBeepSound, elevatorToneSound, elevatorSound, facilityAlarmSound,
+  interfaceHintSound, interfaceSound, logEntryMp3Sound, longPopSound,
+  messagePopSound, retroConfirmationSound, sciFiAlarmSound, securityBreachSound,
+  slotMachineSound, warningMp3Sound
 };
+
+// All available sounds for the picker UI
+export interface SoundOption {
+  label: string;
+  file: string;
+  path: string;
+  category: 'new' | 'legacy' | 'custom';
+}
+
+export const AVAILABLE_SOUNDS: SoundOption[] = [
+  // New clean professional sounds
+  { label: 'Soft Notification',   file: 'notify-soft.wav',    path: notifySoftSound,    category: 'new' },
+  { label: 'Clean Double Beep',   file: 'notify-clean.wav',   path: notifyCleanSound,   category: 'new' },
+  { label: 'POI Logged',          file: 'poi-log.wav',        path: poiLogSound,        category: 'new' },
+  { label: 'Soft Warning',        file: 'warning-soft.wav',   path: warningSoftSound,   category: 'new' },
+  { label: 'Critical Alert',      file: 'critical-alert.wav', path: criticalAlertSound, category: 'new' },
+  { label: 'POI Confirm',         file: 'poi-confirm.wav',    path: poiConfirmSound,    category: 'new' },
+  { label: 'Camera Click',        file: 'camera-click.wav',   path: cameraClickSound,   category: 'new' },
+  { label: 'Mode Change',         file: 'mode-change.wav',    path: modeChangeSound,    category: 'new' },
+  { label: 'Success Chime',       file: 'success-chime.wav',  path: successChimeSound,  category: 'new' },
+  { label: 'Alert Tone',          file: 'alert-tone.wav',     path: alertToneSound,     category: 'new' },
+  // Legacy sounds
+  { label: 'Classic Alarm',       file: 'classic-alarm-995.wav',              path: classicAlarmSound,    category: 'legacy' },
+  { label: 'Double Beep',         file: 'double-beep-tone-alert-2868.wav',    path: doubleBeepSound,      category: 'legacy' },
+  { label: 'Elevator Tone',       file: 'elevator-tone-2863.wav',             path: elevatorToneSound,    category: 'legacy' },
+  { label: 'Interface Click',     file: 'interface.wav',                      path: interfaceSound,       category: 'legacy' },
+  { label: 'Long Pop',            file: 'long-pop-2358.wav',                  path: longPopSound,         category: 'legacy' },
+  { label: 'Retro Confirmation',  file: 'retro-confirmation-tone-2860.wav',   path: retroConfirmationSound, category: 'legacy' },
+];
 
 interface SoundConfig {
   logEntry: string;
@@ -173,8 +218,8 @@ class SoundManager {
 
   private isValidSoundPath(path: unknown): boolean {
     if (typeof path !== 'string') return false;
-    // Must be a local /sounds/ path — reject external URLs or empty strings
-    return path.startsWith('/sounds/') && path.length > 8;
+    // Accept /sounds/ paths (browser) or file:// paths (Electron) or custom user paths
+    return (path.startsWith('/sounds/') || path.startsWith('file://') || path.startsWith('custom://')) && path.length > 8;
   }
 
   private loadConfigFromStorage() {
@@ -193,6 +238,24 @@ class SoundManager {
             delete parsed[key]; // Fall back to default for invalid paths
           }
         }
+        // Fix legacy /sounds/file paths to proper Electron paths
+        const soundPathKeys2: (keyof SoundConfig)[] = [
+          'logEntry', 'warning', 'critical', 'poiTypeChange',
+          'imageCaptured', 'measureDetected', 'bufferStart', 'bufferComplete'
+        ];
+        for (const key of soundPathKeys2) {
+          if (parsed[key] && typeof parsed[key] === 'string') {
+            const p = parsed[key] as string;
+            if (p.startsWith('/sounds/')) {
+              // Convert bare /sounds/ path to proper resolved path
+              parsed[key] = soundPath(p.replace('/sounds/', ''));
+            } else if (p.startsWith('/src/assets/sounds/')) {
+              // Fix old /src/assets/sounds/ paths
+              parsed[key] = soundPath(p.split('/').pop() || '');
+            }
+          }
+        }
+
         this.config = {
           ...this.config,
           ...parsed

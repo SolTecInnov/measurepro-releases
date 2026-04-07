@@ -179,7 +179,13 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
         return;
       }
       if (event.error === 'not-allowed') {
-        toast.error('Microphone access denied');
+        toast.error('Microphone access denied', { description: 'Allow microphone in Windows settings.' });
+        setIsListening(false);
+      } else if (event.error === 'network') {
+        toast.error('Voice recognition needs internet', {
+          description: 'Google Speech API requires an active internet connection. Check your connection and try again.',
+          duration: 5000
+        });
         setIsListening(false);
       } else {
         toast.error(`Voice recognition error: ${event.error}`);

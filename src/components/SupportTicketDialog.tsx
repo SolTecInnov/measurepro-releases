@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../lib/config/environment';
 import { X, LifeBuoy, Send, Loader2, CheckCircle, AlertCircle, ChevronDown } from 'lucide-react';
 import { toast } from 'sonner';
 import { getCurrentUser } from '../lib/firebase';
@@ -93,7 +94,7 @@ const SupportTicketDialog: React.FC<Props> = ({ onClose }) => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/zendesk/ticket', {
+      const response = await fetch(`${API_BASE_URL}/api/zendesk/ticket`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

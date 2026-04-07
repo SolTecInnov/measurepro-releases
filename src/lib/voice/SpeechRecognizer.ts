@@ -95,11 +95,23 @@ export class SpeechRecognizer {
         return;
       }
       
-      if (event.error === 'aborted' || event.error === 'network') {
+      if (event.error === 'network') {
+        // In Electron, 'network' error usually means the speech API couldn't reach Google
+        // This is a known Electron limitation with Web Speech API
+        this.shouldRestart = false;
+        this.onErrorCallback?.(new Error(
+          'Voice recognition requires an internet connection. ' +
+          'Make sure you are connected to the internet and try again. ' +
+          'Note: Voice recognition uses Google Speech API and requires internet access.'
+        ));
+        return;
+      }
+
+      if (event.error === 'aborted') {
         this.restartAttempts++;
         if (this.restartAttempts >= this.maxRestartAttempts) {
           this.shouldRestart = false;
-          this.onErrorCallback?.(new Error(`Speech recognition failed after multiple attempts (${event.error})`));
+          this.onErrorCallback?.(new Error(`Speech recognition failed after multiple attempts`));
           return;
         }
         this.shouldRestart = true;

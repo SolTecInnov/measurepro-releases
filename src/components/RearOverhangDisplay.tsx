@@ -12,21 +12,13 @@ const RearOverhangDisplay: React.FC<RearOverhangDisplayProps> = ({ compact = fal
   const rearOverhangSettings = useSettingsStore(state => state.rearOverhangSettings);
   const rear = useMultiLaserStore(state => state.rear);
   const [alertState, setAlertState] = useState<RearAlertState | null>(null);
-  const [, forceUpdate] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => forceUpdate(n => n + 1), 100);
-    return () => clearInterval(interval);
-  }, []);
-
+  // PERF FIX: Subscribe to store changes instead of polling every 100ms
   const rearMeasurement = useMemo(() => useMultiLaserStore.getState().getRearOverhang(), [rear]);
 
   useEffect(() => {
-    const updateInterval = setInterval(() => {
-      setAlertState(lateralRearMonitor.getRearAlertState());
-    }, 100);
-    return () => clearInterval(updateInterval);
-  }, []);
+    setAlertState(lateralRearMonitor.getRearAlertState());
+  }, [rear]);
 
   if (!rearOverhangSettings.enabled) {
     return (

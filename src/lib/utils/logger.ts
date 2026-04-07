@@ -1,14 +1,21 @@
 // Production-optimized logger - minimal console output by default
 // All logging disabled by default. Enable with: localStorage.setItem('measurepro_verbose_logging', 'true')
 
-// Helper to safely check localStorage (handles SSR/initial render)
-const getVerboseLogging = (): boolean => {
-  try {
-    return localStorage.getItem('measurepro_verbose_logging') === 'true';
-  } catch {
-    return false;
-  }
-};
+// Cache verbose logging flag — only read localStorage once, then listen for changes
+// This prevents 1000+ localStorage reads/sec in hot paths
+let _verbose: boolean = false;
+try { _verbose = localStorage.getItem('measurepro_verbose_logging') === 'true'; } catch {}
+
+// Allow toggling at runtime without full reload
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'measurepro_verbose_logging') {
+      _verbose = e.newValue === 'true';
+    }
+  });
+}
+
+const getVerboseLogging = (): boolean => _verbose;
 
 export const logger = {
   // Always log errors

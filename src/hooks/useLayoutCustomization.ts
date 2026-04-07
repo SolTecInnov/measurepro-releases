@@ -130,7 +130,7 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
     id: 'timelapse',
     name: 'Timelapse',
     defaultPosition: { column: 2, row: 3, span: 'full' },
-    visible: true,
+    visible: false, // Hidden by default — enable in Settings → Display if needed
     collapsed: false,
     position: { column: 2, row: 3, span: 'full' }
   },
@@ -153,8 +153,9 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
 ];
 
 // Layout version - increment this when adding/removing cards (not for full reset)
-// v3: Added GNSS Status and Road Profile cards (migration: append new cards to existing layout)
-const LAYOUT_VERSION = 3;
+// v3: Added GNSS Status and Road Profile cards
+// v4: Timelapse hidden by default
+const LAYOUT_VERSION = 4;
 
 export const useLayoutCustomization = () => {
   const [layoutConfig, setLayoutConfig] = useState<LayoutCard[]>(() => {

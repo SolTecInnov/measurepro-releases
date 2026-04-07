@@ -72,6 +72,14 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   const { connect: pairingConnect, sendSurveyUpdate, isSlaveConnected } = useSlavePairingStore();
   
   // Check for auth state changes
+  // Handle Electron Help menu → Submit Support Ticket
+  React.useEffect(() => {
+    if (!window.electronAPI?.onMenuOpenSupportTicket) return;
+    window.electronAPI.onMenuOpenSupportTicket(() => {
+      setShowSupportTicket(true);
+    });
+  }, []);
+
   React.useEffect(() => {
     const handleAuthStateChanged = () => {
       setCurrentUser(getCurrentUser());
@@ -332,8 +340,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               </button>
               <div className="border-t border-gray-700 my-1" />
 
-              {/* City Mode Toggle - AI+ Feature */}
-              {hasFeature('ai_detection') && (
+              {/* City Mode removed — feature not in use */}
+              {false && hasFeature('ai_detection') && (
                 <button
                   onClick={() => {
                     handleToggleCityMode();
@@ -417,8 +425,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </button>
               )}
 
-              {/* Live Monitor (Hidden for beta users) */}
-              {!isBeta && (
+              {/* Live Monitor — temporarily disabled */}
+              {!isBeta && false && (
                 <Link
                   to="/LiveMonitor"
                   onClick={() => {
@@ -433,8 +441,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </Link>
               )}
 
-              {/* Point Cloud Scanner - Premium Feature */}
-              {hasFeature('point_cloud_scanning') && (
+              {/* Point Cloud Scanner — disabled (future) */}
+              {false && hasFeature('point_cloud_scanning') && (
                 <Link
                   to="/point-cloud-scanner"
                   onClick={() => {

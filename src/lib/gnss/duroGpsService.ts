@@ -358,36 +358,105 @@ class DuroGpsService {
     }
   }
 
-  start(): void {
-    if (this.isRunning) {
-      console.log('[DuroGPS] Already running');
-      return;
+  start(electronConfig?: { host: string; port: number }): void {
+    if (this.isRunning) return;
+
+    // ── ELECTRON PATH: Direct TCP via IPC ──────────────────────────────────
+    const electronAPI = (window as any).electronAPI;
+    if (electronAPI?.duro && electronConfig) {
+      console.log('[DuroGPS] Electron mode — connecting via IPC TCP to', electronConfig);
+      this.isRunning = true;
+
+      // Connect via Electron IPC (main.cjs opens TCP socket to Duro)
+      electronAPI.duro.connect(electronConfig).catch((e: any) =>
+        console.error('[DuroGPS] IPC connect error:', e)
+      );
+
+      // Listen for NMEA data streamed from main process
+      electronAPI.duro.onData((parsed: any) => {
+        this.handleElectronData(parsed);
+      });
+
+      // Listen for connection status
+      electronAPI.duro.onStatus((status: any) => {
+        if (status.connected) {
+          if (!this.wasConnected) {
+            this.wasConnected = true;
+            useGPSStore.getState().updateData({ source: 'duro' });
+            toast.success('Duro GNSS connected', { description: `${status.host}:${status.port}` });
+          }
+        } else {
+          if (this.wasConnected) {
+            this.wasConnected = false;
+            useGPSStore.getState().setConnected(false);
+            if (status.error) toast.error('Duro GNSS disconnected', { description: status.error });
+          }
+        }
+      });
+
+      return; // Don't fall through to HTTP polling
     }
 
+    // ── BROWSER/PWA PATH: HTTP polling via bridge ─────────────────────────────
     const backendUrl = this.getBackendUrl();
     if (!backendUrl) {
       console.log('[DuroGPS] No backend URL configured, not starting');
       return;
     }
 
-    console.log('[DuroGPS] Starting with backend:', backendUrl);
+    console.log('[DuroGPS] Browser mode — polling bridge:', backendUrl);
     this.isRunning = true;
-    
-    // Initial fetch
     this.fetchAndUpdate();
-    
-    // Start polling
-    this.pollInterval = setInterval(() => {
-      this.fetchAndUpdate();
-    }, POLL_INTERVAL);
+    this.pollInterval = setInterval(() => this.fetchAndUpdate(), POLL_INTERVAL);
+  }
+
+  // Handle NMEA data from Electron IPC
+  private handleElectronData(parsed: any): void {
+    if (parsed.type === 'position' && parsed.lat && parsed.lon) {
+      if (parsed.timestamp > this.lastPositionTimestamp) {
+        this.lastPositionTimestamp = parsed.timestamp;
+        const date = new Date(parsed.timestamp);
+        const timeStr = date.toLocaleTimeString('en-US', { hour12: false });
+        const fixText = this.getFixQualityText(parsed.fixQuality || 0);
+        useGPSStore.getState().updateData({
+          time: timeStr, latitude: parsed.lat, longitude: parsed.lon,
+          altitude: parsed.altitude || 0, satellites: parsed.satellites || 0,
+          hdop: parsed.hdop || 0, fixQuality: fixText, source: 'duro',
+          lastUpdate: parsed.timestamp, connected: true
+        });
+      }
+    } else if (parsed.type === 'velocity') {
+      useGPSStore.getState().updateData({
+        speed: parsed.speedMps || 0,
+        course: parsed.heading || 0
+      });
+    } else if (parsed.type === 'imu') {
+      useGPSStore.getState().updateData({
+        imu: {
+          heading: parsed.heading, roll: parsed.roll, pitch: parsed.pitch,
+          heaveRate: parsed.heaveRate, rollAccuracy: null, pitchAccuracy: null, headingAccuracy: null
+        }
+      });
+    } else if (parsed.type === 'dop') {
+      useGPSStore.getState().updateData({
+        pdop: parsed.pdop, hdop: parsed.hdop || 0, vdop: parsed.vdop, gsaMode: parsed.mode
+      });
+    }
   }
 
   stop(): void {
+    // Electron path
+    const electronAPI = (window as any).electronAPI;
+    if (electronAPI?.duro) {
+      electronAPI.duro.disconnect().catch(() => {});
+      electronAPI.duro.removeListeners();
+    }
     if (this.pollInterval) {
       clearInterval(this.pollInterval);
       this.pollInterval = null;
     }
     this.isRunning = false;
+    this.wasConnected = false;
     this.lastPositionTimestamp = 0;
     console.log('[DuroGPS] Stopped');
   }

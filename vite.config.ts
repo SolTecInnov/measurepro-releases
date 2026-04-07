@@ -2,6 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
+import { readFileSync } from 'fs';
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
+
 const BUILD_TIMESTAMP = Date.now();
 const BUILD_DATE = new Date(BUILD_TIMESTAMP).toISOString().split('T')[0];
 
@@ -10,6 +13,7 @@ export default defineConfig({
   define: {
     __BUILD_TIMESTAMP__: JSON.stringify(`${BUILD_DATE}-${BUILD_TIMESTAMP}`),
     __BUILD_TIME__: BUILD_TIMESTAMP,
+    __APP_VERSION__: JSON.stringify(pkg.version), // Always in sync with package.json
   },
   resolve: {
     alias: {

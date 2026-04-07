@@ -12,6 +12,10 @@ export function useVersionPoller() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
+    // PERF: Version polling is for PWA hot-reload detection only.
+    // In Electron, auto-updater handles version management — skip.
+    if ((window as any).electronAPI?.isElectron) return;
+
     if (CLIENT_BUILD_TIME === 0) {
       return;
     }

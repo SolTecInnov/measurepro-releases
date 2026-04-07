@@ -16,6 +16,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onMenuAbout: (callback) => ipcRenderer.on('menu-about', callback),
   onMenuNavigate: (callback) => ipcRenderer.on('menu-navigate', (_event, route) => callback(route)),
   onMenuNavigateTab: (callback) => ipcRenderer.on('menu-navigate-tab', (_event, tab) => callback(tab)),
+  onMenuOpenSupportTicket: (callback) => ipcRenderer.on('menu-open-support-ticket', callback),
 
   // ── Auto-updater ─────────────────────────────────────────────────
   updater: {
@@ -30,6 +31,21 @@ contextBridge.exposeInMainWorld('electronAPI', {
 
   // ── File I/O ───────────────────────────────────────────────────────────────
   writeFile: (filePath, data) => ipcRenderer.invoke('file:write', filePath, data),
+  getAutoSavePath: (filename) => ipcRenderer.invoke('fs:getAutoSavePath', filename),
+  pickSoundFile:  ()         => ipcRenderer.invoke('fs:pickSoundFile'),
+
+  // ── Duro GNSS TCP ─────────────────────────────────────────────
+  duro: {
+    connect:    (config) => ipcRenderer.invoke('duro:connect', config),
+    disconnect: ()       => ipcRenderer.invoke('duro:disconnect'),
+    getStatus:  ()       => ipcRenderer.invoke('duro:status'),
+    onData:     (cb)     => ipcRenderer.on('duro:data',   (_e, d) => cb(d)),
+    onStatus:   (cb)     => ipcRenderer.on('duro:status', (_e, s) => cb(s)),
+    removeListeners: ()  => {
+      ipcRenderer.removeAllListeners('duro:data');
+      ipcRenderer.removeAllListeners('duro:status');
+    },
+  },
 
   // ── Serial Port ────────────────────────────────────────────────────────────
   serial: {

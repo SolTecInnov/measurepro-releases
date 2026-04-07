@@ -152,7 +152,12 @@ async function calculateNextRel(surveyId: string, currentLat: number, currentLon
 
 const Settings: React.FC = () => {
   // State management
-  const [activeTab, setActiveTab] = useState('home');
+  // Check for pending tab from Electron menu (set before navigate)
+  const [activeTab, setActiveTab] = useState(() => {
+    const pending = sessionStorage.getItem('electron-pending-tab');
+    if (pending) { sessionStorage.removeItem('electron-pending-tab'); return pending; }
+    return 'home';
+  });
 
   // Listen for Electron Settings menu tab navigation
   useEffect(() => {
@@ -184,9 +189,11 @@ const Settings: React.FC = () => {
   // Refs
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Store hooks
-  const { data: gpsData } = useGPSStore();
-  const { lastMeasurement } = useSerialStore();
+  // Store hooks — PERF: use selectors to avoid re-rendering on every GPS/laser update
+  // GPS: only re-render when lat/lon/speed change significantly (not every raw fix)
+  const gpsData = useGPSStore(state => state.data);
+  // Laser: only re-render when measurement changes (not internal buffer state)
+  const lastMeasurement = useSerialStore(state => state.lastMeasurement);
   const { activeSurvey } = useSurveyStore();
   const { selectedType, setSelectedType } = usePOIStore();
   useSettingsStore(); // Settings store initialization
@@ -541,13 +548,29 @@ const Settings: React.FC = () => {
     let noteText: string;
     const isMulti = Array.isArray(measurementData) && measurementData.length > 1;
 
+    const rawReadings = Array.isArray(measurementData) ? measurementData : [measurementData];
+    const avgValue = validMeasurements.reduce((a, b) => a + b, 0) / validMeasurements.length;
+
     if (isMulti) {
       relValue = Math.min(...validMeasurements);
       const readingsStr = validMeasurements.map(v => `${v.toFixed(2)}m`).join(', ');
-      noteText = `Readings: ${readingsStr} | Min: ${relValue.toFixed(2)}m | GND REF: ${groundRef.toFixed(2)}m | ${poiTypeLabel}`;
+      noteText = [
+        `POI: ${poiTypeLabel}`,
+        `Min: ${relValue.toFixed(2)}m`,
+        `Avg: ${avgValue.toFixed(2)}m`,
+        `Readings (${validMeasurements.length}): ${readingsStr}`,
+        `GND REF: ${groundRef.toFixed(2)}m`,
+        `Raw laser readings (${rawReadings.length}): ${rawReadings.map(v => `${parseFloat(v.toFixed(3))}m`).join(', ')}`,
+        `Time: ${new Date().toISOString()}`,
+      ].join(' | ');
     } else {
       relValue = validMeasurements[0];
-      noteText = `Height: ${relValue.toFixed(2)}m | GND REF: ${groundRef.toFixed(2)}m | ${poiTypeLabel}`;
+      noteText = [
+        `POI: ${poiTypeLabel}`,
+        `Height: ${relValue.toFixed(2)}m`,
+        `GND REF: ${groundRef.toFixed(2)}m`,
+        `Time: ${new Date().toISOString()}`,
+      ].join(' | ');
     }
 
     let savedSuccessfully = false;

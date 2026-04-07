@@ -194,6 +194,10 @@ export function useLidarService(): UseLidarServiceResult {
   }, []);
   
   useEffect(() => {
+    // PERF: Only check LiDAR availability if user has navigated to LiDAR page
+    // Avoids network call on every Settings mount
+    const lidarEnabled = localStorage.getItem('lidar_service_enabled') === 'true';
+    if (!lidarEnabled) return;
     checkServiceAvailable().then(setIsServiceAvailable);
   }, []);
   

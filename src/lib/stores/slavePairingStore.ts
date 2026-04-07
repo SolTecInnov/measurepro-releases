@@ -40,8 +40,11 @@ export const useSlavePairingStore = create<SlavePairingState>((set) => {
     _intentionalClose = false;
 
     try {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const ws = new WebSocket(`${protocol}//${window.location.host}/api`);
+      // Electron uses file:// — must connect to remote relay server over internet
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://measurepro.soltecinnovation.com';
+      const protocol = apiUrl.startsWith('https') ? 'wss:' : 'ws:';
+      const host = apiUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const ws = new WebSocket(`${protocol}//${host}/api`);
       _ws = ws;
 
       ws.onopen = () => {

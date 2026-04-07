@@ -13,23 +13,16 @@ const LateralWidthDisplay: React.FC<LateralWidthDisplayProps> = ({ compact = fal
   const leftLateral = useMultiLaserStore(state => state.leftLateral);
   const rightLateral = useMultiLaserStore(state => state.rightLateral);
   const [alertState, setAlertState] = useState<LateralAlertState | null>(null);
-  const [, forceUpdate] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => forceUpdate(n => n + 1), 100);
-    return () => clearInterval(interval);
-  }, []);
-
+  // PERF FIX: Subscribe to store changes instead of polling every 100ms
   const leftClearance = useMemo(() => useMultiLaserStore.getState().getLeftClearance(), [leftLateral]);
   const rightClearance = useMemo(() => useMultiLaserStore.getState().getRightClearance(), [rightLateral]);
   const totalWidth = useMemo(() => useMultiLaserStore.getState().getTotalWidth(), [leftLateral, rightLateral]);
 
+  // Update alert state when lateral values change (not on a timer)
   useEffect(() => {
-    const updateInterval = setInterval(() => {
-      setAlertState(lateralRearMonitor.getLateralAlertState());
-    }, 100);
-    return () => clearInterval(updateInterval);
-  }, []);
+    setAlertState(lateralRearMonitor.getLateralAlertState());
+  }, [leftLateral, rightLateral]);
 
   if (lateralLaserSettings.mode === 'off') {
     return (

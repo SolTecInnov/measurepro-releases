@@ -9,3 +9,4 @@ interface Window {
 
 declare const __BUILD_TIMESTAMP__: string;
 declare const __BUILD_TIME__: number;
+declare const __APP_VERSION__: string;

@@ -239,9 +239,20 @@ export function DuroLiveDataViewer() {
                     toast.error('Set Backend URL first');
                     return;
                   }
-                  duroGpsService.start();
+                  // Electron: use direct TCP
+                  if ((window as any).electronAPI?.duro) {
+                    let host = '192.168.0.222', port = 2101;
+                    try {
+                      const cfg = JSON.parse(localStorage.getItem('gnss_config') || '{}');
+                      if (cfg.host) host = cfg.host;
+                      if (cfg.nmeaPort) port = cfg.nmeaPort;
+                    } catch(e) {}
+                    duroGpsService.start({ host, port });
+                  } else {
+                    duroGpsService.start();
+                  }
                   setDuroGpsEnabled(true);
-                  toast.success('Duro GPS enabled - position data now feeds to app');
+                  toast.success('Duro GNSS connected via TCP');
                 }
               }}
               data-testid="button-toggle-duro-gps"

@@ -251,15 +251,25 @@ export function useHardwareAutoReconnect(): AutoReconnectState {
 async function startDuroSilently(duroUrl: string): Promise<void> {
   try {
     localStorage.setItem('measurepro_gnss_backend_url', duroUrl);
-    // Always stop-then-start: guarantees a fresh connection even if the service
-    // was already running with a stale connection from a prior session.
-    if (duroGpsService.isActive()) {
-      duroGpsService.stop();
+    if (duroGpsService.isActive()) duroGpsService.stop();
+
+    // Electron: use direct TCP connection with saved config
+    if ((window as any).electronAPI?.duro) {
+      let host = '192.168.0.222', port = 2101;
+      try {
+        const gnssConfig = JSON.parse(localStorage.getItem('gnss_config') || '{}');
+        if (gnssConfig.host) host = gnssConfig.host;
+        if (gnssConfig.nmeaPort) port = gnssConfig.nmeaPort;
+      } catch(e) {}
+      duroGpsService.start({ host, port });
+      console.log('[AutoReconnect] Duro started via Electron TCP:', host + ':' + port);
+    } else {
+      // Browser: use HTTP bridge
+      duroGpsService.start();
+      console.log('[AutoReconnect] Duro started via bridge:', duroUrl);
     }
-    duroGpsService.start();
-    console.log('[AutoReconnect] Duro GPS service (re)started silently with URL:', duroUrl);
   } catch (e) {
-    console.warn('[AutoReconnect] Failed to start Duro GPS service silently:', e);
+    console.warn('[AutoReconnect] Failed to start Duro silently:', e);
   }
 }
 

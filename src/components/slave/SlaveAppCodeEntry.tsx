@@ -118,8 +118,12 @@ export function SlaveAppCodeEntry({ onPaired, onStandalone }: SlaveAppCodeEntryP
     setError(null);
 
     try {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const wsUrl = `${protocol}//${window.location.host}/api`;
+      // In Electron (file:// protocol), use the configured API URL or fallback
+      // The slave app pairing relay must be a remote server accessible over internet
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://measurepro.soltecinnovation.com';
+      const protocol = apiUrl.startsWith('https') ? 'wss:' : 'ws:';
+      const host = apiUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const wsUrl = `${protocol}//${host}/api`;
 
       const ws = new WebSocket(wsUrl);
 

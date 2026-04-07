@@ -11,7 +11,9 @@ export class FrameBuffer {
   private intervalId: number | null = null;
   private isRunning: boolean = false;
 
-  constructor(maxBufferSeconds: number = 10, captureIntervalMs: number = 100) {
+  constructor(maxBufferSeconds: number = 10, captureIntervalMs: number = 333) {
+    // PERF FIX: 333ms = ~3fps = 30 frames in 10s buffer
+    // Was 100ms (10fps = 100 frames) — excessive for a rollback buffer
     this.maxBufferSeconds = maxBufferSeconds;
     this.captureIntervalMs = captureIntervalMs;
   }

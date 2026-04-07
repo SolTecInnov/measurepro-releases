@@ -75,9 +75,26 @@ export function DuroBridgeConnectionSettings({ onConnectionChange }: DuroBridgeC
     toast.success('Backend URL saved');
     
     if (backendUrl) {
-      testConnection(backendUrl);
-      if (!duroGpsService.isActive()) {
-        duroGpsService.start();
+      // ── Electron: start direct TCP connection ─────────────────────────────
+      if ((window as any).electronAPI?.duro) {
+        // Parse host from config (stored in GnssSettings localStorage)
+        let host = '192.168.0.222';
+        let port = 2101;
+        try {
+          const gnssConfig = JSON.parse(localStorage.getItem('gnss_config') || '{}');
+          if (gnssConfig.host) host = gnssConfig.host;
+          if (gnssConfig.nmeaPort) port = gnssConfig.nmeaPort;
+        } catch(e) {}
+        if (!duroGpsService.isActive()) {
+          duroGpsService.start({ host, port });
+        }
+        setConnectionStatus('connected');
+      } else {
+        // Browser: test HTTP bridge
+        testConnection(backendUrl);
+        if (!duroGpsService.isActive()) {
+          duroGpsService.start();
+        }
       }
     } else {
       duroGpsService.stop();

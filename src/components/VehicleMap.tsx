@@ -491,7 +491,7 @@ const VehicleMap: React.FC = () => {
         <button
           onClick={() => setShowRouteManager(true)}
           data-testid="button-open-route-manager"
-          className="absolute top-4 right-4 z-[1000] flex items-center gap-1.5 bg-gray-900/80 hover:bg-gray-800 text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg border border-gray-600 backdrop-blur-sm transition-colors"
+          className="absolute top-4 right-4 z-[10] flex items-center gap-1.5 bg-gray-900/80 hover:bg-gray-800 text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg border border-gray-600 backdrop-blur-sm transition-colors"
           title="Manage Routes"
         >
           <RouteIcon className="w-3.5 h-3.5 text-blue-400" />
@@ -500,7 +500,7 @@ const VehicleMap: React.FC = () => {
 
         {/* Route Creation Mode Indicator */}
         {routeCreationMode && (
-          <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg z-[1000]">
+          <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg z-[10]">
             <div className="flex items-center gap-2">
               {routeCreationMode === 'origin' && <MapPin className="w-4 h-4" />}
               {routeCreationMode === 'waypoint' && <Navigation className="w-4 h-4" />}
@@ -511,7 +511,7 @@ const VehicleMap: React.FC = () => {
         )}
         
         {/* GPS Status Indicator */}
-        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm z-[1000]">
+        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm z-[10]">
           <div className="flex items-center gap-2">
             <div className={`w-2 h-2 rounded-full ${
               gpsData.fixQuality === 'GPS Fix' || gpsData.fixQuality === 'DGPS Fix' ? 'bg-green-500' : 'bg-red-500'

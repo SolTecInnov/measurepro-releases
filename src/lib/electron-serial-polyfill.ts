@@ -100,10 +100,10 @@ class ElectronSerialPort implements SerialPort {
   }
 
   getInfo(): SerialPortInfo {
-    // Synchronous — returns cached info; full details via IPC are async
+    // Return cached VID/PID set during getPorts() for fingerprint matching
     return {
-      usbVendorId: 0,
-      usbProductId: 0,
+      usbVendorId: (this as any)._vendorId  ?? 0,
+      usbProductId: (this as any)._productId ?? 0,
     };
   }
 
@@ -132,6 +132,26 @@ const knownPorts = new Map<string, ElectronSerialPort>();
 
 const electronSerial: Serial = {
   async getPorts(): Promise<SerialPort[]> {
+    // BUGFIX: In Electron, knownPorts is empty on fresh launch.
+    // Call serial:list to get ALL available ports and register them.
+    // This is what enables auto-reconnect on startup.
+    const serial = api();
+    if (serial?.list) {
+      try {
+        const listed = await serial.list();
+        for (const info of listed) {
+          if (!knownPorts.has(info.path)) {
+            const port = new ElectronSerialPort(info.path);
+            // Store VID/PID on the port so fingerprint matching works
+            (port as any)._vendorId  = info.vendorId  ? parseInt(info.vendorId,  16) : undefined;
+            (port as any)._productId = info.productId ? parseInt(info.productId, 16) : undefined;
+            knownPorts.set(info.path, port);
+          }
+        }
+      } catch(e) {
+        console.warn('[SerialPolyfill] getPorts list failed:', e);
+      }
+    }
     return Array.from(knownPorts.values());
   },
 
@@ -149,6 +169,9 @@ const electronSerial: Serial = {
     let port = knownPorts.get(chosen.path);
     if (!port) {
       port = new ElectronSerialPort(chosen.path);
+      // Cache VID/PID from the chosen port info
+      (port as any)._vendorId  = chosen.vendorId  ? parseInt(chosen.vendorId,  16) : undefined;
+      (port as any)._productId = chosen.productId ? parseInt(chosen.productId, 16) : undefined;
       knownPorts.set(chosen.path, port);
     }
     return port;
