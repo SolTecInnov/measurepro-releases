@@ -26,6 +26,7 @@ export function useVersionPoller() {
     }
 
     const check = async () => {
+      if (!navigator.onLine) return;
       try {
         const resp = await fetch(`${API_BASE_URL}/api/version`, {
           cache: 'no-store',

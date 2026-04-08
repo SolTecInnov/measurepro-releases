@@ -194,17 +194,19 @@ export async function deleteLicensePackageAPI(id: string): Promise<{ success: bo
 }
 
 export async function getAllLicensePackagesAPI(): Promise<LicensePackage[]> {
-  // Use the Express backend proxy instead of calling the Firebase Cloud Function directly.
-  const { getAuth } = await import('firebase/auth');
-  const currentUser = getAuth().currentUser;
-  if (!currentUser) return [];
-  const idToken = await currentUser.getIdToken();
-  const resp = await fetch(`${API_BASE_URL}/api/licenses/packages`, {
-    headers: { Authorization: `Bearer ${idToken}` },
-  });
-  if (!resp.ok) return [];
-  const data = await resp.json() as { success: boolean; packages: any[] };
-  return (data.packages ?? []) as LicensePackage[];
+  if (!navigator.onLine) return [];
+  try {
+    const { getAuth } = await import('firebase/auth');
+    const currentUser = getAuth().currentUser;
+    if (!currentUser) return [];
+    const idToken = await currentUser.getIdToken();
+    const resp = await fetch(`${API_BASE_URL}/api/licenses/packages`, {
+      headers: { Authorization: `Bearer ${idToken}` },
+    });
+    if (!resp.ok) return [];
+    const data = await resp.json() as { success: boolean; packages: any[] };
+    return (data.packages ?? []) as LicensePackage[];
+  } catch { return []; }
 }
 
 /**
@@ -255,18 +257,19 @@ export async function activateLicenseCodeAPI(request: ActivationRequest): Promis
 }
 
 export async function getUserLicensesAPI(): Promise<UserLicense[]> {
-  // Use the Express backend proxy instead of calling the Firebase Cloud Function directly.
-  // The proxy uses the Admin SDK server-side which has no CORS restrictions.
-  const { getAuth } = await import('firebase/auth');
-  const currentUser = getAuth().currentUser;
-  if (!currentUser) throw new Error('Not authenticated');
-  const idToken = await currentUser.getIdToken();
-  const resp = await fetch(`${API_BASE_URL}/api/licenses/user-licenses`, {
-    headers: { Authorization: `Bearer ${idToken}` },
-  });
-  if (!resp.ok) throw new Error(`user-licenses returned ${resp.status}`);
-  const data = await resp.json() as { success: boolean; licenses: any[] };
-  return data.licenses as UserLicense[];
+  if (!navigator.onLine) return [];
+  try {
+    const { getAuth } = await import('firebase/auth');
+    const currentUser = getAuth().currentUser;
+    if (!currentUser) return [];
+    const idToken = await currentUser.getIdToken();
+    const resp = await fetch(`${API_BASE_URL}/api/licenses/user-licenses`, {
+      headers: { Authorization: `Bearer ${idToken}` },
+    });
+    if (!resp.ok) return [];
+    const data = await resp.json() as { success: boolean; licenses: any[] };
+    return data.licenses as UserLicense[];
+  } catch { return []; }
 }
 
 export async function getAllUserLicensesAPI(): Promise<UserLicense[]> {
