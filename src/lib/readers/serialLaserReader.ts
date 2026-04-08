@@ -46,22 +46,19 @@ export class LaserReader {
   private ldm71Driver: LDM71AsciiDriver | null = null;
 
   constructor() {
-    this.setLaserType('soltec-standard');
+    // Always initialize with the standard driver — it handles both D xxxx.xxx and D xxxx.xxx xx.x
+    // Falls back to generic ASCII parsing for any other format automatically
+    const amplitudeFilter = this.createFreshAmplitudeFilter();
+    this.ldm71Driver = new LDM71AsciiDriver(SOLTEC_30M_PROFILE, amplitudeFilter);
+    this.ldm71Driver.setRawLineCallback((line) => appendToLaserOutput(line));
   }
 
-  setLaserType(type: string) {
-    this.laserType = type;
-
-    if (type === 'soltec-standard') {
-      const amplitudeFilter = this.createFreshAmplitudeFilter();
-      this.ldm71Driver = new LDM71AsciiDriver(SOLTEC_30M_PROFILE, amplitudeFilter);
-      // Every line received from the serial port is logged verbatim — no filter messages
-      this.ldm71Driver.setRawLineCallback((line) => appendToLaserOutput(line));
-    } else {
-      // soltec-legacy uses legacy ASCII path
-      this.ldm71Driver = null;
-    }
-
+  setLaserType(_type: string) {
+    // Auto-detection: always use the standard driver which handles all known ASCII formats.
+    // The processData pipeline tries LDM71 first, then falls back to generic ASCII.
+    const amplitudeFilter = this.createFreshAmplitudeFilter();
+    this.ldm71Driver = new LDM71AsciiDriver(SOLTEC_30M_PROFILE, amplitudeFilter);
+    this.ldm71Driver.setRawLineCallback((line) => appendToLaserOutput(line));
     this.reset();
   }
 
@@ -115,11 +112,12 @@ export class LaserReader {
   }
 
   processData(chunk: Uint8Array): void {
-    if (this.ldm71Driver && this.laserType === 'soltec-standard') {
+    // Always try the standard driver first (handles D xxxx.xxx with/without amplitude)
+    // Falls back to generic ASCII for other formats
+    if (this.ldm71Driver) {
       this.processLdm71Data(chunk);
       return;
     }
-
     this.processAsciiData(chunk);
   }
 
@@ -172,7 +170,7 @@ export class LaserReader {
         continue;
       }
       
-      if (this.isJenoptikLaserData(trimmed)) {
+      if (this.isStandardLaserData(trimmed)) {
         // Fix 5: deduplicate DE02 errors
         if (trimmed === 'De02' || trimmed === 'DE02') {
           logLaserError(trimmed);
@@ -215,7 +213,7 @@ export class LaserReader {
     return gpsPatterns.some(pattern => pattern.test(data));
   }
 
-  private isJenoptikLaserData(data: string): boolean {
+  private isStandardLaserData(data: string): boolean {
     const jenoptikPatterns = [
       /^D\s+\d+\.\d+/,
       /^De02$/,

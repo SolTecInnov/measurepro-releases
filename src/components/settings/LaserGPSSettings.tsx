@@ -392,22 +392,7 @@ const LaserGPSSettings: React.FC = () => {
             </div>
           </div>
 
-          {/* Laser Type Selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">Laser Type</label>
-            <select
-              value={laserType}
-              onChange={(e) => setLaserType(e.target.value as any)}
-              className={commonInputClasses}
-              data-testid="select-laser-type"
-            >
-              <option value="soltec-standard">Standard 115200 (SolTec / RSA High Pole)</option>
-              <option value="soltec-legacy">Legacy 19200 (SolTec 10m old unit)</option>
-            </select>
-            <p className="text-xs text-gray-400 mt-1">
-              All modern SolTec models (30m, 70m, AR2700) and RSA High Pole use the standard setting.
-            </p>
-          </div>
+          {/* Laser format is auto-detected — no user selection needed */}
 
           {/* Port Management */}
           <div className="flex gap-2">

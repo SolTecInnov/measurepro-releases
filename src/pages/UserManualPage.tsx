@@ -306,7 +306,7 @@ export default function UserManualPage() {
             </div>
             <h3 className="text-xl font-semibold mb-4 mt-6">Hardware Requirements</h3>
             <ul className="text-gray-300 space-y-2 text-sm">
-              <li className="flex items-start gap-2"><Ruler className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" /><strong>Laser Distance Meter</strong> — Dimetix FLS-C, Jenoptik LDS-30/70, or compatible serial-output laser</li>
+              <li className="flex items-start gap-2"><Ruler className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" /><strong>Laser Distance Meter</strong> — SolTec laser, SolTec laser/70, or compatible serial-output laser</li>
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" /><strong>GPS Receiver</strong> — Swift Navigation Duro, u-blox, or any NMEA-compatible serial GPS</li>
               <li className="flex items-start gap-2"><Camera className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" /><strong>Camera</strong> — Built-in webcam, USB camera, or ZED 2i stereo camera</li>
               <li className="flex items-start gap-2"><Radio className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" /><strong>LiDAR (Optional)</strong> — Hesai Pandar40P for 3D point cloud scanning</li>
@@ -324,9 +324,9 @@ export default function UserManualPage() {
                   </tr>
                 </thead>
                 <tbody className="text-gray-300">
-                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">Dimetix FLS-C</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Dimetix ASCII</td><td className="py-2 px-3">30 Hz, ±1mm accuracy</td></tr>
-                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">Jenoptik LDS-30</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Custom ASCII</td><td className="py-2 px-3">30m range</td></tr>
-                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">Jenoptik LDS-70A</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Custom ASCII</td><td className="py-2 px-3">70m range, outdoor use</td></tr>
+                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">SolTec laser</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Standard ASCII</td><td className="py-2 px-3">30 Hz, ±1mm accuracy</td></tr>
+                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">SolTec laser</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Standard ASCII</td><td className="py-2 px-3">30m range</td></tr>
+                  <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">Laser</td><td className="py-2 px-3">SolTec laser</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">Standard ASCII</td><td className="py-2 px-3">70m range, outdoor use</td></tr>
                   <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">GPS</td><td className="py-2 px-3">Swift Navigation Duro</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">NMEA 0183</td><td className="py-2 px-3">RTK-capable, cm accuracy</td></tr>
                   <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">GPS</td><td className="py-2 px-3">u-blox (various)</td><td className="py-2 px-3">USB Serial</td><td className="py-2 px-3">NMEA 0183</td><td className="py-2 px-3">Sub-meter accuracy</td></tr>
                   <tr className="border-b border-gray-700/50"><td className="py-2 px-3 font-medium text-white">GPS</td><td className="py-2 px-3">Bluetooth GNSS</td><td className="py-2 px-3">Web Bluetooth</td><td className="py-2 px-3">NMEA 0183</td><td className="py-2 px-3">Wireless, mobile-friendly</td></tr>
@@ -424,7 +424,7 @@ export default function UserManualPage() {
           </h2>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Connecting Your Laser</h3>
-            <p className="text-gray-300 mb-4">MeasurePRO connects to laser distance meters via the Web Serial API. Supported models include Dimetix FLS-C, Jenoptik LDS-30, and LDS-70A.</p>
+            <p className="text-gray-300 mb-4">MeasurePRO connects to laser distance meters via serial port. Compatible with SolTec laser, SolTec laser, and LDS-70A.</p>
             <ol className="text-gray-300 space-y-2 list-decimal list-inside">
               <li>Navigate to the Settings page</li>
               <li>Locate the <strong>"Laser Distance Meter"</strong> card</li>

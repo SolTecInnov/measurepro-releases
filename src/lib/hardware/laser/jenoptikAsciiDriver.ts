@@ -1,6 +1,6 @@
 /**
  * Jenoptik ASCII Laser Driver
- * Handles ASCII-based laser protocols (Jenoptik LDS-30, etc.)
+ * Handles ASCII-based laser protocols (SolTec laser, etc.)
  * 
  * Protocol:
  * - Measurements come as ASCII text: "D 0001.759"

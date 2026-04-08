@@ -2477,7 +2477,7 @@ const HelpSettings = () => {
                   <h5 className="font-medium text-gray-200 mb-1">Connected but no data:</h5>
                   <ul className="text-gray-300 text-sm space-y-1 ml-4">
                     <li>• Verify baud rate settings match your device</li>
-                    <li>• Check device type selection (Jenoptik vs SolTec)</li>
+                    <li>• Check serial port connection</li>
                     <li>• Use Serial Diagnostic tool for testing</li>
                     <li>• Try the "Reset" button to restart connection</li>
                     <li>• Ensure no other applications are using the device</li>

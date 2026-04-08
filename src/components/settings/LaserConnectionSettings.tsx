@@ -6,10 +6,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Zap, RefreshCw, CheckCircle, XCircle } from 'lucide-react';
 
 const LASER_FORMATS = [
-  { id: 'ldm71',      label: 'Jenoptik / Soltec LDM71',   desc: 'D xxxx.xxx ampl\\r\\n' },
-  { id: 'acuity',     label: 'Acuity AR700/1000',           desc: '±xxxxxx\\r\\n (µm)' },
-  { id: 'dimetix',    label: 'Dimetix FLS / DLS',           desc: 'g0±xxxxxxxxxx\\r\\n (µm)' },
-  { id: 'astech',     label: 'Astech (legacy)',              desc: '[LASER] D -> x.xxx m' },
+  { id: 'ldm71',      label: 'Standard laser',   desc: 'D xxxx.xxx ampl\\r\\n' },
+  { id: 'acuity',     label: 'Standard laser',           desc: '±xxxxxx\\r\\n (µm)' },
+  { id: 'dimetix',    label: 'Standard laser',           desc: 'g0±xxxxxxxxxx\\r\\n (µm)' },
+  { id: 'astech',     label: 'Legacy laser',              desc: '[LASER] D -> x.xxx m' },
   { id: 'generic_m',  label: 'Generic — float meters',      desc: 'x.xxx\\r\\n' },
   { id: 'generic_mm', label: 'Generic — integer mm',        desc: 'xxxx\\r\\n' },
 ];
@@ -201,8 +201,8 @@ export default function LaserConnectionSettings() {
         <div style={{ fontSize: 11, color: '#475569', lineHeight: 1.6 }}>
           <strong style={{ color: '#94A3B8' }}>Format guide:</strong><br/>
           LDM71: <code style={{ color: '#4ADE80' }}>D 0005.230 021.9</code> — distance + amplitude<br/>
-          Acuity: <code style={{ color: '#4ADE80' }}>+005230</code> — signed integer in µm (÷1000 = m)<br/>
-          Dimetix: <code style={{ color: '#4ADE80' }}>g0+00005230</code> — signed, 10 digits, µm (÷1000 = m)<br/>
+          Type A: <code style={{ color: '#4ADE80' }}>+005230</code> — signed integer in µm (÷1000 = m)<br/>
+          Type B: <code style={{ color: '#4ADE80' }}>g0+00005230</code> — signed, 10 digits, µm (÷1000 = m)<br/>
           Generic: <code style={{ color: '#4ADE80' }}>5.230</code> — float in meters
         </div>
       </div>

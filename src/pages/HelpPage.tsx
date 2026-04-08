@@ -176,7 +176,7 @@ export default function HelpPage() {
                       <div>
                         <h5 className="font-semibold text-white">Laser Distance Meters</h5>
                         <ul className="text-sm mt-2 space-y-1">
-                          <li>• Jenoptik LDS-30 (recommended)</li>
+                          <li>• SolTec laser (recommended)</li>
                           <li>• Any Web Serial API compatible device</li>
                           <li>• RS-232 or USB connection</li>
                           <li>• 9600-115200 baud rate</li>

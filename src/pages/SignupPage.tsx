@@ -2232,11 +2232,11 @@ export default function SignupPage() {
                         <h4 className="text-white font-semibold mb-1">Laser Distance Meter</h4>
                         <p className="text-gray-400 text-sm mb-2">
                           Web Serial API compatible laser distance meter for precise measurements.
-                          Recommended: Jenoptik LDS-30 or equivalent.
+                          Recommended: SolTec laser or equivalent.
                         </p>
                         <div className="flex items-center space-x-2">
                           <span className="text-xs text-gray-500">Compatible Devices:</span>
-                          <span className="text-xs text-blue-400">Jenoptik LDS-30</span>
+                          <span className="text-xs text-blue-400">SolTec laser</span>
                           <span className="text-xs text-gray-600">|</span>
                           <span className="text-xs text-blue-400">Leica DISTO</span>
                         </div>
@@ -2351,7 +2351,7 @@ export default function SignupPage() {
                       className="text-sm text-blue-400 hover:text-blue-300 hover:underline"
                       data-testid="link-vendor-jenoptik"
                     >
-                      Jenoptik - Laser Distance Meters →
+                      SolTec - Laser Distance Meters →
                     </a>
                     <a
                       href="https://www.stereolabs.com/zed-2i"

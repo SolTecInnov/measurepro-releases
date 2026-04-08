@@ -268,7 +268,7 @@ export default function DocumentationPage() {
                   <Check>SolTec LiDAR 2D — RSA 3-byte binary protocol, 19200 baud, 7-E-1</Check>
                   <Check>SolTec High Pole LiDAR — same RSA protocol</Check>
                   <Check>RSA High Pole Laser — 3-byte binary, 19200 baud, 7-E-1</Check>
-                  <Check>Jenoptik laser — ASCII stream protocol</Check>
+                  <Check>Laser — ASCII stream protocol</Check>
                   <Check>Mock mode — simulated measurements for demos and testing</Check>
                 </ul>
               </div>
@@ -279,7 +279,7 @@ export default function DocumentationPage() {
                   <li>Connect the USB-to-serial cable between laser and tablet.</li>
                   <li>Open <strong className="text-white">Settings → Hardware → Laser</strong>.</li>
                   <li>Click <strong className="text-white">Select Port</strong>. Choose the port labelled "USB Serial Port" (usually COM3–COM8 on Windows).</li>
-                  <li>Select the correct protocol (RSA or Jenoptik). Leave baud rate at 19200 unless instructed otherwise.</li>
+                  <li>Select the correct COM port and baud rate. Leave baud rate at 19200 unless instructed otherwise.</li>
                   <li>The live reading should appear in the display panel within 2 seconds.</li>
                 </ol>
                 <Note color="blue">
@@ -1313,7 +1313,7 @@ export default function DocumentationPage() {
                 <li>Check the laser is powered (12V supply active, power LED on).</li>
                 <li>Check the USB-to-serial cable is seated correctly on both ends.</li>
                 <li>Open Settings → Hardware → Laser and confirm the correct COM port is selected.</li>
-                <li>Verify the protocol (RSA vs Jenoptik). Wrong protocol = no data parsed.</li>
+                <li>Verify the COM port and baud rate settings.</li>
                 <li>Try clicking Disconnect then Reconnect in the laser settings panel.</li>
                 <li>Check for bright sunlight directly into the sensor aperture — see Environmental Limitations.</li>
                 <li>If using a USB hub, try a direct USB connection to rule out hub issues.</li>

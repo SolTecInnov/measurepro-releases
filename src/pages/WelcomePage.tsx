@@ -1874,8 +1874,7 @@ export default function WelcomePage() {
                 What hardware does MeasurePRO support?
               </summary>
               <p className="mt-3 text-gray-300 leading-relaxed">
-                MeasurePRO connects to LiDAR laser distance meters (Astech LDS-30, LDS-70A, Dimetix FLS-C, RSA Laser,
-                Acuity AR2700), Swift Navigation Duro RTK-GNSS receivers, Hesai Pandar40P 3D LiDAR, and ZED 2i stereo
+                MeasurePRO connects to LiDAR laser distance meters (SolTec laser systems), Swift Navigation Duro RTK-GNSS receivers, Hesai Pandar40P 3D LiDAR, and ZED 2i stereo
                 cameras via USB Serial, Bluetooth, or WebSocket. Hardware bundles including a rugged IP67 Windows tablet
                 and vehicle mounting kit are available at{' '}
                 <a href="https://soltecinnovation.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">

@@ -14,7 +14,7 @@ import type { LaserProfileConfig } from '../types';
 
 const defaultProfile: LaserProfileConfig = {
   id: 'jenoptik-lds30',
-  name: 'Jenoptik LDS-30',
+  name: 'SolTec laser',
   baudRate: 19200,
   dataBits: 8,
   parity: 'none',

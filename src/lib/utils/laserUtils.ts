@@ -6,7 +6,7 @@
  * Converts a raw laser measurement to meters based on the laser type
  * 
  * @param rawValue - The raw measurement value from the laser (already in meters)
- * @param laserType - The type of laser device ('high-pole' for Jenoptik, others for SolTec)
+ * @param laserType - The type of laser device
  * @param groundReferenceHeight - The ground reference height to add (in meters)
  * @returns The measurement in meters
  */

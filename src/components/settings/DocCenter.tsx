@@ -29,7 +29,7 @@ const DOCUMENTS = [
     badge: 'Technical',
     badgeColor: 'bg-cyan-800/60 text-cyan-300',
     title: 'Technical Documentation',
-    desc: 'Hardware protocols (RSA, Jenoptik), GPS architecture, export formats (CSV, LandXML, GeoJSON, Shapefile).',
+    desc: 'Hardware protocols, GPS architecture, export formats (CSV, LandXML, GeoJSON, Shapefile).',
     meta: '/documentation',
     href: '/documentation',
     external: false,
