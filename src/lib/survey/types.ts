@@ -34,6 +34,9 @@ export interface Survey {
   surveyor?: string;
   isActive?: boolean;
   
+  // Current road number (defaults to 1, incremented by user)
+  roadNumber?: number;
+
   // Survey Part Tracking (for multi-part surveys after crash/continuation)
   rootSurveyId?: string | null;     // ID of the original Part 1 survey (null for Part 1 itself)
   partOrdinal?: number;              // Part number: 1, 2, 3, etc. (default 1)
