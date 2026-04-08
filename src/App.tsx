@@ -494,6 +494,59 @@ function App() {
     };
   }, []);
   
+  // Auto-connect laser on startup using saved settings
+  useEffect(() => {
+    const api = (window as any).electronAPI;
+    if (!api?.laser) return;  // not in Electron or laser API not available
+    
+    const savedPort   = localStorage.getItem('laser_com_port');
+    const savedBaud   = parseInt(localStorage.getItem('laser_baud') || '115200');
+    const savedFormat = localStorage.getItem('laser_format') || 'ldm71';
+    
+    if (!savedPort) return;  // no saved port — user needs to configure first
+    
+    // Auto-connect after 2s (let app load first)
+    const timer = setTimeout(async () => {
+      const status = await api.laser.getStatus();
+      if (status.connected) return;  // already connected
+      
+      console.log('[App] Auto-connecting laser:', savedPort, savedBaud, savedFormat);
+      const result = await api.laser.connect({ comPort: savedPort, baudRate: savedBaud, format: savedFormat });
+      if (result.connected) {
+        // Start streaming (LDM71: send DT command)
+        if (savedFormat === 'ldm71' || savedFormat === 'astech') {
+          setTimeout(() => api.laser.sendCommand('DT'), 500);
+        }
+        console.log('[App] Laser auto-connected to', savedPort);
+      } else {
+        console.warn('[App] Laser auto-connect failed:', result.error);
+      }
+    }, 2000);
+    
+    // Subscribe to laser measurements → feed to serialStore
+    api.laser.onMeasurement((data: { type: string; value?: string; raw: string }) => {
+      const { appendToLaserOutput } = require('./lib/laserLog');
+      if (data.raw) appendToLaserOutput(data.raw);
+      if (data.type === 'measurement' && data.value) {
+        // Update serialStore
+        import('./lib/stores/serialStore').then(({ useSerialStore }) => {
+          useSerialStore.getState().setLastLaserData(data.value!);
+        }).catch(() => {});
+      }
+    });
+    
+    api.laser.onRawLine((line: string) => {
+      import('./lib/laserLog').then(({ appendToLaserOutput }) => {
+        appendToLaserOutput(line);
+      }).catch(() => {});
+    });
+    
+    return () => {
+      clearTimeout(timer);
+      api.laser.removeListeners?.();
+    };
+  }, []);
+
   // Initialize PRIMARY workers on startup (others are lazy-loaded when features are used)
   useEffect(() => {
     const initCoreWorkers = async () => {
@@ -657,20 +710,10 @@ function App() {
 
   // AI Trial — fetches trial status after login, initialises shared key in aiAssistant.ts
   const aiTrialStatus = useAITrial();
-  const [showAIWelcome, setShowAIWelcome] = useState(false);
+  const showAIWelcome = false;
+  const setShowAIWelcome = (_: boolean) => {};
 
-  // Show the welcome dialog once per user (tracked via localStorage)
-  useEffect(() => {
-    if (!user || !aiTrialStatus.loaded) return;
-    const key = `ai_welcome_shown_${user.uid}`;
-    if (!localStorage.getItem(key)) {
-      const t = setTimeout(() => {
-        setShowAIWelcome(true);
-        localStorage.setItem(key, '1');
-      }, 2500);
-      return () => clearTimeout(t);
-    }
-  }, [user, aiTrialStatus.loaded]);
+  // AI Welcome disabled
   
   // Check terms acceptance when user logs in
   useEffect(() => {
@@ -962,13 +1005,7 @@ function App() {
         />
       )}
 
-      {/* AI Welcome Dialog — shown once per user after first login */}
-      {showAIWelcome && (
-        <AIWelcomeDialog
-          trialStatus={aiTrialStatus}
-          onClose={() => setShowAIWelcome(false)}
-        />
-      )}
+      {/* AI Welcome disabled */}
       
       {/* GNSS Migration Progress Dialog */}
       {migrationProgress && (

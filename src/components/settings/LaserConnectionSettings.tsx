@@ -29,10 +29,17 @@ export default function LaserConnectionSettings() {
   const isElectron = !!(window as any).electronAPI?.isElectron;
 
   useEffect(() => {
-    // Load available COM ports via Web Serial API
-    if ('serial' in navigator) {
-      (navigator.serial as any).getPorts().then((p: any[]) => {
-        setPorts(p.map((_, i) => `COM${i + 1}`));
+    // Load available COM ports via Electron IPC (no dialog needed)
+    const api = (window as any).electronAPI?.laser;
+    if (api?.listPorts) {
+      api.listPorts().then((portList: any[]) => {
+        if (portList.length > 0) {
+          setPorts(portList.map(p => p.path));
+          // Auto-select first port if none saved
+          if (!selectedPort && portList.length > 0) {
+            setSelectedPort(portList[0].path);
+          }
+        }
       }).catch(() => {});
     }
   }, []);

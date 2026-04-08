@@ -19,6 +19,18 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onMenuOpenSupportTicket: (callback) => ipcRenderer.on('menu-open-support-ticket', callback),
 
   // ── Auto-updater ─────────────────────────────────────────────────
+  // New updater API for AutoUpdater.tsx component
+  updaterCheck:       () => ipcRenderer.invoke('updater:check'),
+  updaterInstallNow:  () => ipcRenderer.invoke('updater:install-now'),
+  onUpdateAvailable:  (cb) => ipcRenderer.on('updater:update-available',  (_e, d) => cb(d)),
+  onDownloadProgress: (cb) => ipcRenderer.on('updater:download-progress', (_e, d) => cb(d)),
+  onUpdateDownloaded: (cb) => ipcRenderer.on('updater:update-downloaded', (_e, d) => cb(d)),
+  removeUpdaterListeners: () => {
+    ipcRenderer.removeAllListeners('updater:update-available');
+    ipcRenderer.removeAllListeners('updater:download-progress');
+    ipcRenderer.removeAllListeners('updater:update-downloaded');
+  },
+  // Legacy updater API
   updater: {
     check:      () => ipcRenderer.invoke('updater:check'),
     download:   () => ipcRenderer.invoke('updater:download'),
@@ -33,6 +45,23 @@ contextBridge.exposeInMainWorld('electronAPI', {
   writeFile: (filePath, data) => ipcRenderer.invoke('file:write', filePath, data),
   getAutoSavePath: (filename) => ipcRenderer.invoke('fs:getAutoSavePath', filename),
   pickSoundFile:  ()         => ipcRenderer.invoke('fs:pickSoundFile'),
+
+  // ── Laser (Electron native — no Web Serial dialog) ──────────────────────────
+  laser: {
+    listPorts:    ()         => ipcRenderer.invoke('laser:list-ports'),
+    connect:      (opts)     => ipcRenderer.invoke('laser:connect', opts),
+    disconnect:   ()         => ipcRenderer.invoke('laser:disconnect'),
+    sendCommand:  (cmd)      => ipcRenderer.invoke('laser:send-command', cmd),
+    getStatus:    ()         => ipcRenderer.invoke('laser:status'),
+    onMeasurement:(cb)       => ipcRenderer.on('laser:measurement',   (_e, d) => cb(d)),
+    onRawLine:    (cb)       => ipcRenderer.on('laser:raw-line',      (_e, d) => cb(d)),
+    onError:      (cb)       => ipcRenderer.on('laser:error',         (_e, d) => cb(d)),
+    onDisconnect: (cb)       => ipcRenderer.on('laser:disconnected',  ()      => cb()),
+    removeListeners: () => {
+      ['laser:measurement','laser:raw-line','laser:error','laser:disconnected']
+        .forEach(ch => ipcRenderer.removeAllListeners(ch));
+    },
+  },
 
   // ── Insta360 X5 Native (no bridge) ─────────────────────────────────────────
   insta360: {
