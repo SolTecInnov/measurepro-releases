@@ -157,7 +157,7 @@ function createMenu() {
           click: () => shell.openExternal('https://soltecinnovation.com')
         },
         { type: 'separator' },
-        { label: 'Check for Updates', click: () => shell.openExternal('https://github.com/SolTecInnov/measurepro-releases/releases/latest') },
+        { label: 'Check for Updates', click: () => { if (autoUpdater) autoUpdater.checkForUpdates(); } },
         {
           label: 'About MeasurePRO',
           click: () => mainWindow.webContents.send('menu-about')
