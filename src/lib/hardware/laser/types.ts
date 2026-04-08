@@ -4,12 +4,7 @@
  */
 
 export type LaserProtocolType =
-  | 'rsa_3byte'
-  | 'jenoptik_ascii'
-  | 'ldm71_ascii'
-  | 'ascii'
-  | 'binary_custom'
-  | 'mock';
+  | 'ldm71_ascii';
 
 export interface LaserProfileConfig {
   id: string;
