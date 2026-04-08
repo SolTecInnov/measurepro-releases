@@ -42,8 +42,8 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
     const poiType = selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
 
-    // Skip POI types configured as "no measurement" action
-    if (action === 'skip' || action === 'no-action') return;
+    // Skip POI types that should not auto-log from laser
+    if (action === 'voice-note' || action === 'select-only') return;
 
     lastLoggedRef.current = lastMeasurement;
 
@@ -77,7 +77,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       onPOILogged?.(countRef.current);
 
       // Capture image async — attaches to POI after
-      if (action === 'auto-capture-and-log' || action === 'capture') {
+      if (action === 'auto-capture-and-log' || action === 'auto-capture-no-measurement') {
         captureImage().then(imageUrl => {
           if (!imageUrl) return;
           // Update POI with image (best effort)
