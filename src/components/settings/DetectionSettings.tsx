@@ -8,10 +8,95 @@ import type { TAppCfg } from '../../lib/overhead/config.schema';
 import { DefaultConfig } from '../../lib/overhead/config.schema';
 import { POI_TYPES } from '../../lib/poi';
 import { useSettingsStore } from '../../lib/settings';
-import { 
-  useBufferConfigStore, 
+import {
+  useBufferConfigStore,
   BUFFER_ENABLED_POI_TYPES
 } from '../../lib/detection/BufferDetectionService';
+import { getAutoCaptureConfig, saveAutoCaptureConfig } from '@/hooks/logging/useCounterMode';
+
+/** Auto-Capture Settings — user-adjustable parameters for sky→object→sky detection */
+function AutoCaptureSettings() {
+  const [cfg, setCfg] = useState(getAutoCaptureConfig);
+
+  const update = (key: string, value: number) => {
+    const next = { ...cfg, [key]: value };
+    setCfg(next);
+    saveAutoCaptureConfig(next);
+  };
+
+  return (
+    <div className="p-4 space-y-4">
+      <div className="p-3 bg-green-900/20 border border-green-500/20 rounded-lg mb-4">
+        <p className="text-sm text-green-300">
+          <strong>Auto-Capture</strong> detects overhead objects using sky→object→sky transitions.
+          All buffered readings are saved in the POI notes. The lowest reading becomes the POI height.
+        </p>
+      </div>
+
+      {/* Sky Timeout */}
+      <div className="space-y-1">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm text-gray-300">Sky Timeout</Label>
+          <span className="text-sm font-mono text-green-400">{(cfg.skyTimeoutMs / 1000).toFixed(1)}s</span>
+        </div>
+        <input
+          type="range" min={200} max={3000} step={100} value={cfg.skyTimeoutMs}
+          onChange={(e) => update('skyTimeoutMs', parseInt(e.target.value))}
+          className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
+          data-testid="slider-sky-timeout"
+        />
+        <p className="text-xs text-gray-400">How long sky must be detected before logging the POI (default: 1.0s)</p>
+      </div>
+
+      {/* Max Object Duration */}
+      <div className="space-y-1">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm text-gray-300">Max Object Duration</Label>
+          <span className="text-sm font-mono text-green-400">{(cfg.maxObjectMs / 1000).toFixed(1)}s</span>
+        </div>
+        <input
+          type="range" min={1000} max={30000} step={500} value={cfg.maxObjectMs}
+          onChange={(e) => update('maxObjectMs', parseInt(e.target.value))}
+          className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
+          data-testid="slider-max-object-duration"
+        />
+        <p className="text-xs text-gray-400">Force-log after this duration even if sky hasn't returned (default: 5.0s)</p>
+      </div>
+
+      {/* Max Object Distance */}
+      <div className="space-y-1">
+        <div className="flex items-center justify-between">
+          <Label className="text-sm text-gray-300">Max Object Distance</Label>
+          <span className="text-sm font-mono text-green-400">{cfg.maxObjectDistM}m</span>
+        </div>
+        <input
+          type="range" min={10} max={1000} step={10} value={cfg.maxObjectDistM}
+          onChange={(e) => update('maxObjectDistM', parseInt(e.target.value))}
+          className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
+          data-testid="slider-max-object-distance"
+        />
+        <p className="text-xs text-gray-400">Force-log after traveling this distance under an object (default: 300m)</p>
+      </div>
+
+      {/* Reset */}
+      <div className="flex justify-end pt-2">
+        <Button
+          variant="outline" size="sm" className="text-xs"
+          onClick={() => { localStorage.removeItem('auto_capture_config'); setCfg(getAutoCaptureConfig()); }}
+          data-testid="button-reset-auto-capture"
+        >
+          <RotateCcw className="w-3 h-3 mr-1" /> Reset to Defaults
+        </Button>
+      </div>
+
+      <div className="p-3 bg-blue-900/20 border border-blue-500/20 rounded-lg">
+        <p className="text-sm text-blue-300">
+          Auto-Capture also respects <strong>Ignore Below</strong> and <strong>Ignore Above</strong> thresholds from Alert Settings.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const STORAGE_KEY = 'overhead_detection_config';
 
@@ -229,264 +314,21 @@ export function DetectionSettings() {
         </div>
 
         <div className="space-y-4">
-          {/* Counter Detection Mode Settings */}
+          {/* Auto-Capture Settings */}
           <div className="border border-green-500/30 rounded-lg overflow-hidden bg-green-900/10">
             <button
               onClick={() => toggleSection('counterDetection')}
               className="w-full p-4 bg-green-800/30 hover:bg-green-800/50 flex items-center justify-between"
-              data-testid="button-toggle-counter-detection"
+              data-testid="button-toggle-auto-capture"
             >
               <div>
-                <span className="font-semibold text-green-300 block">Counter Detection Mode</span>
-                <span className="text-xs text-green-400/70">Speed-independent detection (0-120+ km/h) using counter-based debouncing</span>
+                <span className="font-semibold text-green-300 block">Auto-Capture Settings</span>
+                <span className="text-xs text-green-400/70">Sky→Object→Sky detection — logs lowest reading automatically</span>
               </div>
               <span className="text-green-400">{expandedSections.counterDetection ? '▼' : '▶'}</span>
             </button>
             {expandedSections.counterDetection && (
-              <div className="p-4 space-y-4">
-                <div className="p-3 bg-green-900/20 border border-green-500/20 rounded-lg mb-4">
-                  <p className="text-sm text-green-300">
-                    <strong>Counter Detection Mode:</strong> Counter starts at threshold (default 10), resets to 0 when objects detected,
-                    increments on clear/sky readings. When counter reaches threshold again, logs minimum height + GPS.
-                    Works reliably at ALL speeds (0-120+ km/h).
-                  </p>
-                </div>
-                {renderSettingControl(
-                  config.global.counterThreshold,
-                  (val) => updateGlobalConfig('counterThreshold', val),
-                  SETTING_EXPLANATIONS.counterThreshold,
-                  5, 20, 1
-                )}
-                
-                {/* Buffer Settings for Counter Detection */}
-                <div className="p-3 bg-cyan-900/20 border border-cyan-500/20 rounded-lg">
-                  <p className="text-sm font-semibold text-cyan-300 mb-2">Object Detection Buffer Settings</p>
-                  <p className="text-xs text-cyan-300/70 mb-3">
-                    After first object detected, buffer measurements for X meters OR X seconds before creating POI.
-                  </p>
-                  
-                  <div className="flex items-center justify-between mb-3 p-2 bg-gray-800/50 rounded">
-                    <Label className="text-sm text-cyan-300">Buffer Mode:</Label>
-                    <div className="flex gap-2">
-                      <Button
-                        onClick={() => updateGlobalConfig('bufferUseDistance', false)}
-                        variant={!config.global.bufferUseDistance ? 'default' : 'outline'}
-                        size="sm"
-                        className={!config.global.bufferUseDistance ? 'bg-cyan-600 hover:bg-cyan-700' : ''}
-                        data-testid="button-buffer-time"
-                      >
-                        Time (s)
-                      </Button>
-                      <Button
-                        onClick={() => updateGlobalConfig('bufferUseDistance', true)}
-                        variant={config.global.bufferUseDistance ? 'default' : 'outline'}
-                        size="sm"
-                        className={config.global.bufferUseDistance ? 'bg-cyan-600 hover:bg-cyan-700' : ''}
-                        data-testid="button-buffer-distance"
-                      >
-                        Distance (m)
-                      </Button>
-                    </div>
-                  </div>
-                  
-                  {config.global.bufferUseDistance ? (
-                    renderSettingControl(
-                      config.global.bufferDistanceM,
-                      (val) => updateGlobalConfig('bufferDistanceM', val),
-                      SETTING_EXPLANATIONS.bufferDistanceM,
-                      5, 500, 5
-                    )
-                  ) : (
-                    renderSettingControl(
-                      config.global.bufferTimeSeconds,
-                      (val) => updateGlobalConfig('bufferTimeSeconds', val),
-                      SETTING_EXPLANATIONS.bufferTimeSeconds,
-                      1, 30, 1
-                    )
-                  )}
-                </div>
-                
-                <div className="p-3 bg-blue-900/20 border border-blue-500/20 rounded-lg">
-                  <p className="text-sm text-blue-300">
-                    <strong>Note:</strong> Counter Detection also uses "Ignore Below" and "Ignore Above" thresholds from Alert Settings.
-                    Measurements outside this range are treated as "clear" readings and increment the counter.
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Buffer Detection Settings */}
-          <div className="border border-cyan-500/30 rounded-lg overflow-hidden bg-cyan-900/10">
-            <button
-              onClick={() => toggleSection('bufferDetection')}
-              className="w-full p-4 bg-cyan-800/30 hover:bg-cyan-800/50 flex items-center justify-between"
-              data-testid="button-toggle-buffer-detection"
-            >
-              <div className="flex items-center gap-2">
-                <Timer className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold text-cyan-300">Buffer Detection</span>
-              </div>
-              <span className="text-cyan-400">{expandedSections.bufferDetection ? '▼' : '▶'}</span>
-            </button>
-            {expandedSections.bufferDetection && (
-              <div className="p-4 space-y-4">
-                <div className="p-3 bg-cyan-900/20 border border-cyan-500/20 rounded-lg text-sm text-cyan-200">
-                  <p>
-                    Collects measurements over distance or time, then logs the <strong>lowest value</strong> as a POI.
-                  </p>
-                </div>
-                
-                {BUFFER_ENABLED_POI_TYPES.map((poiType) => {
-                  const bufferConfig = bufferConfigs[poiType];
-                  const poiTypeConfig = POI_TYPES.find(p => p.type === poiType);
-                  const label = poiTypeConfig?.label || poiType;
-                  const colorClass = poiTypeConfig?.color || 'text-gray-400';
-                  
-                  if (!bufferConfig) return null;
-                  
-                  return (
-                    <div 
-                      key={poiType}
-                      className="p-4 bg-gray-800/50 rounded-lg border border-gray-700 space-y-3"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className={`font-medium ${colorClass}`}>{label}</span>
-                        </div>
-                        <label className="relative inline-flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={bufferConfig.enabled}
-                            onChange={(e) => {
-                              setBufferConfig(poiType, { ...bufferConfig, enabled: e.target.checked });
-                            }}
-                            className="sr-only peer"
-                            data-testid={`checkbox-buffer-enable-${poiType}`}
-                          />
-                          <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-cyan-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-600"></div>
-                          <span className="ml-2 text-xs text-gray-400">Buffer</span>
-                        </label>
-                      </div>
-                      
-                      {bufferConfig.enabled && (
-                        <div className="space-y-3 pt-2 border-t border-gray-600">
-                          <div className="flex items-center gap-4">
-                            <Label className="text-xs text-gray-400 w-16">Mode:</Label>
-                            <div className="flex items-center gap-2">
-                              <button
-                                onClick={() => setBufferConfig(poiType, { ...bufferConfig, mode: 'distance' })}
-                                className={`flex items-center gap-1 px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                                  bufferConfig.mode === 'distance' 
-                                    ? 'bg-cyan-600 text-white' 
-                                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                                }`}
-                                data-testid={`button-buffer-mode-distance-${poiType}`}
-                              >
-                                <Ruler className="w-3 h-3" />
-                                Distance
-                              </button>
-                              <button
-                                onClick={() => setBufferConfig(poiType, { ...bufferConfig, mode: 'time' })}
-                                className={`flex items-center gap-1 px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                                  bufferConfig.mode === 'time' 
-                                    ? 'bg-cyan-600 text-white' 
-                                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                                }`}
-                                data-testid={`button-buffer-mode-time-${poiType}`}
-                              >
-                                <Timer className="w-3 h-3" />
-                                Time
-                              </button>
-                            </div>
-                          </div>
-                          
-                          {bufferConfig.mode === 'distance' ? (
-                            <div className="flex items-center gap-4">
-                              <Label className="text-xs text-gray-400 w-16">Distance:</Label>
-                              <div className="flex items-center gap-2 flex-1">
-                                <Input
-                                  type="number"
-                                  min={10}
-                                  max={1000}
-                                  step={10}
-                                  value={bufferConfig.distanceMeters}
-                                  onChange={(e) => {
-                                    const val = parseInt(e.target.value) || 100;
-                                    setBufferConfig(poiType, { ...bufferConfig, distanceMeters: val });
-                                  }}
-                                  className="w-24 h-8 bg-gray-900 border-gray-600 text-white"
-                                  data-testid={`input-buffer-distance-${poiType}`}
-                                />
-                                <span className="text-xs text-gray-400">meters</span>
-                              </div>
-                              <input
-                                type="range"
-                                min={10}
-                                max={500}
-                                step={10}
-                                value={bufferConfig.distanceMeters}
-                                onChange={(e) => {
-                                  setBufferConfig(poiType, { ...bufferConfig, distanceMeters: parseInt(e.target.value) });
-                                }}
-                                className="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                                data-testid={`slider-buffer-distance-${poiType}`}
-                              />
-                            </div>
-                          ) : (
-                            <div className="flex items-center gap-4">
-                              <Label className="text-xs text-gray-400 w-16">Time:</Label>
-                              <div className="flex items-center gap-2 flex-1">
-                                <Input
-                                  type="number"
-                                  min={1}
-                                  max={120}
-                                  step={1}
-                                  value={bufferConfig.timeSeconds}
-                                  onChange={(e) => {
-                                    const val = parseInt(e.target.value) || 10;
-                                    setBufferConfig(poiType, { ...bufferConfig, timeSeconds: val });
-                                  }}
-                                  className="w-24 h-8 bg-gray-900 border-gray-600 text-white"
-                                  data-testid={`input-buffer-time-${poiType}`}
-                                />
-                                <span className="text-xs text-gray-400">seconds</span>
-                              </div>
-                              <input
-                                type="range"
-                                min={1}
-                                max={60}
-                                step={1}
-                                value={bufferConfig.timeSeconds}
-                                onChange={(e) => {
-                                  setBufferConfig(poiType, { ...bufferConfig, timeSeconds: parseInt(e.target.value) });
-                                }}
-                                className="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                                data-testid={`slider-buffer-time-${poiType}`}
-                              />
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-                
-                <div className="flex justify-end pt-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      useBufferConfigStore.getState().resetToDefaults();
-                    }}
-                    className="text-xs"
-                    data-testid="button-reset-buffer-defaults"
-                  >
-                    <RotateCcw className="w-3 h-3 mr-1" />
-                    Reset Buffer Settings
-                  </Button>
-                </div>
-              </div>
+              <AutoCaptureSettings />
             )}
           </div>
 

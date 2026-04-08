@@ -14,7 +14,7 @@ export const MarketingPasswordGate = ({ children }: { children: React.ReactNode 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'SolTec1234') {
+    if (password === (import.meta.env.VITE_MARKETING_PASSWORD || '')) {
       sessionStorage.setItem('marketingUnlocked', 'true');
       sessionStorage.setItem('marketingPassword', password);
       setIsUnlocked(true);

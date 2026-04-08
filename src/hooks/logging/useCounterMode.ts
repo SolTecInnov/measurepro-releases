@@ -38,6 +38,25 @@ const DEFAULT_CONFIG: CounterConfig = {
   counterThreshold: 7,
 };
 
+/** Load user-saved auto-capture settings from localStorage */
+function loadAutoCaptureConfig(): Partial<CounterConfig> {
+  try {
+    const saved = localStorage.getItem('auto_capture_config');
+    if (!saved) return {};
+    return JSON.parse(saved) as Partial<CounterConfig>;
+  } catch { return {}; }
+}
+
+/** Save auto-capture settings to localStorage */
+export function saveAutoCaptureConfig(config: Partial<CounterConfig>) {
+  localStorage.setItem('auto_capture_config', JSON.stringify(config));
+}
+
+/** Get current merged config (defaults + user overrides) */
+export function getAutoCaptureConfig(): CounterConfig {
+  return { ...DEFAULT_CONFIG, ...loadAutoCaptureConfig() };
+}
+
 interface UseCounterModeProps {
   isActive: boolean;
   captureImage: () => Promise<string | null>;
@@ -48,7 +67,7 @@ interface UseCounterModeProps {
 type DetectionState = 'sky' | 'object';
 
 export function useCounterMode({ isActive, captureImage, config = {}, onPOILogged }: UseCounterModeProps) {
-  const cfg = { ...DEFAULT_CONFIG, ...config };
+  const cfg = { ...DEFAULT_CONFIG, ...loadAutoCaptureConfig(), ...config };
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { getActionForPOI } = usePOIActionsStore();
@@ -131,7 +150,7 @@ export function useCounterMode({ isActive, captureImage, config = {}, onPOILogge
       createdAt: now.toISOString(),
       imageUrl,
       images: imageUrl ? [imageUrl] : [],
-      note: `${poiType} | Min:${minReading.toFixed(2)}m Avg:${avgReading.toFixed(2)}m | ${readings.length} readings | GND:${groundRef.toFixed(2)}m | Reason:${reason}`,
+      note: `Readings: ${readings.map(r => r.toFixed(2) + 'm').join(', ')} | Min: ${minReading.toFixed(2)}m | GND REF: ${groundRef.toFixed(2)}m | ${poiType}`,
       source: 'counter',
       loggingMode: 'counter_detection',
     });

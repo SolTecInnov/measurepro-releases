@@ -14,7 +14,7 @@ import CompanyManager from '../components/settings/admin/CompanyManager';
 import UserAddonOverrides from '../components/settings/admin/UserAddonOverrides';
 import { getAdminViewOverride, setAdminViewOverride, type AdminViewOverride } from '../lib/auth/masterAdmin';
 
-const ADMIN_PASSWORD = 'AdminPRO2025';
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || '';
 
 const NAV_PAGES = [
   {

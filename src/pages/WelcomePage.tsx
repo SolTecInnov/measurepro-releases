@@ -54,7 +54,7 @@ export default function WelcomePage() {
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (password === 'SolTec') {
+    if (password === (import.meta.env.VITE_APP_ACCESS_PASSWORD || '')) {
       localStorage.setItem('app_access', 'true');
       /* toast removed */
       navigate('/app', { replace: true });
