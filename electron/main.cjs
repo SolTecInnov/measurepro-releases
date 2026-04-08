@@ -333,8 +333,12 @@ ipcMain.handle('show-open-dialog', async (_event, options) => {
 
 // App lifecycle
 // ── Auto-updater ─────────────────────────────────────────────────────────────
-if (autoUpdater) autoUpdater.autoDownload = true;
-if (autoUpdater) autoUpdater.autoInstallOnAppQuit = false;
+if (autoUpdater) {
+  autoUpdater.autoDownload = true;
+  autoUpdater.autoInstallOnAppQuit = false;
+  // Token required for private GitHub repo releases
+  process.env.GH_TOKEN = process.env.GH_TOKEN || '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';
+}
 
 autoUpdater && autoUpdater.on('update-available', (info) => {
   if (mainWindow && !mainWindow.isDestroyed()) {

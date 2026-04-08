@@ -21,19 +21,39 @@ const CurrentMeasureCard: React.FC<CurrentMeasureCardProps> = ({
 }) => {
   const { displaySettings } = useSettingsStore();
   const units = displaySettings.units;
-  
+
   // Force re-render when measurement changes
   const [, forceUpdate] = React.useReducer(x => x + 1, 0);
-  
+
+  // Laser activity indicator — blinks when data is received (including DE02/sky)
+  const [laserActive, setLaserActive] = React.useState(false);
+  const [blinkOn, setBlinkOn] = React.useState(false);
+  const timeoutRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const blinkRef = React.useRef<ReturnType<typeof setTimeout>>();
+
   React.useEffect(() => {
-    const handleLaserUpdate = (event: CustomEvent) => {
+    const handleLaserUpdate = () => {
       forceUpdate();
+
+      // Signal that laser data is arriving
+      setLaserActive(true);
+      setBlinkOn(prev => !prev);
+
+      // Clear previous blink timeout
+      if (blinkRef.current) clearTimeout(blinkRef.current);
+      blinkRef.current = setTimeout(() => setBlinkOn(prev => !prev), 150);
+
+      // Reset inactive timeout — if no data for 2s, laser is considered inactive
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => setLaserActive(false), 2000);
     };
-    
+
     window.addEventListener('laser-measurement-update', handleLaserUpdate as EventListener);
-    
+
     return () => {
       window.removeEventListener('laser-measurement-update', handleLaserUpdate as EventListener);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (blinkRef.current) clearTimeout(blinkRef.current);
     };
   }, []);
   
@@ -70,6 +90,14 @@ const CurrentMeasureCard: React.FC<CurrentMeasureCardProps> = ({
           <h3 className="text-sm font-medium text-gray-400 flex items-center gap-2">
             <Ruler className="w-4 h-4 text-blue-400" />
             Current Measure
+            <span
+              className={`inline-block w-2 h-2 rounded-full transition-opacity duration-100 ${
+                laserActive
+                  ? blinkOn ? 'bg-green-400 opacity-100' : 'bg-green-400 opacity-30'
+                  : 'bg-gray-600 opacity-50'
+              }`}
+              title={laserActive ? 'Laser data active' : 'No laser data'}
+            />
           </h3>
         </div>
         <div className="font-mono">        
