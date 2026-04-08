@@ -886,7 +886,6 @@ const Settings: React.FC = () => {
     logManual: logMeasurement,
     startAllData,
     startCounter,
-    startBuffer,
   } = useLogging({ captureImage: handleCaptureImage });
 
   // Compat shims for existing UI components
@@ -896,7 +895,6 @@ const Settings: React.FC = () => {
   const handleLoggingModeChange = (mode: string) => {
     if (mode === 'all' || mode === 'all_data') startAllData();
     else if (mode === 'counterDetection' || mode === 'counter') startCounter();
-    else if (mode === 'detection' || mode === 'buffer') startBuffer();
     else stopLogging();
   };
   const pauseLogging = () => {};

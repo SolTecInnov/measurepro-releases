@@ -9,13 +9,12 @@
 import { useState, useCallback, useRef } from 'react';
 import { useAllDataMode } from './useAllDataMode';
 import { useCounterMode } from './useCounterMode';
-import { useBufferMode } from './useBufferMode';
 import { useLoggingCore, parseMeters, getGpsSnapshot } from './useLoggingCore';
 import { usePOIStore } from '@/lib/poi';
 import { useSerialStore } from '@/lib/stores/serialStore';
 import { soundManager } from '@/lib/sounds';
 
-export type LoggingMode = 'all_data' | 'counter' | 'buffer' | 'manual';
+export type LoggingMode = 'all_data' | 'counter' | 'manual';
 
 interface UseLoggingProps {
   captureImage: () => Promise<string | null>;
@@ -48,12 +47,6 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     onPOILogged,
   });
 
-  const buffer = useBufferMode({
-    isActive: isLogging && loggingMode === 'buffer',
-    captureImage,
-    onPOILogged,
-  });
-
   // ── Controls ──────────────────────────────────────────────────────────────
 
   const startLogging = useCallback((mode: LoggingMode = 'manual') => {
@@ -69,8 +62,7 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     setIsLogging(false);
     allData.reset();
     counter.reset();
-    buffer.reset();
-  }, [allData, counter, buffer]);
+  }, [allData, counter]);
 
   /**
    * logManual — log current laser reading immediately
@@ -120,8 +112,8 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     isLogging,
     loggingMode,
     poisLogged,
-    isBuffering: buffer.isBuffering,
-    bufferSize: buffer.bufferSize,
+    isBuffering: false,
+    bufferSize: 0,
 
     // Controls
     startLogging,
@@ -131,6 +123,5 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     // Mode shortcuts
     startAllData:  () => startLogging('all_data'),
     startCounter:  () => startLogging('counter'),
-    startBuffer:   () => startLogging('buffer'),
   };
 }
