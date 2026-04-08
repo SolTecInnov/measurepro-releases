@@ -1,5 +1,6 @@
-// Stub — original deleted during orphan cleanup
-export const APP_VERSION = '0.0.0';
+import packageJson from '../../package.json';
+
+export const APP_VERSION = packageJson.version;
 export const BUILD_DATE = new Date().toISOString().split('T')[0];
 export const APP_NAME = 'MeasurePRO';
 export const COMPANY_NAME = 'Soltec Innovation';
