@@ -396,7 +396,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl h-full">
-      <h3 className="text-sm font-medium text-gray-400 mb-2">Logging Mode</h3>
+      <h3 className="text-sm font-medium text-gray-400 mb-2">Measurement Capture Mode</h3>
       <div className="grid grid-cols-5 gap-2 mb-4">
         <div className="relative">
           <button
