@@ -15,6 +15,7 @@
 
 import { useRef, useCallback, useEffect } from 'react';
 import { usePOIStore } from '@/lib/poi';
+import { usePOIActionsStore } from '@/lib/poiActions';
 import { getLaserLog } from '@/lib/laserLog';
 import { useLoggingCore, getGpsSnapshot, isInvalidReading } from './useLoggingCore';
 import { calculateDistance } from '@/lib/utils/geoUtils';
@@ -30,6 +31,7 @@ interface UseBufferModeProps {
 export function useBufferMode({ isActive, captureImage, onPOILogged }: UseBufferModeProps) {
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
+  const { getActionForPOI } = usePOIActionsStore();
   const { getConfig } = useBufferConfigStore();
 
   const bufferRef = useRef<number[]>([]);
@@ -58,8 +60,22 @@ export function useBufferMode({ isActive, captureImage, onPOILogged }: UseBuffer
   const flushBuffer = useCallback(async (reason: string, poiTypeOverride?: string) => {
     if (bufferRef.current.length === 0) return;
 
-    const readings = [...bufferRef.current];
     const poiType = poiTypeOverride || currentPOITypeRef.current || 'wire';
+    const action = getActionForPOI(poiType as any);
+
+    // Skip POI types that should not auto-log (voice-note requires manual input)
+    if (action === 'voice-note') {
+      bufferRef.current = [];
+      capturedImageRef.current = null;
+      capturedGpsRef.current = null;
+      startGpsRef.current = null;
+      bufferActiveRef.current = false;
+      skyStartTimeRef.current = null;
+      startTimeRef.current = 0;
+      return;
+    }
+
+    const readings = [...bufferRef.current];
     const gps = capturedGpsRef.current || getGpsSnapshot();
     const imageUrl = capturedImageRef.current;
     const minReading = Math.min(...readings);
@@ -105,7 +121,7 @@ export function useBufferMode({ isActive, captureImage, onPOILogged }: UseBuffer
 
     countRef.current++;
     onPOILogged?.(countRef.current);
-  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, onPOILogged]);
+  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, getActionForPOI, onPOILogged]);
 
   // Watch for POI type changes
   useEffect(() => {

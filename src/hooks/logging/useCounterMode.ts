@@ -19,6 +19,7 @@ import { useRef, useCallback, useEffect, useState } from 'react';
 import { useSerialStore } from '@/lib/stores/serialStore';
 import { useGPSStore } from '@/lib/stores/gpsStore';
 import { usePOIStore } from '@/lib/poi';
+import { usePOIActionsStore } from '@/lib/poiActions';
 import { getLaserLog } from '@/lib/laserLog';
 import { useLoggingCore, parseMeters, getGpsSnapshot, isInvalidReading } from './useLoggingCore';
 import { calculateDistance } from '@/lib/utils/geoUtils';
@@ -50,6 +51,7 @@ export function useCounterMode({ isActive, captureImage, config = {}, onPOILogge
   const cfg = { ...DEFAULT_CONFIG, ...config };
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
+  const { getActionForPOI } = usePOIActionsStore();
 
   // Detection state
   const stateRef = useRef<DetectionState>('sky');
@@ -77,10 +79,23 @@ export function useCounterMode({ isActive, captureImage, config = {}, onPOILogge
   const logBuffer = useCallback(async (reason: string) => {
     if (bufferRef.current.length === 0) return;
 
+    const poiType = activePOITypeRef.current || 'wire';
+    const action = getActionForPOI(poiType as any);
+
+    // Skip POI types that should not auto-log (voice-note requires manual input)
+    if (action === 'voice-note') {
+      bufferRef.current = [];
+      capturedImageRef.current = null;
+      capturedGpsRef.current = null;
+      objectStartGpsRef.current = null;
+      stateRef.current = 'sky';
+      skyCountRef.current = 0;
+      return;
+    }
+
     const readings = bufferRef.current;
     const minReading = Math.min(...readings);
     const avgReading = readings.reduce((a, b) => a + b, 0) / readings.length;
-    const poiType = activePOITypeRef.current || 'wire';
     const gps = capturedGpsRef.current || getGpsSnapshot();
     const imageUrl = capturedImageRef.current;
     const now = new Date();
@@ -123,7 +138,7 @@ export function useCounterMode({ isActive, captureImage, config = {}, onPOILogge
 
     countRef.current++;
     onPOILogged?.(countRef.current);
-  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, onPOILogged]);
+  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, getActionForPOI, onPOILogged]);
 
   const processTick = useCallback(async () => {
     if (!isActive || !activeSurvey?.id) return;
