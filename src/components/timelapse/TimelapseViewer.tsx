@@ -30,7 +30,7 @@ export const TimelapseViewer = () => {
     ? timelapseFrames.filter(f => f.hasPOI)
     : timelapseFrames;
 
-  const currentFrame = displayFrames[currentFrameIndex];
+  const currentFrame = displayFrames[Math.min(currentFrameIndex, displayFrames.length - 1)];
 
   // Stop playback when reaching end
   useEffect(() => {

@@ -32,7 +32,7 @@ function markChunkReload(): void {
 async function clearCachesAndReload() {
   try {
     if ('serviceWorker' in navigator) {
-      const regs = await navigator.serviceWorker.getRegistrations();
+      const regs = ('serviceWorker' in navigator) ? await navigator.serviceWorker.getRegistrations() : [];
       await Promise.all(regs.map(r => r.unregister()));
     }
     if ('caches' in window) {

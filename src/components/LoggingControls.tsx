@@ -74,7 +74,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
   const isBluetoothGpsConnected = btGpsStatus === 'connected';
   // Duro/GNSS is connected when gpsStore reports connected AND source is 'duro'
   const isDuroConnected = gpsStoreConnected && gpsData.source === 'duro';
-  // Browser GPS failsafe is equivalent to hardware GPS for logging purposes
+  // Device GPS failsafe is equivalent to hardware GPS for logging purposes
   const isBrowserGpsConnected = gpsStoreConnected && gpsData.source === 'browser';
 
   const hasLaserConnection = isWiredLaserConnected || isBluetoothLaserConnected;

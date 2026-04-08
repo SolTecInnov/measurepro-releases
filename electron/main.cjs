@@ -336,8 +336,10 @@ ipcMain.handle('show-open-dialog', async (_event, options) => {
 if (autoUpdater) {
   autoUpdater.autoDownload = true;
   autoUpdater.autoInstallOnAppQuit = false;
-  // Token required for private GitHub repo releases
-  process.env.GH_TOKEN = process.env.GH_TOKEN || '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';
+  // Token required for private GitHub repo releases — set GH_TOKEN env var or in .env
+  if (process.env.GH_TOKEN) {
+    // GH_TOKEN already set via environment
+  }
 }
 
 autoUpdater && autoUpdater.on('update-available', (info) => {

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 
 declare const __BUILD_TIME__: number;
 
@@ -26,7 +27,7 @@ export function useVersionPoller() {
 
     const check = async () => {
       try {
-        const resp = await fetch('/api/version', {
+        const resp = await fetch(`${API_BASE_URL}/api/version`, {
           cache: 'no-store',
           headers: { 'Cache-Control': 'no-cache' },
         });

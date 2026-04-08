@@ -6,6 +6,7 @@
  */
 
 import OpenAI from 'openai';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useSettingsStore } from '../settings';
 import { openSurveyDB } from '../survey/db';
 import { updateMeasurement, deleteMeasurement } from '../survey/measurements';
@@ -508,7 +509,7 @@ You CANNOT and MUST NOT:
 ## MeasurePRO — Complete Application Knowledge
 
 ### Application Overview
-MeasurePRO is an offline-first Progressive Web App (PWA) for field teams performing road surveys for OS/OW (oversize/overweight) heavy haulage transport. It runs on Chrome/Edge on Windows tablets and laptops. Core capabilities:
+MeasurePRO is an offline-first desktop application for field teams performing road surveys for OS/OW (oversize/overweight) heavy haulage transport. It runs on Chrome/Edge on Windows tablets and laptops. Core capabilities:
 - Real-time measurement via laser distance meters (vertical, lateral, rear)
 - GPS/GNSS positioning with sub-cm accuracy via RTK (Swift Navigation Duro)
 - Photo, video, and voice documentation per POI
@@ -1800,7 +1801,7 @@ class AIAssistant {
         };
       }
 
-      const response = await fetch('/api/zendesk/search', {
+      const response = await fetch(`${API_BASE_URL}/api/zendesk/search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subdomain, email, token, query: args.query }),
@@ -1858,7 +1859,7 @@ class AIAssistant {
 
       const priority = args.priority || 'normal';
 
-      const response = await fetch('/api/zendesk/ticket', {
+      const response = await fetch(`${API_BASE_URL}/api/zendesk/ticket`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subdomain, email, token, subject: args.subject, description: args.description, priority }),

@@ -258,7 +258,7 @@ export default function PermissionsRequest({ onComplete, onSkip }: PermissionsRe
                 {permissions.gps === 'denied' && (
                   <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-3">
                     <p className="text-sm text-red-400">
-                      ⚠️ Permission denied. Please enable Location in your browser settings, then refresh this page.
+                      ⚠️ Permission denied. Please check your system location settings, then restart MeasurePRO.
                     </p>
                   </div>
                 )}
@@ -293,7 +293,7 @@ export default function PermissionsRequest({ onComplete, onSkip }: PermissionsRe
                 {permissions.camera === 'denied' && (
                   <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-3">
                     <p className="text-sm text-red-400">
-                      ⚠️ Permission denied. Please enable Camera in your browser settings, then refresh this page.
+                      ⚠️ Permission denied. Please check your system camera settings, then restart MeasurePRO.
                     </p>
                   </div>
                 )}
@@ -328,7 +328,7 @@ export default function PermissionsRequest({ onComplete, onSkip }: PermissionsRe
                 {permissions.notifications === 'denied' && (
                   <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-3">
                     <p className="text-sm text-red-400">
-                      ⚠️ Permission denied. Please enable Notifications in your browser settings, then refresh this page.
+                      ⚠️ Permission denied. Please check your system notification settings, then restart MeasurePRO.
                     </p>
                   </div>
                 )}

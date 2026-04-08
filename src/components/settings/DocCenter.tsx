@@ -365,7 +365,7 @@ function QuickRefTab() {
             System Requirements
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li><span className="text-gray-500 w-24 inline-block">Browser</span> Chrome or Edge (Web Serial API required)</li>
+            <li><span className="text-gray-500 w-24 inline-block">Browser</span> Chrome or Edge (Serial port support built-in)</li>
             <li><span className="text-gray-500 w-24 inline-block">Connection</span> HTTPS or localhost</li>
             <li><span className="text-gray-500 w-24 inline-block">Hardware</span> USB laser + GPS with drivers installed</li>
             <li><span className="text-gray-500 w-24 inline-block">Permissions</span> Camera, location, serial port access</li>

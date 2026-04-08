@@ -394,11 +394,11 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
             <div className="bg-gray-700 rounded-lg p-4">
               <h3 className="text-lg font-semibold text-blue-400 mb-3">GPS Failsafe Feature:</h3>
               <p className="text-gray-300 mb-3">
-                MeasurePRO includes an automatic GPS failsafe that uses your browser's location when serial GPS is unavailable.
+                MeasurePRO includes an automatic GPS failsafe that uses your device's location when serial GPS is unavailable.
               </p>
               <div className="bg-gray-800 p-3 rounded">
                 <ul className="text-gray-300 text-sm space-y-1">
-                  <li>• Automatically switches to browser GPS if serial GPS fails</li>
+                  <li>• Automatically switches to device GPS if serial GPS fails</li>
                   <li>• Switches back to serial GPS when it becomes available</li>
                   <li>• Can be enabled/disabled in GPS settings</li>
                   <li>• Provides continuous positioning even with hardware issues</li>
@@ -434,7 +434,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
             <ul className="text-gray-300 text-sm space-y-1 ml-4">
               <li>• Shows devices by USB identifiers (VID/PID), not COM port names</li>
               <li>• Requires explicit user permission for each device</li>
-              <li>• Only works in Chrome and Edge browsers</li>
+              <li>• Built into MeasurePRO desktop</li>
               <li>• Needs HTTPS or localhost to function</li>
             </ul>
           </div>
@@ -564,13 +564,13 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
           <div className="bg-gray-700 rounded-lg p-4">
             <h3 className="text-lg font-semibold text-blue-400 mb-3">GPS Failsafe Configuration:</h3>
             <p className="text-gray-300 mb-3">
-              Enable browser GPS as backup when serial GPS is unavailable:
+              Enable device GPS as backup when serial GPS is unavailable:
             </p>
             <div className="bg-gray-800 p-3 rounded">
               <ul className="text-gray-300 text-sm space-y-1">
                 <li>• Go to GPS Data card → Settings (gear icon)</li>
-                <li>• Check "Enable Browser GPS Failsafe"</li>
-                <li>• System automatically switches between serial and browser GPS</li>
+                <li>• Check "Enable Device GPS Failsafe"</li>
+                <li>• System automatically switches between serial and device GPS</li>
                 <li>• Provides continuous positioning even with hardware issues</li>
               </ul>
             </div>

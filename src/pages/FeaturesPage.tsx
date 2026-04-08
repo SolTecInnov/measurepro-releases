@@ -66,7 +66,7 @@ export default function FeaturesPage() {
     {
       icon: <MapPin className="w-10 h-10" />,
       title: "GPS Tracking & Mapping",
-      description: "Dual GPS system with hardware GPS primary and browser geolocation failsafe. Real-time position tracking, route visualization, and geo-referenced data collection.",
+      description: "Dual GPS system with hardware GPS primary and device geolocation failsafe. Real-time position tracking, route visualization, and geo-referenced data collection.",
       highlights: ["Dual GPS system", "Real-time tracking", "Route visualization", "Location tagging"]
     },
     {

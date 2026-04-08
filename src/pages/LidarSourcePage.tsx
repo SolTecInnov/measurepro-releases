@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -180,7 +181,7 @@ export default function LidarSourcePage() {
   };
 
   const handleDownload = () => {
-    window.location.href = '/api/downloads/lidar-service.zip';
+    window.location.href = `${API_BASE_URL}/api/downloads/lidar-service.zip`;
     /* toast removed */
   };
 

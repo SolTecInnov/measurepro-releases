@@ -294,7 +294,7 @@ const LoggingSettings = () => {
             </div>
             
             <div className="text-sm text-gray-400">
-              <p>Auto-save ensures your measurements are regularly saved {autoSaveWithImages ? 'with images in a ZIP package' : 'to a CSV file'}, even if the browser crashes or the page is accidentally closed.</p>
+              <p>Auto-save ensures your measurements are regularly saved {autoSaveWithImages ? 'with images in a ZIP package' : 'to a CSV file'}, even if the app crashes or the page is accidentally closed.</p>
             </div>
             
             <div className="bg-gray-700/50 p-3 rounded text-sm">

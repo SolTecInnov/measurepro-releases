@@ -156,7 +156,7 @@ const DeviceManager = () => {
           Object.entries(groupedByUser || {}).map(([userId, userDevices]) => {
             const userEmail = userDevices[0]?.userEmail || 'Unknown';
             const userLicenses = licenses.filter(l => l.userId === userId && l.isActive);
-            const maxDevices = Math.max(...userLicenses.map(l => l.maxDevices), 0);
+            const maxDevices = userLicenses.length > 0 ? Math.max(...userLicenses.map(l => l.maxDevices)) : 0;
 
             return (
               <div key={userId} className="bg-gray-900 border border-gray-700 rounded-lg p-4">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +17,7 @@ const CustomerManager = () => {
   const { data: customersData, isLoading } = useQuery({
     queryKey: ['/api/customers'],
     queryFn: async () => {
-      const response = await fetch('/api/customers');
+      const response = await fetch(`${API_BASE_URL}/api/customers`);
       if (!response.ok) throw new Error('Failed to fetch customers');
       const data = await response.json();
       return data.customers as Customer[];

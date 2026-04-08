@@ -109,9 +109,9 @@ const AlertSettings = () => {
     } catch (err: any) {
       const msg = err?.message || String(err);
       if (msg.includes('interact') || msg.includes('gesture') || msg.includes('policy') || msg.includes('NotAllowedError')) {
-        setAudioTestResult({ status: 'error', message: '❌ Browser blocked audio: click somewhere on the page first, then try again. This is a browser autoplay rule.' });
+        setAudioTestResult({ status: 'error', message: '❌ Audio playback initializing, then try again. This is a browser autoplay rule.' });
       } else if (msg.includes('NotSupportedError') || msg.includes('decode')) {
-        setAudioTestResult({ status: 'error', message: '❌ Audio format not supported by this browser.' });
+        setAudioTestResult({ status: 'error', message: '❌ Audio format not supported.' });
       } else {
         setAudioTestResult({ status: 'error', message: `❌ Audio error: ${msg}` });
       }

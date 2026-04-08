@@ -286,7 +286,7 @@ export default function PandarGuide40PPage() {
                 </div>
               ))}
             </div>
-            <Screenshot src="/screenshots/lidar.jpg" alt="lidar-dashboard" caption="LiDAR Dashboard — real-time metrics in Survey mode" />
+            <Screenshot src="./screenshots/lidar.jpg" alt="lidar-dashboard" caption="LiDAR Dashboard — real-time metrics in Survey mode" />
             <TipBox>
               In Survey mode, no LAS file is saved — only real-time metrics are calculated. Use the "Segment" button to record a timestamped excerpt.
             </TipBox>

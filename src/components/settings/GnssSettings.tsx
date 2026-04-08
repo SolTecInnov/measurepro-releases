@@ -608,7 +608,7 @@ const GnssSettings: React.FC = () => {
                   'Make sure your Duro receiver is powered on and connected to your computer or router via Ethernet cable.',
                   'Double-click the "MeasurePRO Bridge" shortcut on your Desktop to start the bridge application.',
                   'A small window will appear — wait for the status to show "Running on port 3001".',
-                  'Open MeasurePRO in your browser and go to Settings → GNSS/Duro.',
+                  'Go to Settings → GNSS/Duro.',
                   'In the "Backend Server URL" box below, type: http://localhost:3001 — then click Apply.',
                   'Toggle on "Enable Duro TCP Connection" — the status will change to Connected (green) when everything is working.',
                   'You are now ready to start a survey and record road profile data.',

@@ -476,7 +476,7 @@ const RoadProfileCard: React.FC = () => {
       case 'duro': return 'Duro GNSS';
       case 'serial': return 'Serial GPS';
       case 'bluetooth': return 'Bluetooth GPS';
-      case 'browser': return 'Browser GPS';
+      case 'browser': return 'Device GPS';
       default: return 'Auto GPS';
     }
   };

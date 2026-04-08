@@ -112,8 +112,8 @@ const AnalyzeTurnButton = () => {
 
       // Calculate verdict
       const hasCollision = snapshots.some(s => s.collision?.hasCollision);
-      const worstClearance = Math.min(...snapshots.map(s => s.clearance.minimumMargin));
-      const maxOffTracking = Math.max(...snapshots.map(s => s.offTracking));
+      const worstClearance = snapshots.length > 0 ? Math.min(...snapshots.map(s => s.clearance.minimumMargin)) : 0;
+      const maxOffTracking = snapshots.length > 0 ? Math.max(...snapshots.map(s => s.offTracking)) : 0;
 
       const verdict: 'feasible' | 'tight' | 'impossible' = hasCollision ? 'impossible' : (worstClearance < 1.0 ? 'tight' : 'feasible');
 

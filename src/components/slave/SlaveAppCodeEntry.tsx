@@ -20,7 +20,7 @@ function hardReload() {
   const doReload = () => window.location.reload();
   if (!('serviceWorker' in navigator)) { doReload(); return; }
   Promise.all([
-    navigator.serviceWorker.getRegistrations().then(r => Promise.all(r.map(x => x.unregister()))),
+    ('serviceWorker' in navigator) ? navigator.serviceWorker.getRegistrations().then(r => Promise.all(r.map(x => x.unregister()))) : Promise.resolve([]),
     'caches' in window ? caches.keys().then(ks => Promise.all(ks.map(k => caches.delete(k)))) : Promise.resolve(),
   ]).then(doReload).catch(doReload);
 }
@@ -61,7 +61,7 @@ export function SlaveAppCodeEntry({ onPaired, onStandalone }: SlaveAppCodeEntryP
     // SW update detection
     if (!swChecked.current && 'serviceWorker' in navigator) {
       swChecked.current = true;
-      navigator.serviceWorker.getRegistration().then(reg => {
+      if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistration().then(reg => {
         if (!reg) return;
         if (reg.waiting) { reg.waiting.postMessage({ type: 'SKIP_WAITING' }); setTimeout(hardReload, 300); return; }
         reg.addEventListener('updatefound', () => {
@@ -73,7 +73,7 @@ export function SlaveAppCodeEntry({ onPaired, onStandalone }: SlaveAppCodeEntryP
         });
         reg.update().catch(() => {});
       });
-      navigator.serviceWorker.addEventListener('controllerchange', hardReload);
+      if ('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('controllerchange', hardReload);
     }
   }, []);
 

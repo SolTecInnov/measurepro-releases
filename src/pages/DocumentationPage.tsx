@@ -230,7 +230,7 @@ export default function DocumentationPage() {
           <Card>
             <ol className="space-y-5 text-gray-300">
               {[
-                { n: 1, title: 'Install as a PWA', body: <>Create your account at <Link to="/signup" className="text-blue-400 underline">measure-pro.app/signup</Link>. In Chrome or Edge on your Windows tablet or laptop, click the install icon in the address bar. MeasurePRO installs as a standalone desktop app with full offline capability.</> },
+                { n: 1, title: 'Install as a PWA', body: <>Create your account at <Link to="/signup" className="text-blue-400 underline">measure-pro.app/signup</Link>. In Chrome or Edge on your Windows tablet or laptop, launch MeasurePRO from your desktop. MeasurePRO installs as a standalone desktop app with full offline capability.</> },
                 { n: 2, title: 'Connect your laser', body: 'Plug the laser\'s USB-to-serial cable in. Open Settings → Hardware → Laser. Select the correct COM port (Windows shows it as "USB Serial Port" in Device Manager). The app auto-detects the protocol. The laser streams data automatically when powered — no TX commands are sent by the app.' },
                 { n: 3, title: 'Connect your GPS', body: 'Plug the Swift Duro or USB GPS into another USB port. Open Settings → Hardware → GPS. Select the port and baud rate (usually 115200 for Duro, 9600 for standard GPS). Wait for the GPS fix indicator to turn green. For Bluetooth GPS, click "Scan Bluetooth" and pair from the list.' },
                 { n: 4, title: 'Set your ground reference', body: <>Aim the vertical laser at the road surface directly below the sensor mount. Press <Kbd k="G" /> or click "Set Ground Reference" in the display panel. All subsequent height readings are automatically offset from this baseline. Re-set any time you reposition the sensor.</> },
@@ -374,7 +374,7 @@ export default function DocumentationPage() {
                   <li>Click Connect. The GPS coordinates should appear within 30 seconds of acquiring a fix.</li>
                 </ol>
                 <Note color="amber">
-                  Web Serial API requires Chrome or Edge on desktop. Not supported on iOS Safari or Firefox on mobile.
+                  Serial port support is built into MeasurePRO. Not supported on iOS Safari or Firefox on mobile.
                 </Note>
               </div>
             </div>
@@ -427,7 +427,7 @@ export default function DocumentationPage() {
             <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
               <ul className="space-y-2 list-disc list-inside ml-2">
                 <li>Rugged Windows 10/11 tablet or laptop (SolTec field bundle)</li>
-                <li>Chrome or Edge browser — latest version</li>
+                <li>MeasurePRO desktop — latest version</li>
                 <li>USB-C hub with 3–4 USB-A ports (laser + GPS + camera)</li>
                 <li>12V vehicle power adapter for laser</li>
                 <li>Minimum 8 GB RAM, 256 GB SSD storage</li>
@@ -761,7 +761,7 @@ export default function DocumentationPage() {
               </h3>
               <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
                 <div>
-                  <p className="mb-2"><strong className="text-white">How it works:</strong> The COCO-SSD model (Single Shot Detector) runs entirely in the browser using TensorFlow.js — no server round-trip. Each video frame is passed through the neural network which returns bounding boxes, class labels, and confidence scores for detected objects.</p>
+                  <p className="mb-2"><strong className="text-white">How it works:</strong> The COCO-SSD model (Single Shot Detector) runs locally using TensorFlow.js — no server round-trip. Each video frame is passed through the neural network which returns bounding boxes, class labels, and confidence scores for detected objects.</p>
                   <p>The model recognises 80+ classes including: person, bicycle, car, truck, bus, train, traffic light, fire hydrant, stop sign, and common infrastructure objects.</p>
                 </div>
                 <div>
@@ -815,7 +815,7 @@ export default function DocumentationPage() {
               <div className="text-sm text-gray-300">
                 <p className="mb-3"><strong className="text-white">How it works:</strong> The operator uploads a GPX file of the approved permit route. MeasurePRO converts the route into a corridor by buffering the route line by a configurable distance (default 25 m either side). Every GPS position update is tested for containment within the corridor polygon.</p>
                 <p>If the vehicle exits the corridor, a non-dismissable STOP alert appears on screen with an audible alarm. The event is logged with exact GPS coordinates and timestamp for the permit authority audit trail. The alert clears automatically when the vehicle re-enters the corridor.</p>
-                <Note color="red">The corridor detection is GPS-accuracy dependent. With RTK-GNSS (Duro), detection is reliable to ±5 cm. With browser geolocation, expect ±5–15 m — tighten the buffer zone accordingly.</Note>
+                <Note color="red">The corridor detection is GPS-accuracy dependent. With RTK-GNSS (Duro), detection is reliable to ±5 cm. With device geolocation, expect ±5–15 m — tighten the buffer zone accordingly.</Note>
               </div>
             </Card>
 

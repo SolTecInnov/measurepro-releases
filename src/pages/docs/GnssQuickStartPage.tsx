@@ -171,7 +171,7 @@ export default function GnssQuickStartPage() {
                 { rank: '1', color: 'text-green-400', name: 'Swift Duro (RTK)', note: 'Highest priority · ±1–5 cm' },
                 { rank: '2', color: 'text-blue-400', name: 'USB / serial GPS', note: 'Active if Duro silent >5 s · 2–10 m' },
                 { rank: '3', color: 'text-yellow-400', name: 'Bluetooth GPS', note: 'Third source · 2–10 m' },
-                { rank: '4', color: 'text-gray-400', name: 'Browser geolocation', note: 'Last resort fallback · 3–15 m' },
+                { rank: '4', color: 'text-gray-400', name: 'Device geolocation', note: 'Last resort fallback · 3–15 m' },
               ].map(s => (
                 <div key={s.rank} className="flex items-start gap-2">
                   <span className={`font-black w-5 shrink-0 ${s.color}`}>{s.rank}.</span>
@@ -197,7 +197,7 @@ export default function GnssQuickStartPage() {
                 <li><strong className="text-white">Pitch</strong> — longitudinal tilt. Used to compute road grade for the Road Profile module.</li>
                 <li><strong className="text-white">Yaw (heading)</strong> — direction of travel. Combined with GPS for trajectory calculation and chainage computation.</li>
               </ul>
-              <p className="text-gray-500">IMU data is only available with the Swift Duro — not with USB GPS, Bluetooth, or browser geolocation.</p>
+              <p className="text-gray-500">IMU data is only available with the Swift Duro — not with USB GPS, Bluetooth, or device geolocation.</p>
             </div>
             <div>
               <div className="text-white font-semibold text-xs mb-2">Cross-Slope / Banking Thresholds</div>
@@ -225,7 +225,7 @@ export default function GnssQuickStartPage() {
               <li>The profile records automatically — the Road Profile panel updates in real time</li>
             </ol>
             <Box type="ok">✓ Export formats: CSV · GeoJSON · Shapefile · DXF (AutoCAD) · LandXML (Civil 3D) · ZIP bundle</Box>
-            <Box type="warn">⚠ Road Profile is unavailable with USB GPS, Bluetooth GPS, or browser geolocation — Duro only.</Box>
+            <Box type="warn">⚠ Road Profile is unavailable with USB GPS, Bluetooth GPS, or device geolocation — Duro only.</Box>
           </div>
         </div>
 

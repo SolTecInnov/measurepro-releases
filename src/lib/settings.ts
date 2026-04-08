@@ -1,43 +1,9 @@
-// Disabled IndexedDB imports - using localStorage instead due to corruption
-// import { openDB, DBSchema, IDBPDatabase } from 'idb';
 import { create } from 'zustand';
+import { API_BASE_URL } from '@/lib/config/environment';
 import type { SerialConfig } from './serial';
 import type { TAppCfg } from './overhead/config.schema';
 import { getCurrentUser } from './firebase';
 import { auditLog } from './auditLog';
-
-// interface SettingsDB extends DBSchema {
-//   settings: {
-//     key: string;
-//     value: {
-//       id: string;
-//       category: string;
-//       value: any;
-//       updatedAt: string;
-//     };
-//     indexes: { 'by-category': string };
-//   };
-// }
-
-// const DB_NAME = 'settings-db';
-// const STORE_NAME = 'settings';
-
-// Disabled: IndexedDB corrupted, using localStorage instead
-// let db: Promise<IDBPDatabase<SettingsDB>>;
-
-// const initDB = () => {
-//   if (!db) {
-//     db = openDB<SettingsDB>(DB_NAME, 1, {
-//       upgrade(db) {
-//         const store = db.createObjectStore(STORE_NAME, {
-//           keyPath: 'id',
-//         });
-//         store.createIndex('by-category', 'category');
-//       },
-//     });
-//   }
-//   return db;
-// };
 
 // Database sync state
 let currentUserId: string | null = null;
@@ -62,7 +28,7 @@ if (typeof window !== 'undefined') {
 // Fetch settings from database API
 export const fetchSettingsFromDatabase = async (userId: string): Promise<any | null> => {
   try {
-    const response = await fetch(`/api/user-settings/${userId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/user-settings/${userId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -123,7 +89,7 @@ export const saveSettingsToDatabase = async (userId: string): Promise<boolean> =
   try {
     const settingsPayload = buildSettingsPayload(userId);
     
-    const response = await fetch(`/api/user-settings/${userId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/user-settings/${userId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -333,7 +299,7 @@ if (typeof window !== 'undefined') {
     // Reuse shared payload builder so this path never diverges from the normal save
     const payload = JSON.stringify(buildSettingsPayload(currentUserId));
     // keepalive:true allows the fetch to complete even after the page unloads
-    fetch(`/api/user-settings/${currentUserId}`, {
+    fetch(`${API_BASE_URL}/api/user-settings/${currentUserId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: payload,

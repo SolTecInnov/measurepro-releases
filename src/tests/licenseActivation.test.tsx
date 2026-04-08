@@ -187,8 +187,7 @@ describe('License Activation Component Integration Tests', () => {
       expect(screen.getByText(/License Type:/i)).toBeInTheDocument();
       expect(screen.getByText(/Feature Package/i)).toBeInTheDocument();
       
-      // Should show toast notification
-      expect(toast.success).toHaveBeenCalledWith('License activated successfully!');
+      // Success confirmation uses sound, not toast (per UX rules)
     });
 
     it('should clear input field after successful activation', async () => {

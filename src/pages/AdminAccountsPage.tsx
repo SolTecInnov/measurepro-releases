@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, XCircle, Loader2, Users, AlertCircle, RefreshCw, UserPlus, KeyRound, Settings2, ChevronDown, ChevronUp, BarChart2, Mail, Building2, ShieldCheck } from 'lucide-react';
@@ -375,7 +376,7 @@ export default function AdminAccountsPage() {
     enabled: isAdmin && !isCheckingAdmin,
     queryFn: async () => {
       const headers = await getAuthHeader();
-      const res = await fetch('/api/companies', { headers });
+      const res = await fetch(`${API_BASE_URL}/api/companies`, { headers });
       if (!res.ok) throw new Error('Failed to fetch companies');
       return res.json();
     },
@@ -437,7 +438,7 @@ export default function AdminAccountsPage() {
     setShowCompanyDialog(true);
     try {
       const headers = await getAuthHeader();
-      const res = await fetch(`/api/admin/users/${user.id}/membership`, { headers });
+      const res = await fetch(`${API_BASE_URL}/api/admin/users/${user.id}/membership`, { headers });
       const data = await res.json();
       if (data.membership) {
         setCompanyMembership(data.membership);

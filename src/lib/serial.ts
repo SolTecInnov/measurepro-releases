@@ -425,7 +425,7 @@ export class SerialConnection {
       if (error.name === 'NotFoundError') {
         alert('No compatible serial devices found. Please make sure your device is connected and drivers are installed.');
       } else if (error.name === 'SecurityError' || error.name === 'NotAllowedError') {
-        alert(`Serial port access was denied. Please ensure:\n\n1. You're using Chrome or Edge browser\n2. The site is running via HTTPS or localhost\n3. Try clicking the port selection again\n4. Check for a permission dialog that might be hidden`);
+        alert(`Serial port access was denied. Please ensure:\n\n1. MeasurePRO is running normally\n2. The serial device is properly connected via USB\n3. Try clicking the port selection again\n4. Check for a permission dialog that might be hidden`);
       } else if (error.name === 'SecurityError') {
         alert('Permission to access serial ports was denied. Please try again.');
       } else {

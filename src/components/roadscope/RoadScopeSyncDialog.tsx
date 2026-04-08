@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useAuth } from '../../lib/auth/AuthContext';
 import { getRoadScopeClient } from '../../lib/roadscope/client';
 import { syncSurveyToRoadScope, SyncProgressCallback, SyncResult, getSyncStatus, clearFileSyncState } from '../../lib/roadscope/syncService';
@@ -71,7 +72,7 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
       setLoading(true);
       try {
         // Check for API key
-        const keyRes = await fetch(`/api/roadscope/settings/${userId}/key`);
+        const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
         const keyJson = await keyRes.json();
         
         if (!keyJson.success || !keyJson.apiKey) {
@@ -116,7 +117,7 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
 
     try {
       // Get API key
-      const keyRes = await fetch(`/api/roadscope/settings/${userId}/key`);
+      const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
       const keyJson = await keyRes.json();
       
       if (!keyJson.success || !keyJson.apiKey) {
@@ -154,7 +155,7 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
 
       // Save mapping to database
       if (syncResult.roadscopeSurveyId) {
-        await fetch('/api/roadscope/mappings', {
+        await fetch(`${API_BASE_URL}/api/roadscope/mappings`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

@@ -254,7 +254,7 @@ export default function UserManualPage() {
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">What is MeasurePRO?</h3>
             <p className="text-gray-300 mb-4">
-              MeasurePRO is a professional-grade Progressive Web Application (PWA) designed for overhead clearance measurement, route surveying, and infrastructure inspection. Built for the oversize/overweight (OS/OW) transport industry, it combines laser distance measurement, GPS tracking, camera documentation, AI-powered object detection, and advanced analytics into a single field-ready platform.
+              MeasurePRO is a professional-grade desktop application designed for overhead clearance measurement, route surveying, and infrastructure inspection. Built for the oversize/overweight (OS/OW) transport industry, it combines laser distance measurement, GPS tracking, camera documentation, AI-powered object detection, and advanced analytics into a single field-ready platform.
             </p>
             <p className="text-gray-300 mb-4">
               The application works offline-first, storing all data locally in IndexedDB and syncing to the cloud when connectivity is available. It supports multiple hardware configurations including laser distance meters, GNSS receivers, LiDAR scanners, and stereo cameras.
@@ -272,7 +272,7 @@ export default function UserManualPage() {
               <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />Offline-first PWA architecture</li>
               <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />3D LiDAR & Point Cloud scanning</li>
             </ul>
-            <Screenshot src="/screenshots/home.jpg" alt="home" caption="MeasurePRO Home Page" />
+            <Screenshot src="./screenshots/home.jpg" alt="home" caption="MeasurePRO Home Page" />
           </SectionCard>
         </section>
 
@@ -288,7 +288,7 @@ export default function UserManualPage() {
               <div>
                 <h4 className="font-medium text-blue-300 mb-2 flex items-center gap-2"><Monitor className="w-4 h-4" />Desktop</h4>
                 <ul className="text-gray-300 space-y-1 text-sm">
-                  <li>• Chrome 89+ or Edge 89+ (Web Serial API required)</li>
+                  <li>• MeasurePRO desktop app (Serial port support built-in)</li>
                   <li>• Windows 10/11, macOS 12+, or Linux</li>
                   <li>• USB port for laser/GPS connection</li>
                   <li>• Webcam for photo documentation</li>
@@ -336,7 +336,7 @@ export default function UserManualPage() {
                 </tbody>
               </table>
             </div>
-            <Screenshot src="/screenshots/features.jpg" alt="features" caption="MeasurePRO Features Overview" />
+            <Screenshot src="./screenshots/features.jpg" alt="features" caption="MeasurePRO Features Overview" />
           </SectionCard>
         </section>
 
@@ -359,10 +359,10 @@ export default function UserManualPage() {
               <li>Click <strong>"Create Account"</strong> — a verification email will be sent</li>
               <li>Verify your email by clicking the link in the verification email</li>
             </ol>
-            <Screenshot src="/screenshots/register.jpg" alt="register" caption="Account Registration Form" />
-            <Screenshot src="/screenshots/signup.jpg" alt="signup" caption="Sign Up Flow" />
+            <Screenshot src="./screenshots/register.jpg" alt="register" caption="Account Registration Form" />
+            <Screenshot src="./screenshots/signup.jpg" alt="signup" caption="Sign Up Flow" />
             <TipBox>After email verification, your account enters a pending approval state. An administrator will review and approve your account.</TipBox>
-            <Screenshot src="/screenshots/awaiting-approval.jpg" alt="awaiting-approval" caption="Awaiting Admin Approval Screen" />
+            <Screenshot src="./screenshots/awaiting-approval.jpg" alt="awaiting-approval" caption="Awaiting Admin Approval Screen" />
           </SectionCard>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Subscription Plans</h3>
@@ -389,8 +389,8 @@ export default function UserManualPage() {
                 </tbody>
               </table>
             </div>
-            <Screenshot src="/screenshots/pricing.jpg" alt="pricing" caption="Pricing Plans" />
-            <Screenshot src="/screenshots/subscription.jpg" alt="subscription" caption="Subscription Management" />
+            <Screenshot src="./screenshots/pricing.jpg" alt="pricing" caption="Pricing Plans" />
+            <Screenshot src="./screenshots/subscription.jpg" alt="subscription" caption="Subscription Management" />
           </SectionCard>
         </section>
 
@@ -410,9 +410,9 @@ export default function UserManualPage() {
               <li>On mobile/tablet: Select between Master App, Slave App, or Live Monitor</li>
               <li>On desktop: The full interface loads automatically</li>
             </ol>
-            <Screenshot src="/screenshots/login.jpg" alt="login" caption="Login Screen" />
+            <Screenshot src="./screenshots/login.jpg" alt="login" caption="Login Screen" />
             <TipBox>If you forget your password, use the "Forgot Password" link to receive a reset email.</TipBox>
-            <Screenshot src="/screenshots/forgot-password.jpg" alt="forgot-password" caption="Password Recovery" />
+            <Screenshot src="./screenshots/forgot-password.jpg" alt="forgot-password" caption="Password Recovery" />
           </SectionCard>
         </section>
 
@@ -441,7 +441,7 @@ export default function UserManualPage() {
               <li><strong>Measurement Rate:</strong> Most supported lasers operate at 30 Hz (30 readings per second).</li>
               <li><strong>Auto-Part Buffer:</strong> Automatically segments long surveys into manageable parts to prevent data loss.</li>
             </ul>
-            <Screenshot src="/screenshots/app-main.jpg" alt="app-main" caption="Main Application Interface with Laser Connected" />
+            <Screenshot src="./screenshots/app-main.jpg" alt="app-main" caption="Main Application Interface with Laser Connected" />
           </SectionCard>
         </section>
 
@@ -465,7 +465,7 @@ export default function UserManualPage() {
                 </ol>
               </div>
               <div>
-                <h4 className="font-medium text-amber-300 mb-2">Browser GPS Fallback</h4>
+                <h4 className="font-medium text-amber-300 mb-2">Device GPS Fallback</h4>
                 <p className="text-gray-300 text-sm">If no hardware GPS is available, MeasurePRO automatically falls back to the browser's geolocation API. Accuracy is reduced but still functional for basic surveying.</p>
               </div>
             </div>
@@ -487,7 +487,7 @@ export default function UserManualPage() {
               <li>• <strong>HDOP:</strong> Horizontal accuracy indicator (lower is better, target &lt; 2.0)</li>
               <li>• <strong>Fix Quality:</strong> No Fix, 2D Fix, 3D Fix, RTK Float, RTK Fixed</li>
             </ul>
-            <Screenshot src="/screenshots/gnss-profiling.jpg" alt="gnss-profiling" caption="GNSS Profiling Interface" />
+            <Screenshot src="./screenshots/gnss-profiling.jpg" alt="gnss-profiling" caption="GNSS Profiling Interface" />
           </SectionCard>
         </section>
 
@@ -682,7 +682,7 @@ export default function UserManualPage() {
                 <p className="text-gray-400 text-sm">Complete raw data export with all metadata. Ideal for custom processing, API integration, and archival purposes.</p>
               </div>
             </div>
-            <Screenshot src="/screenshots/export.jpg" alt="export" caption="Data Export Interface" />
+            <Screenshot src="./screenshots/export.jpg" alt="export" caption="Data Export Interface" />
           </SectionCard>
         </section>
 
@@ -829,7 +829,7 @@ export default function UserManualPage() {
               { shortcut: 'Alt+0', action: 'Test Detection', description: 'Run test detection' },
               { shortcut: 'Alt+Shift+Y', action: 'Toggle City Mode', description: 'Enable city detection parameters' },
             ]} />
-            <Screenshot src="/screenshots/demo.jpg" alt="demo" caption="AI Detection Demo" />
+            <Screenshot src="./screenshots/demo.jpg" alt="demo" caption="AI Detection Demo" />
           </SectionCard>
         </section>
 
@@ -882,8 +882,8 @@ export default function UserManualPage() {
                 </ul>
               </div>
             </div>
-            <Screenshot src="/screenshots/convoy-leader.jpg" alt="convoy-leader" caption="Convoy Leader Interface" />
-            <Screenshot src="/screenshots/convoy-follower.jpg" alt="convoy-follower" caption="Convoy Follower Interface" />
+            <Screenshot src="./screenshots/convoy-leader.jpg" alt="convoy-leader" caption="Convoy Leader Interface" />
+            <Screenshot src="./screenshots/convoy-follower.jpg" alt="convoy-follower" caption="Convoy Follower Interface" />
           </SectionCard>
         </section>
 
@@ -898,10 +898,10 @@ export default function UserManualPage() {
             <p className="text-gray-300 mb-4">Route Enforcement ensures drivers follow their permitted route exactly. The system compares real-time GPS position against the pre-planned route and alerts for deviations.</p>
             <h4 className="font-medium text-blue-300 mb-2">Dispatch View</h4>
             <p className="text-gray-300 text-sm mb-2">Dispatchers create routes with waypoints, assign drivers, and monitor compliance in real-time from the dispatch dashboard.</p>
-            <Screenshot src="/screenshots/route-dispatch.jpg" alt="route-dispatch" caption="Route Dispatch Dashboard" />
+            <Screenshot src="./screenshots/route-dispatch.jpg" alt="route-dispatch" caption="Route Dispatch Dashboard" />
             <h4 className="font-medium text-blue-300 mb-2 mt-4">Driver View</h4>
             <p className="text-gray-300 text-sm mb-2">Drivers see their assigned route on a map with turn-by-turn guidance. Deviation alerts appear if they leave the permitted corridor.</p>
-            <Screenshot src="/screenshots/route-driver.jpg" alt="route-driver" caption="Route Driver Navigation" />
+            <Screenshot src="./screenshots/route-driver.jpg" alt="route-driver" caption="Route Driver Navigation" />
           </SectionCard>
         </section>
 
@@ -914,7 +914,7 @@ export default function UserManualPage() {
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">GNSS Road Profiling</h3>
             <p className="text-gray-300 mb-4">Advanced GNSS profiling uses high-precision positioning to create detailed road surface profiles. Combined with laser measurements, this provides comprehensive overhead clearance mapping along entire routes.</p>
-            <Screenshot src="/screenshots/road-profile.jpg" alt="road-profile" caption="Road Profile Visualization" />
+            <Screenshot src="./screenshots/road-profile.jpg" alt="road-profile" caption="Road Profile Visualization" />
             <h3 className="text-xl font-semibold mb-4 mt-6">3D LiDAR Integration</h3>
             <p className="text-gray-300 mb-4">MeasurePRO supports Hesai Pandar40P LiDAR for 3D point cloud scanning. Capture detailed 3D representations of overhead structures and surrounding environment.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -937,9 +937,9 @@ export default function UserManualPage() {
                 </ul>
               </div>
             </div>
-            <Screenshot src="/screenshots/lidar.jpg" alt="lidar" caption="3D LiDAR Interface" />
-            <Screenshot src="/screenshots/lidar-source.jpg" alt="lidar-source" caption="LiDAR Source Configuration" />
-            <Screenshot src="/screenshots/point-cloud-scanner.jpg" alt="point-cloud-scanner" caption="Point Cloud Scanner" />
+            <Screenshot src="./screenshots/lidar.jpg" alt="lidar" caption="3D LiDAR Interface" />
+            <Screenshot src="./screenshots/lidar-source.jpg" alt="lidar-source" caption="LiDAR Source Configuration" />
+            <Screenshot src="./screenshots/point-cloud-scanner.jpg" alt="point-cloud-scanner" caption="Point Cloud Scanner" />
           </SectionCard>
         </section>
 
@@ -1154,7 +1154,7 @@ export default function UserManualPage() {
               <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
                 <h4 className="font-medium text-red-300 mb-2">Laser won't connect</h4>
                 <ul className="text-gray-300 text-sm space-y-1">
-                  <li>• Ensure you're using Chrome or Edge (Web Serial API required)</li>
+                  <li>• Ensure you're using Chrome or Edge (Serial port support built-in)</li>
                   <li>• Check USB cable connection</li>
                   <li>• Try a different USB port</li>
                   <li>• Verify laser is powered on and in continuous mode</li>
@@ -1168,7 +1168,7 @@ export default function UserManualPage() {
                   <li>• Wait 30–60 seconds for satellite acquisition</li>
                   <li>• Check GPS antenna connection</li>
                   <li>• Verify correct baud rate in settings</li>
-                  <li>• Try browser GPS fallback if hardware fails</li>
+                  <li>• Try device GPS fallback if hardware fails</li>
                 </ul>
               </div>
               <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
@@ -1218,8 +1218,8 @@ export default function UserManualPage() {
                 <li><Globe className="w-3 h-3 inline mr-1" />Web: <a href="https://www.SolTecInnovation.com" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer" data-testid="link-support-website">www.SolTecInnovation.com</a></li>
               </ul>
             </div>
-            <Screenshot src="/screenshots/help.jpg" alt="help" caption="Help & Support Page" />
-            <Screenshot src="/screenshots/documentation.jpg" alt="documentation" caption="Documentation Center" />
+            <Screenshot src="./screenshots/help.jpg" alt="help" caption="Help & Support Page" />
+            <Screenshot src="./screenshots/documentation.jpg" alt="documentation" caption="Documentation Center" />
           </SectionCard>
         </section>
 
@@ -1248,7 +1248,7 @@ export default function UserManualPage() {
               <li>• Independent camera capture (uses Slave device camera)</li>
               <li>• Read-only — cannot control laser, GPS, or logging</li>
             </ul>
-            <Screenshot src="/screenshots/slave-app.jpg" alt="slave-app" caption="Slave App Interface" />
+            <Screenshot src="./screenshots/slave-app.jpg" alt="slave-app" caption="Slave App Interface" />
           </SectionCard>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Live Monitor Dashboard</h3>
@@ -1261,7 +1261,7 @@ export default function UserManualPage() {
               <li>• Monitor multiple survey sessions simultaneously</li>
               <li>• View survey statistics (measurement count, distance covered, alerts triggered)</li>
             </ul>
-            <Screenshot src="/screenshots/live-monitor.jpg" alt="live-monitor" caption="Live Monitor Dashboard" />
+            <Screenshot src="./screenshots/live-monitor.jpg" alt="live-monitor" caption="Live Monitor Dashboard" />
             <TipBox>Live Monitor requires an active internet connection on both the field device and the monitoring device. Data is streamed via Firebase Realtime Database.</TipBox>
           </SectionCard>
         </section>
@@ -1275,7 +1275,7 @@ export default function UserManualPage() {
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Admin Panel Overview</h3>
             <p className="text-gray-300 mb-4">The MeasurePRO Admin Panel provides comprehensive management tools for system administrators. Access requires master admin credentials and is protected by a secondary password prompt.</p>
-            <Screenshot src="/screenshots/admin.jpg" alt="admin" caption="Admin Panel Login" />
+            <Screenshot src="./screenshots/admin.jpg" alt="admin" caption="Admin Panel Login" />
             <h3 className="text-xl font-semibold mb-4 mt-6">Account Management</h3>
             <p className="text-gray-300 text-sm mb-3">View, approve, modify, and deactivate user accounts. Administrators can:</p>
             <ul className="text-gray-300 text-sm space-y-1 mb-4">
@@ -1285,7 +1285,7 @@ export default function UserManualPage() {
               <li>• Force password changes</li>
               <li>• View login history and last active timestamps</li>
             </ul>
-            <Screenshot src="/screenshots/admin-accounts.jpg" alt="admin-accounts" caption="Account Management Dashboard" />
+            <Screenshot src="./screenshots/admin-accounts.jpg" alt="admin-accounts" caption="Account Management Dashboard" />
           </SectionCard>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">License Management</h3>
@@ -1296,32 +1296,32 @@ export default function UserManualPage() {
               <li>• Monitor active vs. available license counts</li>
               <li>• Revoke or transfer licenses between users</li>
             </ul>
-            <Screenshot src="/screenshots/admin-licensing.jpg" alt="admin-licensing" caption="License Management" />
+            <Screenshot src="./screenshots/admin-licensing.jpg" alt="admin-licensing" caption="License Management" />
           </SectionCard>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Pricing Configuration</h3>
             <p className="text-gray-300 text-sm mb-3">Configure subscription pricing, feature bundles, and promotional offers.</p>
-            <Screenshot src="/screenshots/admin-pricing.jpg" alt="admin-pricing" caption="Pricing Configuration" />
+            <Screenshot src="./screenshots/admin-pricing.jpg" alt="admin-pricing" caption="Pricing Configuration" />
             <h3 className="text-xl font-semibold mb-4 mt-6">Analytics Dashboard</h3>
             <p className="text-gray-300 text-sm mb-3">View usage analytics including active users, measurement counts, storage usage, and feature adoption metrics.</p>
-            <Screenshot src="/screenshots/admin-analytics.jpg" alt="admin-analytics" caption="Analytics Dashboard" />
+            <Screenshot src="./screenshots/admin-analytics.jpg" alt="admin-analytics" caption="Analytics Dashboard" />
           </SectionCard>
           <SectionCard>
             <h3 className="text-xl font-semibold mb-4">Terms & Conditions Management</h3>
             <p className="text-gray-300 text-sm mb-3">Update terms of service and privacy policy. When terms are updated, all users are prompted to re-accept before continuing.</p>
-            <Screenshot src="/screenshots/admin-terms2.jpg" alt="admin-terms" caption="Terms Management" />
+            <Screenshot src="./screenshots/admin-terms2.jpg" alt="admin-terms" caption="Terms Management" />
             <h3 className="text-xl font-semibold mb-4 mt-6">Debug Tools</h3>
             <p className="text-gray-300 text-sm mb-3">Advanced diagnostic tools for system troubleshooting:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <h4 className="font-medium text-cyan-300 mb-2">IndexedDB Inspector</h4>
                 <p className="text-gray-400 text-sm">Browse, query, and export local IndexedDB data stores. Useful for diagnosing sync issues and recovering orphaned measurements.</p>
-                <Screenshot src="/screenshots/admin-debug-indexeddb.jpg" alt="admin-debug-indexeddb" caption="IndexedDB Inspector" />
+                <Screenshot src="./screenshots/admin-debug-indexeddb.jpg" alt="admin-debug-indexeddb" caption="IndexedDB Inspector" />
               </div>
               <div>
                 <h4 className="font-medium text-cyan-300 mb-2">Stress Testing</h4>
                 <p className="text-gray-400 text-sm">Run performance stress tests to verify system stability under high measurement rates and large dataset scenarios.</p>
-                <Screenshot src="/screenshots/admin-debug-stress.jpg" alt="admin-debug-stress" caption="Stress Testing" />
+                <Screenshot src="./screenshots/admin-debug-stress.jpg" alt="admin-debug-stress" caption="Stress Testing" />
               </div>
             </div>
             <WarningBox>Debug tools are intended for system administrators only. Improper use of the IndexedDB inspector may cause data corruption.</WarningBox>

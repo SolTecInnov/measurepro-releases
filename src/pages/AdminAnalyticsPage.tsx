@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useNavigate } from 'react-router-dom';
 import {
   Users,
@@ -38,7 +39,7 @@ async function getAuthHeader() {
 
 async function fetchAnalytics(endpoint: string) {
   const headers = await getAuthHeader();
-  const res = await fetch(`/api/audit/${endpoint}`, { headers });
+  const res = await fetch(`${API_BASE_URL}/api/audit/${endpoint}`, { headers });
   if (!res.ok) throw new Error(`Failed to fetch ${endpoint}`);
   return res.json();
 }

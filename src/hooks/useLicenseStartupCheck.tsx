@@ -97,7 +97,7 @@ export function useLicenseStartupCheck() {
         if (expiringLicenses.length > 0) {
           const alreadyWarned = await hasShownExpiryWarnToday();
           if (!alreadyWarned) {
-            const firstExpiry = new Date(expiringLicenses[0].expiresAt!);
+            const firstExpiry = new Date(expiringLicenses[0]?.expiresAt ?? Date.now());
             const daysRemaining = Math.ceil(
               (firstExpiry.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
             );
@@ -118,7 +118,7 @@ export function useLicenseStartupCheck() {
 
         // Show errors for expired licenses
         if (expiredLicenses.length > 0) {
-          const firstExpiredAt = new Date(expiredLicenses[0].expiresAt!);
+          const firstExpiredAt = new Date(expiredLicenses[0]?.expiresAt ?? Date.now());
           const expiredDateStr = firstExpiredAt.toLocaleDateString(undefined, { dateStyle: 'medium' });
           const userEmail = auth.currentUser?.email ?? '';
           const licenseTypes = expiredLicenses

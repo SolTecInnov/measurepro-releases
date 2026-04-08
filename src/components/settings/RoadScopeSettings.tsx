@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useAuth } from '../../lib/auth/AuthContext';
 import { getRoadScopeClient } from '../../lib/roadscope/client';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -63,7 +64,7 @@ export function RoadScopeSettings() {
     if (!userId) return;
     
     try {
-      const res = await fetch(`/api/roadscope/settings/${userId}`);
+      const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}`);
       const json = await res.json();
       
       if (json.success && json.data) {
@@ -130,7 +131,7 @@ export function RoadScopeSettings() {
 
     setSaving(true);
     try {
-      const res = await fetch('/api/roadscope/settings', {
+      const res = await fetch(`${API_BASE_URL}/api/roadscope/settings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -147,7 +148,7 @@ export function RoadScopeSettings() {
       if (json.success) {
         // Update validation status
         if (validationResult?.valid) {
-          await fetch('/api/roadscope/settings/validate', {
+          await fetch(`${API_BASE_URL}/api/roadscope/settings/validate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -178,7 +179,7 @@ export function RoadScopeSettings() {
 
     setSaving(true);
     try {
-      const res = await fetch('/api/roadscope/settings', {
+      const res = await fetch(`${API_BASE_URL}/api/roadscope/settings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -213,7 +214,7 @@ export function RoadScopeSettings() {
 
     setSaving(true);
     try {
-      const res = await fetch(`/api/roadscope/settings/${userId}/key`, {
+      const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`, {
         method: 'DELETE'
       });
 

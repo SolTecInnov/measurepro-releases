@@ -15,6 +15,7 @@
  */
 
 import { toast } from 'sonner';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { Survey } from './types';
 import { openSurveyDB, countMeasurementsForSurvey } from './db';
 import { getMeasurementFeed } from './MeasurementFeed';
@@ -371,7 +372,7 @@ class AutoPartManager {
       try {
         const userId = localStorage.getItem('current_user_id');
         if (userId) {
-          const keyRes = await fetch(`/api/roadscope/settings/${userId}/key`);
+          const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
           const keyJson = await keyRes.json();
 
           if (keyJson.success && keyJson.apiKey) {

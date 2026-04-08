@@ -193,7 +193,7 @@ export default function HelpPage() {
                         <ul className="text-sm mt-2 space-y-1">
                           <li>• NMEA 0183 compatible GPS</li>
                           <li>• Serial or USB connection</li>
-                          <li>• Browser geolocation fallback</li>
+                          <li>• Device geolocation fallback</li>
                           <li>• 1-10 Hz update rate</li>
                         </ul>
                       </div>
@@ -425,10 +425,10 @@ export default function HelpPage() {
                 <h4 className="text-lg font-semibold text-white mb-2">GPS not working?</h4>
                 <ol className="list-decimal list-inside space-y-1 ml-4 text-sm">
                   <li>Check GPS module connection (if using hardware GPS)</li>
-                  <li>Grant browser geolocation permission</li>
+                  <li>Grant device geolocation permission</li>
                   <li>Ensure GPS has clear view of sky</li>
                   <li>Wait 30-60 seconds for GPS lock</li>
-                  <li>Browser GPS fallback activates automatically if hardware GPS fails</li>
+                  <li>Device GPS fallback activates automatically if hardware GPS fails</li>
                 </ol>
               </div>
 
@@ -439,7 +439,7 @@ export default function HelpPage() {
                   <li>Check camera is not in use by another application</li>
                   <li>Try Settings → Camera → Select Camera</li>
                   <li>Refresh the page</li>
-                  <li>Restart browser if issue persists</li>
+                  <li>Restart MeasurePRO if issue persists</li>
                 </ol>
               </div>
 
@@ -457,7 +457,7 @@ export default function HelpPage() {
               <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
                 <h5 className="font-semibold text-blue-400 mb-2">Still Having Issues?</h5>
                 <p className="text-sm mb-3">
-                  Most problems can be resolved by clearing browser cache, restarting the browser, or checking permissions.
+                  Most problems can be resolved by restarting MeasurePRO, restarting the browser, or checking permissions.
                 </p>
                 <p className="text-sm">
                   For persistent issues, use the Serial Tester (Settings → Serial Tester) to diagnose hardware communication problems.
@@ -857,7 +857,7 @@ export default function HelpPage() {
                       <li>Verify microphone is not muted in system settings</li>
                       <li>Test microphone in another application</li>
                       <li>Try a different browser (Chrome/Edge recommended)</li>
-                      <li>Restart browser and reload page</li>
+                      <li>Restart MeasurePRO and reload page</li>
                     </ol>
                   </div>
 
@@ -1158,7 +1158,7 @@ export default function HelpPage() {
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">How to activate Road Profiling</h4>
                 <ol className="list-decimal list-inside space-y-1 ml-4 text-sm">
-                  <li>Connect the Swift Navigation Duro (RTK-GNSS) — Road Profiling requires centimetre-level elevation data, not available from USB/BT GPS or browser geolocation</li>
+                  <li>Connect the Swift Navigation Duro (RTK-GNSS) — Road Profiling requires centimetre-level elevation data, not available from USB/BT GPS or device geolocation</li>
                   <li>Wait for RTK Fixed fix (green indicator in the GNSS panel)</li>
                   <li>Open <strong>Settings → Road Profile</strong> and toggle "Enable Road Profile Recording"</li>
                   <li>Create or open a survey and start logging (<code className="bg-gray-700 px-1 rounded">Alt+3</code>)</li>
@@ -1216,7 +1216,7 @@ export default function HelpPage() {
               <div className="bg-amber-900/20 border border-amber-800/30 rounded-lg p-4">
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-amber-500 mt-0.5" />
-                  <p className="text-sm">Banking data is only available when the Swift Navigation Duro is connected and providing IMU roll output. USB GPS and browser geolocation do not provide this data.</p>
+                  <p className="text-sm">Banking data is only available when the Swift Navigation Duro is connected and providing IMU roll output. USB GPS and device geolocation do not provide this data.</p>
                 </div>
               </div>
             </div>

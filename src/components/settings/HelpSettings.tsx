@@ -200,7 +200,7 @@ const HelpSettings = () => {
                 3. Camera not detected or permission denied
               </h5>
               <p className="text-gray-300 text-sm mb-2">
-                Allow camera permission in browser settings and ensure no other app is using the camera. Restart the browser if needed.
+                Allow camera permission in system settings and ensure no other app is using the camera. Restart the browser if needed.
               </p>
               <button
                 onClick={() => handleViewDocument('FAQ.md', 'FAQ')}
@@ -322,7 +322,7 @@ const HelpSettings = () => {
             <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
               <h4 className="font-semibold text-blue-400 mb-2">System Requirements:</h4>
               <ul className="text-gray-300 text-sm space-y-1">
-                <li>• <strong>Browser:</strong> Chrome or Edge (Web Serial API required)</li>
+                <li>• <strong>Browser:</strong> Chrome or Edge (Serial port support built-in)</li>
                 <li>• <strong>Connection:</strong> HTTPS or localhost</li>
                 <li>• <strong>Devices:</strong> USB-connected laser and GPS with proper drivers</li>
                 <li>• <strong>Permissions:</strong> Camera, location, and serial port access</li>
@@ -1613,7 +1613,7 @@ const HelpSettings = () => {
                   <ul className="ml-5 text-gray-300 text-sm space-y-1">
                     <li>• Max GPS accuracy: <strong>15 meters</strong> (fixes with worse accuracy rejected)</li>
                     <li>• Updates: Every 1-2 seconds for real-time tracking</li>
-                    <li>• Browser GPS fallback if hardware GPS unavailable</li>
+                    <li>• Device GPS fallback if hardware GPS unavailable</li>
                   </ul>
                 </div>
                 
@@ -1986,7 +1986,7 @@ const HelpSettings = () => {
                 MeasurePRO includes an intelligent GPS failsafe system:
               </p>
               <ul className="text-gray-300 text-sm space-y-1">
-                <li>• Automatically uses browser GPS when serial GPS is unavailable</li>
+                <li>• Automatically uses device GPS when serial GPS is unavailable</li>
                 <li>• Switches back to serial GPS when it becomes available</li>
                 <li>• Can be enabled/disabled in GPS Data card settings</li>
                 <li>• Provides continuous positioning even with hardware issues</li>
@@ -2012,11 +2012,11 @@ const HelpSettings = () => {
               </p>
               <ul className="text-gray-300 text-sm space-y-1 ml-4">
                 <li>• Shows devices by their USB identifiers (VID/PID), not COM port names</li>
-                <li>• Requires explicit user permission for each connection attempt</li>
-                <li>• Only works in Chrome and Edge browsers</li>
+                <li>• Connects directly to hardware</li>
+                <li>• Built into MeasurePRO desktop</li>
                 <li>• Cannot automatically reconnect to devices without user interaction</li>
                 <li>• May conflict with other applications using the same device</li>
-                <li>• Requires HTTPS or localhost to function</li>
+                <li>• Works natively in MeasurePRO</li>
               </ul>
             </div>
             
@@ -2076,7 +2076,7 @@ const HelpSettings = () => {
                     <li>• Verify drivers are installed (check Device Manager)</li>
                     <li>• Try different USB ports</li>
                     <li>• Restart the browser</li>
-                    <li>• Use Chrome or Edge browser</li>
+                    <li>• Use MeasurePRO desktop</li>
                   </ul>
                 </div>
                 <div>
@@ -2458,8 +2458,8 @@ const HelpSettings = () => {
                     <li>• Check USB connections are secure</li>
                     <li>• Verify drivers are installed (Device Manager)</li>
                     <li>• Try different USB ports</li>
-                    <li>• Restart browser</li>
-                    <li>• Use Chrome or Edge browser only</li>
+                    <li>• Restart MeasurePRO</li>
+                    <li>• Use MeasurePRO desktop only</li>
                     <li>• Ensure site is HTTPS or localhost</li>
                   </ul>
                 </div>
@@ -2528,7 +2528,7 @@ const HelpSettings = () => {
                   <ul className="text-gray-300 text-sm space-y-1 ml-4">
                     <li>• Try different camera from dropdown</li>
                     <li>• Lower resolution in Camera Settings</li>
-                    <li>• Restart browser</li>
+                    <li>• Restart MeasurePRO</li>
                     <li>• Check camera drivers are updated</li>
                   </ul>
                 </div>
@@ -2545,7 +2545,7 @@ const HelpSettings = () => {
                     <li>• Reduce camera resolution</li>
                     <li>• Disable video mode if not needed</li>
                     <li>• Export and clear old survey data</li>
-                    <li>• Use latest Chrome or Edge browser</li>
+                    <li>• Use latest MeasurePRO desktop</li>
                   </ul>
                 </div>
                 <div>
@@ -2950,7 +2950,7 @@ const HelpSettings = () => {
                 <div>
                   <h5 className="font-medium text-gray-200 mb-2">System Requirements:</h5>
                   <ul className="text-gray-300 space-y-1">
-                    <li>• Chrome 89+ or Edge 89+</li>
+                    <li>• MeasurePRO desktop app</li>
                     <li>• Windows 10/11 with device drivers</li>
                     <li>• HTTPS connection or localhost</li>
                     <li>• 4GB RAM minimum</li>

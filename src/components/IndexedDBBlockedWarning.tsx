@@ -26,7 +26,7 @@ export function IndexedDBBlockedWarning({ onRetry }: IndexedDBBlockedWarningProp
       
       // Unregister all service workers
       if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
+        const registrations = ('serviceWorker' in navigator) ? await navigator.serviceWorker.getRegistrations() : [];
         await Promise.all(registrations.map(r => r.unregister()));
       }
       

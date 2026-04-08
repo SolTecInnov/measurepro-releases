@@ -431,7 +431,7 @@ export default function BackupSettings() {
           </CardTitle>
           <CardDescription>
             Export ALL data from IndexedDB using streaming to prevent out-of-memory errors.
-            Use this before clearing browser cache to ensure no data is lost.
+            Use this before restarting MeasurePRO to ensure no data is lost.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

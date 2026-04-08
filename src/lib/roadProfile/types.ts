@@ -79,7 +79,7 @@ export type ProfileGpsSource = 'duro' | 'serial' | 'bluetooth' | 'browser' | 'au
 
 /**
  * Raw GPS sample used for profile building
- * Can come from Duro hardware or browser GPS
+ * Can come from Duro hardware or device GPS
  */
 export interface ProfileGpsSample {
   timestamp: string;      // ISO 8601

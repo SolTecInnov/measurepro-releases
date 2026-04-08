@@ -3,6 +3,7 @@ import type { ConvoySession, ConvoyMember, ConvoyMessage } from '@shared/schema'
 import { soundManager } from '../sounds';
 import { processSyncAcknowledgment } from '@/lib/convoy/logSyncService';
 import { toast } from 'sonner';
+import { getWsUrl } from '@/lib/config/environment';
 
 interface ConvoyStore {
   // Session state
@@ -80,12 +81,8 @@ export const useConvoyStore = create<ConvoyStore>((set, get) => ({
     // BUG 1 FIX: Track connection time IMMEDIATELY to prevent alarms during reconnection
     set({ sessionConnectedAt: Date.now() });
     
-    // WebSocket URL - connect via /api path which Vite will proxy to backend
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const host = window.location.host;
-    
-    // Use /API path for WebSocket so Vite proxy handles it
-    const wsUrl = `${protocol}//${host}/api`;
+    // WebSocket URL
+    const wsUrl = getWsUrl('/api');
     const ws = new WebSocket(wsUrl);
 
     ws.onopen = () => {

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useEffect } from 'react';
 import { ArrowLeft, Mail, Send } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -47,7 +48,7 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const response = await fetch('/api/email/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/email/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

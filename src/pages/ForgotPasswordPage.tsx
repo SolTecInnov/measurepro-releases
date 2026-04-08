@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Mail, Phone, ArrowLeft, Zap, CheckCircle, WifiOff, ShieldCheck, KeyRound, Eye, EyeOff } from 'lucide-react';
@@ -29,7 +30,7 @@ export default function ForgotPasswordPage() {
 
     setIsLoading(true);
     try {
-      const res = await fetch('/api/auth/forgot-password/send-otp', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/forgot-password/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ method: contactMethod, value: contactValue.trim() }),
@@ -60,7 +61,7 @@ export default function ForgotPasswordPage() {
 
     setIsLoading(true);
     try {
-      const res = await fetch('/api/auth/forgot-password/verify-otp', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/forgot-password/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ method: contactMethod, value: contactValue.trim(), code: otpCode }),
@@ -96,7 +97,7 @@ export default function ForgotPasswordPage() {
 
     setIsLoading(true);
     try {
-      const res = await fetch('/api/auth/forgot-password/update-password', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/forgot-password/update-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

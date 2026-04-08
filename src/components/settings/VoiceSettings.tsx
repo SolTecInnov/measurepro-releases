@@ -267,7 +267,7 @@ const VoiceSettings: React.FC = () => {
             <div className="flex-1">
               <h4 className="text-sm font-semibold text-amber-300 mb-1">Internet Connection Required for Voice Commands</h4>
               <p className="text-sm text-amber-100/90">
-                Voice commands require an active internet connection due to browser Web Speech API limitations. However, <strong>voice notes work completely offline</strong> and are stored locally in IndexedDB.
+                Voice commands require an active internet connection due to Web Speech API requirements. However, <strong>voice notes work completely offline</strong> and are stored locally in IndexedDB.
               </p>
             </div>
           </div>

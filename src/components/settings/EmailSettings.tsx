@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { Mail, Plus, X, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { useSettingsStore } from '../../lib/settings';
@@ -86,7 +87,7 @@ const EmailSettings = () => {
 
     setIsSendingTest(true);
     try {
-      const response = await fetch('/api/email/test', {
+      const response = await fetch(`${API_BASE_URL}/api/email/test`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

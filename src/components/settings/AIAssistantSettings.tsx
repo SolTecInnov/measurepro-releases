@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useSettingsStore, forceSyncNow } from '../../lib/settings';
 import { useLoadSettings } from '../../lib/hooks';
 import { Bot, Key, Eye, EyeOff, CheckCircle, AlertCircle, Loader2, Sparkles, Trash2, LifeBuoy, ExternalLink, Lock, Clock, Users, RefreshCw } from 'lucide-react';
@@ -102,7 +103,7 @@ const AIAssistantSettings = () => {
       const subdomain = zendeskSubdomain.trim().replace(/^https?:\/\//, '').replace(/\.zendesk\.com.*$/, '');
       const email = zendeskEmail.trim();
       const token = zendeskToken.trim();
-      const response = await fetch('/api/zendesk/validate', {
+      const response = await fetch(`${API_BASE_URL}/api/zendesk/validate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subdomain, email, token }),
@@ -157,7 +158,7 @@ const AIAssistantSettings = () => {
         const user = getCurrentUser();
         if (!user) return;
         const token = await user.getIdToken();
-        const res = await fetch('/api/admin/ai-trial-config', {
+        const res = await fetch(`${API_BASE_URL}/api/admin/ai-trial-config`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.ok) {
@@ -185,7 +186,7 @@ const AIAssistantSettings = () => {
       const user = getCurrentUser();
       if (!user) throw new Error('Not authenticated');
       const token = await user.getIdToken();
-      const res = await fetch('/api/admin/ai-trial-config', {
+      const res = await fetch(`${API_BASE_URL}/api/admin/ai-trial-config`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ sharedTrialKey: trialKey.trim() }),
@@ -214,7 +215,7 @@ const AIAssistantSettings = () => {
       const user = getCurrentUser();
       if (!user) throw new Error('Not authenticated');
       const token = await user.getIdToken();
-      await fetch('/api/admin/ai-trial-config', {
+      await fetch(`${API_BASE_URL}/api/admin/ai-trial-config`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ sharedTrialKey: '' }),

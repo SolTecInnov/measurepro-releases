@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { Users, QrCode, AlertTriangle, Phone, Radio, StopCircle, Play, Pause, XCircle, Copy, Shield, FileText, Download, RefreshCw } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useConvoyStore } from '@/lib/stores/convoyStore';
@@ -221,7 +222,7 @@ export default function ConvoyLeader() {
       };
       addDebugLog('📤 Sending API request...');
       
-      const response = await fetch('/api/convoy/create', {
+      const response = await fetch(`${API_BASE_URL}/api/convoy/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody),
@@ -475,7 +476,7 @@ export default function ConvoyLeader() {
       // Clear saved session from localStorage
       clearConvoySession();
 
-      await fetch('/api/convoy/end', {
+      await fetch(`${API_BASE_URL}/api/convoy/end`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId }),

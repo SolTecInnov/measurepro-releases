@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '@/lib/config/environment';
 import type {
   LicenseFeature,
   LicensePackage,
@@ -327,7 +328,7 @@ export async function syncFeatureSnapshot(authUser: { getIdToken: () => Promise<
   const timer = setTimeout(() => controller.abort(), 10_000);
   let resp: Response;
   try {
-    resp = await fetch('/api/auth/feature-snapshot', {
+    resp = await fetch(`${API_BASE_URL}/api/auth/feature-snapshot`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

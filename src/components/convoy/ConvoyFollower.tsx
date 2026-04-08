@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AlertTriangle, Users, MapPin, Shield, QrCode, X, FileText, Download, XCircle } from 'lucide-react';
 import { useConvoyStore } from '@/lib/stores/convoyStore';
 import { soundManager } from '@/lib/sounds';
+import { getWsUrl } from '@/lib/config/environment';
 import { useWakeLock } from '@/lib/convoy/wakeLock';
 import { 
   logConvoyEvent,
@@ -133,12 +134,10 @@ export default function ConvoyFollower() {
       });
       
       // Reconnect to WebSocket
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const host = window.location.host;
-      const wsUrl = `${protocol}//${host}/api`;
-      
+      const wsUrl = getWsUrl('/api');
+
       const ws = new WebSocket(wsUrl);
-      
+
       // BUG FIX 2: Track this provisional socket in the ref
       restoringWsRef.current = ws;
       
@@ -464,10 +463,8 @@ export default function ConvoyFollower() {
     }
 
     try {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const host = window.location.host;
-      const wsUrl = `${protocol}//${host}/api`;
-      
+      const wsUrl = getWsUrl('/api');
+
       const ws = new WebSocket(wsUrl);
 
       ws.onopen = () => {
@@ -553,12 +550,8 @@ export default function ConvoyFollower() {
     setJoinMessage('Connecting to convoy...');
 
     try{
-      // WebSocket URL - connect via /api path which Vite will proxy to backend
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const host = window.location.host;
-      
-      // Use /api path for WebSocket so Vite proxy handles it
-      const wsUrl = `${protocol}//${host}/api`;
+      // WebSocket URL
+      const wsUrl = getWsUrl('/api');
       
       setJoinMessage(`Connecting to server...`);
       

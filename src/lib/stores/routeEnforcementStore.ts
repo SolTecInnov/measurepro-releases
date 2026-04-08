@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { getWsUrl } from '@/lib/config/environment';
 import type {
   RouteEnforcementConvoy,
   RouteEnforcementMember,
@@ -245,8 +246,7 @@ export const useRouteEnforcementStore = create<RouteEnforcementStore>((set, get)
       existingWs.close();
     }
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//${window.location.host}`;
+    const wsUrl = getWsUrl('');
     const newWs = new WebSocket(wsUrl);
 
     newWs.onopen = () => {

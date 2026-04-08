@@ -219,7 +219,7 @@ export class ErrorBoundary extends Component<Props, State> {
               <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded text-sm">
                 <p className="text-yellow-600 dark:text-yellow-400">
                   ⚠️ Multiple errors detected ({this.state.errorCount} total). 
-                  If this persists, try clearing your browser cache or contact support.
+                  If this persists, try restarting MeasurePRO or contact support.
                 </p>
               </div>
             )}

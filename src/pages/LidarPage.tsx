@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { getCurrentUser } from '@/lib/firebase';
 import { useSettingsStore } from '@/lib/settings';
 import { auditLog } from '@/lib/auditLog';
@@ -702,7 +703,7 @@ export default function LidarPage() {
                     variant="outline"
                     className="bg-orange-600 hover:bg-orange-700 border-orange-700 text-white"
                     onClick={() => {
-                      window.location.href = '/api/downloads/lidar-service.zip';
+                      window.location.href = `${API_BASE_URL}/api/downloads/lidar-service.zip`;
                       /* toast removed */
                     }}
                     data-testid="btn-download-installer"

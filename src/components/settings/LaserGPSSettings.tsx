@@ -593,7 +593,7 @@ const LaserGPSSettings: React.FC = () => {
           {!btSupported && (
             <div className="bg-yellow-900/20 text-yellow-400 p-3 rounded-lg text-sm">
               <strong>Bluetooth not supported</strong>
-              <p className="mt-1">Web Bluetooth requires Chrome, Edge, Brave, or Opera on Windows, Mac, or Android.</p>
+              <p className="mt-1">Bluetooth support is built into MeasurePRO on Windows, Mac, or Android.</p>
               <p className="text-xs mt-1">Not available on iOS/Safari or Firefox.</p>
             </div>
           )}

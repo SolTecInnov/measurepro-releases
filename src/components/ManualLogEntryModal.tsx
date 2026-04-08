@@ -358,7 +358,7 @@ const ManualLogEntryModal: React.FC<ManualLogEntryModalProps> = ({
   // Toggle voice control
   const toggleVoiceControl = () => {
     if (!recognitionRef.current) {
-      toast.error('Voice recognition not supported in this browser');
+      toast.error('Voice recognition not supported');
       return;
     }
     

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { getCurrentUser } from '../lib/firebase';
 import { setTrialState } from '../lib/ai/aiAssistant';
 
@@ -33,7 +34,7 @@ export function useAITrial(): AITrialStatus {
 
     try {
       const token = await user.getIdToken();
-      const res = await fetch('/api/ai/trial-status', {
+      const res = await fetch(`${API_BASE_URL}/api/ai/trial-status`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) return;

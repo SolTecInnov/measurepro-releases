@@ -41,7 +41,7 @@ const GPSData: React.FC = () => {
   // Check if GPS hardware is connected (serial or browser)
   const isHardwareConnected = (gpsPort !== null && connected) || data.source === 'browser';
   
-  // Check if we have valid position data (from serial GPS with fix OR from browser GPS)
+  // Check if we have valid position data (from serial GPS with fix OR from device GPS)
   const hasValidPosition = (data.latitude !== 0 && data.longitude !== 0);
   
   // Check if we have a full GPS fix (only for serial GPS)
@@ -142,10 +142,10 @@ const GPSData: React.FC = () => {
                 className="rounded border-gray-600"
                 data-testid="input-gps-failsafe"
               />
-              <span className="text-sm text-gray-300">Enable Browser GPS Failsafe</span>
+              <span className="text-sm text-gray-300">Enable Device GPS Failsafe</span>
             </label>
             <p className="text-xs text-gray-400 mt-1 ml-6">
-              Automatically use browser GPS when serial GPS is unavailable
+              Automatically use device GPS when serial GPS is unavailable
             </p>
           </div>
           
@@ -346,7 +346,7 @@ const GPSData: React.FC = () => {
           {!gpsPort ? 'No GPS device connected' :
            !connected ? 'GPS device not responding' :
            data.source === 'none' ? 'No GPS data available' :
-           data.source === 'browser' ? 'Using browser geolocation' :
+           data.source === 'browser' ? 'Using device geolocation' :
            data.fixQuality === 'No Fix' ? 'Waiting for GPS fix...' :
            data.fixQuality === 'GPS Fix' ? `Standard GPS positioning (${data.source})` : 
            `Differential GPS (${data.source})`}

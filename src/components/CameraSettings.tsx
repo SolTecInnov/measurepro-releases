@@ -611,7 +611,7 @@ const CameraSettings: React.FC<CameraSettingsProps> = ({
               </span>
               {permissionStatus === 'denied' && (
                 <div className="mt-2">
-                  <p className="text-xs text-red-400 mb-2">Camera access is blocked. Please check your browser settings.</p>
+                  <p className="text-xs text-red-400 mb-2">Camera access is blocked. Please check your system settings.</p>
                   <button 
                     onClick={async() => {
                       try {

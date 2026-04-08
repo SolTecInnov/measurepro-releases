@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Lock, Mail, Eye, EyeOff, Zap, ArrowLeft, WifiOff, Wifi, Info, UserPlus } from 'lucide-react';
@@ -11,7 +12,7 @@ const CLIENT_BUILD_TIME: number =
 async function checkVersionAndReloadIfStale(intendedPath: string): Promise<boolean> {
   if (CLIENT_BUILD_TIME === 0) return false;
   try {
-    const resp = await fetch('/api/version', {
+    const resp = await fetch(`${API_BASE_URL}/api/version`, {
       cache: 'no-store',
       headers: { 'Cache-Control': 'no-cache' },
     });
@@ -130,7 +131,7 @@ export default function LoginPage() {
         >
           <Info className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
           <p className="text-xs text-blue-300 leading-relaxed">
-            Internet is required for your first login. After that, you can use the app fully offline as a PWA.
+            Internet is required for your first login. After that, the app works fully offline.
             Reconnect every 14–16 days to keep your session valid.
             Switching accounts requires an internet connection.
           </p>

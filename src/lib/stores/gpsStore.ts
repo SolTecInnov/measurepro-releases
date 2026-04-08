@@ -82,10 +82,10 @@ const DEFAULT_GPS_DATA: GPSData = {
 };
 
 let watchId: number | null = null;
-// Maximum number of retry attempts for browser GPS
+// Maximum number of retry attempts for device GPS
 const MAX_GPS_RETRY_ATTEMPTS = 3;
 let retryAttempts = 0;
-// Flag to prevent multiple simultaneous browser GPS initialization attempts
+// Flag to prevent multiple simultaneous device GPS initialization attempts
 let browserGPSInitializing = false;
 
 export const useGPSStore = create<GPSStore>((set, get) => ({
@@ -177,10 +177,10 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
     localStorage.setItem('gps_permission_granted', hasPermission.toString());
     logger.log('🛰️ GPS permission status updated and saved:', hasPermission);
     
-    // Only try to start browser GPS if permission was just granted AND we're not already using browser GPS
+    // Only try to start device GPS if permission was just granted AND we're not already using device GPS
     // (avoid recursion when called from initBrowserGPS)
     if (hasPermission && get().failsafeEnabled && get().data.source !== 'browser') {
-      logger.log('🛰️ GPS permission granted - starting browser GPS immediately');
+      logger.log('🛰️ GPS permission granted - starting device GPS immediately');
       setTimeout(() => {
         get().initBrowserGPS().catch(err => {
           // Silent fail
@@ -194,20 +194,20 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
     localStorage.setItem('gps_failsafe_enabled', enabled.toString());
     
     if (enabled) {
-      logger.log('🛰️ GPS failsafe enabled - will use browser GPS when serial GPS is unavailable');
+      logger.log('🛰️ GPS failsafe enabled - will use device GPS when serial GPS is unavailable');
       
-      // Immediately start browser GPS if no serial GPS data is available
+      // Immediately start device GPS if no serial GPS data is available
       const state = get();
       const now = Date.now();
       const timeSinceLastSerial = now - state.lastSerialDataTime;
       
-      // If we have no serial GPS data or it's been too long since last update, start browser GPS immediately
+      // If we have no serial GPS data or it's been too long since last update, start device GPS immediately
       // Browser will prompt for permission if needed
       if (state.lastSerialDataTime === 0 || 
           timeSinceLastSerial > state.serialDataTimeout ||
           state.data.source === 'none' ||
           !state.connected) {
-        logger.log('🛰️ No recent serial GPS data, starting browser GPS failsafe immediately');
+        logger.log('🛰️ No recent serial GPS data, starting device GPS failsafe immediately');
         try {
           state.initBrowserGPS();
         } catch (error) {
@@ -216,7 +216,7 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
       }
     } else {
       logger.log('🛰️ GPS failsafe disabled - will only use serial GPS');
-      // Stop browser GPS if it's running
+      // Stop device GPS if it's running
       get().stopBrowserGPS();
     }
   },
@@ -246,9 +246,9 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
 
     const isAnyHardwareActive = isDuroActive || isSerialActive || isBluetoothActive;
     
-    // If failsafe is enabled and we need to switch to browser GPS
+    // If failsafe is enabled and we need to switch to device GPS
     if (state.failsafeEnabled) {
-      // Switch to browser GPS ONLY when Duro, Serial, AND Bluetooth are all absent/timed-out
+      // Switch to device GPS ONLY when Duro, Serial, AND Bluetooth are all absent/timed-out
       const shouldUseBrowserGPS = (
         !isAnyHardwareActive && (
           state.lastSerialDataTime === 0 || 
@@ -258,13 +258,13 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
       );
       
       if (shouldUseBrowserGPS && state.data.source !== 'browser') {
-        logger.debug('🛰️ Switching to browser GPS failsafe:', {
+        logger.debug('🛰️ Switching to device GPS failsafe:', {
           reason: state.lastSerialDataTime === 0 ? 'No serial data' : 
                   timeSinceLastSerial > state.serialDataTimeout ? 'Serial timeout' : 
                   'No GPS source'
         });
         
-        // Switch to browser GPS as failsafe
+        // Switch to device GPS as failsafe
         try {
           state.initBrowserGPS();
         } catch (error) {
@@ -273,14 +273,14 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
       }
       
       // Only switch back to serial GPS if it has a VALID fix (not just streaming data)
-      // Keep using browser GPS while serial GPS is waiting for satellites
+      // Keep using device GPS while serial GPS is waiting for satellites
       if (state.data.source === 'browser' && 
           state.lastSerialDataTime > 0 && 
           timeSinceLastSerial < state.serialDataTimeout &&
           state.data.fixQuality !== 'No Fix' &&
           state.data.latitude !== 0 &&
           state.data.longitude !== 0) {
-        logger.log('🛰️ Serial GPS fix acquired, switching back from browser GPS');
+        logger.log('🛰️ Serial GPS fix acquired, switching back from device GPS');
         state.stopBrowserGPS();
       }
     }
@@ -390,13 +390,13 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
 
     // Prevent multiple simultaneous initialization attempts
     if (browserGPSInitializing) {
-      logger.debug('🛰️ Browser GPS initialization already in progress, skipping...');
+      logger.debug('🛰️ Device GPS initialization already in progress, skipping...');
       return;
     }
 
     browserGPSInitializing = true;
 
-    // Reset retry counter when we're explicitly initializing browser GPS
+    // Reset retry counter when we're explicitly initializing device GPS
     retryAttempts = 0;
 
     try {
@@ -412,7 +412,7 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
         // Continue anyway, the permission request will happen when we call getCurrentPosition
       }
 
-      logger.debug('🌍 Attempting to get browser GPS position...');
+      logger.debug('🌍 Attempting to get device GPS position...');
       
       // First try to get a single position with a reasonable timeout
       const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
@@ -438,7 +438,7 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
       });
 
       // Successfully got position - update permission state
-      logger.log('✅ Browser GPS position obtained successfully:', {
+      logger.log('✅ Device GPS position obtained successfully:', {
         lat: pos.coords.latitude,
         lon: pos.coords.longitude,
         accuracy: pos.coords.accuracy
@@ -446,7 +446,7 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
       browserGPSInitializing = false;
       get().setHasGPSPermission(true);
 
-      // Audit: browser GPS session started
+      // Audit: device GPS session started
       try { const u = getCurrentUser(); if (u) auditLog.gpsSession(u.uid, u.email || '', 'browser', true); } catch (_e) {}
       
       // Helper: returns true if a hardware source (Duro/Serial/Bluetooth) is currently active
@@ -563,10 +563,10 @@ export const useGPSStore = create<GPSStore>((set, get) => ({
 
   stopBrowserGPS: () => {
     if (watchId !== null) {
-      logger.log('Stopping browser GPS tracking');
+      logger.log('Stopping device GPS tracking');
       navigator.geolocation.clearWatch(watchId);
       watchId = null;
-      // Audit: browser GPS session stopped
+      // Audit: device GPS session stopped
       try { const u = getCurrentUser(); if (u) auditLog.gpsSession(u.uid, u.email || '', 'browser', false); } catch (_e) {}
     }
     

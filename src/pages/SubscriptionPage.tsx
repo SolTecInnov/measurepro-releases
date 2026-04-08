@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -130,7 +131,7 @@ export default function SubscriptionPage() {
   // Download data handler
   const handleDownloadData = async () => {
     try {
-      const response = await fetch('/api/subscription/export-data', {
+      const response = await fetch(`${API_BASE_URL}/api/subscription/export-data`, {
         headers: {
           'Authorization': `Bearer ${await user?.getIdToken()}`,
         },

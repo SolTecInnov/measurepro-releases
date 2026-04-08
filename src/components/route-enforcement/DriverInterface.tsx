@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { MapContainer, TileLayer, Polyline, CircleMarker, Circle } from 'react-leaflet';
 import L from 'leaflet';
@@ -60,7 +61,7 @@ export default function DriverInterface() {
   const [hasActiveIncident, setHasActiveIncident] = useState(false);
   const gpsUpdateInterval = useRef<number | null>(null);
 
-  // Update GPS from browser GPS
+  // Update GPS from device GPS
   useEffect(() => {
     if (browserGPS && browserGPS.latitude && browserGPS.longitude) {
       setGPS({
@@ -183,7 +184,7 @@ export default function DriverInterface() {
     }
 
     try {
-      const response = await fetch('/api/route-enforcement/validate-token', {
+      const response = await fetch(`${API_BASE_URL}/api/route-enforcement/validate-token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: formData.qrToken.trim().toUpperCase() }),

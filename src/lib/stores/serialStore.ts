@@ -176,9 +176,9 @@ export const useSerialStore = create<SerialState>((set, get) => ({
         // Don't show an error for user cancellation - this is expected behavior
         return;
       } else if (error.name === 'SecurityError' || error.name === 'NotAllowedError') {
-        alert('Permission to access serial ports was denied. Please ensure:\n\n1. You are using Chrome or Edge browser\n2. The site is running via HTTPS or localhost\n3. Try clicking the port selection again\n4. Check for any permission dialogs that might be hidden');
+        alert('Permission to access serial ports was denied. Please ensure:\n\n1. You are using MeasurePRO desktop\n2. The serial device is properly connected via USB\n3. Try clicking the port selection again\n4. Check for any permission dialogs that might be hidden');
       } else if (error.name === 'NotSupportedError') {
-        alert('Web Serial API is not supported in this browser. Please use Chrome or Edge browser.');
+        alert('Web Serial API is not supported in this browser. Please use MeasurePRO desktop.');
       } else {
         alert(`Unexpected error: ${error.message || 'Unknown error occurred'}\n\nPlease try again or refresh the page.`);
       }
@@ -434,13 +434,13 @@ export const useSerialStore = create<SerialState>((set, get) => ({
       
       // Update GPS store
       useGPSStore.getState().setConnected(true);
-      // DON'T stop browser GPS here - let it keep running until serial GPS has a valid fix
+      // DON'T stop device GPS here - let it keep running until serial GPS has a valid fix
       // The GPS store will automatically switch sources when serial GPS gets coordinates
     } catch (error) {
       set({ gpsPort: null, gpsReader: null });
       useGPSStore.getState().setConnected(false);
       
-      // If failsafe is enabled, try to start browser GPS
+      // If failsafe is enabled, try to start device GPS
       const gpsStore = useGPSStore.getState();
       if (gpsStore.failsafeEnabled) {
         gpsStore.initBrowserGPS();

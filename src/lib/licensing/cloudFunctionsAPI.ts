@@ -6,6 +6,7 @@
  */
 
 import { getFunctions, httpsCallable } from 'firebase/functions';
+import { API_BASE_URL } from '@/lib/config/environment';
 import firebase from '@/lib/firebase';
 import type {
   InsertLicenseFeature,
@@ -198,7 +199,7 @@ export async function getAllLicensePackagesAPI(): Promise<LicensePackage[]> {
   const currentUser = getAuth().currentUser;
   if (!currentUser) return [];
   const idToken = await currentUser.getIdToken();
-  const resp = await fetch('/api/licenses/packages', {
+  const resp = await fetch(`${API_BASE_URL}/api/licenses/packages`, {
     headers: { Authorization: `Bearer ${idToken}` },
   });
   if (!resp.ok) return [];
@@ -260,7 +261,7 @@ export async function getUserLicensesAPI(): Promise<UserLicense[]> {
   const currentUser = getAuth().currentUser;
   if (!currentUser) throw new Error('Not authenticated');
   const idToken = await currentUser.getIdToken();
-  const resp = await fetch('/api/licenses/user-licenses', {
+  const resp = await fetch(`${API_BASE_URL}/api/licenses/user-licenses`, {
     headers: { Authorization: `Bearer ${idToken}` },
   });
   if (!resp.ok) throw new Error(`user-licenses returned ${resp.status}`);

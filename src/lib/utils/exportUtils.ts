@@ -1,4 +1,5 @@
 import { toast } from 'sonner';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { openSurveyDB } from '../survey/db';
 import { Survey, Measurement } from '../survey/types';
 import JSZip from 'jszip';
@@ -2556,7 +2557,7 @@ export const closeSurveyWithExport = async (
       
       if (userId && navigator.onLine) {
         // Check if RoadScope is configured for this user
-        const settingsRes = await fetch(`/api/roadscope/settings/${userId}`);
+        const settingsRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}`);
         const settingsJson = await settingsRes.json();
         
         if (settingsJson.success && settingsJson.data?.apiKeyValidated === true) {

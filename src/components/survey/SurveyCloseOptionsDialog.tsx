@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { 
   HardDrive, 
   Mail, 
@@ -83,7 +84,7 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
     const checkRoadScope = async () => {
       try {
         if (userId) {
-          const res = await fetch(`/api/roadscope/settings/${userId}`);
+          const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}`);
           const json = await res.json();
           console.log('[SurveyClose] RoadScope settings check:', { userId, json });
           // Check both apiKeyValidated and hasApiKey (hasApiKey is set when apiKey exists)
@@ -233,7 +234,7 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
           // Use userId from useAuth (already defined at component level with localStorage fallback)
           if (userId) {
             // Fetch and set the API key first (same pattern as RoadScopeSyncDialog)
-            const keyRes = await fetch(`/api/roadscope/settings/${userId}/key`);
+            const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
             const keyJson = await keyRes.json();
             
             if (!keyJson.success || !keyJson.apiKey) {

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { User } from 'firebase/auth';
 import { 
   getCurrentUser, 
@@ -52,7 +53,7 @@ async function recordOnlineViaBackend(
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 10_000);
     try {
-      const resp = await fetch('/api/auth/record-online', {
+      const resp = await fetch(`${API_BASE_URL}/api/auth/record-online`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
         body: JSON.stringify({ resetAuthPeriod: options?.resetAuthPeriod || false }),
@@ -661,7 +662,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     // Confirm reset with backend FIRST — no optimistic local updates
     const idToken = await currentUser.getIdToken();
-    const resp = await fetch('/api/auth/record-online', {
+    const resp = await fetch(`${API_BASE_URL}/api/auth/record-online`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
       body: JSON.stringify({ resetAuthPeriod: true }),

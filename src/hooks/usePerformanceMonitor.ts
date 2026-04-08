@@ -323,7 +323,7 @@ export const usePerformanceMonitor = (enabled: boolean = true) => {
         type: 'memory',
         severity: 'critical',
         message: `Critical memory usage (${metrics.memoryPercent}%)`,
-        recommendation: 'Restart browser to free memory'
+        recommendation: 'Restart MeasurePRO to free memory'
       });
     } else if (metrics.memoryPercent >= THRESHOLDS.memory.warning && health === 'healthy') {
       health = 'warning';

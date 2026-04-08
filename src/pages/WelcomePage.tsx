@@ -1789,7 +1789,7 @@ export default function WelcomePage() {
           </h2>
           <div className="space-y-4 text-gray-300 text-lg leading-relaxed mb-10" data-testid="text-about-body">
             <p>
-              MeasurePRO is a professional Progressive Web App (PWA) developed by{' '}
+              MeasurePRO is a professional desktop application developed by{' '}
               <a href="https://soltecinnovation.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
                 SolTec Innovation
               </a>{' '}

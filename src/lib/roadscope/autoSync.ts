@@ -5,6 +5,7 @@
  */
 
 import { toast } from 'sonner';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { syncSurveyToRoadScope, getSyncStatus } from './syncService';
 import { openSurveyDB } from '../survey/db';
 import { logger } from '../utils/logger';
@@ -26,7 +27,7 @@ const debounceTimers: Map<string, number> = new Map();
  */
 async function isRoadScopeAutoSyncEnabled(userId: string): Promise<boolean> {
   try {
-    const res = await fetch(`/api/roadscope/settings/${userId}`);
+    const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}`);
     const json = await res.json();
     
     if (json.success && json.data) {

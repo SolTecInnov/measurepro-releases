@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '@/lib/config/environment';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Card } from '@/components/ui/card';
@@ -39,7 +40,7 @@ const TEST_CATEGORIES = [
           { id: "1.2.2", name: "GPS fix quality (No Fix → 3D Fix)", expected: "All fix types display correctly" },
           { id: "1.2.3", name: "Satellite count accuracy", expected: "Matches hardware display" },
           { id: "1.2.4", name: "HDOP value updates", expected: "Accuracy metric shows correctly" },
-          { id: "1.2.5", name: "Browser GPS failsafe activation", expected: "Auto-switches if hardware disconnects" },
+          { id: "1.2.5", name: "Device GPS failsafe activation", expected: "Auto-switches if hardware disconnects" },
           { id: "1.2.6", name: "Cold start time (~60 seconds)", expected: "App handles slow initial fix" },
           { id: "1.2.7", name: "GPS data in measurements", expected: "Coordinates logged correctly" },
           { id: "1.2.8", name: "Map position accuracy", expected: "Marker matches real position" },
@@ -71,7 +72,7 @@ const TEST_CATEGORIES = [
     subcategories: [
       {
         id: "2.1",
-        name: "Progressive Web App (PWA)",
+        name: "desktop application",
         tests: [
           { id: "2.1.1", name: "Install PWA on mobile", expected: "Add to home screen works" },
           { id: "2.1.2", name: "Install PWA on desktop", expected: "Desktop install prompt works" },
@@ -232,7 +233,7 @@ const TEST_CATEGORIES = [
           { id: "6.1.2", name: "Permission granted", expected: "GPS activates immediately" },
           { id: "6.1.3", name: "Permission denied", expected: "Shows error, suggests fix" },
           { id: "6.1.4", name: "Permission revoked mid-session", expected: "Graceful degradation, re-prompt" },
-          { id: "6.1.5", name: "Browser GPS failsafe", expected: "Falls back automatically" },
+          { id: "6.1.5", name: "Device GPS failsafe", expected: "Falls back automatically" },
           { id: "6.1.6", name: "Desktop vs mobile prompts", expected: "Both work correctly" },
         ]
       },
@@ -626,7 +627,7 @@ function TesterRegistrationForm({ onSuccess }: { onSuccess: (tester: Tester, ses
 
     try {
       let tester: Tester;
-      const existingResponse = await fetch(`/api/testers/${encodeURIComponent(email)}`);
+      const existingResponse = await fetch(`${API_BASE_URL}/api/testers/${encodeURIComponent(email)}`);
       
       if (existingResponse.ok) {
         tester = await existingResponse.json();
@@ -796,7 +797,7 @@ function TestSessionComponent({ tester, session }: { tester: Tester; session: Te
 
   const { data: existingResults } = useQuery({
     queryKey: ['/api/test-results/session', session.id],
-    queryFn: () => fetch(`/api/test-results/session/${session.id}`).then(r => r.json())
+    queryFn: () => fetch(`${API_BASE_URL}/api/test-results/session/${session.id}`).then(r => r.json())
   });
 
   useEffect(() => {
@@ -1034,12 +1035,12 @@ function TestSessionComponent({ tester, session }: { tester: Tester; session: Te
 function ComparisonDashboard() {
   const { data: comparison, isLoading } = useQuery({
     queryKey: ['/api/test-stats/compare'],
-    queryFn: () => fetch('/api/test-stats/compare').then(r => r.json())
+    queryFn: () => fetch(`${API_BASE_URL}/api/test-stats/compare`).then(r => r.json())
   });
 
   const { data: stats } = useQuery({
     queryKey: ['/api/test-stats'],
-    queryFn: () => fetch('/api/test-stats').then(r => r.json())
+    queryFn: () => fetch(`${API_BASE_URL}/api/test-stats`).then(r => r.json())
   });
 
   const exportCSV = () => {

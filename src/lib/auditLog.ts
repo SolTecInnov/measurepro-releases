@@ -1,5 +1,6 @@
 // Audit Logging Client — fire-and-forget with IndexedDB offline queue
 import { openDB, IDBPDatabase } from 'idb';
+import { API_BASE_URL } from '@/lib/config/environment';
 
 const QUEUE_DB_NAME = 'audit-queue-db';
 const QUEUE_STORE = 'pending';
@@ -75,7 +76,7 @@ export async function flushAuditQueue(): Promise<void> {
     let failed = 0;
     for (const item of all) {
       try {
-        const resp = await fetch(`/api/audit${item.endpoint}`, {
+        const resp = await fetch(`${API_BASE_URL}/api/audit${item.endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(item.data),
@@ -133,7 +134,7 @@ async function sendLog(endpoint: string, data: any): Promise<void> {
     return;
   }
   try {
-    const resp = await fetch(`/api/audit${endpoint}`, {
+    const resp = await fetch(`${API_BASE_URL}/api/audit${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),

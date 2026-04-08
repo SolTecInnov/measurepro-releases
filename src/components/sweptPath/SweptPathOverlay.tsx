@@ -24,6 +24,7 @@ const SweptPathOverlay: React.FC<SweptPathOverlayProps> = ({ canvasWidth, canvas
 
     // Get current snapshot
     const snapshot = currentAnalysis.snapshots[playback.currentFrame] || currentAnalysis.snapshots[0];
+    if (!snapshot) return;
 
     // Draw road boundaries (if enabled)
     if (settings.showRoadBoundaries) {
