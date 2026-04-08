@@ -119,7 +119,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
   };
 
   // Handle measurement capture mode changes
-  const handleLoggingModeChange = (mode: 'manual' | 'all' | 'detection' | 'manualDetection' | 'counterDetection') => {
+  const handleLoggingModeChange = (mode: 'manual' | 'all' | 'counterDetection') => {
     
     // CRITICAL: Block all non-manual modes if ground reference is zero
     // Ground reference can NEVER be 0 in real-world usage - laser is always mounted above ground
@@ -180,9 +180,9 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
       // toast suppressed
     }
     
-    if ((mode === 'all' || mode === 'detection' || mode === 'manualDetection' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
+    if ((mode === 'all' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
-        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated measurement capture modes.',
+        description: 'Both Laser and GPS must be connected for All Data and Auto-Capture modes.',
         action: {
           label: 'Connect Devices',
           onClick: () => {
@@ -203,7 +203,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     
     if (mode === 'manual') {
       stopLogging();
-    } else if (mode === 'all' || mode === 'detection' || mode === 'manualDetection' || mode === 'counterDetection') {
+    } else if (mode === 'all' || mode === 'counterDetection') {
       // Call the external startLogging function from useMeasurementLogging
       // This properly initializes all state and resets stopRequested.current
       externalStartLogging();
@@ -275,9 +275,9 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     }
 
     // Check device connections for automated modes (wired OR Bluetooth)
-    if ((loggingMode === 'all' || loggingMode === 'detection') && (!hasLaserConnection || !hasGpsConnection)) {
+    if ((loggingMode === 'all' || loggingMode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
-        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated measurement capture modes.',
+        description: 'Both Laser and GPS must be connected for All Data and Auto-Capture modes.',
         action: {
           label: 'Connect Devices',
           onClick: () => {
@@ -396,30 +396,30 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl h-full">
-      <div className="grid grid-cols-5 gap-2 mb-4">
+      <div className="grid grid-cols-3 gap-2 mb-4">
         <div className="relative">
           <button
             onClick={() => handleLoggingModeChange('manual')}
-            title="Manual Mode - Log current measurement when you click the button"
-            className={`w-full flex flex-col items-center justify-center p-2 rounded-lg transition-colors text-xs ${
-              loggingMode === 'manual' ? 'bg-emerald-600' : 'bg-gray-700 hover:bg-gray-600'
+            title="Manual - Log current measurement when you click the button"
+            className={`w-full flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-sm ${
+              loggingMode === 'manual' ? 'bg-emerald-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
             }`}
             data-testid="button-logging-manual"
           >
-            <span className="font-medium">Manual</span>
+            <span className="font-semibold">Manual</span>
           </button>
         </div>
-        
+
         <div className="relative">
           <button
             onClick={() => handleLoggingModeChange('all')}
-            title="All Data Mode - Automatically log all measurements continuously"
-            className={`w-full flex flex-col items-center justify-center p-2 rounded-lg transition-colors text-xs ${
-              loggingMode === 'all' ? 'bg-blue-600' : 'bg-gray-700 hover:bg-gray-600'
+            title="All Data - Automatically log every valid laser reading continuously"
+            className={`w-full flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-sm ${
+              loggingMode === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
             } ${(!hasLaserConnection || !hasGpsConnection) ? 'opacity-50' : ''}`}
             data-testid="button-logging-all"
           >
-            <span className="font-medium">All Data</span>
+            <span className="font-semibold">All Data</span>
           </button>
           {(!hasLaserConnection || !hasGpsConnection) && (
             <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
@@ -427,49 +427,17 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
             </div>
           )}
         </div>
-        
-        {/* AI Detection Mode - Coming Soon (disabled) */}
-        <div className="relative">
-          <button
-            disabled
-            title="AI Detection — coming soon"
-            className="w-full flex flex-col items-center justify-center p-2 rounded-lg transition-colors text-xs bg-gray-800 opacity-40 cursor-not-allowed"
-            data-testid="button-logging-detection"
-          >
-            <span className="font-medium text-gray-500">AI Detec.</span>
-          </button>
-        </div>
-        
-        {/* Buffer Detection Mode - Available to ALL users */}
-        <div className="relative">
-          <button
-            onClick={() => handleLoggingModeChange('manualDetection')}
-            title="Buffer Detection Mode - Buffers measurements over distance/time to find lowest point"
-            className={`w-full flex flex-col items-center justify-center p-2 rounded-lg transition-colors text-xs ${
-              loggingMode === 'manualDetection' ? 'bg-teal-600' : 'bg-gray-700 hover:bg-gray-600'
-            } ${(!hasLaserConnection || !hasGpsConnection) ? 'opacity-50' : ''}`}
-            data-testid="button-logging-buffer-detection"
-          >
-            <span className="font-medium">Buffer Det</span>
-          </button>
-          {(!hasLaserConnection || !hasGpsConnection) && (
-            <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
-              <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            </div>
-          )}
-        </div>
-        
-        {/* Counter Detection Mode - Available to ALL users including beta */}
+
         <div className="relative">
           <button
             onClick={() => handleLoggingModeChange('counterDetection')}
-            title="Counter Detection Mode - Counter-based debouncing for overhead detection"
-            className={`w-full flex flex-col items-center justify-center p-2 rounded-lg transition-colors text-xs ${
-              loggingMode === 'counterDetection' ? 'bg-amber-600' : 'bg-gray-700 hover:bg-gray-600'
+            title="Auto-Capture - Detects overhead objects (sky→object→sky) and logs the lowest point automatically"
+            className={`w-full flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-sm ${
+              loggingMode === 'counterDetection' ? 'bg-amber-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
             } ${(!hasLaserConnection || !hasGpsConnection) ? 'opacity-50' : ''}`}
-            data-testid="button-logging-counter-detection"
+            data-testid="button-logging-auto-capture"
           >
-            <span className="font-medium">Counter Det.</span>
+            <span className="font-semibold">Auto-Capture</span>
           </button>
           {(!hasLaserConnection || !hasGpsConnection) && (
             <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
