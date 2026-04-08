@@ -77,6 +77,7 @@
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.183.1",
+    "@types/w3c-web-serial": "^1.0.8",
     "@vitejs/plugin-react": "^4.5.2",
     "autoprefixer": "^10.4.21",
     "concurrently": "^9.1.2",
@@ -92,7 +93,7 @@
   "build": {
     "appId": "com.soltecinnovation.measurepro",
     "productName": "MeasurePRO",
-    "copyright": "Copyright \u00a9 2025 Soltec Innovation",
+    "copyright": "Copyright © 2025 Soltec Innovation",
     "directories": {
       "output": "release-builds",
       "buildResources": "build-resources"
