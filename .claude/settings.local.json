@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(timeout 30 npx vite --port 5175 --logLevel info)",
+      "Bash(timeout 20 npx vite build)",
+      "Bash(timeout 90 npx vite build)",
+      "Read(//tmp/**)",
+      "Bash(chmod +x /tmp/find_orphans.sh)",
+      "Bash(grep -h \"from.*\\\\.js\" /mnt/c/Users/jfpri/measurepro-electron/server/*.ts)",
+      "Bash(python3 /tmp/identify_orphans_final.py)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(npm info:*)",
+      "Bash(npm install:*)",
+      "Bash(git push:*)",
+      "Bash(gh release:*)",
+      "Bash(git tag:*)",
+      "Bash(sort -t/ -k3 -V)",
+      "Bash(curl -s -H \"Authorization: Bearer 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\" https://api.github.com/repos/SolTecInnov/measurepro-releases/releases?per_page=5)",
+      "Bash(python3 -c ':*)",
+      "Bash(curl -s -H \"Authorization: Bearer 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\" https://api.github.com/repos/SolTecInnov/measurepro-releases/releases/tags/v15.6.43)"
+    ]
+  }
+}
