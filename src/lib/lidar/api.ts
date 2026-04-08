@@ -14,3 +14,4 @@ export async function getCapture(_captureId: string): Promise<CaptureInfo> { ret
 export async function listCaptures(): Promise<CaptureInfo[]> { return []; }
 export async function exportCapture(_captureId: string, _format?: 'laz' | 'las'): Promise<{ path: string }> { return { path: '' }; }
 export async function sendGnssHeartbeat(_heartbeat: GnssHeartbeat): Promise<void> {}
+export async function checkServiceAvailable(): Promise<boolean> { return false; }
