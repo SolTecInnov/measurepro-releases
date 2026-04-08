@@ -112,7 +112,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
                 break;
               }
               if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-                toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+                toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
                 break;
               }
               if (!isLogging) {
@@ -127,7 +127,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
                 break;
               }
               if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-                toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+                toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
                 break;
               }
               handleOpenModalWithPOIType(poiType);
@@ -138,7 +138,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
                 break;
               }
               if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-                toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+                toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
                 break;
               }
               handleVoiceNoteRequested();

@@ -38,7 +38,7 @@ const POISelector: React.FC<POISelectorProps> = ({
           return;
         }
         if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-          toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+          toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
           return;
         }
         if (!isLogging) {
@@ -53,7 +53,7 @@ const POISelector: React.FC<POISelectorProps> = ({
           return;
         }
         if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-          toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+          toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
           return;
         }
         onModalOpenRequested?.(poiType);
@@ -64,7 +64,7 @@ const POISelector: React.FC<POISelectorProps> = ({
           return;
         }
         if (!loggingMode || loggingMode === 'none' || loggingMode === 'off') {
-          toast.error('No logging mode selected', { description: 'Please select a logging mode before logging POI.' });
+          toast.error('No measurement capture mode selected', { description: 'Please select a measurement capture mode before logging POI.' });
           return;
         }
         onVoiceNoteRequested?.();

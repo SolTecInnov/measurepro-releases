@@ -628,7 +628,7 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
                 You can also log independent measurements without creating a survey:
               </p>
               <ul className="text-gray-300 text-sm space-y-1">
-                <li>• Use Manual logging mode</li>
+                <li>• Use Manual measurement capture mode</li>
                 <li>• Measurements are saved locally</li>
                 <li>• Can be exported anytime</li>
                 <li>• Useful for quick measurements or testing</li>
@@ -640,13 +640,13 @@ const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ isOpen, onClose, on
     },
     {
       id: 'logging-modes',
-      title: 'Logging Modes',
+      title: 'Measurement Capture Modes',
       icon: <Settings className="w-8 h-8 text-blue-400" />,
       content: (
         <div className="space-y-6">
           <div className="text-center mb-6">
             <Settings className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Understanding Logging Modes</h2>
+            <h2 className="text-2xl font-bold mb-2">Understanding Measurement Capture Modes</h2>
             <p className="text-gray-300">
               Choose the right mode for your measurement needs
             </p>

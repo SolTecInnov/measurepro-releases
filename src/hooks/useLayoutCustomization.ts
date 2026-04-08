@@ -38,7 +38,7 @@ const DEFAULT_LAYOUT_CONFIG: LayoutCard[] = [
   },
   {
     id: 'logging-controls',
-    name: 'Logging Controls',
+    name: 'Measurement Capture Mode',
     defaultPosition: { column: 1, row: 4, span: 'full' },
     visible: true,
     collapsed: false,

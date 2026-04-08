@@ -118,7 +118,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     await new Promise(resolve => setTimeout(resolve, 300));
   };
 
-  // Handle logging mode changes
+  // Handle measurement capture mode changes
   const handleLoggingModeChange = (mode: 'manual' | 'all' | 'detection' | 'manualDetection' | 'counterDetection') => {
     
     // CRITICAL: Block all non-manual modes if ground reference is zero
@@ -155,7 +155,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     // Object Detection mode can work without a survey (detection only, no logging)
     if (!activeSurvey && mode !== 'manual' && mode !== 'counterDetection') {
       toast.error('Please create a survey first', {
-        description: 'Automated logging modes require an active survey. Manual mode works independently.',
+        description: 'Automated measurement capture modes require an active survey. Manual mode works independently.',
         action: {
           label: 'Create Survey',
           onClick: () => {
@@ -182,7 +182,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     
     if ((mode === 'all' || mode === 'detection' || mode === 'manualDetection' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
-        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated logging modes.',
+        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated measurement capture modes.',
         action: {
           label: 'Connect Devices',
           onClick: () => {
@@ -277,7 +277,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     // Check device connections for automated modes (wired OR Bluetooth)
     if ((loggingMode === 'all' || loggingMode === 'detection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
-        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated logging modes.',
+        description: 'Both Laser and GPS must be connected (wired or Bluetooth) for automated measurement capture modes.',
         action: {
           label: 'Connect Devices',
           onClick: () => {
@@ -396,7 +396,6 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
 
   return (
     <div className="bg-gray-800 p-4 rounded-xl h-full">
-      <h3 className="text-sm font-medium text-gray-400 mb-2">Measurement Capture Mode</h3>
       <div className="grid grid-cols-5 gap-2 mb-4">
         <div className="relative">
           <button
