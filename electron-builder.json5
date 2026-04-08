@@ -18,5 +18,11 @@
     "oneClick": false,
     "allowToChangeInstallationDirectory": true
   },
-  "asar": true
+  "asar": true,
+  "publish": {
+    "provider": "github",
+    "owner": "SolTecInnov",
+    "repo": "measurepro-releases",
+    "private": false
+  }
 }

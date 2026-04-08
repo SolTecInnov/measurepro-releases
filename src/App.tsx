@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ProtectedRoute } from './lib/auth/ProtectedRoute';
 import { FeatureProtectedRoute } from './lib/auth/FeatureProtectedRoute';
 import { CompanyAdminRoute } from './lib/auth/CompanyAdminRoute';
+import { AutoUpdater } from './components/AutoUpdater';
+import { DisclaimerModal, useDisclaimerAccepted } from './components/DisclaimerModal';
 import { ThemeProvider } from './components/ThemeProvider';
 import { LazyLoadErrorBoundary } from './components/LazyLoadErrorBoundary';
 import AdminNavBar from './components/admin/AdminNavBar';
@@ -432,6 +434,8 @@ function PostLoginRedirectHandler() {
 }
 
 function App() {
+  const { accepted: disclaimerAccepted, accept: acceptDisclaimer } = useDisclaimerAccepted();
+
   // IndexedDB blocked warning state
   const [showIndexedDBWarning, setShowIndexedDBWarning] = useState(false);
   const [showDroneImport, setShowDroneImport] = useState(false);
@@ -882,7 +886,10 @@ function App() {
   const bannerPadding = hasOfflineBanner || hasGraceBanner ? '48px' : '0';
 
   return (
-    <HelmetProvider>
+    <>
+      {!disclaimerAccepted && <DisclaimerModal onAccept={acceptDisclaimer} />}
+      <AutoUpdater />
+      <HelmetProvider>
     <LicenseStartupCheckProvider>
       <ThemeProvider>
         <MemoryRouter initialEntries={['/']} initialIndex={0}>
@@ -1498,6 +1505,7 @@ function App() {
       </ThemeProvider>
     </LicenseStartupCheckProvider>
     </HelmetProvider>
+    </>
   );
 }
 

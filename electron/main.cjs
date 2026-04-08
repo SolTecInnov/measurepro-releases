@@ -1,4 +1,8 @@
 const { app, BrowserWindow, ipcMain, dialog, shell, Menu } = require('electron');
+
+// Auto-updater — loaded with guard so startup never fails if package missing
+let autoUpdater = null;
+try { autoUpdater = require('electron-updater').autoUpdater; } catch (_e) { /* not bundled */ }
 const path = require('path');
 const fs = require('fs');
 const { SerialPort } = require('serialport');
@@ -328,6 +332,44 @@ ipcMain.handle('show-open-dialog', async (_event, options) => {
 });
 
 // App lifecycle
+// ── Auto-updater ─────────────────────────────────────────────────────────────
+if (autoUpdater) autoUpdater.autoDownload = true;
+if (autoUpdater) autoUpdater.autoInstallOnAppQuit = false;
+
+autoUpdater && autoUpdater.on('update-available', (info) => {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:update-available', info);
+  }
+});
+
+autoUpdater && autoUpdater.on('download-progress', (progress) => {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:download-progress', progress);
+  }
+});
+
+autoUpdater && autoUpdater.on('update-downloaded', (info) => {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:update-downloaded', info);
+  }
+});
+
+autoUpdater && autoUpdater.on('error', (err) => {
+  console.error('[AutoUpdater] Error:', err.message);
+});
+
+ipcMain.handle('updater:check', async () => {
+  try {
+    return autoUpdater ? await autoUpdater.checkForUpdates() : null;
+  } catch (e) {
+    return null;
+  }
+});
+
+ipcMain.handle('updater:install-now', () => {
+  if (autoUpdater) autoUpdater.quitAndInstall(false, true);
+});
+
 app.whenReady().then(() => {
   createWindow();
   app.on('activate', () => {

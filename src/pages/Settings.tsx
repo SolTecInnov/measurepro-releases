@@ -7,7 +7,7 @@ import { useSurveyStore } from '../lib/survey';
 import { usePOIStore, POI_TYPES, type POIType, MEASUREMENT_FREE_POI_TYPES, shouldRecordHeightClearance } from '../lib/poi';
 import { usePOIActionsStore } from '../lib/poiActions';
 import { useLayoutCustomization } from '../hooks/useLayoutCustomization';
-import { useMeasurementLogging } from '../hooks/useMeasurementLogging';
+import { useLogging } from '../hooks/logging/useLogging';
 import { useMeasurementLogger } from '../hooks/useMeasurementLogger';
 import { soundManager } from '../lib/sounds';
 import { useSettingsStore } from '../lib/settings';
@@ -875,30 +875,32 @@ const Settings: React.FC = () => {
     setIsEditModalOpen(true);
   }, []);
 
-  // Measurement logging hook
+  // Measurement logging — new clean implementation
   const {
-    loggingMode,
     isLogging,
-    isPaused,
-    setLoggingMode,
-    setIsLogging,
-    handleLoggingModeChange,
+    loggingMode,
+    poisLogged,
+    isBuffering,
     startLogging,
     stopLogging,
-    pauseLogging,
-    resumeLogging,
-    logMeasurement,
-  } = useMeasurementLogging({
-    handleCaptureImage,
-    pendingPhotos,
-    setPendingPhotos,
-    setOfflineItems,
-    setShowSurveyDialog,
-    selectedPOIType: selectedType,
-    setCapturedData,
-    capturedData,
-    handleAutoCaptureAndLog
-  });
+    logManual: logMeasurement,
+    startAllData,
+    startCounter,
+    startBuffer,
+  } = useLogging({ captureImage: handleCaptureImage });
+
+  // Compat shims for existing UI components
+  const isPaused = false;
+  const setLoggingMode = (mode: string) => startLogging(mode as any);
+  const setIsLogging = (v: boolean) => { if (!v) stopLogging(); };
+  const handleLoggingModeChange = (mode: string) => {
+    if (mode === 'all' || mode === 'all_data') startAllData();
+    else if (mode === 'counterDetection' || mode === 'counter') startCounter();
+    else if (mode === 'detection' || mode === 'buffer') startBuffer();
+    else stopLogging();
+  };
+  const pauseLogging = () => {};
+  const resumeLogging = () => startLogging(loggingMode);
 
   // Listen for layout config changes from the customizer
   const [layoutVersion, setLayoutVersion] = React.useState(0);

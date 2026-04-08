@@ -14,6 +14,7 @@ import EmailSettings from './settings/EmailSettings';
 import KeyboardSettings from './settings/KeyboardSettings';
 import HelpSettings from './settings/HelpSettings';
 import LaserGPSSettings from './settings/LaserGPSSettings';
+import LaserConnectionSettings from './settings/LaserConnectionSettings';
 import DisplaySettings from './settings/DisplaySettings';
 import VoiceSettings from './settings/VoiceSettings';
 import AISettings from './settings/AISettings';
@@ -266,7 +267,7 @@ const TabManager: React.FC<TabManagerProps> = ({
           />
         </div>
       )}
-      {activeTab === 'laser-gps' && <LaserGPSSettings />}
+      {activeTab === 'laser-gps' && <><LaserConnectionSettings /><div className='border-t border-gray-700 my-6' /><LaserGPSSettings /></>}
       {activeTab === 'lateral-rear' && <LateralRearLaserSettings />}
       {activeTab === 'gnss' && <GnssSettings />}
       {activeTab === 'camera' && (
