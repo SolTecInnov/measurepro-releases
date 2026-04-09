@@ -254,6 +254,17 @@ const VehicleMap: React.FC = () => {
   // Route navigation (lifted from RouteManager so it persists when modal closes)
   const [activeNavRoute, setActiveNavRoute] = useState<Route | null>(null);
 
+  // Auto-load routes when survey changes (persist across modal open/close)
+  useEffect(() => {
+    if (!activeSurvey?.id) { setRoutes([]); setVisibleRoutes(new Set()); return; }
+    import('../lib/utils/routeUtils').then(({ getRoutesBySurvey }) => {
+      getRoutesBySurvey(activeSurvey.id).then(surveyRoutes => {
+        setRoutes(surveyRoutes);
+        setVisibleRoutes(new Set(surveyRoutes.map(r => r.id)));
+      }).catch(() => {});
+    });
+  }, [activeSurvey?.id]);
+
   // Route creation state
   const [showRouteCreator, setShowRouteCreator] = useState(false);
   const [showRouteManager, setShowRouteManager] = useState(false);

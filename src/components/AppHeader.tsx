@@ -443,67 +443,6 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </button>
               )}
 
-              {/* Live Monitor — temporarily disabled */}
-              {!isBeta && false && (
-                <Link
-                  to="/LiveMonitor"
-                  onClick={() => {
-                    sessionStorage.setItem('manual_navigation', 'true');
-                    setShowToolsMenu(false);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-gray-800 transition-colors"
-                  data-testid="link-live-monitor"
-                >
-                  <Activity className="w-4 h-4" />
-                  <span>Live Monitor</span>
-                </Link>
-              )}
-
-              {/* Point Cloud Scanner — disabled (future) */}
-              {false && hasFeature('point_cloud_scanning') && (
-                <Link
-                  to="/point-cloud-scanner"
-                  onClick={() => {
-                    sessionStorage.setItem('manual_navigation', 'true');
-                    setShowToolsMenu(false);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-purple-400 hover:bg-gray-800 transition-colors"
-                  data-testid="link-point-cloud-scanner"
-                >
-                  <Box className="w-4 h-4" />
-                  <span>3D Point Cloud</span>
-                </Link>
-              )}
-
-
-
-              {/* Lidar HUD — moved here from main screen, hidden for now */}
-              {false && (
-                <button
-                  onClick={() => setShowToolsMenu(false)}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-green-400 hover:bg-gray-800 transition-colors"
-                >
-                  <Layers className="w-4 h-4" />
-                  <span>LiDAR HUD</span>
-                </button>
-              )}
-
-              {/* 3D LiDAR Scanning - disabled (future) */}
-              {false && hasFeature('point_cloud_scanning') && (
-                <Link
-                  to="/lidar"
-                  onClick={() => {
-                    sessionStorage.setItem('manual_navigation', 'true');
-                    setShowToolsMenu(false);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-orange-400 hover:bg-gray-800 transition-colors"
-                  data-testid="link-lidar-scanning"
-                >
-                  <Scan className="w-4 h-4" />
-                  <span>3D LiDAR Scanning</span>
-                </Link>
-              )}
-
               {/* RoadScope Sync */}
               <button
                 onClick={() => {
