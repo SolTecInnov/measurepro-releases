@@ -269,8 +269,8 @@ export const usePOIStore = create<POIStore>((set, get) => ({
   setSelectedType: (type) => {
     const previousType = get().selectedType;
     set({ selectedType: type });
-    
-    // Play sound when POI type changes (ensures sound plays from Stream Deck, keyboard, or any source)
+
+    // Play sound when POI type changes — fire-and-forget (no await) for instant UI response
     if (type !== previousType && type !== '') {
       soundManager.playPOITypeChange();
     }

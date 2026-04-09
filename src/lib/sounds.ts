@@ -347,7 +347,23 @@ class SoundManager {
     this.notifyListeners();
   }
 
-  // Core play helper — always creates a fresh Audio element (no cloneNode)
+  // Play a preloaded sound by key — fast path using cached Audio elements
+  private async playCached(key: string, volume: number): Promise<HTMLAudioElement | null> {
+    try {
+      const cached = this.sounds.get(key);
+      if (cached) {
+        cached.volume = Math.max(0, Math.min(1, volume));
+        cached.currentTime = 0;
+        await cached.play();
+        return cached;
+      }
+    } catch {
+      // Fall through to fresh
+    }
+    return null;
+  }
+
+  // Core play helper — creates a fresh Audio element (used for loops or when cache misses)
   private async playFresh(url: string, volume: number, loop = false): Promise<HTMLAudioElement | null> {
     try {
       const audio = new Audio(url);
@@ -366,8 +382,7 @@ class SoundManager {
 
   async playLogEntry() {
     if (!this.initialized) await this.initialize();
-    console.log('[SoundManager] playLogEntry — initialized:', this.initialized, 'volume:', this.config.volume, 'src:', this.config.logEntry);
-    await this.playFresh(this.config.logEntry, this.config.volume);
+    await this.playCached('logEntry', this.config.volume) || await this.playFresh(this.config.logEntry, this.config.volume);
   }
 
   async playWarning() {
@@ -439,31 +454,31 @@ class SoundManager {
   async playPOITypeChange() {
     if (!this.config.poiTypeChangeEnabled) return;
     if (!this.initialized) await this.initialize();
-    await this.playFresh(this.config.poiTypeChange, this.config.volume);
+    await this.playCached('poiTypeChange', this.config.volume) || await this.playFresh(this.config.poiTypeChange, this.config.volume);
   }
 
   async playImageCaptured() {
     if (!this.config.imageCapturedEnabled) return;
     if (!this.initialized) await this.initialize();
-    await this.playFresh(this.config.imageCaptured, this.config.volume);
+    await this.playCached('imageCaptured', this.config.volume) || await this.playFresh(this.config.imageCaptured, this.config.volume);
   }
 
   async playMeasureDetected() {
     if (!this.config.measureDetectedEnabled) return;
     if (!this.initialized) await this.initialize();
-    await this.playFresh(this.config.measureDetected, this.config.volume);
+    await this.playCached('measureDetected', this.config.volume) || await this.playFresh(this.config.measureDetected, this.config.volume);
   }
 
   async playBufferStart() {
     if (!this.config.bufferStartEnabled) return;
     if (!this.initialized) await this.initialize();
-    await this.playFresh(this.config.bufferStart, this.config.volume);
+    await this.playCached('bufferStart', this.config.volume) || await this.playFresh(this.config.bufferStart, this.config.volume);
   }
 
   async playBufferComplete() {
     if (!this.config.bufferCompleteEnabled) return;
     if (!this.initialized) await this.initialize();
-    await this.playFresh(this.config.bufferComplete, this.config.volume);
+    await this.playCached('bufferComplete', this.config.volume) || await this.playFresh(this.config.bufferComplete, this.config.volume);
   }
 
   setNotificationEnabled(type: 'poiTypeChange' | 'imageCaptured' | 'measureDetected' | 'bufferStart' | 'bufferComplete', enabled: boolean) {

@@ -6,7 +6,7 @@ import { useGPSStore } from '../lib/stores/gpsStore';
 import { useSurveyStore } from '../lib/survey';
 import { useSettingsStore } from '../lib/settings';
 import { openSurveyDB } from '../lib/survey/db';
-import { POI_TYPES } from '../lib/poi';
+import { POI_TYPES, usePOIStore } from '../lib/poi';
 import { toast } from 'sonner';
 import { useOnlineStatus } from '../hooks/useOnlineStatus';
 import POIDetailsModal from './POIDetailsModal';
@@ -232,6 +232,7 @@ const VehicleMap: React.FC = () => {
   const { data: gpsData } = useGPSStore();
   const { activeSurvey } = useSurveyStore();
   const { mapSettings } = useSettingsStore();
+  const selectedPOIType = usePOIStore(s => s.selectedType);
   const { isOnline, wasOnlineAtStart } = useOnlineStatus();
   
   // PERFORMANCE FIX: Use in-memory cache instead of IndexedDB queries
@@ -553,6 +554,23 @@ const VehicleMap: React.FC = () => {
             </div>
           )}
         </div>
+
+        {/* Active POI Type Indicator */}
+        {(() => {
+          const poiConfig = selectedPOIType ? POI_TYPES.find(p => p.type === selectedPOIType) : null;
+          if (!poiConfig) return null;
+          const IconComponent = poiConfig.icon;
+          return (
+            <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm z-[10] backdrop-blur-sm border border-gray-600/50">
+              <div className="flex items-center gap-2">
+                <div className={`w-6 h-6 rounded-md ${poiConfig.bgColor} flex items-center justify-center`}>
+                  <IconComponent className="w-3.5 h-3.5 text-white" />
+                </div>
+                <span className="font-medium">{poiConfig.label}</span>
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Route Creator Modal */}

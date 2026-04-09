@@ -493,25 +493,29 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
     );
   }
   
-  // Show loading state until routing module is ready
-  // CRITICAL: This prevents "G is not a constructor" error in production
+  // Show loading/error state — compact overlay instead of full-screen block
   if (!isRoutingReady) {
     return (
-      <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center">
+      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-50 max-w-sm">
         {loadError ? (
-          <div className="text-center">
-            <p className="text-red-400 mb-4">{loadError}</p>
+          <div className="flex items-center gap-3">
+            <Navigation className="w-4 h-4 text-red-400 shrink-0" />
+            <div className="flex-1">
+              <p className="text-sm font-medium text-white">{route.name}</p>
+              <p className="text-xs text-red-400">Navigation module unavailable</p>
+            </div>
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg"
+              className="p-1 bg-red-600 hover:bg-red-700 rounded"
+              title="Stop Navigation"
             >
-              Close
+              <Square className="w-3 h-3" />
             </button>
           </div>
         ) : (
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p className="text-gray-400">Loading navigation module...</p>
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-4 border-2 border-blue-400 border-t-transparent rounded-full animate-spin shrink-0"></div>
+            <p className="text-sm text-gray-400">Loading navigation...</p>
           </div>
         )}
       </div>
