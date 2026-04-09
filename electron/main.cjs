@@ -631,6 +631,29 @@ ipcMain.handle('updater:get-version', () => {
   return app.getVersion();
 });
 
+// Update preference: 'auto' (default) or 'manual'
+let updatePref = 'auto';
+try {
+  const stored = fs.readFileSync(path.join(app.getPath('userData'), 'update-pref.txt'), 'utf8').trim();
+  if (stored === 'manual' || stored === 'auto') updatePref = stored;
+} catch { /* first run — default to auto */ }
+
+if (autoUpdater) {
+  autoUpdater.autoDownload = (updatePref === 'auto');
+}
+
+ipcMain.handle('updater:get-pref', () => updatePref);
+
+ipcMain.handle('updater:set-pref', (_event, pref) => {
+  if (pref !== 'auto' && pref !== 'manual') return updatePref;
+  updatePref = pref;
+  fs.writeFileSync(path.join(app.getPath('userData'), 'update-pref.txt'), pref, 'utf8');
+  if (autoUpdater) {
+    autoUpdater.autoDownload = (pref === 'auto');
+  }
+  return updatePref;
+});
+
 // Auto-check for updates 10s after window is ready
 app.whenReady().then(() => {
   setTimeout(() => {
