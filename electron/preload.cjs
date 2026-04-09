@@ -22,6 +22,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   // New updater API for AutoUpdater.tsx component
   updaterCheck:       () => ipcRenderer.invoke('updater:check'),
   updaterInstallNow:  () => ipcRenderer.invoke('updater:install-now'),
+  updaterGetVersion:  () => ipcRenderer.invoke('updater:get-version'),
   onUpdateAvailable:  (cb) => ipcRenderer.on('updater:update-available',  (_e, d) => cb(d)),
   onDownloadProgress: (cb) => ipcRenderer.on('updater:download-progress', (_e, d) => cb(d)),
   onUpdateDownloaded: (cb) => ipcRenderer.on('updater:update-downloaded', (_e, d) => cb(d)),

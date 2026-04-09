@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ExternalLink, Info, Calendar, Code, KeyRound, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { UpdateChecker } from '@/components/AutoUpdater';
 import { APP_VERSION, BUILD_DATE, APP_NAME, COMPANY_NAME, COMPANY_URL, SUPPORT_EMAIL } from '@/lib/version';
 import { getCurrentUser } from '@/lib/firebase';
 import { updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
@@ -162,6 +163,10 @@ const AboutSettings = () => {
                 {BUILD_DATE}
               </div>
             </div>
+          </div>
+
+          <div className="mt-4">
+            <UpdateChecker />
           </div>
         </div>
 

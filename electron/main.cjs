@@ -582,6 +582,19 @@ ipcMain.handle('updater:install-now', () => {
   if (autoUpdater) autoUpdater.quitAndInstall(false, true);
 });
 
+ipcMain.handle('updater:get-version', () => {
+  return app.getVersion();
+});
+
+// Auto-check for updates 10s after window is ready
+app.whenReady().then(() => {
+  setTimeout(() => {
+    if (autoUpdater) {
+      autoUpdater.checkForUpdates().catch(e => console.error('[AutoUpdater] Startup check failed:', e.message));
+    }
+  }, 10000);
+});
+
 app.whenReady().then(() => {
   createWindow();
   app.on('activate', () => {
