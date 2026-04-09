@@ -2567,7 +2567,7 @@ export const closeSurveyWithExport = async (
           const { syncSurveyToRoadScope, getSyncStatus } = await import('../roadscope/syncService');
           const status = await getSyncStatus(survey.id);
           
-          const result = await syncSurveyToRoadScope(updatedSurvey, userId, {
+          const result = await syncSurveyToRoadScope(updatedSurvey, {
             includeFiles: true, // Include all files on survey close (full sync)
             targetSurveyId: status?.roadscopeSurveyId,
             onProgress: (progress) => {

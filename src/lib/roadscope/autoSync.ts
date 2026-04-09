@@ -84,7 +84,7 @@ async function performAutoSync(surveyId: string, userId: string, poiCount: numbe
     /* toast removed */
     
     // Perform the sync
-    const result = await syncSurveyToRoadScope(survey, userId, {
+    const result = await syncSurveyToRoadScope(survey, {
       includeFiles: false, // Don't sync files during auto-sync (too slow)
       targetSurveyId: status?.roadscopeSurveyId,
       onProgress: (progress) => {
