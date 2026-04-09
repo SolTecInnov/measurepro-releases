@@ -234,7 +234,7 @@ export default function WelcomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all group" data-testid="screenshot-1">
             <img 
-              src="/screenshot-1.png" 
+              src="./screenshot-1.png" 
               alt="MeasurePRO - Main Dashboard with Live Camera and Map"
               loading="eager"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -242,7 +242,7 @@ export default function WelcomePage() {
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all group" data-testid="screenshot-2">
             <img 
-              src="/screenshot-2.png" 
+              src="./screenshot-2.png" 
               alt="MeasurePRO - Route Planning and Management" 
               loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -250,7 +250,7 @@ export default function WelcomePage() {
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all group" data-testid="screenshot-3">
             <img 
-              src="/screenshot-3.png" 
+              src="./screenshot-3.png" 
               alt="MeasurePRO - GPS Route Tracking" 
               loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -258,7 +258,7 @@ export default function WelcomePage() {
           </div>
           <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 transition-all group" data-testid="screenshot-4">
             <img 
-              src="/screenshot-4.png" 
+              src="./screenshot-4.png" 
               alt="MeasurePRO - Live Map Navigation" 
               loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -293,7 +293,7 @@ export default function WelcomePage() {
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-8" data-testid="card-lidar-system">
             <div className="bg-gray-900 border border-gray-600 rounded-lg aspect-video overflow-hidden mb-6">
               <img 
-                src="/lidar-device.png" 
+                src="./lidar-device.png" 
                 alt="SolTec LiDAR 2D Laser System mounted on vehicle" 
                 loading="lazy"
                 className="w-full h-full object-cover"
@@ -327,7 +327,7 @@ export default function WelcomePage() {
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-8" data-testid="card-tablet">
             <div className="bg-gray-900 border border-gray-600 rounded-lg aspect-video overflow-hidden mb-6">
               <img 
-                src="/tablet-device.png" 
+                src="./tablet-device.png" 
                 alt="Rugged Windows Tablet with MeasurePRO installed in vehicle" 
                 loading="lazy"
                 className="w-full h-full object-cover"

@@ -324,6 +324,10 @@ ipcMain.handle('file:write', async (_event, filePath, data) => {
 
 ipcMain.handle('app:version', () => app.getVersion());
 ipcMain.handle('app:platform', () => process.platform);
+ipcMain.handle('laser:status', () => {
+  const ports = Array.from(openPorts.keys());
+  return { connected: ports.length > 0, ports };
+});
 ipcMain.handle('show-save-dialog', async (_event, options) => {
   return dialog.showSaveDialog(mainWindow, options);
 });

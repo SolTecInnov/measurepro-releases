@@ -356,7 +356,7 @@ const RoadProfileCard: React.FC = () => {
     }
     
     // Load historical data when idle with no live points
-    if (state === 'idle' && currentSurveyId && points.length === 0) {
+    if (state === 'idle' && currentSurveyId && (!points || points.length === 0)) {
       setLoadingHistorical(true);
       getProfileDataFromDB(currentSurveyId)
         .then((data) => {
@@ -366,14 +366,14 @@ const RoadProfileCard: React.FC = () => {
         })
         .catch(console.error)
         .finally(() => setLoadingHistorical(false));
-    } else if (points.length > 0) {
+    } else if (points && points.length > 0) {
       // Clear historical when we have live data
       setHistoricalPoints([]);
     }
-  }, [state, activeSurvey?.id, points.length, prevSurveyId]);
+  }, [state, activeSurvey?.id, points?.length, prevSurveyId]);
   
   // Use live points if available, then GNSS session points, otherwise historical
-  const displayPoints = points.length > 0 ? points : 
+  const displayPoints = (points && points.length > 0) ? points :
                         (gnssPoints.length > 0 ? gnssPoints : historicalPoints);
 
   // Compute stats from display points (live or historical)
