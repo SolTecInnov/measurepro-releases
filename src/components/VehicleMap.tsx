@@ -864,7 +864,7 @@ const VehicleMap: React.FC = () => {
       )}
 
       {/* Route Navigation (outside modal so it persists) */}
-      {activeNavRoute && (
+      {activeNavRoute && activeNavRoute.points && activeNavRoute.points.length >= 2 && (
         <Suspense fallback={<div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/80"><div className="animate-spin h-8 w-8 border-t-2 border-b-2 border-blue-500 rounded-full"></div></div>}>
           <RouteNavigator
             route={activeNavRoute}

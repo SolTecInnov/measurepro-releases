@@ -716,21 +716,6 @@ export async function verifyServerSignature(
   }
 }
 
-/**
- * @deprecated Internal use only — kept for the legacy shim below.
- * Use verifyServerSignature() for all new code.
- */
-export async function signFeatureSnapshot(): Promise<null> {
-  return null;
-}
-
-/**
- * @deprecated Internal use only — kept for the legacy shim below.
- */
-export async function verifyFeatureSnapshot(): Promise<boolean> {
-  return false;
-}
-
 // ==================== FEATURE SNAPSHOT CACHE (HARDENED) ====================
 
 /**
@@ -1009,42 +994,6 @@ export const markExpiryWarnShown = async (): Promise<void> => {
       updatedAt: new Date().toISOString(),
     });
   } catch {
-  }
-};
-
-// ==================== LEGACY COMPAT HELPERS ====================
-
-/**
- * @deprecated Use updateCachedFeatureSnapshot instead.
- * Kept for callers that have not yet migrated.
- */
-export const updateCachedEnabledFeatures = async (featureKeys: string[]): Promise<void> => {
-  try {
-    const authData = await getAuthCache();
-    if (!authData) return;
-    const db = await getDB();
-    const now = new Date().toISOString();
-    await db.put(AUTH_CACHE_STORE, {
-      ...authData,
-      enabledFeatureKeys: featureKeys,
-      lastFeatureKeysSyncAt: now,
-      updatedAt: now,
-    });
-  } catch {
-  }
-};
-
-/**
- * @deprecated Use getCachedFeatureSnapshot instead.
- * Falls back to legacy simple cache if no hardened snapshot exists.
- */
-export const getCachedEnabledFeatures = async (): Promise<string[] | null> => {
-  try {
-    const authData = await getAuthCache();
-    // Prefer legacy field as a quick fallback (snapshot verified separately)
-    return authData?.enabledFeatureKeys ?? null;
-  } catch {
-    return null;
   }
 };
 

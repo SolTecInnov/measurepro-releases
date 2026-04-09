@@ -129,9 +129,10 @@
       "icon": "build-resources/icon.ico"
     },
     "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "artifactName": "MeasurePROSetup.exe"
+      "oneClick": true,
+      "perMachine": false,
+      "artifactName": "MeasurePROSetup.exe",
+      "include": "build-resources/installer.nsh"
     },
     "publish": {
       "provider": "github",

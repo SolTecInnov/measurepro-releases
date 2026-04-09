@@ -166,6 +166,10 @@ const RouteManager: React.FC<RouteManagerProps> = ({
   };
 
   const handleStartNavigation = (route: Route) => {
+    if (!route.points || route.points.length < 2) {
+      toast.error('Route needs at least 2 points to navigate');
+      return;
+    }
     // Dispatch to VehicleMap (renders RouteNavigator outside the modal)
     window.dispatchEvent(new CustomEvent('route-navigate-request', { detail: route }));
   };

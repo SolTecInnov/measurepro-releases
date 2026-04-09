@@ -74,17 +74,34 @@ export async function checkIndexedDBHealth(): Promise<boolean> {
 
 export async function clearAllIndexedDBDatabases(): Promise<void> {
   const databases = [
-    'measurepro-v2',
-    'routes-db',
+    // Main survey database
+    'survey-db',
+    // Asset / media stores
+    'poi-assets-db',
+    'measurepro-detections',
     'geo-video-recordings-db',
-    'ConvoyVideoStore',
-    'calibration-db',
+    'MeasureProVideo',
+    'MeasurePRO_PointClouds',
+    // Feature stores
+    'routes-db',
+    'routeEnforcementDB',
+    'alignment-profiles-db',
+    'calibration-storage',
+    'training-data-db',
+    'company-offline-db',
+    'MeasurePRO',
+    // Auth & sync
     'measurements-db',
-    'detections-db',
-    'point-cloud-db',
+    'firebase-sync-queue',
+    'audit-queue-db',
+    // Legacy databases (may exist from older installs)
+    'measurepro-v2',
+    'ConvoyVideoStore',
     'csv-backup-db',
     'offline-auth-db',
-    '__measurepro_healthcheck__'
+    'measurepro-recovery',
+    // Health check
+    '__measurepro_healthcheck__',
   ];
 
   for (const dbName of databases) {
