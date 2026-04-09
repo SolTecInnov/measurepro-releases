@@ -425,8 +425,8 @@ export const saveRoute = async (route: Omit<Route, 'id' | 'createdAt' | 'updated
       
       await db.put('route-points', pointWithRouteId);
     }
-    
-    /* toast removed */
+
+    toast.success('Route saved', { id: 'save-route' });
     return newRoute;
   } catch (error) {
     toast.error('Failed to save route', { id: 'save-route' });
@@ -496,8 +496,8 @@ export const updateRoute = async (route: Route) => {
     }
     
     await tx.done;
-    
-    /* toast removed */
+
+    toast.success('Route updated', { id: 'update-route' });
     return updatedRoute;
   } catch (error) {
     toast.error('Failed to update route', { id: 'update-route' });

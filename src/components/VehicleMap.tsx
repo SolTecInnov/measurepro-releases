@@ -883,7 +883,14 @@ const VehicleMap: React.FC = () => {
 
       {/* Route Navigation (outside modal so it persists) */}
       {activeNavRoute && activeNavRoute.points && activeNavRoute.points.length >= 2 && (
-        <Suspense fallback={<div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/80"><div className="animate-spin h-8 w-8 border-t-2 border-b-2 border-blue-500 rounded-full"></div></div>}>
+        <Suspense fallback={
+          <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-[9998] max-w-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 border-2 border-blue-400 border-t-transparent rounded-full animate-spin shrink-0"></div>
+              <p className="text-sm text-gray-300">Loading navigation...</p>
+            </div>
+          </div>
+        }>
           <RouteNavigator
             route={activeNavRoute}
             onClose={() => setActiveNavRoute(null)}

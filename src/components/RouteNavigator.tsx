@@ -436,7 +436,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
   // If minimized, render as a compact overlay
   if (isMinimized) {
     return (
-      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-50 max-w-sm">
+      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-[10000] max-w-sm">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-medium flex items-center gap-2">
             <Navigation className="w-4 h-4 text-blue-400" />
@@ -496,7 +496,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
   // Show loading/error state — compact overlay instead of full-screen block
   if (!isRoutingReady) {
     return (
-      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-50 max-w-sm">
+      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-[10000] max-w-sm">
         {loadError ? (
           <div className="flex items-center gap-3">
             <Navigation className="w-4 h-4 text-red-400 shrink-0" />
@@ -523,7 +523,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
   }
   
   return (
-    <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col">
+    <div className="fixed inset-0 bg-gray-900 z-[10000] flex flex-col">
       <div className="p-4 bg-gray-800 border-b border-gray-700 flex items-center justify-between">
         <h2 className="text-xl font-semibold flex items-center gap-2">
           <Navigation className="w-6 h-6 text-blue-400" />
