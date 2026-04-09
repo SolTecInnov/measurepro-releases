@@ -8,15 +8,28 @@ const fs = require('fs');
 const { SerialPort } = require('serialport');
 
 // Load .env for GH_TOKEN (auto-updater needs it for private repo)
+// In packaged app, __dirname is inside app.asar — try multiple locations
 try {
-  const envPath = path.join(__dirname, '..', '.env');
-  if (fs.existsSync(envPath)) {
-    fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
-      const match = line.match(/^([^#=]+)=(.*)$/);
-      if (match && !process.env[match[1].trim()]) {
-        process.env[match[1].trim()] = match[2].trim();
+  const envCandidates = [
+    path.join(__dirname, '..', '.env'),                          // dev mode
+    path.join(process.resourcesPath || '', '.env'),              // extraResources (packaged)
+    path.join(app.getAppPath(), '.env'),                         // packaged (inside asar)
+    path.join(app.getAppPath(), '..', '.env'),                   // packaged (next to asar)
+    path.join(path.dirname(process.execPath), '.env'),           // next to exe
+    path.join(app.getPath('userData'), '.env'),                  // userData fallback
+  ];
+  for (const envPath of envCandidates) {
+    try {
+      if (fs.existsSync(envPath)) {
+        fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
+          const match = line.match(/^([^#=]+)=(.*)$/);
+          if (match && !process.env[match[1].trim()]) {
+            process.env[match[1].trim()] = match[2].trim();
+          }
+        });
+        break; // Found and loaded
       }
-    });
+    } catch (_) {}
   }
 } catch (_) {}
 
@@ -621,9 +634,25 @@ ipcMain.handle('show-open-dialog', async (_event, options) => {
 if (autoUpdater) {
   autoUpdater.autoDownload = true;
   autoUpdater.autoInstallOnAppQuit = false;
-  // Token required for private GitHub repo releases — set GH_TOKEN env var or in .env
-  if (process.env.GH_TOKEN) {
-    // GH_TOKEN already set via environment
+
+  // Private repo: electron-updater needs a GitHub token to access releases.
+  // Set it on the provider config directly so it works in packaged builds
+  // where .env is not available.
+  const ghToken = process.env.GH_TOKEN;
+  if (ghToken) {
+    autoUpdater.requestHeaders = { Authorization: `token ${ghToken}` };
+    // Also set on the feed URL options for electron-updater >= 6.x
+    try {
+      autoUpdater.setFeedURL({
+        provider: 'github',
+        owner: 'SolTecInnov',
+        repo: 'measurepro-releases',
+        token: ghToken,
+        private: true,
+      });
+    } catch (_e) {
+      // setFeedURL may not accept token param in all versions — requestHeaders is the fallback
+    }
   }
 }
 
