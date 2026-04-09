@@ -522,6 +522,24 @@ ipcMain.handle('file:write', async (_event, filePath, data) => {
   return { success: true };
 });
 
+// ── Auto-save path handler ──────────────────────────────────────────────────
+ipcMain.handle('fs:getAutoSavePath', async (_event, filename) => {
+  const docsDir = path.join(app.getPath('documents'), 'MeasurePRO', 'surveys');
+  if (!fs.existsSync(docsDir)) {
+    fs.mkdirSync(docsDir, { recursive: true });
+  }
+  return path.join(docsDir, filename);
+});
+
+ipcMain.handle('fs:pickSoundFile', async () => {
+  const result = await dialog.showOpenDialog(mainWindow, {
+    filters: [{ name: 'Audio', extensions: ['mp3', 'wav', 'ogg', 'aac', 'm4a'] }],
+    properties: ['openFile'],
+  });
+  if (result.canceled || !result.filePaths.length) return null;
+  return result.filePaths[0];
+});
+
 // ── App IPC handlers ─────────────────────────────────────────────────────────
 
 ipcMain.handle('app:version', () => app.getVersion());

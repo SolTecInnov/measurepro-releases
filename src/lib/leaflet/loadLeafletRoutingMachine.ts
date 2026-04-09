@@ -73,9 +73,13 @@ export async function loadLeafletRoutingMachine(): Promise<void> {
         throw new Error('Leaflet not loaded - module import failed');
       }
 
+      // In Electron production, absolute paths like /vendor/ resolve to file:///C:/vendor/
+      // Use relative path from the loaded HTML (index.html is in dist/)
+      const base = (window as any).electronAPI?.isElectron ? './vendor/lrm' : '/vendor/lrm';
+
       await Promise.all([
-        loadScript('/vendor/lrm/leaflet-routing-machine.min.js'),
-        loadStylesheet('/vendor/lrm/leaflet-routing-machine.css')
+        loadScript(`${base}/leaflet-routing-machine.min.js`),
+        loadStylesheet(`${base}/leaflet-routing-machine.css`)
       ]);
 
       await waitForRoutingControl();
