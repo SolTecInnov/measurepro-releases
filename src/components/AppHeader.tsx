@@ -421,7 +421,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <button
                   onClick={() => {
                     setShowToolsMenu(false);
-                    pairingConnect(); // safety-net if initial connect was skipped
+                    // Always refresh code to ensure Firestore session exists
+                    useSlavePairingStore.getState().refreshCode();
                     setShowPhoneQR(true);
                   }}
                   className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-cyan-400 hover:bg-gray-800 transition-colors"

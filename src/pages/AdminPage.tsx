@@ -12,7 +12,8 @@ import SoundTestPanel from '../components/settings/admin/SoundTestPanel';
 import TrainingDataManager from '../components/settings/admin/TrainingDataManager';
 import CompanyManager from '../components/settings/admin/CompanyManager';
 import UserAddonOverrides from '../components/settings/admin/UserAddonOverrides';
-import { getAdminViewOverride, setAdminViewOverride, type AdminViewOverride } from '../lib/auth/masterAdmin';
+import { getAdminViewOverride, setAdminViewOverride, isMasterAdmin, type AdminViewOverride } from '../lib/auth/masterAdmin';
+import { useAuth } from '../lib/auth/AuthContext';
 
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || '';
 
@@ -106,6 +107,7 @@ const SIDEBAR_ITEMS: { id: AdminSection; label: string; icon: React.ElementType 
 
 const AdminPage: React.FC = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordError, setPasswordError] = useState(false);
@@ -113,9 +115,15 @@ const AdminPage: React.FC = () => {
   const [viewOverride, setViewOverride] = useState<AdminViewOverride>(() => getAdminViewOverride());
 
   useEffect(() => {
+    // Master admin bypasses password
+    if (user?.email && isMasterAdmin(user.email)) {
+      setIsUnlocked(true);
+      sessionStorage.setItem('admin_unlocked', 'true');
+      return;
+    }
     const unlocked = sessionStorage.getItem('admin_unlocked') === 'true';
     setIsUnlocked(unlocked);
-  }, []);
+  }, [user?.email]);
 
   const handleViewOverrideChange = (view: AdminViewOverride) => {
     setViewOverride(view);

@@ -26,10 +26,12 @@ import { getApp } from 'firebase/app';
 function getDb() {
   try {
     const app = getApp();
+    console.log('[SlavePairing] Firebase app found:', app.options.projectId);
     try { return initializeFirestore(app, { localCache: memoryLocalCache() }); }
     catch { return getFirestore(app); }
-  } catch {
-    return null; // Firebase not initialized yet
+  } catch (e) {
+    console.error('[SlavePairing] getDb FAILED:', e);
+    return null;
   }
 }
 
@@ -54,6 +56,7 @@ interface SlavePairingState {
 
 async function createSession(code: string, surveyData: any) {
   const db = getDb();
+  if (!db) throw new Error('Firebase not ready');
   await setDoc(doc(db, 'pairing', code), {
     createdAt: serverTimestamp(),
     expiresAt: Date.now() + 10 * 60 * 1000,
@@ -65,6 +68,7 @@ async function createSession(code: string, surveyData: any) {
 
 async function sendToSlave(code: string, msg: object) {
   const db = getDb();
+  if (!db) return;
   await addDoc(collection(db, 'pairing', code, 'toSlave'), {
     ...msg,
     ts: serverTimestamp(),
@@ -74,6 +78,7 @@ async function sendToSlave(code: string, msg: object) {
 async function cleanupSession(code: string) {
   try {
     const db = getDb();
+    if (!db) return;
     await setDoc(doc(db, 'pairing', code), { masterOnline: false }, { merge: true });
   } catch {}
 }
@@ -84,11 +89,14 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
   let _unsubMessages: Unsubscribe | null = null;
 
   async function setupSession(code: string) {
+    console.log('[SlavePairing] setupSession called with code:', code);
     const db = getDb();
-    if (!db) return; // Firebase not ready
+    if (!db) { console.error('[SlavePairing] DB is null — cannot create session'); return; }
 
     // Create session doc
+    console.log('[SlavePairing] Creating Firestore session...');
     await createSession(code, null);
+    console.log('[SlavePairing] Session created successfully');
 
     // Watch for slave joining (slaveOnline: true)
     _unsubSlave = onSnapshot(doc(db, 'pairing', code), (snap) => {
@@ -150,8 +158,9 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
 
     connect() {
       const code = randomCode();
+      console.log('[SlavePairing] connect() — new code:', code);
       set({ pairingCode: code, isServerConnected: false, isSlaveConnected: false });
-      setupSession(code).catch(console.error);
+      setupSession(code).catch(err => console.error('[SlavePairing] setupSession FAILED:', err));
     },
 
     disconnect() {
@@ -178,10 +187,12 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
   };
 });
 
-// Auto-connect when Firebase is ready (not at module load)
-try {
-  getApp();
-  useSlavePairingStore.getState().connect();
-} catch {
-  // Firebase not initialized yet — skip auto-connect
-}
+// Auto-connect after Firebase is ready (delay to let auth initialize)
+setTimeout(() => {
+  try {
+    getApp();
+    useSlavePairingStore.getState().connect();
+  } catch {
+    // Firebase not initialized yet — will connect when user opens QR dialog
+  }
+}, 5000);

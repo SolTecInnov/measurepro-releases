@@ -7,6 +7,19 @@ const path = require('path');
 const fs = require('fs');
 const { SerialPort } = require('serialport');
 
+// Load .env for GH_TOKEN (auto-updater needs it for private repo)
+try {
+  const envPath = path.join(__dirname, '..', '.env');
+  if (fs.existsSync(envPath)) {
+    fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
+      const match = line.match(/^([^#=]+)=(.*)$/);
+      if (match && !process.env[match[1].trim()]) {
+        process.env[match[1].trim()] = match[2].trim();
+      }
+    });
+  }
+} catch (_) {}
+
 const isDev = process.env.IS_DEV === 'true';
 
 // Log file for headless debugging
