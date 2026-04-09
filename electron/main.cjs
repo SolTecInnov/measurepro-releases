@@ -292,11 +292,35 @@ ipcMain.handle('serial:open', async (_event, portPath, options) => {
       }
       openPorts.set(portPath, port);
 
-      // Forward incoming data to renderer
+      // Forward incoming data to renderer — BATCHED to reduce IPC overhead
+      // Without batching: 1 IPC per OS read (~hundreds/sec) = ~50% throughput loss
+      // With batching: 1 IPC per 8ms window (~125/sec) = near-TeraTerm speed
+      let pendingChunks = [];
+      let flushTimer = null;
+
+      const flushToRenderer = () => {
+        flushTimer = null;
+        if (pendingChunks.length === 0) return;
+        if (!mainWindow || mainWindow.isDestroyed()) { pendingChunks = []; return; }
+
+        // Merge all pending chunks into one Uint8Array
+        let totalLen = 0;
+        for (const c of pendingChunks) totalLen += c.length;
+        const merged = new Uint8Array(totalLen);
+        let offset = 0;
+        for (const c of pendingChunks) {
+          merged.set(c, offset);
+          offset += c.length;
+        }
+        pendingChunks = [];
+
+        mainWindow.webContents.send('serial:data', portPath, merged);
+      };
+
       port.on('data', (chunk) => {
-        if (mainWindow && !mainWindow.isDestroyed()) {
-          // Send as Uint8Array via structured clone — avoids slow Array.from(Buffer) conversion
-          mainWindow.webContents.send('serial:data', portPath, new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
+        pendingChunks.push(new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
+        if (!flushTimer) {
+          flushTimer = setTimeout(flushToRenderer, 8);
         }
       });
 
@@ -423,6 +447,23 @@ ipcMain.handle('laser:connect', async (_event, opts) => {
         laserBuffer = '';
         openPorts.set(comPort, laserPort);
 
+        // Batched IPC for laser serial:data (same pattern as generic serial)
+        let laserPending = [];
+        let laserFlushTimer = null;
+
+        const flushLaserToRenderer = () => {
+          laserFlushTimer = null;
+          if (laserPending.length === 0) return;
+          if (!mainWindow || mainWindow.isDestroyed()) { laserPending = []; return; }
+          let totalLen = 0;
+          for (const c of laserPending) totalLen += c.length;
+          const merged = new Uint8Array(totalLen);
+          let off = 0;
+          for (const c of laserPending) { merged.set(c, off); off += c.length; }
+          laserPending = [];
+          mainWindow.webContents.send('serial:data', comPort, merged);
+        };
+
         laserPort.on('data', (chunk) => {
           if (!mainWindow || mainWindow.isDestroyed()) return;
 
@@ -446,8 +487,11 @@ ipcMain.handle('laser:connect', async (_event, opts) => {
             });
           }
 
-          // Also forward raw data through serial:data for compatibility
-          mainWindow.webContents.send('serial:data', comPort, new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
+          // Batched forward through serial:data for polyfill compatibility
+          laserPending.push(new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
+          if (!laserFlushTimer) {
+            laserFlushTimer = setTimeout(flushLaserToRenderer, 8);
+          }
         });
 
         laserPort.on('error', (err) => {

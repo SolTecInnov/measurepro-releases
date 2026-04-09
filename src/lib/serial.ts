@@ -489,7 +489,8 @@ export class SerialConnection {
       const readData = async () => {
         try {
           this.reader = this.port!.readable!.getReader();
-          const textDecoder = new TextDecoder();
+          // Lazy TextDecoder — only created if onDataCallback is set
+          let textDecoder: TextDecoder | null = null;
           while (true) {
             const { value, done } = await this.reader.read();
             if (done) break;
@@ -501,6 +502,7 @@ export class SerialConnection {
             }
 
             if (this.onDataCallback && value && value.length > 0) {
+              if (!textDecoder) textDecoder = new TextDecoder();
               this.onDataCallback(textDecoder.decode(value));
             }
           }
