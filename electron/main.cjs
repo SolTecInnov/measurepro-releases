@@ -181,7 +181,21 @@ function createMenu() {
           click: () => shell.openExternal('https://soltecinnovation.com')
         },
         { type: 'separator' },
-        { label: 'Check for Updates', click: () => { if (autoUpdater) autoUpdater.checkForUpdates(); } },
+        { label: 'Check for Updates', click: async () => {
+          if (!autoUpdater) {
+            dialog.showMessageBox(mainWindow, { type: 'error', title: 'Update', message: 'Auto-updater is not available.' });
+            return;
+          }
+          try {
+            const result = await autoUpdater.checkForUpdates();
+            if (!result || !result.updateInfo || result.updateInfo.version === app.getVersion()) {
+              dialog.showMessageBox(mainWindow, { type: 'info', title: 'Update', message: `You are on the latest version (v${app.getVersion()}).` });
+            }
+            // If update IS available, the 'update-available' event fires and the renderer shows the download UI
+          } catch (err) {
+            dialog.showMessageBox(mainWindow, { type: 'error', title: 'Update Error', message: `Could not check for updates:\n${err.message}` });
+          }
+        } },
         {
           label: 'About MeasurePRO',
           click: () => mainWindow.webContents.send('menu-about')
@@ -587,8 +601,18 @@ autoUpdater && autoUpdater.on('update-downloaded', (info) => {
   }
 });
 
+autoUpdater && autoUpdater.on('update-not-available', (info) => {
+  console.log('[AutoUpdater] Already on latest:', info.version);
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:update-not-available', info);
+  }
+});
+
 autoUpdater && autoUpdater.on('error', (err) => {
   console.error('[AutoUpdater] Error:', err.message);
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:error', err.message);
+  }
 });
 
 ipcMain.handle('updater:check', async () => {
