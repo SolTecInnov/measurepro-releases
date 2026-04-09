@@ -281,7 +281,8 @@ ipcMain.handle('serial:open', async (_event, portPath, options) => {
       // Forward incoming data to renderer
       port.on('data', (chunk) => {
         if (mainWindow && !mainWindow.isDestroyed()) {
-          mainWindow.webContents.send('serial:data', portPath, Array.from(chunk));
+          // Send as Uint8Array via structured clone — avoids slow Array.from(Buffer) conversion
+          mainWindow.webContents.send('serial:data', portPath, new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
         }
       });
 
@@ -308,8 +309,10 @@ ipcMain.handle('serial:write', async (_event, portPath, data) => {
   if (!port || !port.isOpen) {
     throw new Error(`Port ${portPath} is not open`);
   }
+  // Accept Uint8Array (structured clone) or number[] (legacy)
+  const buf = data instanceof Uint8Array ? Buffer.from(data.buffer, data.byteOffset, data.byteLength) : Buffer.from(data);
   return new Promise((resolve, reject) => {
-    port.write(Buffer.from(data), (err) => {
+    port.write(buf, (err) => {
       if (err) reject(new Error(err.message));
       else port.drain(() => resolve({ success: true }));
     });
@@ -430,7 +433,7 @@ ipcMain.handle('laser:connect', async (_event, opts) => {
           }
 
           // Also forward raw data through serial:data for compatibility
-          mainWindow.webContents.send('serial:data', comPort, Array.from(chunk));
+          mainWindow.webContents.send('serial:data', comPort, new Uint8Array(chunk.buffer, chunk.byteOffset, chunk.byteLength));
         });
 
         laserPort.on('error', (err) => {

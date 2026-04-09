@@ -122,7 +122,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
     close: (portPath) => ipcRenderer.invoke('serial:close', portPath),
     getInfo: (portPath) => ipcRenderer.invoke('serial:getInfo', portPath),
     onData: (callback) => {
-      ipcRenderer.on('serial:data', (_event, portPath, data) => callback(portPath, data));
+      ipcRenderer.on('serial:data', (_event, portPath, data) => {
+        // data arrives as Uint8Array via structured clone (fast path)
+        callback(portPath, data);
+      });
     },
     onError: (callback) => {
       ipcRenderer.on('serial:error', (_event, portPath, message) => callback(portPath, message));

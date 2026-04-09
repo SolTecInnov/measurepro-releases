@@ -58,10 +58,11 @@ class ElectronSerialPort implements SerialPort {
     this._readable = new ReadableStream<Uint8Array>({
       start: (controller) => {
         this._readableController = controller;
-        this._dataHandler = (portPath: string, data: number[]) => {
+        this._dataHandler = (portPath: string, data: Uint8Array | number[]) => {
           if (portPath === this.portPath) {
             try {
-              controller.enqueue(new Uint8Array(data));
+              // Fast path: data arrives as Uint8Array from structured clone IPC
+              controller.enqueue(data instanceof Uint8Array ? data : new Uint8Array(data));
             } catch {
               // Stream may have been closed
             }
@@ -77,7 +78,7 @@ class ElectronSerialPort implements SerialPort {
     // Build WritableStream
     this._writable = new WritableStream<Uint8Array>({
       write: async (chunk) => {
-        await serial.write(this.portPath, Array.from(chunk));
+        await serial.write(this.portPath, chunk);
       },
     });
   }
