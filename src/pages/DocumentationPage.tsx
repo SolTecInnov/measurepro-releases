@@ -265,9 +265,9 @@ export default function DocumentationPage() {
               <div>
                 <p className="text-white font-medium mb-2">Supported devices & protocols</p>
                 <ul className="space-y-2">
-                  <Check>SolTec LiDAR 2D — RSA 3-byte binary protocol, 19200 baud, 7-E-1</Check>
-                  <Check>SolTec High Pole LiDAR — same RSA protocol</Check>
-                  <Check>RSA High Pole Laser — 3-byte binary, 19200 baud, 7-E-1</Check>
+                  <Check>SolTec LiDAR 2D — 3-byte binary protocol, 19200 baud, 7-E-1</Check>
+                  <Check>SolTec High Pole LiDAR — same 3-byte binary protocol</Check>
+                  <Check>High Pole Laser — 3-byte binary, 19200 baud, 7-E-1</Check>
                   <Check>Laser — ASCII stream protocol</Check>
                   <Check>Mock mode — simulated measurements for demos and testing</Check>
                 </ul>
@@ -737,13 +737,13 @@ export default function DocumentationPage() {
               <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
                 <div>
                   <p className="mb-2"><strong className="text-white">How it works:</strong> The laser emits a pulse of infrared light. The sensor measures the time for the pulse to return from the target and calculates distance: <code className="bg-gray-700 px-1 rounded text-xs">distance = (speed of light × time) / 2</code>.</p>
-                  <p>The RSA 3-byte binary protocol sends measurements as a 3-byte packet at up to 30 kHz. MeasurePRO reads the stream continuously and applies ground reference subtraction, unit conversion, and ignoreAbove/ignoreBelow filtering before displaying the reading.</p>
+                  <p>The 3-byte binary protocol sends measurements as a 3-byte packet at up to 30 kHz. MeasurePRO reads the stream continuously and applies ground reference subtraction, unit conversion, and ignoreAbove/ignoreBelow filtering before displaying the reading.</p>
                 </div>
                 <div>
                   <p className="font-medium text-white mb-2">Measurement pipeline</p>
                   <ol className="space-y-1 list-decimal list-inside text-xs">
                     <li>Raw 3-byte packet received from serial port</li>
-                    <li>Decoded to millimetres by RSA protocol parser</li>
+                    <li>Decoded to millimetres by protocol parser</li>
                     <li>Converted to metres (÷ 1000)</li>
                     <li>Ground reference subtracted</li>
                     <li>Filtered: values outside ignoreAbove / ignoreBelow discarded</li>
@@ -934,7 +934,7 @@ export default function DocumentationPage() {
                     <li>Tilt the laser slightly to avoid direct solar alignment</li>
                     <li>Use a physical sunshield or hood around the sensor aperture</li>
                     <li>Survey the same section at a different time of day</li>
-                    <li>Note: some RSA lasers have an optical bandpass filter to reduce solar interference — check your sensor specification</li>
+                    <li>Note: some lasers have an optical bandpass filter to reduce solar interference — check your sensor specification</li>
                   </ul>
                 </div>
               </div>

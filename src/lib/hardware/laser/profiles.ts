@@ -33,8 +33,6 @@ export const SOLTEC_30M_PROFILE: LaserProfileConfig = {
 // Backward compat aliases — all point to the same config
 export const SOLTEC_70M_PROFILE = SOLTEC_30M_PROFILE;
 export const LDM71_LIDAR2D_V2_PROFILE = SOLTEC_30M_PROFILE;
-export const JENOPTIK_LDS30_PROFILE = SOLTEC_30M_PROFILE;
-export const RSA_VERTICAL_CLEARANCE_PROFILE = SOLTEC_30M_PROFILE;
 export const MOCK_LASER_PROFILE = SOLTEC_30M_PROFILE;
 
 export function getLaserProfile(_id: string): LaserProfileConfig {

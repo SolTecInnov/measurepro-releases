@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import type { POIType } from './poi';
 import { HEIGHT_CLEARANCE_POI_TYPES } from './poi';
 import { isBetaUser } from './auth/masterAdmin';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from './firebase';
 
 // Fast lookup set for height clearance types
 const HEIGHT_CLEARANCE_POI_TYPES_SET = new Set<POIType>(HEIGHT_CLEARANCE_POI_TYPES);
@@ -232,8 +232,13 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
 
   // Load from localStorage or use defaults
   const loadSavedActions = (): Record<string, POIAction> => {
-    const auth = getAuth();
-    const isBeta = isBetaUser(auth.currentUser);
+    let isBeta = false;
+    try {
+      const auth = getSafeAuth();
+      isBeta = isBetaUser(auth?.currentUser);
+    } catch {
+      // Firebase not initialized yet — use default actions
+    }
     const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
 
     try {
@@ -273,8 +278,8 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
       const stored = get().poiActions[poiType];
       if (stored) return stored;
       // Fall back to official defaults (not 'auto-capture-no-measurement' which silently blocks logging)
-      const auth = getAuth();
-      const isBeta = isBetaUser(auth.currentUser);
+      const auth = getSafeAuth();
+      const isBeta = isBetaUser(auth?.currentUser);
       const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
       return baseDefaults[poiType as POIType] || 'auto-capture-and-log'; // HEIGHT_CLEARANCE types default to auto-capture-and-log
     },
@@ -287,8 +292,8 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
     },
     
     resetToDefaults: () => {
-      const auth = getAuth();
-      const isBeta = isBetaUser(auth.currentUser);
+      const auth = getSafeAuth();
+      const isBeta = isBetaUser(auth?.currentUser);
       const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
       // Remove localStorage override so fresh defaults take effect immediately
       localStorage.removeItem('poi_action_config');
@@ -296,8 +301,8 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
     },
     
     resetPOIToDefault: (poiType: POIType) => {
-      const auth = getAuth();
-      const isBeta = isBetaUser(auth.currentUser);
+      const auth = getSafeAuth();
+      const isBeta = isBetaUser(auth?.currentUser);
       const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
       const defaultAction = baseDefaults[poiType];
       get().setActionForPOI(poiType, defaultAction);

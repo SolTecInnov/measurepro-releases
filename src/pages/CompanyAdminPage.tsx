@@ -26,7 +26,6 @@ interface CompanyData {
 
 // Friendly display names for add-on keys
 const ADDON_DISPLAY_NAMES: Record<string, string> = {
-  gnss_profiling: 'GNSS Profiling',
   ai_detection: 'AI Detection',
   swept_path_analysis: 'Swept Path Analysis',
   envelope_clearance: 'Envelope Clearance',

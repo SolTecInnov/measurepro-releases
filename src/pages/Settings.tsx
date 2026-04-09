@@ -16,7 +16,7 @@ import type { Measurement } from '../lib/survey/types';
 import { deleteDetectionImage } from '../lib/storage/detection-storage';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import { isBetaUser } from '../lib/auth/masterAdmin';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 import { Trash2, Camera, Layers } from 'lucide-react';
 import { useCameraStore, type CameraPosition } from '../lib/camera';
 import { useLidarService } from '../hooks/useLidarService';
@@ -46,7 +46,6 @@ import POIHeightRow from '../components/POIHeightRow';
 import EditMeasurementModal from '../components/EditMeasurementModal';
 import VoiceNotePOIModal from '../components/VoiceNotePOIModal';
 import GNSSStatusCard from '../components/gnss/GNSSStatusCard';
-import RoadProfileCard from '../components/gnss/RoadProfileCard';
 import { useLateralRearCaptureHandler } from '../hooks/useLateralRearCaptureHandler';
 import LateralWidthDisplay from '../components/LateralWidthDisplay';
 import RearOverhangDisplay from '../components/RearOverhangDisplay';
@@ -172,6 +171,17 @@ const Settings: React.FC = () => {
   const [showSurveyDialog, setShowSurveyDialog] = useState(false);
   const [pendingPhotos, setPendingPhotos] = useState<string[]>([]);
   const [capturedData, setCapturedData] = useState<any[]>([]);
+
+  // Remove captured images from pending when they're attached to a POI
+  React.useEffect(() => {
+    const handleImageAttached = (e: CustomEvent) => {
+      const url = e.detail;
+      setPendingPhotos(prev => prev.filter(p => p !== url));
+      setCapturedData(prev => prev.filter(d => d.imageUrl !== url));
+    };
+    window.addEventListener('poi-image-attached', handleImageAttached as EventListener);
+    return () => window.removeEventListener('poi-image-attached', handleImageAttached as EventListener);
+  }, []);
   const [offlineItems, setOfflineItems] = useState(0);
   const [showWifiStatus, setShowWifiStatus] = useState(false);
   const [showDatabaseStatus, setShowDatabaseStatus] = useState(false);
@@ -207,8 +217,8 @@ const Settings: React.FC = () => {
   const lidar = useLidarService();
   
   // Beta user detection for UI simplification
-  const auth = getAuth();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const auth = getSafeAuth();
+  const isBeta = isBetaUser(auth?.currentUser, features);
   
   // Initialize worker-based measurement logger (PERFORMANCE CRITICAL)
   const { logMeasurement: logMeasurementViaWorker } = useMeasurementLogger();
@@ -890,8 +900,14 @@ const Settings: React.FC = () => {
 
   // Compat shims for existing UI components
   const isPaused = false;
-  const setLoggingMode = (mode: string) => startLogging(mode as any);
+  const setLoggingMode = (mode: string) => {
+    if (mode === 'all') startAllData();
+    else if (mode === 'counterDetection' || mode === 'counter') startCounter();
+    else if (mode === 'manual') stopLogging();
+  };
   const setIsLogging = (v: boolean) => { if (!v) stopLogging(); };
+  // Map internal mode names to UI mode names for LoggingControls
+  const uiLoggingMode = loggingMode === 'all_data' ? 'all' : loggingMode === 'counter' ? 'counterDetection' : 'manual';
   const handleLoggingModeChange = (mode: string) => {
     if (mode === 'all' || mode === 'all_data') startAllData();
     else if (mode === 'counterDetection' || mode === 'counter') startCounter();
@@ -977,7 +993,7 @@ const Settings: React.FC = () => {
                       onModalOpenRequested={handleOpenModalWithPOIType}
                       onVoiceNoteRequested={handleVoiceNoteRequested}
                       activeSurvey={activeSurvey}
-                      loggingMode={loggingMode}
+                      loggingMode={uiLoggingMode}
                       isLogging={isLogging}
                     />
                   </CardWrapper>
@@ -992,7 +1008,7 @@ const Settings: React.FC = () => {
                     onToggleCollapse={toggleCardCollapsed}
                   >
                     <LoggingControls
-                      loggingMode={loggingMode}
+                      loggingMode={uiLoggingMode}
                       setLoggingMode={setLoggingMode}
                       isLogging={isLogging}
                       setIsLogging={setIsLogging}
@@ -1064,7 +1080,6 @@ const Settings: React.FC = () => {
                     collapsed={card.collapsed}
                     onToggleCollapse={toggleCardCollapsed}
                   >
-                    <RoadProfileCard />
                   </CardWrapper>
                 );
               case 'lateral-width':
@@ -1334,7 +1349,7 @@ const Settings: React.FC = () => {
                         onAutoCaptureNoMeasurement={handleAutoCaptureNoMeasurement}
                         onModalOpenRequested={handleOpenModalWithPOIType}
                         activeSurvey={activeSurvey}
-                        loggingMode={loggingMode}
+                        loggingMode={uiLoggingMode}
                         isLogging={isLogging}
                       />
                     </CardWrapper>
@@ -1349,7 +1364,7 @@ const Settings: React.FC = () => {
                       onToggleCollapse={toggleCardCollapsed}
                     >
                       <LoggingControls
-                        loggingMode={loggingMode}
+                        loggingMode={uiLoggingMode}
                         setLoggingMode={setLoggingMode}
                         isLogging={isLogging}
                         setIsLogging={setIsLogging}
@@ -1421,8 +1436,7 @@ const Settings: React.FC = () => {
                       collapsed={card.collapsed}
                       onToggleCollapse={toggleCardCollapsed}
                     >
-                      <RoadProfileCard />
-                    </CardWrapper>
+                      </CardWrapper>
                   );
                 case 'lateral-width':
                   return (
@@ -1858,7 +1872,7 @@ const Settings: React.FC = () => {
                         onAutoCaptureNoMeasurement={handleAutoCaptureNoMeasurement}
                         onModalOpenRequested={handleOpenModalWithPOIType}
                         activeSurvey={activeSurvey}
-                        loggingMode={loggingMode}
+                        loggingMode={uiLoggingMode}
                         isLogging={isLogging}
                       />
                     </CardWrapper>
@@ -1873,7 +1887,7 @@ const Settings: React.FC = () => {
                       onToggleCollapse={toggleCardCollapsed}
                     >
                       <LoggingControls
-                        loggingMode={loggingMode}
+                        loggingMode={uiLoggingMode}
                         setLoggingMode={setLoggingMode}
                         isLogging={isLogging}
                         setIsLogging={setIsLogging}
@@ -1945,8 +1959,7 @@ const Settings: React.FC = () => {
                       collapsed={card.collapsed}
                       onToggleCollapse={toggleCardCollapsed}
                     >
-                      <RoadProfileCard />
-                    </CardWrapper>
+                      </CardWrapper>
                   );
                 case 'lateral-width':
                   return (
@@ -2012,7 +2025,7 @@ const Settings: React.FC = () => {
           handleAutoCaptureNoMeasurement={handleAutoCaptureNoMeasurement}
           handleOpenModalWithPOIType={handleOpenModalWithPOIType}
           handleVoiceNoteRequested={handleVoiceNoteRequested}
-          loggingMode={loggingMode}
+          loggingMode={uiLoggingMode}
           isLogging={isLogging}
         />
 

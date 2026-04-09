@@ -4,7 +4,7 @@ import { Camera, Map as MapIcon, FileText, Bell, HelpCircle, Keyboard, Home, Clo
 import { useNavigate } from 'react-router-dom';
 import { useEnabledFeatures } from '@/hooks/useLicenseEnforcement';
 import { isBetaUser, isMasterAdmin } from '../lib/auth/masterAdmin';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 import { useAuth } from '../lib/auth/AuthContext';
 import CameraSettings from './CameraSettings';
 import MapSettings from './settings/MapSettings';
@@ -55,7 +55,6 @@ interface TabManagerProps {
 
 // Tab to feature key mapping for license enforcement
 const tabFeatureMap: Record<string, string | null> = {
-  'gnss': 'gnss_profiling',
   'calibration': 'calibration',
   'ai': 'ai_detection',
   'envelope': 'envelope_clearance',
@@ -150,22 +149,22 @@ const TabManager: React.FC<TabManagerProps> = ({
   const { hasFeature, features } = useEnabledFeatures();
   
   // Check if beta user (hide voice tab for beta/not-logged-in users)
-  const auth = getAuth();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const auth = getSafeAuth();
+  const isBeta = isBetaUser(auth?.currentUser, features);
   
   // Check if current user is admin (for admin tab visibility)
   const { isMasterAdmin: isCurrentUserMasterAdmin, cachedUserData, user } = useAuth();
-  const currentUserEmail = auth.currentUser?.email || cachedUserData?.email || null;
+  const currentUserEmail = auth?.currentUser?.email || cachedUserData?.email || null;
   const [hasAdminClaim, setHasAdminClaim] = React.useState(false);
 
   // Check Firebase custom claims for admin:true (set by Admin SDK on account creation/promotion)
   React.useEffect(() => {
-    const firebaseUser = auth.currentUser;
+    const firebaseUser = auth?.currentUser;
     if (!firebaseUser) { setHasAdminClaim(false); return; }
     firebaseUser.getIdTokenResult(false).then(result => {
       setHasAdminClaim(result.claims['admin'] === true);
     }).catch(() => setHasAdminClaim(false));
-  }, [auth.currentUser]);
+  }, [auth?.currentUser]);
 
   const isAdmin = isCurrentUserMasterAdmin || isMasterAdmin(currentUserEmail) || currentUserEmail === 'admin@soltec.ca' || hasAdminClaim;
 

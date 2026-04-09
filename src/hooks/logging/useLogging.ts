@@ -60,6 +60,8 @@ export function useLogging({ captureImage }: UseLoggingProps) {
 
   const stopLogging = useCallback(() => {
     setIsLogging(false);
+    setLoggingMode('manual');
+    localStorage.setItem('loggingMode', 'manual');
     allData.reset();
     counter.reset();
   }, [allData, counter]);

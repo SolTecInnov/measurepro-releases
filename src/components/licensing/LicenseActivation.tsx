@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Key, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { activateLicenseCode } from '../../lib/licensing';
 import { toast } from 'sonner';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 
 interface LicenseActivationProps {
   onActivationSuccess?: () => void;
@@ -17,7 +17,7 @@ const LicenseActivation = ({ onActivationSuccess }: LicenseActivationProps) => {
     licenseDetails?: any;
   } | null>(null);
 
-  const auth = getAuth();
+  const auth = getSafeAuth();
 
   const handleActivate = async () => {
     if (!activationCode.trim()) {
@@ -25,7 +25,7 @@ const LicenseActivation = ({ onActivationSuccess }: LicenseActivationProps) => {
       return;
     }
 
-    if (!auth.currentUser) {
+    if (!auth?.currentUser) {
       toast.error('You must be logged in to activate a license');
       return;
     }

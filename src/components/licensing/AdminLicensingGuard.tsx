@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import { Lock } from 'lucide-react';
 import { toast } from 'sonner';
 import { isMasterAdmin } from '../../lib/auth/masterAdmin';
@@ -14,7 +14,7 @@ export const AdminLicensingGuard = ({ children }: AdminLicensingGuardProps) => {
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const { user: authContextUser, isMasterAdmin: cachedIsMasterAdmin, isLoading, cachedUserData } = useAuth();
 
-  const auth = getAuth();
+  const auth = getSafeAuth();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -30,7 +30,7 @@ export const AdminLicensingGuard = ({ children }: AdminLicensingGuardProps) => {
         return;
       }
 
-      const currentUser = auth.currentUser;
+      const currentUser = auth?.currentUser;
       
       // Check if we have any user data (Firebase or cached)
       const hasUserData = !!(currentUser || authContextUser || cachedUserData);
@@ -98,7 +98,7 @@ export const AdminLicensingGuard = ({ children }: AdminLicensingGuardProps) => {
   }
 
   // Check both Firebase user and cached user for offline support
-  const currentUser = auth.currentUser || authContextUser;
+  const currentUser = auth?.currentUser || authContextUser;
   
   if (!currentUser) {
     return (

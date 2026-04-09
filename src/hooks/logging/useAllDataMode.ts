@@ -80,11 +80,20 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       if (action === 'auto-capture-and-log' || action === 'auto-capture-no-measurement') {
         captureImage().then(imageUrl => {
           if (!imageUrl) return;
-          // Update POI with image (best effort)
+          // Update POI with image in DB and in-memory cache
           import('@/lib/survey/db').then(({ openSurveyDB }) => {
             openSurveyDB().then(db => {
               db.get('measurements', id).then((m: any) => {
-                if (m) db.put('measurements', { ...m, imageUrl, images: [imageUrl] });
+                if (m) {
+                  const updated = { ...m, imageUrl, images: [imageUrl] };
+                  db.put('measurements', updated);
+                  // Update in-memory cache so UI shows the image
+                  import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
+                    getMeasurementFeed().addMeasurement(updated);
+                  }).catch(() => {});
+                  // Clear from captured images card
+                  window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
+                }
               });
             });
           }).catch(() => {});

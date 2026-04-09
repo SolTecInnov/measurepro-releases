@@ -3,7 +3,7 @@ import { Navigation, Clock, Compass, Gauge, Satellite, Signal, Terminal, Ruler, 
 import { useGPSStore } from '../lib/stores/gpsStore';
 import { useSerialStore } from '../lib/stores/serialStore';
 import { duroGpsService } from '../lib/gnss/duroGpsService';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 import { isBetaUser } from '../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 
@@ -15,8 +15,8 @@ const GPSData: React.FC = () => {
   
   // Beta user detection for UI simplification
   const { features } = useEnabledFeatures();
-  const auth = getAuth();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const auth = getSafeAuth();
+  const isBeta = isBetaUser(auth?.currentUser, features);
   const [showRawData, setShowRawData] = React.useState(false);
   const [showSettings, setShowSettings] = React.useState(true); // Show settings by default to make failsafe visible
   const [displayUnits, setDisplayUnits] = React.useState<'metric' | 'imperial'>('metric');

@@ -87,7 +87,7 @@ export interface LaserPreset {
 }
 
 // Hardware mapping:
-//   soltec-standard → 115200 baud, 8N1, LDM71 ASCII driver — covers SolTec 30m, 70m, AR2700, RSA High Pole
+//   soltec-standard → 115200 baud, 8N1, LDM71 ASCII driver — covers SolTec 30m, 70m, AR2700, High Pole
 //   soltec-legacy   → 19200 baud, 7E1 — covers SolTec 10m (old unit)
 // All lasers stream autonomously on 12V power-on — no start command required.
 export const LASER_PRESETS: Record<LaserType, LaserPreset> = {

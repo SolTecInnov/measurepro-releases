@@ -38,7 +38,7 @@ import { apiRequest, queryClient } from '@/lib/queryClient';
 import { toast } from 'sonner';
 import { useAuth } from '@/lib/auth/AuthContext';
 
-const MASTER_ADMIN_EMAIL = 'jfprince@soltec.ca';
+import { MASTER_ADMIN_EMAIL } from '@/lib/auth/masterAdmin';
 
 export default function PricingManagementPage() {
   const navigate = useNavigate();

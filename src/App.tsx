@@ -88,7 +88,6 @@ const SubscriptionPage = React.lazy(() => import('./pages/SubscriptionPage'));
 const TermsManagementPage = React.lazy(() => import('./pages/TermsManagementPage'));
 const TestingPage = React.lazy(() => import('./pages/TestingPage'));
 const PointCloudScannerPage = React.lazy(() => import('./pages/PointCloudScannerPage'));
-const RoadProfilePage = React.lazy(() => import('./pages/RoadProfile'));
 const LidarPage = React.lazy(() => import('./pages/LidarPage'));
 const LidarSourcePage = React.lazy(() => import('./pages/LidarSourcePage'));
 const DebugIndexedDB = React.lazy(() => import('./pages/DebugIndexedDB'));
@@ -108,7 +107,6 @@ import { DemoOverlay } from './components/demo/DemoOverlay';
 import { DemoModeProvider } from './components/demo/DemoModeProvider';
 import { apiRequest } from './lib/queryClient';
 import { useHardwareAutoReconnect } from './hooks/useHardwareAutoReconnect';
-import { useHardwareProfileSaver } from './hooks/useHardwareProfileSaver';
 import HardwareAutoReconnectModal from './components/hardware/HardwareAutoReconnectModal';
 import { initializeWorkerArchitecture } from './lib/survey/workerAdapter';
 import { getMeasurementLogger, initializeAutoFlush } from './lib/workers/MeasurementLoggerClient';
@@ -461,7 +459,6 @@ function App() {
   const hwReconnect = useHardwareAutoReconnect();
 
   // Hardware profile saver — saves profile after confirmed streaming
-  useHardwareProfileSaver();
 
   // Auto-sync survey data to camera overlay
   useSyncSurveyToCamera();
@@ -513,6 +510,10 @@ function App() {
       console.log('[App] Auto-connecting laser:', savedPort, savedBaud, savedFormat);
       const result = await api.laser.connect({ comPort: savedPort, baudRate: savedBaud, format: savedFormat });
       if (result.connected) {
+        // Mark laser as connected in serialStore (Electron mode has no Web Serial port object)
+        import('./lib/stores/serialStore').then(({ useSerialStore }) => {
+          useSerialStore.getState().setElectronLaserConnected(true);
+        }).catch(() => {});
         // Start streaming (LDM71: send DT command)
         if (savedFormat === 'ldm71' || savedFormat === 'astech') {
           setTimeout(() => api.laser.sendCommand('DT'), 500);
@@ -539,6 +540,12 @@ function App() {
       import('./lib/laserLog').then(({ appendToLaserOutput }) => {
         appendToLaserOutput(line);
       }).catch(() => {});
+      // Feed error codes (DE02 etc) to serialStore so the app knows data is flowing
+      if (line.includes('DE') || line.includes('De')) {
+        import('./lib/stores/serialStore').then(({ useSerialStore }) => {
+          useSerialStore.getState().setLastLaserData(line);
+        }).catch(() => {});
+      }
     });
     
     return () => {
@@ -1227,24 +1234,6 @@ function App() {
                   <FeatureProtectedRoute featureKey="point_cloud_scanning">
                     <React.Suspense fallback={<LoadingComponent />}>
                       <PointCloudScannerPage />
-                    </React.Suspense>
-                  </FeatureProtectedRoute>
-                </RouteErrorBoundary>
-              } />
-              <Route path="/gnss-profiling" element={
-                <RouteErrorBoundary>
-                  <FeatureProtectedRoute featureKey="gnss_profiling">
-                    <React.Suspense fallback={<LoadingComponent />}>
-                      <RoadProfilePage />
-                    </React.Suspense>
-                  </FeatureProtectedRoute>
-                </RouteErrorBoundary>
-              } />
-              <Route path="/road-profile" element={
-                <RouteErrorBoundary>
-                  <FeatureProtectedRoute featureKey="gnss_profiling">
-                    <React.Suspense fallback={<LoadingComponent />}>
-                      <RoadProfilePage />
                     </React.Suspense>
                   </FeatureProtectedRoute>
                 </RouteErrorBoundary>

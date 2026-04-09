@@ -36,7 +36,7 @@ import RoadDetectionDebugOverlay from './sweptPath/RoadDetectionDebugOverlay';
 import { useCameraDisconnectMonitor } from '../hooks/useCameraDisconnectMonitor';
 import { isBetaUser } from '../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 
 interface LiveCameraProps {
   captureImage: () => void;
@@ -70,9 +70,9 @@ const LiveCamera: React.FC<LiveCameraProps> = ({
   const { alertStatus, triggerValue, setAlertStatus } = useAlertsStore();
   
   // Check if beta user (hide video recording and status badges for beta/not-logged-in users)
-  const auth = getAuth();
+  const auth = getSafeAuth();
   const { features } = useEnabledFeatures();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const isBeta = isBetaUser(auth?.currentUser, features);
 
   const [isWebcamLoading, setIsWebcamLoading] = useState(true);
   const [overlayScale, setOverlayScale] = useState<number>(() => {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Smartphone, Trash2, Loader2, AlertCircle } from 'lucide-react';
 import { getUserDevices, deactivateDevice } from '../../lib/licensing';
 import type { UserDevice } from '../../../shared/schema';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import { toast } from 'sonner';
 
 const MyDevices = () => {
@@ -11,14 +11,14 @@ const MyDevices = () => {
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
   const [isDeactivating, setIsDeactivating] = useState<string | null>(null);
 
-  const auth = getAuth();
+  const auth = getSafeAuth();
 
   useEffect(() => {
     loadDevices();
   }, []);
 
   const loadDevices = async () => {
-    if (!auth.currentUser) {
+    if (!auth?.currentUser) {
       setIsLoading(false);
       return;
     }
@@ -73,7 +73,7 @@ const MyDevices = () => {
     );
   }
 
-  if (!auth.currentUser) {
+  if (!auth?.currentUser) {
     return (
       <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
         <p className="text-center text-gray-400">Please log in to view your devices</p>

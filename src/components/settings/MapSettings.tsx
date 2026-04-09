@@ -4,7 +4,7 @@ import { useSettingsStore } from '../../lib/settings';
 import { toast } from 'sonner';
 import { useEnabledFeatures } from '../../hooks/useLicenseEnforcement';
 import { isBetaUser } from '../../lib/auth/masterAdmin';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 
 // ==================== OFFLINE TILE PRE-DOWNLOAD ====================
 
@@ -355,9 +355,9 @@ const allMapProviders = [
 
 const MapSettings = () => {
   // Check if beta user (hide Mapbox, iGo2, and default zoom for beta/not-logged-in users)
-  const auth = getAuth();
+  const auth = getSafeAuth();
   const { features } = useEnabledFeatures();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const isBeta = isBetaUser(auth?.currentUser, features);
   
   // Filter map providers - only show Google and OSM for beta users
   const mapProviders = isBeta 

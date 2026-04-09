@@ -31,11 +31,13 @@
     "@tarikjabiri/dxf": "^2.8.9",
     "@tensorflow-models/coco-ssd": "^2.2.3",
     "@tensorflow/tfjs": "^4.22.0",
+    "@types/dompurify": "^3.0.5",
     "axios": "^1.14.0",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "dompurify": "^3.3.3",
     "electron-updater": "^6.8.3",
     "file-saver": "^2.0.5",
     "firebase": "^11.7.1",
@@ -93,7 +95,7 @@
   "build": {
     "appId": "com.soltecinnovation.measurepro",
     "productName": "MeasurePRO",
-    "copyright": "Copyright \u00a9 2025 Soltec Innovation",
+    "copyright": "Copyright © 2025 Soltec Innovation",
     "directories": {
       "output": "release-builds",
       "buildResources": "build-resources"
@@ -136,6 +138,7 @@
       "owner": "SolTecInnov",
       "repo": "measurepro-releases"
     },
+    "npmRebuild": false,
     "asar": true,
     "asarUnpack": [
       "node_modules/@serialport/bindings-cpp/**/*",

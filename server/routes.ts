@@ -282,9 +282,11 @@ const verifyFirebaseToken = async (req: AuthRequest, res: Response, next: NextFu
     req.userEmail = decodedToken.email;
     // Populate isAdmin flag using same logic as verifyAdminOrMasterAccess
     // so downstream route handlers can rely on it without re-decoding the token
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@soltec.ca';
+    const masterAdminEmail = process.env.MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
     req.isAdmin = decodedToken['admin'] === true
-      || decodedToken.email === 'jfprince@soltec.ca'
-      || decodedToken.email === 'admin@soltec.ca';
+      || decodedToken.email === masterAdminEmail
+      || decodedToken.email === adminEmail;
     
     next();
   } catch (error: any) {
@@ -2100,11 +2102,11 @@ router.get('/marketing/edits/:documentId', async (req: Request, res: Response) =
 // USER REGISTRATION ROUTES
 // ====================================
 
-const ADMIN_EMAIL = 'admin@soltec.ca';
-const MASTER_ADMIN_EMAIL = 'jfprince@soltec.ca';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@soltec.ca';
+const MASTER_ADMIN_EMAIL = process.env.MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
 // Admin UIDs for more secure admin authentication
 // TODO: Migrate to Firebase custom claims for more scalable admin management
-const ADMIN_UIDS: string[] = process.env.ADMIN_UIDS 
+const ADMIN_UIDS: string[] = process.env.ADMIN_UIDS
   ? process.env.ADMIN_UIDS.split(',').map(uid => uid.trim())
   : [];
 

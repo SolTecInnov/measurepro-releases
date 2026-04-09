@@ -6,7 +6,7 @@ import { queryClient } from '../../../lib/queryClient';
 import { authedRequest } from '../../../lib/authedFetch';
 import type { MemberAddonOverride } from '../../../../shared/schema';
 import { ADDON_DISPLAY_NAMES } from '../../../../shared/schema';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../../lib/firebase';
 
 const ADDON_OPTIONS = Object.entries(ADDON_DISPLAY_NAMES).map(([id, label]) => ({ id, label }));
 
@@ -107,8 +107,8 @@ const UserAddonOverrides: React.FC = () => {
 
   const grantMutation = useMutation({
     mutationFn: async () => {
-      const auth = getAuth();
-      const currentUser = auth.currentUser;
+      const auth = getSafeAuth();
+      const currentUser = auth?.currentUser;
       const expiresAt = grantExpiryPreset !== null
         ? new Date(Date.now() + grantExpiryPreset * 24 * 60 * 60 * 1000).toISOString()
         : new Date(grantCustomDate + 'T23:59:59').toISOString();

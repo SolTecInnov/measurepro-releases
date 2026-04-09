@@ -341,7 +341,7 @@ function QuickRefTab() {
             ['1', 'Power laser', '12V via cigarette lighter or 120V-to-12V converter'],
             ['2', 'Connect USB-serial cable', 'Between laser enclosure and tablet'],
             ['3', 'Open app', 'Chrome or Edge → measure-pro.app'],
-            ['4', 'Connect laser', 'Settings → Hardware → Laser → Select Port · Protocol: SolTec or RSA · Baud: 115,200'],
+            ['4', 'Connect laser', 'Settings → Hardware → Laser → Select Port · Protocol: SolTec · Baud: 115,200'],
             ['5', 'Connect GPS', 'Settings → GNSS/Duro → Connect (or USB GPS in Laser & GPS tab)'],
             ['6', 'Set ground reference', 'Measure tape from laser enclosure/sun shade junction to ground → enter in Settings → Laser'],
             ['7', 'Create or open a survey', 'Survey Manager → New Survey (or continue existing)'],

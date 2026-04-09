@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import DOMPurify from 'dompurify';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Mountain, Search, AlertTriangle, CheckCircle, Download, Wifi, Signal, Timer } from 'lucide-react';
@@ -344,7 +345,7 @@ export function RawPayloadInspector({ maxPackets = 20 }: RawPayloadInspectorProp
               <pre 
                 className="text-xs font-mono text-gray-300 whitespace-pre-wrap"
                 dangerouslySetInnerHTML={{
-                  __html: highlightAltitudeFields(JSON.stringify(selectedPacket.raw, null, 2))
+                  __html: DOMPurify.sanitize(highlightAltitudeFields(JSON.stringify(selectedPacket.raw, null, 2)))
                 }}
               />
             </div>

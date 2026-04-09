@@ -1,5 +1,5 @@
 /**
- * Jenoptik LDM71 (MeasurePRO Lidar2D V2) ASCII Driver
+ * LDM71 (MeasurePRO Lidar2D V2) ASCII Driver
  * 
  * Protocol specification:
  * - Output format: "D 0001.724 012.9\r\n"

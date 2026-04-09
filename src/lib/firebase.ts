@@ -799,6 +799,20 @@ export const getAccountByEmail = async (email: string): Promise<Account | null> 
   }
 };
 
+/**
+ * Safe getAuth() wrapper — returns null instead of throwing
+ * when Firebase hasn't been initialized yet (Electron cold start).
+ */
+export function getSafeAuth() {
+  if (auth) return auth;
+  try {
+    const { getAuth: _getAuth } = require('firebase/auth');
+    return _getAuth();
+  } catch {
+    return null;
+  }
+}
+
 // Named exports for direct import
 export { auth, db };
 

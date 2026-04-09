@@ -98,6 +98,12 @@ const CurrentMeasureCard: React.FC<CurrentMeasureCardProps> = ({
               }`}
               title={laserActive ? 'Laser data active' : 'No laser data'}
             />
+            {laserActive && (() => {
+              const mode = localStorage.getItem('loggingMode');
+              if (mode === 'all') return <span className={`inline-block w-2 h-2 rounded-full ${blinkOn ? 'bg-red-500 opacity-100' : 'bg-red-500 opacity-30'} transition-opacity duration-100`} title="All Data mode active" />;
+              if (mode === 'counterDetection') return <span className={`inline-block w-2 h-2 rounded-full ${blinkOn ? 'bg-blue-500 opacity-100' : 'bg-blue-500 opacity-30'} transition-opacity duration-100`} title="Auto-Capture mode active" />;
+              return null;
+            })()}
           </h3>
         </div>
         <div className="font-mono">        

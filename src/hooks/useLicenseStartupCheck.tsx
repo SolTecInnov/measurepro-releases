@@ -20,7 +20,7 @@ import { hasShownExpiryWarnToday, markExpiryWarnShown } from '../lib/auth/offlin
 export function useLicenseStartupCheck() {
   const [isInitializing, setIsInitializing] = useState(true);
   const [hasAnyLicense, setHasAnyLicense] = useState(false);
-  const auth = firebase.auth;
+  const auth = firebase.auth ?? null;
   const { user: authContextUser, isMasterAdmin: cachedIsMasterAdmin } = useAuth();
 
   useEffect(() => {
@@ -158,7 +158,7 @@ export function useLicenseStartupCheck() {
     const intervalId = setInterval(validateLicenses, 60 * 60 * 1000);
 
     return () => clearInterval(intervalId);
-  }, [auth.currentUser, authContextUser, cachedIsMasterAdmin]);
+  }, [auth?.currentUser, authContextUser, cachedIsMasterAdmin]);
 
   return { isInitializing, hasAnyLicense };
 }

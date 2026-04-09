@@ -2551,9 +2551,9 @@ export const closeSurveyWithExport = async (
 
     // Step 6: Sync to RoadScope if API key is configured
     try {
-      const { getAuth } = await import('firebase/auth');
-      const auth = getAuth();
-      const userId = auth.currentUser?.uid;
+      const { getSafeAuth } = await import('../firebase');
+      const auth = getSafeAuth();
+      const userId = auth?.currentUser?.uid;
       
       if (userId && navigator.onLine) {
         // Check if RoadScope is configured for this user

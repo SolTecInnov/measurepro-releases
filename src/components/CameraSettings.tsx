@@ -6,7 +6,7 @@ import { safelyStopStream, checkCameraPermission } from '../lib/camera/CameraUti
 import { createCamera } from '../lib/camera/CameraInterface';
 import { useLicenseCheck, useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import { isBetaUser } from '../lib/auth/masterAdmin';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 
 interface CameraOption {
   deviceId: string;
@@ -98,9 +98,9 @@ const CameraSettings: React.FC<CameraSettingsProps> = ({
   const { hasAccess: hasZED2iLicense, isLoading: isCheckingLicense } = useLicenseCheck('zed2i_support');
   
   // Check if beta user (hide preview button, image settings, capture type for beta/not-logged-in users)
-  const auth = getAuth();
+  const auth = getSafeAuth();
   const { features } = useEnabledFeatures();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const isBeta = isBetaUser(auth?.currentUser, features);
 
   const previewRef = useRef<HTMLVideoElement | null>(null);
 

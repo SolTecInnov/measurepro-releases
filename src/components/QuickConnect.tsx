@@ -8,11 +8,14 @@ const QuickConnect: React.FC = () => {
     availablePorts,
     laserPort,
     gpsPort,
+    electronLaserConnected,
     connectToLaser,
     connectToGPS,
     disconnectLaser,
     disconnectGPS
   } = useSerialStore();
+
+  const isLaserConnected = laserPort !== null || electronLaserConnected;
 
   const handleLaserConnect = async () => {
     try {
@@ -94,13 +97,13 @@ const QuickConnect: React.FC = () => {
       <button
         onClick={handleLaserConnect}
         className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-medium transition-colors ${
-          laserPort 
-            ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30' 
+          isLaserConnected
+            ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
             : 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
         }`}
       >
         <Zap className="w-3 h-3" />
-        <span>Laser {laserPort ? 'Connected' : 'Disconnected'}</span>
+        <span>Laser {isLaserConnected ? 'Connected' : 'Disconnected'}</span>
       </button>
 
       <button

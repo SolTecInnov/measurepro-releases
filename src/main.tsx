@@ -21,6 +21,8 @@ const BUILD_VERSION: string = (typeof __BUILD_TIMESTAMP__ !== 'undefined')
   ? __BUILD_TIMESTAMP__
   : 'dev';
 console.log(`%c MeasurePRO Desktop Build: ${BUILD_VERSION}`, 'color: #00ff00; font-size: 16px; font-weight: bold');
+// Always start in manual logging mode
+localStorage.setItem('loggingMode', 'manual');
 if (typeof window !== 'undefined') {
   (window as any).MEASUREPRO_VERSION = BUILD_VERSION;
 }

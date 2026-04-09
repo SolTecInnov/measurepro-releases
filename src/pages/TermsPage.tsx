@@ -6,6 +6,7 @@ import { useAuth } from '@/lib/auth/AuthContext';
 import { getCurrentUser } from '@/lib/firebase';
 import { apiRequest, queryClient } from '@/lib/queryClient';
 import { toast } from 'sonner';
+import DOMPurify from 'dompurify';
 import { Button } from '@/components/ui/button';
 
 export default function TermsPage() {
@@ -170,7 +171,7 @@ export default function TermsPage() {
                      [&_a]:text-blue-400 [&_a]:hover:text-blue-300 [&_a]:underline
                      [&_strong]:text-white [&_strong]:font-semibold"
           data-testid="section-terms-content"
-          dangerouslySetInnerHTML={{ __html: terms.content }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(terms.content) }}
         />
 
         {/* Accept Button - For authenticated users who haven't accepted */}

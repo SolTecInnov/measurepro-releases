@@ -68,7 +68,8 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
   
   const { laserStatus: btLaserStatus, gpsStatus: btGpsStatus } = useBluetoothStore();
   
-  const isWiredLaserConnected = laserPort !== null;
+  const { electronLaserConnected } = useSerialStore();
+  const isWiredLaserConnected = laserPort !== null || electronLaserConnected;
   const isWiredGpsConnected = gpsPort !== null;
   const isBluetoothLaserConnected = btLaserStatus === 'connected';
   const isBluetoothGpsConnected = btGpsStatus === 'connected';
@@ -203,11 +204,8 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     
     if (mode === 'manual') {
       stopLogging();
-    } else if (mode === 'all' || mode === 'counterDetection') {
-      // Call the external startLogging function from useMeasurementLogging
-      // This properly initializes all state and resets stopRequested.current
-      externalStartLogging();
     }
+    // 'all' and 'counterDetection' are started by setLoggingMode shim
   };
 
   // Log ground reference measurement

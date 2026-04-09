@@ -4,7 +4,7 @@ import { useSettingsStore } from '../../lib/settings';
 import { useSurveyStore } from '../../lib/survey';
 import { autoSaveSurvey } from '../../lib/utils/autoSaveUtils';
 import SurveyCreationDialog from '../SurveyCreationDialog';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import { isBetaUser } from '../../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../../hooks/useLicenseEnforcement';
 import { getAutoPartManager } from '../../lib/survey/AutoPartManager';
@@ -15,8 +15,8 @@ const LoggingSettings = () => {
   
   // Beta user detection for UI simplification
   const { features } = useEnabledFeatures();
-  const auth = getAuth();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const auth = getSafeAuth();
+  const isBeta = isBetaUser(auth?.currentUser, features);
   const [autoSaveInterval, setAutoSaveInterval] = React.useState<number>(60);
   const [autoSaveEnabled, setAutoSaveEnabled] = React.useState<boolean>(true);
   const [autoSaveFilename, setAutoSaveFilename] = React.useState<string>('');

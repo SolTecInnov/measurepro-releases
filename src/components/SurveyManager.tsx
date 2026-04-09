@@ -3,7 +3,7 @@ import { FileText, Plus, Pencil, XCircle } from 'lucide-react';
 import { useSurveyStore, exportSurvey } from '../lib/survey/index';
 import { exportSurveyWithMedia } from '../lib/utils/exportUtils';
 import { useSerialStore } from '../lib/stores/serialStore';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../lib/firebase';
 import { isBetaUser } from '../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import SaveNowButton from './survey/SaveNowButton';
@@ -16,7 +16,6 @@ import SurveyActions from './survey/SurveyActions';
 import SurveyForm from './survey/SurveyForm';
 import SurveyList from './survey/SurveyList';
 import NoActiveSurvey from './survey/NoActiveSurvey';
-import { ProfileRecordingControl } from './survey/ProfileRecordingControl';
 
 interface SurveyManagerProps {
   showSurveyDialog: boolean;
@@ -53,8 +52,8 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
   
   // Beta user detection for UI simplification
   const { features } = useEnabledFeatures();
-  const auth = getAuth();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const auth = getSafeAuth();
+  const isBeta = isBetaUser(auth?.currentUser, features);
 
   useEffect(() => {
     loadSurveys();
@@ -130,7 +129,7 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
     if (format === 'geojson' && !silent) {
       // For GeoJSON, use the full export with media
       await exportSurveyWithMedia(activeSurvey);
-      const currentUser = auth.currentUser;
+      const currentUser = auth?.currentUser;
       const uid = currentUser?.uid || localStorage.getItem('current_user_id') || '';
       const email = currentUser?.email || '';
       if (uid && email) {
@@ -144,7 +143,7 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
       await exportSurvey(activeSurvey, format);
       
       // Audit log: survey export
-      const currentUser = auth.currentUser;
+      const currentUser = auth?.currentUser;
       const uid = currentUser?.uid || localStorage.getItem('current_user_id') || '';
       const email = currentUser?.email || '';
       if (uid && email && !silent) {
@@ -266,7 +265,6 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
             {/* Road Profile Recording - hidden for beta users */}
             {!isBeta && (
               <div className="mt-4 pt-4 border-t border-green-500/30">
-                <ProfileRecordingControl compact={false} />
               </div>
             )}
             

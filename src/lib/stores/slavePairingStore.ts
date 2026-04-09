@@ -24,8 +24,13 @@ import { getApp } from 'firebase/app';
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 function getDb() {
-  try { return initializeFirestore(getApp(), { localCache: memoryLocalCache() }); }
-  catch { return getFirestore(getApp()); }
+  try {
+    const app = getApp();
+    try { return initializeFirestore(app, { localCache: memoryLocalCache() }); }
+    catch { return getFirestore(app); }
+  } catch {
+    return null; // Firebase not initialized yet
+  }
 }
 
 function randomCode(): string {
@@ -80,6 +85,7 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
 
   async function setupSession(code: string) {
     const db = getDb();
+    if (!db) return; // Firebase not ready
 
     // Create session doc
     await createSession(code, null);
@@ -160,6 +166,7 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
       const { pairingCode } = get();
       if (!pairingCode) return;
       const db = getDb();
+      if (!db) return;
       setDoc(doc(db, 'pairing', pairingCode), { surveyData: survey }, { merge: true }).catch(console.error);
       sendToSlave(pairingCode, { type: 'survey_data', data: survey }).catch(console.error);
     },
@@ -171,5 +178,10 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
   };
 });
 
-// Auto-connect when module loads
-useSlavePairingStore.getState().connect();
+// Auto-connect when Firebase is ready (not at module load)
+try {
+  getApp();
+  useSlavePairingStore.getState().connect();
+} catch {
+  // Firebase not initialized yet — skip auto-connect
+}

@@ -154,14 +154,14 @@ export default function LaserQuickStartPage() {
         <div className="doc-section card bg-gray-800 border border-gray-700 rounded-lg p-4 mb-4">
           <h3 className="font-bold text-white mb-2 text-sm">Supported Laser Devices</h3>
           <div className="grid grid-cols-3 gap-2 text-xs text-gray-300">
-            {[['SolTec-10m', 'SolTec protocol · 115,200 baud'], ['SolTec-30m', 'SolTec protocol · 115,200 baud'], ['SolTec-70m', 'SolTec protocol · 115,200 baud'], ['SolTec-2700', 'SolTec protocol · 115,200 baud'], ['RSA High Pole Laser', 'RSA protocol · 115,200 baud'], ['LDM71', 'ASCII output · 115,200 baud · ±1 mm'], ['Mock mode', 'Simulated — demos & testing']].map(([name, detail]) => (
+            {[['SolTec-10m', 'SolTec protocol · 115,200 baud'], ['SolTec-30m', 'SolTec protocol · 115,200 baud'], ['SolTec-70m', 'SolTec protocol · 115,200 baud'], ['SolTec-2700', 'SolTec protocol · 115,200 baud'], ['High Pole Laser', 'SolTec protocol · 115,200 baud'], ['LDM71', 'ASCII output · 115,200 baud · ±1 mm'], ['Mock mode', 'Simulated — demos & testing']].map(([name, detail]) => (
               <div key={name} className="bg-gray-900/40 rounded p-2">
                 <div className="font-semibold text-white text-xs">{name}</div>
                 <div className="text-gray-500 text-xs">{detail}</div>
               </div>
             ))}
           </div>
-          <Box type="info">LDM71 outputs ASCII distance strings. Select "LDM71" in Settings → Hardware → Laser → Protocol. Baud: 115,200 · Framing: 8N1. If readings show exactly 0.000 m, verify you have selected the correct protocol — RSA uses 3-byte binary; LDM71 uses ASCII.</Box>
+          <Box type="info">LDM71 outputs ASCII distance strings. Select "LDM71" in Settings → Hardware → Laser → Protocol. Baud: 115,200 · Framing: 8N1. If readings show exactly 0.000 m, verify you have selected the correct protocol — SolTec uses 3-byte binary; LDM71 uses ASCII.</Box>
         </div>
 
         {/* MEASUREMENT MODES */}
@@ -343,7 +343,7 @@ export default function LaserQuickStartPage() {
               ['COM port not appearing', 'Install USB-serial driver (CH340 / CP2102 / FTDI) — check Device Manager'],
               ['Unstable readings', 'Rain: increase ignoreBelow · Dark surface: apply retroreflective sticker'],
               ['Readings too high or too low', 'Re-measure ground reference (tape from enclosure/sun shade junction to ground) and re-enter value'],
-              ['Wrong baud rate error', 'Set baud rate to 115,200 for all SolTec and RSA vertical lasers'],
+              ['Wrong baud rate error', 'Set baud rate to 115,200 for all SolTec vertical lasers'],
             ].map(([prob, sol]) => (
               <div key={prob} className="bg-gray-900/40 rounded p-2">
                 <div className="font-semibold text-amber-300 mb-0.5">{prob}</div>

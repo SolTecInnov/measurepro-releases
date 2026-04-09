@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, shell, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, Menu, globalShortcut } = require('electron');
 
 // Auto-updater — loaded with guard so startup never fails if package missing
 let autoUpdater = null;
@@ -31,7 +31,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
-      webSecurity: false,
+      webSecurity: false, // Required: app loads from file:// and calls Firebase cross-origin
     },
   });
 
@@ -78,6 +78,10 @@ function createWindow() {
   });
 
   createMenu();
+
+  // Start hardware services after window is ready
+  if (insta360Service) insta360Service.startPolling(mainWindow);
+  if (droneService) droneService.startDriveWatcher(mainWindow);
 }
 
 function createMenu() {
@@ -313,10 +317,188 @@ ipcMain.handle('serial:getInfo', async (_event, portPath) => {
   };
 });
 
+// ── Laser IPC handlers (high-level, wraps serial) ───────────────────────────
+
+let laserPort = null;
+let laserBuffer = '';
+
+function parseLDM71Line(line) {
+  // LDM71 ASCII format: "D 0001.724 012.9" → distance in meters
+  const match = line.match(/^D\s+(\d+\.\d+)/);
+  if (match) {
+    return { type: 'measurement', value: match[1], raw: line };
+  }
+  return { type: 'raw', raw: line };
+}
+
+function parseSolTec3Byte(buf) {
+  // 3-byte binary: MSB, MID, LSB → millimetres
+  const results = [];
+  for (let i = 0; i + 2 < buf.length; i += 3) {
+    const mm = (buf[i] << 16) | (buf[i + 1] << 8) | buf[i + 2];
+    if (mm > 0 && mm < 100000) {
+      const meters = (mm / 1000).toFixed(3);
+      results.push({ type: 'measurement', value: meters, raw: `${mm}mm` });
+    }
+  }
+  return results;
+}
+
+ipcMain.handle('laser:list-ports', async () => {
+  const ports = await SerialPort.list();
+  return ports.map(p => ({
+    path: p.path,
+    manufacturer: p.manufacturer || '',
+    vendorId: p.vendorId || '',
+    productId: p.productId || '',
+  }));
+});
+
+ipcMain.handle('laser:connect', async (_event, opts) => {
+  const { comPort, baudRate = 115200, format = 'ldm71' } = opts || {};
+  if (!comPort) return { connected: false, error: 'No COM port specified' };
+
+  // Close existing laser connection if any
+  if (laserPort && laserPort.isOpen) {
+    try { laserPort.close(); } catch (_) {}
+  }
+
+  try {
+    const portOpts = {
+      path: comPort,
+      baudRate,
+      dataBits: format === 'soltec-legacy' ? 7 : 8,
+      stopBits: 1,
+      parity: format === 'soltec-legacy' ? 'even' : 'none',
+      autoOpen: false,
+    };
+
+    laserPort = new SerialPort(portOpts);
+
+    return new Promise((resolve) => {
+      laserPort.open(err => {
+        if (err) {
+          laserPort = null;
+          resolve({ connected: false, error: err.message });
+          return;
+        }
+
+        laserBuffer = '';
+        openPorts.set(comPort, laserPort);
+
+        laserPort.on('data', (chunk) => {
+          if (!mainWindow || mainWindow.isDestroyed()) return;
+
+          if (format === 'soltec-new' || format === 'soltec-legacy') {
+            // 3-byte binary protocol
+            const results = parseSolTec3Byte(chunk);
+            results.forEach(r => mainWindow.webContents.send('laser:measurement', r));
+          } else {
+            // ASCII line protocol (LDM71, etc.)
+            laserBuffer += chunk.toString('ascii');
+            const lines = laserBuffer.split(/\r?\n/);
+            laserBuffer = lines.pop() || '';
+            lines.forEach(line => {
+              const trimmed = line.trim();
+              if (!trimmed) return;
+              mainWindow.webContents.send('laser:raw-line', trimmed);
+              const parsed = parseLDM71Line(trimmed);
+              if (parsed.type === 'measurement') {
+                mainWindow.webContents.send('laser:measurement', parsed);
+              }
+            });
+          }
+
+          // Also forward raw data through serial:data for compatibility
+          mainWindow.webContents.send('serial:data', comPort, Array.from(chunk));
+        });
+
+        laserPort.on('error', (err) => {
+          if (mainWindow && !mainWindow.isDestroyed()) {
+            mainWindow.webContents.send('laser:error', err.message);
+          }
+        });
+
+        laserPort.on('close', () => {
+          openPorts.delete(comPort);
+          laserPort = null;
+          if (mainWindow && !mainWindow.isDestroyed()) {
+            mainWindow.webContents.send('laser:disconnected');
+          }
+        });
+
+        resolve({ connected: true, port: comPort });
+      });
+    });
+  } catch (err) {
+    return { connected: false, error: err.message };
+  }
+});
+
+ipcMain.handle('laser:disconnect', async () => {
+  if (!laserPort) return { success: true };
+  return new Promise((resolve) => {
+    laserPort.close(() => {
+      laserPort = null;
+      resolve({ success: true });
+    });
+  });
+});
+
+ipcMain.handle('laser:send-command', async (_event, cmd) => {
+  if (!laserPort || !laserPort.isOpen) {
+    throw new Error('Laser not connected');
+  }
+  return new Promise((resolve, reject) => {
+    laserPort.write(cmd + '\r\n', (err) => {
+      if (err) reject(new Error(err.message));
+      else laserPort.drain(() => resolve({ success: true }));
+    });
+  });
+});
+
+// ── Insta360 Native Service ──────────────────────────────────────────────────
+let insta360Service = null;
+try {
+  insta360Service = require('./insta360/insta360Service.cjs');
+  writeLog('MAIN', 'Insta360 service loaded');
+} catch (e) {
+  writeLog('MAIN', `Insta360 service not available: ${e.message}`);
+}
+ipcMain.handle('insta360:setCustomIp', (_event, ip) => {
+  if (insta360Service) insta360Service.setCustomIp(ip);
+  return { success: true };
+});
+
+// ── Drone Import Service ─────────────────────────────────────────────────────
+let droneService = null;
+try {
+  droneService = require('./drone/droneImportService.cjs');
+  writeLog('MAIN', 'Drone import service loaded');
+} catch (e) {
+  writeLog('MAIN', `Drone import service not available: ${e.message}`);
+}
+
+// ── Duro GNSS stub handlers ─────────────────────────────────────────────────
+ipcMain.handle('duro:connect', () => ({ connected: false, error: 'Not implemented' }));
+ipcMain.handle('duro:disconnect', () => ({ success: true }));
+ipcMain.handle('duro:status', () => ({ connected: false }));
+
 // ── File I/O IPC handler ─────────────────────────────────────────────────────
 
 ipcMain.handle('file:write', async (_event, filePath, data) => {
-  fs.writeFileSync(filePath, Buffer.from(data));
+  // Restrict writes to user's Documents and Downloads folders
+  const resolved = path.resolve(filePath);
+  const allowedDirs = [
+    app.getPath('documents'),
+    app.getPath('downloads'),
+    app.getPath('userData'),
+  ];
+  const isAllowed = allowedDirs.some(dir => resolved.startsWith(dir + path.sep) || resolved === dir);
+  if (!isAllowed) {
+    throw new Error(`Write denied: path must be inside Documents, Downloads, or app data`);
+  }
+  fs.writeFileSync(resolved, Buffer.from(data));
   return { success: true };
 });
 

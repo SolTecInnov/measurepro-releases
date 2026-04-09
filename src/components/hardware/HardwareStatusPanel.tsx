@@ -75,7 +75,9 @@ const HardwareStatusPanel: React.FC = () => {
     return () => clearInterval(interval);
   }, [gpsData]);
 
-  const laserStatus: DeviceStatus = !laserPort
+  const { electronLaserConnected } = useSerialStore();
+  const isLaserConnected = laserPort !== null || electronLaserConnected;
+  const laserStatus: DeviceStatus = !isLaserConnected
     ? 'not-connected'
     : lastMeasurement && lastMeasurement !== '--'
     ? 'receiving-data'

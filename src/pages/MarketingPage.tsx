@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Video, Calendar, BookOpen, Mail, Users, Camera, Presentation, MessageSquare, ListChecks, HelpCircle, Play, ChevronRight, ArrowLeft, Printer, X, Mic } from 'lucide-react';
 import { MarketingPasswordGate } from '../components/MarketingPasswordGate';
 import { CommentSection } from '../components/marketing/CommentSection';
+import DOMPurify from 'dompurify';
 import { EditHistory } from '../components/marketing/EditHistory';
 
 interface Document {
@@ -341,7 +342,7 @@ const MarketingPageContent = () => {
                   prose-code:text-pink-400 prose-code:bg-gray-900 prose-code:px-2 prose-code:py-1 prose-code:rounded
                   prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-700
                   prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-gray-900/50 prose-blockquote:py-2 prose-blockquote:px-4"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(renderMarkdown(content)) }}
               />
             </div>
           )}

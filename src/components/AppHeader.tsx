@@ -474,21 +474,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </Link>
               )}
 
-              {/* GNSS Road Profiling - Premium Feature */}
-              {hasFeature('gnss_profiling') && (
-                <Link
-                  to="/gnss-profiling"
-                  onClick={() => {
-                    sessionStorage.setItem('manual_navigation', 'true');
-                    setShowToolsMenu(false);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-green-400 hover:bg-gray-800 transition-colors"
-                  data-testid="link-road-profile"
-                >
-                  <Navigation className="w-4 h-4" />
-                  <span>GNSS Profiling</span>
-                </Link>
-              )}
+
 
               {/* Lidar HUD — moved here from main screen, hidden for now */}
               {false && (

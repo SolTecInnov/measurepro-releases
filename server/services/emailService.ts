@@ -19,7 +19,7 @@ import {
   TermsChangeNotification,
 } from '../../shared/schema.js';
 
-const ADMIN_EMAIL = 'admin@soltec.ca';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@soltec.ca';
 const SUPPORT_EMAIL = 'Info@SolTecInnovation.com';
 
 /**
@@ -1960,7 +1960,7 @@ export async function sendNewRegistrationAdminAlert(details: {
   title?: string;
   phone?: string;
 }): Promise<EmailResponse> {
-  const MASTER_ADMIN_EMAIL = 'jfprince@soltec.ca';
+  const MASTER_ADMIN_EMAIL = process.env.MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
   try {
     const content = `
       <div style="margin-bottom: 20px;">

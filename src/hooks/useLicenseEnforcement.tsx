@@ -70,7 +70,6 @@ const COMPANY_ADDON_TO_FEATURE_KEY: Record<string, string> = {
   swept_path: 'swept_path_analysis',
   calibration: 'calibration',
   '3d_view': 'point_cloud_scanning',
-  gnss: 'gnss_profiling',
 };
 
 /** Maps an array of addon IDs to feature keys using COMPANY_ADDON_TO_FEATURE_KEY. */
@@ -120,7 +119,8 @@ export function useLicenseCheck(featureKey: string): {
   // Increment to force re-check when company add-ons change
   const [companyAddonsVersion, setCompanyAddonsVersion] = useState(0);
 
-  const auth = getAuth();
+  let auth: any = null;
+  try { auth = getAuth(); } catch { /* Firebase not initialized yet */ }
   const { user: authContextUser, isMasterAdmin: cachedIsMasterAdmin } = useAuth();
   const { membership, company } = useMemberAccess();
   const addonOverrides = useAddonOverrides();
@@ -169,7 +169,7 @@ export function useLicenseCheck(featureKey: string): {
     const checkAccess = async () => {
       // Check if user is master admin
       const userIsMasterAdmin = cachedIsMasterAdmin || 
-        (auth.currentUser && isMasterAdmin(auth.currentUser.email)) ||
+        (auth?.currentUser && isMasterAdmin(auth?.currentUser.email)) ||
         (authContextUser?.email && isMasterAdmin(authContextUser.email));
 
       // Master admins are not affected by per-member overrides.
@@ -185,7 +185,7 @@ export function useLicenseCheck(featureKey: string): {
           setError(null);
           return;
         }
-        if (!auth.currentUser && !authContextUser && !cachedIsMasterAdmin) {
+        if (!auth?.currentUser && !authContextUser && !cachedIsMasterAdmin) {
           // Auth not loaded yet — stay in loading state; effect will re-run once auth resolves.
           setIsLoading(true);
           return;
@@ -241,7 +241,7 @@ export function useLicenseCheck(featureKey: string): {
       }
 
       // 2. Check Firebase user (only works online)
-      if (!auth.currentUser) {
+      if (!auth?.currentUser) {
         if (authContextUser?.email && isMasterAdmin(authContextUser.email)) {
           // Cache email for offline use
           try { localStorage.setItem('last_logged_in_email', authContextUser.email); } catch {}
@@ -256,9 +256,9 @@ export function useLicenseCheck(featureKey: string): {
       }
 
       // 3. Check Firebase user email
-      if (isMasterAdmin(auth.currentUser.email)) {
+      if (isMasterAdmin(auth?.currentUser.email)) {
         // Cache email so feature access works offline next session
-        try { localStorage.setItem('last_logged_in_email', auth.currentUser.email || ''); } catch {}
+        try { localStorage.setItem('last_logged_in_email', auth?.currentUser.email || ''); } catch {}
         setHasAccess(true);
         setIsLoading(false);
         setError(null);
@@ -288,7 +288,7 @@ export function useLicenseCheck(featureKey: string): {
       // 5. Check if beta test account (hardcoded list OR subscription tier from cache)
       //    Only if member.betaAccess is not explicitly false
       if (memberBetaOverride !== false) {
-        const isHardcodedBeta = isBetaTestAccount(auth.currentUser.email);
+        const isHardcodedBeta = isBetaTestAccount(auth?.currentUser.email);
         let isTierBeta = false;
         if (!isHardcodedBeta) {
           try {
@@ -363,7 +363,7 @@ export function useLicenseCheck(featureKey: string): {
   // addonOverridesKey is a stable string derived from addonOverrides — using it prevents
   // an infinite-loop caused by a new Set reference on every render.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth.currentUser, authContextUser, cachedIsMasterAdmin, featureKey, adminOverride, companyAddonsVersion, membership, company, addonOverridesKey]);
+  }, [auth?.currentUser, authContextUser, cachedIsMasterAdmin, featureKey, adminOverride, companyAddonsVersion, membership, company, addonOverridesKey]);
 
   return { hasAccess, isLoading, error };
 }
@@ -388,7 +388,8 @@ export function useEnabledFeatures(): {
   // Increment this to force the loadFeatures effect to re-run (e.g. on company add-on changes)
   const [companyAddonsVersion, setCompanyAddonsVersion] = useState(0);
 
-  const auth = getAuth();
+  let auth: any = null;
+  try { auth = getAuth(); } catch { /* Firebase not initialized yet */ }
   const { user: authContextUser, isMasterAdmin: cachedIsMasterAdmin } = useAuth();
   const { membership, company } = useMemberAccess();
   const addonOverrides = useAddonOverrides();
@@ -449,7 +450,7 @@ export function useEnabledFeatures(): {
     const loadFeatures = async () => {
       // Check if user is master admin
       const userIsMasterAdmin = cachedIsMasterAdmin || 
-        (auth.currentUser && isMasterAdmin(auth.currentUser.email)) ||
+        (auth?.currentUser && isMasterAdmin(auth?.currentUser.email)) ||
         (authContextUser?.email && isMasterAdmin(authContextUser.email));
 
       // Master admins are not affected by per-member overrides
@@ -481,7 +482,7 @@ export function useEnabledFeatures(): {
       }
 
       // 2. Check Firebase user (only works online)
-      if (!auth.currentUser) {
+      if (!auth?.currentUser) {
         if (authContextUser?.email && isMasterAdmin(authContextUser.email)) {
           setFeatures(['*']);
           setIsLoading(false);
@@ -494,7 +495,7 @@ export function useEnabledFeatures(): {
       }
 
       // 3. Check Firebase user email
-      if (isMasterAdmin(auth.currentUser.email)) {
+      if (isMasterAdmin(auth?.currentUser.email)) {
         setFeatures(['*']);
         setIsLoading(false);
         setError(null);
@@ -515,7 +516,7 @@ export function useEnabledFeatures(): {
       // 5. Check if beta test account (hardcoded list OR subscription tier from cache)
       //    Only if member.betaAccess is not explicitly false
       if (memberBetaOverride !== false) {
-        const isHardcodedBeta = isBetaTestAccount(auth.currentUser.email);
+        const isHardcodedBeta = isBetaTestAccount(auth?.currentUser.email);
         let isTierBeta = false;
         if (!isHardcodedBeta) {
           try {
@@ -576,7 +577,7 @@ export function useEnabledFeatures(): {
   // addonOverridesKey is a stable string derived from addonOverrides; using it instead
   // of the Set itself prevents a new-reference-every-render infinite loop.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth.currentUser, authContextUser, cachedIsMasterAdmin, adminOverride, companyAddonsVersion, membership, company, addonOverridesKey]);
+  }, [auth?.currentUser, authContextUser, cachedIsMasterAdmin, adminOverride, companyAddonsVersion, membership, company, addonOverridesKey]);
 
   const hasFeature = (featureKey: string): boolean => {
     // Master admin has all features

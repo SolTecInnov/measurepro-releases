@@ -6,7 +6,7 @@
  * bypassing subscription, license, grace period, and offline restrictions.
  */
 
-export const MASTER_ADMIN_EMAIL = 'jfprince@soltec.ca';
+export const MASTER_ADMIN_EMAIL = import.meta.env.VITE_MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
 
 /**
  * Beta Test Accounts
@@ -60,8 +60,6 @@ const BETA_RESTRICTED_FEATURE_KEYS: string[] = [
   // 3D scanning (blocked)
   'point_cloud_scanning',
 
-  // GNSS (blocked)
-  'gnss_profiling',
 
   // Measurement configuration (blocked)
   'measurement_configuration',

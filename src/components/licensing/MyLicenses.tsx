@@ -8,7 +8,7 @@ import {
   syncFeatureSnapshot,
 } from '../../lib/licensing';
 import type { UserLicense, LicenseFeature, LicensePackage } from '../../../shared/schema';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import { toast } from 'sonner';
 import { getFeatureSnapshotSyncAt } from '../../lib/auth/offlineAuth';
 
@@ -20,7 +20,7 @@ const MyLicenses = () => {
   const [isVerifying, setIsVerifying] = useState(false);
   const [lastVerifiedAt, setLastVerifiedAt] = useState<string | null>(null);
 
-  const auth = getAuth();
+  const auth = getSafeAuth();
 
   useEffect(() => {
     loadData();
@@ -33,7 +33,7 @@ const MyLicenses = () => {
   };
 
   const loadData = async () => {
-    if (!auth.currentUser) {
+    if (!auth?.currentUser) {
       setIsLoading(false);
       return;
     }
@@ -71,7 +71,7 @@ const MyLicenses = () => {
       ]);
       // Explicitly await the snapshot write so "Last verified" timestamp is
       // immediately fresh (avoids the fire-and-forget race in normal syncs).
-      const currentUser = auth.currentUser;
+      const currentUser = auth?.currentUser;
       if (currentUser) {
         await syncFeatureSnapshot(currentUser);
       }
@@ -116,7 +116,7 @@ const MyLicenses = () => {
     );
   }
 
-  if (!auth.currentUser) {
+  if (!auth?.currentUser) {
     return (
       <div className="bg-gray-900 border border-gray-700 rounded-lg p-6">
         <p className="text-center text-gray-400">Please log in to view your licenses</p>

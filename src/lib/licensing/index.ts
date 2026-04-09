@@ -371,9 +371,9 @@ export async function syncFeatureSnapshot(authUser: { getIdToken: () => Promise<
  */
 export async function getUserEnabledFeatures(): Promise<string[]> {
   // Check if current user is master admin - if so, return all features
-  const { getAuth } = await import('firebase/auth');
-  const auth = getAuth();
-  const currentUser = auth.currentUser;
+  const { getSafeAuth } = await import('../firebase');
+  const auth = getSafeAuth();
+  const currentUser = auth?.currentUser;
   
   if (currentUser) {
     const { isMasterAdmin } = await import('../auth/masterAdmin');

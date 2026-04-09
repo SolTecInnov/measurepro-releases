@@ -45,7 +45,7 @@ class ConnectivityMonitor {
       this.checkFirebaseConnectivity();
     }
 
-    console.log('[ConnectivityMonitor] Initialized', this.state);
+    // Initialized silently
   }
 
   private handleOnline = (): void => {
@@ -72,11 +72,15 @@ class ConnectivityMonitor {
     }
   };
 
+  private authRetryCount = 0;
+
   private setupAuthListener(): void {
     const apps = getApps();
     if (apps.length === 0) {
-      console.log('[ConnectivityMonitor] Firebase not initialized yet, will retry...');
-      setTimeout(() => this.setupAuthListener(), 2000);
+      this.authRetryCount++;
+      if (this.authRetryCount <= 5) {
+        setTimeout(() => this.setupAuthListener(), 3000);
+      }
       return;
     }
 
@@ -112,7 +116,7 @@ class ConnectivityMonitor {
       });
       
       this.state.isFirebaseConnected = true;
-      console.log('[ConnectivityMonitor] Firebase connectivity confirmed');
+      // Firebase connectivity confirmed silently
       
       if (this.state.isAuthenticated) {
         window.dispatchEvent(new CustomEvent('firebase-ready-for-sync'));

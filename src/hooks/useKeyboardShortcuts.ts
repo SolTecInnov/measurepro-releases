@@ -54,7 +54,6 @@ export const useKeyboardShortcuts = ({
         return;
       }
 
-      // Prevent key repeat
       if (e.repeat) return;
 
       // Helper function to match shortcuts (Stream Deck compatible)

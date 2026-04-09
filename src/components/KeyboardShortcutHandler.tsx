@@ -67,14 +67,15 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
         const eventKey = e.key === ' ' ? 'Space' : e.key.toUpperCase();
         const eventCode = e.code ? e.code.replace('Key', '').replace('Digit', '').toUpperCase() : '';
         const shortcutKey = shortcut.key.toUpperCase();
-        
-        const keyMatch = eventKey === shortcutKey || eventCode === shortcutKey;
-        
+
+        // Match by key name OR key code (StreamDeck may send empty code)
+        const keyMatch = eventKey === shortcutKey || (eventCode && eventCode === shortcutKey);
+
         const match = keyMatch &&
           !!e.ctrlKey === !!shortcut.ctrl &&
           !!e.altKey === !!shortcut.alt &&
           !!e.shiftKey === !!shortcut.shift;
-        
+
         return match;
       };
 

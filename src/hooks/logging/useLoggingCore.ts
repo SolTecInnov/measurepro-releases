@@ -15,6 +15,7 @@ import { useSurveyStore } from '@/lib/survey';
 import { usePOIActionsStore } from '@/lib/poiActions';
 import { soundManager } from '@/lib/sounds';
 import { openSurveyDB } from '@/lib/survey/db';
+import { getMeasurementFeed } from '@/lib/survey/MeasurementFeed';
 import type { POIType } from '@/lib/poi';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -142,6 +143,12 @@ export function useLoggingCore() {
     try {
       const db = await openSurveyDB();
       await db.put('measurements', measurement);
+      // Update in-memory cache so activity log refreshes immediately
+      getMeasurementFeed().addMeasurement(measurement as any);
+      // Clear the captured image from pending photos
+      if (measurement.imageUrl) {
+        window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: measurement.imageUrl }));
+      }
       soundManager.playLogEntry();
       return true;
     } catch (e) {

@@ -39,7 +39,7 @@ const STARTUP_STEPS = [
   ['1', 'Power laser', '12V via cigarette lighter or 120V-to-12V converter'],
   ['2', 'USB-serial cable', 'Connect between laser and tablet'],
   ['3', 'Open app', 'Chrome or Edge → measure-pro.app'],
-  ['4', 'Connect laser', 'Settings → Hardware → Laser → Select Port · Protocol: SolTec or RSA · Baud: 115,200'],
+  ['4', 'Connect laser', 'Settings → Hardware → Laser → Select Port · Protocol: SolTec · Baud: 115,200'],
   ['5', 'Connect GPS', 'Settings → GPS → Connect'],
   ['6', 'Ground reference', 'Measure with tape from laser enclosure/sun shade junction to ground → enter in Settings → Laser → Ground Reference'],
   ['7', 'New survey', 'Survey Manager → New Survey'],
@@ -393,8 +393,8 @@ export default function FieldReferencePage() {
             <div className="space-y-2 text-xs text-gray-300">
               <div>
                 <div className="text-white font-semibold">Vertical Laser</div>
-                <div>SolTec / RSA / LDM71 · 115,200 baud 8N1 · ±2 mm</div>
-                <div className="text-gray-500 text-xs">LDM71 = ASCII output. RSA = 3-byte binary. Select protocol in Settings → Laser Protocol. Symptom of wrong protocol: all 0.000 m.</div>
+                <div>SolTec / LDM71 · 115,200 baud 8N1 · ±2 mm</div>
+                <div className="text-gray-500 text-xs">LDM71 = ASCII output. SolTec = 3-byte binary. Select protocol in Settings → Laser Protocol. Symptom of wrong protocol: all 0.000 m.</div>
               </div>
               <div className="border-t border-gray-700 pt-1.5">
                 <div className="text-white font-semibold">Multi-Laser (Lateral / Rear)</div>

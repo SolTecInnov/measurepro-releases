@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { getAuth } from 'firebase-admin/auth';
 
-// Admin email addresses
-const ADMIN_EMAIL = 'admin@soltec.ca';
-const MASTER_ADMIN_EMAIL = 'jfprince@soltec.ca';
+// Admin email addresses — set via environment variables
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@soltec.ca';
+const MASTER_ADMIN_EMAIL = process.env.MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
 
 // Admin UIDs for more secure admin authentication
 // TODO: Migrate to Firebase custom claims for more scalable admin management

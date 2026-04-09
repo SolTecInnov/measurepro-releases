@@ -8,7 +8,7 @@ export interface EmailConfig {
   surveyRecipients: string[];
 }
 
-const ADMIN_EMAIL = 'admin@soltec.ca';
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || 'admin@soltec.ca';
 
 /**
  * Get email configuration from localStorage

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Copy, Eye, EyeOff, Trash2, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import {
   getAllActivationCodes,
   getAllLicenseFeatures,
@@ -23,7 +23,7 @@ const ActivationCodeManager = () => {
   const [visibleCodes, setVisibleCodes] = useState<Set<string>>(new Set());
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
-  const auth = getAuth();
+  const auth = getSafeAuth();
 
   const [formData, setFormData] = useState<InsertActivationCode>({
     code: '',
@@ -35,7 +35,7 @@ const ActivationCodeManager = () => {
     maxDevices: 3,
     maxActivations: 1,
     isActive: true,
-    generatedBy: auth.currentUser?.email || 'admin',
+    generatedBy: auth?.currentUser?.email || 'admin',
     notes: '',
   });
 
@@ -130,7 +130,7 @@ const ActivationCodeManager = () => {
       maxDevices: 3,
       maxActivations: 1,
       isActive: true,
-      generatedBy: auth.currentUser?.email || 'admin',
+      generatedBy: auth?.currentUser?.email || 'admin',
       notes: '',
     });
   };

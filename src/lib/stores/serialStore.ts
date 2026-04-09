@@ -51,6 +51,7 @@ interface SerialState {
   measurementSampleId: number;
   resetStatus: SerialResetStatus;
   _laserOnDataAttached?: boolean;
+  electronLaserConnected: boolean;
 
   // Actions
   requestPort: () => Promise<void>;
@@ -76,6 +77,7 @@ interface SerialState {
   singleMeasure: () => Promise<void>;
   stopLaser: () => Promise<void>;
   setLastLaserData: (data: string) => void;
+  setElectronLaserConnected: (connected: boolean) => void;
   resetSerialConnection: () => Promise<void>;
   resetMinDistance: () => void;
 }
@@ -158,6 +160,7 @@ export const useSerialStore = create<SerialState>((set, get) => ({
   currentMeasurement: '--',
   measurementSampleId: 0,
   resetStatus: SerialResetStatus.IDLE,
+  electronLaserConnected: false,
 
   requestPort: async () => {
     try {
@@ -815,6 +818,8 @@ export const useSerialStore = create<SerialState>((set, get) => ({
     // This function is called from the UI but the actual reset logic
     // is handled in the MeasurementCards component
   },
+
+  setElectronLaserConnected: (connected) => set({ electronLaserConnected: connected }),
 
   setLastLaserData: (data) => {
     // PERF FIX: Throttle store updates to 10fps max

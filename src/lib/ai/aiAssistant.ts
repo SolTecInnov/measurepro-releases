@@ -587,7 +587,7 @@ bridge, lateralObstruction, road, intersection, information, danger, importantNo
 ### Hardware
 **Laser distance meters** (vertical height measurement):
 - Connect via USB-Serial (Web Serial API) or Bluetooth (Web Bluetooth API)
-- Supported protocols: RSA 3-byte binary (soltec-new, 921600 baud), Jenoptik ASCII, Soltec-old (19200 baud 7E1), Mock
+- Supported protocols: SolTec 3-byte binary (soltec-new, 921600 baud), LDM71 ASCII, Soltec-old (19200 baud 7E1), Mock
 - Settings → Laser/GPS tab → "Connect Laser" button
 
 **Multi-laser system** (lateral width + rear overhang):
@@ -619,21 +619,8 @@ When Duro is active, USB GPS is automatically ignored. If Duro stops for 5+ seco
 - **Convoy Guardian (convoy_guardian)**: Multi-vehicle coordination for oversized convoy operations.
 - **Permitted Route Enforcement (route_enforcement)**: GPS-based compliance monitoring against pre-approved routes.
 - **Swept Path Analysis (swept_path_analysis)**: Real-time road boundary detection and multi-segment vehicle modeling.
-- **GNSS Profiling (gnss_profiling)**: Full GNSS road profiling system — grade, chainage, K-factor, banking/cross-slope (from Duro IMU roll), curve radius. Accessible via Settings → GNSS tab and the Road Profile page.
 - **Point Cloud Scanning (point_cloud_scanning)**: 3D LiDAR integration via Hesai Pandar40P + Windows companion service.
 - **Calibration (calibration)**: Advanced laser calibration tools.
-
-### GNSS Road Profiling (gnss_profiling add-on)
-Records road geometry data alongside survey measurements:
-- **Grade**: Slope percentage calculated from elevation changes
-- **Chainage**: Distance along the route in meters
-- **K-factor**: Rate of grade change (vertical curve geometry)
-- **Banking/Cross-slope**: Roll angle from Duro IMU (3 modes: raw, filtered, stopped-only)
-- **Curve radius**: Calculated from GPS trajectory using 3-point circumradius
-
-Banking alert thresholds: 0-3° Normal, 3-5° Caution, 5-7° Warning, 7-10° Critical, >10° Unacceptable
-
-To use: Connect Duro GNSS → Settings → GNSS tab → enable profiling → start recording.
 
 ### Keyboard Shortcuts (key reference)
 - **Space** / foot pedal: Capture measurement
@@ -656,13 +643,12 @@ To use: Connect Duro GNSS → Settings → GNSS tab → enable profiling → sta
 - Auth works offline via cached credentials
 
 ### Troubleshooting Quick Reference
-- **Laser not reading**: Check baud rate and protocol match the hardware. RSA/SolTec-new = 921600 baud. Soltec-old = 19200 7E1.
+- **Laser not reading**: Check baud rate and protocol match the hardware. SolTec-new = 921600 baud. Soltec-old = 19200 7E1.
 - **GPS not locking**: For Duro, ensure device IP is 192.168.0.222 and port 55555. Allow 20–60 seconds for RTK fix.
 - **App offline / no sync**: Check Firebase connectivity. Pending syncs will auto-retry when online.
 - **Survey won't close**: Make sure there's at least one POI, then use Survey → Close Survey.
 - **Photos not saving**: Check browser storage quota (Settings → Sync → Storage info).
 - **AI detection not working**: Requires AI+ add-on AND a configured OpenAI API key for GPT-4 Vision.
-- **GNSS profiling tab missing**: Requires gnss_profiling add-on. Contact your company admin or support.
 
 ---
 

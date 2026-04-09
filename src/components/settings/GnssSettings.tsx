@@ -5,7 +5,7 @@ import DuroLiveDataViewer from '@/components/gnss/DuroLiveDataViewer';
 import { DuroCalibrationSettings } from '@/components/gnss/DuroCalibrationSettings';
 import { GnssDiagnosticsPanel } from '@/components/gnss/diagnostics';
 import { useSettingsStore } from '@/lib/settings';
-import type { CrossSlopeMode } from '@/lib/roadProfile/types';
+type CrossSlopeMode = 'raw' | 'filtered' | 'stopped_only';
 import { gnssSimulator } from '@/lib/demo/gnssSimulator';
 
 // Backend URL storage key

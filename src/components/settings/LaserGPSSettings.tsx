@@ -9,7 +9,7 @@ import { useBluetoothStore } from '../../lib/bluetooth/bluetoothStore';
 import GPSData from '../GPSData';
 import { isBetaUser } from '../../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../../hooks/useLicenseEnforcement';
-import { getAuth } from 'firebase/auth';
+import { getSafeAuth } from '../../lib/firebase';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MeasurementFilterControl from './MeasurementFilterControl';
 import AmplitudeFilterControl from './AmplitudeFilterControl';
@@ -17,7 +17,7 @@ import { useAmplitudeFilterStore } from '../../lib/stores/amplitudeFilterStore';
 import { useSettingsStore } from '../../lib/settings';
 import { CloudRain } from 'lucide-react';
 
-// Weather Quality Filter Control Component for RSA Laser
+// Weather Quality Filter Control Component
 const WeatherFilterControl: React.FC = () => {
   const { laserSettings, setLaserSettings } = useSettingsStore();
   const weatherFilter = laserSettings.weatherFilter || {
@@ -182,9 +182,9 @@ const LaserGPSSettings: React.FC = () => {
     checkBluetoothSupport
   } = useBluetoothStore();
   
-  const auth = getAuth();
+  const auth = getSafeAuth();
   const { features } = useEnabledFeatures();
-  const isBeta = isBetaUser(auth.currentUser, features);
+  const isBeta = isBetaUser(auth?.currentUser, features);
 
   const [displayMeasurement, setDisplayMeasurement] = React.useState('--');
   const [showResetConfirm, setShowResetConfirm] = React.useState(false);
@@ -240,7 +240,8 @@ const LaserGPSSettings: React.FC = () => {
     }
   };
 
-  const isWiredLaserConnected = laserPort !== null;
+  const { electronLaserConnected } = useSerialStore();
+  const isWiredLaserConnected = laserPort !== null || electronLaserConnected;
   const isWiredGpsConnected = gpsPort !== null;
   const isBluetoothLaserConnected = btLaserStatus === 'connected';
   const isBluetoothGpsConnected = btGpsStatus === 'connected';
