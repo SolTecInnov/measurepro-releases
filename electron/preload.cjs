@@ -135,4 +135,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
       ipcRenderer.removeAllListeners('serial:close');
     },
   },
+
+  // ── Native keyboard input (StreamDeck compatibility) ──────────────────────
+  onNativeKeydown: (callback) => {
+    ipcRenderer.on('native-keydown', (_event, data) => callback(data));
+  },
 });

@@ -358,7 +358,7 @@ export const useSerialStore = create<SerialState>((set, get) => ({
         flowControl: 'none'
       };
       
-      console.log(`[GPS] Using ${gpsConfig.baudRate} baud`);
+      // GPS connection started
       
       // Create a new GPS reader for this connection
       const gpsReader = new GPSReader();
@@ -371,10 +371,10 @@ export const useSerialStore = create<SerialState>((set, get) => ({
       
       // Open the port FIRST before setting state (so button stays clickable if it fails)
       if (!port.readable) {
-        console.log('[GPS] Opening port with config:', JSON.stringify(gpsConfig));
+        // Opening GPS port
         try {
           await port.open(gpsConfig);
-          console.log('[GPS] Port opened successfully');
+          // GPS port opened
         } catch (openErr: unknown) {
           const errName = openErr instanceof DOMException ? openErr.name : '';
           const errMsg = openErr instanceof Error ? openErr.message : String(openErr);
@@ -386,10 +386,10 @@ export const useSerialStore = create<SerialState>((set, get) => ({
           throw openErr;
         }
       } else {
-        console.log('[GPS] Port already open');
+        // GPS port already open
       }
       
-      console.log('[GPS] Port state - readable:', !!port.readable, 'writable:', !!port.writable);
+      // GPS port ready
       
       // Set the port in state ONLY after port.open() succeeds
       set({ gpsPort: port, gpsReader, gpsConfig });
@@ -405,22 +405,22 @@ export const useSerialStore = create<SerialState>((set, get) => ({
 
       // Start reading data
       const readData = async () => {
-        console.log('[GPS] Starting read loop');
+        // GPS read loop started
         try {
           const reader = port.readable!.getReader();
-          console.log('[GPS] Reader acquired');
+          // GPS reader acquired
           let readCount = 0;
           while (port.readable) {
             const { value, done } = await reader.read();
             if (done) {
-              console.log('[GPS] Read loop: stream done');
+              // GPS stream done
               break;
             }
             
             readCount++;
             if (value && value.length > 0) {
               if (readCount <= 5) {
-                console.log(`[GPS] Read #${readCount}: ${value.length} bytes`);
+                // GPS data received
               }
               // Process data through GPS reader
               gpsReader.processData(value);

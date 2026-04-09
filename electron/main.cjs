@@ -41,6 +41,13 @@ function createWindow() {
     writeLog(levels[level] || 'info', `${message} (${sourceId}:${line})`);
   });
 
+  // Debug: log ALL keyboard input at Electron level (check if StreamDeck reaches here)
+  mainWindow.webContents.on('before-input-event', (_event, input) => {
+    if (input.type === 'keyDown') {
+      writeLog('INPUT', `key=${input.key} code=${input.code} alt=${input.alt} ctrl=${input.control} shift=${input.shift} repeat=${input.isAutoRepeat}`);
+    }
+  });
+
   mainWindow.webContents.on('did-fail-load', (_e, code, desc, url) => {
     writeLog('error', `did-fail-load: ${code} ${desc} ${url}`);
   });

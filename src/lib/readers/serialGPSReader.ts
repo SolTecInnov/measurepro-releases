@@ -17,7 +17,7 @@ export class GPSReader {
     
     // Debug: Log first few chunks and then periodically
     if (this.chunkCount <= 5 || this.chunkCount % 100 === 0) {
-      console.log(`[GPSReader] processData: ${chunk.length} bytes, chunk #${this.chunkCount}, preview: ${text.substring(0, 40)}`);
+      // verbose logging removed
     }
     
     // Add to buffer

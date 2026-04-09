@@ -27,6 +27,25 @@ if (typeof window !== 'undefined') {
   (window as any).MEASUREPRO_VERSION = BUILD_VERSION;
 }
 
+// StreamDeck compatibility: forward native keyboard events as DOM keydown events
+// StreamDeck uses Windows SendInput which bypasses Chromium's DOM event dispatch in Electron
+const api = (window as any).electronAPI;
+if (api?.onNativeKeydown) {
+  api.onNativeKeydown((data: { key: string; code: string; alt: boolean; ctrl: boolean; shift: boolean; meta: boolean }) => {
+    const event = new KeyboardEvent('keydown', {
+      key: data.key,
+      code: data.code,
+      altKey: data.alt,
+      ctrlKey: data.ctrl,
+      shiftKey: data.shift,
+      metaKey: data.meta,
+      bubbles: true,
+      cancelable: true,
+    });
+    document.dispatchEvent(event);
+  });
+}
+
 // CRITICAL: Clean up localStorage on app startup to prevent quota issues
 const cleanupLocalStorage = () => {
   try {
