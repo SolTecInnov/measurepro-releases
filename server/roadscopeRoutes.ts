@@ -128,6 +128,14 @@ router.post('/proxy/auth/validate', async (req: Request, res: Response) => {
     }
     
     if (!keyToUse) {
+      // Fall back to Authorization / x-api-key headers (matches every other proxy route)
+      keyToUse = extractApiKey(req);
+      if (keyToUse) {
+        console.log('[RoadScope Proxy] Using API key from request headers');
+      }
+    }
+
+    if (!keyToUse) {
       console.log('[RoadScope Proxy] No API key available');
       return res.status(400).json({ success: false, error: 'No API key provided' });
     }
