@@ -77,12 +77,31 @@ async function performAutoSync(surveyId: string, userId: string, poiCount: numbe
       return;
     }
     
+    // Fetch and set API key (required — syncSurveyToRoadScope validates it)
+    const { getRoadScopeClient } = await import('./client');
+    const client = getRoadScopeClient();
+    if (!client.getApiKey()) {
+      const { API_BASE_URL } = await import('@/lib/config/environment');
+      try {
+        const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
+        const keyJson = await keyRes.json();
+        if (keyJson.success && keyJson.apiKey) {
+          client.setApiKey(keyJson.apiKey);
+        } else {
+          logger.warn('[RoadScopeAutoSync] No API key available, skipping sync');
+          return;
+        }
+      } catch (e) {
+        logger.warn('[RoadScopeAutoSync] Failed to fetch API key:', e);
+        return;
+      }
+    }
+
     // Check if already synced to RoadScope
     const status = await getSyncStatus(surveyId);
-    
+
     logger.info(`[RoadScopeAutoSync] Auto-syncing survey ${surveyId} at ${poiCount} POIs`);
-    /* toast removed */
-    
+
     // Perform the sync
     const result = await syncSurveyToRoadScope(survey, {
       includeFiles: false, // Don't sync files during auto-sync (too slow)

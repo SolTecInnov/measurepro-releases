@@ -56,9 +56,13 @@ const SaveNowButton: React.FC<SaveNowButtonProps> = ({ activeSurveyId, compact =
         }
       }
       
-      // 2. Also save survey metadata
+      // 2. Also save survey metadata (with timeout to prevent infinite spinner)
       if (activeSurvey) {
-        await triggerManualAutoSave(activeSurvey);
+        const savePromise = triggerManualAutoSave(activeSurvey);
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Save timeout after 30s')), 30000)
+        );
+        await Promise.race([savePromise, timeoutPromise]);
       }
       
       // Show success feedback
