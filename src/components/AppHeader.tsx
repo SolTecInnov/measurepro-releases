@@ -1,8 +1,9 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain } from 'lucide-react';
 import { useDriveModeStore } from '../lib/stores/driveModeStore';
+import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { useSurveyStore } from '../lib/survey';
 import { getCurrentUser, signOutUser } from '../lib/firebase';
 import { useVoiceAssistant } from '../hooks/useVoiceAssistant';
@@ -52,6 +53,10 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   // Drive Mode (kiosk + always-on-top + close protection)
   const driveMode = useDriveModeStore((s) => s.enabled);
   const setDriveMode = useDriveModeStore((s) => s.setEnabled);
+
+  // Rain Mode (logs POIs without laser measurements)
+  const rainMode = useRainModeStore((s) => s.isActive);
+  const toggleRainMode = useRainModeStore((s) => s.toggle);
 
   // Voice Assistant
   const [voiceState, voiceActions] = useVoiceAssistant();
@@ -403,8 +408,28 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 </>
               )}
 
-              {/* ── Drive Mode ─────────────────────────────── */}
+              {/* ── Operating modes ─────────────────────────── */}
               <div className="border-t border-gray-700 my-1" />
+
+              {/* Rain Mode — log POIs without laser measurements (Alt+R also works) */}
+              <button
+                onClick={() => {
+                  toggleRainMode();
+                  setShowToolsMenu(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
+                  rainMode
+                    ? 'bg-blue-600/20 text-blue-300 hover:bg-blue-600/30'
+                    : 'text-gray-200 hover:bg-gray-800'
+                }`}
+                data-testid="button-rain-mode"
+                title="Logs POIs with photo + GPS but skips the laser distance reading. Use when raining or foggy and the laser gives unreliable values."
+              >
+                <CloudRain className={`w-4 h-4 flex-shrink-0 ${rainMode ? 'text-blue-300' : 'text-blue-400'}`} />
+                <span>{rainMode ? 'Exit Rain Mode' : 'Rain Mode'}</span>
+              </button>
+
+              {/* Drive Mode — kiosk + close protection */}
               <button
                 onClick={() => {
                   setDriveMode(!driveMode);
