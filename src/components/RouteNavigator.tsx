@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L, { LatLngExpression } from 'leaflet';
-import { Navigation, Play, Square, Volume2, VolumeX, Minimize2, Maximize2, ArrowUp, CornerDownRight, CornerDownLeft, CornerUpRight, CornerUpLeft, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Navigation, Play, Square, Volume2, VolumeX, Minimize2, Maximize2, ArrowUp, CornerDownRight, CornerDownLeft, CornerUpRight, CornerUpLeft, ArrowRight, ArrowLeft, X } from 'lucide-react';
 import { Route } from '../lib/utils/routeUtils';
 import { useGPSStore } from '../lib/stores/gpsStore';
 import TurnByTurnNavigation from './TurnByTurnNavigation';
@@ -428,6 +428,20 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
     setIsMinimized(false);
   };
 
+  // Esc to fully close the navigator (most fullscreen overlays do this — was missing here).
+  // Only listens while maximized so it doesn't trap the key when collapsed to the corner widget.
+  useEffect(() => {
+    if (isMinimized) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMinimized, onClose]);
+
   // Compute center position for map
   const mapCenter: LatLngExpression = (gpsData.latitude !== 0 && gpsData.longitude !== 0) 
     ? [gpsData.latitude, gpsData.longitude] 
@@ -539,7 +553,7 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
           <button
             onClick={handleMinimize}
             className="p-2 bg-gray-700 hover:bg-gray-600 rounded-full"
-            title="Minimize Navigation"
+            title="Minimize Navigation (Esc to close)"
           >
             <Minimize2 className="w-5 h-5" />
           </button>
@@ -560,6 +574,17 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
               Stop Navigation
             </button>
           )}
+          {/* Always-visible Close button — works even before navigation starts, so the
+              user can never get stuck in this fullscreen overlay. */}
+          <button
+            onClick={onClose}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg border border-gray-600"
+            data-testid="button-close-navigator"
+            title="Close (Esc)"
+          >
+            <X className="w-5 h-5" />
+            <span>Close</span>
+          </button>
         </div>
       </div>
       
