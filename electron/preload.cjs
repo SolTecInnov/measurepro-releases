@@ -18,6 +18,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onMenuNavigateTab: (callback) => ipcRenderer.on('menu-navigate-tab', (_event, tab) => callback(tab)),
   onMenuOpenSupportTicket: (callback) => ipcRenderer.on('menu-open-support-ticket', callback),
 
+  // ── Drive Mode + active-survey close protection ──────────────────
+  // Renderer pushes "active survey present" state up so main can intercept
+  // window close events. Drive Mode toggles kiosk + always-on-top + fullscreen.
+  setActiveSurveyState: (hasActive) => ipcRenderer.invoke('app:set-active-survey', !!hasActive),
+  setDriveMode:        (enabled)   => ipcRenderer.invoke('app:set-drive-mode', !!enabled),
+  getDriveMode:        ()          => ipcRenderer.invoke('app:get-drive-mode'),
+  onDriveModeChanged:  (cb)        => ipcRenderer.on('app:drive-mode-changed', (_e, enabled) => cb(enabled)),
+
   // ── Auto-updater ─────────────────────────────────────────────────
   updaterCheck:       () => ipcRenderer.invoke('updater:check'),
   updaterInstallNow:  () => ipcRenderer.invoke('updater:install-now'),

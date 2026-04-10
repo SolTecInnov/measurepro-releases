@@ -1,7 +1,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock } from 'lucide-react';
+import { useDriveModeStore } from '../lib/stores/driveModeStore';
 import { useSurveyStore } from '../lib/survey';
 import { getCurrentUser, signOutUser } from '../lib/firebase';
 import { useVoiceAssistant } from '../hooks/useVoiceAssistant';
@@ -47,6 +48,10 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   // Use currentUser state which updates on auth changes, not auth.currentUser which may be stale
   const isBeta = isBetaUser(currentUser, features) || isBetaTestAccount(currentUser?.email);
   const [slaveAppMeasurements, setSlaveAppMeasurements] = React.useState<any[]>([]);
+
+  // Drive Mode (kiosk + always-on-top + close protection)
+  const driveMode = useDriveModeStore((s) => s.enabled);
+  const setDriveMode = useDriveModeStore((s) => s.setEnabled);
 
   // Voice Assistant
   const [voiceState, voiceActions] = useVoiceAssistant();
@@ -242,7 +247,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2 mb-3">
+    <div className={`flex flex-col lg:flex-row items-start lg:items-center gap-2 mb-3 ${driveMode ? 'border-l-4 border-amber-500 pl-3' : ''}`}>
       <div className="flex-shrink-0">
         <h1 className="text-2xl font-bold flex items-center gap-2">
           {features.includes('*') ? (
@@ -349,75 +354,104 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               )}
 
               {/* ── Sharing & sync ─────────────────────────── */}
-              <div className="border-t border-gray-700 my-1" />
+              {/* Hidden in Drive Mode to keep the menu focused on the road */}
+              {!driveMode && (
+                <>
+                  <div className="border-t border-gray-700 my-1" />
 
-              {hasFeature('slave_app') && (
-                <button
-                  onClick={() => {
-                    setShowToolsMenu(false);
-                    useSlavePairingStore.getState().refreshCode();
-                    setShowPhoneQR(true);
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
-                  data-testid="button-open-on-mobile"
-                >
-                  <div className="relative flex-shrink-0">
-                    <QrCode className="w-4 h-4 text-cyan-400" />
-                    {isSlaveConnected && (
-                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full ring-1 ring-gray-900" />
-                    )}
-                  </div>
-                  <span className="flex items-center gap-2">
-                    Pair Field App
-                    {isSlaveConnected && (
-                      <span className="text-xs text-green-400 font-medium">● Live</span>
-                    )}
-                  </span>
-                </button>
+                  {hasFeature('slave_app') && (
+                    <button
+                      onClick={() => {
+                        setShowToolsMenu(false);
+                        useSlavePairingStore.getState().refreshCode();
+                        setShowPhoneQR(true);
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                      data-testid="button-open-on-mobile"
+                    >
+                      <div className="relative flex-shrink-0">
+                        <QrCode className="w-4 h-4 text-cyan-400" />
+                        {isSlaveConnected && (
+                          <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full ring-1 ring-gray-900" />
+                        )}
+                      </div>
+                      <span className="flex items-center gap-2">
+                        Pair Field App
+                        {isSlaveConnected && (
+                          <span className="text-xs text-green-400 font-medium">● Live</span>
+                        )}
+                      </span>
+                    </button>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      if (!activeSurvey) {
+                        toast.error('Please create or select a survey first');
+                        setShowToolsMenu(false);
+                        return;
+                      }
+                      setShowRoadScopeSync(true);
+                      setShowToolsMenu(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                    data-testid="button-roadscope-sync"
+                  >
+                    <Cloud className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                    <span>Sync to RoadScope</span>
+                  </button>
+                </>
               )}
 
+              {/* ── Drive Mode ─────────────────────────────── */}
+              <div className="border-t border-gray-700 my-1" />
               <button
                 onClick={() => {
-                  if (!activeSurvey) {
-                    toast.error('Please create or select a survey first');
-                    setShowToolsMenu(false);
-                    return;
-                  }
-                  setShowRoadScopeSync(true);
+                  setDriveMode(!driveMode);
                   setShowToolsMenu(false);
                 }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
-                data-testid="button-roadscope-sync"
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
+                  driveMode
+                    ? 'bg-amber-600/20 text-amber-300 hover:bg-amber-600/30'
+                    : 'text-gray-200 hover:bg-gray-800'
+                }`}
+                data-testid="button-drive-mode"
+                title="Locks the app fullscreen, prevents accidental close, and blocks other apps from showing in front."
               >
-                <Cloud className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span>Sync to RoadScope</span>
+                <Lock className={`w-4 h-4 flex-shrink-0 ${driveMode ? 'text-amber-400' : 'text-amber-500/80'}`} />
+                <span>{driveMode ? 'Exit Drive Mode' : 'Drive Mode'}</span>
               </button>
 
               {/* ── Account ────────────────────────────────── */}
-              <div className="border-t border-gray-700 my-1" />
-              <button
-                onClick={() => {
-                  setShowSupportTicket(true);
-                  setShowToolsMenu(false);
-                }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
-                data-testid="button-support-ticket"
-              >
-                <LifeBuoy className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <span>Support Ticket</span>
-              </button>
+              {/* Log Out hidden in Drive Mode so the operator can't accidentally sign out mid-survey */}
+              {!driveMode && (
+                <>
+                  <div className="border-t border-gray-700 my-1" />
+                  <button
+                    onClick={() => {
+                      setShowSupportTicket(true);
+                      setShowToolsMenu(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                    data-testid="button-support-ticket"
+                  >
+                    <LifeBuoy className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                    <span>Support Ticket</span>
+                  </button>
 
-              <button
-                onClick={() => {
-                  handleLogOut();
-                  setShowToolsMenu(false);
-                }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
-                data-testid="button-log-out"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>Log Out</span>
-              </button>
+                  <button
+                    onClick={() => {
+                      handleLogOut();
+                      setShowToolsMenu(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                    data-testid="button-log-out"
+                  >
+                    <LogOut className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    <span>Log Out</span>
+                  </button>
+                </>
+              )}
             </div>
           )}
 

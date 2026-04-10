@@ -45,6 +45,13 @@ writeLog('MAIN', `App starting. Log: ${logFile}`);
 
 let mainWindow;
 
+// ── Drive Mode + active-survey close protection ────────────────────────────
+// Both pieces of state live in main and are pushed up by the renderer via IPC.
+let hasActiveSurvey = false;
+let driveModeEnabled = false;
+// Saved window bounds so we can restore them on Drive Mode exit (kiosk replaces them)
+let preDriveModeBounds = null;
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1280,
@@ -108,6 +115,30 @@ function createWindow() {
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
+  });
+
+  // ── Active-survey close protection ──────────────────────────────────────
+  // Intercept window close (X button, Alt+F4, taskbar close) when a survey
+  // is active. Soft lock — user can still confirm. Data is already safe in
+  // IndexedDB; this just prevents accidental loss of the recording session.
+  mainWindow.on('close', (event) => {
+    if (!hasActiveSurvey) return; // no active survey → close normally
+    if (mainWindow._closeConfirmed) return; // already confirmed this round
+
+    event.preventDefault();
+    const choice = dialog.showMessageBoxSync(mainWindow, {
+      type: 'warning',
+      buttons: ['Cancel', 'Stop & Close'],
+      defaultId: 0,
+      cancelId: 0,
+      title: 'Survey is recording',
+      message: 'A survey is currently active.',
+      detail: 'Closing now will stop the recording. Your measurements are already saved locally — no data will be lost — but the session will end. Are you sure?'
+    });
+    if (choice === 1) {
+      mainWindow._closeConfirmed = true;
+      mainWindow.close();
+    }
   });
 
   createMenu();
@@ -705,6 +736,45 @@ ipcMain.handle('updater:install-now', () => {
 
 ipcMain.handle('updater:get-version', () => {
   return app.getVersion();
+});
+
+// ── Drive Mode + active-survey state ─────────────────────────────────────────
+ipcMain.handle('app:set-active-survey', (_event, hasActive) => {
+  hasActiveSurvey = !!hasActive;
+  return hasActiveSurvey;
+});
+
+ipcMain.handle('app:get-drive-mode', () => driveModeEnabled);
+
+ipcMain.handle('app:set-drive-mode', (_event, enabled) => {
+  if (!mainWindow) return false;
+  const next = !!enabled;
+  if (next === driveModeEnabled) return next;
+
+  if (next) {
+    // Save current bounds so we can restore on exit (kiosk mode mutates them)
+    try { preDriveModeBounds = mainWindow.getBounds(); } catch { preDriveModeBounds = null; }
+    // setKiosk handles fullscreen + chrome hiding in one call on Windows.
+    // alwaysOnTop keeps the window above other apps a user might accidentally focus.
+    mainWindow.setKiosk(true);
+    mainWindow.setAlwaysOnTop(true, 'screen-saver');
+    mainWindow.setFullScreen(true);
+  } else {
+    mainWindow.setKiosk(false);
+    mainWindow.setAlwaysOnTop(false);
+    mainWindow.setFullScreen(false);
+    if (preDriveModeBounds) {
+      try { mainWindow.setBounds(preDriveModeBounds); } catch {}
+      preDriveModeBounds = null;
+    }
+  }
+
+  driveModeEnabled = next;
+  // Notify the renderer so the badge + UI tint update immediately
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('app:drive-mode-changed', driveModeEnabled);
+  }
+  return driveModeEnabled;
 });
 
 // Update preference: 'auto' (default) or 'manual'

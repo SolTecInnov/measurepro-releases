@@ -106,6 +106,7 @@ import { ForcePasswordChange } from './components/ForcePasswordChange';
 import { TermsVersion } from '../shared/schema';
 import { DemoOverlay } from './components/demo/DemoOverlay';
 import { DemoModeProvider } from './components/demo/DemoModeProvider';
+import { DriveModeBadge } from './components/DriveModeBadge';
 import { apiRequest } from './lib/queryClient';
 import { useHardwareAutoReconnect } from './hooks/useHardwareAutoReconnect';
 import HardwareAutoReconnectModal from './components/hardware/HardwareAutoReconnectModal';
@@ -906,6 +907,24 @@ function App() {
     // RoadScope auto-sync used to be POI-count-based and triggered here on
     // every measurement batch. As of v16.1.19 it's a time-based interval timer
     // initialized in main.tsx — see startRoadScopeAutoSyncTimer().
+
+    // Push active-survey state to the Electron main process so it can intercept
+    // the window close button when a survey is recording. Subscribe to the
+    // survey store and notify on every change. Only matters in Electron — the
+    // setActiveSurveyState bridge is undefined in non-Electron environments.
+    const electronApi = (window as any).electronAPI;
+    if (electronApi?.setActiveSurveyState) {
+      // Push the current state immediately
+      const currentSurvey = useSurveyStore.getState().activeSurvey;
+      electronApi.setActiveSurveyState(!!currentSurvey).catch(() => {});
+      // Then subscribe to future changes
+      const unsubscribe = useSurveyStore.subscribe((state, prevState) => {
+        if (!!state.activeSurvey !== !!prevState.activeSurvey) {
+          electronApi.setActiveSurveyState(!!state.activeSurvey).catch(() => {});
+        }
+      });
+      return () => { unsubscribe(); };
+    }
   }, []);
 
   // Initialize and manage background sync service
@@ -1007,6 +1026,9 @@ function App() {
 
       {/* Rain Mode Banner */}
       <RainModeBanner />
+
+      {/* Drive Mode persistent exit badge — only renders when Drive Mode is active */}
+      <DriveModeBadge />
       
       {/* Terms Re-acceptance Modal */}
       {showTermsModal && latestTermsVersion && (

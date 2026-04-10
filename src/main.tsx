@@ -15,6 +15,7 @@ import { checkLibraryHealth, showLibraryErrorModal } from './lib/libraryHealthCh
 import { initFirebaseAutoSync } from './lib/firebase/autoSync';
 import { installFirebaseSyncDiagnostic } from './lib/diagnostics/firebaseSyncDiagnostic';
 import { initRoadScopeAutoSync } from './lib/roadscope/autoSync';
+import { initDriveModeBridge } from './lib/stores/driveModeStore';
 import { initAutoPartManager } from './lib/survey/AutoPartManager';
 
 // BUILD VERSION — injected at build time by vite.config.ts, unique per deployment
@@ -198,6 +199,13 @@ if (!libraryHealth.healthy) {
   initRoadScopeAutoSync().catch((error) => {
     console.error('RoadScope auto-sync init failed:', error);
   });
+
+  // Drive Mode bridge — sync state from main process on boot + subscribe to changes
+  try {
+    initDriveModeBridge();
+  } catch (error) {
+    console.error('Drive Mode bridge init failed:', error);
+  }
 
   try {
     initAutoPartManager();
