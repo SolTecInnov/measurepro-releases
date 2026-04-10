@@ -98,6 +98,9 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
     await createSession(code, null);
     console.log('[SlavePairing] Session created successfully');
 
+    // Session is ready — show QR immediately (don't wait for snapshot listeners)
+    set({ isServerConnected: true });
+
     // Watch for slave joining (slaveOnline: true)
     _unsubSlave = onSnapshot(doc(db, 'pairing', code), (snap) => {
       if (!snap.exists()) return;
@@ -145,8 +148,6 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
         }
       });
     });
-
-    set({ isServerConnected: true });
   }
 
   return {
