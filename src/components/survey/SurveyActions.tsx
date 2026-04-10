@@ -255,21 +255,6 @@ const SurveyActions: React.FC<SurveyActionsProps> = ({
         </button>
       )}
 
-      {/* Save Now Button - hidden for beta (shown in header) */}
-      {!isBeta && <SaveNowButton activeSurveyId={activeSurvey.id} compact />}
-
-      {/* Email Survey Button - hidden for beta */}
-      {!isBeta && (
-        <button
-          onClick={() => setShowEmailDialog(true)}
-          className="flex items-center gap-1 px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-xs font-medium"
-          data-testid="button-email-survey"
-        >
-          <Mail className="w-3 h-3" />
-          Email Survey
-        </button>
-      )}
-      
       {/* Export Menu - hidden for beta */}
       {!isBeta && (
         <div className="relative">
@@ -281,7 +266,7 @@ const SurveyActions: React.FC<SurveyActionsProps> = ({
             Export
             <ChevronDown className="w-3 h-3" />
           </button>
-          
+
           {showExportMenu && (
             <div className="absolute right-0 mt-1 w-48 bg-gray-700 border border-gray-600 rounded-lg shadow-lg z-50">
               <div className="py-1">
@@ -315,20 +300,22 @@ const SurveyActions: React.FC<SurveyActionsProps> = ({
                   <Download className="w-3 h-3" />
                   Export with Images
                 </button>
-                <button
-                  onClick={() => {
-                    exportSurveyWithMedia(activeSurvey);
-                    setShowExportMenu(false);
-                  }}
-                  className="w-full text-left px-3 py-2 text-xs hover:bg-gray-600 flex items-center gap-2"
-                >
-                  <Download className="w-3 h-3" />
-                  Complete Package
-                </button>
               </div>
             </div>
           )}
         </div>
+      )}
+
+      {/* Export Complete Package — standalone small button */}
+      {!isBeta && (
+        <button
+          onClick={() => exportSurveyWithMedia(activeSurvey)}
+          className="flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 rounded text-[10px] font-medium text-gray-300"
+          data-testid="button-export-complete-package"
+        >
+          <Download className="w-3 h-3" />
+          Complete Package
+        </button>
       )}
 
       {/* Close Survey Dialog - Step 1: Choose Complete or Continue */}

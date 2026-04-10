@@ -752,19 +752,7 @@ const MeasurementLog: React.FC<MeasurementLogProps> = ({ onEditMeasurement }) =>
           className="hidden"
         />
         
-        {/* Show Detection Logs - Premium Feature */}
-        {hasFeature('ai_detection') && (
-          <button
-            onClick={() => setShowDetectionLogs(!showDetectionLogs)}
-            className={`flex items-center gap-1 px-3 py-1.5 ${
-              showDetectionLogs ? 'bg-blue-600' : 'bg-gray-700 hover:bg-gray-600'
-            } rounded text-xs`}
-            data-testid="button-show-detection"
-          >
-            <AlertTriangle className="w-4 h-4" />
-            {showDetectionLogs ? 'Hide Detection' : 'Show Detection'}
-          </button>
-        )}
+        {/* Show Detection Logs — removed (detection display not functional) */}
         
         {/* Clear All Button - Premium Feature */}
         {hasFeature('admin') && (

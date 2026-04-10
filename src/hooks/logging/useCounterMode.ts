@@ -71,7 +71,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
 
     const poiType = selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
-    if (action === 'voice-note') {
+    if (action === 'voice-note' || action === 'select-only' || action === 'auto-capture-no-measurement') {
       bufferRef.current = [];
       stateRef.current = 'sky';
       return;

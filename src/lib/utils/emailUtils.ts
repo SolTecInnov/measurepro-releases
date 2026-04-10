@@ -1,12 +1,13 @@
 import { toast } from 'sonner';
 import QRCode from 'qrcode';
 
-// In Electron, use the configured VITE_API_URL; in browser use relative path
+// Email requires a real HTTP backend. In Electron, /api resolves to file:///C:/api/ which fails.
+// Use the configured VITE_API_URL or the production API endpoint.
 const API_BASE_URL = (() => {
   const viteUrl = import.meta.env.VITE_API_URL;
-  if (viteUrl && typeof window !== 'undefined' && (window as any).electronAPI?.isElectron) {
-    return `${viteUrl}/api`;
-  }
+  if (viteUrl && viteUrl.startsWith('http')) return `${viteUrl}/api`;
+  // Electron: can't use relative /api — needs a real server
+  if ((window as any).electronAPI?.isElectron) return 'https://measure-pro.app/api';
   return '/api';
 })();
 

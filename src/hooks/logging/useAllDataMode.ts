@@ -42,8 +42,10 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
     const poiType = selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
 
-    // Skip POI types that should not auto-log from laser
-    if (action === 'voice-note' || action === 'select-only') return;
+    // Skip POI types that should not auto-log from laser readings.
+    // 'auto-capture-no-measurement' types (road, intersection, bridge, etc.)
+    // are only triggered by user action (StreamDeck/keyboard), never by laser.
+    if (action === 'voice-note' || action === 'select-only' || action === 'auto-capture-no-measurement') return;
 
     lastLoggedRef.current = lastMeasurement;
 

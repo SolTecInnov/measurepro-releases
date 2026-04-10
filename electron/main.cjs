@@ -635,24 +635,16 @@ if (autoUpdater) {
   autoUpdater.autoDownload = true;
   autoUpdater.autoInstallOnAppQuit = false;
 
-  // Private repo: electron-updater needs a GitHub token to access releases.
-  // Set it on the provider config directly so it works in packaged builds
-  // where .env is not available.
+  // Private repo: electron-updater reads GH_TOKEN from process.env automatically.
+  // Ensure it's set before any check happens.
   const ghToken = process.env.GH_TOKEN;
   if (ghToken) {
+    console.log('[AutoUpdater] GH_TOKEN found (' + ghToken.slice(0, 8) + '...), configuring for private repo');
+    // electron-updater v6+ reads process.env.GH_TOKEN natively for GitHub provider
+    // But also set requestHeaders as belt-and-suspenders
     autoUpdater.requestHeaders = { Authorization: `token ${ghToken}` };
-    // Also set on the feed URL options for electron-updater >= 6.x
-    try {
-      autoUpdater.setFeedURL({
-        provider: 'github',
-        owner: 'SolTecInnov',
-        repo: 'measurepro-releases',
-        token: ghToken,
-        private: true,
-      });
-    } catch (_e) {
-      // setFeedURL may not accept token param in all versions — requestHeaders is the fallback
-    }
+  } else {
+    console.warn('[AutoUpdater] No GH_TOKEN — updates will fail on private repo');
   }
 }
 

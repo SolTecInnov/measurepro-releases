@@ -560,13 +560,10 @@ const AppHeader: React.FC<AppHeaderProps> = ({
           )}
         </div>
 
-        {/* Active Survey Status */}
+        {/* Active Survey Status — green dot only, no text */}
         {activeSurvey && !isMobile && (
-          <div className="hidden lg:flex items-center gap-2">
-            <div className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" title="Active Survey" />
-            <span className="text-sm text-green-400 truncate max-w-[200px]">
-              {activeSurvey.surveyTitle || activeSurvey.name}
-            </span>
+          <div className="hidden lg:flex items-center">
+            <div className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse" title={`Active: ${activeSurvey.surveyTitle || activeSurvey.name}`} />
           </div>
         )}
 
@@ -589,11 +586,10 @@ const AppHeader: React.FC<AppHeaderProps> = ({
           <BetaTrialBadge email={currentUser?.email} />
         )}
 
-        {/* User Status */}
+        {/* User Status — blue dot only, no email text */}
         {currentUser && !isMobile && (
-          <div className="flex items-center gap-2">
-            <div className="h-2.5 w-2.5 rounded-full bg-blue-500" title="Signed In" />
-            <span className="text-sm text-blue-400 truncate max-w-[150px]">{currentUser.email}</span>
+          <div className="flex items-center">
+            <div className="h-2.5 w-2.5 rounded-full bg-blue-500" title={`Signed in: ${currentUser.email}`} />
           </div>
         )}
 
