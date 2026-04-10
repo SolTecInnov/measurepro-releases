@@ -13,6 +13,7 @@ import { toast } from 'sonner';
 activateSerialPolyfill();
 import { checkLibraryHealth, showLibraryErrorModal } from './lib/libraryHealthCheck';
 import { initFirebaseAutoSync } from './lib/firebase/autoSync';
+import { installFirebaseSyncDiagnostic } from './lib/diagnostics/firebaseSyncDiagnostic';
 import { initAutoPartManager } from './lib/survey/AutoPartManager';
 
 // BUILD VERSION — injected at build time by vite.config.ts, unique per deployment
@@ -183,6 +184,12 @@ if (!libraryHealth.healthy) {
     initFirebaseAutoSync();
   } catch (error) {
     console.error('Firebase auto-sync initialization failed:', error);
+  }
+
+  try {
+    installFirebaseSyncDiagnostic();
+  } catch (error) {
+    console.error('Firebase sync diagnostic install failed:', error);
   }
 
   try {
