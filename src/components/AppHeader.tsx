@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Building2, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
 import { useSurveyStore } from '../lib/survey';
 import { getCurrentUser, signOutUser } from '../lib/firebase';
 import { useVoiceAssistant } from '../hooks/useVoiceAssistant';
@@ -12,7 +12,6 @@ import OfflineStatusIndicator from './OfflineStatusIndicator';
 import { toast } from 'sonner';
 import { RoadScopeSyncDialog } from './roadscope/RoadScopeSyncDialog';
 import { isBetaUser, isBetaTestAccount } from '../lib/auth/masterAdmin';
-import type { TAppCfg } from '../lib/overhead/config.schema';
 import { BetaTrialBadge } from './BetaTrialBadge';
 import AIAssistantChat from './ai/AIAssistantChat';
 import SupportTicketDialog from './SupportTicketDialog';
@@ -21,7 +20,6 @@ import { useSlavePairingStore } from '../lib/stores/slavePairingStore';
 import { getMeasurementLogger } from '../lib/workers/MeasurementLoggerClient';
 import { getMeasurementFeed } from '../lib/survey/MeasurementFeed';
 import { useGPSStore } from '../lib/stores/gpsStore';
-import { useSettingsStore } from '../lib/settings';
 
 interface AppHeaderProps {
   wifiStatus: 'good' | 'poor' | 'none';
@@ -49,17 +47,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   // Use currentUser state which updates on auth changes, not auth.currentUser which may be stale
   const isBeta = isBetaUser(currentUser, features) || isBetaTestAccount(currentUser?.email);
   const [slaveAppMeasurements, setSlaveAppMeasurements] = React.useState<any[]>([]);
-  const [cityMode, setCityMode] = React.useState(() => {
-    const storeConfig = useSettingsStore.getState().overheadDetectionConfig;
-    if (storeConfig && typeof storeConfig === 'object' && 'global' in storeConfig) {
-      const globalCfg = storeConfig.global;
-      if (globalCfg && typeof globalCfg === 'object' && 'cityMode' in globalCfg) {
-        return Boolean(globalCfg.cityMode);
-      }
-    }
-    return false;
-  });
-  
+
   // Voice Assistant
   const [voiceState, voiceActions] = useVoiceAssistant();
   const [showVoiceMenu, setShowVoiceMenu] = React.useState(false);
@@ -197,43 +185,6 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   // ─────────────────────────────────────────────────────────────────────────────
 
   // Listen for city mode changes from keyboard shortcut
-  React.useEffect(() => {
-    const handleConfigUpdate = () => {
-      const storeConfig = useSettingsStore.getState().overheadDetectionConfig;
-      if (storeConfig && typeof storeConfig === 'object' && 'global' in storeConfig) {
-        const globalCfg = storeConfig.global;
-        if (globalCfg && typeof globalCfg === 'object' && 'cityMode' in globalCfg) {
-          setCityMode(Boolean(globalCfg.cityMode));
-        }
-      }
-    };
-
-    window.addEventListener('overhead-config-updated', handleConfigUpdate);
-    return () => window.removeEventListener('overhead-config-updated', handleConfigUpdate);
-  }, []);
-
-  const handleToggleCityMode = () => {
-    try {
-      // Read from dedicated store field as single source of truth
-      const current = useSettingsStore.getState().overheadDetectionConfig;
-      if (!current) return;
-      
-      const newCityMode = !cityMode;
-      const updated: TAppCfg = {
-        ...current,
-        global: { ...current.global, cityMode: newCityMode },
-      };
-      
-      setCityMode(newCityMode);
-      // setOverheadDetectionConfig mirrors to localStorage and triggers cloud sync
-      useSettingsStore.getState().setOverheadDetectionConfig(updated);
-      
-      // toast suppressed
-    } catch (error) {
-      toast.error('Failed to toggle city mode');
-    }
-  };
-
   const handleLogOut = async () => {
     try {
       await signOutUser();
@@ -331,59 +282,35 @@ const AppHeader: React.FC<AppHeaderProps> = ({
           </button>
 
           {showToolsMenu && (
-            <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 bg-gray-900 border border-gray-700 rounded-lg shadow-lg min-w-[220px] max-w-[calc(100vw-1rem)] z-50 py-1" data-testid="menu-tools">
-              {/* AI Assistant */}
+            <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 bg-gray-900 border border-gray-700 rounded-lg shadow-lg min-w-[240px] max-w-[calc(100vw-1rem)] z-50 py-1" data-testid="menu-tools">
+              {/* ── Analysis tools ─────────────────────────── */}
               <button
                 onClick={() => {
                   setShowAIAssistant(true);
                   setShowToolsMenu(false);
                 }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-emerald-400 hover:bg-gray-800 transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                 data-testid="button-ai-assistant"
               >
-                <Bot className="w-4 h-4" />
+                <Bot className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span>AI Assistant</span>
               </button>
-              <div className="border-t border-gray-700 my-1" />
 
-              {/* Drone Import */}
               {(window as any).electronAPI?.drone && (
                 <button
                   onClick={() => {
                     window.dispatchEvent(new CustomEvent('open-drone-import'));
                     setShowToolsMenu(false);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-blue-400 hover:bg-gray-800 transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                   data-testid="button-drone-import"
                 >
-                  <ScanEye className="w-4 h-4" />
+                  <ScanEye className="w-4 h-4 text-blue-400 flex-shrink-0" />
                   <span>Drone Import</span>
                 </button>
               )}
 
-              <div className="border-t border-gray-700 my-1" />
-
-              {/* City Mode removed — feature not in use */}
-              {false && hasFeature('ai_detection') && (
-                <button
-                  onClick={() => {
-                    handleToggleCityMode();
-                    setShowToolsMenu(false);
-                  }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
-                    cityMode 
-                      ? 'bg-teal-600/20 text-teal-400' 
-                      : 'text-gray-300 hover:bg-gray-800'
-                  }`}
-                  data-testid="button-city-mode"
-                >
-                  <Building2 className="w-4 h-4" />
-                  <span>City Mode</span>
-                  {cityMode && <span className="ml-auto text-xs bg-teal-600 px-1.5 py-0.5 rounded">ON</span>}
-                </button>
-              )}
-
-              {/* Voice Controls - Hidden for beta users */}
+              {/* ── Voice ──────────────────────────────────── */}
               {!isBeta && voiceState.isSupported && (
                 <>
                   <div className="border-t border-gray-700 my-1" />
@@ -397,59 +324,58 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                       setShowToolsMenu(false);
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
-                      voiceState.isActive 
-                        ? 'bg-green-600/20 text-green-400' 
-                        : 'text-gray-300 hover:bg-gray-800'
+                      voiceState.isActive
+                        ? 'bg-green-600/20 text-green-400'
+                        : 'text-gray-200 hover:bg-gray-800'
                     }`}
                     data-testid="button-voice-assistant"
                   >
-                    {voiceState.isActive ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
+                    {voiceState.isActive
+                      ? <Mic className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      : <MicOff className="w-4 h-4 text-gray-400 flex-shrink-0" />}
                     <span>{voiceState.isActive ? 'Stop Voice' : 'Voice Commands'}</span>
                   </button>
                   <button
                     onClick={() => {
                       setShowVoiceMenu(!showVoiceMenu);
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-gray-800 transition-colors"
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                     data-testid="button-voice-settings"
                   >
-                    <Globe className="w-4 h-4" />
-                    <span>Voice Settings ({getLanguageLabel(voiceState.currentLanguage)})</span>
+                    <Globe className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    <span>Voice ({getLanguageLabel(voiceState.currentLanguage)})</span>
                   </button>
                 </>
               )}
 
-              {/* Navigation Links */}
+              {/* ── Sharing & sync ─────────────────────────── */}
               <div className="border-t border-gray-700 my-1" />
-              
-              {/* Open Field App on Mobile */}
+
               {hasFeature('slave_app') && (
                 <button
                   onClick={() => {
                     setShowToolsMenu(false);
-                    // Always refresh code to ensure Firestore session exists
                     useSlavePairingStore.getState().refreshCode();
                     setShowPhoneQR(true);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-cyan-400 hover:bg-gray-800 transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                   data-testid="button-open-on-mobile"
                 >
                   <div className="relative flex-shrink-0">
-                    <QrCode className="w-4 h-4" />
+                    <QrCode className="w-4 h-4 text-cyan-400" />
                     {isSlaveConnected && (
                       <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full ring-1 ring-gray-900" />
                     )}
                   </div>
-                  <span>
-                    Open Field App on Mobile
+                  <span className="flex items-center gap-2">
+                    Pair Field App
                     {isSlaveConnected && (
-                      <span className="ml-2 text-xs text-green-400 font-medium">● Live</span>
+                      <span className="text-xs text-green-400 font-medium">● Live</span>
                     )}
                   </span>
                 </button>
               )}
 
-              {/* RoadScope Sync */}
               <button
                 onClick={() => {
                   if (!activeSurvey) {
@@ -460,35 +386,33 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                   setShowRoadScopeSync(true);
                   setShowToolsMenu(false);
                 }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-cyan-400 hover:bg-gray-800 transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                 data-testid="button-roadscope-sync"
               >
-                <Cloud className="w-4 h-4" />
+                <Cloud className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                 <span>Sync to RoadScope</span>
               </button>
 
-              {/* Support Ticket */}
+              {/* ── Account ────────────────────────────────── */}
               <div className="border-t border-gray-700 my-1" />
               <button
                 onClick={() => {
                   setShowSupportTicket(true);
                   setShowToolsMenu(false);
                 }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-blue-400 hover:bg-gray-800 transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                 data-testid="button-support-ticket"
               >
-                <LifeBuoy className="w-4 h-4" />
-                <span>Submit Support Ticket</span>
+                <LifeBuoy className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <span>Support Ticket</span>
               </button>
 
-              {/* Log Out */}
-              <div className="border-t border-gray-700 my-1" />
               <button
                 onClick={() => {
                   handleLogOut();
                   setShowToolsMenu(false);
                 }}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-gray-800 transition-colors"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                 data-testid="button-log-out"
               >
                 <LogOut className="w-4 h-4" />

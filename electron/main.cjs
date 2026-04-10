@@ -206,7 +206,14 @@ function createMenu() {
             }
             // If update IS available, the 'update-available' event fires and the renderer shows the download UI
           } catch (err) {
-            dialog.showMessageBox(mainWindow, { type: 'error', title: 'Update Error', message: `Could not check for updates:\n${err.message}` });
+            // Log the full error to file/console for debugging, but show a clean message to the user
+            console.error('[AutoUpdater] Menu check failed:', err && err.message ? err.message : err);
+            dialog.showMessageBox(mainWindow, {
+              type: 'error',
+              title: 'Update Check Failed',
+              message: 'Could not reach the update server.',
+              detail: 'This usually means the device is offline or the update server is temporarily unavailable. Try again later. If this keeps happening, contact support.'
+            });
           }
         } },
         {
@@ -681,10 +688,14 @@ autoUpdater && autoUpdater.on('error', (err) => {
 });
 
 ipcMain.handle('updater:check', async () => {
+  if (!autoUpdater) return { error: 'Auto-updater not available' };
   try {
-    return autoUpdater ? await autoUpdater.checkForUpdates() : null;
+    const result = await autoUpdater.checkForUpdates();
+    return result; // success path — renderer reads result.updateInfo
   } catch (e) {
-    return null;
+    // Log the full error for debugging but return a friendly shape to the renderer
+    console.error('[AutoUpdater] IPC check failed:', e && e.message ? e.message : e);
+    return { error: 'Could not reach the update server. Try again later.' };
   }
 });
 

@@ -465,7 +465,11 @@ export function RoadScopeSettings() {
                     setAutoSync(next);
                     handleSaveSettings({ autoSyncEnabled: next });
                   }}
-                  disabled={!settings?.hasApiKey || !settings?.apiKeyValidated}
+                  // Only require that a key EXISTS — the apiKeyValidated flag
+                  // is informational and may be stale even when the key works.
+                  // If the key turns out to be invalid at sync time, the auto-sync
+                  // logger silently logs the failure and skips the next interval.
+                  disabled={!settings?.hasApiKey}
                   className="sr-only peer"
                   data-testid="checkbox-auto-sync"
                 />

@@ -126,10 +126,16 @@ export function UpdateChecker() {
     setResult(null);
     try {
       const res = await api?.updaterCheck?.();
-      if (res?.updateInfo?.version && res.updateInfo.version !== version) {
+      // The IPC handler returns { error } on failure (don't lie about "latest version")
+      if (res?.error) {
+        setResult(res.error);
+      } else if (res?.updateInfo?.version && res.updateInfo.version !== version) {
         setResult(`v${res.updateInfo.version} available — ${pref === 'auto' ? 'downloading...' : 'ready to download'}`);
-      } else {
+      } else if (res?.updateInfo) {
         setResult('You are on the latest version');
+      } else {
+        // No updateInfo and no explicit error — treat as failed check rather than success
+        setResult('Could not check for updates');
       }
     } catch {
       setResult('Could not check for updates');
