@@ -111,10 +111,35 @@ function createWindow() {
     // DevTools removed from production — use View > Toggle DevTools if needed
   }
 
-  // Handle external links
+  // Handle external links via window.open() (target="_blank")
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
+  });
+
+  // Defense in depth: prevent in-window navigation away from the local app URL.
+  // Without this, a plain <a href="https://..."> link clicked anywhere in the
+  // renderer will navigate the entire Electron BrowserWindow to that URL,
+  // trapping the user on a third-party site (no back button visible). This
+  // happened in v16.1.20 with the Leaflet "© Google Maps" attribution link in
+  // the bottom-right of the live map.
+  mainWindow.webContents.on('will-navigate', (event, url) => {
+    try {
+      const parsed = new URL(url);
+      // Allow internal navigation: file:// (packaged), http://localhost (dev),
+      // and devtools:// (Chromium DevTools panes). Block everything else.
+      const isInternal =
+        parsed.protocol === 'file:' ||
+        parsed.protocol === 'devtools:' ||
+        (parsed.protocol === 'http:' && parsed.hostname === 'localhost');
+      if (!isInternal) {
+        event.preventDefault();
+        shell.openExternal(url);
+      }
+    } catch (_) {
+      // If URL parsing fails, block to be safe
+      event.preventDefault();
+    }
   });
 
   // ── Active-survey close protection ──────────────────────────────────────

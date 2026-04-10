@@ -427,7 +427,12 @@ const VehicleMap: React.FC = () => {
           >
             <TileLayer
               url={getMapStyleUrl()}
-              attribution='&copy; <a href="https://www.google.com/maps">Google Maps</a>'
+              // target="_blank" + rel ensures the click goes through window.open
+              // which is intercepted by main.cjs setWindowOpenHandler and routed
+              // to shell.openExternal — the system browser, not the Electron window.
+              // Without this, clicking the attribution navigates the whole renderer
+              // away from file:///dist/index.html and traps the user on google.com.
+              attribution='&copy; <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google Maps</a>'
               maxZoom={20}
               subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
               tileSize={256}
