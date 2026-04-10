@@ -13,6 +13,7 @@ import {
   BUFFER_ENABLED_POI_TYPES
 } from '../../lib/detection/BufferDetectionService';
 import { getAutoCaptureConfig, saveAutoCaptureConfig } from '@/hooks/logging/useCounterMode';
+import { scheduleDatabaseSync } from '@/lib/settings';
 
 /** Auto-Capture Settings — user-adjustable parameters for sky→object→sky detection */
 function AutoCaptureSettings() {
@@ -22,6 +23,7 @@ function AutoCaptureSettings() {
     const next = { ...cfg, [key]: value };
     setCfg(next);
     saveAutoCaptureConfig(next);
+    scheduleDatabaseSync(); // Sync to cloud per-user
   };
 
   return (

@@ -14,12 +14,14 @@ import { useLoggingCore, parseMeters, getGpsSnapshot, isInvalidReading } from '.
 interface CounterConfig {
   skyTimeoutMs: number;
   maxObjectMs: number;
+  maxObjectDistM: number;
   counterThreshold: number;
 }
 
 const DEFAULT_CONFIG: CounterConfig = {
-  skyTimeoutMs: 1000,
-  maxObjectMs: 5000,
+  skyTimeoutMs: 500,       // 0.5s — field-tested optimal for driving speed
+  maxObjectMs: 3000,       // 3s — force-log after 3s under object
+  maxObjectDistM: 50,      // 50m — force-log after 50m travel under object
   counterThreshold: 7,
 };
 
@@ -166,9 +168,27 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       bufferRef.current.push(reading.meters);
 
       // Force log if max duration exceeded
-      if (Date.now() - objectStartTimeRef.current >= cfg.maxObjectMs) {
+      const elapsed = Date.now() - objectStartTimeRef.current;
+      if (elapsed >= cfg.maxObjectMs) {
         if (skyTimerRef.current) { clearTimeout(skyTimerRef.current); skyTimerRef.current = null; }
         logBuffer();
+        return;
+      }
+
+      // Force log if max distance exceeded (GPS-based)
+      if (cfg.maxObjectDistM > 0 && capturedGpsRef.current) {
+        const gpsNow = getGpsSnapshot();
+        if (gpsNow.latitude && gpsNow.longitude && capturedGpsRef.current.latitude && capturedGpsRef.current.longitude) {
+          const R = 6371000;
+          const dLat = (gpsNow.latitude - capturedGpsRef.current.latitude) * Math.PI / 180;
+          const dLon = (gpsNow.longitude - capturedGpsRef.current.longitude) * Math.PI / 180;
+          const a = Math.sin(dLat/2)**2 + Math.cos(capturedGpsRef.current.latitude * Math.PI/180) * Math.cos(gpsNow.latitude * Math.PI/180) * Math.sin(dLon/2)**2;
+          const dist = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          if (dist >= cfg.maxObjectDistM) {
+            if (skyTimerRef.current) { clearTimeout(skyTimerRef.current); skyTimerRef.current = null; }
+            logBuffer();
+          }
+        }
       }
     }
   }, [lastMeasurement, isActive]);

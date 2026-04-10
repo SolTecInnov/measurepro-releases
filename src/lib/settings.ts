@@ -60,6 +60,12 @@ const buildSettingsPayload = (userId: string) => {
       return v ? JSON.parse(v) : null;
     } catch { return null; }
   })();
+  const autoCaptureConfig = (() => {
+    try {
+      const v = localStorage.getItem('auto_capture_config');
+      return v ? JSON.parse(v) : null;
+    } catch { return null; }
+  })();
   return {
     id: userId,
     displaySettings: state.displaySettings,
@@ -79,6 +85,7 @@ const buildSettingsPayload = (userId: string) => {
     rearOverhangSettings: state.rearOverhangSettings,
     overheadDetectionConfig: state.overheadDetectionConfig,
     bufferDetectionConfig,
+    autoCaptureConfig,
     layoutConfig: state.layoutConfig,
     uiSettings: state.uiSettings,
   };
@@ -197,6 +204,10 @@ export const initializeSettingsFromDatabase = async (userId: string): Promise<vo
       if (dbSettings.bufferDetectionConfig && typeof dbSettings.bufferDetectionConfig === 'object') {
         // Restore buffer detection configs to localStorage (useBufferConfigStore reads from there)
         localStorage.setItem('buffer_detection_configs', JSON.stringify(dbSettings.bufferDetectionConfig));
+      }
+      if (dbSettings.autoCaptureConfig && typeof dbSettings.autoCaptureConfig === 'object') {
+        // Restore auto-capture (sky→object→sky) config per-user
+        localStorage.setItem('auto_capture_config', JSON.stringify(dbSettings.autoCaptureConfig));
       }
       
       // Apply layout config to Zustand store and localStorage
