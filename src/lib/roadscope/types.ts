@@ -299,3 +299,52 @@ export interface APIKeyValidation {
   expiresAt?: string;
   error?: string;
 }
+
+// ===== Collaborative pairing (added 2026-04-10) =====
+
+// Roles a collaborator can hold on a shared survey
+export type CollaboratorRole = 'viewer' | 'editor' | 'owner';
+
+// Collaborator entry as returned by RoadScope
+export interface RoadScopeCollaborator {
+  email: string;
+  role: CollaboratorRole;
+  addedAt?: string;
+}
+
+// Request body for POST /surveys/prepare
+export interface PrepareSurveyRequest {
+  name: string;
+  description?: string;
+  externalId?: string; // optional MeasurePRO survey ID for cross-reference
+}
+
+// Response from POST /surveys/prepare
+export interface PrepareSurveyResponse {
+  surveyId: string;       // RoadScope survey id
+  pairingCode: string;    // RS-XXXXXX
+  expiresAt: string;      // ISO timestamp, typically 7 days out
+}
+
+// Response from GET /surveys/pair/:code (no auth — code is the auth)
+export interface PairingLookupResponse {
+  surveyId: string;
+  name: string;
+  description?: string;
+  createdBy: string;
+  collaborators: RoadScopeCollaborator[];
+}
+
+// Request body for POST /surveys/:id/collaborators
+export interface AddCollaboratorRequest {
+  email: string;
+  role: CollaboratorRole;
+}
+
+// Response from POST /surveys/:id/collaborators
+export interface AddCollaboratorResponse {
+  surveyId: string;
+  email: string;
+  role: CollaboratorRole;
+  addedAt: string;
+}

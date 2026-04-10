@@ -21,7 +21,12 @@ import {
   RegisterFilesRequest,
   RegisterFilesResponse,
   APIKeyValidation,
-  REQUIRED_SCOPES
+  REQUIRED_SCOPES,
+  PrepareSurveyRequest,
+  PrepareSurveyResponse,
+  PairingLookupResponse,
+  AddCollaboratorRequest,
+  AddCollaboratorResponse
 } from './types';
 
 // Base URL for backend proxy (proxies to RoadScope API)
@@ -273,6 +278,56 @@ export class RoadScopeClient {
     return this.request<{ files: Array<{ filename: string; poiId?: string }> }>(`/surveys/${surveyId}/files`, {
       method: 'GET'
     });
+  }
+
+  // ===== Collaborative pairing (added 2026-04-10) =====
+
+  // Prepare a survey + generate a pairing code (RS-XXXXXX, 7-day expiry)
+  async prepareSurvey(
+    request: PrepareSurveyRequest
+  ): Promise<RoadScopeResponse<PrepareSurveyResponse>> {
+    return this.request<PrepareSurveyResponse>('/surveys/prepare', {
+      method: 'POST',
+      body: JSON.stringify(request)
+    });
+  }
+
+  // Look up a survey by pairing code. Intentionally bypasses the auth header
+  // because the pair endpoint is no-auth — the code itself is the auth.
+  async pairByCode(
+    code: string
+  ): Promise<RoadScopeResponse<PairingLookupResponse>> {
+    const url = `${this.baseUrl}/surveys/pair/${encodeURIComponent(code)}`;
+    try {
+      const response = await fetch(url, { method: 'GET' });
+      const data = await response.json();
+      if (!response.ok) {
+        return {
+          success: false,
+          error: data.error || `HTTP ${response.status}: ${response.statusText}`
+        };
+      }
+      return data;
+    } catch (error) {
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Network error'
+      };
+    }
+  }
+
+  // Add a collaborator (by email + role) to an existing survey
+  async addCollaborator(
+    surveyId: string,
+    request: AddCollaboratorRequest
+  ): Promise<RoadScopeResponse<AddCollaboratorResponse>> {
+    return this.request<AddCollaboratorResponse>(
+      `/surveys/${surveyId}/collaborators`,
+      {
+        method: 'POST',
+        body: JSON.stringify(request)
+      }
+    );
   }
 }
 

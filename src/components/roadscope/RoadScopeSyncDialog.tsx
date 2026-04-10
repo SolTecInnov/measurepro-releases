@@ -12,13 +12,13 @@ import type { Survey } from '../../lib/survey/types';
 import type { RoadScopeSurvey, SyncProgressEvent } from '../../lib/roadscope/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { 
-  Cloud, 
-  Check, 
-  X, 
-  AlertCircle, 
-  Loader2, 
-  Link2, 
+import {
+  Cloud,
+  Check,
+  X,
+  AlertCircle,
+  Loader2,
+  Link2,
   Plus,
   Upload,
   FileText,
@@ -27,9 +27,11 @@ import {
   Image,
   CheckCircle2,
   XCircle,
-  RefreshCw
+  RefreshCw,
+  Users
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { RoadScopeCollaborateDialog } from './RoadScopeCollaborateDialog';
 
 interface RoadScopeSyncDialogProps {
   isOpen: boolean;
@@ -52,6 +54,9 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
   const [syncing, setSyncing] = useState(false);
   const [progress, setProgress] = useState<SyncProgressEvent | null>(null);
   const [result, setResult] = useState<SyncResult | null>(null);
+
+  // Collaborate dialog
+  const [showCollaborate, setShowCollaborate] = useState(false);
   
   // Existing sync status
   const [syncStatus, setSyncStatus] = useState<{
@@ -542,28 +547,46 @@ export function RoadScopeSyncDialog({ isOpen, onClose, survey }: RoadScopeSyncDi
               </div>
 
               {/* Actions */}
-              <div className="flex justify-end gap-3">
+              <div className="flex flex-wrap justify-between gap-3">
                 <Button
                   variant="outline"
-                  onClick={onClose}
-                  className="border-gray-600"
-                  data-testid="button-cancel-sync"
+                  onClick={() => setShowCollaborate(true)}
+                  disabled={!hasApiKey}
+                  className="border-blue-700/50 text-blue-300 hover:bg-blue-900/30"
+                  data-testid="button-share-collaborate"
                 >
-                  Cancel
+                  <Users className="w-4 h-4 mr-2" />
+                  Share & Collaborate
                 </Button>
-                <Button
-                  onClick={handleSync}
-                  disabled={syncMode === 'link' && !selectedSurveyId}
-                  data-testid="button-start-sync"
-                >
-                  <Upload className="w-4 h-4 mr-2" />
-                  Start Sync
-                </Button>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    onClick={onClose}
+                    className="border-gray-600"
+                    data-testid="button-cancel-sync"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={handleSync}
+                    disabled={syncMode === 'link' && !selectedSurveyId}
+                    data-testid="button-start-sync"
+                  >
+                    <Upload className="w-4 h-4 mr-2" />
+                    Start Sync
+                  </Button>
+                </div>
               </div>
             </div>
           )}
         </CardContent>
       </Card>
+
+      <RoadScopeCollaborateDialog
+        isOpen={showCollaborate}
+        onClose={() => setShowCollaborate(false)}
+        survey={survey}
+      />
     </div>
   );
 }

@@ -211,6 +211,42 @@ router.post('/proxy/surveys/:surveyId/files', async (req: Request, res: Response
   return res.status(result.status).json(result.data);
 });
 
+// ===== COLLABORATIVE PAIRING ROUTES =====
+// Added 2026-04-10 — wires up the new RoadScope collaborative endpoints
+
+// Prepare a survey + generate a pairing code (RS-XXXXXX)
+router.post('/proxy/surveys/prepare', async (req: Request, res: Response) => {
+  const authHeader = req.headers.authorization || null;
+  const result = await proxyToRoadScope('/surveys/prepare', 'POST', authHeader, req.body);
+  return res.status(result.status).json(result.data);
+});
+
+// Look up a survey by pairing code (intentionally no auth — pair codes are the auth)
+router.get('/proxy/surveys/pair/:code', async (req: Request, res: Response) => {
+  const { code } = req.params;
+  const result = await proxyToRoadScope(`/surveys/pair/${encodeURIComponent(code)}`, 'GET', null);
+  return res.status(result.status).json(result.data);
+});
+
+// Add a collaborator (by email + role) to a prepared survey
+router.post('/proxy/surveys/:surveyId/collaborators', async (req: Request, res: Response) => {
+  const { surveyId } = req.params;
+  const authHeader = req.headers.authorization || null;
+  const result = await proxyToRoadScope(`/surveys/${surveyId}/collaborators`, 'POST', authHeader, req.body);
+  return res.status(result.status).json(result.data);
+});
+
+// Sync status (per-part upload tracking).
+// NOTE 2026-04-10: upstream returns 500 — Firestore is missing a composite index on
+// `surveySyncParts` (surveyId ASC, uploadedAt ASC). The proxy route is wired in
+// advance so no client change is needed once the RoadScope team creates the index.
+router.get('/proxy/surveys/:surveyId/sync-status', async (req: Request, res: Response) => {
+  const { surveyId } = req.params;
+  const authHeader = req.headers.authorization || null;
+  const result = await proxyToRoadScope(`/surveys/${surveyId}/sync-status`, 'GET', authHeader);
+  return res.status(result.status).json(result.data);
+});
+
 // ===== END PROXY ROUTES =====
 
 // Get RoadScope settings for a user
