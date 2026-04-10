@@ -301,10 +301,10 @@ const TabManager: React.FC<TabManagerProps> = ({
       {activeTab === 'keyboard' && <KeyboardSettings />}
       {activeTab === 'poi-actions' && <POIActionSettings />}
       {activeTab === 'sync' && (
-        <div className="space-y-6">
+        <div className="space-y-4">
           <SyncControls />
-          <LiveSharingSettings />
           <RoadScopeSettings />
+          <LiveSharingSettings />
         </div>
       )}
       {activeTab === 'slave-app' && <SlaveAppPairingDisplay className="max-w-2xl mx-auto" />}

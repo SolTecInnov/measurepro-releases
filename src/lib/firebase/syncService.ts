@@ -183,9 +183,12 @@ class FirebaseSyncService {
       if (surveyMeasurements.length > 0) {
         logger.debug(`[SyncService] Syncing ${surveyMeasurements.length} measurements for survey ${surveyId}`);
         
-        // Firebase has ~10MB payload limit per request
-        // With measurements averaging ~50KB each (due to embedded images/data), use 50 per batch (~2.5MB)
-        const BATCH_SIZE = 50; // Reduced to prevent payload size limit errors
+        // Firestore hard limit is ~11MB per batch.commit().
+        // Defense in depth: syncMeasurementsToFirebase already chunks by estimated
+        // payload size internally (8MB cap). This outer chunk size only controls
+        // progress reporting granularity. 10 keeps the progress events frequent
+        // enough to feel responsive without spamming the UI.
+        const BATCH_SIZE = 10;
         const BATCH_DELAY_MS = 150; // Wait between batches
         const totalBatches = Math.ceil(surveyMeasurements.length / BATCH_SIZE);
         let syncedMeasurements = 0;

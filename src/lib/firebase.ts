@@ -436,6 +436,12 @@ export const syncSurveyToFirebase = async (survey: Survey): Promise<boolean> => 
   }
 };
 
+// Firestore hard limit per batch.commit() is ~11 MB. We cap at 8 MB to leave
+// headroom for protocol overhead (Firestore wraps each doc in metadata).
+const FIRESTORE_PAYLOAD_CAP_BYTES = 8 * 1024 * 1024;
+// Firestore allows at most 500 operations per batch — keep some headroom.
+const FIRESTORE_OPS_CAP = 450;
+
 // Sync measurements to Firebase
 export const syncMeasurementsToFirebase = async (measurements: Measurement[], surveyId: string): Promise<boolean> => {
   try {
@@ -450,9 +456,22 @@ export const syncMeasurementsToFirebase = async (measurements: Measurement[], su
       return false;
     }
 
-    // Use batched writes for better performance
+    // Chunk by BOTH operation count AND estimated payload size. The previous
+    // implementation only counted operations (450 cap), which let huge embedded
+    // base64 photos blow past Firestore's 11 MB hard limit on batch.commit().
     let batch = writeBatch(db);
-    let count = 0;
+    let opCount = 0;
+    let byteCount = 0;
+
+    const flushBatch = async () => {
+      if (opCount === 0) return;
+      await batch.commit();
+      // Throttle between commits to prevent write stream exhaustion
+      await new Promise(resolve => setTimeout(resolve, 500));
+      batch = writeBatch(db);
+      opCount = 0;
+      byteCount = 0;
+    };
 
     for (const measurement of measurements) {
       // Add server timestamp and ownerId for security rules
@@ -465,25 +484,37 @@ export const syncMeasurementsToFirebase = async (measurements: Measurement[], su
       // Deep sanitize: removes undefined, NaN, Infinity (Firestore doesn't accept them)
       const cleanedMeasurement = sanitizeForFirestore(measurementWithTimestamp);
 
-      // Add to batch
+      // Estimate the serialized size. JSON.stringify is the closest approximation
+      // we have without serializing through Firestore's actual protobuf encoding.
+      // Real Firestore overhead is ~5-15% higher per doc, which is what the
+      // 8 MB cap (vs the 11 MB hard limit) accounts for.
+      let estimatedBytes = 0;
+      try {
+        estimatedBytes = JSON.stringify(cleanedMeasurement).length;
+      } catch {
+        estimatedBytes = 1024; // fallback if serialization fails
+      }
+
+      // If this single doc would push us past either cap, flush first.
+      if (opCount > 0 && (byteCount + estimatedBytes > FIRESTORE_PAYLOAD_CAP_BYTES || opCount >= FIRESTORE_OPS_CAP)) {
+        await flushBatch();
+      }
+
+      // Edge case: a single document larger than the cap. Skip it cleanly with
+      // a warning rather than letting batch.commit() fail and tank the whole sync.
+      if (estimatedBytes > FIRESTORE_PAYLOAD_CAP_BYTES) {
+        console.warn(`[Sync] Skipping oversized measurement ${measurement.id} (${(estimatedBytes / 1024 / 1024).toFixed(1)} MB > ${FIRESTORE_PAYLOAD_CAP_BYTES / 1024 / 1024} MB cap). Likely contains an unusually large embedded photo.`);
+        continue;
+      }
+
       const measurementRef = doc(db, 'measurements', measurement.id);
       batch.set(measurementRef, cleanedMeasurement);
-      count++;
-
-      // Firestore batches are limited to 500 operations
-      if (count >= 450) {
-        await batch.commit();
-        // Throttle between batches to prevent write stream exhaustion
-        await new Promise(resolve => setTimeout(resolve, 500));
-        batch = writeBatch(db); // Create new batch after commit
-        count = 0;
-      }
+      opCount++;
+      byteCount += estimatedBytes;
     }
 
     // Commit any remaining operations
-    if (count > 0) {
-      await batch.commit();
-    }
+    await flushBatch();
 
     // Small delay before survey status update
     await new Promise(resolve => setTimeout(resolve, 200));

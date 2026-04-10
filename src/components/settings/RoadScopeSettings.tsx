@@ -7,16 +7,17 @@ import { useState, useEffect, useCallback } from 'react';
 import { API_BASE_URL } from '@/lib/config/environment';
 import { useAuth } from '../../lib/auth/AuthContext';
 import { getRoadScopeClient } from '../../lib/roadscope/client';
+import { startRoadScopeAutoSyncTimer, stopRoadScopeAutoSyncTimer } from '../../lib/roadscope/autoSync';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { 
-  Cloud, 
-  Key, 
-  Check, 
-  X, 
-  AlertCircle, 
-  RefreshCw, 
+import {
+  Cloud,
+  Key,
+  Check,
+  X,
+  AlertCircle,
+  RefreshCw,
   ExternalLink,
   Shield,
   Loader2,
@@ -31,9 +32,18 @@ interface RoadScopeSettingsData {
   apiKeyScopes: string[] | null;
   apiKeyExpiresAt: string | null;
   autoSyncEnabled: boolean;
-  syncInterval: number;
+  syncInterval: number; // MINUTES (was seconds in pre-v16.1.19 builds)
   lastSyncAt: string | null;
 }
+
+// Auto-sync interval choices in MINUTES
+const INTERVAL_OPTIONS = [
+  { value: 30, label: 'Every 30 minutes' },
+  { value: 60, label: 'Every hour' },
+  { value: 120, label: 'Every 2 hours' },
+  { value: 240, label: 'Every 4 hours' },
+];
+const DEFAULT_INTERVAL_MIN = 60;
 
 export function RoadScopeSettings() {
   const { user, cachedUserData } = useAuth();
@@ -45,7 +55,7 @@ export function RoadScopeSettings() {
   // Form state
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [autoSync, setAutoSync] = useState(false);
-  const [syncInterval, setSyncInterval] = useState(60);
+  const [syncInterval, setSyncInterval] = useState(DEFAULT_INTERVAL_MIN); // MINUTES
   
   // Validation state
   const [validationResult, setValidationResult] = useState<{
@@ -70,7 +80,14 @@ export function RoadScopeSettings() {
       if (json.success && json.data) {
         setSettings(json.data);
         setAutoSync(json.data.autoSyncEnabled ?? false);
-        setSyncInterval(json.data.syncInterval ?? 60);
+        // Migrate legacy values: pre-v16.1.19 stored seconds (30-600). Anything
+        // smaller than the smallest minute option (30) is stale, replace with default.
+        const stored = json.data.syncInterval;
+        const intervalMinutes =
+          typeof stored === 'number' && INTERVAL_OPTIONS.some((opt) => opt.value === stored)
+            ? stored
+            : DEFAULT_INTERVAL_MIN;
+        setSyncInterval(intervalMinutes);
       }
     } catch (error) {
       console.error('[RoadScope] Failed to fetch settings:', error);
@@ -189,9 +206,13 @@ export function RoadScopeSettings() {
     }
   };
 
-  // Save settings (without key change)
-  const handleSaveSettings = async () => {
+  // Save settings (without key change). Accepts overrides so toggle handlers
+  // can save the NEW value before React state has flushed.
+  const handleSaveSettings = async (overrides?: { autoSyncEnabled?: boolean; syncInterval?: number }) => {
     if (!userId || !userEmail) return;
+
+    const nextAutoSync = overrides?.autoSyncEnabled ?? autoSync;
+    const nextInterval = overrides?.syncInterval ?? syncInterval;
 
     setSaving(true);
     try {
@@ -201,15 +222,23 @@ export function RoadScopeSettings() {
         body: JSON.stringify({
           userId,
           userEmail,
-          autoSyncEnabled: autoSync,
-          syncInterval
+          autoSyncEnabled: nextAutoSync,
+          syncInterval: nextInterval
         })
       });
 
       const json = await res.json();
-      
+
       if (json.success) {
         await fetchSettings();
+        // Drive the timer immediately so the user doesn't have to restart the app
+        if (nextAutoSync) {
+          startRoadScopeAutoSyncTimer(userId).catch((err) => {
+            console.error('[RoadScopeSettings] Failed to start auto-sync timer:', err);
+          });
+        } else {
+          stopRoadScopeAutoSyncTimer();
+        }
       } else {
         toast.error(json.error || 'Failed to save settings');
       }
@@ -415,29 +444,28 @@ export function RoadScopeSettings() {
           {/* Divider */}
           <div className="border-t border-gray-700" />
 
-          {/* Sync Settings */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-white flex items-center gap-2">
-              <RefreshCw className="w-4 h-4 text-gray-400" />
-              Sync Settings
-            </h3>
-
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-white">Auto-sync when online</p>
-                <p className="text-xs text-gray-500">
-                  Automatically sync new POIs when connected to the internet
+          {/* Auto-sync */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-sm text-white flex items-center gap-2">
+                  <RefreshCw className="w-4 h-4 text-gray-400" />
+                  Auto-sync to RoadScope
+                </p>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  Periodically push new POIs and photos so the office team can start working mid-day.
                 </p>
               </div>
-              <label className="relative inline-flex items-center cursor-pointer">
+              <label className="relative inline-flex items-center cursor-pointer flex-shrink-0">
                 <input
                   type="checkbox"
                   checked={autoSync}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setAutoSync(e.target.checked);
-                    handleSaveSettings();
+                    const next = e.target.checked;
+                    setAutoSync(next);
+                    handleSaveSettings({ autoSyncEnabled: next });
                   }}
-                  disabled={!settings?.hasApiKey}
+                  disabled={!settings?.hasApiKey || !settings?.apiKeyValidated}
                   className="sr-only peer"
                   data-testid="checkbox-auto-sync"
                 />
@@ -446,22 +474,33 @@ export function RoadScopeSettings() {
             </div>
 
             {autoSync && (
-              <div className="space-y-2">
-                <label className="text-sm text-gray-400">Sync interval (seconds)</label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    type="number"
-                    min={30}
-                    max={600}
+              <>
+                <div className="flex items-center gap-3">
+                  <label className="text-sm text-gray-400 flex-shrink-0">Interval:</label>
+                  <select
                     value={syncInterval}
-                    onChange={(e) => setSyncInterval(parseInt(e.target.value) || 60)}
-                    onBlur={handleSaveSettings}
-                    className="w-24 bg-gray-900 border-gray-700"
-                    data-testid="input-sync-interval"
-                  />
-                  <span className="text-sm text-gray-500">seconds</span>
+                    onChange={(e) => {
+                      const next = parseInt(e.target.value, 10);
+                      setSyncInterval(next);
+                      handleSaveSettings({ syncInterval: next });
+                    }}
+                    className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    data-testid="select-sync-interval"
+                  >
+                    {INTERVAL_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
                 </div>
-              </div>
+
+                <div className="flex items-start gap-2 p-3 rounded-lg bg-yellow-900/20 border border-yellow-700/40 text-xs text-yellow-200">
+                  <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>
+                    Auto-sync uploads photos at every interval. Can use significant cellular data —
+                    recommended only on Wi-Fi or unlimited connections (Starlink, in-vehicle Wi-Fi).
+                  </span>
+                </div>
+              </>
             )}
 
             {settings?.lastSyncAt && (
@@ -470,25 +509,6 @@ export function RoadScopeSettings() {
               </p>
             )}
           </div>
-        </CardContent>
-      </Card>
-
-      {/* Instructions */}
-      <Card className="bg-gray-800 border-gray-700">
-        <CardHeader>
-          <CardTitle className="text-sm text-white">How to get your RoadScope API Key</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3 text-sm text-gray-400">
-          <ol className="list-decimal list-inside space-y-2">
-            <li>Log into RoadScope with the same email you use for MeasurePRO</li>
-            <li>Go to Admin → MeasurePRO API Keys</li>
-            <li>Click "Generate New Key" and select all required scopes</li>
-            <li>Copy the generated key (it's only shown once)</li>
-            <li>Paste it above and click Validate</li>
-          </ol>
-          <p className="text-xs text-gray-500 mt-4">
-            Your API key is securely stored in the cloud and syncs across all your devices.
-          </p>
         </CardContent>
       </Card>
     </div>

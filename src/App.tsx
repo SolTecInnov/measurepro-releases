@@ -902,32 +902,10 @@ function App() {
     };
     
     setupSync();
-    
-    // Setup RoadScope auto-sync event listener
-    const handleMeasurementBatchComplete = async (event: Event) => {
-      try {
-        const customEvent = event as CustomEvent;
-        const { surveyId } = customEvent.detail || {};
-        
-        if (!surveyId) return;
-        
-        // Get current user ID for RoadScope settings lookup
-        const userId = localStorage.getItem('current_user_id');
-        if (!userId) return;
-        
-        // Dynamically import to avoid circular dependencies
-        const { checkAndTriggerAutoSync } = await import('./lib/roadscope/autoSync');
-        await checkAndTriggerAutoSync(surveyId, userId);
-      } catch (error) {
-        // Silent fail - auto-sync is non-critical
-      }
-    };
-    
-    window.addEventListener('measurement-batch-complete', handleMeasurementBatchComplete);
-    
-    return () => {
-      window.removeEventListener('measurement-batch-complete', handleMeasurementBatchComplete);
-    };
+
+    // RoadScope auto-sync used to be POI-count-based and triggered here on
+    // every measurement batch. As of v16.1.19 it's a time-based interval timer
+    // initialized in main.tsx — see startRoadScopeAutoSyncTimer().
   }, []);
 
   // Initialize and manage background sync service

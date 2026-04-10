@@ -15,7 +15,6 @@
  */
 
 import { toast } from 'sonner';
-import { API_BASE_URL } from '@/lib/config/environment';
 import { Survey } from './types';
 import { openSurveyDB, countMeasurementsForSurvey } from './db';
 import { getMeasurementFeed } from './MeasurementFeed';
@@ -367,30 +366,19 @@ class AutoPartManager {
       }
     }
 
-    // Step 9: Sync to RoadScope
+    // Step 9: Sync to RoadScope (drain the closed part).
+    // Routes through the shared roadscope/autoSync.ts lock so it can never
+    // race with the time-based interval timer for the same survey.
+    // Includes photos — without them the office team can't review the work.
     if (this.config.syncToRoadScope && navigator.onLine) {
       try {
         const userId = localStorage.getItem('current_user_id');
         if (userId) {
-          const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
-          const keyJson = await keyRes.json();
-
-          if (keyJson.success && keyJson.apiKey) {
-            toast.loading('Syncing to RoadScope…', { id: 'auto-part-roadscope' });
-
-            const { getRoadScopeClient } = await import('../roadscope/client');
-            const client = getRoadScopeClient();
-            client.setApiKey(keyJson.apiKey);
-
-            const { syncSurveyToRoadScope } = await import('../roadscope/syncService');
-            const result = await syncSurveyToRoadScope(closedSurvey, { includeFiles: false });
-
-            toast.dismiss('auto-part-roadscope');
-            console.log(
-              '[AutoPartManager] RoadScope sync',
-              result.success ? `OK (${result.poisSynced} POIs)` : 'incomplete'
-            );
-          }
+          toast.loading('Syncing to RoadScope…', { id: 'auto-part-roadscope' });
+          const { triggerAutoSyncForPartTransition } = await import('../roadscope/autoSync');
+          await triggerAutoSyncForPartTransition(closedSurvey.id, userId);
+          toast.dismiss('auto-part-roadscope');
+          console.log('[AutoPartManager] RoadScope drain complete for Part', currentPart);
         }
       } catch (error) {
         console.error('[AutoPartManager] RoadScope sync failed:', error);

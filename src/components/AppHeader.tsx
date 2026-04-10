@@ -1,9 +1,9 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, Lock, Zap, Brain, Building2, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Building2, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye } from 'lucide-react';
 import { useSurveyStore } from '../lib/survey';
-import { getCurrentUser } from '../lib/firebase';
+import { getCurrentUser, signOutUser } from '../lib/firebase';
 import { useVoiceAssistant } from '../hooks/useVoiceAssistant';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import type { SupportedLanguage } from '../lib/voice/types';
@@ -234,9 +234,15 @@ const AppHeader: React.FC<AppHeaderProps> = ({
     }
   };
 
-  const handleLockApp = () => {
+  const handleLogOut = async () => {
+    try {
+      await signOutUser();
+    } catch (err) {
+      console.error('[AppHeader] Sign out failed:', err);
+    }
+    // Clear the legacy lock-screen flag too so the route guard treats us as logged out
     localStorage.removeItem('app_access');
-    navigate('/', { replace: true });
+    navigate('/login', { replace: true });
   };
   
   // Voice Assistant helpers
@@ -475,18 +481,18 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <span>Submit Support Ticket</span>
               </button>
 
-              {/* Lock App */}
+              {/* Log Out */}
               <div className="border-t border-gray-700 my-1" />
               <button
                 onClick={() => {
-                  handleLockApp();
+                  handleLogOut();
                   setShowToolsMenu(false);
                 }}
                 className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-gray-800 transition-colors"
-                data-testid="button-lock-app"
+                data-testid="button-log-out"
               >
-                <Lock className="w-4 h-4" />
-                <span>Lock App</span>
+                <LogOut className="w-4 h-4" />
+                <span>Log Out</span>
               </button>
             </div>
           )}

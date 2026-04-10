@@ -14,6 +14,7 @@ activateSerialPolyfill();
 import { checkLibraryHealth, showLibraryErrorModal } from './lib/libraryHealthCheck';
 import { initFirebaseAutoSync } from './lib/firebase/autoSync';
 import { installFirebaseSyncDiagnostic } from './lib/diagnostics/firebaseSyncDiagnostic';
+import { initRoadScopeAutoSync } from './lib/roadscope/autoSync';
 import { initAutoPartManager } from './lib/survey/AutoPartManager';
 
 // BUILD VERSION — injected at build time by vite.config.ts, unique per deployment
@@ -191,6 +192,12 @@ if (!libraryHealth.healthy) {
   } catch (error) {
     console.error('Firebase sync diagnostic install failed:', error);
   }
+
+  // RoadScope auto-sync timer (time-based, hourly by default).
+  // Fires only if the user has enabled it in Settings → Sync.
+  initRoadScopeAutoSync().catch((error) => {
+    console.error('RoadScope auto-sync init failed:', error);
+  });
 
   try {
     initAutoPartManager();

@@ -1,202 +1,252 @@
 /**
- * RoadScope Auto-Sync
- * 
- * Automatically syncs survey to RoadScope every 250 entries when auto-sync is enabled.
+ * RoadScope Auto-Sync — time-based interval
+ *
+ * Periodically syncs the active survey to RoadScope so the office team can
+ * start working on the data while the field operator is still in the field.
+ *
+ * This module replaces the previous count-based trigger (every 250 POIs).
+ * The interval is read from the user's RoadScope settings (`syncInterval`,
+ * interpreted as MINUTES, default 60).
+ *
+ * Files (photos, drawings) ARE included in the auto-sync — without them
+ * the office team can't actually use the data. Users on cellular plans should
+ * keep auto-sync disabled (it's OFF by default and the settings UI shows a
+ * cellular-data warning when enabling).
  */
 
-import { toast } from 'sonner';
 import { API_BASE_URL } from '@/lib/config/environment';
 import { syncSurveyToRoadScope, getSyncStatus } from './syncService';
 import { openSurveyDB } from '../survey/db';
+import { useSurveyStore } from '../survey/store';
 import { logger } from '../utils/logger';
 
-// Threshold for auto-sync
-const AUTO_SYNC_THRESHOLD = 250;
+// Interval limits in minutes — kept loose so the settings UI can offer
+// 30 / 60 / 120 / 240 without server-side rejection.
+const MIN_INTERVAL_MIN = 15;
+const MAX_INTERVAL_MIN = 1440; // 24h
+const DEFAULT_INTERVAL_MIN = 60;
 
-// Track last synced counts per survey to avoid redundant syncs
-const lastSyncedCounts: Map<string, number> = new Map();
-
-// Track if sync is in progress per survey
+// Per-survey lock — prevents the time-based timer and the AutoPart drain
+// from running for the same survey simultaneously.
 const syncInProgress: Map<string, boolean> = new Map();
 
-// Debounce timers per survey
-const debounceTimers: Map<string, number> = new Map();
+// Singleton timer + currently-active config
+let autoSyncTimer: number | null = null;
+let activeUserId: string | null = null;
+let activeIntervalMs: number | null = null;
+
+interface RoadScopeSettings {
+  hasApiKey: boolean;
+  apiKeyValidated: boolean;
+  autoSyncEnabled: boolean;
+  syncInterval: number; // MINUTES (was seconds in pre-v16.1.19 builds)
+}
 
 /**
- * Check if RoadScope auto-sync is enabled for a user
+ * Read the user's RoadScope settings from the server.
+ * Returns null if the call fails.
  */
-async function isRoadScopeAutoSyncEnabled(userId: string): Promise<boolean> {
+async function readSettings(userId: string): Promise<RoadScopeSettings | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}`);
     const json = await res.json();
-    
     if (json.success && json.data) {
-      return json.data.autoSyncEnabled === true && json.data.apiKeyValidated === true;
+      return json.data as RoadScopeSettings;
     }
-    return false;
+    return null;
   } catch (error) {
-    logger.debug('[RoadScopeAutoSync] Failed to check settings:', error);
-    return false;
+    logger.debug('[RoadScopeAutoSync] Failed to read settings:', error);
+    return null;
   }
 }
 
 /**
- * Get the current POI count for a survey
+ * Fetch and set the user's RoadScope API key on the singleton client.
+ * Returns true if a key was successfully loaded.
  */
-async function getSurveyPOICount(surveyId: string): Promise<number> {
+async function ensureApiKeyLoaded(userId: string): Promise<boolean> {
   try {
-    const db = await openSurveyDB();
-    const measurements = await db.getAllFromIndex('measurements', 'by-survey', surveyId);
-    // Count only entries with POI numbers (actual logged entries, not continuous data)
-    const poiCount = measurements.filter(m => m.poiNumber != null).length;
-    return poiCount;
-  } catch (error) {
-    logger.warn('[RoadScopeAutoSync] Failed to get POI count:', error);
-    return 0;
-  }
-}
-
-/**
- * Perform the auto-sync to RoadScope
- */
-async function performAutoSync(surveyId: string, userId: string, poiCount: number): Promise<void> {
-  if (syncInProgress.get(surveyId)) {
-    logger.debug('[RoadScopeAutoSync] Sync already in progress, skipping');
-    return;
-  }
-  
-  syncInProgress.set(surveyId, true);
-  
-  try {
-    // Get the survey data
-    const db = await openSurveyDB();
-    const survey = await db.get('surveys', surveyId);
-    
-    if (!survey) {
-      logger.warn('[RoadScopeAutoSync] Survey not found:', surveyId);
-      return;
-    }
-    
-    // Fetch and set API key (required — syncSurveyToRoadScope validates it)
     const { getRoadScopeClient } = await import('./client');
     const client = getRoadScopeClient();
-    if (!client.getApiKey()) {
-      const { API_BASE_URL } = await import('@/lib/config/environment');
-      try {
-        const keyRes = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
-        const keyJson = await keyRes.json();
-        if (keyJson.success && keyJson.apiKey) {
-          client.setApiKey(keyJson.apiKey);
-        } else {
-          logger.warn('[RoadScopeAutoSync] No API key available, skipping sync');
-          return;
-        }
-      } catch (e) {
-        logger.warn('[RoadScopeAutoSync] Failed to fetch API key:', e);
-        return;
-      }
+    if (client.getApiKey()) return true;
+
+    const res = await fetch(`${API_BASE_URL}/api/roadscope/settings/${userId}/key`);
+    const json = await res.json();
+    if (json.success && json.apiKey) {
+      client.setApiKey(json.apiKey);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    logger.debug('[RoadScopeAutoSync] Failed to fetch API key:', error);
+    return false;
+  }
+}
+
+/**
+ * Perform an auto-sync for a specific survey. This is the single shared code
+ * path used by both the time-based timer AND the AutoPart drain — both routes
+ * share the same in-progress lock so they can never overlap on the same survey.
+ *
+ * Includes files (photos) — without them the office team can't review the work.
+ */
+export async function performAutoSync(surveyId: string, userId: string): Promise<boolean> {
+  if (syncInProgress.get(surveyId)) {
+    logger.debug(`[RoadScopeAutoSync] Sync already in progress for ${surveyId}, skipping`);
+    return false;
+  }
+  syncInProgress.set(surveyId, true);
+
+  try {
+    const db = await openSurveyDB();
+    const survey = await db.get('surveys', surveyId);
+    if (!survey) {
+      logger.warn('[RoadScopeAutoSync] Survey not found:', surveyId);
+      return false;
     }
 
-    // Check if already synced to RoadScope
+    if (!(await ensureApiKeyLoaded(userId))) {
+      logger.warn('[RoadScopeAutoSync] No API key available, skipping sync');
+      return false;
+    }
+
+    // Reuse the existing roadscope survey id if this survey was previously synced
     const status = await getSyncStatus(surveyId);
 
-    logger.info(`[RoadScopeAutoSync] Auto-syncing survey ${surveyId} at ${poiCount} POIs`);
+    logger.log(`[RoadScopeAutoSync] Auto-syncing survey ${surveyId}`);
 
-    // Perform the sync
     const result = await syncSurveyToRoadScope(survey, {
-      includeFiles: false, // Don't sync files during auto-sync (too slow)
+      includeFiles: true, // Photos ARE included — office team needs them to work
       targetSurveyId: status?.roadscopeSurveyId,
       onProgress: (progress) => {
         logger.debug('[RoadScopeAutoSync] Progress:', progress.phase, progress.current, '/', progress.total);
       }
     });
-    
+
     if (result.success) {
-      lastSyncedCounts.set(surveyId, poiCount);
-      logger.info(`[RoadScopeAutoSync] Successfully synced ${result.poisSynced} POIs to RoadScope`);
-      /* toast removed */
+      logger.log(`[RoadScopeAutoSync] Synced ${result.poisSynced} POIs, ${result.filesSynced} files`);
     } else {
-      logger.warn('[RoadScopeAutoSync] Sync failed:', result.errors);
-      // Don't show error toast for auto-sync to avoid spam
+      logger.warn('[RoadScopeAutoSync] Sync incomplete:', result.errors);
     }
-    
+    return result.success;
   } catch (error) {
     logger.error('[RoadScopeAutoSync] Error during auto-sync:', error);
-    // Don't show error toast for auto-sync to avoid spam
+    return false;
   } finally {
     syncInProgress.set(surveyId, false);
   }
 }
 
 /**
- * Check if auto-sync should be triggered and do it if needed
+ * Drain hook for AutoPartManager — call this RIGHT BEFORE closing a part to
+ * push everything currently in the part to RoadScope. Best-effort: failures
+ * are logged but never block the part transition (data stays safe in IndexedDB).
  */
-export async function checkAndTriggerAutoSync(surveyId: string, userId: string): Promise<void> {
-  // Clear any existing debounce timer
-  const existingTimer = debounceTimers.get(surveyId);
-  if (existingTimer) {
-    window.clearTimeout(existingTimer);
+export async function triggerAutoSyncForPartTransition(surveyId: string, userId: string): Promise<void> {
+  if (!navigator.onLine) {
+    logger.debug('[RoadScopeAutoSync] Skipping part-transition drain — offline');
+    return;
   }
-  
-  // Debounce to avoid checking on every single measurement
-  const timerId = window.setTimeout(async () => {
-    try {
-      // Check if auto-sync is enabled
-      const autoSyncEnabled = await isRoadScopeAutoSyncEnabled(userId);
-      if (!autoSyncEnabled) {
-        return;
-      }
-      
-      // Get current POI count
-      const poiCount = await getSurveyPOICount(surveyId);
-      
-      // Get last synced count
-      const lastSynced = lastSyncedCounts.get(surveyId) || 0;
-      
-      // Calculate if we've crossed a threshold
-      const lastThreshold = Math.floor(lastSynced / AUTO_SYNC_THRESHOLD) * AUTO_SYNC_THRESHOLD;
-      const currentThreshold = Math.floor(poiCount / AUTO_SYNC_THRESHOLD) * AUTO_SYNC_THRESHOLD;
-      
-      // Sync if we've crossed a new 250-entry threshold
-      if (currentThreshold > lastThreshold && poiCount >= AUTO_SYNC_THRESHOLD) {
-        logger.info(`[RoadScopeAutoSync] Threshold crossed: ${lastSynced} -> ${poiCount}, triggering sync`);
-        await performAutoSync(surveyId, userId, poiCount);
-      }
-      
-    } catch (error) {
-      logger.warn('[RoadScopeAutoSync] Error checking auto-sync:', error);
-    }
-  }, 5000); // 5 second debounce
-  
-  debounceTimers.set(surveyId, timerId);
-}
-
-/**
- * Reset the last synced count for a survey (call when survey is closed/reset)
- */
-export function resetAutoSyncState(surveyId: string): void {
-  lastSyncedCounts.delete(surveyId);
-  syncInProgress.delete(surveyId);
-  
-  const timer = debounceTimers.get(surveyId);
-  if (timer) {
-    window.clearTimeout(timer);
-    debounceTimers.delete(surveyId);
-  }
-}
-
-/**
- * Initialize the auto-sync state for a survey (call when survey is loaded)
- */
-export async function initAutoSyncState(surveyId: string, userId: string): Promise<void> {
+  // Even if the user has auto-sync OFF, part transitions still attempt a sync —
+  // they're already a major checkpoint and the existing AutoPartManager has
+  // always synced to RoadScope on close. We honor that contract.
   try {
-    const status = await getSyncStatus(surveyId);
-    if (status?.synced) {
-      // Set the last synced count based on what was synced
-      lastSyncedCounts.set(surveyId, status.syncedPoiCount || 0);
-      logger.debug(`[RoadScopeAutoSync] Initialized with ${status.syncedPoiCount} previously synced POIs`);
-    }
+    await performAutoSync(surveyId, userId);
   } catch (error) {
-    logger.debug('[RoadScopeAutoSync] Failed to init state:', error);
+    logger.warn('[RoadScopeAutoSync] Part-transition drain failed (non-blocking):', error);
   }
+}
+
+/**
+ * The interval tick: read the active survey from the store, check that
+ * auto-sync is still enabled, then run a sync if there's anything to do.
+ * Silent on failure — auto-sync errors must never spam toasts.
+ */
+async function autoSyncTick(): Promise<void> {
+  try {
+    if (!activeUserId) return;
+    if (!navigator.onLine) {
+      logger.debug('[RoadScopeAutoSync] Tick skipped — offline');
+      return;
+    }
+
+    // Re-check settings each tick so a user toggling auto-sync OFF mid-day
+    // takes effect on the next tick without requiring an app restart.
+    const settings = await readSettings(activeUserId);
+    if (!settings || !settings.autoSyncEnabled || !settings.apiKeyValidated) {
+      logger.debug('[RoadScopeAutoSync] Tick skipped — auto-sync disabled or key not validated');
+      return;
+    }
+
+    const activeSurvey = useSurveyStore.getState().activeSurvey;
+    if (!activeSurvey) {
+      logger.debug('[RoadScopeAutoSync] Tick skipped — no active survey');
+      return;
+    }
+
+    await performAutoSync(activeSurvey.id, activeUserId);
+  } catch (error) {
+    logger.warn('[RoadScopeAutoSync] Tick error (non-blocking):', error);
+  }
+}
+
+/**
+ * Start the periodic auto-sync timer for a user. Safe to call multiple times —
+ * if the timer is already running with the same interval, this is a no-op.
+ * Reads the user's settings to determine the interval.
+ */
+export async function startRoadScopeAutoSyncTimer(userId: string): Promise<void> {
+  const settings = await readSettings(userId);
+  if (!settings || !settings.autoSyncEnabled) {
+    logger.debug('[RoadScopeAutoSync] Not starting timer — auto-sync disabled in settings');
+    stopRoadScopeAutoSyncTimer();
+    return;
+  }
+
+  // syncInterval is interpreted as MINUTES in v16.1.19+. Older builds stored
+  // it as seconds (30-600); those values fall well below the 15-minute minimum
+  // and would clamp to MIN_INTERVAL_MIN, which is the safest fallback.
+  const intervalMinutes = Math.max(
+    MIN_INTERVAL_MIN,
+    Math.min(MAX_INTERVAL_MIN, settings.syncInterval ?? DEFAULT_INTERVAL_MIN)
+  );
+  const intervalMs = intervalMinutes * 60 * 1000;
+
+  // Already running with the same config? No-op.
+  if (autoSyncTimer !== null && activeUserId === userId && activeIntervalMs === intervalMs) {
+    return;
+  }
+
+  // Reconfigure: clear any existing timer first
+  stopRoadScopeAutoSyncTimer();
+
+  activeUserId = userId;
+  activeIntervalMs = intervalMs;
+  autoSyncTimer = window.setInterval(autoSyncTick, intervalMs);
+  logger.log(`[RoadScopeAutoSync] Timer started — every ${intervalMinutes} minutes for user ${userId}`);
+}
+
+/**
+ * Stop the periodic timer. Safe to call when no timer is running.
+ */
+export function stopRoadScopeAutoSyncTimer(): void {
+  if (autoSyncTimer !== null) {
+    window.clearInterval(autoSyncTimer);
+    autoSyncTimer = null;
+    activeIntervalMs = null;
+    logger.log('[RoadScopeAutoSync] Timer stopped');
+  }
+}
+
+/**
+ * App-boot initializer: starts the timer if a user is logged in AND auto-sync
+ * is enabled in their saved settings. Called once from main.tsx.
+ */
+export async function initRoadScopeAutoSync(): Promise<void> {
+  const userId = localStorage.getItem('current_user_id');
+  if (!userId) {
+    logger.debug('[RoadScopeAutoSync] No userId at boot — timer will be started after login');
+    return;
+  }
+  await startRoadScopeAutoSyncTimer(userId);
 }
