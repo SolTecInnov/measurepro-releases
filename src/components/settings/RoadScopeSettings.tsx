@@ -107,18 +107,34 @@ export function RoadScopeSettings() {
     setValidationResult(null);
 
     try {
-      // Save the key directly - format validation is sufficient for now
-      // Full API validation will happen when sync is attempted
-      await handleSaveKey();
-      
-      setValidationResult({
-        valid: true,
-        scopes: ['surveys:read', 'surveys:write', 'pois:read', 'pois:write', 'routes:read', 'routes:write', 'files:upload']
-      });
+      // Actually validate against RoadScope API
+      const client = getRoadScopeClient();
+      const result = await client.validateApiKey(trimmedKey);
+
+      if (result.valid) {
+        // Key is valid — save it
+        client.setApiKey(trimmedKey);
+        await handleSaveKey();
+        setValidationResult({
+          valid: true,
+          scopes: result.scopes,
+          missingScopes: result.missingScopes,
+          expiresAt: result.expiresAt
+        });
+        toast.success('API key validated and saved');
+      } else {
+        // API validation failed — still save key but mark as not validated
+        // (might be a proxy/network issue, key could still be valid)
+        await handleSaveKey();
+        setValidationResult({
+          valid: false,
+          error: result.error || 'Could not validate API key with RoadScope server. Key saved — will retry on next sync.'
+        });
+      }
     } catch (error) {
       setValidationResult({
         valid: false,
-        error: 'Failed to save API key. Please try again.'
+        error: 'Failed to validate API key. Check your internet connection.'
       });
     } finally {
       setValidating(false);

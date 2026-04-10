@@ -25,7 +25,13 @@ import {
 } from './types';
 
 // Base URL for backend proxy (proxies to RoadScope API)
-const DEFAULT_BASE_URL = '/api/roadscope/proxy';
+// In Electron, relative /api/ resolves to file:///C:/api/ — must use absolute URL
+const DEFAULT_BASE_URL = (() => {
+  if (typeof window !== 'undefined' && (window as any).electronAPI?.isElectron) {
+    return 'https://measure-pro.app/api/roadscope/proxy';
+  }
+  return '/api/roadscope/proxy';
+})();
 
 export class RoadScopeClient {
   private baseUrl: string;
