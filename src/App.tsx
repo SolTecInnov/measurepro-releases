@@ -6,6 +6,7 @@ import { ProtectedRoute } from './lib/auth/ProtectedRoute';
 import { FeatureProtectedRoute } from './lib/auth/FeatureProtectedRoute';
 import { CompanyAdminRoute } from './lib/auth/CompanyAdminRoute';
 import { AutoUpdater } from './components/AutoUpdater';
+import { useRainModeStore } from './lib/stores/rainModeStore';
 import { DisclaimerModal, useDisclaimerAccepted } from './components/DisclaimerModal';
 import { ThemeProvider } from './components/ThemeProvider';
 import { LazyLoadErrorBoundary } from './components/LazyLoadErrorBoundary';
@@ -429,6 +430,28 @@ function PostLoginRedirectHandler() {
   }, [user, isLoading, navigate]);
 
   return null;
+}
+
+/** Rain Mode Banner — shows when rain mode is active */
+function RainModeBanner() {
+  const isActive = React.useSyncExternalStore(
+    (cb) => useRainModeStore.subscribe(cb),
+    () => useRainModeStore.getState().isActive
+  );
+  if (!isActive) return null;
+  return (
+    <div className="fixed top-0 left-0 right-0 z-[9999] bg-blue-600 text-white text-center py-1.5 text-sm font-medium shadow-lg">
+      <span className="mr-2">🌧</span>
+      Rain Mode — Logging without laser measurements
+      <button
+        onClick={() => useRainModeStore.getState().deactivate()}
+        className="ml-4 px-2 py-0.5 bg-blue-800 hover:bg-blue-900 rounded text-xs"
+      >
+        Turn Off
+      </button>
+      <span className="ml-2 text-blue-200 text-xs">(Alt+R)</span>
+    </div>
+  );
 }
 
 function App() {
@@ -1003,6 +1026,9 @@ function App() {
       
       {/* Storage Health Banner - shows when storage is backlogged */}
       <StorageHealthBanner />
+
+      {/* Rain Mode Banner */}
+      <RainModeBanner />
       
       {/* Terms Re-acceptance Modal */}
       {showTermsModal && latestTermsVersion && (

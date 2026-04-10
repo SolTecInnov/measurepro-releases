@@ -6,6 +6,7 @@ import { useEnvelopeStore } from '../stores/envelopeStore';
 import { toast } from 'sonner';
 import type { POIType } from '../lib/poi';
 import { usePOIActionsStore } from '../lib/poiActions';
+import { useRainModeStore } from '../lib/stores/rainModeStore';
 
 interface KeyboardShortcutHandlerProps {
   setSelectedPOIType: (type: string | POIType | '') => void;
@@ -150,6 +151,21 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
           
           return;
         }
+      }
+
+      // Rain Mode toggle: Alt+R
+      if (e.altKey && (e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.shiftKey) {
+        e.preventDefault();
+        const rainStore = useRainModeStore.getState();
+        rainStore.toggle();
+        const isNowActive = useRainModeStore.getState().isActive;
+        if (isNowActive) {
+          toast.info('Rain Mode ON — logging without laser measurements', { id: 'rain-mode', duration: 3000 });
+          soundManager.playWarning();
+        } else {
+          toast.success('Rain Mode OFF — normal measurement logging', { id: 'rain-mode', duration: 3000 });
+        }
+        return;
       }
 
       if (matchShortcut(mapping.capture)) {

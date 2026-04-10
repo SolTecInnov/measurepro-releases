@@ -3,6 +3,7 @@ import type { POIType } from './poi';
 import { HEIGHT_CLEARANCE_POI_TYPES } from './poi';
 import { isBetaUser } from './auth/masterAdmin';
 import { getSafeAuth } from './firebase';
+import { useRainModeStore } from './stores/rainModeStore';
 
 // Fast lookup set for height clearance types
 const HEIGHT_CLEARANCE_POI_TYPES_SET = new Set<POIType>(HEIGHT_CLEARANCE_POI_TYPES);
@@ -276,12 +277,22 @@ export const usePOIActionsStore = create<POIActionsStore>((set, get) => {
     getActionForPOI: (poiType: POIType) => {
       // Check store first, then official defaults, then safe fallback
       const stored = get().poiActions[poiType];
-      if (stored) return stored;
-      // Fall back to official defaults (not 'auto-capture-no-measurement' which silently blocks logging)
-      const auth = getSafeAuth();
-      const isBeta = isBetaUser(auth?.currentUser);
-      const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
-      return baseDefaults[poiType as POIType] || 'auto-capture-and-log'; // HEIGHT_CLEARANCE types default to auto-capture-and-log
+      let action: POIAction;
+      if (stored) {
+        action = stored;
+      } else {
+        const auth = getSafeAuth();
+        const isBeta = isBetaUser(auth?.currentUser);
+        const baseDefaults = isBeta ? BETA_POI_ACTIONS : DEFAULT_POI_ACTIONS;
+        action = baseDefaults[poiType as POIType] || 'auto-capture-and-log';
+      }
+
+      // Rain Mode: downgrade laser-dependent actions to no-measurement
+      if (useRainModeStore.getState().isActive && action === 'auto-capture-and-log') {
+        return 'auto-capture-no-measurement';
+      }
+
+      return action;
     },
     
     setActionForPOI: (poiType: POIType, action: POIAction) => {
