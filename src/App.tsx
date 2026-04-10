@@ -23,7 +23,7 @@ import { usePointCloudStore } from './stores/pointCloudStore';
 import { getEffectiveStorageQuota, refreshStorageEstimate } from './lib/utils/storageManager';
 import OfflineBanner from './components/OfflineBanner';
 import PwaUpdatePrompt from './components/PwaUpdatePrompt';
-import UpdateNotification from './components/UpdateNotification';
+// UpdateNotification removed — dead code, replaced by AutoUpdater.tsx
 import { DroneImportToast } from './components/drone/DroneImportToast';
 import { DroneImportPanel } from './components/drone/DroneImportPanel';
 import OnlineBanner from './components/OnlineBanner';
@@ -974,7 +974,7 @@ function App() {
 
       {/* PWA update prompt — shown when a new version is available in production */}
       <PwaUpdatePrompt />
-      <UpdateNotification />
+      {/* UpdateNotification removed — dead code */}
       <DroneImportToast onImportRequest={(device) => { setDroneImportDevice(device); setShowDroneImport(true); }} />
       {showDroneImport && (
         <DroneImportPanel

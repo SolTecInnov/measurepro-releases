@@ -19,10 +19,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onMenuOpenSupportTicket: (callback) => ipcRenderer.on('menu-open-support-ticket', callback),
 
   // ── Auto-updater ─────────────────────────────────────────────────
-  // New updater API for AutoUpdater.tsx component
   updaterCheck:       () => ipcRenderer.invoke('updater:check'),
   updaterInstallNow:  () => ipcRenderer.invoke('updater:install-now'),
   updaterGetVersion:  () => ipcRenderer.invoke('updater:get-version'),
+  updaterGetPref:     () => ipcRenderer.invoke('updater:get-pref'),
+  updaterSetPref:     (p) => ipcRenderer.invoke('updater:set-pref', p),
   onUpdateAvailable:  (cb) => ipcRenderer.on('updater:update-available',  (_e, d) => cb(d)),
   onDownloadProgress: (cb) => ipcRenderer.on('updater:download-progress', (_e, d) => cb(d)),
   onUpdateDownloaded: (cb) => ipcRenderer.on('updater:update-downloaded', (_e, d) => cb(d)),
@@ -31,15 +32,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.removeAllListeners('updater:download-progress');
     ipcRenderer.removeAllListeners('updater:update-downloaded');
   },
-  // Legacy updater API
+  // Legacy updater API kept for backwards compat (getPref/setPref only)
   updater: {
-    check:      () => ipcRenderer.invoke('updater:check'),
-    download:   () => ipcRenderer.invoke('updater:download'),
-    install:    () => ipcRenderer.invoke('updater:install'),
     getPref:    () => ipcRenderer.invoke('updater:get-pref'),
     setPref:    (p) => ipcRenderer.invoke('updater:set-pref', p),
-    getVersion: () => ipcRenderer.invoke('updater:get-version'),
-    onStatus:   (cb) => ipcRenderer.on('update-status', (_e, data) => cb(data)),
   },
 
   // ── File I/O ───────────────────────────────────────────────────────────────

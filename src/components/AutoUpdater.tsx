@@ -118,7 +118,7 @@ export function UpdateChecker() {
 
   useEffect(() => {
     api?.updaterGetVersion?.().then((v: string) => setVersion(v)).catch(() => {});
-    api?.updater?.getPref?.().then((p: string) => { if (p === 'auto' || p === 'manual') setPref(p); }).catch(() => {});
+    (api?.updaterGetPref?.() || api?.updater?.getPref?.())?.then((p: string) => { if (p === 'auto' || p === 'manual') setPref(p); }).catch(() => {});
   }, []);
 
   const handleCheck = async () => {
@@ -140,7 +140,7 @@ export function UpdateChecker() {
 
   const handlePrefChange = async (newPref: 'auto' | 'manual') => {
     setPref(newPref);
-    await api?.updater?.setPref?.(newPref);
+    await (api?.updaterSetPref?.(newPref) || api?.updater?.setPref?.(newPref));
   };
 
   return (
