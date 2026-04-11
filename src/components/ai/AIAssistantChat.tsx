@@ -1,7 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Loader2, Settings, Trash2, CheckCircle, XCircle, AlertTriangle, Eye, Play, Undo2, History, RotateCcw } from 'lucide-react';
+import { Bot, Send, Loader2, Settings, Trash2, CheckCircle, XCircle, AlertTriangle, Eye, Play, Undo2, History, RotateCcw, Calendar, CalendarDays, Archive, Map, DollarSign } from 'lucide-react';
 import { toast } from 'sonner';
-import { getAIAssistant, isAIAssistantConfigured, type AIResponse, type PreviewChange, type OperationHistoryEntry } from '../../lib/ai/aiAssistant';
+import {
+  getClaudeAssistant,
+  isClaudeAssistantConfigured,
+  REVIEW_MODES,
+  getDailyCostUsd,
+  type ClaudeResponse as AIResponse,
+  type PreviewChange,
+  type OperationHistoryEntry,
+} from '../../lib/ai/claudeAssistant';
 import { useSurveyStore } from '../../lib/survey/store';
 import AIAssistantSettings from '../settings/AIAssistantSettings';
 
@@ -25,10 +33,13 @@ const AIAssistantChat = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   const { activeSurvey } = useSurveyStore();
-  const isConfigured = isAIAssistantConfigured();
+  const isConfigured = isClaudeAssistantConfigured();
+  const [dailyCost, setDailyCost] = useState(getDailyCostUsd());
+
+  const refreshCost = () => setDailyCost(getDailyCostUsd());
 
   const refreshHistory = () => {
-    const assistant = getAIAssistant();
+    const assistant = getClaudeAssistant();
     setOperationHistory(assistant.getOperationHistory());
   };
 
@@ -38,7 +49,7 @@ const AIAssistantChat = () => {
 
   useEffect(() => {
     if (activeSurvey) {
-      const assistant = getAIAssistant();
+      const assistant = getClaudeAssistant();
       assistant.setSurveyId(activeSurvey.id);
     }
   }, [activeSurvey?.id]);
@@ -47,7 +58,7 @@ const AIAssistantChat = () => {
     if (!input.trim() || isLoading) return;
     
     if (!isConfigured) {
-      toast.error('Please configure your OpenAI API key first');
+      toast.error('Please configure your Anthropic API key first (Settings → AI Assistant)');
       setShowSettings(true);
       return;
     }
@@ -69,7 +80,7 @@ const AIAssistantChat = () => {
     setIsLoading(true);
 
     try {
-      const assistant = getAIAssistant();
+      const assistant = getClaudeAssistant();
       const response: AIResponse = await assistant.chat(input.trim());
 
       const assistantMessage: ChatMessage = {
@@ -81,6 +92,7 @@ const AIAssistantChat = () => {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
+      refreshCost();
 
       if (response.error) {
         toast.error(response.error);
@@ -103,7 +115,7 @@ const AIAssistantChat = () => {
   const handleApplyChanges = async (changes: PreviewChange[], messageId: string) => {
     setIsLoading(true);
     try {
-      const assistant = getAIAssistant();
+      const assistant = getClaudeAssistant();
       const result = await assistant.applyPreviewedChanges(changes);
       
       if (result.success) {
@@ -128,7 +140,7 @@ const AIAssistantChat = () => {
   const handleUndoOperation = async (operationId: string) => {
     setIsLoading(true);
     try {
-      const assistant = getAIAssistant();
+      const assistant = getClaudeAssistant();
       const result = await assistant.undoOperation(operationId);
       
       if (result.success) {
@@ -152,10 +164,51 @@ const AIAssistantChat = () => {
   };
 
   const handleClearChat = () => {
-    const assistant = getAIAssistant();
+    const assistant = getClaudeAssistant();
     assistant.clearHistory();
     setMessages([]);
-    // toast suppressed
+  };
+
+  const handleReviewMode = async (mode: 'day' | 'week' | 'history') => {
+    if (!isConfigured) {
+      toast.error('Please configure your Anthropic API key first (Settings → AI Assistant)');
+      setShowSettings(true);
+      return;
+    }
+    if (!activeSurvey) {
+      toast.error('Please open a survey first');
+      return;
+    }
+    const assistant = getClaudeAssistant();
+    const prompt = assistant.buildReviewPrompt(mode);
+
+    // Show the user-visible prompt as if they typed it
+    const userMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: 'user',
+      content: prompt,
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+
+    try {
+      const response = await assistant.chat(prompt);
+      const assistantMessage: ChatMessage = {
+        id: crypto.randomUUID(),
+        role: 'assistant',
+        content: response.message,
+        timestamp: new Date(),
+        previewChanges: response.previewChanges,
+      };
+      setMessages(prev => [...prev, assistantMessage]);
+      refreshCost();
+      if (response.error) toast.error(response.error);
+    } catch (error: any) {
+      toast.error(error.message || 'Failed to run review');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (showSettings) {
@@ -278,7 +331,7 @@ const AIAssistantChat = () => {
           {isConfigured ? (
             <span className="flex items-center gap-1 text-xs text-green-400">
               <CheckCircle className="w-3 h-3" />
-              Connected
+              Claude
             </span>
           ) : (
             <span className="flex items-center gap-1 text-xs text-amber-400">
@@ -286,6 +339,13 @@ const AIAssistantChat = () => {
               Not configured
             </span>
           )}
+          <span
+            className="flex items-center gap-1 text-xs text-gray-400"
+            title="Today's Anthropic API spend (this device)"
+          >
+            <DollarSign className="w-3 h-3" />
+            {dailyCost.toFixed(2)}
+          </span>
           <button
             onClick={() => { refreshHistory(); setShowHistory(true); }}
             className="p-1.5 hover:bg-gray-700 rounded transition-colors"
@@ -315,14 +375,54 @@ const AIAssistantChat = () => {
 
       <div className="flex-1 overflow-auto p-4 space-y-4">
         {messages.length === 0 && (
-          <div className="text-center text-gray-500 py-8">
-            <Bot className="w-12 h-12 mx-auto mb-3 opacity-50" />
-            <p className="text-sm mb-2">Ask me anything about your survey data</p>
-            <div className="text-xs space-y-1 text-gray-600">
-              <p>"Show all bridge POIs with height under 5m"</p>
-              <p>"Change all power_line POIs to utility_pole"</p>
-              <p>"Delete POIs from road 3 that have no photos"</p>
-              <p>"Analyze the image on POI #42"</p>
+          <div className="space-y-4">
+            <div className="text-center pt-2">
+              <Bot className="w-10 h-10 mx-auto mb-2 text-emerald-400" />
+              <h4 className="text-base font-semibold text-gray-200">What do you need today?</h4>
+              <p className="text-xs text-gray-500 mt-1">Pick a review mode to get started, or type a free-form question below.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {REVIEW_MODES.map(mode => {
+                const icon = mode.id === 'day' ? Calendar
+                  : mode.id === 'week' ? CalendarDays
+                  : mode.id === 'history' ? Archive
+                  : Map;
+                const Icon = icon;
+                return (
+                  <button
+                    key={mode.id}
+                    onClick={() => mode.enabled && handleReviewMode(mode.id as 'day' | 'week' | 'history')}
+                    disabled={!mode.enabled || isLoading || !isConfigured || !activeSurvey}
+                    className={`text-left p-3 rounded-lg border transition-colors ${
+                      mode.enabled
+                        ? 'bg-gray-800 border-gray-700 hover:border-emerald-500/60 hover:bg-gray-800/60 disabled:opacity-50 disabled:cursor-not-allowed'
+                        : 'bg-gray-900 border-gray-800 opacity-50 cursor-not-allowed'
+                    }`}
+                    data-testid={`button-review-mode-${mode.id}`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon className={`w-4 h-4 ${mode.enabled ? 'text-emerald-400' : 'text-gray-500'}`} />
+                      <span className="text-sm font-semibold text-gray-200">{mode.label}</span>
+                      {!mode.enabled && (
+                        <span className="text-[10px] uppercase tracking-wider text-amber-400/80 ml-auto">Soon</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-400 leading-snug">{mode.description}</p>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="text-xs text-gray-500 px-1 pt-2">
+              <p className="mb-1">Or ask anything in the box below. Examples:</p>
+              <p className="text-gray-600">• "List all POIs with height under 5m on road 2"</p>
+              <p className="text-gray-600">• "Find POIs whose note doesn't match their type"</p>
+              <p className="text-gray-600">• "Propose fixing POI #42's type from wire to powerLine"</p>
+            </div>
+
+            <div className="text-xs text-amber-300/80 bg-amber-900/20 border border-amber-800/30 rounded p-2">
+              <strong>Authorization gate:</strong> the assistant never modifies your data without showing a preview and waiting for you to click <em>Apply</em>. You can always undo from the History panel.
             </div>
           </div>
         )}

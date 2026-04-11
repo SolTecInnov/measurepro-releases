@@ -7,6 +7,13 @@ const path = require('path');
 const fs = require('fs');
 const { SerialPort } = require('serialport');
 
+// jszip is loaded lazily for the survey-file IPC handlers (avoids startup cost)
+let JSZip = null;
+function getJSZip() {
+  if (!JSZip) JSZip = require('jszip');
+  return JSZip;
+}
+
 // Load .env for GH_TOKEN (auto-updater needs it for private repo)
 // In packaged app, __dirname is inside app.asar — try multiple locations
 try {
@@ -667,6 +674,148 @@ ipcMain.handle('fs:getAutoSavePath', async (_event, filename) => {
   }
   return path.join(docsDir, filename);
 });
+
+// ── Survey-zip discovery and read (used by AI assistant historical review) ──
+// Restricted to the same allowedDirs as fs:write so the renderer cannot read
+// arbitrary files via this IPC.
+function getSurveyAllowedDirs() {
+  return [
+    path.join(app.getPath('documents'), 'MeasurePRO', 'surveys'),
+    app.getPath('downloads'),
+  ];
+}
+
+ipcMain.handle('fs:listSurveyZips', async () => {
+  const out = [];
+  for (const dir of getSurveyAllowedDirs()) {
+    if (!fs.existsSync(dir)) continue;
+    try {
+      const entries = fs.readdirSync(dir);
+      for (const name of entries) {
+        if (!/_part\d+\.zip$/i.test(name)) continue;
+        const full = path.join(dir, name);
+        try {
+          const stat = fs.statSync(full);
+          if (!stat.isFile()) continue;
+          out.push({
+            filePath: full,
+            fileName: name,
+            sizeBytes: stat.size,
+            modifiedAt: stat.mtime.toISOString(),
+          });
+        } catch (_e) {}
+      }
+    } catch (_e) {}
+  }
+  // Newest first
+  out.sort((a, b) => b.modifiedAt.localeCompare(a.modifiedAt));
+  return out;
+});
+
+ipcMain.handle('fs:readSurveyZip', async (_event, filePath) => {
+  // Path validation: must resolve inside one of the allowed dirs
+  const resolved = path.resolve(filePath);
+  const allowed = getSurveyAllowedDirs().some(dir => resolved.startsWith(dir + path.sep) || resolved === dir);
+  if (!allowed) {
+    throw new Error('Read denied: path is outside Documents/MeasurePRO/surveys or Downloads');
+  }
+  if (!fs.existsSync(resolved)) {
+    throw new Error('File not found: ' + resolved);
+  }
+
+  const buf = fs.readFileSync(resolved);
+  const zip = await getJSZip().loadAsync(buf);
+
+  // Always read survey.json (small)
+  let survey = null;
+  const surveyEntry = zip.file('survey.json');
+  if (surveyEntry) {
+    try {
+      survey = JSON.parse(await surveyEntry.async('string'));
+    } catch (_e) {}
+  }
+
+  // Prefer pois.csv (~50KB) over pois.json (~75MB with embedded base64).
+  // If only json exists, fall back but strip image fields to keep payload light.
+  let pois = [];
+  const csvEntry = zip.file('pois.csv');
+  if (csvEntry) {
+    const csvText = await csvEntry.async('string');
+    pois = parseSurveyCsv(csvText);
+  } else {
+    const jsonEntry = zip.file('pois.json');
+    if (jsonEntry) {
+      try {
+        const parsed = JSON.parse(await jsonEntry.async('string'));
+        if (Array.isArray(parsed)) {
+          pois = parsed.map(p => {
+            const { imageUrl: _u, images: _i, ...rest } = p;
+            return { ...rest, hasImage: !!(_u || (Array.isArray(_i) && _i.length)) };
+          });
+        }
+      } catch (_e) {}
+    }
+  }
+
+  return { survey, pois };
+});
+
+// CSV parser tuned for MeasurePRO survey exports. Header schema:
+// ID,Date,Time,Height (m),Ground Ref (m),GPS Alt (m),Latitude,Longitude,
+// Speed (km/h),Heading (°),Road Number,POI Number,POI Type,Note,Has Image,Has Video
+function parseSurveyCsv(text) {
+  const lines = text.split(/\r?\n/).filter(l => l.length > 0);
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',');
+  const idx = (name) => headers.indexOf(name);
+  const colId = idx('ID');
+  const colDate = idx('Date');
+  const colTime = idx('Time');
+  const colHeight = idx('Height (m)');
+  const colGround = idx('Ground Ref (m)');
+  const colAlt = idx('GPS Alt (m)');
+  const colLat = idx('Latitude');
+  const colLng = idx('Longitude');
+  const colSpeed = idx('Speed (km/h)');
+  const colHeading = idx('Heading (°)');
+  const colRoad = idx('Road Number');
+  const colPoiNum = idx('POI Number');
+  const colType = idx('POI Type');
+  const colNote = idx('Note');
+  const colImg = idx('Has Image');
+
+  const out = [];
+  for (let i = 1; i < lines.length; i++) {
+    // Notes use ';' instead of ',' (per export.ts), so a naive split is fine
+    const parts = lines[i].split(',');
+    if (parts.length < headers.length) continue;
+    const num = (s) => { const n = parseFloat(s); return isNaN(n) ? null : n; };
+    const groundField = colGround >= 0 ? num(parts[colGround]) : null;
+    // Recover ground ref from note string if structured field is 0/missing
+    let groundFromNote = null;
+    const note = colNote >= 0 ? (parts[colNote] || '') : '';
+    const m = note.match(/GND:?\s*(-?\d+(?:\.\d+)?)\s*m/i);
+    if (m) groundFromNote = parseFloat(m[1]);
+    out.push({
+      id: parts[colId],
+      utcDate: parts[colDate],
+      utcTime: parts[colTime],
+      rel: num(parts[colHeight]),
+      groundRefM: (groundField && groundField > 0) ? groundField : (groundFromNote ?? 0),
+      altGPS: num(parts[colAlt]),
+      latitude: num(parts[colLat]),
+      longitude: num(parts[colLng]),
+      speed: num(parts[colSpeed]),
+      heading: num(parts[colHeading]),
+      roadNumber: num(parts[colRoad]),
+      poiNumber: num(parts[colPoiNum]),
+      poi_type: parts[colType],
+      note,
+      hasImage: parts[colImg] === 'Yes',
+    });
+  }
+  return out;
+}
 
 ipcMain.handle('fs:pickSoundFile', async () => {
   const result = await dialog.showOpenDialog(mainWindow, {

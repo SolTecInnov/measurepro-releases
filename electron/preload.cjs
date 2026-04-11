@@ -50,6 +50,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   writeFile: (filePath, data) => ipcRenderer.invoke('file:write', filePath, data),
   getAutoSavePath: (filename) => ipcRenderer.invoke('fs:getAutoSavePath', filename),
   pickSoundFile:  ()         => ipcRenderer.invoke('fs:pickSoundFile'),
+  // Survey-zip access for the Claude assistant historical review. Both IPCs
+  // restrict their operations to Documents/MeasurePRO/surveys + Downloads.
+  surveyFiles: {
+    list: () => ipcRenderer.invoke('fs:listSurveyZips'),
+    read: (filePath) => ipcRenderer.invoke('fs:readSurveyZip', filePath),
+  },
 
   // ── Laser (Electron native — no Web Serial dialog) ──────────────────────────
   laser: {

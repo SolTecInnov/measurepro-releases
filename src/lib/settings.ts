@@ -573,6 +573,14 @@ export const useSettingsStore = create<{
   };
   aiAssistantSettings: {
     openaiApiKey: string;
+    // Claude (Anthropic) integration — added v16.1.25. Per-user key.
+    anthropicApiKey: string;
+    // 'sonnet' = Claude Sonnet 4.6 (default, balanced cost/quality)
+    // 'opus'   = Claude Opus 4.6 (higher quality, ~5x cost — for heavy analysis)
+    claudeModel: 'sonnet' | 'opus';
+    // Daily soft warning thresholds in USD. Both can be 0 to disable.
+    dailyCostWarnAtUsd: number;       // first warning (default 25)
+    dailyCostHardConfirmAtUsd: number; // requires explicit confirm (default 100)
     enabled: boolean;
     zendeskSubdomain: string;
     zendeskEmail: string;
@@ -889,6 +897,10 @@ export const useSettingsStore = create<{
   },
   aiAssistantSettings: {
     openaiApiKey: '',
+    anthropicApiKey: '',
+    claudeModel: 'sonnet' as 'sonnet' | 'opus',
+    dailyCostWarnAtUsd: 25,
+    dailyCostHardConfirmAtUsd: 100,
     enabled: false,
     zendeskSubdomain: '',
     zendeskEmail: '',
