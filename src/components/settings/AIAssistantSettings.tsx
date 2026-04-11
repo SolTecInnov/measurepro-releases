@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '@/lib/config/environment';
 import { useSettingsStore, forceSyncNow } from '../../lib/settings';
 import { useLoadSettings } from '../../lib/hooks';
-import { Bot, Key, Eye, EyeOff, CheckCircle, AlertCircle, Loader2, Sparkles, Trash2, LifeBuoy, ExternalLink, Lock, Clock, Users, RefreshCw } from 'lucide-react';
+import { Bot, Key, Eye, EyeOff, CheckCircle, AlertCircle, Loader2, Sparkles, Trash2, LifeBuoy, ExternalLink, Lock, Clock, Users, RefreshCw, DollarSign, Zap } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAITrial, resetTrialCache } from '../../hooks/useAITrial';
 import { getCurrentUser } from '../../lib/firebase';
+import Anthropic from '@anthropic-ai/sdk';
+import { getDailyCostUsd, getCostLog } from '../../lib/ai/claudeAssistant';
 
 const AIAssistantSettings = () => {
   useLoadSettings();
@@ -17,6 +19,14 @@ const AIAssistantSettings = () => {
   const [showKey, setShowKey] = useState(false);
   const [isValidating, setIsValidating] = useState(false);
   const [keyStatus, setKeyStatus] = useState<'none' | 'valid' | 'invalid'>('none');
+
+  // Anthropic (Claude) — primary path since v16.1.25
+  const [anthropicKey, setAnthropicKey] = useState('');
+  const [showAnthropicKey, setShowAnthropicKey] = useState(false);
+  const [isValidatingAnthropic, setIsValidatingAnthropic] = useState(false);
+  const [anthropicStatus, setAnthropicStatus] = useState<'none' | 'valid' | 'invalid'>('none');
+  const [showHowToGetKey, setShowHowToGetKey] = useState(false);
+  const [dailyCost, setDailyCost] = useState(getDailyCostUsd());
 
   const [zendeskSubdomain, setZendeskSubdomain] = useState('');
   const [zendeskEmail, setZendeskEmail] = useState('');
@@ -41,13 +51,67 @@ const AIAssistantSettings = () => {
       setApiKey(aiAssistantSettings.openaiApiKey);
       setKeyStatus('valid');
     }
+    if (aiAssistantSettings?.anthropicApiKey) {
+      setAnthropicKey(aiAssistantSettings.anthropicApiKey);
+      setAnthropicStatus('valid');
+    }
     if (aiAssistantSettings?.zendeskSubdomain) setZendeskSubdomain(aiAssistantSettings.zendeskSubdomain);
     if (aiAssistantSettings?.zendeskEmail) setZendeskEmail(aiAssistantSettings.zendeskEmail);
     if (aiAssistantSettings?.zendeskApiToken) {
       setZendeskToken(aiAssistantSettings.zendeskApiToken);
       setZendeskStatus('valid');
     }
-  }, [aiAssistantSettings?.openaiApiKey, aiAssistantSettings?.zendeskSubdomain, aiAssistantSettings?.zendeskEmail, aiAssistantSettings?.zendeskApiToken]);
+  }, [aiAssistantSettings?.openaiApiKey, aiAssistantSettings?.anthropicApiKey, aiAssistantSettings?.zendeskSubdomain, aiAssistantSettings?.zendeskEmail, aiAssistantSettings?.zendeskApiToken]);
+
+  const validateAndSaveAnthropicKey = async () => {
+    if (!anthropicKey.trim()) {
+      toast.error('Please enter an API key');
+      return;
+    }
+    if (!anthropicKey.startsWith('sk-ant-')) {
+      toast.error('Invalid Anthropic key format. Anthropic keys start with "sk-ant-"');
+      setAnthropicStatus('invalid');
+      return;
+    }
+    setIsValidatingAnthropic(true);
+    try {
+      const client = new Anthropic({ apiKey: anthropicKey, dangerouslyAllowBrowser: true });
+      // Minimal validation call: 1-token request
+      await client.messages.create({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 1,
+        messages: [{ role: 'user', content: 'hi' }],
+      });
+      await setAIAssistantSettings({ ...aiAssistantSettings, anthropicApiKey: anthropicKey, enabled: true });
+      await forceSyncNow();
+      setAnthropicStatus('valid');
+      toast.success('Anthropic API key validated');
+    } catch (err: any) {
+      setAnthropicStatus('invalid');
+      const msg = err?.message || 'Validation failed';
+      if (msg.includes('401') || msg.includes('invalid_api_key')) {
+        toast.error('Invalid Anthropic API key. Check the key and try again.');
+      } else if (msg.includes('credit') || msg.includes('billing')) {
+        toast.error('No credit on this account. Add credit at console.anthropic.com → Plans & Billing.');
+      } else {
+        toast.error('Failed to validate: ' + msg);
+      }
+    } finally {
+      setIsValidatingAnthropic(false);
+    }
+  };
+
+  const removeAnthropicKey = async () => {
+    await setAIAssistantSettings({ ...aiAssistantSettings, anthropicApiKey: '' });
+    await forceSyncNow();
+    setAnthropicKey('');
+    setAnthropicStatus('none');
+  };
+
+  const setClaudeModel = async (model: 'sonnet' | 'opus') => {
+    await setAIAssistantSettings({ ...aiAssistantSettings, claudeModel: model });
+    await forceSyncNow();
+  };
   
   const validateAndSaveKey = async () => {
     if (!apiKey.trim()) {
@@ -304,11 +368,142 @@ const AIAssistantSettings = () => {
         </div>
       )}
 
-      {/* OpenAI API Key */}
-      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-4">
+      {/* Anthropic Claude API Key — primary path since v16.1.25 */}
+      <div className="bg-gradient-to-br from-emerald-900/20 to-gray-800/50 border border-emerald-700/40 rounded-lg p-4 space-y-4">
+        <div className="flex items-center gap-2">
+          <Key className="w-5 h-5 text-emerald-400" />
+          <h4 className="font-semibold">Anthropic API Key (Claude)</h4>
+          <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 bg-emerald-900/40 text-emerald-300 rounded">Recommended</span>
+          {anthropicStatus === 'valid' && (
+            <span className="flex items-center gap-1 text-xs text-green-400 bg-green-900/30 px-2 py-0.5 rounded-full">
+              <CheckCircle className="w-3 h-3" /> Connected
+            </span>
+          )}
+          {anthropicStatus === 'invalid' && (
+            <span className="flex items-center gap-1 text-xs text-red-400 bg-red-900/30 px-2 py-0.5 rounded-full">
+              <AlertCircle className="w-3 h-3" /> Invalid
+            </span>
+          )}
+        </div>
+
+        <p className="text-sm text-gray-400">
+          The MeasurePRO AI Assistant runs on Claude (Anthropic). Each user provides their own API key —
+          your key is stored on this device only and synced to your user profile.
+        </p>
+
+        <button
+          type="button"
+          onClick={() => setShowHowToGetKey(!showHowToGetKey)}
+          className="text-xs text-emerald-400 hover:text-emerald-300 underline"
+          data-testid="button-how-to-get-anthropic-key"
+        >
+          {showHowToGetKey ? 'Hide instructions' : 'How do I get an Anthropic key?'}
+        </button>
+
+        {showHowToGetKey && (
+          <div className="bg-gray-900/60 border border-gray-700 rounded p-3 text-xs text-gray-300 space-y-1.5">
+            <p>1. Go to <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 underline inline-flex items-center gap-0.5">console.anthropic.com <ExternalLink className="w-3 h-3" /></a></p>
+            <p>2. Sign up or sign in (new accounts get $5 free credit)</p>
+            <p>3. Open <strong>Settings → API Keys</strong></p>
+            <p>4. Click <strong>Create Key</strong>, name it <code className="bg-gray-800 px-1 rounded">MeasurePRO Desktop</code></p>
+            <p>5. Copy the key (starts with <code className="bg-gray-800 px-1 rounded">sk-ant-</code>) and paste below</p>
+            <p>6. Click <strong>Test &amp; Save</strong></p>
+            <p>7. Add credit at <strong>Plans &amp; Billing</strong> when you're ready to use it heavily</p>
+          </div>
+        )}
+
+        <div className="flex gap-2">
+          <div className="relative flex-1">
+            <input
+              type={showAnthropicKey ? 'text' : 'password'}
+              value={anthropicKey}
+              onChange={(e) => { setAnthropicKey(e.target.value); setAnthropicStatus('none'); }}
+              placeholder="sk-ant-..."
+              className="w-full px-3 py-2 pr-10 bg-gray-900 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              data-testid="input-anthropic-api-key"
+            />
+            <button type="button" onClick={() => setShowAnthropicKey(!showAnthropicKey)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+              data-testid="button-toggle-anthropic-key-visibility">
+              {showAnthropicKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
+          </div>
+          <button onClick={validateAndSaveAnthropicKey} disabled={isValidatingAnthropic || !anthropicKey.trim()}
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg font-medium transition-colors flex items-center gap-2"
+            data-testid="button-validate-save-anthropic-key">
+            {isValidatingAnthropic ? <><Loader2 className="w-4 h-4 animate-spin" />Testing…</> : 'Test & Save'}
+          </button>
+          {anthropicStatus === 'valid' && (
+            <button onClick={removeAnthropicKey}
+              className="px-3 py-2 bg-red-600/20 hover:bg-red-600/40 text-red-400 rounded-lg transition-colors"
+              title="Remove key" data-testid="button-remove-anthropic-key">
+              <Trash2 className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+
+        {/* Model selector */}
+        <div className="pt-2">
+          <label className="text-xs text-gray-400 block mb-1.5">Default model</label>
+          <div className="flex gap-2">
+            {(['sonnet', 'opus'] as const).map(m => (
+              <button
+                key={m}
+                onClick={() => setClaudeModel(m)}
+                className={`flex-1 px-3 py-2 rounded border text-xs transition-colors ${
+                  (aiAssistantSettings?.claudeModel || 'sonnet') === m
+                    ? 'bg-emerald-900/40 border-emerald-500/60 text-emerald-200'
+                    : 'bg-gray-900 border-gray-700 text-gray-400 hover:border-gray-600'
+                }`}
+                data-testid={`button-claude-model-${m}`}
+              >
+                <div className="flex items-center justify-center gap-1.5">
+                  <Zap className="w-3 h-3" />
+                  <strong>Claude {m === 'sonnet' ? 'Sonnet 4.6' : 'Opus 4.6'}</strong>
+                </div>
+                <div className="text-[10px] mt-0.5 opacity-80">
+                  {m === 'sonnet' ? '$3 / $15 per MTok — recommended' : '$15 / $75 per MTok — heavy analysis'}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Cost meter */}
+        <div className="pt-2 border-t border-gray-700/60">
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center gap-2 text-gray-400">
+              <DollarSign className="w-3 h-3" />
+              <span>Today's spend (this device):</span>
+              <strong className="text-emerald-300">${dailyCost.toFixed(4)}</strong>
+            </div>
+            <button
+              onClick={() => setDailyCost(getDailyCostUsd())}
+              className="text-gray-500 hover:text-gray-300"
+              title="Refresh"
+            >
+              <RefreshCw className="w-3 h-3" />
+            </button>
+          </div>
+          <p className="text-[10px] text-gray-500 mt-1">
+            Costs are tracked per-device in localStorage. Soft warnings at $25/day, confirm-required at $100/day.
+            No hard cap by default — you can configure limits in code if you want one.
+          </p>
+        </div>
+
+        <p className="text-xs text-gray-500 leading-snug">
+          <strong className="text-amber-300">Authorization gate:</strong> the assistant never modifies POIs, surveys,
+          or settings without showing you a preview and waiting for explicit approval.
+          Every applied change is reversible from the History panel.
+        </p>
+      </div>
+
+      {/* OpenAI API Key — legacy fallback */}
+      <div className="bg-gray-800/30 border border-gray-700/60 rounded-lg p-4 space-y-4 opacity-90">
         <div className="flex items-center gap-2">
           <Key className="w-5 h-5 text-amber-400" />
           <h4 className="font-semibold">OpenAI API Key</h4>
+          <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 bg-gray-700/60 text-gray-400 rounded">Legacy</span>
           {keyStatus === 'valid' && (
             <span className="flex items-center gap-1 text-xs text-green-400 bg-green-900/30 px-2 py-0.5 rounded-full">
               <CheckCircle className="w-3 h-3" /> Connected

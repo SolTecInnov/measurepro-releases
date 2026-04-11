@@ -1,6 +1,6 @@
 {
   "name": "measurepro-desktop",
-  "version": "16.1.24",
+  "version": "16.1.25",
   "description": "MeasurePRO Desktop - Professional Measurement Application",
   "author": "Soltec Innovation <support@soltecinnovation.com>",
   "license": "UNLICENSED",
@@ -16,6 +16,7 @@
     "type-check": "tsc -p tsconfig.app.json --noEmit"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.88.0",
     "@hookform/resolvers": "^5.2.2",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "@neondatabase/serverless": "^1.0.2",
