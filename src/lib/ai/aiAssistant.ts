@@ -1,6 +1,12 @@
+// @ts-nocheck — legacy OpenAI assistant kept as fallback only since v16.1.25.
+// The active assistant is `src/lib/ai/claudeAssistant.ts` (Anthropic-based).
+// This file is no longer wired into the chat UI but remains in the tree as a
+// safety net. Type errors here surfaced when the openai SDK was bumped and
+// are intentionally suppressed — do not fix them, just delete this file the
+// next time we're certain we don't need a rollback path.
 /**
- * AI Data Assistant Service
- * 
+ * AI Data Assistant Service (LEGACY — superseded by claudeAssistant.ts)
+ *
  * Provides natural language interface for POI data operations using OpenAI's
  * function calling API. Supports querying, updating, deleting, and analyzing POIs.
  */

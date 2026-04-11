@@ -21,6 +21,15 @@ import { openSurveyDB } from '../survey/db';
 import { updateMeasurement, deleteMeasurement } from '../survey/measurements';
 import { getMeasurementFeed } from '../survey/MeasurementFeed';
 import type { Measurement } from '../survey/types';
+import {
+  getObstaclesAroundUser,
+  getCriticalBridgesNearby,
+  getRoadScopeRoutesNearby,
+  getRouteIntelligenceForRoute,
+  getLinkedRoadScopeSurveyId,
+  formatSourceLabel,
+  type CombinedPoi,
+} from './roadscopeReader';
 
 // ── Public types ──────────────────────────────────────────────────────────────
 
@@ -283,9 +292,83 @@ const TOOLS: Anthropic.Tool[] = [
     },
   },
   {
+    name: 'query_obstacles_nearby',
+    description:
+      "Read-only spatial query for OS/OW obstacles around a point. Combines THREE sources: (1) the user's local MeasurePRO POIs from IndexedDB, (2) RoadScope POIs created natively by route surveyors, (3) RoadScope POIs synced from MeasurePRO collaborators, plus (4) auto-generated Route Intelligence POIs from the 9 SolTec data sources. Results are deduplicated within 30 m, marked with their origin so you can reason about authority, and optionally filtered by a heading cone (when the user is moving) and by the active convoy height (auto-flags Danger when clearance < height). Use this for 'what's around me' / 'what's ahead' questions.",
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        latitude: {
+          type: 'number' as const,
+          description: 'Center latitude. If omitted, the assistant should call get_current_position first or ask the user.',
+        },
+        longitude: { type: 'number' as const, description: 'Center longitude.' },
+        radius_m: { type: 'number' as const, description: 'Search radius in meters. Default 5000 (5 km).' },
+        heading_deg: {
+          type: 'number' as const,
+          description: 'Optional travel heading 0-360. When provided, only obstacles in the forward 120-degree cone are returned.',
+        },
+        convoy_height_m: {
+          type: 'number' as const,
+          description: 'Optional convoy height in meters. Used to auto-flag Danger badges on bridges/overpasses with insufficient clearance.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'query_critical_bridges_ahead',
+    description:
+      "Read-only query targeting critical bridges only (Poor condition OR vertical clearance < 4.0 m OR operating rating < 36 metric tons), or bridges where the user's current convoy has less than 30 cm of margin. Sourced from RoadScope (which already has the SolTecUSA / SolTecQC / SolTecCAN bridge inventories cached). Use this when the user asks about show-stoppers on a route.",
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        latitude:  { type: 'number' as const, description: 'Center latitude' },
+        longitude: { type: 'number' as const, description: 'Center longitude' },
+        radius_m:  { type: 'number' as const, description: 'Search radius in meters. Default 25000 (25 km).' },
+        convoy_height_m: { type: 'number' as const, description: 'Optional convoy height in meters for margin check' },
+      },
+      required: ['latitude', 'longitude'],
+    },
+  },
+  {
+    name: 'get_documented_routes_nearby',
+    description:
+      "Read-only query for previously surveyed routes near a point, from the top-level RoadScope routes collection. Useful in 'stuck mode' to find documented alternate paths the user (or a collaborator) has driven before. Filter by surveyPhase to prioritize 'customer' phase routes (officially published, validated for the client).",
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        latitude:  { type: 'number' as const, description: 'Center latitude' },
+        longitude: { type: 'number' as const, description: 'Center longitude' },
+        radius_m:  { type: 'number' as const, description: 'Search radius in meters. Default 50000 (50 km).' },
+        survey_phase: {
+          type: 'string' as const,
+          enum: ['pre-survey', 'field', 'customer'],
+          description: "Optional filter on surveyPhase. 'customer' returns only validated published routes.",
+        },
+      },
+      required: ['latitude', 'longitude'],
+    },
+  },
+  {
+    name: 'get_route_intelligence_for_active_route',
+    description:
+      "Read the most recent Route Intelligence cache entry for a given route id. Returns the categorized obstacles RoadScope's RI pipeline already computed (bridges, height/weight restrictions, railways, power lines, tunnels, overhead obstacles, waterways, real-time incidents). The 9 SolTec sources are baked in. If the route hasn't been analyzed in RoadScope, returns empty — tell the user honestly and suggest running RI in RoadScope first.",
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        route_id: {
+          type: 'string' as const,
+          description: 'The RoadScope route id (the prefix of the cacheKey ri_{routeId16}_{hash})',
+        },
+      },
+      required: ['route_id'],
+    },
+  },
+  {
     name: 'propose_poi_updates',
     description:
-      "Propose updates to one or more POIs. Returns a preview list of changes that the user must EXPLICITLY APPROVE before any change is written. NEVER attempt to mutate POIs without going through this tool — the app enforces the gate at the application level too.",
+      "Propose updates to one or more POIs. Returns a preview list of changes that the user must EXPLICITLY APPROVE before any change is written. NEVER attempt to mutate POIs without going through this tool — the app enforces the gate at the application level too. IMPORTANT: this tool only ever writes to MeasurePRO's local data. The existing MeasurePRO→RoadScope sync engine handles propagation to RoadScope as part of the normal POI flow. You must NEVER propose writes directly to RoadScope.",
     input_schema: {
       type: 'object' as const,
       properties: {
@@ -318,17 +401,36 @@ const SYSTEM_PROMPT = `You are the AI assistant for MeasurePRO, a professional r
 # Your role
 - Help the user review and validate survey data quickly and accurately.
 - Surface anomalies, inconsistencies, and potential issues in his daily work.
+- Provide spatial intelligence ("what's around me", "what's ahead", "find me an alternate route") backed by RoadScope's already-curated obstacle database.
 - When the user opens a fresh chat session, they will see four review modes (Today, Week, Historical, Route Viability — Route is disabled for now).
 - Each review mode is backed by a dedicated tool you should call when the user picks it.
 
-# Authorization rules — CRITICAL
+# 🔒 Branding rule — CRITICAL (NEVER violate this)
+SolTec resells the underlying data sources under its own brand names. In ANY user-visible output (chat messages, summaries, citations, descriptions), you MUST use the SolTec brand names below — NEVER the real upstream names. The real names appear ONLY in code comments, never in things the user reads.
+
+| Use this in user-facing text  | NEVER write this   |
+|-------------------------------|--------------------|
+| SolTecWorld                   | OpenStreetMap, OSM |
+| SolTecUSA                     | NBI, National Bridge Inventory, USDOT |
+| SolTecQC                      | MTMD, IGO2, MTQ data layer |
+| SolTecCAN                     | NRN, Natural Resources Canada |
+| SolTecON                      | Ontario 511, ON 511, 511on |
+| SolTecQC 511                  | Quebec 511, QC 511, 511qc |
+| SolTecDE                      | BASt, Bundesanstalt für Straßenwesen |
+| SolTecFR                      | data.gouv.fr, French data portal |
+| SolTecNL                      | NDW, Nationaal Dataportaal |
+
+If a tool returns a real upstream name in its output, translate it to the SolTec label before quoting it to the user. Same for citations: "selon les données SolTecUSA…", not "selon NBI…".
+
+# 🔒 Authorization rules — CRITICAL
 - You must NEVER write, delete, or modify any POI, survey, or setting without going through the \`propose_poi_updates\` tool.
 - That tool returns a preview that the user must explicitly approve in the UI before anything is applied.
 - If the user types "fix it" or "do it", you still must call \`propose_poi_updates\` and let the UI handle the approval gate. Do not assume permission from a verbal yes — the UI is the authoritative gate.
-- Read-only tools (query_pois, day_review, week_review, history_review) are safe to call freely.
+- You NEVER write to RoadScope directly. \`propose_poi_updates\` only writes to MeasurePRO's local data. The existing MeasurePRO→RoadScope sync engine pushes approved changes upstream as part of the normal POI flow. Don't try to bypass it.
+- Read-only tools (query_pois, query_obstacles_nearby, query_critical_bridges_ahead, get_documented_routes_nearby, get_route_intelligence_for_active_route, day_review, week_review, history_review) are safe to call freely.
 
-# Cost awareness
-- Image vision analysis is expensive at scale. NEVER call analyze_image_batch or similar without first showing the user an estimated cost and getting explicit confirmation.
+# 🔒 Cost awareness
+- Image vision analysis is expensive at scale. NEVER request batch image analysis without first showing the user an estimated cost and getting explicit confirmation. The user has thousands of images per survey and they want full control over when vision spend happens.
 - Day/Week/History reviews are metadata-only by default. Only escalate to image analysis when you find an anomaly that genuinely requires visual confirmation, and even then, only on the specific suspect POIs — not the whole survey.
 
 # Tone
@@ -339,17 +441,67 @@ const SYSTEM_PROMPT = `You are the AI assistant for MeasurePRO, a professional r
 
 # Domain context (OS/OW road surveying)
 - POI = Point of Interest = a roadside obstacle or feature with a measured height/clearance.
-- Common POI types: bridge, culvert, wire, powerLine, opticalFiber, tree, trafficLight, trafficSign, utilityPole, railroad, intersection, road, parking, emergencyParking.
 - Critical metric: height in meters above ground reference. Ground reference is the laser-mount height above road surface, which the app subtracts from the raw laser reading.
-- Typical convoy heights: 4.27m (legal in QC without permit), 4.85m (with permit), 5.5m+ (heavy haul, requires escort).
-- A "wire" at 6m is fine for most loads but kills a wind blade transport at 6.5m. Context matters.
+- Typical convoy heights: 4.27 m (legal in QC without permit), 4.85 m (with permit), 5.5 m+ (heavy haul, requires escort).
+- A "wire" at 6 m is fine for most loads but kills a wind blade transport at 6.5 m. Context matters.
+
+# RoadScope POI taxonomy (canonical strings to use in propose_poi_updates)
+Manual POI types created by surveyors:
+  Photo, Label, DronePhoto, VoiceNote, Road, Intersection, Roundabout,
+  GravelRoad, DeadEnd, PassingLane, Bridge, Overpass, BridgeWires,
+  PowerLine, Wire, OpticalFiber, OverheadStructure, Trees, TrafficLight,
+  Signalization, Signpost, Railroad, GradeUp, GradeDown, TurnRestriction,
+  AutoturnRequired, Turn, LateralObstruction, Danger, Restricted,
+  Information, ImportantNote, WorkRequired, Structure, Culvert, WeightLimit,
+  WeighStation, RestArea, FuelStation, TruckStop, PayToll, Parking,
+  EmergencyParking, OriginPoint, DestinationPoint, Custom
+
+Auto-generated types (from RoadScope Route Intelligence — produced by SolTec data sources, prefixes are immutable):
+  STUSA-Bridge          (SolTecUSA — US bridge)
+  STWo-Bridge           (SolTecWorld — bridge/viaduct)
+  STWo-Railway          (SolTecWorld — railway crossing)
+  STWo-Tunnel           (SolTecWorld — tunnel)
+  STWo-PowerLine        (SolTecWorld — high-tension power line)
+  STWo-HeightRestriction
+  STWo-WeightRestriction
+  STWo-Overhead         (SolTecWorld — cables, overhead structures)
+  STWo-Crossing         (SolTecWorld — intersection)
+  STWo-Waterway         (SolTecWorld — waterway)
+  STWo-CriticalBridge   (SolTecWorld — critical bridge)
+  STQC-Bridge           (SolTecQC — Quebec bridge)
+  STQC-HeightRestriction (SolTecQC — Quebec clearance)
+
+# Operational badges (semaphore for the surveyor/dispatch)
+- Danger        (red, blocking)        — convoy CANNOT pass
+- WorkRequired  (yellow, intervention) — needs work before passage (e.g., utility move)
+- Important     (orange, info)         — must communicate to client
+
+When you suggest badges via propose_poi_updates, use these exact strings.
+
+# Critical bridge formula (use this when reasoning about bridge risk)
+A bridge is "critical" if ANY of:
+  - condition is Poor (NBI rating ≤ 4 — but call it "SolTecUSA condition: Poor")
+  - vertical clearance < 4.0 m
+  - operating rating < 36 metric tons
+
+When the active survey has an \`overhaulHeight\`, you should also auto-flag any bridge whose clearance is below that height (or has less than 30 cm of margin) as Danger.
+
+# 3-phase survey workflow
+The active survey has a \`surveyPhase\` field. Adapt your suggestions:
+- 'pre-survey' — desk planning. Focus on importing RoadScope intelligence, validating route choices, surfacing known obstacles ahead.
+- 'field' — physical drive. Focus on capturing fresh data, validating against pre-survey assumptions, flagging surprises.
+- 'customer' — published deliverable. Be conservative — recommend changes with the understanding that the survey is live to the client.
 
 # What you have access to
-- query_pois: filter active survey
-- day_review / week_review / history_review: aggregated validation + metrics
-- propose_poi_updates: ONLY way to mutate data, requires user approval
+- query_pois: filter the active MeasurePRO survey
+- query_obstacles_nearby: combined spatial query (MP local + RoadScope POIs from all 4 origins)
+- query_critical_bridges_ahead: critical bridges only (Poor / low clearance / low rating / no margin)
+- get_documented_routes_nearby: previously surveyed routes (great for stuck-mode alternates)
+- get_route_intelligence_for_active_route: pre-computed RI cache for a route
+- day_review / week_review / history_review: validation + metrics on user data
+- propose_poi_updates: the ONLY way to mutate data, always requires explicit user approval
 
-If you don't have the data you need, say so plainly and propose how to get it.`;
+If you don't have the data you need, say so plainly and propose how to get it. NEVER fabricate clearances, ratings, or restrictions you didn't see in a tool result.`;
 
 // ── Survey file I/O via Electron IPC ─────────────────────────────────────────
 
@@ -793,6 +945,12 @@ class ClaudeAssistant {
         case 'week_review':      return await this.weekReview(args);
         case 'history_review':   return await this.historyReview(args);
         case 'query_pois':       return await this.queryPois(args);
+        // RoadScope-aware spatial tools (read-only)
+        case 'query_obstacles_nearby':                   return await this.queryObstaclesNearby(args);
+        case 'query_critical_bridges_ahead':             return await this.queryCriticalBridgesAhead(args);
+        case 'get_documented_routes_nearby':             return await this.getDocumentedRoutesNearby(args);
+        case 'get_route_intelligence_for_active_route':  return await this.getRouteIntelligenceForActiveRoute(args);
+        // Mutation gate
         case 'propose_poi_updates': return await this.proposePoiUpdates(args);
         default:
           return { success: false, affectedCount: 0, details: [`Unknown tool: ${name}`] };
@@ -984,6 +1142,177 @@ class ClaudeAssistant {
       success: true,
       affectedCount: filtered.length,
       details: [JSON.stringify({ matched: filtered.length, returned: slim.length, pois: slim }, null, 2)],
+    };
+  }
+
+  // ── RoadScope-aware spatial tools (read-only) ──────────────────────────────
+
+  /**
+   * Pull the convoy height from the active survey settings (overhaulHeight in
+   * RoadScope's schema, or the laser groundReference + custom logic on the MP
+   * side). For now, prefer the explicit arg, fall back to the active survey's
+   * stored profile, fall back to undefined (no margin check).
+   */
+  private async getActiveConvoyHeightM(): Promise<number | undefined> {
+    if (!this.currentSurveyId) return undefined;
+    try {
+      const db = await openSurveyDB();
+      const survey: any = await db.get('surveys', this.currentSurveyId);
+      if (!survey) return undefined;
+      const v = survey.overhaulHeight ?? survey.heightM ?? survey.profileHeight;
+      if (typeof v === 'number') return v;
+      if (typeof v === 'string') {
+        const n = parseFloat(v);
+        return isNaN(n) ? undefined : n;
+      }
+    } catch {}
+    return undefined;
+  }
+
+  private summarizePoi(p: CombinedPoi): any {
+    return {
+      id: p.id,
+      origin: p.origin,
+      type: p.type,
+      name: p.name,
+      lat: p.latitude,
+      lng: p.longitude,
+      distance_m: p.distanceM != null ? Math.round(p.distanceM) : undefined,
+      vertical_clearance_m: p.verticalClearanceM,
+      load_rating_tons: p.loadRatingMetricTons,
+      condition_rating: p.conditionRating,
+      is_critical: p.isCritical,
+      badges: p.badges,
+      source_label: p.sourceLabel,
+      notes: p.notes,
+    };
+  }
+
+  private async queryObstaclesNearby(args: {
+    latitude?: number;
+    longitude?: number;
+    radius_m?: number;
+    heading_deg?: number;
+    convoy_height_m?: number;
+  }): Promise<OperationResult> {
+    if (typeof args.latitude !== 'number' || typeof args.longitude !== 'number') {
+      return {
+        success: false,
+        affectedCount: 0,
+        details: ['No latitude/longitude provided. Ask the user for their current GPS or capture it from the live GPS store before calling this tool.'],
+      };
+    }
+    const radius = args.radius_m ?? 5000;
+    const convoyH = args.convoy_height_m ?? (await this.getActiveConvoyHeightM());
+    const obstacles = await getObstaclesAroundUser({
+      latitude: args.latitude,
+      longitude: args.longitude,
+      radiusMeters: radius,
+      headingDeg: args.heading_deg,
+      convoyHeightM: convoyH,
+    });
+    const summary = obstacles.slice(0, 100).map(p => this.summarizePoi(p));
+    const flagged = obstacles.filter(p => (p.badges || []).includes('Danger'));
+    return {
+      success: true,
+      affectedCount: obstacles.length,
+      details: [JSON.stringify({
+        center: { lat: args.latitude, lng: args.longitude },
+        radius_m: radius,
+        heading_deg: args.heading_deg,
+        convoy_height_m: convoyH,
+        total_found: obstacles.length,
+        danger_flagged: flagged.length,
+        obstacles: summary,
+      }, null, 2)],
+    };
+  }
+
+  private async queryCriticalBridgesAhead(args: {
+    latitude: number;
+    longitude: number;
+    radius_m?: number;
+    convoy_height_m?: number;
+  }): Promise<OperationResult> {
+    const radius = args.radius_m ?? 25000;
+    const convoyH = args.convoy_height_m ?? (await this.getActiveConvoyHeightM());
+    const bridges = await getCriticalBridgesNearby({
+      latitude: args.latitude,
+      longitude: args.longitude,
+      radiusMeters: radius,
+      convoyHeightM: convoyH,
+    });
+    return {
+      success: true,
+      affectedCount: bridges.length,
+      details: [JSON.stringify({
+        center: { lat: args.latitude, lng: args.longitude },
+        radius_m: radius,
+        convoy_height_m: convoyH,
+        critical_count: bridges.length,
+        bridges: bridges.map(p => this.summarizePoi(p)),
+      }, null, 2)],
+    };
+  }
+
+  private async getDocumentedRoutesNearby(args: {
+    latitude: number;
+    longitude: number;
+    radius_m?: number;
+    survey_phase?: 'pre-survey' | 'field' | 'customer';
+  }): Promise<OperationResult> {
+    const routes = await getRoadScopeRoutesNearby({
+      latitude: args.latitude,
+      longitude: args.longitude,
+      radiusMeters: args.radius_m ?? 50000,
+      surveyPhase: args.survey_phase,
+    });
+    return {
+      success: true,
+      affectedCount: routes.length,
+      details: [JSON.stringify({
+        center: { lat: args.latitude, lng: args.longitude },
+        radius_m: args.radius_m ?? 50000,
+        phase_filter: args.survey_phase,
+        route_count: routes.length,
+        routes,
+      }, null, 2)],
+    };
+  }
+
+  private async getRouteIntelligenceForActiveRoute(args: { route_id: string }): Promise<OperationResult> {
+    if (!args.route_id) {
+      return { success: false, affectedCount: 0, details: ['route_id is required'] };
+    }
+    const items = await getRouteIntelligenceForRoute(args.route_id);
+    if (items.length === 0) {
+      // Try to suggest the linked RoadScope survey id from the active MP survey
+      const linkedRsId = this.currentSurveyId
+        ? await getLinkedRoadScopeSurveyId(this.currentSurveyId)
+        : null;
+      return {
+        success: true,
+        affectedCount: 0,
+        details: [JSON.stringify({
+          route_id: args.route_id,
+          linked_roadscope_survey_id: linkedRsId,
+          message: 'No Route Intelligence cache found for this route. The route may not have been analyzed yet — RI is triggered from the RoadScope UI, not from MeasurePRO. Tell the user to run RI in RoadScope first if they need full obstacle coverage.',
+        }, null, 2)],
+      };
+    }
+    // Translate upstream source names to SolTec brand labels for the model
+    const branded = items.map(item => ({
+      ...item,
+      source_label: formatSourceLabel(item.source),
+    }));
+    return {
+      success: true,
+      affectedCount: items.length,
+      details: [JSON.stringify({
+        route_id: args.route_id,
+        item_count: items.length,
+        items: branded,
+      }, null, 2)],
     };
   }
 
