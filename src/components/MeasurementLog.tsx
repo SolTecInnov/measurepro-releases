@@ -459,7 +459,20 @@ const MeasurementLog: React.FC<MeasurementLogProps> = ({ onEditMeasurement }) =>
 
   // Use sorted measurements for rendering with virtualizer (handles large datasets efficiently)
   const safeMeasurements = Array.isArray(sortedMeasurements) ? sortedMeasurements : [];
-  const startCoords = safeMeasurements[0] || null;
+  // CORRECTNESS + PERF (v16.1.27): the measurements array is newest-first since
+  // the v16.1.23 flip, so the OLDEST (route start) is at the END. Before this
+  // fix, using [0] made startCoords = the newest POI, which broke
+  // calculateMileMarker — the last POI always showed 0 and every other row's
+  // MM shifted on every add. Memoizing against the route-start id keeps
+  // startCoords stable across adds so row-level React memoization can cache.
+  const routeStartId: string | null = safeMeasurements.length > 0
+    ? (safeMeasurements[safeMeasurements.length - 1]?.id ?? null)
+    : null;
+  const startCoords = React.useMemo(() => {
+    if (safeMeasurements.length === 0) return null;
+    return safeMeasurements[safeMeasurements.length - 1];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [routeStartId]);
   
   // Performance monitoring for large datasets (dev only)
   React.useEffect(() => {

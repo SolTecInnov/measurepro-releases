@@ -18,10 +18,18 @@ import {
 
 /**
  * Hook to access measurement feed with automatic survey sync
+ *
+ * PERFORMANCE (v16.1.27):
+ * The derived data properties (measurements, stats, poiTypeCounts, etc.) are
+ * wrapped in React.useMemo keyed on `updateTrigger`. Before this, every render
+ * of every consumer called all the getters synchronously — at 800+ POIs with
+ * ~10 consumers that meant ~24,000 array operations per POI add, which hid
+ * behind the v16.1.23 O(1) addMeasurement fix and kept the app feeling slow.
+ * Now the getters run AT MOST ONCE per subscriber per POI add.
  */
 export function useMeasurementFeed() {
   const { activeSurvey } = useSurveyStore();
-  const [, setUpdateTrigger] = useState(0);
+  const [updateTrigger, setUpdateTrigger] = useState(0);
   const feed = useMemo(() => getMeasurementFeed(), []);
   const liveBroadcastInitialized = useRef(false);
 
@@ -31,18 +39,18 @@ export function useMeasurementFeed() {
       feed.init(activeSurvey.id).catch(error => {
         console.error('Failed to initialize measurement feed:', error);
       });
-      
+
       // Initialize live broadcast integration (once)
       if (!liveBroadcastInitialized.current) {
         initLiveBroadcastIntegration();
         liveBroadcastInitialized.current = true;
       }
-      
+
       // Auto-start live broadcasting if enabled in settings
       handleSurveyStart(activeSurvey.id, activeSurvey.surveyTitle || 'Untitled Survey');
     } else {
       feed.clear();
-      
+
       // Stop live broadcasting when survey closes
       handleSurveyClose();
     }
@@ -58,29 +66,38 @@ export function useMeasurementFeed() {
     return unsubscribe;
   }, [feed]);
 
+  // PERF: memoize all derived properties keyed on updateTrigger.
+  // This means getMeasurements / getStats / getPOITypeCounts / getMapClusters
+  // only run when the feed has actually changed, not on every parent render.
+  const measurements = useMemo(() => feed.getMeasurements(), [feed, updateTrigger]);
+  const stats = useMemo(() => feed.getStats(), [feed, updateTrigger]);
+  const poiTypeCounts = useMemo(() => feed.getPOITypeCounts(), [feed, updateTrigger]);
+  const mapClusters = useMemo(() => feed.getMapClusters(), [feed, updateTrigger]);
+  const cacheSize = useMemo(() => feed.getCacheSize(), [feed, updateTrigger]);
+
   return {
     // Data accessors
-    measurements: feed.getMeasurements(),
+    measurements,
     getMeasurement: (id: string) => feed.getMeasurement(id),
     getMeasurementsWithLimit: (limit: number) => feed.getMeasurementsWithLimit(limit),
     getMapMeasurements: (limit?: number) => feed.getMapMeasurements(limit),
-    
+
     // Filters
     filterByPOIType: (poiType: string) => feed.filterByPOIType(poiType),
     filterBySearch: (query: string) => feed.filterBySearch(query),
-    
+
     // Stats
-    stats: feed.getStats(),
-    poiTypeCounts: feed.getPOITypeCounts(),
-    
+    stats,
+    poiTypeCounts,
+
     // Map
-    mapClusters: feed.getMapClusters(),
-    
+    mapClusters,
+
     // Actions
     refresh: () => feed.refresh(),
-    
+
     // Metadata
-    cacheSize: feed.getCacheSize()
+    cacheSize,
   };
 }
 

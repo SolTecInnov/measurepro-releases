@@ -49,6 +49,15 @@ class MeasurementFeed {
   private subscribers: Set<Subscriber> = new Set();
   private statsCache: MeasurementStats | null = null;
   private mapClustersCache: MapCluster[] | null = null;
+  // PERF (v16.1.27): cache the full DESC (newest-first) measurement array.
+  // Without this, every subscriber's re-render call to getMeasurements()
+  // rebuilt the array from scratch (O(n)) — at 10 subscribers × 800 POIs that
+  // meant ~8000 ops per add on the read side alone, negating the v16.1.23
+  // O(1) addMeasurement fix. Cache is invalidated in invalidateCaches() which
+  // fires on every add/update/delete, so staleness is never a concern.
+  private measurementsArrayCache: Measurement[] | null = null;
+  // Same strategy for the POI type count map.
+  private poiTypeCountsCache: Record<string, number> | null = null;
   private lastCacheInvalidation = 0;
   private initialized = false;
   private workerUnsubscribe: (() => void) | null = null;
@@ -397,20 +406,44 @@ class MeasurementFeed {
   /**
    * Get all measurements from cache (sorted by createdAt DESC, newest first).
    * Internal storage is ASC, so we iterate in reverse here.
+   *
+   * PERF: cached. First call after an add/update/delete rebuilds the array;
+   * all subsequent calls return the same reference until the next mutation.
+   * Safe because invalidateCaches() clears this on every mutating op.
    */
   getMeasurements(): Measurement[] {
+    if (this.measurementsArrayCache) {
+      return this.measurementsArrayCache;
+    }
     const out: Measurement[] = [];
     for (let i = this.sortedIds.length - 1; i >= 0; i--) {
       const m = this.cache.get(this.sortedIds[i]);
       if (m) out.push(m);
     }
+    this.measurementsArrayCache = out;
     return out;
   }
 
   /**
    * Get the most recent N measurements (newest first).
+   *
+   * PERF: piggyback on the getMeasurements() cache when possible so both
+   * methods share the same rebuild cost. A simple slice of the cached full
+   * array is the fastest path; we only take the manual reverse-iteration
+   * route when no cache is available and the limit is smaller than the
+   * total (to save building the whole array just for a partial read).
    */
   getMeasurementsWithLimit(limit: number): Measurement[] {
+    // Fast path: cached full array already exists — just slice.
+    if (this.measurementsArrayCache) {
+      return this.measurementsArrayCache.slice(0, limit);
+    }
+    // If the cache hasn't been built and limit >= total, building the full
+    // array populates the cache for everyone. That's a good trade.
+    if (limit >= this.sortedIds.length) {
+      return this.getMeasurements();
+    }
+    // Otherwise read only what's needed without populating the full cache.
     const out: Measurement[] = [];
     const start = this.sortedIds.length - 1;
     const end = Math.max(-1, start - limit);
@@ -462,9 +495,16 @@ class MeasurementFeed {
   }
 
   /**
-   * Get POI type counts
+   * Get POI type counts.
+   *
+   * PERF: cached. Cleared by invalidateCaches() on every mutation. Shares the
+   * cached getMeasurements() array so subscribers that need both only pay the
+   * O(n) once, across both calls.
    */
   getPOITypeCounts(): Record<string, number> {
+    if (this.poiTypeCountsCache) {
+      return this.poiTypeCountsCache;
+    }
     const measurements = this.getMeasurements();
     const counts: Record<string, number> = {};
 
@@ -474,6 +514,7 @@ class MeasurementFeed {
       }
     });
 
+    this.poiTypeCountsCache = counts;
     return counts;
   }
 
@@ -572,6 +613,8 @@ class MeasurementFeed {
   private invalidateCaches(): void {
     this.statsCache = null;
     this.mapClustersCache = null;
+    this.measurementsArrayCache = null;
+    this.poiTypeCountsCache = null;
     this.lastCacheInvalidation = Date.now();
   }
 
