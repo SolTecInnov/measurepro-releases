@@ -100,7 +100,6 @@ const EmailSettings = () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        // toast suppressed
         setTestEmail('');
       } else {
         throw new Error(result.error || 'Failed to send test email');

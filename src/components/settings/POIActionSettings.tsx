@@ -10,18 +10,15 @@ const POIActionSettings = () => {
   const handleActionChange = (poiType: POIType | string, action: POIAction) => {
     setActionForPOI(poiType, action);
     const label = POI_TYPES.find(p => p.type === poiType)?.label ?? 'None';
-    // toast suppressed
   };
 
   const handleResetAll = () => {
     resetToDefaults();
-    // toast suppressed
   };
 
   const handleResetSingle = (poiType: POIType | string) => {
     resetPOIToDefault(poiType);
     const label = POI_TYPES.find(p => p.type === poiType)?.label ?? 'None';
-    // toast suppressed
   };
 
   return (

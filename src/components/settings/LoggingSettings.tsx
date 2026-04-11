@@ -361,7 +361,6 @@ const LoggingSettings = () => {
               <ul className="space-y-1 text-gray-300">
                 <li>• When POI count reaches threshold, survey is automatically saved</li>
                 <li>• A new part is created seamlessly without interrupting laser/GPS</li>
-                <li></li>
                 <li>• Data is uploaded to cloud if configured</li>
                 <li>• Email notification sent if enabled</li>
               </ul>
@@ -423,16 +422,16 @@ const LoggingSettings = () => {
           </div>
         </div>
 
-        {/* Timelapse POI Filter - hidden for beta users */}
+        {/* Timelapse POI Filter - MeasurePRO+ only */}
         {!isBeta && (
           <div className="bg-purple-900/20 border border-purple-800/30 rounded-lg p-4 mt-6">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-5 h-5 text-purple-400" />
-              {/* Timelapse filter hidden — feature disabled */}
+              <h4 className="font-medium text-purple-300">Timelapse POI Filter</h4>
             </div>
-            
+
             <p className="text-sm text-gray-400 mb-4">
-              Select which POI types should be highlighted in timelapse recordings. Empty selection = all types included.
+              Highlight selected POI types in timelapse recordings. Leave empty to include all types.
             </p>
             
             <div className="grid grid-cols-2 gap-4">

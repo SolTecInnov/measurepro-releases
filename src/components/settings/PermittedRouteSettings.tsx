@@ -37,15 +37,10 @@ const PermittedRouteSettings = () => {
   };
 
   const handleToggleEnabled = (enabled: boolean) => {
-    // Password validation disabled - directly enable/disable
     setSettings({
       ...currentSettings,
       enabled
     });
-    
-    if (enabled && !currentSettings.enabled) {
-      // toast suppressed
-    }
   };
 
   const handleSettingChange = (field: string, value: any) => {

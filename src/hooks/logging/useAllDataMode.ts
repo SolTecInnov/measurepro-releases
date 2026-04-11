@@ -24,7 +24,7 @@ interface UseAllDataModeProps {
 }
 
 export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDataModeProps) {
-  const { lastMeasurement } = useSerialStore();
+  const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { getActionForPOI } = usePOIActionsStore();
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
@@ -39,7 +39,10 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return;  // DE02, sky, noise → silent skip
 
-    const poiType = selectedPOIType || 'wire';
+    // RACE FIX: Use the POI type that was active at the MOMENT this laser
+    // reading was captured, not the current store value. The user may have
+    // already switched to the next POI type in anticipation of the next item.
+    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
 
     // Skip POI types that should not auto-log from laser readings.
@@ -102,7 +105,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
         }).catch(() => {});
       }
     }
-  }, [isActive, activeSurvey?.id, lastMeasurement, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage, getActionForPOI, onPOILogged]);
+  }, [isActive, activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage, getActionForPOI, onPOILogged]);
 
   // React to measurement changes
   useEffect(() => {

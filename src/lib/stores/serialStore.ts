@@ -10,6 +10,7 @@ import { GPSReader } from '../readers/serialGPSReader';
 import { getCurrentUser } from '../firebase';
 import { auditLog } from '../auditLog';
 import { appendToLaserOutput, clearLaserOutput } from '../laserLog';
+import { usePOIStore } from '../poi';
 
 // Re-export for consumers who import from this module
 export { appendToLaserOutput, clearLaserOutput, getLaserLog, subscribeLaserLog } from '../laserLog';
@@ -47,6 +48,10 @@ interface SerialState {
   isBufferTracking: boolean;
   bufferMeasurements: string[];
   lastMeasurement: string;
+  // POI type that was active in usePOIStore at the moment lastMeasurement was set.
+  // Captured atomically so logging hooks can attach the correct type even if the
+  // user switches POI type between the laser hit and the React effect that logs.
+  lastMeasurementPoiType: string | null;
   currentMeasurement: string;
   measurementSampleId: number;
   resetStatus: SerialResetStatus;
@@ -157,6 +162,7 @@ export const useSerialStore = create<SerialState>((set, get) => ({
   isBufferTracking: false,
   bufferMeasurements: [],
   lastMeasurement: '--',
+  lastMeasurementPoiType: null,
   currentMeasurement: '--',
   measurementSampleId: 0,
   resetStatus: SerialResetStatus.IDLE,
@@ -880,8 +886,16 @@ export const useSerialStore = create<SerialState>((set, get) => ({
     if (!isNaN(parseFloat(data))) {
       try {
         const measurementString = parseFloat(data).toString();
+        // RACE FIX: Snapshot the active POI type at the EXACT moment the laser
+        // value lands in the store. Reading it later (in React effects, after
+        // image capture, after savePOI await) lets the user switch POI types
+        // before the log entry is created and the wrong type gets attached.
+        // Throttling keeps the FIRST reading per 100ms window, so this snapshot
+        // is taken essentially synchronously with the laser hit.
+        const poiTypeAtHit = usePOIStore.getState().selectedType || null;
         set((state) => ({
           lastMeasurement: measurementString,
+          lastMeasurementPoiType: poiTypeAtHit,
           currentMeasurement: measurementString,
           measurementSampleId: state.measurementSampleId + 1
         }));

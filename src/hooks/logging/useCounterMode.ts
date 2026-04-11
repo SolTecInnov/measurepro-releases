@@ -52,7 +52,7 @@ type DetectionState = 'sky' | 'object';
 
 export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCounterModeProps) {
   const cfg = { ...DEFAULT_CONFIG, ...loadAutoCaptureConfig() };
-  const { lastMeasurement } = useSerialStore();
+  const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { getActionForPOI } = usePOIActionsStore();
@@ -63,13 +63,18 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
   const objectStartTimeRef = useRef<number>(0);
   const capturedImageRef = useRef<string | null>(null);
   const capturedGpsRef = useRef<ReturnType<typeof getGpsSnapshot> | null>(null);
+  // RACE FIX: Snapshot the POI type at the sky→object transition. The user is
+  // free to switch to the next POI type while we're still buffering this one's
+  // readings; without this snapshot we'd log the buffer with the new type.
+  const bufferPoiTypeRef = useRef<string | null>(null);
   const countRef = useRef(0);
   const skyTimerRef = useRef<number | null>(null);
 
   const logBuffer = useCallback(async () => {
     if (bufferRef.current.length === 0 || !activeSurvey?.id) return;
 
-    const poiType = selectedPOIType || 'wire';
+    // Use the snapshot taken at object detection, not the live store value.
+    const poiType = bufferPoiTypeRef.current || selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
     if (action === 'voice-note' || action === 'select-only' || action === 'auto-capture-no-measurement') {
       bufferRef.current = [];
@@ -88,6 +93,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
     bufferRef.current = [];
     capturedImageRef.current = null;
     capturedGpsRef.current = null;
+    bufferPoiTypeRef.current = null;
     stateRef.current = 'sky';
     skyCountRef.current = 0;
 
@@ -160,6 +166,9 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
         stateRef.current = 'object';
         objectStartTimeRef.current = Date.now();
         capturedGpsRef.current = getGpsSnapshot();
+        // Lock in the POI type at the moment we detect this object. The user
+        // hears the capture sound here and is free to switch to the next type.
+        bufferPoiTypeRef.current = lastMeasurementPoiType || selectedPOIType || null;
 
         // Capture image immediately
         captureImage().then(url => { capturedImageRef.current = url; }).catch(() => {});
@@ -205,6 +214,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
     bufferRef.current = [];
     capturedImageRef.current = null;
     capturedGpsRef.current = null;
+    bufferPoiTypeRef.current = null;
     stateRef.current = 'sky';
     skyCountRef.current = 0;
     countRef.current = 0;

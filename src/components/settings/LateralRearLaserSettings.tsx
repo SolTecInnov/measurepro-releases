@@ -39,9 +39,6 @@ const LateralRearLaserSettings: React.FC = () => {
   };
 
   const handleRearSettingChange = async (key: string, value: any) => {
-    if (key === 'clearanceThresholdMeters' && value > 40) {
-      // toast suppressed
-    }
     const newSettings = { ...localRearSettings, [key]: value };
     setLocalRearSettings(newSettings);
     await setRearOverhangSettings(newSettings);
@@ -53,7 +50,6 @@ const LateralRearLaserSettings: React.FC = () => {
       if (port) {
         const position = side === 'left' ? 'leftLateral' : 'rightLateral';
         await connectLaser(position, port);
-        /* toast removed */
       }
     } catch (error) {
       toast.error(`Failed to connect ${side} laser: ${(error as Error).message}`);
@@ -65,7 +61,6 @@ const LateralRearLaserSettings: React.FC = () => {
       const port = await requestPort();
       if (port) {
         await connectLaser('rear', port);
-        // toast suppressed
       }
     } catch (error) {
       toast.error(`Failed to connect rear laser: ${(error as Error).message}`);

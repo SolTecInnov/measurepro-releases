@@ -69,7 +69,6 @@ const AIAssistantSettings = () => {
         await setAIAssistantSettings({ ...aiAssistantSettings, openaiApiKey: apiKey, enabled: true });
         await forceSyncNow();
         setKeyStatus('valid');
-        // toast suppressed
       } else if (response.status === 401) {
         setKeyStatus('invalid');
         toast.error('Invalid API key. Please check your key and try again.');
@@ -90,7 +89,6 @@ const AIAssistantSettings = () => {
     await forceSyncNow();
     setApiKey('');
     setKeyStatus('none');
-    // toast suppressed
   };
 
   const validateAndSaveZendesk = async () => {
@@ -121,7 +119,6 @@ const AIAssistantSettings = () => {
         await forceSyncNow();
         setZendeskSubdomain(subdomain);
         setZendeskStatus('valid');
-        // toast suppressed
       } else {
         setZendeskStatus('invalid');
         toast.error(`Zendesk: ${data.error ?? 'Authentication failed'}`, { duration: 10000 });
@@ -147,7 +144,6 @@ const AIAssistantSettings = () => {
     setZendeskEmail('');
     setZendeskToken('');
     setZendeskStatus('none');
-    // toast suppressed
   };
 
   // Fetch existing (masked) admin trial key when admin is unlocked
@@ -197,7 +193,6 @@ const AIAssistantSettings = () => {
         setAdminTrialKeyMasked(`sk-...${trialKey.trim().slice(-4)}`);
         setTrialKey('');
         resetTrialCache();
-        // toast suppressed
       } else {
         setTrialKeyStatus('error');
         toast.error(data.error ?? 'Failed to save trial key');
@@ -223,7 +218,6 @@ const AIAssistantSettings = () => {
       setAdminTrialKeyMasked(null);
       setTrialKeyStatus('none');
       resetTrialCache();
-      // toast suppressed
     } catch {
       toast.error('Failed to remove trial key');
     }

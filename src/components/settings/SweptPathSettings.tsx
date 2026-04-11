@@ -20,7 +20,6 @@ const SweptPathSettings = () => {
     setSettings({ enabled });
     
     if (enabled && !settings.enabled) {
-      // toast suppressed
     }
   };
 

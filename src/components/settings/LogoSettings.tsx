@@ -49,7 +49,6 @@ const LogoSettings: React.FC = () => {
           setLogoUrl(dataUrl);
           useSettingsStore.getState().setUISettings({ appLogoUrl: dataUrl });
           window.dispatchEvent(new Event('logo-updated'));
-          // toast suppressed
         }
       };
       reader.onerror = () => {
@@ -71,14 +70,12 @@ const LogoSettings: React.FC = () => {
     setLogoUrl('/soltec.png');
     useSettingsStore.getState().setUISettings({ appLogoUrl: '/soltec.png' });
     window.dispatchEvent(new Event('logo-updated'));
-    // toast suppressed
   };
 
   const handleRemoveLogo = () => {
     setLogoUrl('');
     useSettingsStore.getState().setUISettings({ appLogoUrl: null });
     window.dispatchEvent(new Event('logo-updated'));
-    // toast suppressed
   };
 
   return (

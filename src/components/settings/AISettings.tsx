@@ -153,7 +153,6 @@ const AISettings = () => {
   const handleExportTrainingData = async () => {
     try {
       setIsExporting(true);
-      // toast suppressed
       
       const frames = await getAllTrainingFrames();
       if (frames.length === 0) {
@@ -167,7 +166,6 @@ const AISettings = () => {
         classMapping.set(className, index);
       });
 
-      // toast suppressed
       const blob = await exportTrainingDataYOLO(frames, classMapping);
       
       // Download the ZIP file
@@ -181,7 +179,6 @@ const AISettings = () => {
       URL.revokeObjectURL(url);
 
       const sizeInMB = (blob.size / (1024 * 1024)).toFixed(2);
-      /* toast removed */
     } catch (error) {
       toast.error('Failed to export training data');
     } finally {
@@ -195,7 +192,6 @@ const AISettings = () => {
       await deleteAllTrainingFrames();
       setTrainingDataInfo(null);
       setShowClearConfirmation(false);
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to clear training data');
     }
@@ -209,7 +205,6 @@ const AISettings = () => {
     });
     
     if (enabled) {
-      // toast suppressed
     }
   };
 

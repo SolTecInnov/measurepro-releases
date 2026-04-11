@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Satellite, Settings, Wifi, WifiOff, RefreshCw, AlertCircle, Activity, Compass, TestTube, Cloud, Laptop, Server, Globe, Shield, RotateCcw, Download, ChevronDown, ChevronUp, Monitor, Plug, CheckCircle2, Info, GraduationCap, Square } from 'lucide-react';
+import {
+  Satellite, RefreshCw, AlertCircle, Shield, RotateCcw,
+  Wifi, WifiOff, Info, Download, Monitor, Plug, CheckCircle2,
+  Server, Globe, Settings, Laptop, Cloud, TestTube, Compass, Activity,
+  ChevronUp, ChevronDown,
+} from 'lucide-react';
 import { toast } from 'sonner';
-import DuroLiveDataViewer from '@/components/gnss/DuroLiveDataViewer';
-import { DuroCalibrationSettings } from '@/components/gnss/DuroCalibrationSettings';
 import { GnssDiagnosticsPanel } from '@/components/gnss/diagnostics';
 import { useSettingsStore } from '@/lib/settings';
 type CrossSlopeMode = 'raw' | 'filtered' | 'stopped_only';
-import { gnssSimulator } from '@/lib/demo/gnssSimulator';
 
 // Backend URL storage key
 const BACKEND_URL_KEY = 'measurepro_gnss_backend_url';
@@ -156,7 +158,6 @@ const GnssSettings: React.FC = () => {
   const [backendUrl, setBackendUrl] = useState<string>(getStoredBackendUrl());
   const [backendUrlInput, setBackendUrlInput] = useState<string>(getStoredBackendUrl());
   const [showGuide, setShowGuide] = useState(true);
-  const [simActive, setSimActive] = useState(gnssSimulator.isActive);
   const [electronDuroConnected, setElectronDuroConnected] = useState(false);
 
   // Heavy haul safety settings (banking/cross-slope and curve radius)
@@ -181,11 +182,6 @@ const GnssSettings: React.FC = () => {
     });
   };
 
-  // Keep simActive in sync with the singleton
-  useEffect(() => {
-    return gnssSimulator.subscribe(() => setSimActive(gnssSimulator.isActive));
-  }, []);
-
   // ── Electron: listen for Duro connection status ───────────────────────────────────
   useEffect(() => {
     if (!isElectron) return;
@@ -205,24 +201,12 @@ const GnssSettings: React.FC = () => {
       setElectronDuroConnected(s.connected);
       if (s.connected) {
         setStatus({ connected: true, host: config.host, port: config.nmeaPort, uptimeSec: 0, totalSamples: 0 } as any);
-        // toast suppressed
       } else {
         setStatus(null);
         if (s.error) toast.error('Duro disconnected', { description: s.error });
       }
     });
   }, []);
-
-  const toggleSimulation = () => {
-    if (gnssSimulator.isActive) {
-      gnssSimulator.stop();
-      // toast suppressed
-    } else {
-      gnssSimulator.start();
-      // toast suppressed
-    }
-    setSimActive(gnssSimulator.isActive);
-  };
 
   // Save backend URL to localStorage
   const saveBackendUrl = (url: string) => {
@@ -233,7 +217,6 @@ const GnssSettings: React.FC = () => {
         localStorage.removeItem(BACKEND_URL_KEY);
       }
       setBackendUrl(url);
-      /* toast removed */
     } catch (error) {
       toast.error('Failed to save backend URL');
     }
@@ -307,15 +290,12 @@ const GnssSettings: React.FC = () => {
       if (config.enabled && electronAPI?.duro) {
         try {
           await electronAPI.duro.connect({ host: config.host, port: config.nmeaPort });
-          // toast suppressed
         } catch(e: any) {
           toast.error('Failed to connect', { description: e.message });
         }
       } else if (!config.enabled && electronAPI?.duro) {
         await electronAPI.duro.disconnect();
-        // toast suppressed
       } else {
-        // toast suppressed
       }
       setSaving(false);
       return;
@@ -334,7 +314,6 @@ const GnssSettings: React.FC = () => {
       if (response.ok) {
         const saved = await response.json();
         setConfig(normalizeGnssConfig(saved));
-        // toast suppressed
         fetchStatus();
       } else {
         const error = await response.json();
@@ -356,7 +335,6 @@ const GnssSettings: React.FC = () => {
       await electronAPI.duro.disconnect();
       await new Promise(r => setTimeout(r, 500));
       await electronAPI.duro.connect({ host: config.host, port: config.nmeaPort });
-      // toast suppressed
       return;
     }
     try {
@@ -365,12 +343,10 @@ const GnssSettings: React.FC = () => {
       const data = await response.json();
       
       if (response.ok) {
-        // toast suppressed
         setTimeout(fetchStatus, 2000);
       } else {
         toast.error(data.error || 'Failed to reconnect');
         if (data.details?.suggestion) {
-          // toast suppressed
         }
       }
     } catch (error) {
@@ -396,11 +372,9 @@ const GnssSettings: React.FC = () => {
       setTestResult(result);
 
       if (result.success) {
-        /* toast removed */
       } else {
         toast.error(`Connection failed: ${result.error || result.status}`);
         if (result.suggestion) {
-          // toast suppressed
         }
       }
     } catch (error) {
@@ -436,79 +410,6 @@ const GnssSettings: React.FC = () => {
         >
           <RefreshCw className="w-4 h-4" />
         </button>
-      </div>
-
-      {/* ── Training / Simulation Mode ── */}
-      <div className={`rounded-xl border p-5 transition-colors ${
-        simActive
-          ? 'bg-purple-900/30 border-purple-500/60'
-          : 'bg-gray-900 border-gray-700'
-      }`}>
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-lg ${simActive ? 'bg-purple-500/20' : 'bg-gray-700'}`}>
-              <GraduationCap className={`w-5 h-5 ${simActive ? 'text-purple-300' : 'text-gray-400'}`} />
-            </div>
-            <div>
-              <h3 className="text-base font-semibold text-white flex items-center gap-2">
-                Training Simulation Mode
-                {simActive && (
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                    Active
-                  </span>
-                )}
-              </h3>
-              <p className="text-sm text-gray-400 mt-0.5">
-                Simulate a full RTK GNSS survey run — no hardware or antenna required.
-                Ideal for classroom training and product demonstrations.
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={toggleSimulation}
-            className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              simActive
-                ? 'bg-red-600/80 hover:bg-red-600 text-white'
-                : 'bg-purple-600 hover:bg-purple-500 text-white'
-            }`}
-            data-testid="button-toggle-gnss-simulation"
-          >
-            {simActive ? (
-              <><Square className="w-4 h-4" /> Stop</>
-            ) : (
-              <><GraduationCap className="w-4 h-4" /> Start Training</>
-            )}
-          </button>
-        </div>
-
-        {simActive && (
-          <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-            {[
-              { label: 'Fix quality warm-up',  desc: 'GPS → DGPS → RTK Float → RTK Fixed over ~20 s' },
-              { label: 'Right-hand curve',      desc: 'Progressive banking up to 4.3°' },
-              { label: 'Hill climb (+7% grade)',desc: 'Altitude 12 m → 65 m' },
-              { label: 'K-factor events',       desc: 'Concave (summit) + convex (descent start)' },
-              { label: 'Left-hand curve',       desc: 'Negative banking down to −4°' },
-              { label: 'IMU attitude data',     desc: 'Roll, pitch & heading with realistic noise' },
-            ].map(item => (
-              <div key={item.label} className="flex items-start gap-2 p-2 bg-purple-900/20 rounded-lg">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-medium text-purple-200">{item.label}</span>
-                  <span className="text-gray-400 block">{item.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {!simActive && (
-          <p className="mt-3 text-xs text-gray-500">
-            When active: injects live Duro RTK data into the GNSS status card and road profiling pipeline.
-            The real Duro connection is not affected — stop the simulation to return to hardware mode.
-          </p>
-        )}
       </div>
 
       {status?.warning && (
@@ -1091,40 +992,6 @@ const GnssSettings: React.FC = () => {
         )}
       </div>
 
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold flex items-center gap-2">
-          <Satellite className="w-5 h-5 text-purple-400" />
-          NTRIP Correction Settings
-        </h3>
-
-        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-yellow-200">
-            <p className="font-semibold">Coming Soon</p>
-            <p className="text-yellow-300/80">
-              NTRIP client for RTK/PPP corrections will be available in a future update. 
-              Currently storing raw observations for post-processing.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between p-4 bg-gray-900 rounded-lg opacity-50 cursor-not-allowed">
-          <div>
-            <label className="text-white font-medium">Enable NTRIP Client</label>
-            <p className="text-sm text-gray-400">Connect to NTRIP caster for RTK corrections</p>
-          </div>
-          <label className="relative inline-flex items-center cursor-not-allowed">
-            <input
-              type="checkbox"
-              checked={config.ntrip.enabled}
-              disabled
-              className="sr-only peer"
-            />
-            <div className="w-11 h-6 bg-gray-700 rounded-full peer peer-checked:bg-blue-600"></div>
-          </label>
-        </div>
-      </div>
-
       {/* Heavy Haul Safety Settings */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold flex items-center gap-2">
@@ -1297,12 +1164,6 @@ const GnssSettings: React.FC = () => {
 
       {/* GNSS Diagnostics & Calibration Suite */}
       <GnssDiagnosticsPanel />
-
-      {/* Live Data Viewer */}
-      <DuroLiveDataViewer />
-
-      {/* Duro Calibration & Mounting Settings */}
-      <DuroCalibrationSettings />
 
       <div className="flex gap-4">
         <button

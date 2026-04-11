@@ -41,7 +41,10 @@ type Subscriber = () => void;
 
 class MeasurementFeed {
   private cache: Map<string, Measurement> = new Map();
-  private sortedIds: string[] = []; // Sorted by createdAt DESC
+  // PERF: Stored ASC (oldest → newest) so addMeasurement can push() in O(1).
+  // Reads iterate in reverse to surface newest-first. unshift() was O(n) and
+  // caused per-add cost to grow linearly with the number of POIs (~850+ noticeable).
+  private sortedIds: string[] = [];
   private currentSurveyId: string | null = null;
   private subscribers: Set<Subscriber> = new Set();
   private statsCache: MeasurementStats | null = null;
@@ -244,16 +247,19 @@ class MeasurementFeed {
       }
     });
 
-    // SORT by createdAt DESC (newest first)
+    // SORT by createdAt ASC (oldest first) — matches internal storage convention.
+    // Reads will iterate this in reverse to surface newest first.
     const sortedMeasurements = Array.from(dedupedMap.values()).sort((a, b) => {
       const dateA = new Date(a.createdAt).getTime();
       const dateB = new Date(b.createdAt).getTime();
-      return dateB - dateA; // DESC
+      return dateA - dateB; // ASC
     });
 
-    // MEMORY FIX: Trim to CACHE_SIZE to prevent unbounded memory growth
-    // Keep only the most recent CACHE_SIZE measurements in memory
-    const trimmedMeasurements = sortedMeasurements.slice(0, CACHE_SIZE);
+    // MEMORY FIX: Trim to CACHE_SIZE to prevent unbounded memory growth.
+    // Keep only the most recent CACHE_SIZE measurements (tail of ASC array).
+    const trimmedMeasurements = sortedMeasurements.length > CACHE_SIZE
+      ? sortedMeasurements.slice(sortedMeasurements.length - CACHE_SIZE)
+      : sortedMeasurements;
     const trimmedCount = sortedMeasurements.length - trimmedMeasurements.length;
     
     // Build final result from trimmed list
@@ -301,43 +307,37 @@ class MeasurementFeed {
     // This ensures optimistic inserts survive the async DB load and reconciliation
     if (this.isLoadingInitialData) {
       this.pendingDuringLoad.set(measurement.id, measurement);
-      
+
       // Also add to cache for immediate zero-lag UI
       // The reconcile will merge this properly later
+      const isDup = this.cache.has(measurement.id);
       this.cache.set(measurement.id, measurement);
-      this.sortedIds.unshift(measurement.id);
-      
+      if (!isDup) this.sortedIds.push(measurement.id); // O(1) — ASC order
+
       // Invalidate and notify for immediate UI update
       this.invalidateCaches();
       this.notifySubscribers();
-      
+
       logger.debug(`➕ Queued measurement ${measurement.id} to pending (loading in progress)`);
       return;
     }
 
-    // NORMAL PATH: Dedupe and add to cache
-    if (this.cache.has(measurement.id)) {
-      const oldIndex = this.sortedIds.indexOf(measurement.id);
-      if (oldIndex !== -1) {
-        this.sortedIds.splice(oldIndex, 1);
-      }
+    // NORMAL PATH: Dedupe via Map (O(1)) and append to ASC array (O(1)).
+    // Duplicates are rare during live logging (every laser hit is a fresh UUID),
+    // so we skip the indexOf/splice rebalance and just refresh the cache value.
+    // The displayed value comes from `cache`, so the correct payload still wins.
+    const isDuplicate = this.cache.has(measurement.id);
+    this.cache.set(measurement.id, measurement);
+    if (!isDuplicate) {
+      this.sortedIds.push(measurement.id);
     }
 
-    this.cache.set(measurement.id, measurement);
-    this.sortedIds.unshift(measurement.id);
-
-    // Trim cache if over size limit
+    // Trim cache if over size limit. Only fires past CACHE_SIZE (5000), so this
+    // is not on the hot path for typical surveys.
     if (this.cache.size > CACHE_SIZE) {
-      let removed = false;
-      while (this.sortedIds.length > 0 && !removed) {
-        const oldestId = this.sortedIds.pop();
-        if (oldestId && this.cache.has(oldestId)) {
-          this.cache.delete(oldestId);
-          removed = true;
-        }
-      }
-      
-      this.sortedIds = this.sortedIds.filter(id => this.cache.has(id));
+      // Drop the oldest entry (front of ASC array). One shift per overflow.
+      const oldestId = this.sortedIds.shift();
+      if (oldestId) this.cache.delete(oldestId);
     }
 
     this.invalidateCaches();
@@ -395,20 +395,30 @@ class MeasurementFeed {
   }
 
   /**
-   * Get all measurements from cache (sorted by createdAt DESC)
+   * Get all measurements from cache (sorted by createdAt DESC, newest first).
+   * Internal storage is ASC, so we iterate in reverse here.
    */
   getMeasurements(): Measurement[] {
-    return this.sortedIds.map(id => this.cache.get(id)!).filter(Boolean);
+    const out: Measurement[] = [];
+    for (let i = this.sortedIds.length - 1; i >= 0; i--) {
+      const m = this.cache.get(this.sortedIds[i]);
+      if (m) out.push(m);
+    }
+    return out;
   }
 
   /**
-   * Get measurements with limit
+   * Get the most recent N measurements (newest first).
    */
   getMeasurementsWithLimit(limit: number): Measurement[] {
-    return this.sortedIds
-      .slice(0, limit)
-      .map(id => this.cache.get(id)!)
-      .filter(Boolean);
+    const out: Measurement[] = [];
+    const start = this.sortedIds.length - 1;
+    const end = Math.max(-1, start - limit);
+    for (let i = start; i > end; i--) {
+      const m = this.cache.get(this.sortedIds[i]);
+      if (m) out.push(m);
+    }
+    return out;
   }
 
   /**
@@ -419,13 +429,15 @@ class MeasurementFeed {
   }
 
   /**
-   * Get measurements for map (limited to last 100)
+   * Get measurements for map (limited to last N, newest first).
    */
   getMapMeasurements(limit = 100): Measurement[] {
-    return this.sortedIds
-      .slice(0, limit)
-      .map(id => this.cache.get(id)!)
-      .filter(m => m && m.latitude !== 0 && m.longitude !== 0);
+    const out: Measurement[] = [];
+    for (let i = this.sortedIds.length - 1; i >= 0 && out.length < limit; i--) {
+      const m = this.cache.get(this.sortedIds[i]);
+      if (m && m.latitude !== 0 && m.longitude !== 0) out.push(m);
+    }
+    return out;
   }
 
   /**

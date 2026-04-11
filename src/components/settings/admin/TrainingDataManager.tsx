@@ -34,7 +34,6 @@ const TrainingDataManager = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['training-frames'] });
       queryClient.invalidateQueries({ queryKey: ['training-data-size'] });
-      // toast suppressed
     },
     onError: () => {
       toast.error('Failed to delete training frame');
@@ -68,7 +67,6 @@ const TrainingDataManager = () => {
       );
       queryClient.invalidateQueries({ queryKey: ['training-frames'] });
       queryClient.invalidateQueries({ queryKey: ['training-data-size'] });
-      // toast suppressed
       setSelectedFrames(new Set());
     } catch (error) {
       toast.error('Failed to delete selected frames');
@@ -78,7 +76,6 @@ const TrainingDataManager = () => {
   const handleExportToYOLO = async () => {
     try {
       setIsExporting(true);
-      // toast suppressed
 
       // Get all enabled classes for class mapping
       const enabledClasses = Array.from(
@@ -99,7 +96,6 @@ const TrainingDataManager = () => {
       link.click();
       URL.revokeObjectURL(url);
 
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to export training data');
     } finally {

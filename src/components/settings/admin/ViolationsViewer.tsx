@@ -75,7 +75,6 @@ const ViolationsViewer = () => {
       link.click();
       URL.revokeObjectURL(url);
 
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to export CSV');
     }
@@ -84,12 +83,10 @@ const ViolationsViewer = () => {
   const handleClearAll = () => {
     clearViolations();
     setShowClearConfirm(false);
-    // toast suppressed
   };
 
   const handleDelete = (id: string) => {
     deleteViolation(id);
-    // toast suppressed
   };
 
   return (

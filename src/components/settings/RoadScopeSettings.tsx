@@ -80,8 +80,7 @@ export function RoadScopeSettings() {
       if (json.success && json.data) {
         setSettings(json.data);
         setAutoSync(json.data.autoSyncEnabled ?? false);
-        // Migrate legacy values: pre-v16.1.19 stored seconds (30-600). Anything
-        // smaller than the smallest minute option (30) is stale, replace with default.
+        // Coerce stale/legacy syncInterval values to a known minute option.
         const stored = json.data.syncInterval;
         const intervalMinutes =
           typeof stored === 'number' && INTERVAL_OPTIONS.some((opt) => opt.value === stored)
@@ -195,7 +194,6 @@ export function RoadScopeSettings() {
 
         await fetchSettings();
         setApiKeyInput('');
-        // toast suppressed
       } else {
         toast.error(json.error || 'Failed to save API key');
       }
@@ -268,7 +266,6 @@ export function RoadScopeSettings() {
       if (json.success) {
         setValidationResult(null);
         await fetchSettings();
-        // toast suppressed
       } else {
         toast.error(json.error || 'Failed to remove API key');
       }

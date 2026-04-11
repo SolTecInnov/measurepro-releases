@@ -85,7 +85,6 @@ const UserAddonOverrides: React.FC = () => {
         setGrantUid(users[0].uid);
         setGrantName(users[0].displayName || users[0].email);
         setGrantEmail(users[0].email);
-        // toast suppressed
       } else if (users.length > 1) {
         setLookupResults(users);
       }
@@ -102,7 +101,6 @@ const UserAddonOverrides: React.FC = () => {
     setGrantName(user.displayName || user.email);
     setGrantEmail(user.email);
     setLookupResults([]);
-    // toast suppressed
   };
 
   const grantMutation = useMutation({
@@ -128,7 +126,6 @@ const UserAddonOverrides: React.FC = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/addon-overrides'] });
-      // toast suppressed
       setShowGrantForm(false);
       setGrantEmail('');
       setGrantUid('');
@@ -151,7 +148,6 @@ const UserAddonOverrides: React.FC = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/addon-overrides'] });
-      // toast suppressed
       setRevokeId(null);
       setRevokeReason('');
     },

@@ -7,7 +7,6 @@ import { Progress } from '@/components/ui/progress';
 import { createCompleteBackup, BackupProgress } from '@/lib/backup/BackupManager';
 import { restoreBackup, RestoreProgress } from '@/lib/backup/RestoreManager';
 import { checkStorageHealth } from '@/lib/utils/storageManager';
-import { APP_VERSION } from '@/lib/version';
 import { 
   exportFullDatabaseBackup, 
   restoreFullDatabaseBackup, 
@@ -81,54 +80,22 @@ export default function BackupSettings() {
     const autoBackupPref = localStorage.getItem('measurepro_auto_backup_enabled') === 'true';
     setAutoBackupEnabled(autoBackupPref);
 
-    // Check for version change and prompt backup
-    checkVersionChange();
-
-    // Check for auto-backup timer
-    checkAutoBackupTimer();
-    
     // Check migration status
     getMigrationStatus().then(status => {
       setMigrationStatus(status);
     });
   }, []);
 
-  const checkVersionChange = () => {
-    const storedVersion = localStorage.getItem('measurepro_app_version');
-    
-    if (storedVersion && storedVersion !== APP_VERSION) {
-      /* toast removed */
-    }
-    
-    localStorage.setItem('measurepro_app_version', APP_VERSION);
-  };
-
-  const checkAutoBackupTimer = () => {
-    const autoBackupPref = localStorage.getItem('measurepro_auto_backup_enabled') === 'true';
-    if (!autoBackupPref) return;
-    
-    const lastBackupTimestamp = localStorage.getItem('measurepro_last_backup_timestamp');
-    const lastBackupTime = lastBackupTimestamp ? parseInt(lastBackupTimestamp) : 0;
-    const hoursSinceBackup = (Date.now() - lastBackupTime) / (1000 * 60 * 60);
-    
-    if (hoursSinceBackup >= 24) {
-      /* toast removed */
-    }
-  };
-
   const toggleAutoBackup = () => {
     const newValue = !autoBackupEnabled;
     setAutoBackupEnabled(newValue);
     localStorage.setItem('measurepro_auto_backup_enabled', newValue.toString());
-    
-    // toast suppressed
   };
 
   const handleShowDbStats = async () => {
     try {
       const stats = await getIndexedDBStats();
       setDbStats(stats);
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to get database stats');
     }
@@ -189,8 +156,6 @@ export default function BackupSettings() {
       const now = new Date().toISOString();
       localStorage.setItem('measurepro_last_backup', now);
       setLastBackup(now);
-
-      // toast suppressed
     } catch (error) {
       toast.error('Backup failed', {
         description: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -213,8 +178,6 @@ export default function BackupSettings() {
       await restoreBackup(file, (progress) => {
         setRestoreProgress(progress);
       });
-
-      // toast suppressed
 
       // Reload page to show restored data
       setTimeout(() => {

@@ -83,7 +83,6 @@ const SubscriptionManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/subscriptions'] });
-      // toast suppressed
       setShowDialog(false);
       form.reset();
     },
@@ -102,7 +101,6 @@ const SubscriptionManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/subscriptions'] });
-      // toast suppressed
       setShowDialog(false);
       setEditingSubscription(null);
       form.reset();
@@ -121,7 +119,6 @@ const SubscriptionManager = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/subscriptions'] });
-      // toast suppressed
       setDeleteConfirmId(null);
     },
     onError: (error: Error) => {
@@ -148,7 +145,6 @@ const SubscriptionManager = () => {
       });
     },
     onSuccess: () => {
-      // toast suppressed
     },
     onError: (error: Error) => {
       toast.error(error.message || 'Failed to send email');

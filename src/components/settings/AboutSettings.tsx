@@ -31,7 +31,6 @@ const AboutSettings = () => {
     const handleOnline = () => {
       if (sessionStorage.getItem('pending_pw_change_flag')) {
         setShowChangePw(true);
-        // toast suppressed
       }
     };
     window.addEventListener('online', handleOnline);
@@ -61,7 +60,6 @@ const AboutSettings = () => {
     if (!navigator.onLine) {
       sessionStorage.setItem('pending_pw_change_flag', '1');
       setPendingOfflineChange(true);
-      // toast suppressed
       setShowChangePw(false);
       setCurrentPw('');
       setNewPw('');
@@ -98,7 +96,6 @@ const AboutSettings = () => {
         setPendingOfflineChange(false);
       }
 
-      // toast suppressed
       setShowChangePw(false);
       setCurrentPw('');
       setNewPw('');
@@ -114,7 +111,6 @@ const AboutSettings = () => {
         // Connectivity dropped — record intent flag only, no credentials stored
         sessionStorage.setItem('pending_pw_change_flag', '1');
         setPendingOfflineChange(true);
-        // toast suppressed
         setShowChangePw(false);
         setCurrentPw('');
         setNewPw('');

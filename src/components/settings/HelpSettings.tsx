@@ -2865,20 +2865,6 @@ const HelpSettings = () => {
               </ul>
             </div>
             
-            <div className="bg-red-900/20 border border-red-800/30 rounded-lg p-4">
-              {/* Live Monitor removed — feature disabled */}
-              <p className="text-gray-300 mb-3">
-                Monitor measurements from multiple devices in real-time:
-              </p>
-              <ul className="text-gray-300 text-sm space-y-1">
-                <li>• Access via the "Live Monitor" button in the header</li>
-                <li>• See measurements from all connected devices</li>
-                <li>• Filter by user, POI type, or search terms</li>
-                <li>• Export filtered data sets</li>
-                <li>• Perfect for supervisors and quality control</li>
-              </ul>
-            </div>
-            
             <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
               <h4 className="font-semibold text-blue-400 mb-3">Cloud Synchronization:</h4>
               <p className="text-gray-300 mb-3">

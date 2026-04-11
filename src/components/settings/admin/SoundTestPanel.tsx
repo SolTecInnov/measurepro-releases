@@ -35,7 +35,6 @@ const SoundTestPanel = () => {
     try {
       await soundManager.initialize();
       await soundManager.playWarning();
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to play warning sound');
     }
@@ -45,7 +44,6 @@ const SoundTestPanel = () => {
     try {
       await soundManager.initialize();
       await soundManager.playCritical();
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to play critical sound');
     }
@@ -55,7 +53,6 @@ const SoundTestPanel = () => {
     try {
       await soundManager.initialize();
       await soundManager.playLogEntry();
-      // toast suppressed
     } catch (error) {
       toast.error('Failed to play log entry sound');
     }

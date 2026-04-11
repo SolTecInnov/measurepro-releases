@@ -65,13 +65,8 @@ const EnvelopeSettings = () => {
 
   const activeProfile = profiles.find(p => p.id === settings.activeProfileId);
 
-  const handleToggleEnabled = (enabled: boolean) => {
-    // Password validation disabled - directly enable/disable
+  const handleToggleEnabled = (_enabled: boolean) => {
     toggleEnabled();
-    
-    if (enabled && !settings.enabled) {
-      // toast suppressed
-    }
   };
 
   const handleAddProfile = () => {

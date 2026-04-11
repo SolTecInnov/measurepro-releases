@@ -27,7 +27,7 @@ export function useLogging({ captureImage }: UseLoggingProps) {
 
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
-  const { lastMeasurement } = useSerialStore();
+  const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
 
   const onPOILogged = useCallback((count: number) => {
     setPoisLogged(count);
@@ -77,7 +77,10 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return false;
 
-    const poiType = selectedPOIType || 'wire';
+    // RACE FIX: prefer the POI type captured at the moment of the laser hit
+    // (snapshotted in serialStore) over the live store value, in case the user
+    // already switched POI types in anticipation of the next item.
+    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
     const gps = getGpsSnapshot();
     const now = new Date();
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
@@ -107,7 +110,7 @@ export function useLogging({ captureImage }: UseLoggingProps) {
 
     if (saved) setPoisLogged(n => n + 1);
     return saved;
-  }, [activeSurvey?.id, lastMeasurement, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage]);
+  }, [activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage]);
 
   return {
     // State

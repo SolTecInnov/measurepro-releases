@@ -35,15 +35,10 @@ const ConvoySettings = () => {
   };
 
   const handleToggleEnabled = (enabled: boolean) => {
-    // Password validation disabled - directly enable/disable
     setConvoySettings({
       ...currentSettings,
       enabled
     });
-    
-    if (enabled && !currentSettings.enabled) {
-      // toast suppressed
-    }
   };
 
   const handleSettingChange = (field: string, value: any) => {

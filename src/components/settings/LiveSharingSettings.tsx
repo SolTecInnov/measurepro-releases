@@ -49,7 +49,6 @@ const LiveSharingSettings = () => {
     if (broadcasting) {
       await disableLiveBroadcast();
       setBroadcasting(false);
-      // toast suppressed
     } else {
       if (!activeSurvey) {
         toast.error('Please start a survey first');
@@ -58,7 +57,6 @@ const LiveSharingSettings = () => {
       const success = await enableLiveBroadcast(activeSurvey.id, activeSurvey.name || 'Untitled Survey');
       if (success) {
         setBroadcasting(true);
-        // toast suppressed
       } else {
         toast.error('Failed to start live sharing');
       }
@@ -75,7 +73,6 @@ const LiveSharingSettings = () => {
       if (!value && broadcasting) {
         await disableLiveBroadcast();
         setBroadcasting(false);
-        // toast suppressed
       }
     }
 
