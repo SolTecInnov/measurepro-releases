@@ -4,6 +4,19 @@ import { openSurveyDB } from '../survey/db';
 import { Survey } from '../survey/types';
 
 /**
+ * Resolve ground reference value, in priority order:
+ *   1. groundRefM (current schema, since v16.1.24)
+ *   2. groundRef  (legacy field name)
+ *   3. parse from `note` ("... | GND: 2.08m") for historical records
+ */
+function getGroundRef(m: any): number {
+  if (typeof m.groundRefM === 'number') return m.groundRefM;
+  if (typeof m.groundRef === 'number') return m.groundRef;
+  const match = typeof m.note === 'string' && m.note.match(/GND:?\s*(-?\d+(?:\.\d+)?)\s*m/i);
+  return match ? parseFloat(match[1]) : 0;
+}
+
+/**
  * Get the next auto-save part number for a survey
  */
 const getNextPartNumber = (surveyId: string): number => {
@@ -89,7 +102,7 @@ export const autoSaveSurvey = async (survey: Survey | null): Promise<void> => {
       m.utcDate,
       m.utcTime,
       m.rel?.toFixed(3) || '',
-      (m.groundRef || 0).toFixed(3),
+      getGroundRef(m).toFixed(3),
       m.altGPS?.toFixed(1) || '',
       m.latitude?.toFixed(6) || '',
       m.longitude?.toFixed(6) || '',

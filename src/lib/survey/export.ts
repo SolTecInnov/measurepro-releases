@@ -4,6 +4,21 @@ import { exportSurveyToGeoJSON } from '../utils/exportUtils';
 import { Survey } from './types';
 import { onSurveyExport } from '@/lib/firebase/autoSync';
 
+/**
+ * Resolve the ground reference value for a measurement, in priority order:
+ *   1. groundRefM (current schema, written by useLoggingCore.savePOI since v16.1.24)
+ *   2. groundRef  (legacy field name, defensive fallback)
+ *   3. parse from the `note` string (historical records where GND was only embedded
+ *      in the note: "Min: X | Avg: Y | N readings | GND: 2.08m")
+ * Returns 0 only when nothing is recoverable.
+ */
+function getGroundRef(m: any): number {
+  if (typeof m.groundRefM === 'number') return m.groundRefM;
+  if (typeof m.groundRef === 'number') return m.groundRef;
+  const match = typeof m.note === 'string' && m.note.match(/GND:?\s*(-?\d+(?:\.\d+)?)\s*m/i);
+  return match ? parseFloat(match[1]) : 0;
+}
+
 // Generate CSV from measurements array
 export const generateCSV = async (measurements: any[]): Promise<string> => {
   const headers = [
@@ -27,7 +42,7 @@ export const generateCSV = async (measurements: any[]): Promise<string> => {
     m.utcDate,
     m.utcTime,
     m.rel.toFixed(3),
-    (m.groundRef || 0).toFixed(3),
+    getGroundRef(m).toFixed(3),
     m.altGPS.toFixed(1),
     m.latitude.toFixed(6),
     m.longitude.toFixed(6),
@@ -76,7 +91,7 @@ export const exportOrphanedMeasurements = async (format: 'csv' | 'json' | 'geojs
       properties: {
         id: m.id,
         height: m.rel,
-        groundRef: m.groundRef || 0,
+        groundRef: getGroundRef(m),
         altitude: m.altGPS,
         date: m.utcDate,
         time: m.utcTime,
@@ -150,7 +165,7 @@ export const exportSurveyData = async (surveyId: string, format: 'csv' | 'json' 
       m.utcDate,
       m.utcTime,
       m.rel.toFixed(3),
-      (m.groundRef || 0).toFixed(3),
+      getGroundRef(m).toFixed(3),
       m.altGPS.toFixed(1),
       m.latitude.toFixed(6),
       m.longitude.toFixed(6),
@@ -176,7 +191,7 @@ export const exportSurveyData = async (surveyId: string, format: 'csv' | 'json' 
       properties: {
         id: m.id,
         height: m.rel,
-        groundRef: m.groundRef || 0,
+        groundRef: getGroundRef(m),
         altitude: m.altGPS,
         date: m.utcDate,
         time: m.utcTime,

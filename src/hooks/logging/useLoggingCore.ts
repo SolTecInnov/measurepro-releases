@@ -126,6 +126,10 @@ export function useLoggingCore() {
       poiNumber:  record.poiNumber,
       roadNumber: record.roadNumber,
       rel:        record.heightM !== null ? Math.round((record.heightM) * 100) / 100 : null,
+      // GND REF FIX: persist the ground reference value alongside the measurement.
+      // Was previously only embedded in the `note` string, leaving the dedicated
+      // `Ground Ref (m)` CSV column at 0.000 for every historical export.
+      groundRefM: record.groundRefM ?? 0,
       altGPS:     record.gps.altitude,
       latitude:   record.gps.latitude,
       longitude:  record.gps.longitude,
