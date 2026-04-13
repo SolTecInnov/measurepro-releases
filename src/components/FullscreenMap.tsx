@@ -79,17 +79,18 @@ function CameraThumbnail() {
 
 interface FullscreenMapProps {
   onClose: () => void;
-  onOpenRouteManager: () => void;
+  onOpenRouteManager?: () => void;
 }
 
-const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManager }) => {
+const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
   const { data: gpsData } = useGPSStore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { mapSettings } = useSettingsStore();
   const { activeSurvey } = useSurveyStore();
-  const { getMeasurementsWithLimit } = useMeasurementFeed();
+  const { getMeasurementsWithLimit, getMapMeasurements } = useMeasurementFeed();
 
   const [lastPOIs, setLastPOIs] = useState<Measurement[]>([]);
+  const [allPOIs, setAllPOIs] = useState<Measurement[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editType, setEditType] = useState<string>('');
   const [routes, setRoutes] = useState<any[]>([]);
@@ -97,16 +98,22 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
   // Load routes for active survey
   useEffect(() => {
     if (!activeSurvey?.id) return;
-    getRoutesBySurvey(activeSurvey.id).then(setRoutes).catch(() => {});
+    getRoutesBySurvey(activeSurvey.id).then(r => {
+      console.log('[FullscreenMap] Loaded routes:', r.length, r.map(rt => ({ id: rt.id, points: rt.points?.length, geometry: rt.routeGeometry?.length })));
+      setRoutes(r);
+    }).catch(() => {});
   }, [activeSurvey?.id]);
 
-  // Refresh last 2 POIs periodically
+  // Refresh POIs periodically
   useEffect(() => {
-    const refresh = () => setLastPOIs(getMeasurementsWithLimit(2));
+    const refresh = () => {
+      setLastPOIs(getMeasurementsWithLimit(2));
+      setAllPOIs(getMapMeasurements(500));
+    };
     refresh();
-    const interval = setInterval(refresh, 2000);
+    const interval = setInterval(refresh, 3000);
     return () => clearInterval(interval);
-  }, [getMeasurementsWithLimit]);
+  }, [getMeasurementsWithLimit, getMapMeasurements]);
 
   // Escape key to close
   useEffect(() => {
@@ -189,11 +196,21 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
         {gpsData.latitude !== 0 && (
           <Marker position={[gpsData.latitude, gpsData.longitude]} icon={vehicleIcon} />
         )}
-        {/* Show survey routes */}
+        {/* Show survey routes (try both [lat,lng] and [lng,lat] formats) */}
         {routes.map(route => {
-          const coords: [number, number][] = route.routeGeometry
-            ? route.routeGeometry.map((c: [number, number]) => [c[0], c[1]])
-            : route.points?.map((p: any) => p.position as [number, number]) || [];
+          let coords: [number, number][] = [];
+          if (route.routeGeometry && route.routeGeometry.length > 0) {
+            // routeGeometry can be [lat,lng] or [lng,lat] depending on source
+            const first = route.routeGeometry[0];
+            if (Array.isArray(first)) {
+              // If first coord latitude-like (>-90 && <90), it's [lat,lng]
+              coords = Math.abs(first[0]) <= 90
+                ? route.routeGeometry
+                : route.routeGeometry.map((c: number[]) => [c[1], c[0]] as [number, number]);
+            }
+          } else if (route.points?.length > 0) {
+            coords = route.points.map((p: any) => p.position as [number, number]);
+          }
           if (coords.length < 2) return null;
           return (
             <Polyline
@@ -204,20 +221,29 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
           );
         })}
 
-        {/* Show last POIs as markers */}
-        {lastPOIs.filter(p => p.latitude && p.longitude).map(poi => (
-          <Marker
-            key={poi.id}
-            position={[poi.latitude, poi.longitude]}
-            icon={L.divIcon({
-              className: '',
-              html: `<div style="width:10px;height:10px;background:#f59e0b;border:2px solid white;border-radius:50%"></div>`,
-              iconSize: [10, 10], iconAnchor: [5, 5],
-            })}
-          >
-            <Popup><span className="text-xs">{poi.poi_type} — {poi.rel?.toFixed(2)}m</span></Popup>
-          </Marker>
-        ))}
+        {/* Show ALL survey POIs as markers */}
+        {allPOIs.map(poi => {
+          const typeConfig = POI_TYPES.find(p => p.type === poi.poi_type);
+          return (
+            <Marker
+              key={poi.id}
+              position={[poi.latitude, poi.longitude]}
+              icon={L.divIcon({
+                className: '',
+                html: `<div style="width:10px;height:10px;background:${typeConfig?.color?.replace('text-', '').includes('red') ? '#ef4444' : typeConfig?.color?.replace('text-', '').includes('blue') ? '#3b82f6' : typeConfig?.color?.replace('text-', '').includes('green') ? '#22c55e' : '#f59e0b'};border:2px solid white;border-radius:50%;box-shadow:0 0 4px rgba(0,0,0,0.4)"></div>`,
+                iconSize: [10, 10], iconAnchor: [5, 5],
+              })}
+            >
+              <Popup>
+                <div className="text-xs">
+                  <div className="font-bold">{typeConfig?.label || poi.poi_type}</div>
+                  {poi.rel != null && <div>{poi.rel.toFixed(2)}m</div>}
+                  <div className="text-gray-500">#{poi.poiNumber}</div>
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
 
       {/* ═══ HUD OVERLAYS ═══ */}
@@ -247,9 +273,11 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
         </div>
       </div>
 
-      {/* Route button — top center-right */}
+      {/* Route button — top center (opens route manager OVER fullscreen) */}
       <button
-        onClick={() => { onClose(); setTimeout(onOpenRouteManager, 100); }}
+        onClick={() => {
+          window.dispatchEvent(new Event('open-route-manager'));
+        }}
         className="absolute top-4 left-1/2 -translate-x-1/2 z-[99999] flex items-center gap-1.5 bg-black/70 hover:bg-black/90 text-white text-xs font-medium px-3 py-2 rounded-lg backdrop-blur-sm border border-gray-600/50 transition-colors"
       >
         <RouteIcon className="w-3.5 h-3.5 text-blue-400" />
