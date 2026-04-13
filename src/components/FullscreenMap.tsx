@@ -46,6 +46,37 @@ function GpsFollower() {
   return null;
 }
 
+// Compact camera thumbnail that finds the active video stream
+function CameraThumbnail() {
+  const miniVideoRef = React.useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Find the main camera video element from Settings page
+    const findAndAttach = () => {
+      const mainVideo = document.querySelector('video[autoplay]') as HTMLVideoElement;
+      if (mainVideo?.srcObject && miniVideoRef.current) {
+        miniVideoRef.current.srcObject = mainVideo.srcObject;
+        miniVideoRef.current.play().catch(() => {});
+      }
+    };
+    findAndAttach();
+    const interval = setInterval(findAndAttach, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="absolute bottom-20 left-4 z-[99999] rounded-lg overflow-hidden border border-gray-600/50 shadow-lg bg-black" style={{ width: 200, height: 150 }}>
+      <video
+        ref={miniVideoRef}
+        autoPlay
+        muted
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+    </div>
+  );
+}
+
 interface FullscreenMapProps {
   onClose: () => void;
   onOpenRouteManager: () => void;
@@ -241,6 +272,9 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
           <span className="text-xs text-gray-400">No POI selected</span>
         )}
       </div>
+
+      {/* Live camera thumbnail — bottom left */}
+      <CameraThumbnail />
 
       {/* Last 2 POIs — bottom */}
       {lastPOIs.length > 0 && (
