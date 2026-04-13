@@ -11,6 +11,7 @@ import { getSafeAuth } from '../../lib/firebase';
 // Must match the Workbox runtime cache name in vite.config.ts so predownloaded tiles
 // are served by the same service-worker cache that handles live OSM tile requests.
 const OFFLINE_TILES_CACHE = 'openstreetmap-tiles';
+const CARTO_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png';
 
 /** Convert lon/lat/zoom to OSM tile x,y */
 function lonLatToTile(lon: number, lat: number, zoom: number): { x: number; y: number } {
@@ -39,7 +40,7 @@ function* generateTileUrls(
   maxZoom: number,
   urlTemplate: string
 ): Generator<string> {
-  const subdomain = ['a', 'b', 'c'];
+  const subdomain = ['a', 'b', 'c', 'd'];
   let i = 0;
   for (let z = minZoom; z <= maxZoom; z++) {
     const topLeft = lonLatToTile(bbox.west, bbox.north, z);
@@ -51,7 +52,7 @@ function* generateTileUrls(
     for (let x = xMin; x <= xMax; x++) {
       for (let y = yMin; y <= yMax; y++) {
         const s = subdomain[i++ % subdomain.length];
-        yield urlTemplate.replace('{z}', String(z)).replace('{x}', String(x)).replace('{y}', String(y)).replace('{s}', s);
+        yield urlTemplate.replace('{z}', String(z)).replace('{x}', String(x)).replace('{y}', String(y)).replace('{s}', s).replace('{r}', '');
       }
     }
   }
@@ -78,14 +79,18 @@ function saveRegions(regions: CachedRegion[]) {
   localStorage.setItem(REGIONS_KEY, JSON.stringify(regions));
 }
 
-const MAX_TILES = 5000; // Safety cap to prevent multi-GB downloads
+const MAX_TILES_WARNING = 100_000; // Yellow warning above this
+const MAX_TILES_HARD = 500_000;   // Hard cap to prevent browser crash
 
 // ==================== OFFLINE TILE UI COMPONENT ====================
 
+import { OFFLINE_REGIONS, GROUP_LABELS, type OfflineRegion } from '../../lib/offlineRegions';
+
 const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemplate }) => {
+  const [selectedRegionIdx, setSelectedRegionIdx] = React.useState<number>(-1);
   const [bbox, setBbox] = React.useState<BBox>({ north: 46.0, south: 45.4, east: -73.4, west: -74.0 });
-  const [minZoom, setMinZoom] = React.useState(10);
-  const [maxZoom, setMaxZoom] = React.useState(14);
+  const [minZoom, setMinZoom] = React.useState(7);
+  const [maxZoom, setMaxZoom] = React.useState(12);
   const [regionName, setRegionName] = React.useState('');
   const [isDownloading, setIsDownloading] = React.useState(false);
   const [progress, setProgress] = React.useState<{ done: number; total: number } | null>(null);
@@ -94,7 +99,21 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
   const abortRef = React.useRef(false);
 
   const tileCount = estimateTileCount(bbox, minZoom, maxZoom);
-  const isSafe = tileCount <= MAX_TILES;
+  const isSafe = tileCount <= MAX_TILES_HARD;
+  const isLarge = tileCount > MAX_TILES_WARNING;
+
+  // When user selects a predefined region, populate bbox + name + zoom
+  const handleRegionSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const idx = parseInt(e.target.value);
+    setSelectedRegionIdx(idx);
+    if (idx >= 0 && idx < OFFLINE_REGIONS.length) {
+      const r = OFFLINE_REGIONS[idx];
+      setBbox(r.bbox);
+      setMinZoom(r.defaultMinZoom);
+      setMaxZoom(r.defaultMaxZoom);
+      setRegionName(r.name);
+    }
+  };
 
   // Estimate cache storage on mount and after downloads
   const refreshStorage = async () => {
@@ -199,88 +218,73 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
         Pre-download map tiles for a geographic area so the map works without an internet connection.
       </p>
 
-      {/* Bbox inputs */}
+      {/* Region selector */}
       <div className="bg-gray-700/40 rounded-lg p-4 space-y-3">
-        <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">Bounding Box</p>
-        <div className="grid grid-cols-3 gap-2 items-center">
-          <div />
-          <div>
-            <label className="block text-xs text-gray-400 mb-1">North</label>
-            <input type="number" step="0.0001" value={bbox.north}
-              onChange={e => handleBboxChange('north', e.target.value)}
-              className={inputCls} data-testid="input-bbox-north" />
-          </div>
-          <div />
-          <div>
-            <label className="block text-xs text-gray-400 mb-1">West</label>
-            <input type="number" step="0.0001" value={bbox.west}
-              onChange={e => handleBboxChange('west', e.target.value)}
-              className={inputCls} data-testid="input-bbox-west" />
-          </div>
-          <div className="text-center text-gray-500 text-xs">↕ ↔</div>
-          <div>
-            <label className="block text-xs text-gray-400 mb-1">East</label>
-            <input type="number" step="0.0001" value={bbox.east}
-              onChange={e => handleBboxChange('east', e.target.value)}
-              className={inputCls} data-testid="input-bbox-east" />
-          </div>
-          <div />
-          <div>
-            <label className="block text-xs text-gray-400 mb-1">South</label>
-            <input type="number" step="0.0001" value={bbox.south}
-              onChange={e => handleBboxChange('south', e.target.value)}
-              className={inputCls} data-testid="input-bbox-south" />
-          </div>
-          <div />
-        </div>
+        <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">Select Region</p>
+
+        <select
+          value={selectedRegionIdx}
+          onChange={handleRegionSelect}
+          className={`${inputCls} text-base`}
+          data-testid="select-offline-region"
+          disabled={isDownloading}
+        >
+          <option value={-1}>-- Pick a province, state, or country --</option>
+          {(['country', 'ca-province', 'us-state'] as const).map(group => (
+            <optgroup key={group} label={GROUP_LABELS[group]}>
+              {OFFLINE_REGIONS
+                .map((r, i) => ({ r, i }))
+                .filter(({ r }) => r.group === group)
+                .map(({ r, i }) => (
+                  <option key={i} value={i}>{r.name}</option>
+                ))
+              }
+            </optgroup>
+          ))}
+        </select>
 
         {/* Zoom range */}
         <div className="grid grid-cols-2 gap-4 mt-2">
           <div>
             <label className="block text-xs text-gray-400 mb-1">Min Zoom: {minZoom}</label>
-            <input type="range" min="1" max="18" value={minZoom}
+            <input type="range" min="1" max="16" value={minZoom}
               onChange={e => setMinZoom(Math.min(Number(e.target.value), maxZoom))}
-              className="w-full" data-testid="slider-min-zoom" />
+              className="w-full accent-blue-500" data-testid="slider-min-zoom" />
           </div>
           <div>
             <label className="block text-xs text-gray-400 mb-1">Max Zoom: {maxZoom}</label>
-            <input type="range" min="1" max="18" value={maxZoom}
+            <input type="range" min="1" max="16" value={maxZoom}
               onChange={e => setMaxZoom(Math.max(Number(e.target.value), minZoom))}
-              className="w-full" data-testid="slider-max-zoom" />
+              className="w-full accent-blue-500" data-testid="slider-max-zoom" />
           </div>
         </div>
 
-        {/* Estimate */}
-        <div className={`flex items-center gap-2 text-sm ${isSafe ? 'text-gray-300' : 'text-red-400'}`}
-          data-testid="text-tile-estimate">
+        {/* Estimate — color-coded by size */}
+        <div className={`flex items-center gap-2 text-sm ${
+          !isSafe ? 'text-red-400' : isLarge ? 'text-amber-400' : 'text-gray-300'
+        }`} data-testid="text-tile-estimate">
           <Info className="w-4 h-4 flex-shrink-0" />
-          {tileCount.toLocaleString()} tiles · ~{formatBytes(estimateSizeBytes(tileCount))} estimated
-          {!isSafe && <span className="ml-1">(exceeds {MAX_TILES} tile limit)</span>}
+          <span>
+            {tileCount.toLocaleString()} tiles · ~{formatBytes(estimateSizeBytes(tileCount))}
+            {!isSafe && ' — exceeds 500K tile safety cap, reduce max zoom'}
+            {isSafe && isLarge && ' — large download, may take a while'}
+          </span>
         </div>
 
-        {/* Region name + download */}
+        {/* Download button */}
         <div className="flex gap-2 mt-2">
-          <input
-            type="text"
-            placeholder="Region name (e.g. Montreal)"
-            value={regionName}
-            onChange={e => setRegionName(e.target.value)}
-            className={`${inputCls} flex-1`}
-            data-testid="input-region-name"
-            disabled={isDownloading}
-          />
           {isDownloading ? (
             <button onClick={handleCancel}
-              className="px-4 py-1.5 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-medium transition-colors whitespace-nowrap"
+              className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-medium transition-colors"
               data-testid="button-cancel-download">
-              Cancel
+              Cancel Download
             </button>
           ) : (
-            <button onClick={handleDownload} disabled={!isSafe || tileCount === 0}
-              className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg text-sm font-medium transition-colors flex items-center gap-1 whitespace-nowrap"
+            <button onClick={handleDownload} disabled={!isSafe || tileCount === 0 || selectedRegionIdx < 0}
+              className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
               data-testid="button-download-tiles">
               <Download className="w-4 h-4" />
-              Download
+              Download {regionName || 'Region'}
             </button>
           )}
         </div>
@@ -289,8 +293,8 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
         {isDownloading && progress && (
           <div className="space-y-1" data-testid="section-download-progress">
             <div className="flex justify-between text-xs text-gray-400">
-              <span>Downloading tiles…</span>
-              <span>{progress.done} / {progress.total}</span>
+              <span>Downloading {regionName}…</span>
+              <span>{progress.done.toLocaleString()} / {progress.total.toLocaleString()} ({Math.round(progress.done / progress.total * 100)}%)</span>
             </div>
             <div className="w-full bg-gray-600 rounded-full h-2">
               <div
@@ -345,27 +349,15 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
 };
 
 const allMapProviders = [
-  { id: 'google', name: 'Google Maps', url: 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', requiresKey: true },
-  { id: 'osm', name: 'OpenStreetMap', url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
-  { id: 'mapbox', name: 'Mapbox', url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}', requiresKey: true },
-  { id: 'igo2', name: 'IGO2', url: 'https://geoegl.msp.gouv.qc.ca/apis/carto/tms/1.0.0/carte_gouv_qc_ro/{z}/{x}/{y}.png', requiresKey: true }
+  { id: 'osm', name: 'OpenStreetMap (CARTO)', url: CARTO_TILE_URL, description: 'Free, works offline, road/street map. Best for field surveying.' },
+  { id: 'google', name: 'Google Maps', url: 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', requiresKey: true, description: 'Requires API key. Satellite/hybrid views available. Online only.' },
 ];
 
 const MapSettings = () => {
-  // Check if beta user (hide Mapbox, iGo2, and default zoom for beta/not-logged-in users)
-  const auth = getSafeAuth();
-  const { features } = useEnabledFeatures();
-  const isBeta = isBetaUser(auth?.currentUser, features);
-  
-  // Filter map providers - only show Google and OSM for beta users
-  const mapProviders = isBeta 
-    ? allMapProviders.filter(p => p.id === 'google' || p.id === 'osm')
-    : allMapProviders;
+  const mapProviders = allMapProviders;
   const { mapSettings, setMapSettings } = useSettingsStore();
   const [apiKeys, setApiKeys] = React.useState({
     google: localStorage.getItem('map_api_key_google') || '',
-    mapbox: localStorage.getItem('map_api_key_mapbox') || '',
-    igo2: localStorage.getItem('map_api_key_igo2') || ''
   });
   const [previewCoords, setPreviewCoords] = React.useState({
     lat: mapSettings.center[0],
@@ -427,222 +419,124 @@ const MapSettings = () => {
     
   };
 
+  const isGoogleSelected = mapSettings.provider === 'google';
+
   return (
-    <div className="bg-gray-800 rounded-xl p-6">
-      <h2 className="text-xl font-semibold mb-4">Map Settings</h2>
-      <div className="space-y-6">
-        <div className="grid grid-cols-4 gap-4">
-          <div className="col-span-4 mb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-blue-400" />
-                Map Provider
-              </h3>
-              <button
-                onClick={handleVisibilityToggle}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-                  mapSettings.visible ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-600 hover:bg-gray-500'
-                }`}
-              >
-                <Eye className="w-4 h-4" />
-                {mapSettings.visible ? 'Hide Map' : 'Show Map'}
-              </button>
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {mapProviders.map((provider) => (
-                <button
-                  key={provider.id}
-                  onClick={() => handleProviderChange(provider.id)}
-                  className={`p-4 rounded-lg border-2 transition-colors ${
-                    mapSettings.provider === provider.id
-                      ? 'border-blue-500 bg-blue-500/10'
-                      : 'border-gray-700 hover:border-gray-600'
-                  }`}
-                >
-                  <Map className="w-6 h-6 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{provider.name}</div>
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          {/* API Key Settings (Only show Google for beta users) */}
-          <div className="col-span-4 space-y-4 mb-6">
-            <h3 className="text-lg font-medium flex items-center gap-2 mb-4">
-              <Key className="w-5 h-5 text-blue-400" />
-              API Keys
-            </h3>
-            
-            {mapProviders.filter(p => p.requiresKey).map((provider) => (
-              <div key={provider.id} className="space-y-2">
-                <label className="block text-sm font-medium text-gray-300">
-                  {provider.name} API Key
-                </label>
-                <input
-                  type="password"
-                  value={apiKeys[provider.id as keyof typeof apiKeys]}
-                  onChange={(e) => handleApiKeyChange(provider.id, e.target.value)}
-                  className={commonInputClasses}
-                  placeholder={`Enter your ${provider.name} API key`}
-                />
-              </div>
-            ))}
-            
-            <div className="flex justify-between items-center pt-4">
-              <p className="text-sm text-gray-400">
-                API keys are stored securely in your browser's local storage
-              </p>
-              <button
-                onClick={handleSaveApiKeys}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors"
-              >
-                Save API Keys
-              </button>
-            </div>
-          </div>
-          
-          <div className="col-span-4 mb-6">
-            <h3 className="text-lg font-medium flex items-center gap-2 mb-4">
-              <Layers className="w-5 h-5 text-blue-400" />
-              Google Maps Style
-            </h3>
-            <div className="grid grid-cols-4 gap-4">
-              <button
-                onClick={() => {
-                  setCurrentMapType('roadmap');
-                  handleStyleChange('roadmap');
-                }}
-                className={`p-4 rounded-lg border-2 transition-colors ${
-                  currentMapType === 'roadmap'
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : 'border-gray-700 hover:border-gray-600'
-                }`}
-              >
-                <Map className="w-6 h-6 mx-auto mb-2" />
-                <div className="text-sm font-medium">Roadmap</div>
-              </button>
-              
-              <button
-                onClick={() => {
-                  setCurrentMapType('satellite');
-                  handleStyleChange('satellite');
-                }}
-                className={`p-4 rounded-lg border-2 transition-colors ${
-                  currentMapType === 'satellite'
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : 'border-gray-700 hover:border-gray-600'
-                }`}
-              >
-                <Satellite className="w-6 h-6 mx-auto mb-2" />
-                <div className="text-sm font-medium">Satellite</div>
-              </button>
-              
-              <button
-                onClick={() => {
-                  setCurrentMapType('hybrid');
-                  handleStyleChange('hybrid');
-                }}
-                className={`p-4 rounded-lg border-2 transition-colors ${
-                  currentMapType === 'hybrid'
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : 'border-gray-700 hover:border-gray-600'
-                }`}
-              >
-                <Globe className="w-6 h-6 mx-auto mb-2" />
-                <div className="text-sm font-medium">Hybrid</div>
-              </button>
-              
-              <button
-                onClick={() => {
-                  setCurrentMapType('terrain');
-                  handleStyleChange('terrain');
-                }}
-                className={`p-4 rounded-lg border-2 transition-colors ${
-                  currentMapType === 'terrain'
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : 'border-gray-700 hover:border-gray-600'
-                }`}
-              >
-                <Mountain className="w-6 h-6 mx-auto mb-2" />
-                <div className="text-sm font-medium">Terrain</div>
-              </button>
-            </div>
-            
-            <div className="mt-4 p-3 bg-gray-700/50 rounded text-sm">
-              <p className="text-gray-300 mb-2">Note: Map style changes will be applied to the Route Map in real-time.</p>
-              <p className="text-gray-400 text-xs">Current selection affects the main map display immediately.</p>
-            </div>
-          </div>
+    <div className="bg-gray-800 rounded-xl p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Map Settings</h2>
+        <button
+          onClick={handleVisibilityToggle}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors ${
+            mapSettings.visible ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-600 hover:bg-gray-500'
+          }`}
+        >
+          <Eye className="w-4 h-4" />
+          {mapSettings.visible ? 'Map Visible' : 'Map Hidden'}
+        </button>
+      </div>
 
-          <div className="col-span-4 space-y-4">
-            <h3 className="text-lg font-medium">Default Location</h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Set the default map center coordinates. Current location: Montreal, QC, Canada
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Default Latitude</label>
-                <input
-                  type="number"
-                  value={previewCoords.lat}
-                  onChange={(e) => handleCoordinateChange('lat', Number(e.target.value))}
-                  className={commonInputClasses}
-                  step="0.000001"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Default Longitude</label>
-                <input
-                  type="number"
-                  value={previewCoords.lng}
-                  onChange={(e) => handleCoordinateChange('lng', Number(e.target.value))}
-                  className={commonInputClasses}
-                  step="0.000001"
-                />
-              </div>
-            </div>
-            
+      {/* ── Section 1: Map Provider ──────────────────────────────────────── */}
+      <div className="space-y-3">
+        <h3 className="text-base font-medium flex items-center gap-2">
+          <MapPin className="w-5 h-5 text-blue-400" />
+          Map Provider
+        </h3>
+        <div className="grid grid-cols-2 gap-3">
+          {mapProviders.map((provider) => (
             <button
-              onClick={handleCoordinateSubmit}
-              className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors"
+              key={provider.id}
+              onClick={() => handleProviderChange(provider.id)}
+              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+                mapSettings.provider === provider.id
+                  ? 'border-blue-500 bg-blue-500/10'
+                  : 'border-gray-700 hover:border-gray-600'
+              }`}
             >
-              Update Map Center
+              <div className="flex items-center gap-3">
+                <Map className="w-6 h-6 text-blue-400 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">{provider.name}</div>
+                  <div className="text-xs text-gray-400 mt-0.5">{(provider as any).description}</div>
+                </div>
+              </div>
+              {provider.id === 'osm' && (
+                <div className="mt-2 text-[10px] uppercase tracking-wider text-green-400 font-bold">
+                  Works offline
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Section 2: Google Maps options (only if Google selected) ──── */}
+      {isGoogleSelected && (
+        <div className="space-y-4 bg-gray-700/30 rounded-lg p-4">
+          <h3 className="text-base font-medium flex items-center gap-2">
+            <Key className="w-5 h-5 text-amber-400" />
+            Google Maps API Key
+          </h3>
+          <div className="flex gap-2">
+            <input
+              type="password"
+              value={apiKeys.google}
+              onChange={(e) => handleApiKeyChange('google', e.target.value)}
+              className={`${commonInputClasses} flex-1`}
+              placeholder="Enter your Google Maps API key"
+            />
+            <button
+              onClick={handleSaveApiKeys}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium"
+            >
+              Save
             </button>
           </div>
 
-          {/* Default Zoom Level (Hidden for beta users) */}
-          {!isBeta && (
-            <div className="col-span-4">
-              <label className="block text-sm font-medium text-gray-300 mb-2">Default Zoom Level</label>
-              <input
-                type="range"
-                min="1"
-                max="20"
-                value={mapSettings.zoom}
-                onChange={(e) => setMapSettings({
-                  ...mapSettings,
-                  zoom: Number(e.target.value)
-                })}
-                className="w-full"
-              />
-              <div className="text-sm text-gray-400 mt-1">
-                Current zoom: {mapSettings.zoom}
-              </div>
-            </div>
-          )}
-
-          {/* Offline Map Tile Pre-Download */}
-          <div className="col-span-4 border-t border-gray-700 pt-6">
-            <OfflineTileSection
-              tileUrlTemplate={
-                // Use OSM as the offline tile source (always works without an API key)
-                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-              }
-            />
+          <h3 className="text-base font-medium flex items-center gap-2 pt-2">
+            <Layers className="w-5 h-5 text-blue-400" />
+            Map Style
+          </h3>
+          <div className="grid grid-cols-4 gap-2">
+            {([
+              { type: 'roadmap',   label: 'Road',      icon: Map },
+              { type: 'satellite', label: 'Satellite',  icon: Satellite },
+              { type: 'hybrid',    label: 'Hybrid',     icon: Globe },
+              { type: 'terrain',   label: 'Terrain',    icon: Mountain },
+            ] as const).map(({ type, label, icon: Icon }) => (
+              <button
+                key={type}
+                onClick={() => { setCurrentMapType(type); handleStyleChange(type); }}
+                className={`p-3 rounded-lg border-2 transition-colors ${
+                  currentMapType === type
+                    ? 'border-blue-500 bg-blue-500/10'
+                    : 'border-gray-700 hover:border-gray-600'
+                }`}
+              >
+                <Icon className="w-5 h-5 mx-auto mb-1" />
+                <div className="text-xs font-medium text-center">{label}</div>
+              </button>
+            ))}
           </div>
+          <p className="text-xs text-amber-300/80">
+            Google Maps requires an internet connection. When offline, MeasurePRO cannot display Google tiles.
+            For offline use, switch to OpenStreetMap and download tiles below.
+          </p>
         </div>
+      )}
+
+      {/* ── Section 3: Offline Map Downloads ─────────────────────────── */}
+      <div className="border-t border-gray-700 pt-6">
+        <OfflineTileSection
+          tileUrlTemplate={CARTO_TILE_URL}
+        />
+        {isGoogleSelected && (
+          <div className="mt-3 p-3 bg-amber-900/20 border border-amber-700/40 rounded-lg text-xs text-amber-300">
+            <strong>Note:</strong> Your map is set to Google Maps, but offline tiles are OpenStreetMap (road map).
+            When you lose internet, switch to OpenStreetMap provider to see the cached tiles.
+            You can change the provider at any time without re-downloading.
+          </div>
+        )}
       </div>
     </div>
   );

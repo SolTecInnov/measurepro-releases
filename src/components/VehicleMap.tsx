@@ -367,54 +367,43 @@ const VehicleMap: React.FC = () => {
     setShowPOIDetails(true);
   }, []); // Empty deps - only setState which is stable
 
-  // Get map style URL based on settings
-  const getMapStyleUrl = () => {
-    const provider = mapSettings?.provider || 'google';
+  // Get map tile config based on settings
+  const getMapTileConfig = () => {
+    const provider = mapSettings?.provider || 'osm';
     const style = mapSettings?.style || 'default';
-    
-    switch (provider) {
-      case 'google':
-        switch (style) {
-          case 'satellite':
-            return 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
-          case 'terrain':
-            return 'https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}';
-          case 'dark':
-            return 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
-          default:
-            return 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
-        }
-      case 'osm':
-        return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-      default:
-        return 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
+
+    if (provider === 'google') {
+      const lyrs = style === 'satellite' ? 's' : style === 'terrain' ? 'p' : style === 'hybrid' ? 'y' : 'm';
+      return {
+        url: `https://mt1.google.com/vt/lyrs=${lyrs}&x={x}&y={y}&z={z}`,
+        attribution: '&copy; <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google Maps</a>',
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      };
     }
+    // OSM via Carto CDN (openstreetmap.org blocks Electron's User-Agent with 403)
+    return {
+      url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/" target="_blank" rel="noopener noreferrer">CARTO</a>',
+      subdomains: ['a', 'b', 'c', 'd'],
+    };
   };
+  const tileConfig = getMapTileConfig();
+  const isOSM = (mapSettings?.provider || 'osm') === 'osm';
 
 
   return (
     <div className="bg-gray-800 rounded-xl overflow-hidden h-[400px] flex flex-col">
       {/* Map Container */}
       <div className="flex-1 relative overflow-hidden">
-        {!wasOnlineAtStart ? (
-          // Started offline - show message that maps require internet
+        {/* Block map ONLY if offline AND using Google (no cached tiles).
+            OSM works offline if the user has downloaded tiles, so always show it. */}
+        {!isOnline && !isOSM && !wasOnlineAtStart ? (
           <div className="h-full flex items-center justify-center bg-gray-900">
             <div className="text-center p-6">
               <WifiOff className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Map Offline</h3>
               <p className="text-gray-400">
-                Map functionality requires internet connection
-              </p>
-            </div>
-          </div>
-        ) : !isOnline ? (
-          // Went offline after starting - show different message
-          <div className="h-full flex items-center justify-center bg-gray-900">
-            <div className="text-center p-6">
-              <WifiOff className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">Map Unavailable</h3>
-              <p className="text-gray-400">
-                Map functionality unavailable. You are currently offline.
+                Google Maps requires internet. Switch to OpenStreetMap in Settings to use cached offline tiles.
               </p>
             </div>
           </div>
@@ -426,15 +415,11 @@ const VehicleMap: React.FC = () => {
             className="leaflet-container"
           >
             <TileLayer
-              url={getMapStyleUrl()}
-              // target="_blank" + rel ensures the click goes through window.open
-              // which is intercepted by main.cjs setWindowOpenHandler and routed
-              // to shell.openExternal — the system browser, not the Electron window.
-              // Without this, clicking the attribution navigates the whole renderer
-              // away from file:///dist/index.html and traps the user on google.com.
-              attribution='&copy; <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google Maps</a>'
+              key={tileConfig.url}
+              url={tileConfig.url}
+              attribution={tileConfig.attribution}
               maxZoom={20}
-              subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
+              subdomains={tileConfig.subdomains}
               tileSize={256}
               zoomOffset={0}
             />
@@ -465,9 +450,9 @@ const VehicleMap: React.FC = () => {
               <Polyline
                 key={route.id}
                 positions={positions}
-                color={route.color}
-                weight={4}
-                opacity={0.7}
+                color={route.color || '#3b82f6'}
+                weight={8}
+                opacity={0.85}
                 interactive={false}
               />
             );
@@ -478,9 +463,9 @@ const VehicleMap: React.FC = () => {
             <Polyline
               positions={navigationToStart.path}
               color="#22c55e"
-              weight={5}
-              opacity={0.8}
-              dashArray="10, 5"
+              weight={8}
+              opacity={0.9}
+              dashArray="12, 6"
               interactive={false}
             />
           )}
@@ -560,13 +545,25 @@ const VehicleMap: React.FC = () => {
           )}
         </div>
 
-        {/* Active POI Type Indicator */}
+        {/* Active POI Type + Logging Mode Indicator */}
         {(() => {
           const poiConfig = selectedPOIType ? POI_TYPES.find(p => p.type === selectedPOIType) : null;
           if (!poiConfig) return null;
           const IconComponent = poiConfig.icon;
+          // Read logging mode from localStorage (shared with LoggingControls)
+          const mode = localStorage.getItem('loggingMode') || 'manual';
+          const modeLabels: Record<string, { label: string; color: string }> = {
+            manual:           { label: 'MANUAL',   color: 'bg-emerald-600' },
+            all:              { label: 'ALL DATA',  color: 'bg-blue-600' },
+            counterDetection: { label: 'AUTO',      color: 'bg-amber-600' },
+            detection:        { label: 'DETECT',    color: 'bg-purple-600' },
+          };
+          const modeInfo = modeLabels[mode] || modeLabels.manual;
           return (
             <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm z-[10] backdrop-blur-sm border border-gray-600/50">
+              <div className={`text-center text-[10px] font-bold tracking-wider px-2 py-0.5 rounded ${modeInfo.color} mb-1.5`}>
+                {modeInfo.label}
+              </div>
               <div className="flex items-center gap-2">
                 <div className={`w-6 h-6 rounded-md ${poiConfig.bgColor} flex items-center justify-center`}>
                   <IconComponent className="w-3.5 h-3.5 text-white" />
