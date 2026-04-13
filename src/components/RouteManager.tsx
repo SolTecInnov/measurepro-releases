@@ -1,5 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
-import { Route as RouteIcon, Plus, Edit, Trash2, Eye, EyeOff, Download, Map as MapIcon, Navigation, Car, Upload, ChevronDown, ChevronUp, MapPin, Compass } from 'lucide-react';
+import { Route as RouteIcon, Plus, Edit, Trash2, Eye, EyeOff, Download, Map as MapIcon, Navigation, Car, Upload, ChevronDown, ChevronUp } from 'lucide-react';
 import { toast } from 'sonner';
 import { useRef } from 'react';
 import { useSurveyStore } from '../lib/survey';
@@ -8,7 +8,7 @@ import { exportRouteToGeoJSON } from '../lib/utils/exportUtils';
 import RouteEditor from './RouteEditor';
 
 const RouteNavigator = lazy(() => import('./RouteNavigator'));
-const SurveyRouteNavigator = lazy(() => import('./SurveyRouteNavigator'));
+// SurveyRouteNavigator removed — merged into main RouteNavigator
 
 interface RouteManagerProps {
   onSelectRoute?: (route: Route) => void;
@@ -32,7 +32,7 @@ const RouteManager: React.FC<RouteManagerProps> = ({
   const [visibleRoutes, setVisibleRoutes] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(false);
   const [navigatingRoute, setNavigatingRoute] = useState<Route | null>(null);
-  const [surveyNavRoute, setSurveyNavRoute] = useState<Route | null>(null);
+  // surveyNavRoute removed — merged into main RouteNavigator
   const [isExpanded, setIsExpanded] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -361,12 +361,12 @@ const RouteManager: React.FC<RouteManagerProps> = ({
                     {route.points.length} points {route.routeGeometry ? `• ${route.routeGeometry.length} road segments` : ''}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleToggleRouteVisibility(route)}
                     className={`p-1.5 rounded ${
-                      visibleRoutes.has(route.id) 
-                        ? 'bg-blue-600 hover:bg-blue-700' 
+                      visibleRoutes.has(route.id)
+                        ? 'bg-blue-600 hover:bg-blue-700'
                         : 'bg-gray-600 hover:bg-gray-500'
                     }`}
                     title={visibleRoutes.has(route.id) ? 'Hide Route' : 'Show Route'}
@@ -378,12 +378,12 @@ const RouteManager: React.FC<RouteManagerProps> = ({
                     )}
                   </button>
                   <button
-                    onClick={() => onNavigateToStart?.(route)}
+                    onClick={() => handleStartNavigation(route)}
                     className="p-1.5 bg-green-600 hover:bg-green-700 rounded"
-                    title="Navigate to Start Point"
-                    data-testid={`button-navigate-start-${route.id}`}
+                    title="Navigate — turn-by-turn with voice"
+                    data-testid={`button-navigate-route-${route.id}`}
                   >
-                    <MapPin className="w-4 h-4" />
+                    <Navigation className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => {
@@ -391,27 +391,9 @@ const RouteManager: React.FC<RouteManagerProps> = ({
                       window.open(url, '_blank');
                     }}
                     className="p-1.5 bg-gray-600 hover:bg-gray-500 rounded"
-                    title="Get Driving Directions"
+                    title="Open in Google Maps"
                   >
                     <Car className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => {
-                      handleStartNavigation(route);
-                    }}
-                    className="p-1.5 bg-green-600 hover:bg-green-700 rounded"
-                    title="Navigate This Route"
-                    data-testid={`button-navigate-route-${route.id}`}
-                  >
-                    <Navigation className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => setSurveyNavRoute(route)}
-                    className="p-1.5 bg-teal-600 hover:bg-teal-700 rounded"
-                    title="Survey Navigation (locked route)"
-                    data-testid={`button-survey-nav-${route.id}`}
-                  >
-                    <Compass className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => handleEditRoute(route)}
@@ -471,14 +453,7 @@ const RouteManager: React.FC<RouteManagerProps> = ({
         </Suspense>
       )}
 
-      {surveyNavRoute && (
-        <Suspense fallback={<div className="flex justify-center py-8"><div className="animate-spin h-8 w-8 border-t-2 border-b-2 border-teal-500 rounded-full"></div></div>}>
-          <SurveyRouteNavigator
-            route={surveyNavRoute}
-            onClose={() => setSurveyNavRoute(null)}
-          />
-        </Suspense>
-      )}
+      {/* SurveyRouteNavigator removed — merged into main RouteNavigator */}
     </div>
   );
 };

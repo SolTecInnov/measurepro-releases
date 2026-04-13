@@ -22,10 +22,12 @@ import {
 import { useGPSStore } from '@/lib/stores/gpsStore';
 import { usePOIStore, POI_TYPES } from '@/lib/poi';
 import { useSettingsStore } from '@/lib/settings';
+import { useSurveyStore } from '@/lib/survey';
 import { useMeasurementFeed } from '@/hooks/useMeasurementFeed';
 import { updateMeasurement } from '@/lib/survey/measurements';
 import { openSurveyDB } from '@/lib/survey/db';
 import { getMeasurementFeed } from '@/lib/survey/MeasurementFeed';
+import { getRoutesBySurvey } from '@/lib/utils/routeUtils';
 import type { Measurement } from '@/lib/survey/types';
 import type { POIType } from '@/lib/poi';
 import { toast } from 'sonner';
@@ -53,11 +55,19 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
   const { data: gpsData } = useGPSStore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { mapSettings } = useSettingsStore();
+  const { activeSurvey } = useSurveyStore();
   const { getMeasurementsWithLimit } = useMeasurementFeed();
 
   const [lastPOIs, setLastPOIs] = useState<Measurement[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editType, setEditType] = useState<string>('');
+  const [routes, setRoutes] = useState<any[]>([]);
+
+  // Load routes for active survey
+  useEffect(() => {
+    if (!activeSurvey?.id) return;
+    getRoutesBySurvey(activeSurvey.id).then(setRoutes).catch(() => {});
+  }, [activeSurvey?.id]);
 
   // Refresh last 2 POIs periodically
   useEffect(() => {
@@ -148,6 +158,21 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose, onOpenRouteManag
         {gpsData.latitude !== 0 && (
           <Marker position={[gpsData.latitude, gpsData.longitude]} icon={vehicleIcon} />
         )}
+        {/* Show survey routes */}
+        {routes.map(route => {
+          const coords: [number, number][] = route.routeGeometry
+            ? route.routeGeometry.map((c: [number, number]) => [c[0], c[1]])
+            : route.points?.map((p: any) => p.position as [number, number]) || [];
+          if (coords.length < 2) return null;
+          return (
+            <Polyline
+              key={route.id}
+              positions={coords}
+              pathOptions={{ color: route.color || '#3b82f6', weight: 4, opacity: 0.8 }}
+            />
+          );
+        })}
+
         {/* Show last POIs as markers */}
         {lastPOIs.filter(p => p.latitude && p.longitude).map(poi => (
           <Marker
