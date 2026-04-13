@@ -422,49 +422,33 @@ const MapSettings = () => {
   const isGoogleSelected = mapSettings.provider === 'google';
 
   return (
-    <div className="bg-gray-800 rounded-xl p-6 space-y-6">
+    <div className="bg-gray-800 rounded-xl p-4 space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">Map Settings</h2>
-        <button
-          onClick={handleVisibilityToggle}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors ${
-            mapSettings.visible ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-600 hover:bg-gray-500'
-          }`}
-        >
-          <Eye className="w-4 h-4" />
-          {mapSettings.visible ? 'Map Visible' : 'Map Hidden'}
-        </button>
+        <h2 className="text-lg font-semibold">Map Settings</h2>
       </div>
 
-      {/* ── Section 1: Map Provider ──────────────────────────────────────── */}
-      <div className="space-y-3">
-        <h3 className="text-base font-medium flex items-center gap-2">
-          <MapPin className="w-5 h-5 text-blue-400" />
-          Map Provider
+      {/* ── Section 1: Map Provider (compact) ──────────────────────────── */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium flex items-center gap-1.5 text-gray-300">
+          <MapPin className="w-4 h-4 text-blue-400" />
+          Provider
         </h3>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="flex gap-2">
           {mapProviders.map((provider) => (
             <button
               key={provider.id}
               onClick={() => handleProviderChange(provider.id)}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`flex-1 flex items-center gap-2 px-3 py-2 rounded-lg border text-left text-sm transition-colors ${
                 mapSettings.provider === provider.id
                   ? 'border-blue-500 bg-blue-500/10'
                   : 'border-gray-700 hover:border-gray-600'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <Map className="w-6 h-6 text-blue-400 flex-shrink-0" />
-                <div>
-                  <div className="font-medium">{provider.name}</div>
-                  <div className="text-xs text-gray-400 mt-0.5">{(provider as any).description}</div>
-                </div>
+              <Map className="w-4 h-4 text-blue-400 flex-shrink-0" />
+              <div>
+                <span className="font-medium text-sm">{provider.name}</span>
+                {provider.id === 'osm' && <span className="ml-1.5 text-[9px] uppercase text-green-400 font-bold">offline</span>}
               </div>
-              {provider.id === 'osm' && (
-                <div className="mt-2 text-[10px] uppercase tracking-wider text-green-400 font-bold">
-                  Works offline
-                </div>
-              )}
             </button>
           ))}
         </div>
