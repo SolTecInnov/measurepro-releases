@@ -21,9 +21,11 @@ import {
   ExternalLink,
   Shield,
   Loader2,
-  Trash2
+  Trash2,
+  Webhook
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 interface RoadScopeSettingsData {
   hasApiKey: boolean;
@@ -522,6 +524,80 @@ export function RoadScopeSettings() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Webhook Secret — for RoadScope → MeasurePRO push notifications */}
+      {settings?.hasApiKey && settings?.apiKeyValidated && (
+        <Card className="bg-gray-800 border-gray-700">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-white text-sm">
+              <Webhook className="w-4 h-4 text-purple-400" />
+              Webhook Secret (Advanced)
+            </CardTitle>
+            <CardDescription className="text-gray-400 text-xs">
+              Paste the webhook secret from RoadScope → Company Admin → MeasurePRO Integration.
+              This lets RoadScope notify MeasurePRO when team members change.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <WebhookSecretInput />
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
+
+function WebhookSecretInput() {
+  const [secret, setSecret] = useState('');
+  const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  // Load active companyId
+  const companyId = localStorage.getItem('activeCompanyId');
+
+  const handleSave = async () => {
+    if (!secret.trim() || !companyId) return;
+    setSaving(true);
+    try {
+      const db = getFirestore();
+      await setDoc(doc(db, 'roadScopeWebhookSecrets', companyId), {
+        secret: secret.trim(),
+        updatedAt: new Date().toISOString(),
+      });
+      setSaved(true);
+      toast.success('Webhook secret saved');
+    } catch (err) {
+      toast.error('Failed to save webhook secret');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (!companyId) {
+    return (
+      <p className="text-xs text-gray-500">
+        No company linked. Validate your API key first — company context is loaded automatically.
+      </p>
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <Input
+        type="password"
+        value={secret}
+        onChange={(e) => { setSecret(e.target.value); setSaved(false); }}
+        placeholder="Paste webhook secret from RoadScope..."
+        className="bg-gray-900 border-gray-700 text-sm font-mono"
+      />
+      <Button
+        size="sm"
+        onClick={handleSave}
+        disabled={saving || !secret.trim() || saved}
+        className={saved ? 'bg-green-600' : ''}
+      >
+        {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : 'Save'}
+      </Button>
     </div>
   );
 }
