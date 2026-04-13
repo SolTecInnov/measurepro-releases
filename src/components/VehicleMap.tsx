@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, lazy, Suspense, useCallback, useMemo, memo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon } from 'lucide-react';
+import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2 } from 'lucide-react';
 import { useGPSStore } from '../lib/stores/gpsStore';
 import { useSurveyStore } from '../lib/survey';
 import { useSettingsStore } from '../lib/settings';
@@ -279,6 +279,13 @@ const VehicleMap: React.FC = () => {
     window.addEventListener('route-navigate-request', handleNavRequest as EventListener);
     return () => window.removeEventListener('route-navigate-request', handleNavRequest as EventListener);
   }, []);
+
+  // Listen for open-route-manager event (from fullscreen map)
+  useEffect(() => {
+    const open = () => setShowRouteManager(true);
+    window.addEventListener('open-route-manager', open);
+    return () => window.removeEventListener('open-route-manager', open);
+  }, []);
   const [routeCreationMode, setRouteCreationMode] = useState<'origin' | 'waypoint' | 'destination' | null>(null);
   const [tempRoute, setTempRoute] = useState({
     name: '',
@@ -503,16 +510,25 @@ const VehicleMap: React.FC = () => {
         </MapContainer>
         )}
         
-        {/* Routes Button */}
-        <button
-          onClick={() => setShowRouteManager(true)}
-          data-testid="button-open-route-manager"
-          className="absolute top-4 right-4 z-[10] flex items-center gap-1.5 bg-gray-900/80 hover:bg-gray-800 text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg border border-gray-600 backdrop-blur-sm transition-colors"
-          title="Manage Routes"
-        >
-          <RouteIcon className="w-3.5 h-3.5 text-blue-400" />
-          Routes
-        </button>
+        {/* Routes + Fullscreen Buttons */}
+        <div className="absolute top-4 right-4 z-[10] flex items-center gap-1.5">
+          <button
+            onClick={() => setShowRouteManager(true)}
+            data-testid="button-open-route-manager"
+            className="flex items-center gap-1.5 bg-gray-900/80 hover:bg-gray-800 text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg border border-gray-600 backdrop-blur-sm transition-colors"
+            title="Manage Routes"
+          >
+            <RouteIcon className="w-3.5 h-3.5 text-blue-400" />
+            Routes
+          </button>
+          <button
+            onClick={() => window.dispatchEvent(new Event('open-fullscreen-map'))}
+            className="flex items-center gap-1 bg-gray-900/80 hover:bg-gray-800 text-white text-xs font-medium px-2 py-1.5 rounded-lg shadow-lg border border-gray-600 backdrop-blur-sm transition-colors"
+            title="Fullscreen map"
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+          </button>
+        </div>
 
         {/* Route Creation Mode Indicator */}
         {routeCreationMode && (

@@ -129,6 +129,8 @@ import { checkIndexedDBHealth } from './lib/storage/indexedDBHealth';
 // Lazy load optional components
 const NetworkStatusBanner = React.lazy(() => import('./components/NetworkStatusBanner').catch(() => ({ default: () => null })));
 const DeviceRedirector = React.lazy(() => import('./components/DeviceRedirector').catch(() => ({ default: () => null })));
+const HardwareWatchdog = React.lazy(() => import('./components/HardwareWatchdog').catch(() => ({ default: () => null })));
+const FullscreenMap = React.lazy(() => import('./components/FullscreenMap').catch(() => ({ default: () => null })));
 
 // Create a loading component
 const LoadingComponent = () => (
@@ -452,6 +454,25 @@ function RainModeBanner() {
       </button>
       <span className="ml-2 text-blue-200 text-xs">(Alt+R)</span>
     </div>
+  );
+}
+
+function FullscreenMapWrapper() {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const open = () => setShow(true);
+    window.addEventListener('open-fullscreen-map', open);
+    return () => window.removeEventListener('open-fullscreen-map', open);
+  }, []);
+  if (!show) return null;
+  return (
+    <FullscreenMap
+      onClose={() => setShow(false)}
+      onOpenRouteManager={() => {
+        // Dispatch event to open route manager in VehicleMap
+        window.dispatchEvent(new Event('open-route-manager'));
+      }}
+    />
   );
 }
 
@@ -935,10 +956,15 @@ function App() {
     // Add event listener to trigger sync when going back online
     // IMPORTANT: Do NOT await — this must be non-blocking to prevent UI freeze
     const handleOnline = () => {
-      // Defer to next tick so the online banner renders first
+      // PERF (v16.1.27): defer auto-sync by 5 seconds instead of 100ms.
+      // In areas with spotty WiFi the browser fires online/offline rapidly,
+      // and each 100ms sync attempt floods the main thread with fetch calls
+      // that time out. Wait for stable connectivity before syncing.
       setTimeout(() => {
-        backgroundSyncService.performSync().catch(() => {});
-      }, 100);
+        if (navigator.onLine) {
+          backgroundSyncService.performSync().catch(() => {});
+        }
+      }, 5000);
     };
     
     window.addEventListener('online', handleOnline);
@@ -1055,6 +1081,12 @@ function App() {
               </React.Suspense>
               <React.Suspense fallback={null}>
                 <DeviceRedirector />
+              </React.Suspense>
+              <React.Suspense fallback={null}>
+                <HardwareWatchdog />
+              </React.Suspense>
+              <React.Suspense fallback={null}>
+                <FullscreenMapWrapper />
               </React.Suspense>
 
               <AdminNavBar />
