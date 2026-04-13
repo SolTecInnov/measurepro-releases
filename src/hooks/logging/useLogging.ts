@@ -81,18 +81,18 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return false;
 
-    // RACE FIX: prefer the POI type captured at the moment of the laser hit
-    // (snapshotted in serialStore) over the live store value, in case the user
-    // already switched POI types in anticipation of the next item.
-    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
+    // Manual mode: use the CURRENT selected POI type (user just pressed the button)
+    const poiType = selectedPOIType || 'wire';
     const gps = getGpsSnapshot();
     const now = new Date();
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
     const poiNumber = await getNextPoiNumber();
 
+    // PERF: Capture image async — save POI first for instant feedback
     const imageUrl = await captureImage().catch(() => null);
 
-    const saved = await savePOI({
+    // PERF: Fire-and-forget — don't block on worker response
+    savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -110,10 +110,10 @@ export function useLogging({ captureImage }: UseLoggingProps) {
       note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'manual',
       loggingMode: 'manual',
-    });
+    }).catch(() => {});
 
-    if (saved) setPoisLogged(n => n + 1);
-    return saved;
+    setPoisLogged(n => n + 1);
+    return true;
   }, [activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage]);
 
   return {

@@ -103,7 +103,8 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
     const poiNumber = await getNextPoiNumber();
 
-    const saved = await savePOI({
+    // PERF: Fire-and-forget — don't await worker. Cache update is synchronous.
+    savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -124,12 +125,10 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'counter',
       loggingMode: 'counter_detection',
-    });
+    }).catch(() => {});
 
-    if (saved) {
-      countRef.current++;
-      onPOILogged?.(countRef.current);
-    }
+    countRef.current++;
+    onPOILogged?.(countRef.current);
   }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, selectedPOIType, getActionForPOI, onPOILogged]);
 
   // React to every measurement change

@@ -42,12 +42,12 @@ function AutoCaptureSettings() {
           <span className="text-sm font-mono text-green-400">{(cfg.skyTimeoutMs / 1000).toFixed(1)}s</span>
         </div>
         <input
-          type="range" min={200} max={3000} step={100} value={cfg.skyTimeoutMs}
+          type="range" min={100} max={3000} step={100} value={cfg.skyTimeoutMs}
           onChange={(e) => update('skyTimeoutMs', parseInt(e.target.value))}
           className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
           data-testid="slider-sky-timeout"
         />
-        <p className="text-xs text-gray-400">How long sky must be detected before logging the POI (default: 1.0s)</p>
+        <p className="text-xs text-gray-400">How long sky must be detected before logging the POI (min: 0.1s)</p>
       </div>
 
       {/* Max Object Duration */}
@@ -57,12 +57,12 @@ function AutoCaptureSettings() {
           <span className="text-sm font-mono text-green-400">{(cfg.maxObjectMs / 1000).toFixed(1)}s</span>
         </div>
         <input
-          type="range" min={1000} max={30000} step={500} value={cfg.maxObjectMs}
+          type="range" min={100} max={30000} step={100} value={cfg.maxObjectMs}
           onChange={(e) => update('maxObjectMs', parseInt(e.target.value))}
           className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
           data-testid="slider-max-object-duration"
         />
-        <p className="text-xs text-gray-400">Force-log after this duration even if sky hasn't returned (default: 5.0s)</p>
+        <p className="text-xs text-gray-400">Force-log after this duration even if sky hasn't returned (min: 0.1s)</p>
       </div>
 
       {/* Max Object Distance */}
@@ -72,12 +72,12 @@ function AutoCaptureSettings() {
           <span className="text-sm font-mono text-green-400">{cfg.maxObjectDistM}m</span>
         </div>
         <input
-          type="range" min={10} max={1000} step={10} value={cfg.maxObjectDistM}
+          type="range" min={1} max={1000} step={1} value={cfg.maxObjectDistM}
           onChange={(e) => update('maxObjectDistM', parseInt(e.target.value))}
           className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
           data-testid="slider-max-object-distance"
         />
-        <p className="text-xs text-gray-400">Force-log after traveling this distance under an object (default: 300m)</p>
+        <p className="text-xs text-gray-400">Force-log after traveling this distance under an object (min: 1m)</p>
       </div>
 
       {/* Reset */}

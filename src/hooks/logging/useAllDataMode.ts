@@ -49,10 +49,10 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
     const maxH = alertSettings?.thresholds?.maxHeight ?? 25;
     if (reading.meters < minH || reading.meters > maxH) return;
 
-    // RACE FIX: Use the POI type that was active at the MOMENT this laser
-    // reading was captured, not the current store value. The user may have
-    // already switched to the next POI type in anticipation of the next item.
-    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
+    // Use the CURRENT selected POI type. In All Data mode the user sets a type
+    // and lets it run continuously. The lastMeasurementPoiType snapshot can be
+    // stale due to store throttling (100ms), causing wrong-type POIs.
+    const poiType = selectedPOIType || 'wire';
     const action = getActionForPOI(poiType as any);
 
     // Skip POI types that should not auto-log from laser readings.
@@ -62,14 +62,18 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
 
     lastLoggedRef.current = lastMeasurement;
 
-    // Capture image ASYNC — doesn't block POI save
+    // PERF: Capture timestamp + GPS BEFORE any async work
     const gps = getGpsSnapshot();
     const now = new Date();
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}-${Math.random()}`;
+
+    // PERF: getNextPoiNumber is async (first call scans DB) — don't let it delay the timestamp
     const poiNumber = await getNextPoiNumber();
 
-    // Save POI immediately (without image)
-    const saved = await savePOI({
+    // PERF: Save POI — fire-and-forget (don't await worker response).
+    // The in-memory cache update inside savePOI is synchronous, so UI updates instantly.
+    // Worker persistence happens in background.
+    savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -85,35 +89,30 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       source: 'all_data',
       loggingMode: 'all_data',
       note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
-    });
+    }).catch(() => {});
 
-    if (saved) {
-      countRef.current++;
-      onPOILogged?.(countRef.current);
+    countRef.current++;
+    onPOILogged?.(countRef.current);
 
-      // Capture image async — attaches to POI after
-      if (action === 'auto-capture-and-log' || action === 'auto-capture-no-measurement') {
-        captureImage().then(imageUrl => {
-          if (!imageUrl) return;
-          // Update POI with image in DB and in-memory cache
-          import('@/lib/survey/db').then(({ openSurveyDB }) => {
-            openSurveyDB().then(db => {
-              db.get('measurements', id).then((m: any) => {
-                if (m) {
-                  const updated = { ...m, imageUrl, images: [imageUrl] };
-                  db.put('measurements', updated);
-                  // Update in-memory cache so UI shows the image
-                  import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
-                    getMeasurementFeed().addMeasurement(updated);
-                  }).catch(() => {});
-                  // Clear from captured images card
-                  window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
-                }
-              });
+    // Capture image async — attaches to POI after (fully background)
+    if (action === 'auto-capture-and-log' || action === 'auto-capture-no-measurement') {
+      captureImage().then(imageUrl => {
+        if (!imageUrl) return;
+        import('@/lib/survey/db').then(({ openSurveyDB }) => {
+          openSurveyDB().then(db => {
+            db.get('measurements', id).then((m: any) => {
+              if (m) {
+                const updated = { ...m, imageUrl, images: [imageUrl] };
+                db.put('measurements', updated);
+                import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
+                  getMeasurementFeed().addMeasurement(updated);
+                }).catch(() => {});
+                window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
+              }
             });
-          }).catch(() => {});
+          });
         }).catch(() => {});
-      }
+      }).catch(() => {});
     }
   }, [isActive, activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage, getActionForPOI, onPOILogged]);
 
