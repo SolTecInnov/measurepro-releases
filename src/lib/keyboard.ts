@@ -167,7 +167,7 @@ const defaultMapping: KeyboardMapping = {
     gradeUp: { key: 'U', alt: true, shift: true, description: 'Grade UP (12%+)' },
     gradeDown: { key: 'D', alt: true, shift: true, description: 'Grade Down (12%+)' },
     autoturnRequired: { key: 'A', alt: true, shift: true, description: 'Autoturn Required' },
-    voiceNote: { key: 'N', alt: true, shift: true, description: 'Voice Note' },
+    voiceNote: { key: 'V', ctrl: true, shift: true, description: 'Voice Note' },
     opticalFiber: { key: 'F', alt: true, shift: true, description: 'Optical Fiber' },
     passingLane: { key: 'L', alt: true, shift: true, description: 'Passing Lane' },
     parking: { key: 'K', alt: true, shift: true, description: 'Parking' },

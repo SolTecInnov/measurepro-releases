@@ -10,6 +10,7 @@ import { syncSurveyNow } from '../../lib/firebase/autoSync';
 import { getCurrentUser } from '../../lib/firebase';
 
 import JSZip from 'jszip';
+import SurveyPartsOverview from './SurveyPartsOverview';
 
 const CAMERA_BRIDGE_URL = 'http://localhost:3001';
 
@@ -583,6 +584,13 @@ const SurveyList: React.FC<SurveyListProps> = ({
           </div>
         ) : (
           <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+            <SurveyPartsOverview
+              surveys={surveys}
+              poiCounts={poiCounts}
+              syncStatuses={Object.fromEntries(
+                Object.entries(syncStatuses).map(([id, info]) => [id, { synced: info.synced, poisSynced: info.poisSynced }])
+              )}
+            />
             {surveys.map((survey) => (
               <div 
                 key={survey.id} 

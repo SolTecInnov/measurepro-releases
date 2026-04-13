@@ -139,9 +139,9 @@ export class RoadScopeClient {
       }
 
       // RoadScope API returns success:true with user data when valid
-      // The response structure is: { success: true, data: { userId, userEmail, scopes, expiresAt } }
+      // Structure: { success: true, data: { userId, userEmail, scopes, expiresAt, companies[] } }
       const responseData = data.data || data;
-      const { userId, userEmail, scopes, expiresAt } = responseData;
+      const { userId, userEmail, scopes, expiresAt, companies } = responseData;
 
       // If we got userId, the key is valid (RoadScope doesn't return a separate 'valid' field)
       if (!userId) {
@@ -157,7 +157,8 @@ export class RoadScopeClient {
         userEmail,
         scopes,
         missingScopes: missingScopes.length > 0 ? missingScopes : undefined,
-        expiresAt
+        expiresAt,
+        companies: Array.isArray(companies) ? companies : undefined,
       };
     } catch (error) {
       console.error('[RoadScope] Validation error:', error);

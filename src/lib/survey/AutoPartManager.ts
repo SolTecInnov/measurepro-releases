@@ -428,7 +428,7 @@ class AutoPartManager {
   }
 
   setThreshold(threshold: number): void {
-    this.config.threshold = Math.max(100, Math.min(1000, threshold));
+    this.config.threshold = Math.max(100, Math.min(400, threshold));
     this.saveConfig();
     console.log('[AutoPartManager] Threshold set to:', this.config.threshold);
   }

@@ -1,7 +1,7 @@
 import type { Measurement } from './types';
 import type { WorkerMessage } from '../../../shared/worker-types';
 import { openSurveyDB } from './db';
-import { invalidateSnapshot, incrementPersistedVersion } from './measurementSnapshot';
+import { invalidateSnapshot } from './measurementSnapshot';
 
 let orchestratorWorker: Worker | null = null;
 let workerReady = false;
@@ -105,32 +105,20 @@ export async function addMeasurementViaWorker(options: MeasurementToWorkerOption
     reader.readAsDataURL(imageBlob);
   }
   
-  // Also write to legacy database for backwards compatibility.
-  // NOTE: poiCount is intentionally NOT incremented here.  The worker's
-  // processBatch() is the single authoritative incrementer (avoids ×2 counts
-  // when both paths fire for the same POI).  If the worker path fails,
-  // poiCount lags but countMeasurementsForSurvey() — which counts actual
-  // measurement records — remains the source of truth for AutoPartManager.
-  try {
-    const db = await openSurveyDB();
-
+  // PERF: Legacy database write is fire-and-forget (non-blocking).
+  // Previously this `await`ed the full IndexedDB transaction on the main thread,
+  // creating lock contention with the worker's batch writes and blocking the UI
+  // for 10-200ms per POI at high entry counts.
+  openSurveyDB().then(db => {
     const tx = db.transaction(['measurements'], 'readwrite');
-    const measurementsStore = tx.objectStore('measurements');
-
-    await measurementsStore.put(measurement);
-
-    await tx.done;
-    
-    // Invalidate snapshot for live updates
-    await incrementPersistedVersion(measurement.user_id);
-    invalidateSnapshot(measurement.user_id);
-    
-    // Dispatch change event for legacy listeners
-    window.dispatchEvent(new Event('dbchange'));
-  } catch (error) {
+    tx.objectStore('measurements').put(measurement);
+    tx.done.then(() => {
+      invalidateSnapshot(measurement.user_id);
+      window.dispatchEvent(new Event('dbchange'));
+    });
+  }).catch(error => {
     console.error('Legacy database write failed:', error);
-    // Continue - worker will handle the new database
-  }
+  });
 }
 
 /**

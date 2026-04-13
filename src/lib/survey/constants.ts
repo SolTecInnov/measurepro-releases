@@ -3,4 +3,4 @@
  */
 
 /** Default number of POIs before an auto-split is triggered. */
-export const DEFAULT_AUTO_PART_THRESHOLD = 200;
+export const DEFAULT_AUTO_PART_THRESHOLD = 250;

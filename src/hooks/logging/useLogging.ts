@@ -12,6 +12,7 @@ import { useCounterMode } from './useCounterMode';
 import { useLoggingCore, parseMeters, getGpsSnapshot } from './useLoggingCore';
 import { usePOIStore } from '@/lib/poi';
 import { useSerialStore } from '@/lib/stores/serialStore';
+import { useRainModeStore } from '@/lib/stores/rainModeStore';
 import { soundManager } from '@/lib/sounds';
 
 export type LoggingMode = 'all_data' | 'counter' | 'manual';
@@ -74,6 +75,9 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     if (!activeSurvey?.id) return false;
     if (!lastMeasurement) return false;
 
+    // POI type "None" (empty string) = pause mode — don't record anything
+    if (!selectedPOIType) return false;
+
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return false;
 
@@ -103,7 +107,7 @@ export function useLogging({ captureImage }: UseLoggingProps) {
       createdAt: now.toISOString(),
       imageUrl,
       images: imageUrl ? [imageUrl] : [],
-      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m`,
+      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'manual',
       loggingMode: 'manual',
     });

@@ -137,6 +137,16 @@ export function RoadScopeSettings() {
           missingScopes: result.missingScopes,
           expiresAt: result.expiresAt
         });
+
+        // Cache company context from validation response
+        if (result.companies && result.companies.length > 0) {
+          localStorage.setItem('roadscope_companies', JSON.stringify(result.companies));
+          // Auto-select first company if none selected
+          if (!localStorage.getItem('activeCompanyId')) {
+            localStorage.setItem('activeCompanyId', result.companies[0].companyId);
+          }
+        }
+
         toast.success('API key validated and saved');
       } else {
         // API validation failed — still save key but mark as not validated

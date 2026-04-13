@@ -687,10 +687,21 @@ export async function syncSurveyToRoadScope(
   let roadscopeSurveyId = targetSurveyId || syncState.roadscopeSurveyId;
 
   if (!roadscopeSurveyId) {
+    // Resolve company context for RoadScope routing
+    const activeCompanyId = localStorage.getItem('activeCompanyId') || undefined;
+    let surveyorFirebaseUid: string | undefined;
+    try {
+      const { getAuth } = await import('firebase/auth');
+      surveyorFirebaseUid = getAuth().currentUser?.uid;
+    } catch { /* best-effort */ }
+
     // Create new survey in RoadScope
     const surveyRequest: CreateSurveyRequest = {
       externalId: survey.id,
       name: survey.surveyTitle,
+      companyId: activeCompanyId,
+      dataPhase: 'field',
+      surveyorFirebaseUid,
       description: survey.description || undefined,
       client: survey.clientName || undefined,
       projectNumber: survey.projectNumber || undefined,

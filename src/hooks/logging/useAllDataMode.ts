@@ -14,8 +14,9 @@ import { useRef, useCallback, useEffect } from 'react';
 import { useSerialStore } from '@/lib/stores/serialStore';
 import { usePOIStore } from '@/lib/poi';
 import { usePOIActionsStore } from '@/lib/poiActions';
+import { useSettingsStore } from '@/lib/settings';
+import { useRainModeStore } from '@/lib/stores/rainModeStore';
 import { useLoggingCore, parseMeters, getGpsSnapshot } from './useLoggingCore';
-// crypto available as globalThis.crypto in Electron renderer
 
 interface UseAllDataModeProps {
   isActive: boolean;              // true when logging mode = 'all_data'
@@ -27,6 +28,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
   const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { getActionForPOI } = usePOIActionsStore();
+  const { alertSettings } = useSettingsStore();
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
 
   const lastLoggedRef = useRef<string | null>(null);
@@ -38,6 +40,14 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
 
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return;  // DE02, sky, noise → silent skip
+
+    // HEIGHT RANGE FILTER (v16.1.27): skip measurements outside the "ignore
+    // above/below" thresholds set in Settings → Alerts. This was missing from
+    // All Data and Counter modes — only Detection mode checked it, so the
+    // user was getting POIs at <4m (ground reflections) and >25m (sky bounces).
+    const minH = alertSettings?.thresholds?.minHeight ?? 4;
+    const maxH = alertSettings?.thresholds?.maxHeight ?? 25;
+    if (reading.meters < minH || reading.meters > maxH) return;
 
     // RACE FIX: Use the POI type that was active at the MOMENT this laser
     // reading was captured, not the current store value. The user may have
@@ -74,7 +84,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       createdAt: now.toISOString(),
       source: 'all_data',
       loggingMode: 'all_data',
-      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m`,
+      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
     });
 
     if (saved) {

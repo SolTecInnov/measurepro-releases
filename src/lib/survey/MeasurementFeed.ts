@@ -64,6 +64,7 @@ class MeasurementFeed {
   private isLoadingInitialData = false;
   private pendingDuringLoad: Map<string, Measurement> = new Map();
   private initialLoadPromise: Promise<void> | null = null;
+  private notifyRAF: number | null = null;
 
   /**
    * Initialize the feed with a survey
@@ -294,12 +295,14 @@ class MeasurementFeed {
     // Cache was already updated when measurements were logged via addMeasurement()
     // This event just confirms the worker successfully wrote to IndexedDB
     // No need to query IndexedDB - that would recreate the original bottleneck!
-    
-    // Just invalidate memoized caches so stats refresh
-    this.invalidateCaches();
-    
-    // Notify subscribers for UI update
-    this.notifySubscribers();
+
+    // PERF: Only invalidate map clusters (stale GPS data).
+    // Stats and measurements array are maintained incrementally by addMeasurement().
+    this.mapClustersCache = null;
+
+    // PERF: Debounced notify — avoids duplicate re-renders if addMeasurement
+    // already scheduled one in the same frame.
+    this.scheduleNotify();
 
     logger.debug(`✅ Batch complete: ${data.count} measurements written to IndexedDB`);
   }
@@ -349,8 +352,32 @@ class MeasurementFeed {
       if (oldestId) this.cache.delete(oldestId);
     }
 
-    this.invalidateCaches();
-    this.notifySubscribers();
+    // PERF: Incremental cache update instead of full invalidation.
+    // Avoids O(n) array rebuild + O(3n) stats recomputation per add.
+    if (!isDuplicate) {
+      // Prepend to DESC measurements array (newest first)
+      if (this.measurementsArrayCache) {
+        this.measurementsArrayCache.unshift(measurement);
+      }
+      // Increment stats counters
+      if (this.statsCache) {
+        this.statsCache.total++;
+        this.statsCache.lastUpdateTime = Date.now();
+      }
+      // Increment POI type count
+      if (this.poiTypeCountsCache && measurement.poi_type) {
+        this.poiTypeCountsCache[measurement.poi_type] = (this.poiTypeCountsCache[measurement.poi_type] || 0) + 1;
+      }
+      // Map clusters invalidated lazily (not needed per-add)
+      this.mapClustersCache = null;
+    } else {
+      // Duplicate update — invalidate everything for correctness
+      this.invalidateCaches();
+    }
+
+    // PERF: Debounce subscriber notifications via requestAnimationFrame.
+    // At 10Hz laser logging, this batches ~10 adds into 1 notification per frame.
+    this.scheduleNotify();
 
     logger.debug(`➕ Added measurement ${measurement.id} to cache (size: ${this.cache.size})`);
   }
@@ -608,6 +635,18 @@ class MeasurementFeed {
   }
 
   /**
+   * PERF: Schedule a debounced subscriber notification via requestAnimationFrame.
+   * Batches rapid-fire adds (10Hz laser) into a single notification per frame (~16ms).
+   */
+  private scheduleNotify(): void {
+    if (this.notifyRAF !== null) return; // Already scheduled
+    this.notifyRAF = requestAnimationFrame(() => {
+      this.notifyRAF = null;
+      this.notifySubscribers();
+    });
+  }
+
+  /**
    * Invalidate memoized caches
    */
   private invalidateCaches(): void {
@@ -635,12 +674,17 @@ class MeasurementFeed {
     this.currentSurveyId = null;
     this.invalidateCaches();
     this.subscribers.clear();
-    
+
+    if (this.notifyRAF !== null) {
+      cancelAnimationFrame(this.notifyRAF);
+      this.notifyRAF = null;
+    }
+
     if (this.workerUnsubscribe) {
       this.workerUnsubscribe();
       this.workerUnsubscribe = null;
     }
-    
+
     this.initialized = false;
     logger.log('🗑️ MeasurementFeed cleared');
   }

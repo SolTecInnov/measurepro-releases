@@ -404,14 +404,18 @@ async function processBatch(): Promise<{ successful: number; failed: number; err
     // CRITICAL: Get surveyId BEFORE clearing arrays (needed for snapshot invalidation)
     const surveyId = itemsToWrite[0]?.user_id;
     
-    // Update CSV backups BEFORE clearing arrays (non-blocking, fire-and-forget)
-    for (const measurement of uniqueMeasurements) {
-      const { _retryCount, ...cleanMeasurement } = measurement;
-      appendToCSV(cleanMeasurement).catch(() => {
-        // CSV backup is optional, don't log errors
-      });
-    }
-    
+    // PERF: Defer CSV backups to next idle tick — they're optional and should
+    // never compete with the next POI save for IndexedDB lock time.
+    const csvBatch = uniqueMeasurements.map(m => {
+      const { _retryCount, ...clean } = m;
+      return clean;
+    });
+    setTimeout(() => {
+      for (const m of csvBatch) {
+        appendToCSV(m).catch(() => {});
+      }
+    }, 0);
+
     // MEMORY CLEANUP: Clear local batch arrays to free memory immediately
     itemsToWrite.length = 0;
     uniqueMeasurements.length = 0;

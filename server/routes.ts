@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { readFileSync as _fsReadFileSync } from 'fs';
 import { resolve as _pathResolve } from 'path';
 import { SquareClient } from 'square';
-import { randomUUID } from 'crypto';
+import { randomUUID, createHmac, timingSafeEqual } from 'crypto';
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { getAuth } from 'firebase-admin/auth';
@@ -5776,8 +5776,63 @@ if (adminDb) {
   router.use('/road-profile', createProfileRoutes(gnssFirestore));
   router.use('/audit', auditRoutes);
   router.use('/roadscope', roadscopeRoutes);
+
+  // ==================== ROADSCOPE WEBHOOKS ====================
+  // POST /api/webhooks/roadscope/member-changed
+  // Receives HMAC-SHA256 signed webhook from RoadScope when company members change.
+  // Stores are per-company webhook secrets in Firestore roadScopeSettings collection.
+  router.post('/webhooks/roadscope/member-changed', async (req: Request, res: Response) => {
+    try {
+      const signature = req.headers['x-roadscope-signature'] as string;
+      const companyId = req.headers['x-roadscope-companyid'] as string;
+
+      if (!signature || !companyId) {
+        return res.status(400).json({ error: 'Missing signature or company ID headers' });
+      }
+
+      // Look up webhook secret for this company from Firestore
+      let webhookSecret: string | null = null;
+      try {
+        const db = getFirestore();
+        const settingsSnap = await db.collection('roadScopeWebhookSecrets').doc(companyId).get();
+        if (settingsSnap.exists) {
+          webhookSecret = settingsSnap.data()?.secret || null;
+        }
+      } catch {
+        // Firestore may not be available in dev
+      }
+
+      if (!webhookSecret) {
+        return res.status(401).json({ error: 'No webhook secret configured for this company' });
+      }
+
+      // Verify HMAC-SHA256 signature
+      const rawBody = JSON.stringify(req.body);
+      const expected = `sha256=${createHmac('sha256', webhookSecret).update(rawBody).digest('hex')}`;
+      try {
+        if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+          return res.status(401).json({ error: 'Invalid signature' });
+        }
+      } catch {
+        return res.status(401).json({ error: 'Invalid signature' });
+      }
+
+      const { action, userId, newRole, timestamp } = req.body;
+      console.log(`[Webhook] Company ${companyId}: ${action} user ${userId}${newRole ? ` → ${newRole}` : ''} at ${timestamp}`);
+
+      // TODO: Notify connected Electron clients via WebSocket/SSE
+      // For now, clients will pick up changes on next API key validation
+
+      res.json({ received: true });
+    } catch (error: any) {
+      console.error('[Webhook] Error:', error);
+      res.status(500).json({ error: 'Webhook processing failed' });
+    }
+  });
+
   console.log('✅ GNSS routes initialized');
   console.log('✅ RoadScope routes initialized');
+  console.log('✅ RoadScope webhook endpoint initialized');
   console.log('✅ Road Profile routes initialized');
   console.log('✅ Survey profile routes initialized');
 }

@@ -163,30 +163,40 @@ export async function triggerAutoSyncForPartTransition(surveyId: string, userId:
  * Silent on failure — auto-sync errors must never spam toasts.
  */
 async function autoSyncTick(): Promise<void> {
-  try {
-    if (!activeUserId) return;
-    if (!navigator.onLine) {
-      logger.debug('[RoadScopeAutoSync] Tick skipped — offline');
-      return;
-    }
+  // PERF: Defer to idle callback so sync never competes with active POI logging.
+  // requestIdleCallback yields to higher-priority work (IndexedDB writes, UI).
+  const runSync = async () => {
+    try {
+      if (!activeUserId) return;
+      if (!navigator.onLine) {
+        logger.debug('[RoadScopeAutoSync] Tick skipped — offline');
+        return;
+      }
 
-    // Re-check settings each tick so a user toggling auto-sync OFF mid-day
-    // takes effect on the next tick without requiring an app restart.
-    const settings = await readSettings(activeUserId);
-    if (!settings || !settings.autoSyncEnabled || !settings.apiKeyValidated) {
-      logger.debug('[RoadScopeAutoSync] Tick skipped — auto-sync disabled or key not validated');
-      return;
-    }
+      // Re-check settings each tick so a user toggling auto-sync OFF mid-day
+      // takes effect on the next tick without requiring an app restart.
+      const settings = await readSettings(activeUserId);
+      if (!settings || !settings.autoSyncEnabled || !settings.apiKeyValidated) {
+        logger.debug('[RoadScopeAutoSync] Tick skipped — auto-sync disabled or key not validated');
+        return;
+      }
 
-    const activeSurvey = useSurveyStore.getState().activeSurvey;
-    if (!activeSurvey) {
-      logger.debug('[RoadScopeAutoSync] Tick skipped — no active survey');
-      return;
-    }
+      const activeSurvey = useSurveyStore.getState().activeSurvey;
+      if (!activeSurvey) {
+        logger.debug('[RoadScopeAutoSync] Tick skipped — no active survey');
+        return;
+      }
 
-    await performAutoSync(activeSurvey.id, activeUserId);
-  } catch (error) {
-    logger.warn('[RoadScopeAutoSync] Tick error (non-blocking):', error);
+      await performAutoSync(activeSurvey.id, activeUserId);
+    } catch (error) {
+      logger.warn('[RoadScopeAutoSync] Tick error (non-blocking):', error);
+    }
+  };
+
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(() => { runSync(); }, { timeout: 30000 });
+  } else {
+    setTimeout(runSync, 100);
   }
 }
 

@@ -227,27 +227,32 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
       }
       if (matchShortcut(mapping.loggingControls.modeManual)) {
         e.preventDefault();
-        handleLoggingModeChange('manual');
+        const btn = document.querySelector('[data-testid="button-logging-manual"]') as HTMLButtonElement;
+        if (btn) btn.click(); else handleLoggingModeChange('manual');
         return;
       }
       if (matchShortcut(mapping.loggingControls.modeAllData)) {
         e.preventDefault();
-        handleLoggingModeChange('all');
+        const btn = document.querySelector('[data-testid="button-logging-all"]') as HTMLButtonElement;
+        if (btn) btn.click(); else handleLoggingModeChange('all');
         return;
       }
       if (matchShortcut(mapping.loggingControls.modeDetection)) {
         e.preventDefault();
-        handleLoggingModeChange('detection');
+        const btn = document.querySelector('[data-testid="button-logging-manual"]') as HTMLButtonElement;
+        if (btn) btn.click(); else handleLoggingModeChange('detection');
         return;
       }
       if (matchShortcut(mapping.loggingControls.modeManualDetection)) {
         e.preventDefault();
-        handleLoggingModeChange('manualDetection');
+        const btn = document.querySelector('[data-testid="button-logging-manual"]') as HTMLButtonElement;
+        if (btn) btn.click(); else handleLoggingModeChange('manualDetection');
         return;
       }
       if (matchShortcut(mapping.loggingControls.modeCounterDetection)) {
         e.preventDefault();
-        handleLoggingModeChange('counterDetection');
+        const btn = document.querySelector('[data-testid="button-logging-auto-capture"]') as HTMLButtonElement;
+        if (btn) btn.click(); else handleLoggingModeChange('counterDetection');
         return;
       }
 

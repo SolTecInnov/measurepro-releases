@@ -8,7 +8,7 @@
  * - Getting next POI number
  */
 
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useGPSStore } from '@/lib/stores/gpsStore';
 import { useLaserStore } from '@/lib/laser';
 import { useSurveyStore } from '@/lib/survey';
@@ -16,6 +16,7 @@ import { usePOIActionsStore } from '@/lib/poiActions';
 import { soundManager } from '@/lib/sounds';
 import { openSurveyDB } from '@/lib/survey/db';
 import { getMeasurementFeed } from '@/lib/survey/MeasurementFeed';
+import { getMeasurementLogger } from '@/lib/workers/MeasurementLoggerClient';
 import type { POIType } from '@/lib/poi';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -145,10 +146,21 @@ export function useLoggingCore() {
     };
 
     try {
-      const db = await openSurveyDB();
-      await db.put('measurements', measurement);
-      // Update in-memory cache so activity log refreshes immediately
+      // PERF: Update in-memory cache FIRST for instant UI feedback
       getMeasurementFeed().addMeasurement(measurement as any);
+
+      // PERF: Queue IndexedDB write to worker (non-blocking, batched).
+      // Before this fix, `await db.put()` on the main thread blocked 10-200ms
+      // per write due to IndexedDB lock contention with the worker's batch writes.
+      try {
+        const logger = getMeasurementLogger();
+        await logger.logMeasurement(measurement as any);
+      } catch {
+        // Worker unavailable — fallback to direct write (still works, just slower)
+        const db = await openSurveyDB();
+        await db.put('measurements', measurement);
+      }
+
       // Clear the captured image from pending photos
       if (measurement.imageUrl) {
         window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: measurement.imageUrl }));
@@ -162,16 +174,37 @@ export function useLoggingCore() {
   }, [activeSurvey?.id]);
 
   /**
-   * Get the next available POI number for the current survey
+   * Get the next available POI number for the current survey.
+   *
+   * PERF (v16.1.27): cached in-memory counter seeded once from IndexedDB when
+   * the survey first opens. Before this fix, every single POI creation did a
+   * full IndexedDB getAllFromIndex + O(n) reduce over all measurements, which
+   * cost 50-200ms per POI at 800+ entries. Now it's a local variable increment.
    */
+  const poiCounterRef = React.useRef<{ surveyId: string | null; nextNumber: number }>({
+    surveyId: null,
+    nextNumber: 1,
+  });
+
   const getNextPoiNumber = useCallback(async (): Promise<number> => {
     if (!activeSurvey?.id) return 1;
+
+    // If the counter is already seeded for this survey, just increment.
+    if (poiCounterRef.current.surveyId === activeSurvey.id) {
+      return poiCounterRef.current.nextNumber++;
+    }
+
+    // First call for this survey: seed from IndexedDB (one-time cost).
     try {
       const db = await openSurveyDB();
       const all = await db.getAllFromIndex('measurements', 'by-survey', activeSurvey.id);
       const maxPOI = all.reduce((max: number, m: any) => Math.max(max, m.poiNumber || 0), 0);
+      poiCounterRef.current = { surveyId: activeSurvey.id, nextNumber: maxPOI + 2 };
       return maxPOI + 1;
-    } catch { return 1; }
+    } catch {
+      poiCounterRef.current = { surveyId: activeSurvey.id, nextNumber: 2 };
+      return 1;
+    }
   }, [activeSurvey?.id]);
 
   /**

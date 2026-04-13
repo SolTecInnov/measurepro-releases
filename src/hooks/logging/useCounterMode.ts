@@ -9,6 +9,8 @@ import { useRef, useCallback, useEffect } from 'react';
 import { useSerialStore } from '@/lib/stores/serialStore';
 import { usePOIStore } from '@/lib/poi';
 import { usePOIActionsStore } from '@/lib/poiActions';
+import { useSettingsStore } from '@/lib/settings';
+import { useRainModeStore } from '@/lib/stores/rainModeStore';
 import { useLoggingCore, parseMeters, getGpsSnapshot, isInvalidReading } from './useLoggingCore';
 
 interface CounterConfig {
@@ -56,6 +58,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
   const { getActionForPOI } = usePOIActionsStore();
+  const { alertSettings } = useSettingsStore();
 
   const stateRef = useRef<DetectionState>('sky');
   const bufferRef = useRef<number[]>([]);
@@ -118,7 +121,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       createdAt: now.toISOString(),
       imageUrl,
       images: imageUrl ? [imageUrl] : [],
-      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m`,
+      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'counter',
       loggingMode: 'counter_detection',
     });
@@ -160,6 +163,13 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
 
       const reading = parseMeters(lastMeasurement, groundRef);
       if (!reading.isValid) return;
+
+      // HEIGHT RANGE FILTER (v16.1.27): skip readings outside the "ignore
+      // above/below" thresholds. Without this, ground reflections (<4m) and
+      // sky bounces (>25m) entered the buffer and produced garbage POIs.
+      const minH = alertSettings?.thresholds?.minHeight ?? 4;
+      const maxH = alertSettings?.thresholds?.maxHeight ?? 25;
+      if (reading.meters < minH || reading.meters > maxH) return;
 
       if (stateRef.current === 'sky') {
         // Transition: sky → object

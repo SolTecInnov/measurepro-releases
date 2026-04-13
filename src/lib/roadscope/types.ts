@@ -18,6 +18,13 @@ export interface HealthCheckData {
   timestamp: string;
 }
 
+// Company context returned by /auth/validate
+export interface AuthCompanyInfo {
+  companyId: string;
+  companyName: string;
+  role: 'owner' | 'admin' | 'surveyor' | 'viewer';
+}
+
 // Auth validation
 export interface AuthValidationData {
   valid: boolean;
@@ -25,6 +32,8 @@ export interface AuthValidationData {
   userEmail: string;
   scopes: string[];
   expiresAt: string;
+  keyName?: string;
+  companies?: AuthCompanyInfo[];
 }
 
 // POI Type from RoadScope
@@ -54,6 +63,9 @@ export interface RoadScopeSurvey {
 export interface CreateSurveyRequest {
   externalId: string; // MeasurePRO survey ID
   name: string;
+  companyId?: string;             // Company context for RoadScope routing
+  dataPhase?: 'field' | 'office'; // Always 'field' for MeasurePRO pushes
+  surveyorFirebaseUid?: string;   // Firebase UID of the surveyor
   description?: string;
   client?: string;
   projectNumber?: string;
@@ -297,6 +309,7 @@ export interface APIKeyValidation {
   scopes?: string[];
   missingScopes?: string[];
   expiresAt?: string;
+  companies?: AuthCompanyInfo[];
   error?: string;
 }
 

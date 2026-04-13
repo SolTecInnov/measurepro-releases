@@ -215,35 +215,14 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowEditSurveyDialog(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg transition-colors text-sm"
               title="Edit survey details"
               data-testid="button-edit-survey"
             >
-              <Pencil className="w-5 h-5" />
-              Edit Survey
+              <Pencil className="w-4 h-4" />
+              Edit
             </button>
-            <SaveNowButton activeSurveyId={activeSurvey.id} />
-            {isBeta ? (
-              <button
-                onClick={() => setShowCloseDialog(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-semibold"
-                title="Close survey and export data"
-                data-testid="button-close-survey-header"
-              >
-                <XCircle className="w-5 h-5" />
-                Close Survey
-              </button>
-            ) : (
-              <button
-                onClick={() => exportSurveyWithMedia(activeSurvey)}
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-semibold"
-                title="Export complete survey package with all data, images, videos, road profiles, and GNSS data"
-                data-testid="button-export-complete-package"
-              >
-                <FileText className="w-5 h-5" />
-                Export Complete Package
-              </button>
-            )}
+            <SaveNowButton activeSurveyId={activeSurvey.id} compact />
           </div>
         )}
       </div>
@@ -262,14 +241,8 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
             {/* Survey Statistics */}
             <SurveyStatistics activeSurvey={activeSurvey} />
             
-            {/* Road Profile Recording - hidden for beta users */}
-            {!isBeta && (
-              <div className="mt-4 pt-4 border-t border-green-500/30">
-              </div>
-            )}
-            
             {/* Survey Actions */}
-            <SurveyActions 
+            <SurveyActions
               activeSurvey={activeSurvey}
               currentRoadNumber={currentRoadNumber}
               setCurrentRoadNumber={setCurrentRoadNumber}
