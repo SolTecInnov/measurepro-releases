@@ -57,6 +57,13 @@ const SurveyList: React.FC<SurveyListProps> = ({
   const [cloudSyncedIds, setCloudSyncedIds] = useState<Set<string>>(new Set());
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
+  // Force-refresh survey list from DB when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      loadSurveys();
+    }
+  }, [isOpen, loadSurveys]);
+
   // Load POI counts for all surveys
   // Uses denormalized poiCount when available; falls back to a single batch cursor pass
   // for legacy surveys missing the field — eliminating the O(n) countFromIndex loop.
@@ -542,7 +549,7 @@ const SurveyList: React.FC<SurveyListProps> = ({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-gray-800 rounded-xl w-full max-w-3xl p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold">Load Previous Survey</h3>
+          <h3 className="text-xl font-semibold">Load Previous Survey <span className="text-sm font-normal text-gray-400">({surveys.length} surveys)</span></h3>
           <div className="flex items-center gap-2">
             <input
               ref={fileInputRef}

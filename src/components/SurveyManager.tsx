@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FileText, Plus, Pencil, XCircle } from 'lucide-react';
+import { FileText, Plus, Pencil, FolderOpen } from 'lucide-react';
 import { useSurveyStore, exportSurvey } from '../lib/survey/index';
 import { exportSurveyWithMedia } from '../lib/utils/exportUtils';
 import { useSerialStore } from '../lib/stores/serialStore';
@@ -15,6 +15,7 @@ import SurveyStatistics from './survey/SurveyStatistics';
 import SurveyActions from './survey/SurveyActions';
 import SurveyForm from './survey/SurveyForm';
 import SurveyList from './survey/SurveyList';
+import SurveyPartsOverview from './survey/SurveyPartsOverview';
 import NoActiveSurvey from './survey/NoActiveSurvey';
 
 interface SurveyManagerProps {
@@ -180,6 +181,37 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
 
   const { clearSurvey } = useSurveyStore();
 
+  // Build POI counts and sync statuses for the parts overview (from loaded surveys)
+  const poiCountsForParts = React.useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const s of surveys) {
+      counts[s.id] = typeof s.poiCount === 'number' ? s.poiCount : 0;
+    }
+    return counts;
+  }, [surveys]);
+
+  const [syncStatusesForParts, setSyncStatusesForParts] = React.useState<Record<string, { synced: boolean; poisSynced: number }>>({});
+
+  // Load RoadScope sync statuses for all sibling parts of the active survey
+  React.useEffect(() => {
+    if (!activeSurvey) return;
+    const rootId = activeSurvey.rootSurveyId || activeSurvey.id;
+    const siblingParts = surveys.filter(s => (s.rootSurveyId || s.id) === rootId);
+    if (siblingParts.length < 2) return;
+
+    (async () => {
+      const { getSyncStatus } = await import('../lib/roadscope/syncService');
+      const statuses: Record<string, { synced: boolean; poisSynced: number }> = {};
+      for (const s of siblingParts) {
+        try {
+          const status = await getSyncStatus(s.id);
+          statuses[s.id] = { synced: status.synced, poisSynced: status.syncedPoiCount };
+        } catch { /* ignore */ }
+      }
+      setSyncStatusesForParts(statuses);
+    })();
+  }, [activeSurvey?.id, surveys]);
+
   return (
     <div className="bg-gray-800 rounded-xl p-6" data-testid="survey-manager">
       <div className="flex items-center justify-between mb-6">
@@ -187,8 +219,8 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
           <FileText className="w-6 h-6 text-blue-400" />
           Survey Management
         </h2>
-        {!activeSurvey && (
-          <>
+        <div className="flex items-center gap-2">
+          {!activeSurvey && (
             <button
               onClick={() => setShowNewSurveyDialog(true)}
               className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors animate-pulse"
@@ -196,35 +228,32 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
               <Plus className="w-5 h-5" />
               New Survey
             </button>
-          
-            <button
-              onClick={() => {
-                // Reload surveys before showing the list
-                loadSurveys().then(() => {
-                  setShowSurveyList(true);
-                });
-              }}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
-            >
-              <FileText className="w-5 h-5" />
-              Load Survey
-            </button>
-          </>
-        )}
-        {activeSurvey && (
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setShowEditSurveyDialog(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg transition-colors text-sm"
-              title="Edit survey details"
-              data-testid="button-edit-survey"
-            >
-              <Pencil className="w-4 h-4" />
-              Edit
-            </button>
-            <SaveNowButton activeSurveyId={activeSurvey.id} compact />
-          </div>
-        )}
+          )}
+          <button
+            onClick={() => {
+              loadSurveys().then(() => setShowSurveyList(true));
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg transition-colors text-sm"
+            title="Load a previous survey"
+          >
+            <FolderOpen className="w-4 h-4" />
+            Load Survey
+          </button>
+          {activeSurvey && (
+            <>
+              <button
+                onClick={() => setShowEditSurveyDialog(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg transition-colors text-sm"
+                title="Edit survey details"
+                data-testid="button-edit-survey"
+              >
+                <Pencil className="w-4 h-4" />
+                Edit
+              </button>
+              <SaveNowButton activeSurveyId={activeSurvey.id} compact />
+            </>
+          )}
+        </div>
       </div>
 
       {activeSurvey ? (
@@ -240,7 +269,16 @@ const SurveyManager: React.FC<SurveyManagerProps> = ({ showSurveyDialog: _showSu
 
             {/* Survey Statistics */}
             <SurveyStatistics activeSurvey={activeSurvey} />
-            
+
+            {/* Survey Parts Overview — visible when multi-part survey */}
+            <div className="mt-4">
+              <SurveyPartsOverview
+                surveys={surveys}
+                poiCounts={poiCountsForParts}
+                syncStatuses={syncStatusesForParts}
+              />
+            </div>
+
             {/* Survey Actions */}
             <SurveyActions
               activeSurvey={activeSurvey}
