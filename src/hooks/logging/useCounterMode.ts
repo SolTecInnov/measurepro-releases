@@ -177,7 +177,8 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
         capturedGpsRef.current = getGpsSnapshot();
         // Lock in the POI type at the moment we detect this object. The user
         // hears the capture sound here and is free to switch to the next type.
-        bufferPoiTypeRef.current = lastMeasurementPoiType || selectedPOIType || null;
+        // Use current selected POI type (not stale throttled snapshot)
+        bufferPoiTypeRef.current = selectedPOIType || null;
 
         // Capture image immediately
         captureImage().then(url => { capturedImageRef.current = url; }).catch(() => {});
