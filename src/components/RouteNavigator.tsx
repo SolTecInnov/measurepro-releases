@@ -40,10 +40,12 @@ interface RouteNavigatorProps {
   isMinimized?: boolean;
 }
 
+const OFF_ROUTE_THRESHOLD_M = 80; // meters — consider off-route beyond this
+
 interface RoutingMachineControlProps {
   route: Route;
   onInstructionsReady: (instructions: any[], _distance: number, time: number) => void;
-  onLocationUpdate: (instructionIndex: number, distance: number) => void;
+  onLocationUpdate: (instructionIndex: number, distance: number, isOffRoute?: boolean) => void;
 }
 
 // Component to handle routing machine
@@ -183,20 +185,24 @@ const RoutingMachineControl = ({ route, onInstructionsReady, onLocationUpdate }:
         }
       });
       
+      const isOffRoute = minDistance > OFF_ROUTE_THRESHOLD_M;
+
       // If we're close to the next instruction, update current instruction index
       if (closestInstructionIndex !== currentInstructionIndexRef.current) {
         currentInstructionIndexRef.current = closestInstructionIndex;
-        
+
         // Notify parent
         onLocationUpdate(
           closestInstructionIndex,
-          minDistance
+          minDistance,
+          isOffRoute
         );
       } else {
         // Just update the distance
         onLocationUpdate(
           currentInstructionIndexRef.current,
-          minDistance
+          minDistance,
+          isOffRoute
         );
       }
     }
@@ -341,6 +347,8 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isRoutingReady, setIsRoutingReady] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [isOffRoute, setIsOffRoute] = useState(false);
+  const offRouteAnnouncedRef = useRef(false); // Prevents spam — only announce once per deviation
   const { data: gpsData } = useGPSStore();
   
   // CRITICAL: Load routing machine BEFORE rendering MapContainer
@@ -376,10 +384,23 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
     setEstimatedTimeToArrival(eta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
   };
   
-  // Handle location updates
-  const handleLocationUpdate = (instructionIndex: number, distance: number) => {
+  // Handle location updates (with off-route detection)
+  const handleLocationUpdate = (instructionIndex: number, distance: number, offRoute?: boolean) => {
     setCurrentInstructionIndex(instructionIndex);
     setDistanceToNextInstruction(Math.round(distance));
+
+    if (offRoute && !isOffRoute) {
+      // Just went off-route — announce ONCE
+      setIsOffRoute(true);
+      if (!isMuted && !offRouteAnnouncedRef.current) {
+        offRouteAnnouncedRef.current = true;
+        speakInstruction('Off route.');
+      }
+    } else if (!offRoute && isOffRoute) {
+      // Back on route — reset so we can announce again if they deviate later
+      setIsOffRoute(false);
+      offRouteAnnouncedRef.current = false;
+    }
   };
   
   // Start navigation
@@ -450,7 +471,12 @@ const RouteNavigator: React.FC<RouteNavigatorProps> = ({ route, onClose }) => {
   // If minimized, render as a compact overlay
   if (isMinimized) {
     return (
-      <div className="fixed bottom-4 right-4 bg-gray-800 border border-gray-700 rounded-lg shadow-lg p-4 z-[10000] max-w-sm">
+      <div className={`fixed bottom-4 right-4 bg-gray-800 border rounded-lg shadow-lg p-4 z-[10000] max-w-sm ${isOffRoute ? 'border-red-500' : 'border-gray-700'}`}>
+        {isOffRoute && (
+          <div className="bg-red-600/20 text-red-300 text-xs font-bold px-2 py-1 rounded mb-2 text-center">
+            OFF ROUTE
+          </div>
+        )}
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-medium flex items-center gap-2">
             <Navigation className="w-4 h-4 text-blue-400" />
