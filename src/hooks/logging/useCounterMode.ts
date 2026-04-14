@@ -210,7 +210,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
         }
       }
     }
-  }, [lastMeasurement, isActive]);
+  }, [lastMeasurement, isActive, logBuffer]);
 
   // Cleanup on deactivation
   useEffect(() => {
@@ -218,7 +218,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       if (bufferRef.current.length > 0) logBuffer();
       if (skyTimerRef.current) { clearTimeout(skyTimerRef.current); skyTimerRef.current = null; }
     }
-  }, [isActive]);
+  }, [isActive, logBuffer]);
 
   const reset = useCallback(() => {
     bufferRef.current = [];

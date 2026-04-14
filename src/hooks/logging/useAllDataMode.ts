@@ -121,7 +121,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
   useEffect(() => {
     if (!isActive) return;
     logCurrent();
-  }, [lastMeasurement, isActive]);
+  }, [lastMeasurement, isActive, logCurrent]);
 
   const reset = useCallback(() => {
     lastLoggedRef.current = null;
