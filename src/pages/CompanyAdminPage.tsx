@@ -51,13 +51,15 @@ function MemberAccessPanel({ member, companyAddons, companyId, isSelf }: MemberA
 
   const updateAccessMutation = useMutation({
     mutationFn: async (updates: { allowedAddons?: string[] | null; betaAccess?: boolean | null }) => {
-      return authedRequest(`/api/companies/${companyId}/members/${member.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(updates),
-      });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', member.userId || member.id)));
+      if (!mSnap.empty) await updateDoc(mSnap.docs[0].ref, { ...updates, updatedAt: new Date().toISOString() });
+      return { success: true };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-my-company'] });
       /* toast removed */
       setSaving(false);
     },
@@ -234,10 +236,14 @@ export default function CompanyAdminPage() {
   const updateProfileMutation = useMutation({
     mutationFn: async (updates: Partial<Company>) => {
       if (!companyId) throw new Error('No company');
-      return authedRequest(`/api/companies/${companyId}`, { method: 'PATCH', body: JSON.stringify(updates) });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'companies', companyId), { ...updates, updatedAt: new Date().toISOString() });
+      return { success: true };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-my-company'] });
       /* toast removed */
       setEditingProfile(false);
     },
@@ -259,21 +265,40 @@ export default function CompanyAdminPage() {
   const createMemberMutation = useMutation({
     mutationFn: async () => {
       if (!companyId) throw new Error('No company');
-      return authedRequest(`/api/companies/${companyId}/members`, {
-        method: 'POST',
-        body: JSON.stringify({
-          companyId,
-          email: newMember.email,
-          fullName: newMember.fullName,
-          role: newMember.role,
-          firebaseUid: `pending-${Date.now()}`,
-          createFirebaseAccount: true,
-        }),
+      const { initializeApp, getApps, deleteApp, getApp } = await import('firebase/app');
+      const { getAuth: getAuthInstance, createUserWithEmailAndPassword } = await import('firebase/auth');
+      const { getFirestore, collection, addDoc, doc, setDoc } = await import('firebase/firestore');
+      const config = {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY?.replace(/["']/g, '').trim(),
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN?.replace(/["']/g, '').trim(),
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID?.replace(/["']/g, '').trim(),
+      };
+      const existing = getApps().find(a => a.name === '_ca_create_');
+      if (existing) await deleteApp(existing);
+      const secondaryApp = initializeApp(config, '_ca_create_');
+      const secondaryAuth = getAuthInstance(secondaryApp);
+      // newMember should have password — fall back to random if missing
+      const password = (newMember as any).password || crypto.randomUUID().slice(0, 12);
+      const cred = await createUserWithEmailAndPassword(secondaryAuth, newMember.email, password);
+      const uid = cred.user.uid;
+      const db = getFirestore(getApp());
+      const now = new Date().toISOString();
+      await setDoc(doc(db, 'users', uid), {
+        email: newMember.email, fullName: newMember.fullName, firebaseUid: uid, companyId,
+        role: newMember.role, accountStatus: 'active', subscriptionStatus: 'active',
+        subscriptionTier: 'beta_tester', emailVerified: true, createdAt: now, updatedAt: now,
       });
+      await addDoc(collection(db, 'companyMemberships'), {
+        companyId, userId: uid, email: newMember.email, fullName: newMember.fullName,
+        role: newMember.role, status: 'active', joinedAt: now, createdAt: now, updatedAt: now,
+      });
+      await secondaryAuth.signOut();
+      await deleteApp(secondaryApp);
+      return { success: true, member: { id: uid, email: newMember.email, fullName: newMember.fullName, role: newMember.role } };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
-      /* toast removed */
+      queryClient.invalidateQueries({ queryKey: ['firestore-my-company'] });
+      toast.success('Member created');
       setShowCreateMember(false);
       setNewMember({ email: '', fullName: '', role: 'member' });
     },
@@ -311,10 +336,15 @@ export default function CompanyAdminPage() {
   const deleteMemberMutation = useMutation({
     mutationFn: async (memberId: string) => {
       if (!companyId) throw new Error('No company');
-      return authedRequest(`/api/companies/${companyId}/members/${memberId}`, { method: 'DELETE' });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where, deleteDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', memberId)));
+      for (const m of mSnap.docs) await deleteDoc(m.ref);
+      return { success: true };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-my-company'] });
       /* toast removed */
     },
     onError: (e: Error) => toast.error(e.message),
@@ -332,13 +362,15 @@ export default function CompanyAdminPage() {
   const changeRoleMutation = useMutation({
     mutationFn: async ({ memberId, role }: { memberId: string; role: string }) => {
       if (!companyId) throw new Error('No company');
-      return authedRequest(`/api/companies/${companyId}/members/${memberId}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ role }),
-      });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', memberId)));
+      if (!mSnap.empty) await updateDoc(mSnap.docs[0].ref, { role, updatedAt: new Date().toISOString() });
+      return { success: true };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/my-company'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-my-company'] });
       /* toast removed */
     },
     onError: (e: Error) => toast.error(e.message),
@@ -358,9 +390,17 @@ export default function CompanyAdminPage() {
   const sendResetEmailMutation = useMutation({
     mutationFn: async ({ uid }: { uid: string }) => {
       if (!companyId) throw new Error('No company');
-      return authedRequest(`/api/companies/${companyId}/members/${uid}/send-reset-link`, {
-        method: 'POST',
-      });
+      // Send password reset email via Firebase Client SDK
+      const { getAuth: getAuthFn, sendPasswordResetEmail } = await import('firebase/auth');
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, getDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      // Get email from membership or users collection
+      const userDoc = await getDoc(doc(db, 'users', uid));
+      const email = userDoc.exists() ? userDoc.data()?.email : null;
+      if (!email) throw new Error('User email not found');
+      await sendPasswordResetEmail(getAuthFn(), email);
+      return { success: true, message: `Reset email sent to ${email}` };
     },
     onSuccess: () => {
       /* toast removed */

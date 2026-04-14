@@ -31,3 +31,4 @@ app-extracted/
 $staging/
 release-builds/
 attached_assets/
+firebase-service-account.json

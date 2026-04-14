@@ -81,18 +81,17 @@ export function useLogging({ captureImage }: UseLoggingProps) {
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return false;
 
-    // Manual mode: use the CURRENT selected POI type (user just pressed the button)
-    const poiType = selectedPOIType || 'wire';
+    // RACE FIX: prefer the POI type captured at the moment of the laser hit
+    // (snapshotted in serialStore) over the live store value, in case the user
+    // already switched POI types in anticipation of the next item.
+    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
     const gps = getGpsSnapshot();
     const now = new Date();
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
     const poiNumber = await getNextPoiNumber();
 
-    // PERF: Capture image async — save POI first for instant feedback
-    const imageUrl = await captureImage().catch(() => null);
-
-    // PERF: Fire-and-forget — don't block on worker response
-    savePOI({
+    // PERF: Save POI FIRST without image — instant feedback
+    const saved = await savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -105,15 +104,33 @@ export function useLogging({ captureImage }: UseLoggingProps) {
       utcDate: now.toISOString().split('T')[0],
       utcTime: now.toTimeString().split(' ')[0],
       createdAt: now.toISOString(),
-      imageUrl,
-      images: imageUrl ? [imageUrl] : [],
       note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'manual',
       loggingMode: 'manual',
-    }).catch(() => {});
+    });
 
-    setPoisLogged(n => n + 1);
-    return true;
+    if (saved) {
+      setPoisLogged(n => n + 1);
+      // PERF: Capture image ASYNC — fire-and-forget, attaches to POI after
+      captureImage().then(imageUrl => {
+        if (!imageUrl) return;
+        import('@/lib/survey/db').then(({ openSurveyDB }) => {
+          openSurveyDB().then(db => {
+            db.get('measurements', id).then((m: any) => {
+              if (m) {
+                const updated = { ...m, imageUrl, images: [imageUrl] };
+                db.put('measurements', updated);
+                import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
+                  getMeasurementFeed().addMeasurement(updated);
+                }).catch(() => {});
+                window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
+              }
+            });
+          });
+        }).catch(() => {});
+      }).catch(() => {});
+    }
+    return saved;
   }, [activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage]);
 
   return {

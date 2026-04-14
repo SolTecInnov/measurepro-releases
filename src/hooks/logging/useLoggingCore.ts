@@ -149,16 +149,17 @@ export function useLoggingCore() {
       // PERF: Update in-memory cache FIRST for instant UI feedback
       getMeasurementFeed().addMeasurement(measurement as any);
 
-      // PERF: Queue IndexedDB write to worker (non-blocking, batched).
-      // Before this fix, `await db.put()` on the main thread blocked 10-200ms
-      // per write due to IndexedDB lock contention with the worker's batch writes.
+      // PERF: Fire-and-forget to worker — NEVER await. At 3-5 POIs/sec,
+      // awaiting the worker response creates a 50-200ms bottleneck per POI.
+      // The cache is already updated so UI is instant.
       try {
         const logger = getMeasurementLogger();
-        await logger.logMeasurement(measurement as any);
+        logger.logMeasurement(measurement as any).catch(() => {
+          // Worker write failed — fallback to direct write (async, non-blocking)
+          openSurveyDB().then(db => db.put('measurements', measurement)).catch(() => {});
+        });
       } catch {
-        // Worker unavailable — fallback to direct write (still works, just slower)
-        const db = await openSurveyDB();
-        await db.put('measurements', measurement);
+        openSurveyDB().then(db => db.put('measurements', measurement)).catch(() => {});
       }
 
       // Clear the captured image from pending photos

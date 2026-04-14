@@ -125,14 +125,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
     };
   }, []);
 
-  // ── Persistent pairing connection ────────────────────────────────────────────
-
-  // Start WS on mount — no feature gate because features load async and the
-  // guard inside the store prevents duplicate connections.
-  React.useEffect(() => {
-    pairingConnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // Slave pairing connects on demand when the user opens the QR dialog.
 
   // Push survey to slave whenever activeSurvey changes
   React.useEffect(() => {

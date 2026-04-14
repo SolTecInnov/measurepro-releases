@@ -1,21 +1,14 @@
 /**
- * useCounterMode — auto-detect (sky→object→sky)
+ * useCounterMode — sky→object→sky detection
  *
- * Rules:
- * - Active POI type does NOT require measurement → IGNORE all laser readings
- * - Active POI type REQUIRES measurement:
- *   1. Wait for sky→object transition (first valid reading after sky)
- *   2. Buffer readings while under object
- *   3. Log POI when FIRST of these triggers:
- *      a) Sky returns for skyTimeoutMs seconds → log with min height
- *      b) maxObjectMs elapsed since first reading → force-log
- *      c) maxObjectDistM meters traveled since first reading → force-log
- *   4. Image captured ONCE at the moment of logging, NOT at every reading
+ * Reacts to lastMeasurement changes from serialStore (same as All Data).
+ * State machine: sky → object (buffer readings) → sky (log POI with min height)
  */
 
 import { useRef, useCallback, useEffect } from 'react';
 import { useSerialStore } from '@/lib/stores/serialStore';
-import { usePOIStore, shouldRecordHeightClearance } from '@/lib/poi';
+import { usePOIStore } from '@/lib/poi';
+import { usePOIActionsStore } from '@/lib/poiActions';
 import { useSettingsStore } from '@/lib/settings';
 import { useRainModeStore } from '@/lib/stores/rainModeStore';
 import { useLoggingCore, parseMeters, getGpsSnapshot, isInvalidReading } from './useLoggingCore';
@@ -28,9 +21,9 @@ interface CounterConfig {
 }
 
 const DEFAULT_CONFIG: CounterConfig = {
-  skyTimeoutMs: 500,
-  maxObjectMs: 3000,
-  maxObjectDistM: 50,
+  skyTimeoutMs: 500,       // 0.5s — field-tested optimal for driving speed
+  maxObjectMs: 3000,       // 3s — force-log after 3s under object
+  maxObjectDistM: 50,      // 50m — force-log after 50m travel under object
   counterThreshold: 7,
 };
 
@@ -61,35 +54,47 @@ type DetectionState = 'sky' | 'object';
 
 export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCounterModeProps) {
   const cfg = { ...DEFAULT_CONFIG, ...loadAutoCaptureConfig() };
-  const { lastMeasurement } = useSerialStore();
+  const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
   const { selectedType: selectedPOIType } = usePOIStore();
+  const { getActionForPOI } = usePOIActionsStore();
   const { alertSettings } = useSettingsStore();
 
   const stateRef = useRef<DetectionState>('sky');
   const bufferRef = useRef<number[]>([]);
   const skyCountRef = useRef(0);
   const objectStartTimeRef = useRef<number>(0);
+  const capturedImageRef = useRef<string | null>(null);
   const capturedGpsRef = useRef<ReturnType<typeof getGpsSnapshot> | null>(null);
+  // RACE FIX: Snapshot the POI type at the sky→object transition. The user is
+  // free to switch to the next POI type while we're still buffering this one's
+  // readings; without this snapshot we'd log the buffer with the new type.
   const bufferPoiTypeRef = useRef<string | null>(null);
   const countRef = useRef(0);
   const skyTimerRef = useRef<number | null>(null);
 
-  // Log the buffered readings as a single POI.
-  // Image is captured NOW (at log time), not during buffering.
   const logBuffer = useCallback(async () => {
     if (bufferRef.current.length === 0 || !activeSurvey?.id) return;
 
+    // Use the snapshot taken at object detection, not the live store value.
     const poiType = bufferPoiTypeRef.current || selectedPOIType || 'wire';
+    const action = getActionForPOI(poiType as any);
+    if (action === 'voice-note' || action === 'select-only' || action === 'auto-capture-no-measurement') {
+      bufferRef.current = [];
+      stateRef.current = 'sky';
+      return;
+    }
 
     const readings = bufferRef.current;
     const minReading = Math.min(...readings);
     const avgReading = readings.reduce((a, b) => a + b, 0) / readings.length;
     const gps = capturedGpsRef.current || getGpsSnapshot();
+    const imageUrl = capturedImageRef.current;
     const now = new Date();
 
-    // Reset state immediately so new detections can start
+    // Reset immediately
     bufferRef.current = [];
+    capturedImageRef.current = null;
     capturedGpsRef.current = null;
     bufferPoiTypeRef.current = null;
     stateRef.current = 'sky';
@@ -98,11 +103,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
     const poiNumber = await getNextPoiNumber();
 
-    // Capture image NOW — at the moment we log, not during detection
-    const imageUrl = await captureImage().catch(() => null);
-
-    // Fire-and-forget
-    savePOI({
+    const saved = await savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -120,23 +121,21 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       createdAt: now.toISOString(),
       imageUrl,
       images: imageUrl ? [imageUrl] : [],
-      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}`,
+      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
       source: 'counter',
       loggingMode: 'counter_detection',
-    }).catch(() => {});
+    });
 
-    countRef.current++;
-    onPOILogged?.(countRef.current);
-  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, selectedPOIType, captureImage, onPOILogged]);
+    if (saved) {
+      countRef.current++;
+      onPOILogged?.(countRef.current);
+    }
+  }, [activeSurvey?.id, groundRef, savePOI, getNextPoiNumber, selectedPOIType, getActionForPOI, onPOILogged]);
 
   // React to every measurement change
   useEffect(() => {
     if (!isActive || !activeSurvey?.id) return;
     if (!lastMeasurement) return;
-
-    // If the active POI type does NOT require a laser measurement, ignore everything.
-    const currentType = selectedPOIType || '';
-    if (!shouldRecordHeightClearance(currentType)) return;
 
     const isSky = isInvalidReading(lastMeasurement);
 
@@ -144,7 +143,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       skyCountRef.current++;
 
       if (stateRef.current === 'object' && bufferRef.current.length > 0) {
-        // Sky detected while under object — start sky timer
+        // Start sky timer — if sky persists for skyTimeoutMs, log the buffer
         if (!skyTimerRef.current) {
           skyTimerRef.current = window.setTimeout(() => {
             skyTimerRef.current = null;
@@ -156,7 +155,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       // Valid reading
       skyCountRef.current = 0;
 
-      // Cancel sky timer if we get a valid reading (still under object)
+      // Cancel sky timer if we get a valid reading
       if (skyTimerRef.current) {
         clearTimeout(skyTimerRef.current);
         skyTimerRef.current = null;
@@ -165,7 +164,9 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       const reading = parseMeters(lastMeasurement, groundRef);
       if (!reading.isValid) return;
 
-      // Height range filter
+      // HEIGHT RANGE FILTER (v16.1.27): skip readings outside the "ignore
+      // above/below" thresholds. Without this, ground reflections (<4m) and
+      // sky bounces (>25m) entered the buffer and produced garbage POIs.
       const minH = alertSettings?.thresholds?.minHeight ?? 4;
       const maxH = alertSettings?.thresholds?.maxHeight ?? 25;
       if (reading.meters < minH || reading.meters > maxH) return;
@@ -175,13 +176,17 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
         stateRef.current = 'object';
         objectStartTimeRef.current = Date.now();
         capturedGpsRef.current = getGpsSnapshot();
-        bufferPoiTypeRef.current = currentType || null;
-        // NO image capture here — image is captured at log time
+        // Lock in the POI type at the moment we detect this object. The user
+        // hears the capture sound here and is free to switch to the next type.
+        bufferPoiTypeRef.current = lastMeasurementPoiType || selectedPOIType || null;
+
+        // Capture image immediately
+        captureImage().then(url => { capturedImageRef.current = url; }).catch(() => {});
       }
 
       bufferRef.current.push(reading.meters);
 
-      // Force log if max duration OR max distance exceeded (FIRST wins)
+      // Force log if max duration exceeded
       const elapsed = Date.now() - objectStartTimeRef.current;
       if (elapsed >= cfg.maxObjectMs) {
         if (skyTimerRef.current) { clearTimeout(skyTimerRef.current); skyTimerRef.current = null; }
@@ -189,6 +194,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
         return;
       }
 
+      // Force log if max distance exceeded (GPS-based)
       if (cfg.maxObjectDistM > 0 && capturedGpsRef.current) {
         const gpsNow = getGpsSnapshot();
         if (gpsNow.latitude && gpsNow.longitude && capturedGpsRef.current.latitude && capturedGpsRef.current.longitude) {
@@ -216,6 +222,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
 
   const reset = useCallback(() => {
     bufferRef.current = [];
+    capturedImageRef.current = null;
     capturedGpsRef.current = null;
     bufferPoiTypeRef.current = null;
     stateRef.current = 'sky';

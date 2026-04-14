@@ -174,16 +174,18 @@ const TabManager: React.FC<TabManagerProps> = ({
     if (!user || isAdmin) return; // soltec admins already have the Admin tab
     let cancelled = false;
     const check = async () => {
-      // 1. Try the API first (most authoritative, works even without prior cache)
+      // 1. Try Firestore direct (no server dependency)
       try {
-        const { authedFetch } = await import('../lib/authedFetch');
-        const res = await authedFetch('/api/my-company');
-        if (res.ok) {
-          const data = await res.json();
-          if (!cancelled) setIsCompanyAdmin(data?.membership?.role === 'company_admin');
+        const { getApp } = await import('firebase/app');
+        const { getFirestore, collection, getDocs, query, where } = await import('firebase/firestore');
+        const db = getFirestore(getApp());
+        const snap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', user.uid)));
+        if (!snap.empty) {
+          const role = snap.docs[0].data()?.role;
+          if (!cancelled) setIsCompanyAdmin(role === 'company_admin' || role === 'owner');
           return;
         }
-      } catch { /* network error — fall through */ }
+      } catch { /* Firestore error — fall through */ }
       // 2. Auth cache (companyRole written at login by seedCompanyDataOffline)
       try {
         const { getCompanyMembershipFromCache } = await import('../lib/auth/offlineAuth');

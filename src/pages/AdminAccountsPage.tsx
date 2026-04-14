@@ -176,10 +176,22 @@ export default function AdminAccountsPage() {
 
   const pendingAccounts: Account[] = accountsData?.accounts || [];
 
-  // Fetch all users
-  const { data: allUsersData, isLoading: isLoadingUsers, refetch: refetchUsers } = useQuery<UserRecord[] | { users: UserRecord[] }>({
-    queryKey: ['/api/admin/users'],
+  // Fetch all users from Firestore directly
+  const { data: allUsersData, isLoading: isLoadingUsers, refetch: refetchUsers } = useQuery<UserRecord[]>({
+    queryKey: ['firestore-admin-users'],
     enabled: isAdmin && !isCheckingAdmin,
+    retry: false,
+    staleTime: 5 * 60_000,
+    queryFn: async () => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(collection(db, 'users'));
+      // Filter out numeric-ID junk docs (Replit artifacts), keep Firebase UID docs
+      return snap.docs
+        .filter(d => isNaN(Number(d.id)))
+        .map(d => ({ id: d.id, authUid: d.id, ...d.data() })) as UserRecord[];
+    },
   });
 
   // The default fetcher may unwrap single-key responses (returning the array directly)
@@ -199,86 +211,121 @@ export default function AdminAccountsPage() {
     ? false
     : (firebaseStatus?.available ?? false);
 
-  // Approve account mutation
+  // Approve account mutation — Firestore direct
   const approveMutation = useMutation({
     mutationFn: async (accountId: string) => {
-      const headers = await getAuthHeader();
-      return apiRequest(`/api/admin/accounts/${accountId}/approve`, { method: 'POST', headers });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'users', accountId), { accountStatus: 'active', approvedAt: new Date().toISOString(), updatedAt: new Date().toISOString() });
+      return { success: true };
     },
     onSuccess: () => {
-      /* toast removed */
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/accounts/pending'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-admin-users'] });
     },
     onError: (error: any) => {
       toast.error('Approval failed', { description: error.message || 'Failed to approve account.' });
     },
   });
 
-  // Create beta account mutation
+  // Create beta account mutation — Firestore direct
   const createBetaMutation = useMutation({
     mutationFn: async () => {
-      const headers = await getAuthHeader();
-      return apiRequest('/api/admin/create-beta-account', { method: 'POST', headers });
+      // This is a placeholder — beta account creation needs email+password from a form
+      toast.info('Use the Create User form to create a beta account with subscriptionTier: beta_tester');
+      return { success: true };
     },
-    onSuccess: (data: any) => {
-      /* toast removed */
-    },
+    onSuccess: () => {},
     onError: (error: any) => {
-      toast.error('Failed to create beta account', { description: error.message || 'Please try manual creation instead.' });
+      toast.error('Failed to create beta account', { description: error.message });
     },
   });
 
-  // Reject account mutation
+  // Reject account mutation — Firestore direct
   const rejectMutation = useMutation({
     mutationFn: async ({ accountId, reason }: { accountId: string; reason?: string }) => {
-      const headers = await getAuthHeader();
-      return apiRequest(`/api/admin/accounts/${accountId}/reject`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ reason }),
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'users', accountId), {
+        accountStatus: 'rejected', rejectedAt: new Date().toISOString(), rejectionReason: reason || null, updatedAt: new Date().toISOString(),
       });
+      return { success: true };
     },
     onSuccess: () => {
-      /* toast removed */
       setShowRejectDialog(false);
       setRejectionReason('');
       setSelectedAccount(null);
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/accounts/pending'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-admin-users'] });
     },
     onError: (error: any) => {
       toast.error('Rejection failed', { description: error.message || 'Failed to reject account.' });
     },
   });
 
-  // Create user mutation
+  // Create user mutation — uses Firebase Client SDK directly (no server dependency)
   const createUserMutation = useMutation({
     mutationFn: async () => {
-      const headers = await getAuthHeader();
-      return apiRequest('/api/admin/users/create', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
+      const { initializeApp, getApps, deleteApp } = await import('firebase/app');
+      const { getAuth: getAuthInstance, createUserWithEmailAndPassword } = await import('firebase/auth');
+      const { getFirestore, doc, setDoc, serverTimestamp } = await import('firebase/firestore');
+      const { getApp } = await import('firebase/app');
+
+      // Use a secondary Firebase app to create the user without signing out the admin
+      const secondaryConfig = {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY?.replace(/["']/g, '').trim(),
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN?.replace(/["']/g, '').trim(),
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID?.replace(/["']/g, '').trim(),
+      };
+      const existing = getApps().find(a => a.name === '_admin_create_');
+      if (existing) await deleteApp(existing);
+      const secondaryApp = initializeApp(secondaryConfig, '_admin_create_');
+      const secondaryAuth = getAuthInstance(secondaryApp);
+
+      try {
+        // Create the Firebase Auth user
+        const cred = await createUserWithEmailAndPassword(secondaryAuth, createForm.email, createForm.password);
+        const uid = cred.user.uid;
+
+        // Write user doc to Firestore (collection: 'users', keyed by Firebase UID)
+        const db = getFirestore(getApp());
+        await setDoc(doc(db, 'users', uid), {
           email: createForm.email,
-          password: createForm.password,
           fullName: createForm.fullName,
-          company: createForm.company || undefined,
-          title: createForm.title || undefined,
-          phone: createForm.phone || undefined,
-          address: createForm.address || undefined,
+          firebaseUid: uid,
+          company: createForm.company || null,
+          title: createForm.title || null,
+          phone: createForm.phone || null,
+          address: createForm.address || null,
           subscriptionTier: createForm.subscriptionTier,
           enabledAddons: createForm.enabledAddons,
-          sendWelcomeEmailFlag: createForm.sendWelcomeEmail,
-        }),
-      });
+          accountStatus: 'active',
+          subscriptionStatus: 'active',
+          emailVerified: true,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          approvedAt: new Date().toISOString(),
+        });
+
+        // Sign out from secondary app (doesn't affect main admin session)
+        await secondaryAuth.signOut();
+        await deleteApp(secondaryApp);
+
+        return { success: true, uid, email: createForm.email };
+      } catch (err: any) {
+        // Cleanup secondary app on error
+        try { await secondaryAuth.signOut(); await deleteApp(secondaryApp); } catch {}
+        throw err;
+      }
     },
     onSuccess: (data: any) => {
-      /* toast removed */
+      toast.success('User created', { description: `${data.email} (${data.uid})` });
       setShowCreateForm(false);
       setCreateForm({
         email: '', password: '', fullName: '', company: '', title: '',
         phone: '', address: '', subscriptionTier: 'pro', enabledAddons: [], sendWelcomeEmail: false,
       });
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-admin-users'] });
     },
     onError: (error: any) => {
       toast.error('Failed to create user', { description: error.message || 'Please check the fields and try again.' });
@@ -293,23 +340,18 @@ export default function AdminAccountsPage() {
   const resetPwMutation = useMutation({
     mutationFn: async () => {
       if (!resetPwUser) throw new Error('No user selected');
-      const headers = await getAuthHeader();
-      const body: Record<string, string> = {};
-      if (useCustomPassword && adminSetPassword.length >= 6) {
-        body.newPassword = adminSetPassword;
-      }
-      return apiRequest(`/api/admin/users/${resetPwUser.id}/reset-password`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(body),
-      });
+      // Use Firebase Client SDK sendPasswordResetEmail
+      const { getAuth: getAuthFn, sendPasswordResetEmail } = await import('firebase/auth');
+      const auth = getAuthFn();
+      await sendPasswordResetEmail(auth, resetPwUser.email);
+      return { success: true, message: `Password reset email sent to ${resetPwUser.email}` };
     },
     onSuccess: (data: any) => {
-      setGeneratedTempPassword(data.temporaryPassword || null);
-      /* toast removed */
+      toast.success(data.message || 'Password reset email sent');
+      setGeneratedTempPassword(null);
     },
     onError: (error: any) => {
-      toast.error('Failed to reset password', { description: error.message || 'Please try again.' });
+      toast.error('Failed to send reset email', { description: error.message || 'Please try again.' });
     },
   });
 
@@ -317,23 +359,23 @@ export default function AdminAccountsPage() {
   const updateSubMutation = useMutation({
     mutationFn: async () => {
       if (!subEditUser) throw new Error('No user selected');
-      const headers = await getAuthHeader();
-      return apiRequest(`/api/admin/users/${subEditUser.id}/subscription`, {
-        method: 'PATCH',
-        headers,
-        body: JSON.stringify({
-          subscriptionTier: subTier,
-          enabledAddons: subAddons,
-          subscriptionEndDate: subEndDate || null,
-          freeUntil: subFreeUntil || null,
-        }),
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'users', subEditUser.id), {
+        subscriptionTier: subTier,
+        enabledAddons: subAddons,
+        subscriptionEndDate: subEndDate || null,
+        freeUntil: subFreeUntil || null,
+        updatedAt: new Date().toISOString(),
       });
+      return { success: true };
     },
     onSuccess: () => {
-      /* toast removed */
+      toast.success('Subscription updated');
       setShowSubDialog(false);
       setSubEditUser(null);
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-admin-users'] });
     },
     onError: (error: any) => {
       toast.error('Failed to update subscription', { description: error.message });
@@ -344,14 +386,11 @@ export default function AdminAccountsPage() {
   const resendEmailMutation = useMutation({
     mutationFn: async () => {
       if (!resendEmailUser) throw new Error('No user selected');
-      const headers = await getAuthHeader();
-      const body: Record<string, string> = {};
-      if (resendNewPassword.length >= 6) body.newPassword = resendNewPassword;
-      return apiRequest(`/api/admin/users/${resendEmailUser.id}/resend-welcome-email`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(body),
-      });
+      // Send password reset email as welcome — user sets their own password
+      const { getAuth: getAuthFn, sendPasswordResetEmail } = await import('firebase/auth');
+      const auth = getAuthFn();
+      await sendPasswordResetEmail(auth, resendEmailUser.email);
+      return { success: true, message: `Welcome/reset email sent to ${resendEmailUser.email}` };
     },
     onSuccess: (data: any) => {
       /* toast removed */
@@ -370,15 +409,24 @@ export default function AdminAccountsPage() {
     setShowResendEmailDialog(true);
   };
 
-  // Fetch all companies (for company selector)
+  // Fetch all companies from Firestore directly (no server dependency)
   const { data: companiesData } = useQuery<{ success: boolean; companies: { id: string; name: string; enabledAddons?: string[] }[] }>({
-    queryKey: ['/api/companies'],
+    queryKey: ['firestore-companies'],
     enabled: isAdmin && !isCheckingAdmin,
+    retry: false,
+    refetchOnWindowFocus: false,
+    staleTime: 5 * 60_000,
     queryFn: async () => {
-      const headers = await getAuthHeader();
-      const res = await fetch(`${API_BASE_URL}/api/companies`, { headers });
-      if (!res.ok) throw new Error('Failed to fetch companies');
-      return res.json();
+      try {
+        const { getApp } = await import('firebase/app');
+        const { getFirestore, collection, getDocs } = await import('firebase/firestore');
+        const db = getFirestore(getApp());
+        const snap = await getDocs(collection(db, 'companies'));
+        const companies = snap.docs.map(d => ({ id: d.id, ...d.data() })) as any[];
+        return { success: true, companies };
+      } catch {
+        return { success: true, companies: [] };
+      }
     },
   });
   const allCompanies = companiesData?.companies || [];
@@ -391,18 +439,32 @@ export default function AdminAccountsPage() {
       email: string;
       addonOverrides: { addonKey: string; expiresAt: string }[];
     }) => {
-      const headers = await getAuthHeader();
-      return apiRequest(`/api/admin/users/${uid}/assign-company`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ companyId, fullName, email, addonOverrides }),
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc, collection, addDoc, setDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const now = new Date().toISOString();
+      // Update user doc with companyId
+      await updateDoc(doc(db, 'users', uid), { companyId, updatedAt: now });
+      // Create membership
+      await addDoc(collection(db, 'companyMemberships'), {
+        companyId, userId: uid, email, fullName, role: 'member', status: 'active',
+        joinedAt: now, createdAt: now, updatedAt: now,
       });
+      // Create addon overrides if any
+      for (const override of addonOverrides) {
+        await addDoc(collection(db, 'memberAddonOverrides'), {
+          userId: uid, userEmail: email, userName: fullName,
+          addonKey: override.addonKey, expiresAt: override.expiresAt,
+          isActive: true, grantedByUid: 'admin', grantedAt: now, createdAt: now, updatedAt: now,
+        });
+      }
+      return { success: true };
     },
     onSuccess: () => {
-      /* toast removed */
+      toast.success('Company assigned');
       setShowCompanyDialog(false);
       setCompanyEditUser(null);
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-admin-users'] });
     },
     onError: (error: any) => {
       toast.error('Failed to update company assignment', { description: error.message });
@@ -411,8 +473,15 @@ export default function AdminAccountsPage() {
 
   const removeCompanyMutation = useMutation({
     mutationFn: async (uid: string) => {
-      const headers = await getAuthHeader();
-      return apiRequest(`/api/admin/users/${uid}/company`, { method: 'DELETE', headers });
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc, collection, getDocs, query, where, deleteDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      // Remove companyId from user
+      await updateDoc(doc(db, 'users', uid), { companyId: null, updatedAt: new Date().toISOString() });
+      // Delete membership docs
+      const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', uid)));
+      for (const m of mSnap.docs) await deleteDoc(m.ref);
+      return { success: true };
     },
     onSuccess: () => {
       /* toast removed */

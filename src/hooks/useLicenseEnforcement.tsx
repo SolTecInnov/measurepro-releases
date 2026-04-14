@@ -5,7 +5,6 @@ import { getUserEnabledFeatures } from '../lib/licensing';
 import { isMasterAdmin, isBetaTestAccount, getBetaRestrictedFeatures, getBetaRestrictedFeaturesForUser, getAdminViewOverride, type AdminViewOverride } from '../lib/auth/masterAdmin';
 import { useAuth } from '../lib/auth/AuthContext';
 import { getAuthCache } from '../lib/auth/offlineAuth';
-import { authedRequest } from '../lib/authedFetch';
 import type { Company, CompanyMember, MemberAddonOverride } from '../../shared/schema';
 
 interface MyCompanyData {
@@ -21,11 +20,42 @@ interface MyCompanyData {
 function useMemberAccess(): { membership: CompanyMember | null; company: Company | null } {
   const { user } = useAuth();
   const { data } = useQuery<MyCompanyData>({
-    queryKey: ['/api/my-company'],
-    enabled: !!user,
-    queryFn: () => authedRequest<{ success: boolean; company: Company | null; membership: CompanyMember | null; members: CompanyMember[] }>('/api/my-company')
-      .then(json => ({ company: json.company, membership: json.membership, members: json.members })),
-    staleTime: 60_000,
+    queryKey: ['firestore-my-company', user?.uid],
+    enabled: !!user?.uid,
+    queryFn: async () => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, doc, getDoc, getDocs, query, where } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      try {
+        // Memberships are in top-level 'companyMemberships' collection
+        const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', user!.uid)));
+        if (mSnap.empty) {
+          // Fallback: check users doc for companyId field
+          const userDoc = await getDoc(doc(db, 'users', user!.uid));
+          if (userDoc.exists() && userDoc.data()?.companyId) {
+            const companyDoc = await getDoc(doc(db, 'companies', userDoc.data().companyId));
+            const company = companyDoc.exists() ? { id: companyDoc.id, ...companyDoc.data() } : null;
+            return { company: company as any, membership: { role: userDoc.data().role || 'member', userId: user!.uid } as any, members: [] };
+          }
+          return { company: null, membership: null, members: [] };
+        }
+        const memberData = { id: mSnap.docs[0].id, ...mSnap.docs[0].data() } as any;
+        const companyId = memberData.companyId;
+        if (!companyId) return { company: null, membership: memberData, members: [] };
+        const companyDoc = await getDoc(doc(db, 'companies', companyId));
+        const company = companyDoc.exists() ? { id: companyDoc.id, ...companyDoc.data() } : null;
+        // Get all members of this company
+        const allMembersSnap = await getDocs(query(collection(db, 'companyMemberships'), where('companyId', '==', companyId)));
+        const members = allMembersSnap.docs.map(d => ({ id: d.id, ...d.data() })) as any[];
+        return { company: company as any, membership: memberData, members };
+      } catch (e) {
+        console.error('[LicenseEnforcement] Firestore query failed:', e);
+        return { company: null, membership: null, members: [] };
+      }
+    },
+    staleTime: 5 * 60_000,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
   return { membership: data?.membership ?? null, company: data?.company ?? null };
 }
@@ -44,8 +74,22 @@ function useAddonOverrides(): Set<string> {
   const { data } = useQuery<{ success: boolean; overrides: MemberAddonOverride[] }>({
     queryKey: ['/api/my-addon-overrides'],
     enabled: !!user,
-    queryFn: () => authedRequest<{ success: boolean; overrides: MemberAddonOverride[] }>('/api/my-addon-overrides'),
-    staleTime: 60_000,
+    queryFn: async () => {
+      try {
+        const { getApp } = await import('firebase/app');
+        const { getFirestore, collection, getDocs, query, where, Timestamp } = await import('firebase/firestore');
+        const db = getFirestore(getApp());
+        const snap = await getDocs(query(collection(db, 'memberAddonOverrides'), where('userId', '==', user!.uid), where('isActive', '==', true)));
+        const overrides = snap.docs.map(d => {
+          const data = d.data();
+          return { id: d.id, ...data, expiresAt: data.expiresAt instanceof Timestamp ? data.expiresAt.toDate().toISOString() : data.expiresAt };
+        });
+        return { success: true, overrides } as any;
+      } catch { return { success: true, overrides: [] }; }
+    },
+    staleTime: 5 * 60_000,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   return useMemo(() => {

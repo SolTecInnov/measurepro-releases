@@ -1,30 +1,33 @@
 /**
- * useAllDataMode — logs every valid laser reading as a POI
+ * useAllDataMode — logs every valid laser reading immediately
  *
  * Rules:
- * - Active POI type REQUIRES measurement → each valid reading = 1 POI + 1 image
- * - Active POI type does NOT require measurement → IGNORE laser readings entirely
- *   (those POIs are created by user action via StreamDeck/keyboard, not by laser)
+ * - Each unique valid reading → 1 POI immediately
+ * - POI type = user's current selection
+ * - POI action = user's configured action for that type
  * - DE02/sky/invalid → silent skip
- * - Image captured once per POI, not per reading
+ * - Image captured async (doesn't delay logging)
+ * - No buffer, no algorithm, no conditions
  */
 
 import { useRef, useCallback, useEffect } from 'react';
 import { useSerialStore } from '@/lib/stores/serialStore';
-import { usePOIStore, shouldRecordHeightClearance } from '@/lib/poi';
+import { usePOIStore } from '@/lib/poi';
+import { usePOIActionsStore } from '@/lib/poiActions';
 import { useSettingsStore } from '@/lib/settings';
 import { useRainModeStore } from '@/lib/stores/rainModeStore';
 import { useLoggingCore, parseMeters, getGpsSnapshot } from './useLoggingCore';
 
 interface UseAllDataModeProps {
-  isActive: boolean;
+  isActive: boolean;              // true when logging mode = 'all_data'
   captureImage: () => Promise<string | null>;
   onPOILogged?: (count: number) => void;
 }
 
 export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDataModeProps) {
-  const { lastMeasurement } = useSerialStore();
+  const { lastMeasurement, lastMeasurementPoiType } = useSerialStore();
   const { selectedType: selectedPOIType } = usePOIStore();
+  const { getActionForPOI } = usePOIActionsStore();
   const { alertSettings } = useSettingsStore();
   const { activeSurvey, groundRef, savePOI, getNextPoiNumber } = useLoggingCore();
 
@@ -35,30 +38,38 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
     if (!isActive || !activeSurvey?.id) return;
     if (!lastMeasurement || lastMeasurement === lastLoggedRef.current) return;
 
-    // If the active POI type does NOT require a laser measurement, ignore.
-    // Those POIs are created by user pressing a button, not by laser readings.
-    const poiType = selectedPOIType || 'wire';
-    if (!shouldRecordHeightClearance(poiType)) return;
-
     const reading = parseMeters(lastMeasurement, groundRef);
-    if (!reading.isValid) return;
+    if (!reading.isValid) return;  // DE02, sky, noise → silent skip
 
-    // Height range filter
+    // HEIGHT RANGE FILTER (v16.1.27): skip measurements outside the "ignore
+    // above/below" thresholds set in Settings → Alerts. This was missing from
+    // All Data and Counter modes — only Detection mode checked it, so the
+    // user was getting POIs at <4m (ground reflections) and >25m (sky bounces).
     const minH = alertSettings?.thresholds?.minHeight ?? 4;
     const maxH = alertSettings?.thresholds?.maxHeight ?? 25;
     if (reading.meters < minH || reading.meters > maxH) return;
 
+    // RACE FIX: Use the POI type that was active at the MOMENT this laser
+    // reading was captured, not the current store value. The user may have
+    // already switched to the next POI type in anticipation of the next item.
+    const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
+    const action = getActionForPOI(poiType as any);
+
+    // Skip POI types that should not auto-log from laser readings.
+    // 'auto-capture-no-measurement' types (road, intersection, bridge, etc.)
+    // are only triggered by user action (StreamDeck/keyboard), never by laser.
+    if (action === 'voice-note' || action === 'select-only' || action === 'auto-capture-no-measurement') return;
+
     lastLoggedRef.current = lastMeasurement;
 
-    // Capture timestamp + GPS + image NOW (this reading = this POI)
+    // Capture image ASYNC — doesn't block POI save
     const gps = getGpsSnapshot();
     const now = new Date();
     const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}-${Math.random()}`;
     const poiNumber = await getNextPoiNumber();
-    const imageUrl = await captureImage().catch(() => null);
 
-    // Save POI — fire-and-forget
-    savePOI({
+    // Save POI immediately (without image)
+    const saved = await savePOI({
       id,
       surveyId: activeSurvey.id,
       poiType,
@@ -71,16 +82,40 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       utcDate: now.toISOString().split('T')[0],
       utcTime: now.toTimeString().split(' ')[0],
       createdAt: now.toISOString(),
-      imageUrl,
-      images: imageUrl ? [imageUrl] : [],
       source: 'all_data',
       loggingMode: 'all_data',
-      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}`,
-    }).catch(() => {});
+      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
+    });
 
-    countRef.current++;
-    onPOILogged?.(countRef.current);
-  }, [isActive, activeSurvey?.id, lastMeasurement, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage, onPOILogged, alertSettings]);
+    if (saved) {
+      countRef.current++;
+      onPOILogged?.(countRef.current);
+
+      // Capture image async — attaches to POI after
+      if (action === 'auto-capture-and-log' || action === 'auto-capture-no-measurement') {
+        captureImage().then(imageUrl => {
+          if (!imageUrl) return;
+          // Update POI with image in DB and in-memory cache
+          import('@/lib/survey/db').then(({ openSurveyDB }) => {
+            openSurveyDB().then(db => {
+              db.get('measurements', id).then((m: any) => {
+                if (m) {
+                  const updated = { ...m, imageUrl, images: [imageUrl] };
+                  db.put('measurements', updated);
+                  // Update in-memory cache so UI shows the image
+                  import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
+                    getMeasurementFeed().addMeasurement(updated);
+                  }).catch(() => {});
+                  // Clear from captured images card
+                  window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
+                }
+              });
+            });
+          }).catch(() => {});
+        }).catch(() => {});
+      }
+    }
+  }, [isActive, activeSurvey?.id, lastMeasurement, lastMeasurementPoiType, selectedPOIType, groundRef, savePOI, getNextPoiNumber, captureImage, getActionForPOI, onPOILogged]);
 
   // React to measurement changes
   useEffect(() => {

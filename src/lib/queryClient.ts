@@ -66,10 +66,20 @@ export async function apiRequest<T = any>(
   });
 
   if (!response.ok) {
-    const error = await response.json().catch(() => ({ error: 'Request failed' }));
-    throw new Error(error.error || `HTTP error! status: ${response.status}`);
+    // Guard: don't try to parse HTML as JSON (404 pages, server errors)
+    const ct = response.headers.get('content-type') || '';
+    if (ct.includes('application/json')) {
+      const error = await response.json().catch(() => ({ error: 'Request failed' }));
+      throw new Error(error.error || `HTTP error! status: ${response.status}`);
+    }
+    throw new Error(`Server error ${response.status}: ${url}`);
   }
 
+  // Guard: only parse JSON responses
+  const ct = response.headers.get('content-type') || '';
+  if (!ct.includes('application/json')) {
+    throw new Error(`Non-JSON response from ${url}`);
+  }
   const data = await response.json();
   return data;
 }
@@ -97,7 +107,7 @@ export const queryClient = new QueryClient({
         return response;
       },
       refetchOnWindowFocus: false,
-      retry: 1,
+      retry: false,
       staleTime: 5 * 60 * 1000, // 5 minutes
     },
   },

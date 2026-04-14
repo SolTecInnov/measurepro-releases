@@ -66,6 +66,11 @@ export async function authedFetch(url: string, options: RequestInit = {}): Promi
 /** Authenticated API request — throws on non-2xx responses */
 export async function authedRequest<T = unknown>(url: string, options: RequestInit = {}): Promise<T> {
   const res = await authedFetch(url, options);
+  // Guard against non-JSON responses (e.g. 404 HTML pages from server)
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    throw new Error(`Server returned non-JSON (${res.status}): ${url}`);
+  }
   const json = await res.json();
   if (!res.ok) throw new Error(json.error || `Request failed: ${res.status}`);
   return json as T;

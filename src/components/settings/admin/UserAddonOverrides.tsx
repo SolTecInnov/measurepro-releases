@@ -77,16 +77,23 @@ const UserAddonOverrides: React.FC = () => {
     setGrantName('');
     setLookupResults([]);
     try {
-      const result = await authedRequest<{ success: boolean; users: { uid: string; email: string; displayName: string }[] }>(
-        `/api/companies/users/lookup?query=${encodeURIComponent(grantEmail.trim())}`
-      );
-      const users = result.users ?? [];
+      // Firestore direct lookup by email
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(query(collection(db, 'users'), where('email', '==', grantEmail.trim())));
+      const users = snap.docs.map(d => {
+        const data = d.data();
+        return { uid: data.firebaseUid || d.id, email: data.email, displayName: data.fullName || data.firstName || data.email };
+      });
       if (users.length === 1) {
         setGrantUid(users[0].uid);
         setGrantName(users[0].displayName || users[0].email);
         setGrantEmail(users[0].email);
       } else if (users.length > 1) {
         setLookupResults(users);
+      } else {
+        throw new Error('No user found with that email');
       }
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'User not found';

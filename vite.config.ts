@@ -37,8 +37,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    minify: false,
-    sourcemap: true,
+    minify: 'esbuild',
+    sourcemap: false,
     target: 'es2020',
     commonjsOptions: {
       include: [/node_modules/],

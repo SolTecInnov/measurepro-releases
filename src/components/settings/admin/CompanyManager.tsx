@@ -62,13 +62,21 @@ const CompanyManager: React.FC = () => {
   }, [refreshPendingCount]);
 
   const { data: companiesData, isLoading, isError, error, refetch } = useQuery<Company[]>({
-    queryKey: ['/api/companies'],
+    queryKey: ['firestore-companies'],
     queryFn: async () => {
-      const json = await authedRequest<{ success: boolean; companies: Company[] }>('/api/companies');
-      return json.companies;
+      try {
+        const { getApp } = await import('firebase/app');
+        const { getFirestore, collection, getDocs } = await import('firebase/firestore');
+        const db = getFirestore(getApp());
+        const snap = await getDocs(collection(db, 'companies'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() })) as Company[];
+      } catch {
+        return [];
+      }
     },
-    staleTime: 0,
-    retry: 1,
+    staleTime: 5 * 60_000,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   const companies = Array.isArray(companiesData) ? companiesData : [];
@@ -90,13 +98,18 @@ const CompanyManager: React.FC = () => {
   });
 
   const createMutation = useMutation({
-    mutationFn: async (data: InsertCompany) =>
-      authedRequest<{ success: boolean; company: Company }>('/api/companies', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      }),
+    mutationFn: async (data: InsertCompany) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, doc, setDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const id = crypto.randomUUID();
+      const now = new Date().toISOString();
+      const companyDoc = { ...data, id, createdAt: now, updatedAt: now, enabledAddons: data.enabledAddons || [], pendingSync: false };
+      await setDoc(doc(db, 'companies', id), companyDoc);
+      return { success: true, company: companyDoc };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setActiveDialog(null);
       form.reset();
     },
@@ -104,13 +117,15 @@ const CompanyManager: React.FC = () => {
   });
 
   const updateMutation = useMutation({
-    mutationFn: async ({ id, data }: { id: string; data: Partial<InsertCompany> }) =>
-      authedRequest<{ success: boolean; company: Company }>(`/api/companies/${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(data),
-      }),
+    mutationFn: async ({ id, data }: { id: string; data: Partial<InsertCompany> }) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'companies', id), { ...data, updatedAt: new Date().toISOString() });
+      return { success: true };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setActiveDialog(null);
       setEditingCompany(null);
       form.reset();
@@ -119,10 +134,15 @@ const CompanyManager: React.FC = () => {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: async (id: string) =>
-      authedRequest(`/api/companies/${id}`, { method: 'DELETE' }),
+    mutationFn: async (id: string) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, deleteDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await deleteDoc(doc(db, 'companies', id));
+      return { success: true };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setDeleteConfirmId(null);
       setActiveDialog(null);
     },
@@ -130,16 +150,16 @@ const CompanyManager: React.FC = () => {
   });
 
   const addonsMutation = useMutation({
-    mutationFn: async ({ id, enabledAddons }: { id: string; enabledAddons: string[] }) =>
-      authedRequest(`/api/companies/${id}/addons`, {
-        method: 'POST',
-        body: JSON.stringify({ enabledAddons }),
-      }),
+    mutationFn: async ({ id, enabledAddons }: { id: string; enabledAddons: string[] }) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, doc, updateDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      await updateDoc(doc(db, 'companies', id), { enabledAddons, updatedAt: new Date().toISOString() });
+      return { success: true };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setActiveDialog(null);
-      // Notify active sessions that company add-ons changed.
-      // Custom event covers the current tab; BroadcastChannel covers other open tabs.
       window.dispatchEvent(new CustomEvent('company-addons-changed'));
       try {
         const bc = new BroadcastChannel('company-addons-changed');
@@ -157,13 +177,19 @@ const CompanyManager: React.FC = () => {
       fullName: string;
       firebaseUid: string;
       role: 'company_admin' | 'member';
-    }) =>
-      authedRequest<{ success: boolean; member: CompanyMember }>(`/api/companies/${companyId}/members`, {
-        method: 'POST',
-        body: JSON.stringify({ companyId, email, fullName, firebaseUid, role }),
-      }),
+    }) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, addDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const now = new Date().toISOString();
+      const memberDoc = await addDoc(collection(db, 'companyMemberships'), {
+        companyId, email, fullName, userId: firebaseUid, role, status: 'active',
+        joinedAt: now, createdAt: now, updatedAt: now,
+      });
+      return { success: true, member: { id: memberDoc.id, companyId, email, fullName, userId: firebaseUid, role } };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setActiveDialog(null);
       setDesignateEmail('');
       setDesignateFullName('');
@@ -179,13 +205,46 @@ const CompanyManager: React.FC = () => {
       fullName: string;
       password: string;
       role: 'company_admin' | 'member';
-    }) =>
-      authedRequest<{ success: boolean; member: CompanyMember }>(`/api/companies/${companyId}/members`, {
-        method: 'POST',
-        body: JSON.stringify({ companyId, email, fullName, password, role, createFirebaseAccount: true }),
-      }),
+    }) => {
+      // Create Firebase Auth user via secondary app (doesn't sign out admin)
+      const { initializeApp, getApps, deleteApp, getApp } = await import('firebase/app');
+      const { getAuth: getAuthInstance, createUserWithEmailAndPassword } = await import('firebase/auth');
+      const { getFirestore, collection, addDoc, doc, setDoc } = await import('firebase/firestore');
+      const config = {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY?.replace(/["']/g, '').trim(),
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN?.replace(/["']/g, '').trim(),
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID?.replace(/["']/g, '').trim(),
+      };
+      const existing = getApps().find(a => a.name === '_cm_create_');
+      if (existing) await deleteApp(existing);
+      const secondaryApp = initializeApp(config, '_cm_create_');
+      const secondaryAuth = getAuthInstance(secondaryApp);
+      try {
+        const cred = await createUserWithEmailAndPassword(secondaryAuth, email, password);
+        const uid = cred.user.uid;
+        const db = getFirestore(getApp());
+        const now = new Date().toISOString();
+        // Write user doc
+        await setDoc(doc(db, 'users', uid), {
+          email, fullName, firebaseUid: uid, companyId, role,
+          accountStatus: 'active', subscriptionStatus: 'active', subscriptionTier: 'beta_tester',
+          emailVerified: true, createdAt: now, updatedAt: now,
+        });
+        // Write membership
+        await addDoc(collection(db, 'companyMemberships'), {
+          companyId, email, fullName, userId: uid, role, status: 'active',
+          joinedAt: now, createdAt: now, updatedAt: now,
+        });
+        await secondaryAuth.signOut();
+        await deleteApp(secondaryApp);
+        return { success: true, member: { id: uid, companyId, email, fullName, userId: uid, role } };
+      } catch (err) {
+        try { await secondaryAuth.signOut(); await deleteApp(secondaryApp); } catch {}
+        throw err;
+      }
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-companies'] });
       setActiveDialog(null);
       setCreateUserEmail('');
       setCreateUserFullName('');
@@ -295,15 +354,20 @@ const CompanyManager: React.FC = () => {
     setDesignateLookupLoading(true);
     setDesignateLookupError(null);
     try {
-      const result = await authedRequest<{ success: boolean; users: { uid: string; email: string; displayName?: string }[] }>(
-        `/api/companies/users/lookup?query=${encodeURIComponent(designateEmail)}`
-      );
-      const found = result.users?.[0];
-      if (found) {
-        setDesignateUid(found.uid);
-        if (!designateFullName && found.displayName) {
-          setDesignateFullName(found.displayName);
+      // Firestore direct lookup by email
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(query(collection(db, 'users'), where('email', '==', designateEmail.trim())));
+      if (!snap.empty) {
+        const userData = snap.docs[0].data();
+        const uid = userData.firebaseUid || snap.docs[0].id;
+        setDesignateUid(uid);
+        if (!designateFullName && (userData.fullName || userData.firstName)) {
+          setDesignateFullName(userData.fullName || `${userData.firstName} ${userData.lastName || ''}`.trim());
         }
+      } else {
+        throw new Error('No user found with that email');
       }
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'User not found';
