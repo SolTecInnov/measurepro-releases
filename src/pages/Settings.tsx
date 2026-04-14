@@ -13,6 +13,8 @@ import { soundManager } from '../lib/sounds';
 import { useSettingsStore } from '../lib/settings';
 import { deleteLastMeasurement } from '../lib/survey/measurements';
 import type { Measurement } from '../lib/survey/types';
+import { getMeasurementFeed } from '../lib/survey/MeasurementFeed';
+import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { deleteDetectionImage } from '../lib/storage/detection-storage';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import { isBetaUser } from '../lib/auth/masterAdmin';
@@ -199,6 +201,11 @@ const Settings: React.FC = () => {
 
   // Refs
   const videoRef = useRef<HTMLVideoElement>(null);
+  // PERF: Cached POI counter — avoids IndexedDB cursor scan per POI creation
+  const noMeasPoiCounterRef = useRef<{ surveyId: string | null; nextNumber: number }>({
+    surveyId: null,
+    nextNumber: 1,
+  });
 
   // Store hooks — PERF: use selectors to avoid re-rendering on every GPS/laser update
   // GPS: only re-render when lat/lon/speed change significantly (not every raw fix)
@@ -224,25 +231,18 @@ const Settings: React.FC = () => {
   const { logMeasurement: logMeasurementViaWorker } = useMeasurementLogger();
 
   // Track measurement count for delete button
+  // PERF: Use in-memory cache size instead of full IndexedDB scan on every dbchange
   useEffect(() => {
-    const updateMeasurementCount = async () => {
-      if (activeSurvey) {
-        const { openSurveyDB } = await import('../lib/survey/db');
-        const db = await openSurveyDB();
-        const measurements = await db.getAllFromIndex('measurements', 'by-survey', activeSurvey.id);
-        setMeasurementCount(measurements.length);
-      } else {
-        setMeasurementCount(0);
-      }
-    };
-
-    updateMeasurementCount();
-    
-    // Listen for database changes
-    const handleDBChange = () => updateMeasurementCount();
-    window.addEventListener('dbchange', handleDBChange);
-    
-    return () => window.removeEventListener('dbchange', handleDBChange);
+    if (!activeSurvey) {
+      setMeasurementCount(0);
+      return;
+    }
+    const feed = getMeasurementFeed();
+    setMeasurementCount(feed.getCacheSize());
+    const unsub = feed.subscribe(() => {
+      setMeasurementCount(feed.getCacheSize());
+    });
+    return unsub;
   }, [activeSurvey]);
 
   // Layout customization
@@ -659,77 +659,71 @@ const Settings: React.FC = () => {
     // Read POI type directly from the store — same stale-closure fix as handleAutoCaptureAndLog
     const currentSelectedType = usePOIStore.getState().selectedType;
 
-    let savedSuccessfully = false;
-    let poiTypeLabel = '';
-    let nextPoiNumber = 0;
-    let imageUrl: string | null = null;
-    let newMeasurement: any = null;
+    const poiTypeConfig = POI_TYPES.find(p => p.type === currentSelectedType);
+    const poiTypeLabel = poiTypeConfig?.label || currentSelectedType;
 
-    try {
-      imageUrl = await handleCaptureImage();
-      await new Promise(resolve => setTimeout(resolve, 300));
+    // PERF: Cached POI counter — no IndexedDB scan per POI
+    if (noMeasPoiCounterRef.current.surveyId !== activeSurvey.id) {
+      // First call for this survey: seed from cache size (O(1))
+      const cacheSize = getMeasurementFeed().getCacheSize();
+      noMeasPoiCounterRef.current = { surveyId: activeSurvey.id, nextNumber: cacheSize + 1 };
+    }
+    const nextPoiNumber = noMeasPoiCounterRef.current.nextNumber++;
 
-      const poiTypeConfig = POI_TYPES.find(p => p.type === currentSelectedType);
-      poiTypeLabel = poiTypeConfig?.label || currentSelectedType;
+    const rainState = useRainModeStore.getState();
+    const noteExtra = `${rainState.isActive ? ' | RAIN MODE' : ''}${rainState.isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`;
 
-      const { getNextPOINumber } = await import('@/lib/survey/measurements');
-      nextPoiNumber = await getNextPOINumber(activeSurvey.id);
+    const newMeasurement: any = {
+      id: crypto.randomUUID(),
+      rel: null,
+      altGPS: gpsData.altitude,
+      latitude: gpsData.latitude,
+      longitude: gpsData.longitude,
+      utcDate: new Date().toISOString().split('T')[0],
+      utcTime: new Date().toTimeString().split(' ')[0],
+      speed: gpsData.speed,
+      heading: gpsData.course,
+      roadNumber: 1,
+      poiNumber: nextPoiNumber,
+      poi_type: currentSelectedType,
+      images: [],
+      note: `${poiTypeLabel}${noteExtra}`,
+      createdAt: new Date().toISOString(),
+      user_id: activeSurvey.id,
+      source: 'manual' as const,
+      measurementFree: true
+    };
 
-      newMeasurement = {
-        id: crypto.randomUUID(),
-        rel: null,
-        altGPS: gpsData.altitude,
-        latitude: gpsData.latitude,
-        longitude: gpsData.longitude,
-        utcDate: new Date().toISOString().split('T')[0],
-        utcTime: new Date().toTimeString().split(' ')[0],
-        speed: gpsData.speed,
-        heading: gpsData.course,
-        roadNumber: 1,
-        poiNumber: nextPoiNumber,
-        poi_type: currentSelectedType,
-        imageUrl: imageUrl || undefined,
-        images: imageUrl ? [imageUrl] : [],
-        note: `${poiTypeLabel}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`,
-        createdAt: new Date().toISOString(),
-        user_id: activeSurvey.id,
-        source: 'manual' as const,
-        measurementFree: true
-      };
+    // PERF: Write to in-memory cache FIRST (instant UI), then fire-and-forget to worker
+    getMeasurementFeed().addMeasurement(newMeasurement);
+    logMeasurementViaWorker(newMeasurement).catch(() => {});
+    soundManager.playInterface();
 
-      // PERFORMANCE FIX: Use worker-based logging for off-thread, batched writes
-      await logMeasurementViaWorker(newMeasurement);
-      savedSuccessfully = true;
-    } catch (error) {
-      toast.error('Failed to log POI', {
-        description: 'Database error - please try again'
+    // PERF: Capture image ASYNC — never blocks POI creation
+    handleCaptureImage().then(imageUrl => {
+      if (!imageUrl) return;
+      // Attach image to the already-saved POI
+      newMeasurement.imageUrl = imageUrl;
+      newMeasurement.images = [imageUrl];
+      getMeasurementFeed().updateMeasurement(newMeasurement.id, newMeasurement);
+      // Update in IndexedDB via worker
+      import('@/lib/survey/measurements').then(({ updateMeasurement }) => {
+        updateMeasurement(newMeasurement.id, { imageUrl, images: [imageUrl] }).catch(() => {});
       });
-      return;
-    }
-
-    // UI updates after successful save
-    if (savedSuccessfully) {
-      try {
-        // Add POI image to timelapse if an image was captured
-        if (imageUrl && newMeasurement) {
-          const { addPOIFrameToTimelapse } = await import('@/lib/timelapse/poiIntegration');
-          const { updateMeasurement } = await import('@/lib/survey/measurements');
-          const frameNumber = await addPOIFrameToTimelapse(imageUrl, newMeasurement);
-          
+      // Timelapse integration (async, non-blocking)
+      import('@/lib/timelapse/poiIntegration').then(({ addPOIFrameToTimelapse }) => {
+        addPOIFrameToTimelapse(imageUrl, newMeasurement).then(frameNumber => {
           if (frameNumber !== null) {
-            await updateMeasurement(newMeasurement.id, { timelapseFrameNumber: frameNumber });
+            import('@/lib/survey/measurements').then(({ updateMeasurement: updateM }) => {
+              updateM(newMeasurement.id, { timelapseFrameNumber: frameNumber }).catch(() => {});
+            });
           }
-        }
+        }).catch(() => {});
+      }).catch(() => {});
+    }).catch(() => {});
 
-        setPendingPhotos([]);
-        setCapturedData([]);
-        
-        /* toast removed */
-
-        soundManager.playInterface();
-      } catch (uiError) {
-      }
-    }
+    setPendingPhotos([]);
+    setCapturedData([]);
   }, [selectedType, activeSurvey, handleCaptureImage, gpsData]);
 
   // Open modal with pre-selected POI type
