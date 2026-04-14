@@ -690,7 +690,7 @@ const Settings: React.FC = () => {
         poi_type: currentSelectedType,
         imageUrl: imageUrl || undefined,
         images: imageUrl ? [imageUrl] : [],
-        note: poiTypeLabel,
+        note: `${poiTypeLabel}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}`,
         createdAt: new Date().toISOString(),
         user_id: activeSurvey.id,
         source: 'manual' as const,
