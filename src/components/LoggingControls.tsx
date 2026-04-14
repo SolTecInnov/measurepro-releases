@@ -11,6 +11,7 @@ import { useLaserStore } from '../lib/laser';
 import { usePOIStore, type POIType } from '../lib/poi';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import { useBluetoothStore } from '../lib/bluetooth/bluetoothStore';
+import { useRainModeStore } from '../lib/stores/rainModeStore';
 
 // Import the helper function from laserUtils
 import { isInvalidMeasurement } from '../lib/utils/laserUtils';
@@ -65,7 +66,8 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
   const { activeSurvey } = useSurveyStore();
   const { groundReferenceHeight } = useLaserStore();
   const { hasFeature } = useEnabledFeatures();
-  
+  const isSurveyMode = useRainModeStore((s) => s.isSurveyMode);
+
   const { laserStatus: btLaserStatus, gpsStatus: btGpsStatus } = useBluetoothStore();
   
   const { electronLaserConnected } = useSerialStore();
@@ -181,7 +183,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
       // toast suppressed
     }
     
-    if ((mode === 'all' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
+    if (!isSurveyMode && (mode === 'all' || mode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
         description: 'Both Laser and GPS must be connected for All Data and Auto-Capture modes.',
         action: {
@@ -273,9 +275,10 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
     }
 
     // Check device connections for automated modes (wired OR Bluetooth)
-    if ((loggingMode === 'all' || loggingMode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
+    // GPS-Only Survey Mode bypasses laser requirement
+    if (!isSurveyMode && (loggingMode === 'all' || loggingMode === 'counterDetection') && (!hasLaserConnection || !hasGpsConnection)) {
       toast.error('Connection required', {
-        description: 'Both Laser and GPS must be connected for All Data and Auto-Capture modes.',
+        description: 'Both Laser and GPS must be connected for All Data and Auto-Capture modes. Use GPS-Only mode (Tools menu) to log without laser.',
         action: {
           label: 'Connect Devices',
           onClick: () => {
@@ -414,12 +417,12 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
             title="All Data - Automatically log every valid laser reading continuously"
             className={`w-full flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-sm ${
               loggingMode === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
-            } ${(!hasLaserConnection || !hasGpsConnection) ? 'opacity-50' : ''}`}
+            } ${(!isSurveyMode && (!hasLaserConnection || !hasGpsConnection)) ? 'opacity-50' : ''}`}
             data-testid="button-logging-all"
           >
             <span className="font-semibold">All Data</span>
           </button>
-          {(!hasLaserConnection || !hasGpsConnection) && (
+          {(!isSurveyMode && (!hasLaserConnection || !hasGpsConnection)) && (
             <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
               <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
             </div>
@@ -432,12 +435,12 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
             title="Auto-Capture - Detects overhead objects (sky→object→sky) and logs the lowest point automatically"
             className={`w-full flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-sm ${
               loggingMode === 'counterDetection' ? 'bg-amber-600 text-white' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'
-            } ${(!hasLaserConnection || !hasGpsConnection) ? 'opacity-50' : ''}`}
+            } ${(!isSurveyMode && (!hasLaserConnection || !hasGpsConnection)) ? 'opacity-50' : ''}`}
             data-testid="button-logging-auto-capture"
           >
             <span className="font-semibold">Auto-Capture</span>
           </button>
-          {(!hasLaserConnection || !hasGpsConnection) && (
+          {(!isSurveyMode && (!hasLaserConnection || !hasGpsConnection)) && (
             <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full">
               <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
             </div>

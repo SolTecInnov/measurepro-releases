@@ -36,9 +36,27 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // React error #31: "Objects are not valid as a React child"
+    // Auto-recover: flush all caches and reload once
+    const isObjectError = error.message?.includes('Minified React error #31') ||
+                          error.message?.includes('Objects are not valid as a React child');
+    if (isObjectError) {
+      console.error('[ErrorBoundary] React #31 caught — flushing caches and reloading');
+      try { localStorage.clear(); } catch {}
+      try { sessionStorage.clear(); } catch {}
+      try { indexedDB.deleteDatabase('keyval-store'); } catch {}
+      try { indexedDB.deleteDatabase('firebaseLocalStorageDb'); } catch {}
+      const reloadKey = '_react31_reload';
+      if (!sessionStorage.getItem(reloadKey)) {
+        sessionStorage.setItem(reloadKey, '1');
+        window.location.reload();
+        return;
+      }
+    }
+
     // Check if this is an offline-related error (network failures should not crash the app)
     const isOffline = !navigator.onLine;
-    const isNetworkError = error.message?.includes('network') || 
+    const isNetworkError = error.message?.includes('network') ||
                            error.message?.includes('Network') ||
                            error.message?.includes('fetch') ||
                            error.message?.includes('Failed to fetch') ||

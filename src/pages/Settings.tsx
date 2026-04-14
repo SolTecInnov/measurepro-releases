@@ -690,7 +690,7 @@ const Settings: React.FC = () => {
         poi_type: currentSelectedType,
         imageUrl: imageUrl || undefined,
         images: imageUrl ? [imageUrl] : [],
-        note: `${poiTypeLabel}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}`,
+        note: `${poiTypeLabel}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}${(await import('@/lib/stores/rainModeStore')).useRainModeStore.getState().isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`,
         createdAt: new Date().toISOString(),
         user_id: activeSurvey.id,
         source: 'manual' as const,

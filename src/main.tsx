@@ -30,16 +30,24 @@ console.log(`%c MeasurePRO Desktop Build: ${BUILD_VERSION}`, 'color: #00ff00; fo
 // and IndexedDB, causing "Minified React error #31" on render. Clear everything
 // on first run of a new version so the app starts clean.
 const CACHE_VERSION_KEY = '_measurepro_cache_version';
-const CURRENT_CACHE_VERSION = '16.1.51';
+const CURRENT_CACHE_VERSION = '16.1.53';
 if (localStorage.getItem(CACHE_VERSION_KEY) !== CURRENT_CACHE_VERSION) {
-  console.log('[CacheFlush] New version detected — clearing stale caches');
-  // Clear React Query cache (stored in memory, but also any persisted state)
-  try { localStorage.removeItem('REACT_QUERY_OFFLINE_CACHE'); } catch {}
-  // Clear stale session/auth data that might have Timestamp objects
+  console.log('[CacheFlush] New version detected — FULL flush of all stale data');
+  // Nuke ALL IndexedDB databases to remove corrupted Firestore objects
   try { indexedDB.deleteDatabase('keyval-store'); } catch {}
+  try { indexedDB.deleteDatabase('firebaseLocalStorageDb'); } catch {}
+  try { indexedDB.deleteDatabase('firebase-heartbeat-database'); } catch {}
+  try { indexedDB.deleteDatabase('firebase-installations-database'); } catch {}
+  // Keep measurements-db (user survey data) but clear everything else
+  // Clear ALL localStorage except the cache version key itself
+  const keysToKeep = [CACHE_VERSION_KEY];
+  const allKeys = Object.keys(localStorage);
+  allKeys.forEach(k => { if (!keysToKeep.includes(k)) try { localStorage.removeItem(k); } catch {} });
+  // Clear sessionStorage
+  try { sessionStorage.clear(); } catch {}
   // Mark as flushed
   localStorage.setItem(CACHE_VERSION_KEY, CURRENT_CACHE_VERSION);
-  console.log('[CacheFlush] Done — app starting fresh');
+  console.log('[CacheFlush] Done — all stale data cleared');
 }
 
 // Always start in manual logging mode

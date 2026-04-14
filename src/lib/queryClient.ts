@@ -19,7 +19,7 @@ export function sanitizeTimestamps(obj: any): any {
     try { return obj.toDate().toISOString(); } catch { return String(obj); }
   }
   if (Array.isArray(obj)) return obj.map(sanitizeTimestamps);
-  // Empty object {} → null (prevents React error #31 when rendered as child)
+  // Recursively sanitize object fields
   const entries = Object.entries(obj);
   if (entries.length === 0) return null;
   const result: Record<string, any> = {};
@@ -27,6 +27,24 @@ export function sanitizeTimestamps(obj: any): any {
     result[key] = sanitizeTimestamps(value);
   }
   return result;
+}
+
+/**
+ * Make any value safe to render as a React child.
+ * Strings, numbers, booleans, null, undefined → pass through.
+ * Objects → JSON.stringify. Arrays → map and safe-ify each element.
+ * This prevents React error #31 ("Objects are not valid as a React child").
+ */
+export function safeRender(value: any): string | number | boolean | null | undefined {
+  if (value === null || value === undefined) return value;
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return value;
+  if (typeof value === 'object') {
+    // Firestore Timestamp
+    if (value._seconds !== undefined) return new Date(value._seconds * 1000).toISOString();
+    if (typeof value.toDate === 'function') try { return value.toDate().toISOString(); } catch { return String(value); }
+    return JSON.stringify(value);
+  }
+  return String(value);
 }
 
 const REQUEST_TIMEOUT_MS = 15_000;

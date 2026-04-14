@@ -57,6 +57,9 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   // Rain Mode (logs POIs without laser measurements)
   const rainMode = useRainModeStore((s) => s.isActive);
   const toggleRainMode = useRainModeStore((s) => s.toggle);
+  // GPS-Only Survey Mode (all POIs without laser)
+  const surveyMode = useRainModeStore((s) => s.isSurveyMode);
+  const toggleSurveyMode = useRainModeStore((s) => s.toggleSurveyMode);
 
   // Voice Assistant
   const [voiceState, voiceActions] = useVoiceAssistant();
@@ -420,6 +423,24 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               >
                 <CloudRain className={`w-4 h-4 flex-shrink-0 ${rainMode ? 'text-blue-300' : 'text-blue-400'}`} />
                 <span>{rainMode ? 'Exit Rain Mode' : 'Rain Mode'}</span>
+              </button>
+
+              {/* GPS-Only Survey Mode — all POIs without laser (Alt+Shift+R) */}
+              <button
+                onClick={() => {
+                  toggleSurveyMode();
+                  setShowToolsMenu(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
+                  surveyMode
+                    ? 'bg-orange-600/20 text-orange-300 hover:bg-orange-600/30'
+                    : 'text-gray-200 hover:bg-gray-800'
+                }`}
+                data-testid="button-survey-mode"
+                title="All POI types log with GPS + photo only — no laser measurement, no vertical clearance. Use when surveying without laser equipment."
+              >
+                <Navigation className={`w-4 h-4 flex-shrink-0 ${surveyMode ? 'text-orange-300' : 'text-orange-400'}`} />
+                <span>{surveyMode ? 'Exit GPS-Only Mode' : 'GPS-Only Survey'}</span>
               </button>
 
               {/* Drive Mode — kiosk + close protection */}

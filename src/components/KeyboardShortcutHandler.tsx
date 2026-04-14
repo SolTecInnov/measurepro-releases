@@ -105,8 +105,14 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
           const action = getActionForPOI(poiType);
           console.log(`[KeyboardShortcut] Action for "${poiType}": ${action}`);
           
-          switch (action) {
+          // In GPS-Only Survey Mode, ALL POI types behave as auto-capture-no-measurement
+          const effectiveAction = useRainModeStore.getState().isSurveyMode && action === 'auto-capture-and-log'
+            ? 'auto-capture-no-measurement'
+            : action;
+
+          switch (effectiveAction) {
             case 'auto-capture-and-log':
+              // Normal mode: laser handles this automatically via useAllDataMode
               break;
             case 'auto-capture-no-measurement':
               if (!activeSurvey) {
