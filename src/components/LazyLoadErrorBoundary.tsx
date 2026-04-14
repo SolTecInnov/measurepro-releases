@@ -75,13 +75,23 @@ export class LazyLoadErrorBoundary extends React.Component<Props, State> {
       error.message.includes('ChunkLoadError') ||
       error.message.includes('Loading chunk');
 
-    if (isChunkError) {
+    // React error #31: "Objects are not valid as a React child"
+    // Auto-recover by clearing caches and reloading — the stale Firestore data
+    // with Timestamp objects is the usual cause.
+    const isObjectRenderError =
+      error.message.includes('Minified React error #31') ||
+      error.message.includes('Objects are not valid as a React child');
+
+    if (isChunkError || isObjectRenderError) {
       if (canReloadForChunk()) {
         markChunkReload();
-        console.warn('🔄 Stale deployment error detected, clearing cache and reloading...', error.message);
+        console.warn('🔄 Error detected, clearing cache and reloading...', error.message);
+        // Also clear IndexedDB and localStorage to flush stale Firestore data
+        try { localStorage.removeItem('REACT_QUERY_OFFLINE_CACHE'); } catch {}
+        try { indexedDB.deleteDatabase('keyval-store'); } catch {}
         clearCachesAndReload();
       } else {
-        console.warn('⚠️ Chunk reload limit reached — showing manual recovery screen');
+        console.warn('⚠️ Reload limit reached — showing manual recovery screen');
       }
     } else {
       console.error('Error caught by LazyLoadErrorBoundary:', error.message, errorInfo);

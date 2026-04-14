@@ -19,8 +19,11 @@ export function sanitizeTimestamps(obj: any): any {
     try { return obj.toDate().toISOString(); } catch { return String(obj); }
   }
   if (Array.isArray(obj)) return obj.map(sanitizeTimestamps);
+  // Empty object {} → null (prevents React error #31 when rendered as child)
+  const entries = Object.entries(obj);
+  if (entries.length === 0) return null;
   const result: Record<string, any> = {};
-  for (const [key, value] of Object.entries(obj)) {
+  for (const [key, value] of entries) {
     result[key] = sanitizeTimestamps(value);
   }
   return result;

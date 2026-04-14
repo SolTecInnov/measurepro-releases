@@ -188,12 +188,4 @@ export const useSlavePairingStore = create<SlavePairingState>((set, get) => {
   };
 });
 
-// Auto-connect after Firebase is ready (delay to let auth initialize)
-setTimeout(() => {
-  try {
-    getApp();
-    useSlavePairingStore.getState().connect();
-  } catch {
-    // Firebase not initialized yet — will connect when user opens QR dialog
-  }
-}, 5000);
+// Slave pairing connects on demand when user opens the QR dialog.
