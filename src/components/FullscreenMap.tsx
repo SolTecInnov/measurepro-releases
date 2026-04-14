@@ -49,23 +49,45 @@ function GpsFollower() {
 // Compact camera thumbnail that finds the active video stream
 function CameraThumbnail() {
   const miniVideoRef = React.useRef<HTMLVideoElement>(null);
+  const [hasStream, setHasStream] = React.useState(false);
 
   useEffect(() => {
-    // Find the main camera video element from Settings page
     const findAndAttach = () => {
-      const mainVideo = document.querySelector('video[autoplay]') as HTMLVideoElement;
-      if (mainVideo?.srcObject && miniVideoRef.current) {
-        miniVideoRef.current.srcObject = mainVideo.srcObject;
-        miniVideoRef.current.play().catch(() => {});
+      if (miniVideoRef.current?.srcObject) {
+        // Already attached and playing
+        const stream = miniVideoRef.current.srcObject as MediaStream;
+        if (stream.active && stream.getVideoTracks().length > 0) {
+          setHasStream(true);
+          return;
+        }
       }
+
+      // Search ALL video elements for one with an active stream
+      const videos = document.querySelectorAll('video');
+      for (const v of videos) {
+        if (v === miniVideoRef.current) continue; // Skip ourselves
+        const stream = v.srcObject as MediaStream;
+        if (stream?.active && stream.getVideoTracks().length > 0) {
+          if (miniVideoRef.current) {
+            miniVideoRef.current.srcObject = stream;
+            miniVideoRef.current.play().catch(() => {});
+            setHasStream(true);
+          }
+          return;
+        }
+      }
+      setHasStream(false);
     };
     findAndAttach();
-    const interval = setInterval(findAndAttach, 3000);
+    const interval = setInterval(findAndAttach, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="absolute bottom-20 left-4 z-[99999] rounded-lg overflow-hidden border border-gray-600/50 shadow-lg bg-black" style={{ width: 200, height: 150 }}>
+    <div
+      className="absolute bottom-20 left-4 z-[99999] rounded-lg overflow-hidden border border-gray-600/50 shadow-lg bg-black"
+      style={{ width: 200, height: 150, display: hasStream ? 'block' : 'none' }}
+    >
       <video
         ref={miniVideoRef}
         autoPlay
@@ -221,7 +243,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
           );
         })}
 
-        {/* Show ALL survey POIs as markers */}
+        {/* Show ALL survey POIs as markers (same size as card map: 24x24) */}
         {allPOIs.map(poi => {
           const typeConfig = POI_TYPES.find(p => p.type === poi.poi_type);
           return (
@@ -229,9 +251,12 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
               key={poi.id}
               position={[poi.latitude, poi.longitude]}
               icon={L.divIcon({
-                className: '',
-                html: `<div style="width:10px;height:10px;background:${typeConfig?.color?.replace('text-', '').includes('red') ? '#ef4444' : typeConfig?.color?.replace('text-', '').includes('blue') ? '#3b82f6' : typeConfig?.color?.replace('text-', '').includes('green') ? '#22c55e' : '#f59e0b'};border:2px solid white;border-radius:50%;box-shadow:0 0 4px rgba(0,0,0,0.4)"></div>`,
-                iconSize: [10, 10], iconAnchor: [5, 5],
+                className: 'bg-transparent',
+                html: `<div class="w-6 h-6 ${typeConfig?.bgColor || 'bg-gray-400/20'} ${typeConfig?.color || 'text-gray-400'} rounded-full border-2 border-white flex items-center justify-center shadow-lg">
+                  <div class="w-3 h-3 bg-current rounded-full"></div>
+                </div>`,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12],
               })}
             >
               <Popup>
