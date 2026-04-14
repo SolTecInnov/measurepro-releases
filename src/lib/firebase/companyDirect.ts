@@ -14,6 +14,7 @@
  */
 
 import { getApp } from 'firebase/app';
+import { sanitizeTimestamps } from '../queryClient';
 import {
   getFirestore,
   collection,
@@ -91,7 +92,7 @@ export async function getMyCompanyDirect(uid: string): Promise<{
 
     // Found membership — extract company ID from parent path
     const memberDoc = snap.docs[0];
-    const memberData = { id: memberDoc.id, ...memberDoc.data() } as MemberData;
+    const memberData = sanitizeTimestamps({ id: memberDoc.id, ...memberDoc.data() }) as MemberData;
     const companyId = memberData.companyId || memberDoc.ref.parent.parent?.id;
 
     if (!companyId) {
@@ -101,12 +102,12 @@ export async function getMyCompanyDirect(uid: string): Promise<{
     // Get company doc
     const companyDoc = await getDoc(doc(db, 'companies', companyId));
     const company = companyDoc.exists()
-      ? { id: companyDoc.id, ...companyDoc.data() } as CompanyData
+      ? sanitizeTimestamps({ id: companyDoc.id, ...companyDoc.data() }) as CompanyData
       : null;
 
     // Get all members of this company
     const allMembersSnap = await getDocs(collection(db, 'companies', companyId, 'members'));
-    const members = allMembersSnap.docs.map(d => ({ id: d.id, ...d.data() } as MemberData));
+    const members = allMembersSnap.docs.map(d => sanitizeTimestamps({ id: d.id, ...d.data() }) as MemberData);
 
     return { company, membership: memberData, members };
   } catch (err: any) {
@@ -139,7 +140,7 @@ async function getMyCompanyFallback(db: any, uid: string): Promise<{
         const memberData = { id: membersSnap.docs[0].id, ...membersSnap.docs[0].data() } as MemberData;
         const company = { id: companyDoc.id, ...companyDoc.data() } as CompanyData;
         const allMembersSnap = await getDocs(collection(db, 'companies', companyDoc.id, 'members'));
-        const members = allMembersSnap.docs.map(d => ({ id: d.id, ...d.data() } as MemberData));
+        const members = allMembersSnap.docs.map(d => sanitizeTimestamps({ id: d.id, ...d.data() }) as MemberData);
         return { company, membership: memberData, members };
       }
     }

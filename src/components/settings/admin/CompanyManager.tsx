@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Plus, Edit2, Trash2, Package, UserCheck, X, Search, Loader2, Users, AlertCircle, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import { insertCompanySchema, type Company, type InsertCompany, type CompanyMember } from '../../../../shared/schema';
-import { queryClient } from '../../../lib/queryClient';
+import { queryClient, sanitizeTimestamps } from '../../../lib/queryClient';
 import { useOnlineStatus } from '../../../hooks/useOnlineStatus';
 import { useOnlineRequired } from '../../../hooks/useOfflineQueue';
 import { OfflineActionBanner } from '../../OfflineActionBanner';
@@ -69,7 +69,7 @@ const CompanyManager: React.FC = () => {
         const { getFirestore, collection, getDocs } = await import('firebase/firestore');
         const db = getFirestore(getApp());
         const snap = await getDocs(collection(db, 'companies'));
-        return snap.docs.map(d => ({ id: d.id, ...d.data() })) as Company[];
+        return snap.docs.map(d => sanitizeTimestamps({ id: d.id, ...d.data() })) as Company[];
       } catch {
         return [];
       }
@@ -255,21 +255,29 @@ const CompanyManager: React.FC = () => {
   });
 
   const { data: membersData, isLoading: membersLoading } = useQuery<CompanyMember[]>({
-    queryKey: ['/api/companies', selectedCompany?.id, 'members'],
+    queryKey: ['firestore-company-members', selectedCompany?.id],
     queryFn: async () => {
-      const json = await authedRequest<{ success: boolean; members: CompanyMember[] }>(
-        `/api/companies/${selectedCompany!.id}/members`
-      );
-      return json.members;
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(query(collection(db, 'companyMemberships'), where('companyId', '==', selectedCompany!.id)));
+      return snap.docs.map(d => sanitizeTimestamps({ id: d.id, ...d.data() })) as CompanyMember[];
     },
     enabled: activeDialog === 'members' && !!selectedCompany?.id,
+    retry: false,
   });
 
   const removeMemberMutation = useMutation({
-    mutationFn: async ({ companyId, memberId }: { companyId: string; memberId: string }) =>
-      authedRequest(`/api/companies/${companyId}/members/${memberId}`, { method: 'DELETE' }),
+    mutationFn: async ({ companyId, memberId }: { companyId: string; memberId: string }) => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where, deleteDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', memberId), where('companyId', '==', companyId)));
+      for (const d of snap.docs) await deleteDoc(d.ref);
+      return { success: true };
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/companies', selectedCompany?.id, 'members'] });
+      queryClient.invalidateQueries({ queryKey: ['firestore-company-members', selectedCompany?.id] });
     },
     onError: (e: Error) => toast.error(e.message || 'Failed to remove member'),
   });

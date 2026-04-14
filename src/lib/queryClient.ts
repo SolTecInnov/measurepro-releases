@@ -2,6 +2,30 @@ import { QueryClient } from '@tanstack/react-query';
 import { getAuthHeader } from './authedFetch';
 import { API_BASE_URL } from './config/environment';
 
+/**
+ * Recursively convert Firestore Timestamp objects ({_seconds, _nanoseconds})
+ * to ISO strings. Prevents React error #31 ("Objects are not valid as a React child")
+ * when Firestore data is rendered directly in JSX.
+ */
+export function sanitizeTimestamps(obj: any): any {
+  if (obj === null || obj === undefined) return obj;
+  if (typeof obj !== 'object') return obj;
+  // Firestore Timestamp — has _seconds and _nanoseconds
+  if (typeof obj._seconds === 'number' && typeof obj._nanoseconds === 'number') {
+    return new Date(obj._seconds * 1000 + obj._nanoseconds / 1e6).toISOString();
+  }
+  // Firestore Timestamp from client SDK — has toDate()
+  if (typeof obj.toDate === 'function') {
+    try { return obj.toDate().toISOString(); } catch { return String(obj); }
+  }
+  if (Array.isArray(obj)) return obj.map(sanitizeTimestamps);
+  const result: Record<string, any> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    result[key] = sanitizeTimestamps(value);
+  }
+  return result;
+}
+
 const REQUEST_TIMEOUT_MS = 15_000;
 
 /** Combine an optional caller-supplied AbortSignal with a timeout signal */

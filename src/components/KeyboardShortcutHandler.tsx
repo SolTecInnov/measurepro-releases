@@ -168,6 +168,21 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
         return;
       }
 
+      // GPS-Only Survey Mode toggle: Alt+Shift+R
+      if (e.altKey && e.shiftKey && (e.key === 'r' || e.key === 'R') && !e.ctrlKey) {
+        e.preventDefault();
+        const store = useRainModeStore.getState();
+        store.toggleSurveyMode();
+        const isNow = useRainModeStore.getState().isSurveyMode;
+        if (isNow) {
+          toast.info('GPS-Only Survey ON — all POIs log without laser (no vertical clearance)', { id: 'survey-mode', duration: 4000 });
+          soundManager.playWarning();
+        } else {
+          toast.success('GPS-Only Survey OFF — laser measurement required', { id: 'survey-mode', duration: 3000 });
+        }
+        return;
+      }
+
       if (matchShortcut(mapping.capture)) {
         e.preventDefault();
         handleCaptureImage();

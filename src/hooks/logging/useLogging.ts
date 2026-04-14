@@ -73,17 +73,68 @@ export function useLogging({ captureImage }: UseLoggingProps) {
    */
   const logManual = useCallback(async (): Promise<boolean> => {
     if (!activeSurvey?.id) return false;
-    if (!lastMeasurement) return false;
 
     // POI type "None" (empty string) = pause mode — don't record anything
     if (!selectedPOIType) return false;
+
+    const { isSurveyMode, isActive: isRainMode } = useRainModeStore.getState();
+
+    // GPS-Only Survey Mode: skip laser requirement entirely
+    if (isSurveyMode) {
+      const poiType = selectedPOIType || 'wire';
+      const gps = getGpsSnapshot();
+      const now = new Date();
+      const id = globalThis.crypto?.randomUUID?.() || `poi-${Date.now()}`;
+      const poiNumber = await getNextPoiNumber();
+
+      const saved = await savePOI({
+        id,
+        surveyId: activeSurvey.id,
+        poiType,
+        poiNumber,
+        roadNumber: activeSurvey.roadNumber || 1,
+        heightM: null,
+        heightRawM: null,
+        groundRefM: groundRef,
+        gps,
+        utcDate: now.toISOString().split('T')[0],
+        utcTime: now.toTimeString().split(' ')[0],
+        createdAt: now.toISOString(),
+        note: `${poiType} | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT`,
+        source: 'manual',
+        loggingMode: 'manual',
+      });
+
+      if (saved) {
+        setPoisLogged(n => n + 1);
+        captureImage().then(imageUrl => {
+          if (!imageUrl) return;
+          import('@/lib/survey/db').then(({ openSurveyDB }) => {
+            openSurveyDB().then(db => {
+              db.get('measurements', id).then((m: any) => {
+                if (m) {
+                  const updated = { ...m, imageUrl, images: [imageUrl] };
+                  db.put('measurements', updated);
+                  import('@/lib/survey/MeasurementFeed').then(({ getMeasurementFeed }) => {
+                    getMeasurementFeed().addMeasurement(updated);
+                  }).catch(() => {});
+                  window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: imageUrl }));
+                }
+              });
+            });
+          }).catch(() => {});
+        }).catch(() => {});
+      }
+      return saved;
+    }
+
+    // Normal mode — requires laser measurement
+    if (!lastMeasurement) return false;
 
     const reading = parseMeters(lastMeasurement, groundRef);
     if (!reading.isValid) return false;
 
     // RACE FIX: prefer the POI type captured at the moment of the laser hit
-    // (snapshotted in serialStore) over the live store value, in case the user
-    // already switched POI types in anticipation of the next item.
     const poiType = lastMeasurementPoiType || selectedPOIType || 'wire';
     const gps = getGpsSnapshot();
     const now = new Date();
@@ -104,7 +155,7 @@ export function useLogging({ captureImage }: UseLoggingProps) {
       utcDate: now.toISOString().split('T')[0],
       utcTime: now.toTimeString().split(' ')[0],
       createdAt: now.toISOString(),
-      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
+      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${isRainMode ? ' | RAIN MODE' : ''}`,
       source: 'manual',
       loggingMode: 'manual',
     });

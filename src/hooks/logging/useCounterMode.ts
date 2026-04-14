@@ -121,7 +121,7 @@ export function useCounterMode({ isActive, captureImage, onPOILogged }: UseCount
       createdAt: now.toISOString(),
       imageUrl,
       images: imageUrl ? [imageUrl] : [],
-      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
+      note: `Min: ${minReading.toFixed(2)}m | Avg: ${avgReading.toFixed(2)}m | ${readings.length} readings | GND: ${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}${useRainModeStore.getState().isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`,
       source: 'counter',
       loggingMode: 'counter_detection',
     });

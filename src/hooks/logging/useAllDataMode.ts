@@ -84,7 +84,7 @@ export function useAllDataMode({ isActive, captureImage, onPOILogged }: UseAllDa
       createdAt: now.toISOString(),
       source: 'all_data',
       loggingMode: 'all_data',
-      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE — no laser measurement' : ''}`,
+      note: `${poiType} | ${reading.meters.toFixed(2)}m | GND:${groundRef.toFixed(2)}m${useRainModeStore.getState().isActive ? ' | RAIN MODE' : ''}${useRainModeStore.getState().isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`,
     });
 
     if (saved) {

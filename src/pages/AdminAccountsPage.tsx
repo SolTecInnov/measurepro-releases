@@ -27,7 +27,7 @@ import { Badge } from '@/components/ui/badge.tsx';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.tsx';
 import { getCurrentUser } from '@/lib/firebase';
 import { Account, ADDON_DISPLAY_NAMES } from '../../shared/schema';
-import { apiRequest, queryClient } from '@/lib/queryClient';
+import { apiRequest, queryClient, sanitizeTimestamps } from '@/lib/queryClient';
 import { toast } from 'sonner';
 import { isMasterAdmin } from '@/lib/auth/masterAdmin';
 import { useAuth } from '@/lib/auth/AuthContext';
@@ -168,10 +168,20 @@ export default function AdminAccountsPage() {
     checkAdmin();
   }, [navigate, cachedIsMasterAdmin, authContextUser, cachedUserData, isLoading]);
 
-  // Fetch pending accounts
+  // Fetch pending accounts from Firestore directly
   const { data: accountsData, isLoading: isLoadingAccounts, refetch } = useQuery<{ accounts: Account[] }>({
-    queryKey: ['/api/admin/accounts/pending'],
+    queryKey: ['firestore-pending-accounts'],
     enabled: isAdmin && !isCheckingAdmin,
+    retry: false,
+    staleTime: 5 * 60_000,
+    queryFn: async () => {
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const snap = await getDocs(query(collection(db, 'users'), where('accountStatus', '==', 'pending')));
+      const accounts = snap.docs.map(d => sanitizeTimestamps({ id: d.id, authUid: d.id, ...d.data() })) as Account[];
+      return { accounts };
+    },
   });
 
   const pendingAccounts: Account[] = accountsData?.accounts || [];
@@ -422,7 +432,7 @@ export default function AdminAccountsPage() {
         const { getFirestore, collection, getDocs } = await import('firebase/firestore');
         const db = getFirestore(getApp());
         const snap = await getDocs(collection(db, 'companies'));
-        const companies = snap.docs.map(d => ({ id: d.id, ...d.data() })) as any[];
+        const companies = snap.docs.map(d => sanitizeTimestamps({ id: d.id, ...d.data() })) as any[];
         return { success: true, companies };
       } catch {
         return { success: true, companies: [] };
@@ -506,9 +516,20 @@ export default function AdminAccountsPage() {
     setAddonExpiries({});
     setShowCompanyDialog(true);
     try {
-      const headers = await getAuthHeader();
-      const res = await fetch(`${API_BASE_URL}/api/admin/users/${user.id}/membership`, { headers });
-      const data = await res.json();
+      // Firestore direct membership lookup
+      const { getApp } = await import('firebase/app');
+      const { getFirestore, collection, getDocs, query, where, doc, getDoc } = await import('firebase/firestore');
+      const db = getFirestore(getApp());
+      const mSnap = await getDocs(query(collection(db, 'companyMemberships'), where('userId', '==', user.id)));
+      let data: any = { membership: null, company: null, activeOverrides: [] };
+      if (!mSnap.empty) {
+        const membership = sanitizeTimestamps({ id: mSnap.docs[0].id, ...mSnap.docs[0].data() });
+        const companyDoc = await getDoc(doc(db, 'companies', (membership as any).companyId));
+        const company = companyDoc.exists() ? sanitizeTimestamps({ id: companyDoc.id, ...companyDoc.data() }) : null;
+        const oSnap = await getDocs(query(collection(db, 'memberAddonOverrides'), where('userId', '==', user.id), where('isActive', '==', true)));
+        const activeOverrides = oSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        data = { membership, company, activeOverrides };
+      }
       if (data.membership) {
         setCompanyMembership(data.membership);
         setSelectedCompanyId(data.membership.companyId);
@@ -1004,7 +1025,7 @@ export default function AdminAccountsPage() {
         </Card>
 
         {/* ============================================================ */}
-        {/* BETA ACCOUNT PANEL                                             */}
+        {/* BETA ACCOUNT INFO                                              */}
         {/* ============================================================ */}
         <Card className="shadow-xl border-blue-200 dark:border-blue-800">
           <CardHeader>
@@ -1013,69 +1034,24 @@ export default function AdminAccountsPage() {
                 <UserPlus className="h-6 w-6 text-white" />
               </div>
               <div>
-                <CardTitle className="text-2xl font-bold">Beta Test Account</CardTitle>
-                <CardDescription>Create beta test account for restricted testing</CardDescription>
+                <CardTitle className="text-2xl font-bold">Beta Accounts</CardTitle>
+                <CardDescription>Beta users have restricted access — use the Create User form above with tier "beta_tester"</CardDescription>
               </div>
             </div>
           </CardHeader>
           <CardContent>
             <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 space-y-3">
-                  <div>
-                    <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">Beta Test Account</h3>
-                    <p className="text-sm text-blue-700 dark:text-blue-300">
-                      Email: <code className="bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded">info@groupebellemare.com</code>
-                    </p>
-                    <p className="text-sm text-blue-700 dark:text-blue-300 mt-1">
-                      Password: <code className="bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded">oversize</code>
-                    </p>
-                  </div>
-                  <div className="text-xs text-blue-600 dark:text-blue-400">
-                    <p>Manual POI logging, GPS, Photos, Counter mode, Export</p>
-                    <p>No: Calibration, AI+, Envelope, Convoy, Route, Swept Path, Admin, 3D, GNSS</p>
-                  </div>
+              <div className="space-y-3">
+                <div className="text-sm text-blue-700 dark:text-blue-300">
+                  <p className="font-semibold mb-1">Beta tier includes:</p>
+                  <p>Manual POI logging, GPS, Photos, Counter mode, Export</p>
+                  <p className="mt-1 text-blue-500">Restricted: Calibration, AI+, Envelope, Convoy, Route, Swept Path, Admin, 3D, GNSS</p>
                 </div>
-                <Button
-                  onClick={() => createBetaMutation.mutate()}
-                  disabled={createBetaMutation.isPending || !isFirebaseAdminAvailable || isCheckingFirebase}
-                  className="bg-blue-600 hover:bg-blue-700 shrink-0 disabled:opacity-50"
-                  data-testid="button-create-beta"
-                >
-                  {createBetaMutation.isPending ? (
-                    <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Creating...</>
-                  ) : isCheckingFirebase ? (
-                    <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Checking...</>
-                  ) : (
-                    <><UserPlus className="h-4 w-4 mr-2" />{isFirebaseAdminAvailable ? 'Create Account' : 'SDK Unavailable'}</>
-                  )}
-                </Button>
+                <div className="text-xs text-blue-600 dark:text-blue-400">
+                  To create a beta account: use the "Create User" form above and set Subscription Tier to <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">beta_tester</code>.
+                </div>
               </div>
 
-              {!isFirebaseAdminAvailable && (
-                <div className="mt-3 pt-3 border-t border-blue-200 dark:border-blue-700">
-                  <div className="bg-yellow-50 dark:bg-yellow-950 border border-yellow-300 dark:border-yellow-700 rounded p-3 mb-3">
-                    <p className="text-xs text-yellow-800 dark:text-yellow-200 font-semibold">Automatic creation unavailable</p>
-                    <p className="text-xs text-yellow-700 dark:text-yellow-300 mt-1">
-                      Firebase Admin SDK not configured. Set FIREBASE_SERVICE_ACCOUNT_KEY or use manual creation.
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              <div className="mt-3 pt-3 border-t border-blue-200 dark:border-blue-700 space-y-3">
-                <details className="text-xs text-blue-600 dark:text-blue-400">
-                  <summary className="cursor-pointer font-semibold hover:text-blue-800 dark:hover:text-blue-200">
-                    Manual Creation Instructions
-                  </summary>
-                  <ol className="mt-2 space-y-1 list-decimal list-inside ml-2">
-                    <li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" className="underline">Firebase Console</a></li>
-                    <li>Select your project → Authentication → Users</li>
-                    <li>Add User: <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">info@groupebellemare.com</code> / <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">oversize</code></li>
-                    <li>Edit user and check "Email verified"</li>
-                  </ol>
-                </details>
-              </div>
             </div>
           </CardContent>
         </Card>
