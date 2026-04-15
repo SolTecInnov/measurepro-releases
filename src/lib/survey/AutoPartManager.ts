@@ -300,8 +300,23 @@ class AutoPartManager {
       const { generateSurveyPackageBlob } = await import('../utils/exportUtils');
       packageData = await generateSurveyPackageBlob(closedSurvey);
 
-      const { saveAs } = await import('file-saver');
-      saveAs(packageData.blob, packageData.filename);
+      // Save to Documents/MeasurePRO/surveys via Electron, fallback to browser Downloads
+      let saved = false;
+      if (window.electronAPI?.getAutoSavePath) {
+        try {
+          const savePath = await window.electronAPI.getAutoSavePath(packageData.filename);
+          if (savePath) {
+            const arrayBuffer = await packageData.blob.arrayBuffer();
+            await window.electronAPI.writeFile(savePath, Buffer.from(arrayBuffer));
+            saved = true;
+            console.log(`[AutoPartManager] Part saved to ${savePath}`);
+          }
+        } catch {}
+      }
+      if (!saved) {
+        const { saveAs } = await import('file-saver');
+        saveAs(packageData.blob, packageData.filename);
+      }
 
       toast.dismiss('auto-part-save');
       console.log('[AutoPartManager] Part saved to computer');

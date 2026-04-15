@@ -49,6 +49,7 @@ import EditMeasurementModal from '../components/EditMeasurementModal';
 import VoiceNotePOIModal from '../components/VoiceNotePOIModal';
 import StorageCleanupModal from '../components/survey/StorageCleanupModal';
 import RoadScopeResyncTool from '../components/roadscope/RoadScopeResyncTool';
+import ImportZipResync from '../components/roadscope/ImportZipResync';
 import { usePhotoWatchdog } from '../hooks/usePhotoWatchdog';
 import { useTraceRecorder } from '../hooks/useTraceRecorder';
 import GNSSStatusCard from '../components/gnss/GNSSStatusCard';
@@ -520,6 +521,14 @@ const Settings: React.FC = () => {
     const handler = () => setShowResyncTool(true);
     window.addEventListener('open-roadscope-resync', handler);
     return () => window.removeEventListener('open-roadscope-resync', handler);
+  }, []);
+
+  // Import ZIP & re-sync tool
+  const [showImportZipResync, setShowImportZipResync] = useState(false);
+  useEffect(() => {
+    const handler = () => setShowImportZipResync(true);
+    window.addEventListener('open-import-zip-resync', handler);
+    return () => window.removeEventListener('open-import-zip-resync', handler);
   }, []);
 
   // Voice note modal state
@@ -2068,6 +2077,12 @@ const Settings: React.FC = () => {
           measurement={editingMeasurement}
         />
         
+        {/* Import ZIP & Re-sync to RoadScope */}
+        <ImportZipResync
+          isOpen={showImportZipResync}
+          onClose={() => setShowImportZipResync(false)}
+        />
+
         {/* RoadScope Photo Re-Sync Tool */}
         <RoadScopeResyncTool
           isOpen={showResyncTool}

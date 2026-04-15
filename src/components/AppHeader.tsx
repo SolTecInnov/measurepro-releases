@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain, HardDrive, RefreshCw } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain, HardDrive, RefreshCw, Upload } from 'lucide-react';
 import { useDriveModeStore } from '../lib/stores/driveModeStore';
 import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { useSurveyStore } from '../lib/survey';
@@ -454,6 +454,19 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               >
                 <RefreshCw className="w-4 h-4 flex-shrink-0 text-orange-400" />
                 <span>RoadScope Photo Re-Sync</span>
+              </button>
+
+              {/* Import ZIP & Re-sync to RoadScope */}
+              <button
+                onClick={() => {
+                  setShowToolsMenu(false);
+                  window.dispatchEvent(new Event('open-import-zip-resync'));
+                }}
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                title="Import survey ZIP from disk and re-sync photos to RoadScope"
+              >
+                <Upload className="w-4 h-4 flex-shrink-0 text-blue-400" />
+                <span>Import ZIP to RoadScope</span>
               </button>
 
               {/* Storage Cleanup — user-initiated data cleanup */}

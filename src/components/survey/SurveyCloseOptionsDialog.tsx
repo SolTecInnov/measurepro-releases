@@ -164,11 +164,24 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
       const packageData = await generateSurveyPackageBlob(updatedSurvey);
 
       // Step 3: Save to hard drive (MANDATORY)
+      // Save to Documents/MeasurePRO/surveys via Electron, fallback to browser Downloads
       setCurrentStep('Saving to your computer...');
-      const { saveAs } = await import('file-saver');
-      saveAs(packageData.blob, packageData.filename);
-      saveValidated = true;
-      console.log(`[SurveyClose] Save validated — ${packageData.filename} (${packageData.measurementCount} POIs)`);
+      if (window.electronAPI?.getAutoSavePath) {
+        const savePath = await window.electronAPI.getAutoSavePath(packageData.filename);
+        if (savePath) {
+          const arrayBuffer = await packageData.blob.arrayBuffer();
+          await window.electronAPI.writeFile(savePath, Buffer.from(arrayBuffer));
+          saveValidated = true;
+          console.log(`[SurveyClose] Saved to ${savePath} (${packageData.measurementCount} POIs)`);
+        }
+      }
+      if (!saveValidated) {
+        // Fallback: browser save dialog (Downloads)
+        const { saveAs } = await import('file-saver');
+        saveAs(packageData.blob, packageData.filename);
+        saveValidated = true;
+        console.log(`[SurveyClose] Save validated via browser — ${packageData.filename}`);
+      }
       
       let downloadUrl: string | undefined;
       
