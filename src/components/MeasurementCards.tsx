@@ -5,6 +5,7 @@ import { soundManager } from '../lib/sounds';
 import AlertBanner from './AlertBanner';
 import { useLaserStore } from '../lib/laser';
 import { isInvalidMeasurement } from '../lib/utils/laserUtils';
+import { useAlertsStore } from '../lib/stores/alertsStore';
 
 // Import refactored components
 import CurrentMeasureCard from './measurement/CurrentMeasureCard';
@@ -64,8 +65,7 @@ const MeasurementCards = () => {
   const minDistanceCardRef = React.useRef<HTMLDivElement>(null);
   const maxDistanceCardRef = React.useRef<HTMLDivElement>(null);
   const averageDistanceCardRef = React.useRef<HTMLDivElement>(null);
-  const [alertStatus, setAlertStatus] = React.useState<'warning' | 'critical' | null>(null);
-  const [triggerValue, setTriggerValue] = React.useState<number | null>(null);
+  const { alertStatus, setAlertStatus, triggerValue, setTriggerValue } = useAlertsStore();
   const [hasTriggeredAlert, setHasTriggeredAlert] = React.useState(false);
   
   // ARCHITECT-APPROVED SESSION-BASED ALERT SYSTEM

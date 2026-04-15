@@ -841,8 +841,9 @@ const Settings: React.FC = () => {
     }
   }, [activeSurvey, gpsData, voiceNoteCapturedImage, voiceNoteStartGPS, setSelectedType]);
 
-  // Set alert status (for keyboard shortcuts)
-  const [, setAlertStatus] = useState<'OK' | 'WARNING' | 'DANGER'>('OK');
+  // Alert status now managed by useAlertsStore (Zustand)
+  // Keep no-op shim for components that still accept the prop
+  const setAlertStatus = React.useCallback(() => {}, []);
 
   // Wrapper for POI type selection (keyboard shortcuts compatibility)
   const handleSetPOIType = React.useCallback((type: string) => {

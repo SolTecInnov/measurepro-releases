@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 import type { POIType } from '../lib/poi';
 import { usePOIActionsStore } from '../lib/poiActions';
 import { useRainModeStore } from '../lib/stores/rainModeStore';
+import { useAlertsStore } from '../lib/stores/alertsStore';
 
 interface KeyboardShortcutHandlerProps {
   setSelectedPOIType: (type: string | POIType | '') => void;
@@ -220,7 +221,7 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
 
       if (matchShortcut(mapping.clearAlert)) {
         e.preventDefault();
-        setAlertStatus('OK');
+        useAlertsStore.getState().clearAlert();
         soundManager.stopSound('warning');
         soundManager.stopSound('critical');
         return;
