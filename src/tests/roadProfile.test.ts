@@ -17,15 +17,40 @@ import {
 } from '../../server/gnss/roadProfile';
 import { GnssSample, ProfilePoint } from '../../server/gnss/types';
 
+/** Helper to create a GnssSample with required fields */
+function makeSample(overrides: Partial<GnssSample> & Pick<GnssSample, 'timestamp' | 'latitude' | 'longitude' | 'altitude'>): GnssSample {
+  return {
+    speed: 10,
+    heading: 0,
+    quality: 'rtk_fixed',
+    hdop: 1.0,
+    num_sats: 12,
+    source: 'duro',
+    surveyId: 'test-survey',
+    sessionId: 'test-session',
+    ...overrides,
+  } as GnssSample;
+}
+
+/** Helper to create a ProfilePoint with required fields */
+function makeProfilePoint(overrides: Partial<ProfilePoint>): ProfilePoint {
+  return {
+    distance_m: 0,
+    latitude: 45.0,
+    longitude: -75.0,
+    altitude: 100,
+    timestamp: '2024-01-01T10:00:00Z',
+    grade_pct: 0,
+    k_factor: null,
+    curvature_type: null,
+    ...overrides,
+  };
+}
+
 describe('Road Profile Engine', () => {
   describe('haversineDistance', () => {
     it('should calculate distance between two known points accurately', () => {
-      // Distance from San Francisco to Los Angeles
-      // SF: 37.7749° N, 122.4194° W
-      // LA: 34.0522° N, 118.2437° W
       const distance = haversineDistance(37.7749, -122.4194, 34.0522, -118.2437);
-      
-      // Expected distance is approximately 559 km = 559000 m
       expect(distance).toBeGreaterThan(550000);
       expect(distance).toBeLessThan(570000);
     });
@@ -36,31 +61,26 @@ describe('Road Profile Engine', () => {
     });
 
     it('should calculate short distances accurately', () => {
-      // 1 degree latitude ≈ 111 km
       const distance = haversineDistance(45.0, -75.0, 46.0, -75.0);
       expect(distance).toBeGreaterThan(110000);
       expect(distance).toBeLessThan(112000);
     });
 
     it('should handle antipodal points', () => {
-      // Points on opposite sides of Earth
       const distance = haversineDistance(0, 0, 0, 180);
-      // Should be approximately half Earth's circumference
       const halfCircumference = Math.PI * 6371000;
-      expect(distance).toBeCloseTo(halfCircumference, -3); // within 1000m
+      expect(distance).toBeCloseTo(halfCircumference, -3);
     });
   });
 
   describe('calculateGrade', () => {
     it('should calculate positive grade for uphill', () => {
       const grade = calculateGrade(100, 112, 100);
-      // 12m rise over 100m = 12% grade
       expect(grade).toBe(12);
     });
 
     it('should calculate negative grade for downhill', () => {
       const grade = calculateGrade(100, 88, 100);
-      // 12m drop over 100m = -12% grade
       expect(grade).toBe(-12);
     });
 
@@ -71,7 +91,6 @@ describe('Road Profile Engine', () => {
 
     it('should handle steep grades correctly', () => {
       const grade = calculateGrade(0, 45, 100);
-      // 45° angle = 100% grade
       expect(grade).toBe(45);
     });
 
@@ -89,72 +108,34 @@ describe('Road Profile Engine', () => {
 
     it('should handle single sample', () => {
       const samples: GnssSample[] = [
-        {
+        makeSample({
           timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          speed_mps: 0,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+          latitude: 45.0,
+          longitude: -75.0,
+          altitude: 100,
+          speed: 0,
+          heading: 0,
+        }),
       ];
 
       const result = resampleProfile(samples, 5);
       expect(result).toHaveLength(1);
       expect(result[0].distance_m).toBe(0);
-      expect(result[0].lat).toBe(45.0);
-      expect(result[0].lon).toBe(-75.0);
-      expect(result[0].alt_m).toBe(100);
+      expect(result[0].latitude).toBe(45.0);
+      expect(result[0].longitude).toBe(-75.0);
+      expect(result[0].altitude).toBe(100);
     });
 
     it('should resample at uniform intervals', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:01Z',
-          lat: 45.0001,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:02Z',
-          lat: 45.0002,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:01Z', latitude: 45.0001, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:02Z', latitude: 45.0002, longitude: -75.0000, altitude: 100 }),
       ];
 
       const stepMeters = 5;
       const result = resampleProfile(samples, stepMeters);
 
-      // Check that resampled points are at uniform intervals
       for (let i = 1; i < result.length - 1; i++) {
         const interval = result[i].distance_m - result[i - 1].distance_m;
         expect(interval).toBeCloseTo(stepMeters, 0);
@@ -163,102 +144,66 @@ describe('Road Profile Engine', () => {
 
     it('should interpolate lat/lon/alt correctly', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:10Z',
-          lat: 45.0010,
-          lon: -75.0010,
-          alt_m: 110,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:10Z', latitude: 45.0010, longitude: -75.0010, altitude: 110 }),
       ];
 
       const result = resampleProfile(samples, 5);
 
-      // Check that interpolated values are between start and end
       for (const point of result) {
-        expect(point.lat).toBeGreaterThanOrEqual(45.0000);
-        expect(point.lat).toBeLessThanOrEqual(45.0010);
-        expect(point.lon).toBeGreaterThanOrEqual(-75.0010);
-        expect(point.lon).toBeLessThanOrEqual(-75.0000);
-        expect(point.alt_m).toBeGreaterThanOrEqual(100);
-        expect(point.alt_m).toBeLessThanOrEqual(110);
+        expect(point.latitude).toBeGreaterThanOrEqual(45.0000);
+        expect(point.latitude).toBeLessThanOrEqual(45.0010);
+        expect(point.longitude).toBeGreaterThanOrEqual(-75.0010);
+        expect(point.longitude).toBeLessThanOrEqual(-75.0000);
+        expect(point.altitude).toBeGreaterThanOrEqual(100);
+        expect(point.altitude).toBeLessThanOrEqual(110);
       }
     });
   });
 
   describe('calculateKFactor', () => {
     it('should detect convex curve (crest)', () => {
-      // Create a crest: point B is higher than the line A-C
-      const pointA = { distance_m: 0, alt_m: 100 };
-      const pointB = { distance_m: 50, alt_m: 105 }; // Peak
-      const pointC = { distance_m: 100, alt_m: 100 };
+      const pointA = { distance_m: 0, altitude: 100 };
+      const pointB = { distance_m: 50, altitude: 105 };
+      const pointC = { distance_m: 100, altitude: 100 };
 
       const kFactor = calculateKFactor(pointA, pointB, pointC);
-
-      // Should be positive for convex curve
       expect(kFactor).toBeGreaterThan(0);
     });
 
     it('should detect concave curve (sag)', () => {
-      // Create a sag: point B is lower than the line A-C
-      const pointA = { distance_m: 0, alt_m: 100 };
-      const pointB = { distance_m: 50, alt_m: 95 }; // Valley
-      const pointC = { distance_m: 100, alt_m: 100 };
+      const pointA = { distance_m: 0, altitude: 100 };
+      const pointB = { distance_m: 50, altitude: 95 };
+      const pointC = { distance_m: 100, altitude: 100 };
 
       const kFactor = calculateKFactor(pointA, pointB, pointC);
-
-      // Should be negative for concave curve
       expect(kFactor).toBeLessThan(0);
     });
 
     it('should return Infinity for perfectly straight line', () => {
-      const pointA = { distance_m: 0, alt_m: 100 };
-      const pointB = { distance_m: 50, alt_m: 100 };
-      const pointC = { distance_m: 100, alt_m: 100 };
+      const pointA = { distance_m: 0, altitude: 100 };
+      const pointB = { distance_m: 50, altitude: 100 };
+      const pointC = { distance_m: 100, altitude: 100 };
 
       const kFactor = calculateKFactor(pointA, pointB, pointC);
-
       expect(kFactor).toBe(Infinity);
     });
 
     it('should calculate sharp crest (small K-factor)', () => {
-      // Sharp crest with significant vertical offset
-      const pointA = { distance_m: 0, alt_m: 100 };
-      const pointB = { distance_m: 25, alt_m: 110 }; // Very sharp peak
-      const pointC = { distance_m: 50, alt_m: 100 };
+      const pointA = { distance_m: 0, altitude: 100 };
+      const pointB = { distance_m: 25, altitude: 110 };
+      const pointC = { distance_m: 50, altitude: 100 };
 
       const kFactor = calculateKFactor(pointA, pointB, pointC);
-
-      // Sharp curve should have small K-factor
       expect(kFactor).toBeLessThan(10000);
     });
 
     it('should calculate gentle curve (large K-factor)', () => {
-      // Gentle crest with small vertical offset
-      const pointA = { distance_m: 0, alt_m: 100 };
-      const pointB = { distance_m: 500, alt_m: 100.5 }; // Very gentle peak
-      const pointC = { distance_m: 1000, alt_m: 100 };
+      const pointA = { distance_m: 0, altitude: 100 };
+      const pointB = { distance_m: 500, altitude: 100.5 };
+      const pointC = { distance_m: 1000, altitude: 100 };
 
       const kFactor = calculateKFactor(pointA, pointB, pointC);
-
-      // Gentle curve should have large K-factor
       expect(kFactor).toBeGreaterThan(50000);
     });
   });
@@ -266,47 +211,13 @@ describe('Road Profile Engine', () => {
   describe('calculateProfile', () => {
     it('should calculate grades for all points', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:01Z',
-          lat: 45.0001,
-          lon: -75.0000,
-          alt_m: 110, // 10m rise
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:02Z',
-          lat: 45.0002,
-          lon: -75.0000,
-          alt_m: 115, // 5m rise
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:01Z', latitude: 45.0001, longitude: -75.0000, altitude: 110 }),
+        makeSample({ timestamp: '2024-01-01T10:00:02Z', latitude: 45.0002, longitude: -75.0000, altitude: 115 }),
       ];
 
       const profile = calculateProfile(samples, 5);
 
-      // All points should have grade_pct calculated
       for (const point of profile) {
         expect(point.grade_pct).toBeDefined();
         expect(typeof point.grade_pct).toBe('number');
@@ -315,47 +226,13 @@ describe('Road Profile Engine', () => {
 
     it('should calculate K-factors for interior points', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:01Z',
-          lat: 45.0001,
-          lon: -75.0000,
-          alt_m: 105,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:02Z',
-          lat: 45.0002,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:01Z', latitude: 45.0001, longitude: -75.0000, altitude: 105 }),
+        makeSample({ timestamp: '2024-01-01T10:00:02Z', latitude: 45.0002, longitude: -75.0000, altitude: 100 }),
       ];
 
       const profile = calculateProfile(samples, 5);
 
-      // Interior points should have K-factors
       const interiorPoints = profile.slice(1, -1);
       for (const point of interiorPoints) {
         expect(point.k_factor).toBeDefined();
@@ -369,46 +246,10 @@ describe('Road Profile Engine', () => {
   describe('detectGradeEvents', () => {
     it('should detect steep uphill grade event', () => {
       const profilePoints: ProfilePoint[] = [
-        {
-          distance_m: 0,
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          timestamp: '2024-01-01T10:00:00Z',
-          grade_pct: 5,
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 5,
-          lat: 45.0001,
-          lon: -75.0,
-          alt_m: 101,
-          timestamp: '2024-01-01T10:00:01Z',
-          grade_pct: 15, // Steep uphill
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 10,
-          lat: 45.0002,
-          lon: -75.0,
-          alt_m: 102,
-          timestamp: '2024-01-01T10:00:02Z',
-          grade_pct: 14, // Still steep
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 15,
-          lat: 45.0003,
-          lon: -75.0,
-          alt_m: 103,
-          timestamp: '2024-01-01T10:00:03Z',
-          grade_pct: 5, // Back to normal
-          k_factor: null,
-          curvature_type: null,
-        },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, timestamp: '2024-01-01T10:00:00Z', grade_pct: 5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 101, timestamp: '2024-01-01T10:00:01Z', grade_pct: 15 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 102, timestamp: '2024-01-01T10:00:02Z', grade_pct: 14 }),
+        makeProfilePoint({ distance_m: 15, latitude: 45.0003, longitude: -75.0, altitude: 103, timestamp: '2024-01-01T10:00:03Z', grade_pct: 5 }),
       ];
 
       const events = detectGradeEvents(profilePoints, 12);
@@ -422,36 +263,9 @@ describe('Road Profile Engine', () => {
 
     it('should detect steep downhill grade event', () => {
       const profilePoints: ProfilePoint[] = [
-        {
-          distance_m: 0,
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          timestamp: '2024-01-01T10:00:00Z',
-          grade_pct: 0,
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 5,
-          lat: 45.0001,
-          lon: -75.0,
-          alt_m: 95,
-          timestamp: '2024-01-01T10:00:01Z',
-          grade_pct: -15, // Steep downhill
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 10,
-          lat: 45.0002,
-          lon: -75.0,
-          alt_m: 96,
-          timestamp: '2024-01-01T10:00:02Z',
-          grade_pct: 0,
-          k_factor: null,
-          curvature_type: null,
-        },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: 0 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 95, timestamp: '2024-01-01T10:00:01Z', grade_pct: -15 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 96, timestamp: '2024-01-01T10:00:02Z', grade_pct: 0 }),
       ];
 
       const events = detectGradeEvents(profilePoints, 12);
@@ -463,28 +277,27 @@ describe('Road Profile Engine', () => {
 
     it('should group consecutive steep segments', () => {
       const profilePoints: ProfilePoint[] = [
-        { distance_m: 0, lat: 45.0, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:00Z', grade_pct: 5, k_factor: null, curvature_type: null },
-        { distance_m: 5, lat: 45.0001, lon: -75.0, alt_m: 101, timestamp: '2024-01-01T10:00:01Z', grade_pct: 13, k_factor: null, curvature_type: null },
-        { distance_m: 10, lat: 45.0002, lon: -75.0, alt_m: 102, timestamp: '2024-01-01T10:00:02Z', grade_pct: 14, k_factor: null, curvature_type: null },
-        { distance_m: 15, lat: 45.0003, lon: -75.0, alt_m: 103, timestamp: '2024-01-01T10:00:03Z', grade_pct: 12.5, k_factor: null, curvature_type: null },
-        { distance_m: 20, lat: 45.0004, lon: -75.0, alt_m: 104, timestamp: '2024-01-01T10:00:04Z', grade_pct: 5, k_factor: null, curvature_type: null },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: 5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 101, grade_pct: 13 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 102, grade_pct: 14 }),
+        makeProfilePoint({ distance_m: 15, latitude: 45.0003, longitude: -75.0, altitude: 103, grade_pct: 12.5 }),
+        makeProfilePoint({ distance_m: 20, latitude: 45.0004, longitude: -75.0, altitude: 104, grade_pct: 5 }),
       ];
 
       const events = detectGradeEvents(profilePoints, 12);
 
       expect(events).toHaveLength(1);
-      expect(events[0].length_m).toBe(10); // 15 - 5 = 10m
+      expect(events[0].length_m).toBe(10);
     });
 
     it('should not detect events below threshold', () => {
       const profilePoints: ProfilePoint[] = [
-        { distance_m: 0, lat: 45.0, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:00Z', grade_pct: 5, k_factor: null, curvature_type: null },
-        { distance_m: 5, lat: 45.0001, lon: -75.0, alt_m: 101, timestamp: '2024-01-01T10:00:01Z', grade_pct: 8, k_factor: null, curvature_type: null },
-        { distance_m: 10, lat: 45.0002, lon: -75.0, alt_m: 102, timestamp: '2024-01-01T10:00:02Z', grade_pct: 6, k_factor: null, curvature_type: null },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: 5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 101, grade_pct: 8 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 102, grade_pct: 6 }),
       ];
 
       const events = detectGradeEvents(profilePoints, 12);
-
       expect(events).toHaveLength(0);
     });
   });
@@ -492,36 +305,9 @@ describe('Road Profile Engine', () => {
   describe('detectKFactorEvents', () => {
     it('should detect sharp crest (convex) event', () => {
       const profilePoints: ProfilePoint[] = [
-        {
-          distance_m: 0,
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          timestamp: '2024-01-01T10:00:00Z',
-          grade_pct: 5,
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 5,
-          lat: 45.0001,
-          lon: -75.0,
-          alt_m: 105,
-          timestamp: '2024-01-01T10:00:01Z',
-          grade_pct: 10,
-          k_factor: 3000, // Sharp crest (below 10,000 threshold)
-          curvature_type: 'convex',
-        },
-        {
-          distance_m: 10,
-          lat: 45.0002,
-          lon: -75.0,
-          alt_m: 106,
-          timestamp: '2024-01-01T10:00:02Z',
-          grade_pct: 5,
-          k_factor: null,
-          curvature_type: null,
-        },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: 5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 105, grade_pct: 10, k_factor: 3000, curvature_type: 'convex' }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 106, grade_pct: 5 }),
       ];
 
       const events = detectKFactorEvents(profilePoints, 10000, -8000);
@@ -529,41 +315,14 @@ describe('Road Profile Engine', () => {
       expect(events).toHaveLength(1);
       expect(events[0].curvature_type).toBe('convex');
       expect(events[0].k_factor).toBe(3000);
-      expect(events[0].severity).toBe('critical'); // < 5000 = critical
+      expect(events[0].severity).toBe('critical');
     });
 
     it('should detect sharp sag (concave) event', () => {
       const profilePoints: ProfilePoint[] = [
-        {
-          distance_m: 0,
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          timestamp: '2024-01-01T10:00:00Z',
-          grade_pct: -5,
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 5,
-          lat: 45.0001,
-          lon: -75.0,
-          alt_m: 95,
-          timestamp: '2024-01-01T10:00:01Z',
-          grade_pct: -10,
-          k_factor: -3000, // Sharp sag (above -8000 threshold)
-          curvature_type: 'concave',
-        },
-        {
-          distance_m: 10,
-          lat: 45.0002,
-          lon: -75.0,
-          alt_m: 94,
-          timestamp: '2024-01-01T10:00:02Z',
-          grade_pct: -5,
-          k_factor: null,
-          curvature_type: null,
-        },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: -5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 95, grade_pct: -10, k_factor: -3000, curvature_type: 'concave' }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 94, grade_pct: -5 }),
       ];
 
       const events = detectKFactorEvents(profilePoints, 10000, -8000);
@@ -571,45 +330,17 @@ describe('Road Profile Engine', () => {
       expect(events).toHaveLength(1);
       expect(events[0].curvature_type).toBe('concave');
       expect(events[0].k_factor).toBe(-3000);
-      expect(events[0].severity).toBe('critical'); // > -4000 = critical
+      expect(events[0].severity).toBe('critical');
     });
 
     it('should not detect gentle curves', () => {
       const profilePoints: ProfilePoint[] = [
-        {
-          distance_m: 0,
-          lat: 45.0,
-          lon: -75.0,
-          alt_m: 100,
-          timestamp: '2024-01-01T10:00:00Z',
-          grade_pct: 5,
-          k_factor: null,
-          curvature_type: null,
-        },
-        {
-          distance_m: 5,
-          lat: 45.0001,
-          lon: -75.0,
-          alt_m: 105,
-          timestamp: '2024-01-01T10:00:01Z',
-          grade_pct: 10,
-          k_factor: 50000, // Gentle crest (above threshold)
-          curvature_type: 'convex',
-        },
-        {
-          distance_m: 10,
-          lat: 45.0002,
-          lon: -75.0,
-          alt_m: 106,
-          timestamp: '2024-01-01T10:00:02Z',
-          grade_pct: 5,
-          k_factor: null,
-          curvature_type: null,
-        },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100, grade_pct: 5 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 105, grade_pct: 10, k_factor: 50000, curvature_type: 'convex' }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 106, grade_pct: 5 }),
       ];
 
       const events = detectKFactorEvents(profilePoints, 10000, -8000);
-
       expect(events).toHaveLength(0);
     });
   });
@@ -617,13 +348,13 @@ describe('Road Profile Engine', () => {
   describe('detectRailCrossings', () => {
     it('should detect elevation spike', () => {
       const profilePoints: ProfilePoint[] = [
-        { distance_m: 0, lat: 45.0, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:00Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 5, lat: 45.0001, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:01Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 10, lat: 45.0002, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:02Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 15, lat: 45.0003, lon: -75.0, alt_m: 100.2, timestamp: '2024-01-01T10:00:03Z', grade_pct: 0, k_factor: null, curvature_type: null }, // Spike
-        { distance_m: 20, lat: 45.0004, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:04Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 25, lat: 45.0005, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:05Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 30, lat: 45.0006, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:06Z', grade_pct: 0, k_factor: null, curvature_type: null },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 15, latitude: 45.0003, longitude: -75.0, altitude: 100.2 }), // Spike
+        makeProfilePoint({ distance_m: 20, latitude: 45.0004, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 25, latitude: 45.0005, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 30, latitude: 45.0006, longitude: -75.0, altitude: 100 }),
       ];
 
       const events = detectRailCrossings(profilePoints, 0.15, 5);
@@ -636,15 +367,14 @@ describe('Road Profile Engine', () => {
 
     it('should not detect small variations', () => {
       const profilePoints: ProfilePoint[] = [
-        { distance_m: 0, lat: 45.0, lon: -75.0, alt_m: 100, timestamp: '2024-01-01T10:00:00Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 5, lat: 45.0001, lon: -75.0, alt_m: 100.05, timestamp: '2024-01-01T10:00:01Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 10, lat: 45.0002, lon: -75.0, alt_m: 100.03, timestamp: '2024-01-01T10:00:02Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 15, lat: 45.0003, lon: -75.0, alt_m: 100.04, timestamp: '2024-01-01T10:00:03Z', grade_pct: 0, k_factor: null, curvature_type: null },
-        { distance_m: 20, lat: 45.0004, lon: -75.0, alt_m: 100.06, timestamp: '2024-01-01T10:00:04Z', grade_pct: 0, k_factor: null, curvature_type: null },
+        makeProfilePoint({ distance_m: 0, latitude: 45.0, longitude: -75.0, altitude: 100 }),
+        makeProfilePoint({ distance_m: 5, latitude: 45.0001, longitude: -75.0, altitude: 100.05 }),
+        makeProfilePoint({ distance_m: 10, latitude: 45.0002, longitude: -75.0, altitude: 100.03 }),
+        makeProfilePoint({ distance_m: 15, latitude: 45.0003, longitude: -75.0, altitude: 100.04 }),
+        makeProfilePoint({ distance_m: 20, latitude: 45.0004, longitude: -75.0, altitude: 100.06 }),
       ];
 
       const events = detectRailCrossings(profilePoints, 0.15, 5);
-
       expect(events).toHaveLength(0);
     });
   });
@@ -652,54 +382,10 @@ describe('Road Profile Engine', () => {
   describe('generateRoadProfile', () => {
     it('should generate complete profile with all events', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:01Z',
-          lat: 45.0001,
-          lon: -75.0000,
-          alt_m: 110, // Steep climb
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:02Z',
-          lat: 45.0002,
-          lon: -75.0000,
-          alt_m: 115, // Continue climb
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:03Z',
-          lat: 45.0003,
-          lon: -75.0000,
-          alt_m: 116,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:01Z', latitude: 45.0001, longitude: -75.0000, altitude: 110 }),
+        makeSample({ timestamp: '2024-01-01T10:00:02Z', latitude: 45.0002, longitude: -75.0000, altitude: 115 }),
+        makeSample({ timestamp: '2024-01-01T10:00:03Z', latitude: 45.0003, longitude: -75.0000, altitude: 116 }),
       ];
 
       const result = generateRoadProfile(samples, {
@@ -733,42 +419,9 @@ describe('Road Profile Engine', () => {
 
     it('should handle edge case: flat terrain', () => {
       const samples: GnssSample[] = [
-        {
-          timestamp: '2024-01-01T10:00:00Z',
-          lat: 45.0000,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:01Z',
-          lat: 45.0001,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
-        {
-          timestamp: '2024-01-01T10:00:02Z',
-          lat: 45.0002,
-          lon: -75.0000,
-          alt_m: 100,
-          speed_mps: 10,
-          heading_deg: 0,
-          quality: 'rtk_fixed',
-          hdop: 1.0,
-          num_sats: 12,
-          source: 'duro',
-        },
+        makeSample({ timestamp: '2024-01-01T10:00:00Z', latitude: 45.0000, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:01Z', latitude: 45.0001, longitude: -75.0000, altitude: 100 }),
+        makeSample({ timestamp: '2024-01-01T10:00:02Z', latitude: 45.0002, longitude: -75.0000, altitude: 100 }),
       ];
 
       const result = generateRoadProfile(samples);

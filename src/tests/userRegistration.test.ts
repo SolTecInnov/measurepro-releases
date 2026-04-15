@@ -1,4 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+// Mock firebase/auth before importing it
+vi.mock('firebase/auth', () => ({
+  createUserWithEmailAndPassword: vi.fn(),
+  sendEmailVerification: vi.fn(),
+  getAuth: vi.fn(),
+}));
+
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { isFreeTierFeature, getUnlicensedMessage } from '@/lib/licensing/features';
 import { registrationStartSchema, registrationVerifySchema } from '../../shared/schema';

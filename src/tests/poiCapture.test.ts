@@ -1,13 +1,32 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { 
-  calculateDistance, 
-  decimalToDMS, 
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+
+// Mock the sounds module to avoid localStorage/Audio dependencies
+vi.mock('@/lib/sounds', () => {
+  const mockManager = {
+    play: vi.fn(),
+    setEnabled: vi.fn(),
+    isEnabled: vi.fn(() => true),
+    playPOITypeChange: vi.fn(),
+    playMeasurement: vi.fn(),
+    playError: vi.fn(),
+    playSuccess: vi.fn(),
+    playWarning: vi.fn(),
+  };
+  return {
+    soundManager: mockManager,
+    default: mockManager,
+  };
+});
+
+import {
+  calculateDistance,
+  decimalToDMS,
   formatCoordinate,
   calculateBearing
 } from '@/lib/utils/geoUtils';
-import { 
-  metersToFeetInches, 
-  feetInchesToMeters, 
+import {
+  metersToFeetInches,
+  feetInchesToMeters,
   formatMeasurement,
   parseInputToMeters
 } from '@/lib/utils/unitConversion';

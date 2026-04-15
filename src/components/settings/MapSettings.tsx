@@ -122,6 +122,7 @@ const OfflineTileSection: React.FC<{ tileUrlTemplate: string }> = ({ tileUrlTemp
       if (est.usage !== undefined) setStorageUsed(formatBytes(est.usage));
     }
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- refreshStorage is stable (no deps), only run on mount
   React.useEffect(() => { refreshStorage(); }, []);
 
   const handleBboxChange = (field: keyof BBox, value: string) => {

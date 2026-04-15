@@ -9,11 +9,19 @@
  * 5. High-load simulation (10,000 measurements at 5-10 POIs/sec)
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { 
-  getStorageHealthTracker, 
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+
+// Mock window.setInterval/clearInterval before importing storageHealth
+// (the module uses window.setInterval which is not available in Node test env)
+vi.stubGlobal('window', {
+  setInterval: (fn: Function, ms: number) => setInterval(fn, ms),
+  clearInterval: (id: any) => clearInterval(id),
+});
+
+import {
+  getStorageHealthTracker,
   StorageHealthTracker,
-  type StorageHealthStatus 
+  type StorageHealthStatus
 } from '../storageHealth';
 
 describe('StorageHealthTracker', () => {
