@@ -137,6 +137,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
     try {
       const url = await getRadarTileUrl();
       setRadarTileUrl(url);
+      if (radarRefreshRef.current) clearInterval(radarRefreshRef.current);
       radarRefreshRef.current = setInterval(async () => {
         const u = await getRadarTileUrl();
         setRadarTileUrl(u);
@@ -240,8 +241,8 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
     } catch {
       toast.error('Failed to update');
     }
-    setEditingId(null);
-    setLastPOIs(getMeasurementsWithLimit(2));
+    try { setEditingId(null); } catch {}
+    try { setLastPOIs(getMeasurementsWithLimit(2)); } catch {}
   };
 
   // Handle POI delete
@@ -251,7 +252,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
       await db.delete('measurements', id);
       getMeasurementFeed().removeMeasurement(id);
       toast.success('POI deleted');
-      setLastPOIs(getMeasurementsWithLimit(2));
+      try { setLastPOIs(getMeasurementsWithLimit(2)); } catch {}
     } catch {
       toast.error('Failed to delete');
     }

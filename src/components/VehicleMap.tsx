@@ -290,6 +290,7 @@ const VehicleMap: React.FC = () => {
     try {
       const url = await getRadarTileUrl();
       setRadarTileUrl(url);
+      if (radarRefreshRef.current) clearInterval(radarRefreshRef.current);
       radarRefreshRef.current = setInterval(async () => {
         const u = await getRadarTileUrl();
         setRadarTileUrl(u);

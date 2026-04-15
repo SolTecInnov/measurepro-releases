@@ -112,6 +112,7 @@ export default function ConvoyFollower() {
     const savedSession = getConvoySession();
     const { ws: existingWs } = useConvoyStore.getState();
     
+    let mounted = true;
     if (savedSession && !savedSession.isLeader && !connected) {
       setIsRestoringSession(true);
       
@@ -171,6 +172,7 @@ export default function ConvoyFollower() {
           handleIncomingMessage(message);
           
           if (message.type === 'join_approved') {
+            if (!mounted) return;
             setShowJoinForm(false);
             setIsRestoringSession(false);
             setShowReconnectBanner(true);
@@ -180,6 +182,7 @@ export default function ConvoyFollower() {
             restoringWsRef.current = null;
           } else if (message.type === 'join_denied') {
             clearConvoySession();
+            if (!mounted) return;
             setIsRestoringSession(false);
             setShowReconnectBanner(false);
             // BUG FIX: Clear ref BEFORE closing to prevent stale ref handling
@@ -192,6 +195,7 @@ export default function ConvoyFollower() {
       
       ws.onerror = (error) => {
         clearConvoySession();
+        if (!mounted) return;
         setIsRestoringSession(false);
         setShowReconnectBanner(false);
         // BUG FIX 1: Close the orphan WebSocket
@@ -214,6 +218,7 @@ export default function ConvoyFollower() {
     
     // BUG FIX 2: Only close the provisional restoring socket, NOT the approved session socket
     return () => {
+      mounted = false;
       // Only close the restoring socket if it exists, is open, AND is NOT the store's active connection
       const storeWs = useConvoyStore.getState().ws;
       if (restoringWsRef.current && 
@@ -1402,15 +1407,15 @@ export default function ConvoyFollower() {
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <div className="text-sm text-gray-400">Latitude</div>
-                <div className="text-lg font-mono">{leaderGPS.latitude.toFixed(6)}</div>
+                <div className="text-lg font-mono">{(leaderGPS.latitude ?? 0).toFixed(6)}</div>
               </div>
               <div>
                 <div className="text-sm text-gray-400">Longitude</div>
-                <div className="text-lg font-mono">{leaderGPS.longitude.toFixed(6)}</div>
+                <div className="text-lg font-mono">{(leaderGPS.longitude ?? 0).toFixed(6)}</div>
               </div>
               <div>
                 <div className="text-sm text-gray-400">Altitude</div>
-                <div className="text-lg font-mono">{leaderGPS.altitude.toFixed(1)}m</div>
+                <div className="text-lg font-mono">{(leaderGPS.altitude ?? 0).toFixed(1)}m</div>
               </div>
             </div>
           </div>

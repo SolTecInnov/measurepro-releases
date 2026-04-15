@@ -92,7 +92,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({ alertStatus, setAlertStatus, 
                 Measurement {triggerValue?.toFixed(3)}m exceeds safe threshold
                 <br />
                 <span className="text-sm">
-                  Location: {gpsData.latitude.toFixed(6)}°N, {gpsData.longitude.toFixed(6)}°E, Alt: {gpsData.altitude.toFixed(1)}m
+                  Location: {(gpsData.latitude ?? 0).toFixed(6)}°N, {(gpsData.longitude ?? 0).toFixed(6)}°E, Alt: {(gpsData.altitude ?? 0).toFixed(1)}m
                 </span>
               </p>
             </div>
