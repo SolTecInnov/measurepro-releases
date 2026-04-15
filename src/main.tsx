@@ -30,7 +30,7 @@ console.log(`%c MeasurePRO Desktop Build: ${BUILD_VERSION}`, 'color: #00ff00; fo
 // and IndexedDB, causing "Minified React error #31" on render. Clear everything
 // on first run of a new version so the app starts clean.
 const CACHE_VERSION_KEY = '_measurepro_cache_version';
-const CURRENT_CACHE_VERSION = '16.1.69';
+const CURRENT_CACHE_VERSION = '16.1.70';
 if (localStorage.getItem(CACHE_VERSION_KEY) !== CURRENT_CACHE_VERSION) {
   console.log('[CacheFlush] New version detected — FULL flush of all stale data');
   // Nuke ALL IndexedDB databases to remove corrupted Firestore objects

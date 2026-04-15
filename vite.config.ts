@@ -34,6 +34,13 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
+  test: {
+    globals: true,
+    setupFiles: ['./src/test/setup.ts'],
+    include: ['src/**/*.test.{ts,tsx}'],
+    // Default: no environment (node). Component tests opt-in via
+    // @vitest-environment happy-dom comment at top of file.
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

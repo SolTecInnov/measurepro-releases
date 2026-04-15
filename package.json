@@ -1,6 +1,6 @@
 {
   "name": "measurepro-desktop",
-  "version": "16.1.69",
+  "version": "16.1.70",
   "description": "MeasurePRO Desktop - Professional Measurement Application",
   "author": "Soltec Innovation <support@soltecinnovation.com>",
   "license": "UNLICENSED",
@@ -70,6 +70,9 @@
     "zustand": "^5.0.5"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/file-saver": "^2.0.7",
     "@types/leaflet": "^1.9.21",
     "@types/node": "^25.5.2",
@@ -87,10 +90,12 @@
     "cross-env": "^7.0.3",
     "electron": "^35.1.0",
     "electron-builder": "^25.1.8",
+    "happy-dom": "^20.9.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
+    "vitest": "^4.1.4",
     "wait-on": "^8.0.3"
   },
   "build": {
