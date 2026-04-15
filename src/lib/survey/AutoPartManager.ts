@@ -404,21 +404,9 @@ class AutoPartManager {
       toast.dismiss('auto-part-timelapse');
     }
 
-    // Step 11: Purge closed survey data from IndexedDB ONLY if save succeeded
-    // CRITICAL: If packageData is null, the save failed — DO NOT purge or data is lost forever
-    if (packageData) {
-      try {
-        const { purgeCompletedSurveyFromDB } = await import('./db');
-        const purgeResult = await purgeCompletedSurveyFromDB(closedSurvey.id);
-        if (purgeResult.success) {
-          console.log(`[AutoPartManager] Purged Part ${currentPart} from IndexedDB:`, purgeResult.deletedCounts);
-        }
-      } catch (error) {
-        console.error('[AutoPartManager] Failed to purge Part', currentPart, ':', error);
-      }
-    } else {
-      console.warn(`[AutoPartManager] Skipping purge — Part ${currentPart} save failed, data preserved in IndexedDB`);
-    }
+    // Survey data stays in IndexedDB — user owns their data.
+    // Cleanup is done via the Storage Cleanup modal in Settings, not automatically.
+    console.log(`[AutoPartManager] Part ${currentPart} saved to disk. Data preserved in IndexedDB until user cleans up.`);
 
     console.log('[AutoPartManager] Export tail complete for Part', currentPart);
   }

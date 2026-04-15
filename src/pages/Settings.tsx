@@ -47,6 +47,7 @@ import MeasurementControls from '../components/measurement/MeasurementControls';
 import POIHeightRow from '../components/POIHeightRow';
 import EditMeasurementModal from '../components/EditMeasurementModal';
 import VoiceNotePOIModal from '../components/VoiceNotePOIModal';
+import StorageCleanupModal from '../components/survey/StorageCleanupModal';
 import GNSSStatusCard from '../components/gnss/GNSSStatusCard';
 import { useLateralRearCaptureHandler } from '../hooks/useLateralRearCaptureHandler';
 import LateralWidthDisplay from '../components/LateralWidthDisplay';
@@ -502,6 +503,14 @@ const Settings: React.FC = () => {
   const [showManualLogModal, setShowManualLogModal] = useState(false);
   const [preSelectedPOIType, setPreSelectedPOIType] = useState<POIType | null>(null);
   
+  // Storage cleanup modal
+  const [showStorageCleanup, setShowStorageCleanup] = useState(false);
+  useEffect(() => {
+    const handler = () => setShowStorageCleanup(true);
+    window.addEventListener('open-storage-cleanup', handler);
+    return () => window.removeEventListener('open-storage-cleanup', handler);
+  }, []);
+
   // Voice note modal state
   const [showVoiceNoteModal, setShowVoiceNoteModal] = useState(false);
   const [voiceNoteCapturedImage, setVoiceNoteCapturedImage] = useState<string | null>(null);
@@ -2043,6 +2052,12 @@ const Settings: React.FC = () => {
           measurement={editingMeasurement}
         />
         
+        {/* Storage Cleanup Modal */}
+        <StorageCleanupModal
+          isOpen={showStorageCleanup}
+          onClose={() => setShowStorageCleanup(false)}
+        />
+
         {/* Voice Note POI Modal */}
         <VoiceNotePOIModal
           isOpen={showVoiceNoteModal}

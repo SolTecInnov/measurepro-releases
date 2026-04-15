@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain } from 'lucide-react';
+import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain, HardDrive } from 'lucide-react';
 import { useDriveModeStore } from '../lib/stores/driveModeStore';
 import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { useSurveyStore } from '../lib/survey';
@@ -441,6 +441,19 @@ const AppHeader: React.FC<AppHeaderProps> = ({
               >
                 <Navigation className={`w-4 h-4 flex-shrink-0 ${surveyMode ? 'text-orange-300' : 'text-orange-400'}`} />
                 <span>{surveyMode ? 'Exit GPS-Only Mode' : 'GPS-Only Survey'}</span>
+              </button>
+
+              {/* Storage Cleanup — user-initiated data cleanup */}
+              <button
+                onClick={() => {
+                  setShowToolsMenu(false);
+                  window.dispatchEvent(new Event('open-storage-cleanup'));
+                }}
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                title="Clean up closed surveys from memory to keep the app fast"
+              >
+                <HardDrive className="w-4 h-4 flex-shrink-0 text-blue-400" />
+                <span>Storage Cleanup</span>
               </button>
 
               {/* Drive Mode — kiosk + close protection */}

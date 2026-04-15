@@ -308,16 +308,9 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
         return;
       }
       
-      // For complete/continuation: purge survey data from IndexedDB
-      // CRITICAL: Only purge if save was validated — never delete data without backup on disk
-      if (saveValidated) {
-        const purgeResult = await purgeCompletedSurveyFromDB(surveyIdToPurge);
-        if (purgeResult.success) {
-          console.log('[SurveyClose] Purged survey from IndexedDB:', purgeResult.deletedCounts);
-        }
-      } else {
-        console.warn('[SurveyClose] Save not validated — skipping IndexedDB purge to preserve data');
-      }
+      // Survey data stays in IndexedDB — user owns their data.
+      // Cleanup is done via the Storage Cleanup modal in Settings, not automatically.
+      console.log(`[SurveyClose] Survey ${surveyIdToPurge} closed and saved to disk. Data preserved in IndexedDB until user cleans up.`);
       
       // If continuing to next part, create the new survey
       if (mode === 'continue') {
