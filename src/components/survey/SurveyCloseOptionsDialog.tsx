@@ -157,16 +157,18 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
         );
       }
       
-      // Step 2: Generate and save package (MANDATORY)
+      // Step 2: Generate and save package (MANDATORY — must succeed before any purge)
       setCurrentStep('Generating survey package...');
+      let saveValidated = false;
       const { generateSurveyPackageBlob } = await import('../../lib/utils/exportUtils');
       const packageData = await generateSurveyPackageBlob(updatedSurvey);
-      
+
       // Step 3: Save to hard drive (MANDATORY)
       setCurrentStep('Saving to your computer...');
       const { saveAs } = await import('file-saver');
       saveAs(packageData.blob, packageData.filename);
-      // toast suppressed
+      saveValidated = true;
+      console.log(`[SurveyClose] Save validated — ${packageData.filename} (${packageData.measurementCount} POIs)`);
       
       let downloadUrl: string | undefined;
       
@@ -306,10 +308,15 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
         return;
       }
       
-      // For complete/continuation: purge survey data from IndexedDB (normal cleanup)
-      const purgeResult = await purgeCompletedSurveyFromDB(surveyIdToPurge);
-      if (purgeResult.success) {
-        console.log('[SurveyClose] Purged survey from IndexedDB:', purgeResult.deletedCounts);
+      // For complete/continuation: purge survey data from IndexedDB
+      // CRITICAL: Only purge if save was validated — never delete data without backup on disk
+      if (saveValidated) {
+        const purgeResult = await purgeCompletedSurveyFromDB(surveyIdToPurge);
+        if (purgeResult.success) {
+          console.log('[SurveyClose] Purged survey from IndexedDB:', purgeResult.deletedCounts);
+        }
+      } else {
+        console.warn('[SurveyClose] Save not validated — skipping IndexedDB purge to preserve data');
       }
       
       // If continuing to next part, create the new survey
