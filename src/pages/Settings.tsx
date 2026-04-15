@@ -664,11 +664,13 @@ const Settings: React.FC = () => {
 
     // PERF: Cached POI counter — no IndexedDB scan per POI
     if (noMeasPoiCounterRef.current.surveyId !== activeSurvey.id) {
-      // First call for this survey: seed from cache size (O(1))
       const cacheSize = getMeasurementFeed().getCacheSize();
       noMeasPoiCounterRef.current = { surveyId: activeSurvey.id, nextNumber: cacheSize + 1 };
     }
     const nextPoiNumber = noMeasPoiCounterRef.current.nextNumber++;
+
+    // Capture image FIRST — must happen before POI creation so the image is included
+    const imageUrl = await handleCaptureImage();
 
     const rainState = useRainModeStore.getState();
     const noteExtra = `${rainState.isActive ? ' | RAIN MODE' : ''}${rainState.isSurveyMode ? ' | GPS-ONLY — NO VERTICAL CLEARANCE ASSESSMENT' : ''}`;
@@ -686,7 +688,8 @@ const Settings: React.FC = () => {
       roadNumber: 1,
       poiNumber: nextPoiNumber,
       poi_type: currentSelectedType,
-      images: [],
+      imageUrl: imageUrl || undefined,
+      images: imageUrl ? [imageUrl] : [],
       note: `${poiTypeLabel}${noteExtra}`,
       createdAt: new Date().toISOString(),
       user_id: activeSurvey.id,
@@ -694,33 +697,23 @@ const Settings: React.FC = () => {
       measurementFree: true
     };
 
-    // PERF: Write to in-memory cache FIRST (instant UI), then fire-and-forget to worker
+    // Write to in-memory cache FIRST (instant UI), then fire-and-forget to worker
     getMeasurementFeed().addMeasurement(newMeasurement);
     logMeasurementViaWorker(newMeasurement).catch(() => {});
     soundManager.playInterface();
 
-    // PERF: Capture image ASYNC — never blocks POI creation
-    handleCaptureImage().then(imageUrl => {
-      if (!imageUrl) return;
-      // Attach image to the already-saved POI
-      newMeasurement.imageUrl = imageUrl;
-      newMeasurement.images = [imageUrl];
-      getMeasurementFeed().updateMeasurement(newMeasurement.id, newMeasurement);
-      // Update in IndexedDB via worker
-      import('@/lib/survey/measurements').then(({ updateMeasurement }) => {
-        updateMeasurement(newMeasurement.id, { imageUrl, images: [imageUrl] }).catch(() => {});
-      });
-      // Timelapse integration (async, non-blocking)
+    // Timelapse integration (async, non-blocking)
+    if (imageUrl) {
       import('@/lib/timelapse/poiIntegration').then(({ addPOIFrameToTimelapse }) => {
         addPOIFrameToTimelapse(imageUrl, newMeasurement).then(frameNumber => {
           if (frameNumber !== null) {
-            import('@/lib/survey/measurements').then(({ updateMeasurement: updateM }) => {
-              updateM(newMeasurement.id, { timelapseFrameNumber: frameNumber }).catch(() => {});
+            import('@/lib/survey/measurements').then(({ updateMeasurement }) => {
+              updateMeasurement(newMeasurement.id, { timelapseFrameNumber: frameNumber }).catch(() => {});
             });
           }
         }).catch(() => {});
       }).catch(() => {});
-    }).catch(() => {});
+    }
 
     setPendingPhotos([]);
     setCapturedData([]);
