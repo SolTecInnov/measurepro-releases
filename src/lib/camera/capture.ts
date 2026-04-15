@@ -359,11 +359,16 @@ export async function captureFrameWithOverlay(
 
   const margin = Math.max(10, canvas.width / 128);
 
+  // RESPECT the master overlay enabled toggle — skip all overlay drawing if disabled
+  const overlayEnabled = (overlayOptions as any).enabled !== false;
+
   // Draw the overlay card first and get its bounds
-  const cardBounds = drawProfessionalOverlay(ctx, canvas.width, canvas.height, overlayData, overlayOptions);
+  const cardBounds = overlayEnabled
+    ? drawProfessionalOverlay(ctx, canvas.width, canvas.height, overlayData, overlayOptions)
+    : null;
 
   // Draw logo above the overlay card (bottom-left, no background)
-  if (overlayOptions.showLogo && overlayData.showLogo !== false) {
+  if (overlayEnabled && overlayOptions.showLogo && overlayData.showLogo !== false) {
     try {
       const logoUrl = localStorage.getItem('app_logo_url');
       if (!logoUrl) {
@@ -527,7 +532,10 @@ export async function captureBufferedFrameWithOverlay(
 
   const margin = Math.max(10, canvas.width / 128);
 
-  if (overlayOptions.showLogo && overlayData.showLogo !== false) {
+  // RESPECT the master overlay enabled toggle
+  const overlayEnabled = (overlayOptions as any).enabled !== false;
+
+  if (overlayEnabled && overlayOptions.showLogo && overlayData.showLogo !== false) {
     try {
       const logoUrl = localStorage.getItem('app_logo_url') || '/soltec.png';
       const logoImg = new Image();
@@ -559,7 +567,9 @@ export async function captureBufferedFrameWithOverlay(
     }
   }
 
-  drawProfessionalOverlay(ctx, canvas.width, canvas.height, overlayData, overlayOptions);
+  if (overlayEnabled) {
+    drawProfessionalOverlay(ctx, canvas.width, canvas.height, overlayData, overlayOptions);
+  }
 
   let dataUrl = canvas.toDataURL(imageFormat, 0.75);
 
