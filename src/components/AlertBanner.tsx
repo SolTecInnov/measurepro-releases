@@ -97,14 +97,14 @@ const AlertBanner: React.FC<AlertBannerProps> = ({ alertStatus, setAlertStatus, 
               </p>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setShowEmailDialog(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors"
+              className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition-colors"
               data-testid="button-email-alert"
             >
               <Mail className="w-4 h-4" />
-              Email Alert
+              Email
             </button>
             <button
               onClick={() => {
@@ -115,11 +115,11 @@ const AlertBanner: React.FC<AlertBannerProps> = ({ alertStatus, setAlertStatus, 
                   clearTimeout(warningTimeout.current);
                 }
               }}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-medium transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-base font-bold transition-colors animate-pulse min-w-[120px] justify-center"
               data-testid="button-clear-alert"
             >
-              <X className="w-4 h-4" />
-              Clear
+              <X className="w-5 h-5" />
+              STOP
             </button>
           </div>
         </div>
