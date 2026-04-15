@@ -827,11 +827,14 @@ export async function syncSurveyToRoadScope(
         const uploadedFiles: FileRegistration[] = [];
 
         // Build a map from original batch files to measurements for matching
+        // KEY: poiExternalId/filename (unique per POI) — NOT just filename
+        // because all POIs have "photo_001.jpg" which would overwrite each other
         const fileToMeasurement = new Map<string, { measurement: Measurement; fileRequest: FileUploadRequest }>();
         for (const fileReq of batch) {
           const measurement = measurementsWithMedia.find(m => m.id === fileReq.poiExternalId);
           if (measurement) {
-            fileToMeasurement.set(fileReq.filename, { measurement, fileRequest: fileReq });
+            const uniqueKey = `${fileReq.poiExternalId}/${fileReq.filename}`;
+            fileToMeasurement.set(uniqueKey, { measurement, fileRequest: fileReq });
           }
         }
 
@@ -839,8 +842,19 @@ export async function syncSurveyToRoadScope(
         const uploadPromise = async (urlInfo: { filename: string; uploadUrl: string; storagePath: string }): Promise<FileRegistration | null> => {
           const filenameOnly = urlInfo.filename.split('/').pop() || urlInfo.filename;
           
-          let matchedData = fileToMeasurement.get(filenameOnly);
-          
+          // Match by storagePath which contains the poiExternalId
+          // storagePath format: measurepro/{surveyId}/photos/{poiExternalId}/{filename}
+          let matchedData: { measurement: Measurement; fileRequest: FileUploadRequest } | undefined;
+
+          // Primary match: extract poiExternalId from storagePath and build unique key
+          for (const [key, data] of fileToMeasurement) {
+            if (urlInfo.storagePath.includes(data.measurement.id) && urlInfo.filename.endsWith(data.fileRequest.filename)) {
+              matchedData = data;
+              break;
+            }
+          }
+
+          // Fallback: match by poiExternalId in storagePath
           if (!matchedData) {
             for (const [, data] of fileToMeasurement) {
               if (urlInfo.storagePath.includes(data.measurement.id)) {
