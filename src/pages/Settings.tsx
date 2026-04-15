@@ -48,6 +48,7 @@ import POIHeightRow from '../components/POIHeightRow';
 import EditMeasurementModal from '../components/EditMeasurementModal';
 import VoiceNotePOIModal from '../components/VoiceNotePOIModal';
 import StorageCleanupModal from '../components/survey/StorageCleanupModal';
+import { usePhotoWatchdog } from '../hooks/usePhotoWatchdog';
 import GNSSStatusCard from '../components/gnss/GNSSStatusCard';
 import { useLateralRearCaptureHandler } from '../hooks/useLateralRearCaptureHandler';
 import LateralWidthDisplay from '../components/LateralWidthDisplay';
@@ -904,6 +905,9 @@ const Settings: React.FC = () => {
   };
   const setIsLogging = (v: boolean) => { if (!v) stopLogging(); };
   // Map internal mode names to UI mode names for LoggingControls
+  // Photo watchdog — warns if camera disconnects or POIs are missing photos
+  usePhotoWatchdog({ isLogging, loggingMode });
+
   const uiLoggingMode = loggingMode === 'all_data' ? 'all' : loggingMode === 'counter' ? 'counterDetection' : 'manual';
   const handleLoggingModeChange = (mode: string) => {
     if (mode === 'all' || mode === 'all_data') startAllData();
