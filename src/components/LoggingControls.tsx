@@ -113,7 +113,7 @@ const LoggingControls: React.FC<LoggingControlsProps> = ({
 
     window.addEventListener('voice-manual-log', handleVoiceManualLog);
     return () => window.removeEventListener('voice-manual-log', handleVoiceManualLog);
-  }, []);
+  }, [setShowManualEntryModal]);
 
   // Capture image and wait for it to be processed
   const captureAndWait = async () => {

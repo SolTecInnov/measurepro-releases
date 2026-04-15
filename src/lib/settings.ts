@@ -456,7 +456,7 @@ export const useSettingsStore = create<{
     center: [number, number];
     zoom: number;
     provider: 'google' | 'osm' | 'mapbox' | 'igo2';
-    style: 'default' | 'satellite' | 'terrain' | 'dark';
+    style: 'default' | 'satellite' | 'terrain' | 'dark' | 'hybrid';
     visible: boolean;
   };
   loggingSettings: {

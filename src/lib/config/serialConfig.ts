@@ -41,10 +41,10 @@ export const GPS_FLOW_CONTROL = [
 
 type FlatLaserConfig = {
   baudRate: number;
-  dataBits: number;
-  stopBits: number;
-  parity: string;
-  flowControl: string;
+  dataBits: 7 | 8;
+  stopBits: 1 | 2;
+  parity: 'none' | 'even' | 'odd';
+  flowControl: 'none' | 'hardware';
   commands: (typeof LASER_PRESETS)[LaserType]['commands'];
 };
 

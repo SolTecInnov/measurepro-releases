@@ -100,9 +100,9 @@ export const useMultiLaserStore = create<MultiLaserState>((set, get) => ({
   rear: createEmptyPortState(),
   
   deviceTypes: {
-    leftLateral: 'soltec-new',
-    rightLateral: 'soltec-new',
-    rear: 'soltec-new'
+    leftLateral: 'soltec-standard',
+    rightLateral: 'soltec-standard',
+    rear: 'soltec-standard'
   },
   
   setDeviceType: (position: LaserPosition, deviceType: LaserType) => {

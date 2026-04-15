@@ -45,10 +45,10 @@ const CameraHUD: React.FC = () => {
   const handleManualPhoto = useCallback(() => {
     if (!cameraConnected || isCapturingPhoto || !activeSurvey) return;
     void capturePhotoPOI({
-      lat: gpsData?.lat ?? 0,
-      lng: gpsData?.lng ?? 0,
+      lat: gpsData?.latitude ?? 0,
+      lng: gpsData?.longitude ?? 0,
       altitude: gpsData?.altitude ?? 0,
-      heading: gpsData?.heading ?? 0,
+      heading: gpsData?.course ?? 0,
       surveyId: activeSurvey.id,
       poiType: 'manual',
       poiLabel: 'Manual 360°'
