@@ -48,6 +48,7 @@ import POIHeightRow from '../components/POIHeightRow';
 import EditMeasurementModal from '../components/EditMeasurementModal';
 import VoiceNotePOIModal from '../components/VoiceNotePOIModal';
 import StorageCleanupModal from '../components/survey/StorageCleanupModal';
+import RoadScopeResyncTool from '../components/roadscope/RoadScopeResyncTool';
 import { usePhotoWatchdog } from '../hooks/usePhotoWatchdog';
 import { useTraceRecorder } from '../hooks/useTraceRecorder';
 import GNSSStatusCard from '../components/gnss/GNSSStatusCard';
@@ -511,6 +512,14 @@ const Settings: React.FC = () => {
     const handler = () => setShowStorageCleanup(true);
     window.addEventListener('open-storage-cleanup', handler);
     return () => window.removeEventListener('open-storage-cleanup', handler);
+  }, []);
+
+  // RoadScope re-sync tool
+  const [showResyncTool, setShowResyncTool] = useState(false);
+  useEffect(() => {
+    const handler = () => setShowResyncTool(true);
+    window.addEventListener('open-roadscope-resync', handler);
+    return () => window.removeEventListener('open-roadscope-resync', handler);
   }, []);
 
   // Voice note modal state
@@ -2059,6 +2068,12 @@ const Settings: React.FC = () => {
           measurement={editingMeasurement}
         />
         
+        {/* RoadScope Photo Re-Sync Tool */}
+        <RoadScopeResyncTool
+          isOpen={showResyncTool}
+          onClose={() => setShowResyncTool(false)}
+        />
+
         {/* Storage Cleanup Modal */}
         <StorageCleanupModal
           isOpen={showStorageCleanup}
