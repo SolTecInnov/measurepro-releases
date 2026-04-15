@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, lazy, Suspense, useCallback, useMemo, memo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2 } from 'lucide-react';
+import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2, CloudRain } from 'lucide-react';
+import WeatherCard from './map/WeatherCard';
+import { fetchCurrentWeather, getRadarTileUrl, type CurrentWeather } from '../lib/weather/weatherService';
 import { useGPSStore } from '../lib/stores/gpsStore';
 import { useSurveyStore } from '../lib/survey';
 import { useSettingsStore } from '../lib/settings';
@@ -270,6 +272,47 @@ const VehicleMap: React.FC = () => {
   const [showRouteCreator, setShowRouteCreator] = useState(false);
   const [showRouteManager, setShowRouteManager] = useState(false);
 
+  // Weather overlay state
+  const [weatherActive, setWeatherActive] = useState(false);
+  const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
+  const [radarTileUrl, setRadarTileUrl] = useState<string | null>(null);
+  const radarRefreshRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const toggleWeather = useCallback(async () => {
+    if (weatherActive) {
+      setWeatherActive(false);
+      setWeatherData(null);
+      setRadarTileUrl(null);
+      if (radarRefreshRef.current) { clearInterval(radarRefreshRef.current); radarRefreshRef.current = null; }
+      return;
+    }
+    setWeatherActive(true);
+    const { data: gps } = useGPSStore.getState();
+    const lat = gps.latitude || 45.5;
+    const lon = gps.longitude || -73.6;
+    try {
+      const [weather, radar] = await Promise.all([
+        fetchCurrentWeather(lat, lon),
+        getRadarTileUrl(),
+      ]);
+      setWeatherData(weather);
+      setRadarTileUrl(radar);
+      // Auto-refresh radar every 5 minutes
+      radarRefreshRef.current = setInterval(async () => {
+        const url = await getRadarTileUrl();
+        setRadarTileUrl(url);
+      }, 5 * 60 * 1000);
+    } catch (err) {
+      toast.error('Weather unavailable', { description: 'Could not fetch weather data.' });
+      setWeatherActive(false);
+    }
+  }, [weatherActive]);
+
+  // Cleanup radar refresh on unmount
+  useEffect(() => {
+    return () => { if (radarRefreshRef.current) clearInterval(radarRefreshRef.current); };
+  }, []);
+
   // Listen for navigation events from RouteManager
   useEffect(() => {
     const handleNavRequest = (e: CustomEvent) => {
@@ -430,7 +473,19 @@ const VehicleMap: React.FC = () => {
               tileSize={256}
               zoomOffset={0}
             />
-          
+
+            {/* Precipitation Radar Overlay (RainViewer) */}
+            {weatherActive && radarTileUrl && (
+              <TileLayer
+                key={radarTileUrl}
+                url={radarTileUrl}
+                opacity={0.45}
+                maxZoom={20}
+                tileSize={256}
+                zoomOffset={0}
+              />
+            )}
+
           {/* Current Position Marker */}
           <PositionMarker />
           
@@ -510,8 +565,20 @@ const VehicleMap: React.FC = () => {
         </MapContainer>
         )}
         
-        {/* Routes + Fullscreen Buttons */}
+        {/* Routes + Weather + Fullscreen Buttons */}
         <div className="absolute top-4 right-4 z-[10] flex items-center gap-1.5">
+          <button
+            onClick={toggleWeather}
+            className={`flex items-center gap-1 text-white text-xs font-medium px-2 py-1.5 rounded-lg shadow-lg border backdrop-blur-sm transition-colors ${
+              weatherActive
+                ? 'bg-blue-600/80 hover:bg-blue-700 border-blue-400'
+                : 'bg-gray-900/80 hover:bg-gray-800 border-gray-600'
+            }`}
+            title={weatherActive ? 'Hide weather & radar' : 'Show weather & radar'}
+            data-testid="button-weather-toggle"
+          >
+            <CloudRain className="w-3.5 h-3.5" />
+          </button>
           <button
             onClick={() => setShowRouteManager(true)}
             data-testid="button-open-route-manager"
@@ -529,6 +596,13 @@ const VehicleMap: React.FC = () => {
             <Maximize2 className="w-3.5 h-3.5" />
           </button>
         </div>
+
+        {/* Weather Card */}
+        {weatherActive && weatherData && (
+          <div className="absolute top-14 right-4 z-[11]">
+            <WeatherCard weather={weatherData} onClose={toggleWeather} />
+          </div>
+        )}
 
         {/* Route Creation Mode Indicator */}
         {routeCreationMode && (

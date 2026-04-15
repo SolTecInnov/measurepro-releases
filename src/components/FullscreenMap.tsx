@@ -17,8 +17,10 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-
 import L from 'leaflet';
 import {
   X, Satellite, Navigation, Route as RouteIcon, Pencil, Trash2, Check,
-  Maximize2, ChevronUp
+  Maximize2, ChevronUp, CloudRain
 } from 'lucide-react';
+import WeatherCard from './map/WeatherCard';
+import { fetchCurrentWeather, getRadarTileUrl, type CurrentWeather } from '../lib/weather/weatherService';
 import { useGPSStore } from '@/lib/stores/gpsStore';
 import { usePOIStore, POI_TYPES } from '@/lib/poi';
 import { useSettingsStore } from '@/lib/settings';
@@ -117,6 +119,44 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
   const [editType, setEditType] = useState<string>('');
   const [routes, setRoutes] = useState<any[]>([]);
 
+  // Weather state
+  const [weatherActive, setWeatherActive] = useState(false);
+  const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
+  const [radarTileUrl, setRadarTileUrl] = useState<string | null>(null);
+  const radarRefreshRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const toggleWeather = useCallback(async () => {
+    if (weatherActive) {
+      setWeatherActive(false);
+      setWeatherData(null);
+      setRadarTileUrl(null);
+      if (radarRefreshRef.current) { clearInterval(radarRefreshRef.current); radarRefreshRef.current = null; }
+      return;
+    }
+    setWeatherActive(true);
+    const lat = gpsData.latitude || 45.5;
+    const lon = gpsData.longitude || -73.6;
+    try {
+      const [weather, radar] = await Promise.all([
+        fetchCurrentWeather(lat, lon),
+        getRadarTileUrl(),
+      ]);
+      setWeatherData(weather);
+      setRadarTileUrl(radar);
+      radarRefreshRef.current = setInterval(async () => {
+        const url = await getRadarTileUrl();
+        setRadarTileUrl(url);
+      }, 5 * 60 * 1000);
+    } catch {
+      toast.error('Weather unavailable');
+      setWeatherActive(false);
+    }
+  }, [weatherActive, gpsData.latitude, gpsData.longitude]);
+
+  useEffect(() => {
+    return () => { if (radarRefreshRef.current) clearInterval(radarRefreshRef.current); };
+  }, []);
+
   // Load routes for active survey
   useEffect(() => {
     if (!activeSurvey?.id) return;
@@ -214,6 +254,10 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
       {/* Full map */}
       <MapContainer center={center} zoom={15} style={{ height: '100%', width: '100%' }} zoomControl={false}>
         <TileLayer url={tileConfig.url} maxZoom={20} subdomains={tileConfig.subdomains} />
+        {/* Precipitation Radar Overlay (RainViewer) */}
+        {weatherActive && radarTileUrl && (
+          <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.45} maxZoom={20} tileSize={256} />
+        )}
         <GpsFollower />
         {gpsData.latitude !== 0 && (
           <Marker position={[gpsData.latitude, gpsData.longitude]} icon={vehicleIcon} />
@@ -273,14 +317,34 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
 
       {/* ═══ HUD OVERLAYS ═══ */}
 
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-[99999] p-2 bg-black/70 hover:bg-black/90 rounded-lg text-white backdrop-blur-sm border border-gray-600/50 transition-colors"
-        title="Close fullscreen (Escape)"
-      >
-        <X className="w-5 h-5" />
-      </button>
+      {/* Close + Weather buttons */}
+      <div className="absolute top-4 right-4 z-[99999] flex items-center gap-1.5">
+        <button
+          onClick={toggleWeather}
+          className={`p-2 rounded-lg text-white backdrop-blur-sm border transition-colors ${
+            weatherActive
+              ? 'bg-blue-600/80 hover:bg-blue-700 border-blue-400'
+              : 'bg-black/70 hover:bg-black/90 border-gray-600/50'
+          }`}
+          title={weatherActive ? 'Hide weather & radar' : 'Show weather & radar'}
+        >
+          <CloudRain className="w-5 h-5" />
+        </button>
+        <button
+          onClick={onClose}
+          className="p-2 bg-black/70 hover:bg-black/90 rounded-lg text-white backdrop-blur-sm border border-gray-600/50 transition-colors"
+          title="Close fullscreen (Escape)"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Weather Card */}
+      {weatherActive && weatherData && (
+        <div className="absolute top-16 right-4 z-[99999]">
+          <WeatherCard weather={weatherData} onClose={toggleWeather} />
+        </div>
+      )}
 
       {/* GPS Info — top left */}
       <div className="absolute top-4 left-4 z-[99999] bg-black/70 text-white px-3 py-2 rounded-lg backdrop-blur-sm border border-gray-600/50 text-xs space-y-1">
