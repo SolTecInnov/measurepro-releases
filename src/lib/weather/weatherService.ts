@@ -245,15 +245,16 @@ export async function fetchRadarFrames(): Promise<RadarFrame[]> {
 /**
  * Get the tile URL for the latest radar frame.
  * Returns null if no frames available.
- * Template: https://tilecache.rainviewer.com{path}/256/{z}/{x}/{y}/2/1_1.png
- *   color scheme 2 = original, smooth=1, snow=1
+ * Template: https://tilecache.rainviewer.com{path}/256/{z}/{x}/{y}/{color}/{smooth}_{snow}.png
+ *   color scheme 4 = dark sky (vivid colors for dark map backgrounds)
+ *   smooth=1, snow=1
  */
 export async function getRadarTileUrl(): Promise<string | null> {
   try {
     const frames = await fetchRadarFrames();
     if (frames.length === 0) return null;
     const latest = frames[frames.length - 1];
-    return `https://tilecache.rainviewer.com${latest.path}/256/{z}/{x}/{y}/2/1_1.png`;
+    return `https://tilecache.rainviewer.com${latest.path}/256/{z}/{x}/{y}/4/1_1.png`;
   } catch {
     return null;
   }

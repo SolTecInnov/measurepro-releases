@@ -214,7 +214,7 @@ describe('weatherService', () => {
 
       const url = await freshGetRadarTileUrl();
       expect(url).toBe(
-        'https://tilecache.rainviewer.com/v2/radar/def/256/{z}/{x}/{y}/2/1_1.png'
+        'https://tilecache.rainviewer.com/v2/radar/def/256/{z}/{x}/{y}/4/1_1.png'
       );
     });
 

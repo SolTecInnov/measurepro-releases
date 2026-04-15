@@ -488,7 +488,7 @@ const VehicleMap: React.FC = () => {
               <TileLayer
                 key={radarTileUrl}
                 url={radarTileUrl}
-                opacity={0.45}
+                opacity={0.75}
                 maxZoom={20}
                 tileSize={256}
                 zoomOffset={0}
