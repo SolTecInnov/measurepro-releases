@@ -86,9 +86,8 @@ export class LazyLoadErrorBoundary extends React.Component<Props, State> {
       if (canReloadForChunk()) {
         markChunkReload();
         console.warn('🔄 Error detected, clearing cache and reloading...', error.message);
-        // Also clear IndexedDB and localStorage to flush stale Firestore data
+        // Clear React Query cache — NEVER delete keyval-store (user photos) or survey-db
         try { localStorage.removeItem('REACT_QUERY_OFFLINE_CACHE'); } catch {}
-        try { indexedDB.deleteDatabase('keyval-store'); } catch {}
         clearCachesAndReload();
       } else {
         console.warn('⚠️ Reload limit reached — showing manual recovery screen');

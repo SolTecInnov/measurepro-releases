@@ -41,10 +41,10 @@ export class ErrorBoundary extends Component<Props, State> {
     const isObjectError = error.message?.includes('Minified React error #31') ||
                           error.message?.includes('Objects are not valid as a React child');
     if (isObjectError) {
-      console.error('[ErrorBoundary] React #31 caught — flushing caches and reloading');
-      try { localStorage.clear(); } catch {}
+      console.error('[ErrorBoundary] React #31 caught — flushing Firebase caches and reloading');
+      // NEVER delete keyval-store (user photos) or survey-db (user data)
+      try { localStorage.removeItem('REACT_QUERY_OFFLINE_CACHE'); } catch {}
       try { sessionStorage.clear(); } catch {}
-      try { indexedDB.deleteDatabase('keyval-store'); } catch {}
       try { indexedDB.deleteDatabase('firebaseLocalStorageDb'); } catch {}
       const reloadKey = '_react31_reload';
       if (!sessionStorage.getItem(reloadKey)) {

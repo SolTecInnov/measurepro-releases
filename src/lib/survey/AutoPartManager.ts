@@ -404,6 +404,19 @@ class AutoPartManager {
       toast.dismiss('auto-part-timelapse');
     }
 
+    // Step 11: Purge closed survey data from IndexedDB AFTER successful save to disk
+    // This frees memory — the data is already on disk in the ZIP package
+    try {
+      const { purgeCompletedSurveyFromDB } = await import('./db');
+      const purgeResult = await purgeCompletedSurveyFromDB(closedSurvey.id);
+      if (purgeResult.success) {
+        console.log(`[AutoPartManager] Purged Part ${currentPart} from IndexedDB:`, purgeResult.deletedCounts);
+      }
+    } catch (error) {
+      console.error('[AutoPartManager] Failed to purge Part', currentPart, ':', error);
+      // Non-fatal — data stays in IndexedDB, will be cleaned up eventually
+    }
+
     console.log('[AutoPartManager] Export tail complete for Part', currentPart);
   }
 
