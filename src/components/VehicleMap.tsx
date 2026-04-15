@@ -523,6 +523,7 @@ const VehicleMap: React.FC = () => {
                 url={radarTileUrl}
                 opacity={0.75}
                 maxZoom={20}
+                maxNativeZoom={12}
                 tileSize={256}
                 zoomOffset={0}
               />

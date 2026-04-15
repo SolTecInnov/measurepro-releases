@@ -298,7 +298,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
         <TileLayer url={tileConfig.url} maxZoom={20} subdomains={tileConfig.subdomains} />
         {/* Precipitation Radar Overlay (RainViewer) */}
         {radarActive && radarTileUrl && (
-          <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.75} maxZoom={20} tileSize={256} />
+          <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.75} maxZoom={20} maxNativeZoom={12} tileSize={256} />
         )}
         <GpsFollower />
         {/* Vehicle trace breadcrumb trail */}
