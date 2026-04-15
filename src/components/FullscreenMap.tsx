@@ -17,10 +17,10 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-
 import L from 'leaflet';
 import {
   X, Satellite, Navigation, Route as RouteIcon, Pencil, Trash2, Check,
-  Maximize2, ChevronUp, CloudRain
+  Maximize2, ChevronUp, CloudRain, Cloud
 } from 'lucide-react';
 import WeatherCard from './map/WeatherCard';
-import { fetchCurrentWeather, getRadarTileUrl, type CurrentWeather } from '../lib/weather/weatherService';
+import { fetchWeatherData, getRadarTileUrl, type WeatherData } from '../lib/weather/weatherService';
 import { useGPSStore } from '@/lib/stores/gpsStore';
 import { usePOIStore, POI_TYPES } from '@/lib/poi';
 import { useSettingsStore } from '@/lib/settings';
@@ -119,39 +119,49 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
   const [editType, setEditType] = useState<string>('');
   const [routes, setRoutes] = useState<any[]>([]);
 
-  // Weather state
-  const [weatherActive, setWeatherActive] = useState(false);
-  const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
+  // Weather & radar state (independent toggles)
+  const [radarActive, setRadarActive] = useState(false);
+  const [weatherCardOpen, setWeatherCardOpen] = useState(false);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [radarTileUrl, setRadarTileUrl] = useState<string | null>(null);
   const radarRefreshRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const toggleWeather = useCallback(async () => {
-    if (weatherActive) {
-      setWeatherActive(false);
-      setWeatherData(null);
+  const toggleRadar = useCallback(async () => {
+    if (radarActive) {
+      setRadarActive(false);
       setRadarTileUrl(null);
       if (radarRefreshRef.current) { clearInterval(radarRefreshRef.current); radarRefreshRef.current = null; }
       return;
     }
-    setWeatherActive(true);
+    setRadarActive(true);
+    try {
+      const url = await getRadarTileUrl();
+      setRadarTileUrl(url);
+      radarRefreshRef.current = setInterval(async () => {
+        const u = await getRadarTileUrl();
+        setRadarTileUrl(u);
+      }, 5 * 60 * 1000);
+    } catch {
+      toast.error('Radar unavailable');
+      setRadarActive(false);
+    }
+  }, [radarActive]);
+
+  const toggleWeatherCard = useCallback(async () => {
+    if (weatherCardOpen) {
+      setWeatherCardOpen(false);
+      return;
+    }
     const lat = gpsData.latitude || 45.5;
     const lon = gpsData.longitude || -73.6;
     try {
-      const [weather, radar] = await Promise.all([
-        fetchCurrentWeather(lat, lon),
-        getRadarTileUrl(),
-      ]);
-      setWeatherData(weather);
-      setRadarTileUrl(radar);
-      radarRefreshRef.current = setInterval(async () => {
-        const url = await getRadarTileUrl();
-        setRadarTileUrl(url);
-      }, 5 * 60 * 1000);
+      const data = await fetchWeatherData(lat, lon);
+      setWeatherData(data);
+      setWeatherCardOpen(true);
     } catch {
       toast.error('Weather unavailable');
-      setWeatherActive(false);
     }
-  }, [weatherActive, gpsData.latitude, gpsData.longitude]);
+  }, [weatherCardOpen, gpsData.latitude, gpsData.longitude]);
 
   useEffect(() => {
     return () => { if (radarRefreshRef.current) clearInterval(radarRefreshRef.current); };
@@ -255,7 +265,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
       <MapContainer center={center} zoom={15} style={{ height: '100%', width: '100%' }} zoomControl={false}>
         <TileLayer url={tileConfig.url} maxZoom={20} subdomains={tileConfig.subdomains} />
         {/* Precipitation Radar Overlay (RainViewer) */}
-        {weatherActive && radarTileUrl && (
+        {radarActive && radarTileUrl && (
           <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.45} maxZoom={20} tileSize={256} />
         )}
         <GpsFollower />
@@ -317,18 +327,29 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
 
       {/* ═══ HUD OVERLAYS ═══ */}
 
-      {/* Close + Weather buttons */}
+      {/* Radar + Weather + Close buttons */}
       <div className="absolute top-4 right-4 z-[99999] flex items-center gap-1.5">
         <button
-          onClick={toggleWeather}
+          onClick={toggleRadar}
           className={`p-2 rounded-lg text-white backdrop-blur-sm border transition-colors ${
-            weatherActive
+            radarActive
               ? 'bg-blue-600/80 hover:bg-blue-700 border-blue-400'
               : 'bg-black/70 hover:bg-black/90 border-gray-600/50'
           }`}
-          title={weatherActive ? 'Hide weather & radar' : 'Show weather & radar'}
+          title={radarActive ? 'Hide radar' : 'Show precipitation radar'}
         >
           <CloudRain className="w-5 h-5" />
+        </button>
+        <button
+          onClick={toggleWeatherCard}
+          className={`p-2 rounded-lg text-white backdrop-blur-sm border transition-colors ${
+            weatherCardOpen
+              ? 'bg-amber-600/80 hover:bg-amber-700 border-amber-400'
+              : 'bg-black/70 hover:bg-black/90 border-gray-600/50'
+          }`}
+          title={weatherCardOpen ? 'Hide forecast' : 'Show precipitation forecast'}
+        >
+          <Cloud className="w-5 h-5" />
         </button>
         <button
           onClick={onClose}
@@ -339,10 +360,10 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
         </button>
       </div>
 
-      {/* Weather Card */}
-      {weatherActive && weatherData && (
+      {/* Weather Forecast Card */}
+      {weatherCardOpen && weatherData && (
         <div className="absolute top-16 right-4 z-[99999]">
-          <WeatherCard weather={weatherData} onClose={toggleWeather} />
+          <WeatherCard weather={weatherData} onClose={toggleWeatherCard} />
         </div>
       )}
 

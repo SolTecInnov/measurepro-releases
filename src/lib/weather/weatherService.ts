@@ -29,6 +29,26 @@ export type WeatherIcon =
   | 'cloud-snow' | 'cloud-hail'
   | 'cloud-lightning';
 
+export interface HourlyForecast {
+  time: string;               // ISO hour (e.g. "2026-04-14T15:00")
+  hour: string;               // Display (e.g. "3 PM")
+  precipitation: number;      // mm
+  precipitationProbability: number; // %
+  snowfall: number;           // cm
+  weatherCode: number;
+  condition: string;
+  icon: WeatherIcon;
+  temperature: number;        // °C
+}
+
+export interface PrecipitationSummary {
+  totalNext6h: number;        // mm total in next 6 hours
+  totalNext12h: number;       // mm total in next 12 hours
+  nextPrecipHour: string | null; // When precipitation starts (or null if dry)
+  precipEndsHour: string | null; // When precipitation stops (or null)
+  hourly: HourlyForecast[];   // Next 12 hours
+}
+
 export interface RadarFrame {
   path: string;
   time: number; // unix timestamp
@@ -78,7 +98,21 @@ function getWindCardinal(deg: number): string {
 
 // ── Current Weather (Open-Meteo) ─────────────────────────────────────────────
 
-export async function fetchCurrentWeather(lat: number, lon: number): Promise<CurrentWeather> {
+export interface WeatherData {
+  current: CurrentWeather;
+  precipitation: PrecipitationSummary;
+}
+
+function formatHour(isoTime: string): string {
+  const d = new Date(isoTime);
+  const h = d.getHours();
+  if (h === 0) return '12 AM';
+  if (h < 12) return `${h} AM`;
+  if (h === 12) return '12 PM';
+  return `${h - 12} PM`;
+}
+
+export async function fetchWeatherData(lat: number, lon: number): Promise<WeatherData> {
   const params = new URLSearchParams({
     latitude: lat.toFixed(4),
     longitude: lon.toFixed(4),
@@ -87,6 +121,11 @@ export async function fetchCurrentWeather(lat: number, lon: number): Promise<Cur
       'wind_speed_10m', 'wind_direction_10m', 'weather_code',
       'is_day', 'precipitation', 'cloud_cover', 'visibility',
     ].join(','),
+    hourly: [
+      'temperature_2m', 'precipitation', 'precipitation_probability',
+      'snowfall', 'weather_code',
+    ].join(','),
+    forecast_hours: '12',
     wind_speed_unit: 'kmh',
     timezone: 'auto',
   });
@@ -97,11 +136,13 @@ export async function fetchCurrentWeather(lat: number, lon: number): Promise<Cur
   if (!res.ok) throw new Error(`Open-Meteo error: ${res.status}`);
 
   const data = await res.json();
+
+  // Current weather
   const c = data.current;
   const isDay = c.is_day === 1;
   const { condition, icon } = decodeWMO(c.weather_code, isDay);
 
-  return {
+  const current: CurrentWeather = {
     temperature: Math.round(c.temperature_2m),
     feelsLike: Math.round(c.apparent_temperature),
     humidity: c.relative_humidity_2m,
@@ -116,6 +157,62 @@ export async function fetchCurrentWeather(lat: number, lon: number): Promise<Cur
     cloudCover: c.cloud_cover,
     fetchedAt: new Date().toISOString(),
   };
+
+  // Hourly precipitation forecast (next 12 hours)
+  const h = data.hourly;
+  const hourly: HourlyForecast[] = [];
+  const count = Math.min(12, h.time?.length || 0);
+
+  for (let i = 0; i < count; i++) {
+    const wmo = decodeWMO(h.weather_code[i], true);
+    hourly.push({
+      time: h.time[i],
+      hour: formatHour(h.time[i]),
+      precipitation: h.precipitation[i] || 0,
+      precipitationProbability: h.precipitation_probability[i] || 0,
+      snowfall: h.snowfall[i] || 0,
+      weatherCode: h.weather_code[i],
+      condition: wmo.condition,
+      icon: wmo.icon,
+      temperature: Math.round(h.temperature_2m[i]),
+    });
+  }
+
+  // Compute summary
+  const totalNext6h = hourly.slice(0, 6).reduce((s, h) => s + h.precipitation + h.snowfall, 0);
+  const totalNext12h = hourly.reduce((s, h) => s + h.precipitation + h.snowfall, 0);
+
+  // When does precipitation start?
+  const nowHasPrecip = current.precipitation > 0;
+  let nextPrecipHour: string | null = null;
+  let precipEndsHour: string | null = null;
+
+  if (nowHasPrecip) {
+    // Currently precipitating — when does it stop?
+    const stopIdx = hourly.findIndex(h => h.precipitation === 0 && h.snowfall === 0);
+    precipEndsHour = stopIdx >= 0 ? hourly[stopIdx].hour : null;
+  } else {
+    // Currently dry — when does it start?
+    const startIdx = hourly.findIndex(h => h.precipitation > 0 || h.snowfall > 0);
+    nextPrecipHour = startIdx >= 0 ? hourly[startIdx].hour : null;
+  }
+
+  return {
+    current,
+    precipitation: {
+      totalNext6h: Math.round(totalNext6h * 10) / 10,
+      totalNext12h: Math.round(totalNext12h * 10) / 10,
+      nextPrecipHour,
+      precipEndsHour,
+      hourly,
+    },
+  };
+}
+
+/** @deprecated Use fetchWeatherData instead */
+export async function fetchCurrentWeather(lat: number, lon: number): Promise<CurrentWeather> {
+  const data = await fetchWeatherData(lat, lon);
+  return data.current;
 }
 
 // ── Radar Frames (RainViewer) ────────────────────────────────────────────────

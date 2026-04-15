@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, lazy, Suspense, useCallback, useMemo, memo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2, CloudRain } from 'lucide-react';
+import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2, CloudRain, Cloud } from 'lucide-react';
 import WeatherCard from './map/WeatherCard';
-import { fetchCurrentWeather, getRadarTileUrl, type CurrentWeather } from '../lib/weather/weatherService';
+import { fetchWeatherData, getRadarTileUrl, type WeatherData } from '../lib/weather/weatherService';
 import { useGPSStore } from '../lib/stores/gpsStore';
 import { useSurveyStore } from '../lib/survey';
 import { useSettingsStore } from '../lib/settings';
@@ -272,43 +272,51 @@ const VehicleMap: React.FC = () => {
   const [showRouteCreator, setShowRouteCreator] = useState(false);
   const [showRouteManager, setShowRouteManager] = useState(false);
 
-  // Weather overlay state
-  const [weatherActive, setWeatherActive] = useState(false);
-  const [weatherData, setWeatherData] = useState<CurrentWeather | null>(null);
+  // Weather & radar state (independent toggles)
+  const [radarActive, setRadarActive] = useState(false);
+  const [weatherCardOpen, setWeatherCardOpen] = useState(false);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [radarTileUrl, setRadarTileUrl] = useState<string | null>(null);
   const radarRefreshRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const toggleWeather = useCallback(async () => {
-    if (weatherActive) {
-      setWeatherActive(false);
-      setWeatherData(null);
+  const toggleRadar = useCallback(async () => {
+    if (radarActive) {
+      setRadarActive(false);
       setRadarTileUrl(null);
       if (radarRefreshRef.current) { clearInterval(radarRefreshRef.current); radarRefreshRef.current = null; }
       return;
     }
-    setWeatherActive(true);
+    setRadarActive(true);
+    try {
+      const url = await getRadarTileUrl();
+      setRadarTileUrl(url);
+      radarRefreshRef.current = setInterval(async () => {
+        const u = await getRadarTileUrl();
+        setRadarTileUrl(u);
+      }, 5 * 60 * 1000);
+    } catch {
+      toast.error('Radar unavailable');
+      setRadarActive(false);
+    }
+  }, [radarActive]);
+
+  const toggleWeatherCard = useCallback(async () => {
+    if (weatherCardOpen) {
+      setWeatherCardOpen(false);
+      return;
+    }
     const { data: gps } = useGPSStore.getState();
     const lat = gps.latitude || 45.5;
     const lon = gps.longitude || -73.6;
     try {
-      const [weather, radar] = await Promise.all([
-        fetchCurrentWeather(lat, lon),
-        getRadarTileUrl(),
-      ]);
-      setWeatherData(weather);
-      setRadarTileUrl(radar);
-      // Auto-refresh radar every 5 minutes
-      radarRefreshRef.current = setInterval(async () => {
-        const url = await getRadarTileUrl();
-        setRadarTileUrl(url);
-      }, 5 * 60 * 1000);
-    } catch (err) {
-      toast.error('Weather unavailable', { description: 'Could not fetch weather data.' });
-      setWeatherActive(false);
+      const data = await fetchWeatherData(lat, lon);
+      setWeatherData(data);
+      setWeatherCardOpen(true);
+    } catch {
+      toast.error('Weather unavailable');
     }
-  }, [weatherActive]);
+  }, [weatherCardOpen]);
 
-  // Cleanup radar refresh on unmount
   useEffect(() => {
     return () => { if (radarRefreshRef.current) clearInterval(radarRefreshRef.current); };
   }, []);
@@ -475,7 +483,7 @@ const VehicleMap: React.FC = () => {
             />
 
             {/* Precipitation Radar Overlay (RainViewer) */}
-            {weatherActive && radarTileUrl && (
+            {radarActive && radarTileUrl && (
               <TileLayer
                 key={radarTileUrl}
                 url={radarTileUrl}
@@ -565,19 +573,31 @@ const VehicleMap: React.FC = () => {
         </MapContainer>
         )}
         
-        {/* Routes + Weather + Fullscreen Buttons */}
+        {/* Radar + Weather + Routes + Fullscreen Buttons */}
         <div className="absolute top-4 right-4 z-[10] flex items-center gap-1.5">
           <button
-            onClick={toggleWeather}
+            onClick={toggleRadar}
             className={`flex items-center gap-1 text-white text-xs font-medium px-2 py-1.5 rounded-lg shadow-lg border backdrop-blur-sm transition-colors ${
-              weatherActive
+              radarActive
                 ? 'bg-blue-600/80 hover:bg-blue-700 border-blue-400'
                 : 'bg-gray-900/80 hover:bg-gray-800 border-gray-600'
             }`}
-            title={weatherActive ? 'Hide weather & radar' : 'Show weather & radar'}
-            data-testid="button-weather-toggle"
+            title={radarActive ? 'Hide radar' : 'Show precipitation radar'}
+            data-testid="button-radar-toggle"
           >
             <CloudRain className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={toggleWeatherCard}
+            className={`flex items-center gap-1 text-white text-xs font-medium px-2 py-1.5 rounded-lg shadow-lg border backdrop-blur-sm transition-colors ${
+              weatherCardOpen
+                ? 'bg-amber-600/80 hover:bg-amber-700 border-amber-400'
+                : 'bg-gray-900/80 hover:bg-gray-800 border-gray-600'
+            }`}
+            title={weatherCardOpen ? 'Hide forecast' : 'Show precipitation forecast'}
+            data-testid="button-weather-toggle"
+          >
+            <Cloud className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={() => setShowRouteManager(true)}
@@ -597,10 +617,10 @@ const VehicleMap: React.FC = () => {
           </button>
         </div>
 
-        {/* Weather Card */}
-        {weatherActive && weatherData && (
+        {/* Weather Forecast Card */}
+        {weatherCardOpen && weatherData && (
           <div className="absolute top-14 right-4 z-[11]">
-            <WeatherCard weather={weatherData} onClose={toggleWeather} />
+            <WeatherCard weather={weatherData} onClose={toggleWeatherCard} />
           </div>
         )}
 
