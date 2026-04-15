@@ -272,6 +272,39 @@ const VehicleMap: React.FC = () => {
   const [showRouteCreator, setShowRouteCreator] = useState(false);
   const [showRouteManager, setShowRouteManager] = useState(false);
 
+  // Vehicle trace (GPS breadcrumbs)
+  const [tracePoints, setTracePoints] = useState<[number, number][]>([]);
+  useEffect(() => {
+    if (!activeSurvey?.id) { setTracePoints([]); return; }
+    // Load existing trace points
+    import('@/lib/survey/db').then(({ openSurveyDB }) => {
+      openSurveyDB().then(db => {
+        db.getAllFromIndex('vehicleTraces', 'by-survey', activeSurvey.id).then(traces => {
+          const points: [number, number][] = traces
+            .sort((a: any, b: any) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+            .map((t: any) => [t.latitude, t.longitude] as [number, number])
+            .filter(([lat, lon]: [number, number]) => lat !== 0 && lon !== 0);
+          setTracePoints(points);
+        }).catch(() => {});
+      }).catch(() => {});
+    });
+    // Refresh trace every 10 seconds
+    const refreshInterval = setInterval(() => {
+      import('@/lib/survey/db').then(({ openSurveyDB }) => {
+        openSurveyDB().then(db => {
+          db.getAllFromIndex('vehicleTraces', 'by-survey', activeSurvey!.id).then(traces => {
+            const points: [number, number][] = traces
+              .sort((a: any, b: any) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+              .map((t: any) => [t.latitude, t.longitude] as [number, number])
+              .filter(([lat, lon]: [number, number]) => lat !== 0 && lon !== 0);
+            setTracePoints(points);
+          }).catch(() => {});
+        }).catch(() => {});
+      });
+    }, 10000);
+    return () => clearInterval(refreshInterval);
+  }, [activeSurvey?.id]);
+
   // Weather & radar state (independent toggles)
   const [radarActive, setRadarActive] = useState(false);
   const [weatherCardOpen, setWeatherCardOpen] = useState(false);
@@ -492,6 +525,18 @@ const VehicleMap: React.FC = () => {
                 maxZoom={20}
                 tileSize={256}
                 zoomOffset={0}
+              />
+            )}
+
+          {/* Vehicle trace breadcrumb trail */}
+            {tracePoints.length >= 2 && (
+              <Polyline
+                positions={tracePoints}
+                color="#22d3ee"
+                weight={3}
+                opacity={0.7}
+                dashArray="6, 4"
+                interactive={false}
               />
             )}
 

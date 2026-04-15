@@ -2350,6 +2350,18 @@ export const generateSurveyPackageBlob = async (survey: Survey): Promise<{ blob:
     });
   }
   
+  // Step 5c: Add vehicle trace as GPX
+  try {
+    const traces = await getVehicleTracesForSurvey(survey.id);
+    if (traces.length > 0) {
+      const gpxContent = exportTraceToGPX(traces, survey.surveyTitle || survey.name || 'Vehicle Trace');
+      docsFolder?.file('vehicle_trace.gpx', gpxContent);
+      console.log(`[StreamingExport] Added vehicle trace GPX: ${traces.length} points`);
+    }
+  } catch (err) {
+    console.warn('[StreamingExport] Vehicle trace export failed (non-fatal):', err);
+  }
+
   // Step 6: Add README with structure explanation
   const readmeContent = `SURVEY PACKAGE - ${survey.surveyTitle || survey.name || survey.id}
 ============================================================
@@ -2365,6 +2377,7 @@ documents/
   - survey_data.json      : POI data in JSON format
   - poi_manifest.json     : Maps POI IDs to their media files
   - road_profiles.json    : Road profile data (if any)
+  - vehicle_trace.gpx     : GPS breadcrumb trail of the route driven
 
 images/
   - Contains ${imageCount} image files

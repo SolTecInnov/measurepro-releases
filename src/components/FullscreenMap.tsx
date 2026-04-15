@@ -119,6 +119,37 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
   const [editType, setEditType] = useState<string>('');
   const [routes, setRoutes] = useState<any[]>([]);
 
+  // Vehicle trace
+  const [tracePoints, setTracePoints] = useState<[number, number][]>([]);
+  useEffect(() => {
+    if (!activeSurvey?.id) { setTracePoints([]); return; }
+    import('@/lib/survey/db').then(({ openSurveyDB }) => {
+      openSurveyDB().then(db => {
+        db.getAllFromIndex('vehicleTraces', 'by-survey', activeSurvey.id).then((traces: any[]) => {
+          const points: [number, number][] = traces
+            .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+            .map(t => [t.latitude, t.longitude] as [number, number])
+            .filter(([lat, lon]) => lat !== 0 && lon !== 0);
+          setTracePoints(points);
+        }).catch(() => {});
+      }).catch(() => {});
+    });
+    const refreshInterval = setInterval(() => {
+      import('@/lib/survey/db').then(({ openSurveyDB }) => {
+        openSurveyDB().then(db => {
+          db.getAllFromIndex('vehicleTraces', 'by-survey', activeSurvey!.id).then((traces: any[]) => {
+            const points: [number, number][] = traces
+              .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+              .map(t => [t.latitude, t.longitude] as [number, number])
+              .filter(([lat, lon]) => lat !== 0 && lon !== 0);
+            setTracePoints(points);
+          }).catch(() => {});
+        }).catch(() => {});
+      });
+    }, 10000);
+    return () => clearInterval(refreshInterval);
+  }, [activeSurvey?.id]);
+
   // Weather & radar state (independent toggles)
   const [radarActive, setRadarActive] = useState(false);
   const [weatherCardOpen, setWeatherCardOpen] = useState(false);
@@ -270,6 +301,17 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
           <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.75} maxZoom={20} tileSize={256} />
         )}
         <GpsFollower />
+        {/* Vehicle trace breadcrumb trail */}
+        {tracePoints.length >= 2 && (
+          <Polyline
+            positions={tracePoints}
+            color="#22d3ee"
+            weight={3}
+            opacity={0.7}
+            dashArray="6, 4"
+            interactive={false}
+          />
+        )}
         {gpsData.latitude !== 0 && (
           <Marker position={[gpsData.latitude, gpsData.longitude]} icon={vehicleIcon} />
         )}
