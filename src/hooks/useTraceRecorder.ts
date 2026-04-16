@@ -29,26 +29,28 @@ function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-interface UseTraceRecorderProps {
-  isLogging: boolean;
-}
-
-export function useTraceRecorder({ isLogging }: UseTraceRecorderProps) {
+/**
+ * Trace records whenever a survey is active — not just during laser logging.
+ * The vehicle drives to the site, between POIs, during breaks — all part of the route.
+ */
+export function useTraceRecorder() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const lastPointRef = useRef<{ lat: number; lon: number } | null>(null);
+  const activeSurvey = useSurveyStore(s => s.activeSurvey);
 
   useEffect(() => {
-    if (!isLogging) {
+    if (!activeSurvey?.id) {
       if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
       lastPointRef.current = null;
       return;
     }
 
+    const surveyId = activeSurvey.id;
+
     const recordPoint = async () => {
       const { data: gps } = useGPSStore.getState();
-      const { activeSurvey } = useSurveyStore.getState();
 
-      if (!activeSurvey?.id) return;
+      if (!surveyId) return;
       if (!gps.latitude || !gps.longitude) return;
       if (gps.latitude === 0 && gps.longitude === 0) return;
 
@@ -65,7 +67,7 @@ export function useTraceRecorder({ isLogging }: UseTraceRecorderProps) {
 
       const trace: VehicleTrace = {
         id: `trace-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        surveyId: activeSurvey.id,
+        surveyId,
         routeId: '',
         latitude: gps.latitude,
         longitude: gps.longitude,
@@ -89,5 +91,5 @@ export function useTraceRecorder({ isLogging }: UseTraceRecorderProps) {
     return () => {
       if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
     };
-  }, [isLogging]);
+  }, [activeSurvey?.id]);
 }

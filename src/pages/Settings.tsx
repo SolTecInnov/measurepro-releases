@@ -926,8 +926,8 @@ const Settings: React.FC = () => {
   // Map internal mode names to UI mode names for LoggingControls
   // Photo watchdog — warns if camera disconnects or POIs are missing photos
   usePhotoWatchdog({ isLogging, loggingMode });
-  // GPS trace recorder — records breadcrumbs along the route
-  useTraceRecorder({ isLogging });
+  // GPS trace recorder — records breadcrumbs whenever a survey is active
+  useTraceRecorder();
 
   const uiLoggingMode = loggingMode === 'all_data' ? 'all' : loggingMode === 'counter' ? 'counterDetection' : 'manual';
   const handleLoggingModeChange = (mode: string) => {
