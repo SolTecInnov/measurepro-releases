@@ -1,10 +1,17 @@
 /**
  * Master Admin Utilities
- * 
+ *
  * Central location for master admin email and checking functions.
  * The master admin (jfprince@soltec.ca) has unrestricted access to all features,
  * bypassing subscription, license, grace period, and offline restrictions.
  */
+
+import { useElectronLicenseStore, type ElectronLicensePayload } from '../stores/electronLicenseStore';
+
+/** Safe accessor for Electron license payload (works outside React) */
+function _getElectronLicensePayload(): ElectronLicensePayload | null {
+  try { return useElectronLicenseStore.getState().payload; } catch { return null; }
+}
 
 export const MASTER_ADMIN_EMAIL = import.meta.env.VITE_MASTER_ADMIN_EMAIL || 'jfprince@soltec.ca';
 
@@ -107,11 +114,13 @@ export function isBetaUser(
   features?: string[]
 ): boolean {
   // Electron offline license overrides Firebase auth state
-  // If the license says admin/pro/enterprise, user is NOT beta
+  // If the license says admin/pro/enterprise/internal/commercial/partner, user is NOT beta
   try {
-    const { useElectronLicenseStore } = require('../stores/electronLicenseStore');
-    const licensePayload = useElectronLicenseStore.getState().payload;
-    if (licensePayload && licensePayload.type !== 'beta') return false;
+    const licensePayload = _getElectronLicensePayload();
+    if (licensePayload) {
+      const t = licensePayload.type?.toLowerCase();
+      if (t && t !== 'beta' && t !== 'trial' && t !== 'demo') return false;
+    }
   } catch { /* store not available */ }
 
   // Has all features = not beta

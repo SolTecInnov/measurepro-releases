@@ -126,16 +126,21 @@ function mapAddonIdsToFeatureKeys(addonIds: string[] | null | undefined): string
 
 /**
  * Maps Electron offline license type + addons to feature keys.
+ * Supports both MeasurePRO types (admin/pro/beta/enterprise)
+ * and LicensePRO universal types (internal/commercial/trial/demo/partner).
  * Returns null if no Electron license is active.
  */
 function getElectronLicenseFeatures(): string[] | null {
   const { payload } = useElectronLicenseStore.getState();
   if (!payload) return null;
   const type = payload.type?.toLowerCase();
-  if (type === 'admin' || type === 'enterprise') return ['*'];
+  // Full access types
+  if (type === 'admin' || type === 'enterprise' || type === 'internal') return ['*'];
   const addonFeatures = mapAddonIdsToFeatureKeys(payload.addons);
-  if (type === 'pro') return addonFeatures;
-  if (type === 'beta') return ['BETA_ACCOUNT', ...addonFeatures];
+  // Addon-based types
+  if (type === 'pro' || type === 'commercial' || type === 'partner') return addonFeatures;
+  // Restricted types
+  if (type === 'beta' || type === 'trial' || type === 'demo') return ['BETA_ACCOUNT', ...addonFeatures];
   // Unknown type — grant addon features only
   return addonFeatures;
 }
