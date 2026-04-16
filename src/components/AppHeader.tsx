@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
-import { Smartphone, Activity, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain, HardDrive, RefreshCw, Upload } from 'lucide-react';
+import { Smartphone, Activity, Key, LogOut, Zap, Brain, Mic, MicOff, Globe, Volume2, Box, Navigation, Wrench, ChevronDown, Cloud, Scan, Bot, X, LifeBuoy, QrCode, ScanEye, Lock, CloudRain, HardDrive, RefreshCw, Upload } from 'lucide-react';
 import { useDriveModeStore } from '../lib/stores/driveModeStore';
 import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { useSurveyStore } from '../lib/survey';
@@ -500,8 +500,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                 <span>{driveMode ? 'Exit Drive Mode' : 'Drive Mode'}</span>
               </button>
 
-              {/* ── Account ────────────────────────────────── */}
-              {/* Log Out hidden in Drive Mode so the operator can't accidentally sign out mid-survey */}
+              {/* ── Support & License ────────────────────────────────── */}
               {!driveMode && (
                 <>
                   <div className="border-t border-gray-700 my-1" />
@@ -519,15 +518,30 @@ const AppHeader: React.FC<AppHeaderProps> = ({
 
                   <button
                     onClick={() => {
-                      handleLogOut();
+                      window.dispatchEvent(new Event('open-license-info'));
                       setShowToolsMenu(false);
                     }}
                     className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
-                    data-testid="button-log-out"
+                    data-testid="button-license-info"
                   >
-                    <LogOut className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                    <span>Log Out</span>
+                    <Key className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                    <span>License Info</span>
                   </button>
+
+                  {/* Log Out — only for Firebase cloud sync users */}
+                  {getCurrentUser() && (
+                    <button
+                      onClick={() => {
+                        handleLogOut();
+                        setShowToolsMenu(false);
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                      data-testid="button-log-out"
+                    >
+                      <LogOut className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                      <span>Log Out (Cloud Sync)</span>
+                    </button>
+                  )}
                 </>
               )}
             </div>
