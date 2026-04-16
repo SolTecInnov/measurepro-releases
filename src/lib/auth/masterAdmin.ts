@@ -97,6 +97,7 @@ export function getBetaRestrictedFeaturesForUser(grantedFeatureKeys: Iterable<st
 /**
  * Check if user should get beta UI customizations
  * Applies to: not logged in users OR users with beta license/tag
+ * UNLESS an Electron offline license grants admin/pro/enterprise access
  * @param user - Firebase user object (can be null for not logged in)
  * @param features - Array of enabled features from useLicenseEnforcement
  * @returns true if user should get beta customizations
@@ -105,6 +106,17 @@ export function isBetaUser(
   user: { email?: string | null } | null | undefined,
   features?: string[]
 ): boolean {
+  // Electron offline license overrides Firebase auth state
+  // If the license says admin/pro/enterprise, user is NOT beta
+  try {
+    const { useElectronLicenseStore } = require('../stores/electronLicenseStore');
+    const licensePayload = useElectronLicenseStore.getState().payload;
+    if (licensePayload && licensePayload.type !== 'beta') return false;
+  } catch { /* store not available */ }
+
+  // Has all features = not beta
+  if (features?.includes('*')) return false;
+
   // Not logged in = beta UI
   if (!user) return true;
 

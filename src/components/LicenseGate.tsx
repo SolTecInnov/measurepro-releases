@@ -12,6 +12,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Key, Mail, Copy, Check, AlertTriangle, Shield, Clock } from 'lucide-react';
+import { useElectronLicenseStore } from '../lib/stores/electronLicenseStore';
 
 interface LicenseGateProps {
   children: React.ReactNode;
@@ -73,6 +74,10 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
 
       setStatus(result);
       setMachineId(mid);
+      // Populate global store so the rest of the app can read license type/addons
+      if (result.valid && result.payload) {
+        useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null);
+      }
     } catch (err) {
       console.error('[LicenseGate] Validation error:', err);
       // Retry on error — IPC might not be ready yet
@@ -97,6 +102,9 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
       const result = await window.electronAPI.license.activate(keyInput.trim());
       if (result.valid) {
         setStatus(result);
+        if (result.payload) {
+          useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null);
+        }
       } else {
         setError(result.reason || 'Invalid license key');
       }

@@ -5,6 +5,7 @@ import { getUserEnabledFeatures } from '../lib/licensing';
 import { isMasterAdmin, isBetaTestAccount, getBetaRestrictedFeatures, getBetaRestrictedFeaturesForUser, getAdminViewOverride, type AdminViewOverride } from '../lib/auth/masterAdmin';
 import { useAuth } from '../lib/auth/AuthContext';
 import { getAuthCache } from '../lib/auth/offlineAuth';
+import { useElectronLicenseStore } from '../lib/stores/electronLicenseStore';
 import type { Company, CompanyMember, MemberAddonOverride } from '../../shared/schema';
 
 interface MyCompanyData {
@@ -121,6 +122,22 @@ function mapAddonIdsToFeatureKeys(addonIds: string[] | null | undefined): string
   return (addonIds ?? [])
     .map(id => COMPANY_ADDON_TO_FEATURE_KEY[id] ?? id)
     .filter(Boolean);
+}
+
+/**
+ * Maps Electron offline license type + addons to feature keys.
+ * Returns null if no Electron license is active.
+ */
+function getElectronLicenseFeatures(): string[] | null {
+  const { payload } = useElectronLicenseStore.getState();
+  if (!payload) return null;
+  const type = payload.type?.toLowerCase();
+  if (type === 'admin' || type === 'enterprise') return ['*'];
+  const addonFeatures = mapAddonIdsToFeatureKeys(payload.addons);
+  if (type === 'pro') return addonFeatures;
+  if (type === 'beta') return ['BETA_ACCOUNT', ...addonFeatures];
+  // Unknown type — grant addon features only
+  return addonFeatures;
 }
 
 /**
@@ -284,7 +301,16 @@ export function useLicenseCheck(featureKey: string): {
         return;
       }
 
-      // 2. Check Firebase user (only works online)
+      // 2. Check Electron offline license (works without Firebase)
+      const electronFeatures = getElectronLicenseFeatures();
+      if (electronFeatures) {
+        setHasAccess(electronFeatures.includes('*') || electronFeatures.includes(featureKey));
+        setIsLoading(false);
+        setError(null);
+        return;
+      }
+
+      // 3. Check Firebase user (only works online)
       if (!auth?.currentUser) {
         if (authContextUser?.email && isMasterAdmin(authContextUser.email)) {
           // Cache email for offline use
@@ -299,7 +325,7 @@ export function useLicenseCheck(featureKey: string): {
         return;
       }
 
-      // 3. Check Firebase user email
+      // 4. Check Firebase user email
       if (isMasterAdmin(auth?.currentUser.email)) {
         // Cache email so feature access works offline next session
         try { localStorage.setItem('last_logged_in_email', auth?.currentUser.email || ''); } catch {}
@@ -525,7 +551,16 @@ export function useEnabledFeatures(): {
         return;
       }
 
-      // 2. Check Firebase user (only works online)
+      // 2. Check Electron offline license (works without Firebase)
+      const electronFeatures = getElectronLicenseFeatures();
+      if (electronFeatures) {
+        setFeatures(electronFeatures);
+        setIsLoading(false);
+        setError(null);
+        return;
+      }
+
+      // 3. Check Firebase user (only works online)
       if (!auth?.currentUser) {
         if (authContextUser?.email && isMasterAdmin(authContextUser.email)) {
           setFeatures(['*']);
@@ -538,7 +573,7 @@ export function useEnabledFeatures(): {
         return;
       }
 
-      // 3. Check Firebase user email
+      // 4. Check Firebase user email
       if (isMasterAdmin(auth?.currentUser.email)) {
         setFeatures(['*']);
         setIsLoading(false);
