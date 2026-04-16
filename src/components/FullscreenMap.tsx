@@ -253,7 +253,7 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
   // GPS vehicle icon
   const vehicleIcon = L.divIcon({
     className: 'vehicle-marker',
-    html: `<div style="width:20px;height:20px;background:#3b82f6;border:3px solid white;border-radius:50%;box-shadow:0 0 8px rgba(59,130,246,0.6)"></div>`,
+    html: `<div style="width:20px;height:20px;background:#8b5cf6;border:3px solid white;border-radius:50%;box-shadow:0 0 8px rgba(59,130,246,0.6)"></div>`,
     iconSize: [20, 20],
     iconAnchor: [10, 10],
   });
@@ -301,17 +301,6 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
           <TileLayer key={radarTileUrl} url={radarTileUrl} opacity={0.75} maxZoom={20} maxNativeZoom={12} tileSize={256} />
         )}
         <GpsFollower />
-        {/* Vehicle trace breadcrumb trail */}
-        {tracePoints.length >= 2 && (
-          <Polyline
-            positions={tracePoints}
-            color="#22d3ee"
-            weight={3}
-            opacity={0.7}
-            dashArray="6, 4"
-            interactive={false}
-          />
-        )}
         {gpsData.latitude !== 0 && (
           <Marker position={[gpsData.latitude, gpsData.longitude]} icon={vehicleIcon} />
         )}
@@ -319,10 +308,8 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
         {routes.map(route => {
           let coords: [number, number][] = [];
           if (route.routeGeometry && route.routeGeometry.length > 0) {
-            // routeGeometry can be [lat,lng] or [lng,lat] depending on source
             const first = route.routeGeometry[0];
             if (Array.isArray(first)) {
-              // If first coord latitude-like (>-90 && <90), it's [lat,lng]
               coords = Math.abs(first[0]) <= 90
                 ? route.routeGeometry
                 : route.routeGeometry.map((c: number[]) => [c[1], c[0]] as [number, number]);
@@ -335,10 +322,21 @@ const FullscreenMap: React.FC<FullscreenMapProps> = ({ onClose }) => {
             <Polyline
               key={route.id}
               positions={coords}
-              pathOptions={{ color: route.color || '#3b82f6', weight: 4, opacity: 0.8 }}
+              pathOptions={{ color: route.color || '#8b5cf6', weight: 4, opacity: 0.8 }}
             />
           );
         })}
+        {/* Vehicle trace breadcrumb trail (rendered AFTER routes so it appears on top) */}
+        {tracePoints.length >= 2 && (
+          <Polyline
+            positions={tracePoints}
+            color="#ef4444"
+            weight={3}
+            opacity={0.7}
+            dashArray="6, 4"
+            interactive={false}
+          />
+        )}
 
         {/* Show ALL survey POIs as markers (same size as card map: 24x24) */}
         {allPOIs.map(poi => {

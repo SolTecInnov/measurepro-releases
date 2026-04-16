@@ -113,7 +113,7 @@ const RoutingMachineControl = ({ route, onInstructionsReady, onLocationUpdate }:
       routeWhileDragging: false,
       lineOptions: {
         styles: [
-          { color: route.color || '#3b82f6', weight: 6, opacity: 0.7 }
+          { color: route.color || '#8b5cf6', weight: 6, opacity: 0.7 }
         ],
         addWaypoints: false
       },

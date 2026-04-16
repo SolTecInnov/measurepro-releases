@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, lazy, Suspense, useCallback, useMemo, memo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2, CloudRain, Cloud } from 'lucide-react';
+import { Navigation, MapPin, Flag, WifiOff, Route as RouteIcon, Maximize2, CloudRain, Cloud, X, Trash2 } from 'lucide-react';
 import WeatherCard from './map/WeatherCard';
 import { fetchWeatherData, getRadarTileUrl, type WeatherData } from '../lib/weather/weatherService';
 import { useGPSStore } from '../lib/stores/gpsStore';
@@ -18,6 +18,7 @@ import { isBetaUser } from '../lib/auth/masterAdmin';
 import { useEnabledFeatures } from '../hooks/useLicenseEnforcement';
 import { getSafeAuth } from '../lib/firebase';
 import type { Measurement } from '../lib/survey/types';
+import { getDirections } from '../lib/utils/routeUtils';
 
 const RouteManager = lazy(() => import('./RouteManager'));
 const RouteNavigator = lazy(() => import('./RouteNavigator'));
@@ -128,27 +129,32 @@ interface Route {
   routeGeometry?: [number, number][];
 }
 
+/** Assign types based on position: first=origin, last=destination, rest=waypoint */
+function assignPointTypes(points: Array<{ id: string; position: [number, number]; type: string; order: number }>) {
+  return points.map((p, i) => ({
+    ...p,
+    order: i,
+    type: i === 0 ? 'origin' as const
+      : i === points.length - 1 ? 'destination' as const
+      : 'waypoint' as const,
+  }));
+}
+
 // Component to handle map clicks for route creation
-const MapClickHandler = ({ 
-  routeCreationMode, 
-  onAddPoint, 
-  onClearMode 
-}: { 
-  routeCreationMode: 'origin' | 'waypoint' | 'destination' | null;
-  onAddPoint: (position: [number, number], type: 'origin' | 'waypoint' | 'destination') => void;
-  onClearMode: () => void;
+const MapClickHandler = ({
+  active,
+  onAddPoint,
+}: {
+  active: boolean;
+  onAddPoint: (position: [number, number]) => void;
 }) => {
   useMapEvents({
     click: (e) => {
-      if (routeCreationMode) {
-        const { lat, lng } = e.latlng;
-        onAddPoint([lat, lng], routeCreationMode);
-        onClearMode();
-        // toast suppressed
+      if (active) {
+        onAddPoint([e.latlng.lat, e.latlng.lng]);
       }
     }
   });
-  
   return null;
 };
 
@@ -195,7 +201,7 @@ const PositionMarker = () => {
     if (!accuracyCircleRef.current) {
       accuracyCircleRef.current = L.circle(position, {
         radius: gpsData.hdop * 5 || 10,
-        color: '#3b82f6',
+        color: '#8b5cf6',
         fillColor: '#3b82f6',
         fillOpacity: 0.1,
         weight: 1,
@@ -371,11 +377,10 @@ const VehicleMap: React.FC = () => {
     window.addEventListener('open-route-manager', open);
     return () => window.removeEventListener('open-route-manager', open);
   }, []);
-  const [routeCreationMode, setRouteCreationMode] = useState<'origin' | 'waypoint' | 'destination' | null>(null);
   const [tempRoute, setTempRoute] = useState({
     name: '',
     description: '',
-    color: '#3b82f6',
+    color: '#8b5cf6',
     points: [] as Array<{
       id: string;
       position: [number, number];
@@ -384,25 +389,56 @@ const VehicleMap: React.FC = () => {
     }>,
     routeGeometry: [] as [number, number][]
   });
-  
+  const routeCalcTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   // POI details modal
   const [selectedPOI, setSelectedPOI] = useState<any>(null);
   const [showPOIDetails, setShowPOIDetails] = useState(false);
 
-  // Route creation functions
-  const handleAddRoutePoint = (position: [number, number], type: 'origin' | 'waypoint' | 'destination') => {
-    const newPoint = {
-      id: crypto.randomUUID(),
-      position,
-      type,
-      order: tempRoute.points.length
-    };
-    
-    setTempRoute(prev => ({
-      ...prev,
-      points: [...prev.points, newPoint]
-    }));
+  // Route creation — click map to add point, auto-assign origin/waypoint/destination
+  const handleAddRoutePoint = (position: [number, number]) => {
+    setTempRoute(prev => {
+      const newPoints = assignPointTypes([
+        ...prev.points,
+        { id: crypto.randomUUID(), position, type: 'waypoint' as const, order: prev.points.length }
+      ]);
+      return { ...prev, points: newPoints };
+    });
   };
+
+  const handleRemoveRoutePoint = (pointId: string) => {
+    setTempRoute(prev => {
+      const newPoints = assignPointTypes(prev.points.filter(p => p.id !== pointId));
+      return { ...prev, points: newPoints };
+    });
+  };
+
+  // Auto-recalculate route geometry when points change (debounced)
+  useEffect(() => {
+    if (routeCalcTimer.current) clearTimeout(routeCalcTimer.current);
+    if (tempRoute.points.length < 2) {
+      setTempRoute(prev => prev.routeGeometry.length ? { ...prev, routeGeometry: [] } : prev);
+      return;
+    }
+    routeCalcTimer.current = setTimeout(async () => {
+      try {
+        const sorted = [...tempRoute.points].sort((a, b) => a.order - b.order);
+        const positions = sorted.map(p => p.position);
+        const geometry = await getDirections(positions);
+        if (geometry) {
+          setTempRoute(prev => ({ ...prev, routeGeometry: geometry }));
+        }
+      } catch {
+        // Fallback to straight lines
+        setTempRoute(prev => ({
+          ...prev,
+          routeGeometry: prev.points.sort((a, b) => a.order - b.order).map(p => p.position)
+        }));
+      }
+    }, 500);
+    return () => { if (routeCalcTimer.current) clearTimeout(routeCalcTimer.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tempRoute.points]);
 
   const handleSaveRoute = async () => {
     if (!tempRoute.name.trim()) {
@@ -438,14 +474,13 @@ const VehicleMap: React.FC = () => {
       setTempRoute({
         name: '',
         description: '',
-        color: '#3b82f6',
+        color: '#8b5cf6',
         points: [],
         routeGeometry: []
       });
       
       setShowRouteCreator(false);
-      setRouteCreationMode(null);
-      
+
       // toast suppressed
     } catch (error) {
       toast.error('Failed to save route');
@@ -529,28 +564,15 @@ const VehicleMap: React.FC = () => {
               />
             )}
 
-          {/* Vehicle trace breadcrumb trail */}
-            {tracePoints.length >= 2 && (
-              <Polyline
-                positions={tracePoints}
-                color="#22d3ee"
-                weight={3}
-                opacity={0.7}
-                dashArray="6, 4"
-                interactive={false}
-              />
-            )}
-
           {/* Current Position Marker */}
           <PositionMarker />
-          
+
           {/* Map Click Handler for Route Creation */}
           <MapClickHandler
-            routeCreationMode={routeCreationMode}
+            active={showRouteCreator}
             onAddPoint={handleAddRoutePoint}
-            onClearMode={() => setRouteCreationMode(null)}
           />
-          
+
           {/* POI Markers - Using memoized component for stable event handlers */}
           {measurements.map((measurement) => (
             <POIMarker
@@ -559,7 +581,7 @@ const VehicleMap: React.FC = () => {
               onPOIClick={handlePOIClick}
             />
           ))}
-          
+
           {/* Route Polylines */}
           {routes.filter(route => visibleRoutes.has(route.id)).map(route => {
             const positions = route.routeGeometry || route.points.map(p => p.position);
@@ -567,14 +589,14 @@ const VehicleMap: React.FC = () => {
               <Polyline
                 key={route.id}
                 positions={positions}
-                color={route.color || '#3b82f6'}
+                color={route.color || '#8b5cf6'}
                 weight={8}
                 opacity={0.85}
                 interactive={false}
               />
             );
           })}
-          
+
           {/* Navigation to Start Point - Green Route */}
           {navigationToStart && (
             <Polyline
@@ -586,7 +608,31 @@ const VehicleMap: React.FC = () => {
               interactive={false}
             />
           )}
+
+          {/* Vehicle trace breadcrumb trail (rendered AFTER routes so it appears on top) */}
+          {tracePoints.length >= 2 && (
+            <Polyline
+              positions={tracePoints}
+              color="#ef4444"
+              weight={3}
+              opacity={0.7}
+              dashArray="6, 4"
+              interactive={false}
+            />
+          )}
           
+          {/* Temp Route Preview (during creation) */}
+          {tempRoute.routeGeometry.length >= 2 && (
+            <Polyline
+              positions={tempRoute.routeGeometry}
+              color={tempRoute.color}
+              weight={6}
+              opacity={0.6}
+              dashArray="10, 6"
+              interactive={false}
+            />
+          )}
+
           {/* Temp Route Points (during creation) */}
           {tempRoute.points.map(point => (
             <Marker
@@ -672,13 +718,11 @@ const VehicleMap: React.FC = () => {
         )}
 
         {/* Route Creation Mode Indicator */}
-        {routeCreationMode && (
-          <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-2 rounded-lg shadow-lg z-[10]">
+        {showRouteCreator && (
+          <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-2 rounded-lg shadow-lg z-[10] animate-pulse">
             <div className="flex items-center gap-2">
-              {routeCreationMode === 'origin' && <MapPin className="w-4 h-4" />}
-              {routeCreationMode === 'waypoint' && <Navigation className="w-4 h-4" />}
-              {routeCreationMode === 'destination' && <Flag className="w-4 h-4" />}
-              <span>Click map to add {routeCreationMode}</span>
+              <MapPin className="w-4 h-4" />
+              <span>Click map to add route points</span>
             </div>
           </div>
         )}
@@ -732,205 +776,107 @@ const VehicleMap: React.FC = () => {
         })()}
       </div>
 
-      {/* Route Creator Modal */}
+      {/* Route Creator — Side Panel (no backdrop so map stays clickable) */}
       {showRouteCreator && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto py-8">
-          <div className="bg-gray-800 rounded-xl w-full max-w-4xl p-6 mx-4 my-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold">Create New Route</h2>
-              <button
-                onClick={() => {
-                  setShowRouteCreator(false);
-                  setRouteCreationMode(null);
-                  setTempRoute({
-                    name: '',
-                    description: '',
-                    color: '#3b82f6',
-                    points: [],
-                    routeGeometry: []
-                  });
-                }}
-                className="text-gray-400 hover:text-gray-300"
-              >
-                ×
-              </button>
+        <div className="fixed right-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-sm border-l border-gray-700 z-50 flex flex-col shadow-2xl">
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-700">
+            <h2 className="text-base font-semibold flex items-center gap-2">
+              <RouteIcon className="w-4 h-4 text-purple-400" />
+              Create Route
+            </h2>
+            <button
+              onClick={() => {
+                setShowRouteCreator(false);
+                setTempRoute({ name: '', description: '', color: '#8b5cf6', points: [], routeGeometry: [] });
+              }}
+              className="p-1 hover:bg-gray-800 rounded-lg"
+            >
+              <X className="w-4 h-4 text-gray-400" />
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {/* Route name */}
+            <div>
+              <label className="block text-xs text-gray-400 uppercase mb-1">Route Name *</label>
+              <input
+                type="text"
+                value={tempRoute.name}
+                onChange={(e) => setTempRoute(prev => ({ ...prev, name: e.target.value }))}
+                className="w-full px-3 py-2 bg-gray-800 border border-gray-600 text-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-purple-500"
+                placeholder="e.g. Highway 401 Survey"
+              />
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              {/* Left Column - Route Details */}
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
-                    Route Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={tempRoute.name}
-                    onChange={(e) => setTempRoute(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter route name"
-                    required
-                  />
-                </div>
+            {/* Color */}
+            <div className="flex items-center gap-2">
+              <label className="text-xs text-gray-400 uppercase">Color</label>
+              <input
+                type="color"
+                value={tempRoute.color}
+                onChange={(e) => setTempRoute(prev => ({ ...prev, color: e.target.value }))}
+                className="bg-gray-800 border border-gray-600 rounded h-7 w-7 cursor-pointer"
+              />
+            </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
-                    Description
-                  </label>
-                  <textarea
-                    value={tempRoute.description}
-                    onChange={(e) => setTempRoute(prev => ({ ...prev, description: e.target.value }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 h-24"
-                    placeholder="Enter route description"
-                  />
-                </div>
+            {/* Instructions */}
+            <div className="bg-purple-900/20 border border-purple-700/30 rounded-lg px-3 py-2">
+              <p className="text-xs text-purple-300">Click on the map to add points. First = origin, last = destination, in between = waypoints. Route auto-calculates.</p>
+            </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">
-                    Route Color
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="color"
-                      value={tempRoute.color}
-                      onChange={(e) => setTempRoute(prev => ({ ...prev, color: e.target.value }))}
-                      className="bg-gray-700 border border-gray-600 rounded h-10 w-10"
-                    />
-                    <input
-                      type="text"
-                      value={tempRoute.color}
-                      onChange={(e) => setTempRoute(prev => ({ ...prev, color: e.target.value }))}
-                      className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="#3b82f6"
-                    />
-                  </div>
+            {/* Points list */}
+            <div>
+              <div className="text-xs text-gray-400 uppercase mb-2">Points ({tempRoute.points.length})</div>
+              {tempRoute.points.length === 0 ? (
+                <div className="text-center py-6 text-gray-500 text-sm">
+                  <MapPin className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                  Click the map to add your first point
                 </div>
-
-                {/* Point Creation Controls */}
-                <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
-                  <h3 className="text-sm font-medium text-blue-400 mb-3">Add Points</h3>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        setRouteCreationMode('origin');
-                        setShowRouteCreator(false);
-                        // toast suppressed
-                      }}
-                      disabled={tempRoute.points.some(p => p.type === 'origin')}
-                      className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
-                    >
-                      <MapPin className="w-3 h-3" />
-                      Set Origin
-                    </button>
-                    <button
-                      onClick={() => {
-                        setRouteCreationMode('destination');
-                        setShowRouteCreator(false);
-                        // toast suppressed
-                      }}
-                      disabled={tempRoute.points.some(p => p.type === 'destination')}
-                      className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded text-xs"
-                    >
-                      <Flag className="w-3 h-3" />
-                      Set Destination
-                    </button>
-                    <button
-                      onClick={() => {
-                        setRouteCreationMode('waypoint');
-                        setShowRouteCreator(false);
-                        // toast suppressed
-                      }}
-                      className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-blue-600 hover:bg-blue-700 rounded text-xs"
-                    >
-                      <Navigation className="w-3 h-3" />
-                      Add Waypoint
-                    </button>
-                  </div>
-                  
-                  <div className="text-xs text-gray-400 mt-2">
-                    Click the buttons above, then click on the map to place points
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column - Route Points */}
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-medium mb-4">Route Points ({tempRoute.points.length})</h3>
-                  
-                  {tempRoute.points.length === 0 ? (
-                    <div className="text-center py-8 text-gray-400 bg-gray-700/50 rounded-lg">
-                      <MapPin className="w-12 h-12 mx-auto mb-4 text-gray-500" />
-                      <p className="text-lg font-medium mb-2">No points added yet</p>
-                      <p>Click the buttons above to start adding points</p>
-                    </div>
-                  ) : (
-                    <div className="space-y-3 max-h-96 overflow-y-auto">
-                      {tempRoute.points
-                        .sort((a, b) => {
-                          const typeOrder = { origin: 0, waypoint: 1, destination: 2 };
-                          return typeOrder[a.type] - typeOrder[b.type] || a.order - b.order;
-                        })
-                        .map((point) => (
-                        <div key={point.id} className="bg-gray-700 rounded-lg p-3">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                              {point.type === 'origin' && <MapPin className="w-4 h-4 text-green-400" />}
-                              {point.type === 'waypoint' && <Navigation className="w-4 h-4 text-blue-400" />}
-                              {point.type === 'destination' && <Flag className="w-4 h-4 text-purple-400" />}
-                              <div>
-                                <div className="font-medium capitalize">{point.type}</div>
-                                <div className="text-xs text-gray-500 font-mono">
-                                  {point.position[0].toFixed(6)}, {point.position[1].toFixed(6)}
-                                </div>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() => {
-                                setTempRoute(prev => ({
-                                  ...prev,
-                                  points: prev.points.filter(p => p.id !== point.id)
-                                }));
-                              }}
-                              className="p-1 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded"
-                            >
-                              ×
-                            </button>
-                          </div>
+              ) : (
+                <div className="space-y-1.5">
+                  {[...tempRoute.points].sort((a, b) => a.order - b.order).map((point) => (
+                    <div key={point.id} className="flex items-center gap-2 bg-gray-800 rounded-lg px-3 py-2">
+                      {point.type === 'origin' && <MapPin className="w-3.5 h-3.5 text-green-400 shrink-0" />}
+                      {point.type === 'waypoint' && <Navigation className="w-3.5 h-3.5 text-blue-400 shrink-0" />}
+                      {point.type === 'destination' && <Flag className="w-3.5 h-3.5 text-purple-400 shrink-0" />}
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs font-medium capitalize">{point.type}</div>
+                        <div className="text-[10px] text-gray-500 font-mono truncate">
+                          {point.position[0].toFixed(5)}, {point.position[1].toFixed(5)}
                         </div>
-                      ))}
+                      </div>
+                      <button
+                        onClick={() => handleRemoveRoutePoint(point.id)}
+                        className="p-1 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded shrink-0"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
                     </div>
-                  )}
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
+          </div>
 
-            {/* Action Buttons */}
-            <div className="flex justify-end gap-4 mt-6 pt-4 border-t border-gray-700">
-              <button
-                onClick={() => {
-                  setShowRouteCreator(false);
-                  setRouteCreationMode(null);
-                  setTempRoute({
-                    name: '',
-                    description: '',
-                    color: '#3b82f6',
-                    points: [],
-                    routeGeometry: []
-                  });
-                }}
-                className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSaveRoute}
-                disabled={!tempRoute.name.trim() || tempRoute.points.length < 2}
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg text-sm"
-              >
-                Save Route
-              </button>
-            </div>
+          {/* Footer actions */}
+          <div className="p-4 border-t border-gray-700 space-y-2">
+            <button
+              onClick={handleSaveRoute}
+              disabled={!tempRoute.name.trim() || tempRoute.points.length < 2}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-700 disabled:text-gray-500 rounded-lg text-sm font-bold transition-colors"
+            >
+              Save Route
+            </button>
+            <button
+              onClick={() => {
+                setShowRouteCreator(false);
+                setTempRoute({ name: '', description: '', color: '#8b5cf6', points: [], routeGeometry: [] });
+              }}
+              className="w-full px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-sm text-gray-400 transition-colors"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}

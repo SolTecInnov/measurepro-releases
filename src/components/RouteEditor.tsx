@@ -29,7 +29,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
   const { data: gpsData } = useGPSStore();
   const [routeName, setRouteName] = useState('');
   const [routeDescription, setRouteDescription] = useState('');
-  const [routeColor, setRouteColor] = useState('#3b82f6');
+  const [routeColor, setRouteColor] = useState('#8b5cf6');
   const [points, setPoints] = useState<RoutePoint[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [routeId, setRouteId] = useState<string | null>(null);
@@ -78,7 +78,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
   const resetForm = () => {
     setRouteName('');
     setRouteDescription('');
-    setRouteColor('#3b82f6');
+    setRouteColor('#8b5cf6');
     setPoints([]);
     setIsEditing(false);
     setRouteId(null);
@@ -430,7 +430,7 @@ const RouteEditor: React.FC<RouteEditorProps> = ({
                 value={routeColor}
                 onChange={(e) => setRouteColor(e.target.value)}
                 className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500"
-                placeholder="#3b82f6"
+                placeholder="#8b5cf6"
               />
             </div>
           </div>
