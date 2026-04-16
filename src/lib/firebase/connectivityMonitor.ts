@@ -53,9 +53,16 @@ class ConnectivityMonitor {
     this.state.isOnline = true;
     this.state.lastOnlineAt = Date.now();
     this.notifyListeners();
-    
+
+    // Resume Firestore network after a brief delay to let connection stabilize
+    setTimeout(() => {
+      import('../firebase').then(({ resumeFirestoreNetwork }) => {
+        resumeFirestoreNetwork().catch(() => {});
+      }).catch(() => {});
+    }, 3000);
+
     this.checkFirebaseConnectivity();
-    
+
     window.dispatchEvent(new CustomEvent('connectivity-restored'));
   };
 
@@ -65,7 +72,12 @@ class ConnectivityMonitor {
     this.state.isFirebaseConnected = false;
     this.state.lastOfflineAt = Date.now();
     this.notifyListeners();
-    
+
+    // Pause Firestore network to prevent resource-exhausted write queue buildup
+    import('../firebase').then(({ pauseFirestoreNetwork }) => {
+      pauseFirestoreNetwork().catch(() => {});
+    }).catch(() => {});
+
     if (this.pingInterval) {
       clearInterval(this.pingInterval);
       this.pingInterval = null;

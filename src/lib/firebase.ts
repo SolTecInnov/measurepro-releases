@@ -1,5 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getFirestore, initializeFirestore, memoryLocalCache, collection, doc, setDoc, getDoc, getDocs, query, where, onSnapshot, Timestamp, writeBatch, updateDoc } from 'firebase/firestore';
+import { getFirestore, initializeFirestore, memoryLocalCache, collection, doc, setDoc, getDoc, getDocs, query, where, onSnapshot, Timestamp, writeBatch, updateDoc, disableNetwork, enableNetwork, terminate } from 'firebase/firestore';
 import { getAuth, signInAnonymously, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { Survey, Measurement } from './survey/types';
 import { toast } from 'sonner';
@@ -308,6 +308,37 @@ export const signInAnon = async () => {
 export const isOnline = () => {
   return navigator.onLine;
 };
+
+/**
+ * Pause Firestore networking — stops all write retries and listener connections.
+ * Use this when the network is unstable to prevent resource-exhausted errors
+ * from saturating the write queue and freezing the app.
+ */
+let firestoreNetworkDisabled = false;
+
+export const pauseFirestoreNetwork = async (): Promise<void> => {
+  if (!db || firestoreNetworkDisabled) return;
+  try {
+    await disableNetwork(db);
+    firestoreNetworkDisabled = true;
+    logger.log('[Firebase] Network PAUSED — writes will queue locally until resumed');
+  } catch (err) {
+    logger.error('[Firebase] Failed to pause network:', err);
+  }
+};
+
+export const resumeFirestoreNetwork = async (): Promise<void> => {
+  if (!db || !firestoreNetworkDisabled) return;
+  try {
+    await enableNetwork(db);
+    firestoreNetworkDisabled = false;
+    logger.log('[Firebase] Network RESUMED — pending writes will flush');
+  } catch (err) {
+    logger.error('[Firebase] Failed to resume network:', err);
+  }
+};
+
+export const isFirestoreNetworkPaused = (): boolean => firestoreNetworkDisabled;
 
 // Import surveys from Firebase and save to local IndexedDB
 export const importSurveysFromFirebase = async (): Promise<Survey[]> => {
