@@ -15,7 +15,10 @@ const _S = ['SoltecInnovation', 'MeasurePRO', '2026', 'LicenseSecret', 'Vb7hK4jN
 const SECRET = _S.join('-');
 
 // ── Machine ID ──────────────────────────────────────────────────────────────
-function getMachineId() {
+// Persisted to file so it survives network adapter changes (VPN, dock, WiFi)
+const MACHINE_ID_RE = /^[A-F0-9]{4}(-[A-F0-9]{4}){7}$/;
+
+function calcMachineId() {
   const nets = os.networkInterfaces();
   const macs = [];
   for (const iface of Object.values(nets)) {
@@ -29,8 +32,18 @@ function getMachineId() {
   macs.sort();
   const raw = macs.join('|') + '|' + os.hostname() + '|' + os.cpus()[0]?.model;
   const hash = crypto.createHash('sha256').update(raw).digest('hex').toUpperCase();
-  // Format as 4-char groups: A1B2-C3D4-E5F6-...
   return hash.slice(0, 32).match(/.{4}/g).join('-');
+}
+
+function getMachineId() {
+  const idPath = path.join(getLicenseDir(), 'machine.id');
+  try {
+    const saved = fs.readFileSync(idPath, 'utf8').trim();
+    if (MACHINE_ID_RE.test(saved)) return saved;
+  } catch {}
+  const id = calcMachineId();
+  try { fs.writeFileSync(idPath, id, 'utf8'); } catch {}
+  return id;
 }
 
 // ── Crypto ──────────────────────────────────────────────────────────────────
