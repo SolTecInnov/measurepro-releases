@@ -307,7 +307,7 @@ class AutoPartManager {
           const savePath = await window.electronAPI.getAutoSavePath(packageData.filename);
           if (savePath) {
             const arrayBuffer = await packageData.blob.arrayBuffer();
-            await window.electronAPI.writeFile(savePath, Buffer.from(arrayBuffer));
+            await window.electronAPI.writeFile(savePath, new Uint8Array(arrayBuffer));
             saved = true;
             console.log(`[AutoPartManager] Part saved to ${savePath}`);
           }

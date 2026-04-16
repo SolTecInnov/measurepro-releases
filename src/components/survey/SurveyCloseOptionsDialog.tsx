@@ -170,7 +170,7 @@ export const SurveyCloseOptionsDialog: React.FC<SurveyCloseOptionsDialogProps> =
         const savePath = await window.electronAPI.getAutoSavePath(packageData.filename);
         if (savePath) {
           const arrayBuffer = await packageData.blob.arrayBuffer();
-          await window.electronAPI.writeFile(savePath, Buffer.from(arrayBuffer));
+          await window.electronAPI.writeFile(savePath, new Uint8Array(arrayBuffer));
           saveValidated = true;
           console.log(`[SurveyClose] Saved to ${savePath} (${packageData.measurementCount} POIs)`);
         }
