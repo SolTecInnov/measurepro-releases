@@ -10,6 +10,15 @@ contextBridge.exposeInMainWorld('electronAPI', {
   isElectron: true,
   platform: process.platform,
   getVersion: () => ipcRenderer.invoke('app:version'),
+
+  // License management
+  license: {
+    getMachineId: () => ipcRenderer.invoke('license:getMachineId'),
+    validate: () => ipcRenderer.invoke('license:validate'),
+    activate: (key) => ipcRenderer.invoke('license:activate', key),
+    deactivate: () => ipcRenderer.invoke('license:deactivate'),
+    getStoredKey: () => ipcRenderer.invoke('license:getStoredKey'),
+  },
   getPlatform: () => ipcRenderer.invoke('app:platform'),
   showSaveDialog: (options) => ipcRenderer.invoke('show-save-dialog', options),
   showOpenDialog: (options) => ipcRenderer.invoke('show-open-dialog', options),

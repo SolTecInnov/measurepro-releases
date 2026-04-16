@@ -7,6 +7,9 @@ const path = require('path');
 const fs = require('fs');
 const { SerialPort } = require('serialport');
 
+// License engine — validates offline license keys (compatible with LicensePRO)
+const { getMachineId, verifyKey, saveLicenseKey, loadLicenseKey, clearLicenseKey, validateStoredLicense } = require('./license/engine.cjs');
+
 // jszip is loaded lazily for the survey-file IPC handlers (avoids startup cost)
 let JSZip = null;
 function getJSZip() {
@@ -825,6 +828,24 @@ ipcMain.handle('fs:pickSoundFile', async () => {
   if (result.canceled || !result.filePaths.length) return null;
   return result.filePaths[0];
 });
+
+// ── License IPC handlers ─────────────────────────────────────────────────────
+
+ipcMain.handle('license:getMachineId', () => getMachineId());
+ipcMain.handle('license:validate', () => validateStoredLicense());
+ipcMain.handle('license:activate', (_event, key) => {
+  const machineId = getMachineId();
+  const result = verifyKey(key, machineId);
+  if (result.valid) {
+    saveLicenseKey(key);
+  }
+  return result;
+});
+ipcMain.handle('license:deactivate', () => {
+  clearLicenseKey();
+  return { success: true };
+});
+ipcMain.handle('license:getStoredKey', () => loadLicenseKey());
 
 // ── App IPC handlers ─────────────────────────────────────────────────────────
 

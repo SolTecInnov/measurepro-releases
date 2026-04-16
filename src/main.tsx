@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClientProvider } from '@tanstack/react-query';
 import App from './App.tsx';
@@ -30,7 +30,7 @@ console.log(`%c MeasurePRO Desktop Build: ${BUILD_VERSION}`, 'color: #00ff00; fo
 // and IndexedDB, causing "Minified React error #31" on render. Clear everything
 // on first run of a new version so the app starts clean.
 const CACHE_VERSION_KEY = '_measurepro_cache_version';
-const CURRENT_CACHE_VERSION = '16.1.82';
+const CURRENT_CACHE_VERSION = '16.1.83';
 if (localStorage.getItem(CACHE_VERSION_KEY) !== CURRENT_CACHE_VERSION) {
   console.log('[CacheFlush] New version detected — clearing stale Firebase caches only');
   // ONLY clear Firebase caches — NEVER touch keyval-store (user photos) or survey-db (user data)
@@ -237,14 +237,20 @@ if (!libraryHealth.healthy) {
 
   if (root) {
     try {
+      const LicenseGate = React.lazy(() => import('./components/LicenseGate'));
+
       createRoot(root).render(
         <StrictMode>
           <ErrorBoundary>
-            <QueryClientProvider client={queryClient}>
-              <AuthProvider>
-                <App />
-              </AuthProvider>
-            </QueryClientProvider>
+            <React.Suspense fallback={<div className="h-screen flex items-center justify-center bg-gray-950 text-gray-500">Loading...</div>}>
+              <LicenseGate>
+                <QueryClientProvider client={queryClient}>
+                  <AuthProvider>
+                    <App />
+                  </AuthProvider>
+                </QueryClientProvider>
+              </LicenseGate>
+            </React.Suspense>
           </ErrorBoundary>
         </StrictMode>
       );
