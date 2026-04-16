@@ -48,7 +48,7 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
     checkLicense();
   }, []);
 
-  const checkLicense = async () => {
+  const checkLicense = async (retryCount = 0) => {
     setLoading(true);
     try {
       if (!window.electronAPI?.license) {
@@ -61,10 +61,27 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
         window.electronAPI.license.validate(),
         window.electronAPI.license.getMachineId(),
       ]);
+      console.log('[LicenseGate] Validation result:', result.valid, result.reason || 'OK', 'machineId:', mid?.slice(0, 9));
+
+      // If IPC returned needsActivation but we haven't retried yet,
+      // wait and retry — the main process IPC handlers may not be ready
+      if (!result.valid && result.needsActivation && retryCount < 3) {
+        console.log(`[LicenseGate] Retrying validation (${retryCount + 1}/3)...`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return checkLicense(retryCount + 1);
+      }
+
       setStatus(result);
       setMachineId(mid);
-    } catch {
-      setStatus({ valid: true }); // Fail open in dev
+    } catch (err) {
+      console.error('[LicenseGate] Validation error:', err);
+      // Retry on error — IPC might not be ready yet
+      if (retryCount < 3) {
+        console.log(`[LicenseGate] Retrying after error (${retryCount + 1}/3)...`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return checkLicense(retryCount + 1);
+      }
+      setStatus({ valid: true }); // Fail open after all retries
     }
     setLoading(false);
   };
