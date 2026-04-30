@@ -57,9 +57,9 @@ Let's get started.
    - Data Logging
    
 4. Premium Features
-   - MeasurePRO+ AI Detection ($100/month)
-   - Envelope Clearance ($250/month)
-   - Convoy Guardian ($2,000/month)
+   - MeasurePRO+ AI Detection ($250/month)
+   - Envelope Clearance ($125/month)
+   - Convoy Guardian ($650/month)
    - Route Enforcement ($350/month)
    
 5. Data Management
@@ -898,7 +898,7 @@ MEASUREPRO PREMIUM TIERS:
 
 ┌──────────────┬─────────────┬─────────────┬──────────────┐
 │   FREE       │ MeasurePRO+ │  Envelope   │   Convoy     │
-│              │ $100/month  │ $250/month  │ $2,000/month │
+│              │ $250/month  │ $250/month  │ $650/month  │
 ├──────────────┼─────────────┼─────────────┼──────────────┤
 │ ✓ Live       │ ✓ All Free  │ ✓ All Plus  │ ✓ All        │
 │   Measure    │   Features  │   Features  │   Features   │
@@ -938,21 +938,21 @@ data logging, and export capabilities. This is perfect for occasional
 users, small operations, or anyone wanting to try MeasurePRO before 
 committing.
 
-MeasurePRO+ at $100 per month adds artificial intelligence. The AI 
+MeasurePRO+ at $250 per month adds artificial intelligence. The AI 
 watches your camera feed and automatically detects overhead objects—
 signs, traffic lights, wires, bridges—measuring and logging them 
 without any manual input. It also includes a detection log viewer 
 and the ability to export training data in YOLO format for machine 
 learning projects.
 
-Envelope Clearance at $250 per month is for larger vehicles or complex 
+Envelope Clearance at $125 per month is for larger vehicles or complex 
 loads. It uses a stereo camera to provide complete spatial awareness—
 not just overhead, but sides and front as well. You define your 
 vehicle profile (height, width, length), and the system monitors 
 clearances in all directions, logging violations automatically with 
 photo evidence.
 
-Convoy Guardian at $2,000 per month is the enterprise solution for 
+Convoy Guardian at $650 per month is the enterprise solution for 
 multi-vehicle operations. All vehicles in a convoy share data in 
 real-time, see each other's measurements, communicate through the 
 app, and everything is recorded to a forensic-grade black box. This 
@@ -1499,7 +1499,7 @@ KEY FEATURES:
    • Video recordings (optional)
    • Forensic-grade evidence
 
-PRICING: $2,000/month
+PRICING: $650/month
 Supports up to 100 vehicles per convoy
 ```
 
@@ -1538,7 +1538,7 @@ wrong—an accident, a violation, a dispute—you have complete forensic
 evidence of exactly what happened, when, where, and what every vehicle 
 knew at that moment.
 
-At $2,000 per month, Convoy Guardian is a serious investment, but for 
+At $650 per month, Convoy Guardian is a serious investment, but for 
 professional operations transporting oversized loads or operating 
 high-value convoys, the risk management and operational efficiency 
 gains are worth many times that cost.
@@ -3255,9 +3255,9 @@ KEY TAKEAWAYS:
   • Data logging and export
 
 ✓ PREMIUM FEATURES
-  • AI Detection ($100/mo)
-  • Envelope Clearance ($250/mo)
-  • Convoy Guardian ($2,000/mo)
+  • AI Detection ($250/mo)
+  • Envelope Clearance ($125/mo)
+  • Convoy Guardian ($650/mo)
   • Route Enforcement ($350/mo)
 
 ✓ WORKS OFFLINE

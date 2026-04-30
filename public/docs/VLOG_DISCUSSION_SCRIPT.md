@@ -443,9 +443,9 @@ Request Demo: demo@soltec-innovation.com
 
 💰 Pricing:
 ✓ FREE - Basic measurement & GPS
-✓ $100/mo - AI Detection (MeasurePRO+)
-✓ $250/mo - Envelope Clearance
-✓ $2,000/mo - Convoy Guardian
+✓ $250/mo - AI Detection (MeasurePRO+)
+✓ $125/mo - Envelope Clearance
+✓ $650/mo - Convoy Guardian
 ✓ $350/mo - Route Enforcement (3 convoys)
 
 #oversized #convoy #transportation #GPS #surveying

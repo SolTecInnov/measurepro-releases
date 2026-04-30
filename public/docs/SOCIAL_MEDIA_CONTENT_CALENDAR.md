@@ -355,7 +355,7 @@ encountered, automatically.
 No manual work. No forgetting to capture something important.
 Just drive.
 
-$100/month. Pays for itself in saved documentation time.
+$250/month. Pays for itself in saved documentation time.
 
 Learn more: [Link]
 
@@ -408,7 +408,7 @@ in real-time, while driving.
 
 No buttons to press. No manual work. Just drive.
 
-This is MeasurePRO+ AI Detection: $100/month
+This is MeasurePRO+ AI Detection: $250/month
 
 [Embedded 90-second demo video]
 
@@ -457,7 +457,7 @@ Basic (Free):
 • You decide what to document
 • Risk of missing things
 
-MeasurePRO+ AI ($100/mo):
+MeasurePRO+ AI ($250/mo):
 • Automatic detection (AI sees everything)
 • AI decides what matters
 • Never misses an overhead object
@@ -467,7 +467,7 @@ MeasurePRO+ AI ($100/mo):
 ROI Calculation:
 If you spend 2 hours/week on manual documentation at $30/hr labor cost:
 • Monthly cost: $240 in labor
-• MeasurePRO+ cost: $100
+• MeasurePRO+ cost: $250
 • Monthly savings: $140
 • Plus: Better data quality
 
@@ -558,13 +558,13 @@ Q: Does it work offline?
 A: Yes! Core features work completely offline. Data syncs when connected.
 
 Q: What does it cost?
-A: Free tier forever. Premium features $100-$2,000/month depending on needs.
+A: 7-day free trial included. Premium features $125-$650/month depending on needs.
 
 Q: How hard is setup?
 A: 5 minutes. Hardware mounts without tools. Software is browser-based.
 
 Q: Can I try before buying?
-A: Absolutely! Free tier has no time limit. Try premium with 30-day guarantee.
+A: Absolutely! 7-day free trial included with every install. Contact sales for your permanent license key.
 
 More questions? Ask in comments or visit [FAQ Link]
 

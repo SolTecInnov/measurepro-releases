@@ -128,7 +128,7 @@ You're ready to measure."
 ### On-Screen Text
 - "Hardware Auto-Detection"
 - "Real-Time Data Streaming"
-- "Premium Features: $100-$2,000/month"
+- "Premium Features: $125-$650/month"
 
 ### Screen Recording Settings
 - Resolution: 1920x1080 minimum
@@ -229,7 +229,7 @@ in YOLO format. Build better models with real-world data."
 
 ### On-Screen Text
 - "MeasurePRO+ AI Detection"
-- "$100/month"
+- "$125/month"
 - "Auto-Logged: 47 Objects"
 - Detection labels appearing dynamically
 
@@ -282,7 +282,7 @@ Your safety margin. Measured in real-time. Always."
 
 ### On-Screen Text
 - "Envelope Clearance Monitoring"
-- "$250/month"
+- "$125/month"
 - "Clearance: 11.2 ft (CRITICAL)"
 - "Violation Logged ✓"
 
@@ -343,7 +343,7 @@ All coordinated. All documented. All professional."
 
 ### On-Screen Text
 - "Convoy Guardian"
-- "$2,000/month Black Box System"
+- "$650/month Black Box System"
 - "3 Vehicles Connected"
 - "Black Box: Recording"
 - "Emergency Alert Sent ✓"
@@ -557,9 +557,9 @@ Contact SolTecInnovation today for your demonstration."
 ```
 Pricing:
 ✓ MeasurePRO: FREE
-✓ MeasurePRO+: $100/month
-✓ Envelope Clearance: $250/month  
-✓ Convoy Guardian: $2,000/month
+✓ MeasurePRO+: $250/month
+✓ Envelope Clearance: $125/month  
+✓ Convoy Guardian: $650/month
 ✓ Route Enforcement: $350/month
 
 www.soltec-innovation.com

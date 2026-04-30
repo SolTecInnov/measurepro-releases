@@ -218,7 +218,7 @@ Set up automatic daily summaries:
 🎥 WATCH: Exporting Data Tutorial (3 min): [Video Link]
 
 NEXT LEVEL: Want AI to automatically detect and log overhead objects? 
-Check out MeasurePRO+ ($100/month): [Learn More Link]
+Check out MeasurePRO+ ($250/month): [Learn More Link]
 
 Questions? Hit reply!
 
@@ -242,21 +242,21 @@ have been valuable for your operations.
 
 Today, let's explore what premium features can do for you:
 
-🤖 MEASUREPRO+ ($100/month)
+🤖 MEASUREPRO+ ($250/month)
 AI automatically detects and logs overhead objects as you drive.
 • No manual documentation needed
 • Driver focuses on driving, AI handles logging
 • 3,847 structures logged automatically in one customer's 1,200-mile survey
 [Learn More]
 
-🚗 ENVELOPE CLEARANCE ($250/month)
+🚗 ENVELOPE CLEARANCE ($125/month)
 Monitor clearances in ALL directions—not just overhead.
 • Perfect for RVs, buses, large vehicles
 • ZED 2i stereo camera for complete spatial awareness
 • Automatic violation logging with photo evidence
 [Learn More]
 
-🚛 CONVOY GUARDIAN ($2,000/month)
+🚛 CONVOY GUARDIAN ($650/month)
 Multi-vehicle coordination with forensic-grade black box recording.
 • Real-time data sharing across all convoy vehicles
 • Emergency alert system

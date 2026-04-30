@@ -205,7 +205,7 @@ MeasurePRO is for you.
 - Color-coded by tier (Free, Plus, Premium, Enterprise)
 
 ### Content:
-| Feature | FREE | Plus $100/mo | Envelope $250/mo | Convoy $2,000/mo |
+| Feature | FREE | Plus $250/mo | Envelope $125/mo | Convoy $650/mo |
 |---------|------|--------------|------------------|------------------|
 | Live Measurements | ✓ | ✓ | ✓ | ✓ |
 | GPS Tracking | ✓ | ✓ | ✓ | ✓ |
@@ -229,15 +229,15 @@ MeasurePRO offers four subscription tiers to match your needs and budget.
 The FREE tier gives you professional measurement and documentation. 
 This is perfect for occasional use or trying the system before committing.
 
-MeasurePRO+ at $100 per month adds artificial intelligence. The AI 
+MeasurePRO+ at $250 per month adds artificial intelligence. The AI 
 automatically detects and logs overhead objects as you drive. No manual 
 work required.
 
-Envelope Clearance at $250 per month is for larger vehicles and complex 
+Envelope Clearance at $125 per month is for larger vehicles and complex 
 loads. It monitors clearances in all directions using stereo camera 
 technology and logs violations automatically with photo evidence.
 
-Convoy Guardian at $2,000 per month is our enterprise solution. All 
+Convoy Guardian at $650 per month is our enterprise solution. All 
 convoy vehicles share data in real-time, everything is recorded to a 
 forensic-grade black box, and emergency alerts keep everyone safe.
 
@@ -592,7 +592,7 @@ position. Every alert. Every message. If you enable video, every camera
 feed. This black box recording provides forensic-grade evidence for 
 incident investigation, insurance claims, or compliance documentation.
 
-At $2,000 per month, Convoy Guardian is a serious investment. But for 
+At $650 per month, Convoy Guardian is a serious investment. But for 
 professional convoy operations hauling high-value or oversized loads, 
 the risk management, operational efficiency, and liability protection 
 are worth many times that cost.
@@ -626,7 +626,7 @@ This is enterprise-grade convoy coordination.
 **With MeasurePRO (Per Month):**
 | Item | Cost |
 |------|------|
-| MeasurePRO+ subscription (5 × $100) | $500 |
+| MeasurePRO+ subscription (5 × $250) | $1,250 |
 | Route Enforcement (5 convoys × $55) | $275 |
 | Manual documentation (automated, 0 hours) | $0 |
 | Route violations (prevented) | $0 |
@@ -886,9 +886,9 @@ Implementation is not a barrier. It's a ramp.
 | Tier | Monthly Cost | Best For | Key Value |
 |------|-------------|----------|-----------|
 | **Free** | $0 | Trial, occasional use | All basic features, unlimited use |
-| **MeasurePRO+** | $100 | Regular operations | AI automation, 60% time savings |
-| **Envelope Clearance** | $250 | Large vehicles/loads | Complete spatial awareness |
-| **Convoy Guardian** | $2,000 | Multi-vehicle ops | Risk management, black box |
+| **MeasurePRO+** | $250 | Regular operations | AI automation, 60% time savings |
+| **Envelope Clearance** | $125 | Large vehicles/loads | Complete spatial awareness |
+| **Convoy Guardian** | $650 | Multi-vehicle ops | Risk management, black box |
 | **Route Enforcement** | $350 + $55/convoy | Permitted loads | Legal compliance, zero violations |
 
 **No Long-Term Contracts**
@@ -916,13 +916,13 @@ The Free tier costs nothing and gives you all basic features forever.
 This is perfect for trying MeasurePRO or for occasional users who don't 
 need premium features.
 
-MeasurePRO+ at $100 per month per vehicle adds AI automation. You save 
+MeasurePRO+ at $250 per month per vehicle adds AI automation. You save 
 60% of documentation time, which alone often justifies the cost.
 
-Envelope Clearance at $250 per month provides complete spatial awareness 
+Envelope Clearance at $125 per month provides complete spatial awareness 
 for large vehicles and complex loads.
 
-Convoy Guardian at $2,000 per month is enterprise-grade multi-vehicle 
+Convoy Guardian at $650 per month is enterprise-grade multi-vehicle 
 coordination with black box recording. For professional convoy operations, 
 the risk management value is enormous.
 
