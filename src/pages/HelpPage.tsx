@@ -142,19 +142,18 @@ export default function HelpPage() {
               <div>
                 <h4 className="text-lg font-semibold text-white mb-3">Quick Setup (5 Minutes)</h4>
                 <ol className="list-decimal list-inside space-y-2 ml-4">
-                  <li>Create your account at <Link to="/signup" className="text-blue-400 hover:text-blue-300 underline">signup page</Link></li>
-                  <li>Wait for admin approval (typically within 24 hours)</li>
-                  <li>Set up your password and log in</li>
+                  <li>Install MeasurePRO — a <strong>7-day free trial</strong> starts automatically (no license key needed)</li>
                   <li>Connect your laser distance meter via USB/Serial</li>
                   <li>Grant GPS and camera permissions when prompted</li>
                   <li>Create your first survey and start measuring!</li>
+                  <li>During the trial, send your <strong>Machine ID</strong> to your administrator to get your permanent license key</li>
                 </ol>
               </div>
-              
+
               <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
-                <h5 className="font-semibold text-blue-400 mb-2">First Time Users:</h5>
+                <h5 className="font-semibold text-blue-400 mb-2">License Activation:</h5>
                 <p className="text-sm">
-                  We recommend starting with the onboarding wizard (appears on first login) which guides you through device setup, permissions, and creating your first survey in under 3 minutes.
+                  Click <strong>"Activate License"</strong> in the trial banner to see your Machine ID, copy it, and email it to your administrator. Once you receive your license key, paste it in the same panel to activate all your features instantly — no internet required.
                 </p>
               </div>
             </div>
@@ -274,10 +273,10 @@ export default function HelpPage() {
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">What are the keyboard shortcuts for the lateral / rear lasers?</h4>
                 <p>
-                  <code className="bg-gray-700 px-1 rounded">[</code> — Capture left lateral measurement<br />
-                  <code className="bg-gray-700 px-1 rounded">]</code> — Capture right lateral measurement<br />
-                  <code className="bg-gray-700 px-1 rounded">\</code> — Capture total lane width (left + right + vehicle width)<br />
-                  <code className="bg-gray-700 px-1 rounded">'</code> — Capture rear overhang measurement
+                  <code className="bg-gray-700 px-1 rounded">Alt + [</code> — Capture left lateral measurement<br />
+                  <code className="bg-gray-700 px-1 rounded">Alt + ]</code> — Capture right lateral measurement<br />
+                  <code className="bg-gray-700 px-1 rounded">Alt + \</code> — Capture total lane width (left + right + vehicle width)<br />
+                  <code className="bg-gray-700 px-1 rounded">Alt + '</code> — Capture rear overhang measurement
                 </p>
               </div>
               <div>
