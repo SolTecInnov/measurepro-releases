@@ -11,7 +11,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Key, Mail, Copy, Check, AlertTriangle, Shield, Clock } from 'lucide-react';
+import { Key, Mail, Copy, Check, AlertTriangle, Shield, Clock, ChevronDown, ChevronUp, X } from 'lucide-react';
 import { useElectronLicenseStore } from '../lib/stores/electronLicenseStore';
 
 interface LicenseGateProps {
@@ -37,6 +37,121 @@ interface LicenseStatus {
 }
 
 const ADMIN_EMAIL = 'jfprince@soltec.ca';
+
+// ── Trial Banner (expandable with machine ID, email, and activation) ──────
+interface TrialBannerProps {
+  daysLeft: number;
+  inGrace: boolean;
+  machineId: string;
+  keyInput: string;
+  setKeyInput: (v: string) => void;
+  onActivate: () => void;
+  activating: boolean;
+  error: string;
+  onCopyMachineId: () => void;
+  copied: boolean;
+  onSendMachineId: () => void;
+  emailSent: boolean;
+}
+
+const TrialBanner: React.FC<TrialBannerProps> = ({
+  daysLeft, inGrace, machineId, keyInput, setKeyInput,
+  onActivate, activating, error, onCopyMachineId, copied,
+  onSendMachineId, emailSent,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  const isGrace = inGrace;
+  const bannerColor = isGrace ? 'bg-red-600' : 'bg-amber-500';
+  const textColor = isGrace ? 'text-white' : 'text-black';
+  const panelBg = isGrace ? 'bg-red-950' : 'bg-amber-950';
+
+  return (
+    <div className={`fixed top-0 left-0 right-0 z-[9999] ${bannerColor} shadow-lg`}>
+      {/* Main banner row */}
+      <div className={`flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium ${textColor}`}>
+        <span>
+          {isGrace ? (
+            <>Grace period: {daysLeft} day{daysLeft !== 1 ? 's' : ''} remaining</>
+          ) : (
+            <>Free trial: {daysLeft} day{daysLeft !== 1 ? 's' : ''} remaining</>
+          )}
+        </span>
+        <span className="mx-1">—</span>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded font-bold underline hover:no-underline ${textColor}`}
+        >
+          {expanded ? 'Hide' : 'Activate License'}
+          {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+        </button>
+      </div>
+
+      {/* Expandable activation panel */}
+      {expanded && (
+        <div className={`${panelBg} border-t border-white/10 px-4 py-4`}>
+          <div className="max-w-lg mx-auto space-y-3">
+            {/* Close button */}
+            <div className="flex justify-end -mt-2 -mr-1">
+              <button onClick={() => setExpanded(false)} className="text-white/50 hover:text-white/80">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Machine ID */}
+            <div>
+              <label className="text-xs text-white/60 uppercase tracking-wider block mb-1">Your Machine ID</label>
+              <div className="flex items-center gap-2">
+                <code className="flex-1 bg-black/30 rounded-lg px-3 py-2 text-xs text-orange-400 font-mono break-all select-all">
+                  {machineId}
+                </code>
+                <button
+                  onClick={onCopyMachineId}
+                  className="p-2 bg-black/30 hover:bg-black/50 rounded-lg transition-colors shrink-0"
+                  title="Copy Machine ID"
+                >
+                  {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-white/60" />}
+                </button>
+              </div>
+              <button
+                onClick={onSendMachineId}
+                className="w-full mt-2 flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/30 rounded-lg text-xs text-blue-300 transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                {emailSent ? 'Email client opened!' : `Send Machine ID to ${ADMIN_EMAIL}`}
+              </button>
+            </div>
+
+            {/* License key input */}
+            <div>
+              <label className="text-xs text-white/60 uppercase tracking-wider block mb-1">Paste License Key</label>
+              <textarea
+                value={keyInput}
+                onChange={(e) => setKeyInput(e.target.value)}
+                placeholder="Paste your license key here..."
+                rows={3}
+                className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-xs text-green-400 font-mono resize-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              />
+              {error && (
+                <div className="flex items-center gap-2 mt-1 text-xs text-red-400">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  {error}
+                </div>
+              )}
+              <button
+                onClick={onActivate}
+                disabled={activating || !keyInput.trim()}
+                className="w-full mt-2 flex items-center justify-center gap-2 px-3 py-2 bg-orange-600 hover:bg-orange-700 disabled:bg-gray-700 disabled:text-gray-500 rounded-lg text-sm font-bold transition-colors text-white"
+              >
+                <Key className="w-4 h-4" />
+                {activating ? 'Activating...' : 'Activate License'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
   const [status, setStatus] = useState<LicenseStatus | null>(null);
@@ -147,18 +262,20 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
     if (status.isTrial) {
       return (
         <>
-          <div className={`fixed top-0 left-0 right-0 z-[9999] px-4 py-2 text-center text-sm font-medium ${
-            status.inGrace
-              ? 'bg-red-600 text-white'
-              : 'bg-amber-500 text-black'
-          }`}>
-            {status.inGrace ? (
-              <>Grace period: {status.daysLeft} day{status.daysLeft !== 1 ? 's' : ''} remaining — </>
-            ) : (
-              <>Free trial: {status.daysLeft} day{status.daysLeft !== 1 ? 's' : ''} remaining — </>
-            )}
-            Contact <a href={`mailto:${ADMIN_EMAIL}`} className="underline font-bold">{ADMIN_EMAIL}</a> for your license key
-          </div>
+          <TrialBanner
+            daysLeft={status.daysLeft ?? 0}
+            inGrace={status.inGrace ?? false}
+            machineId={machineId}
+            keyInput={keyInput}
+            setKeyInput={(v) => { setKeyInput(v); setError(''); }}
+            onActivate={handleActivate}
+            activating={activating}
+            error={error}
+            onCopyMachineId={handleCopyMachineId}
+            copied={copied}
+            onSendMachineId={handleSendMachineId}
+            emailSent={emailSent}
+          />
           <div className="pt-8">{children}</div>
         </>
       );
