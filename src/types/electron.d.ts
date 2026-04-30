@@ -38,6 +38,7 @@ interface ElectronAPI {
   onMenuNavigate: (callback: (route: string) => void) => void;
   onMenuNavigateTab: (callback: (tab: string) => void) => void;
   onMenuOpenSupportTicket: (callback: () => void) => void;
+  onMenuLiveSupport?: (callback: () => void) => void;
   updater: {
     check:      () => Promise<{ status: string; message?: string }>;
     download:   () => Promise<void>;

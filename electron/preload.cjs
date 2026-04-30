@@ -26,6 +26,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onMenuNavigate: (callback) => ipcRenderer.on('menu-navigate', (_event, route) => callback(route)),
   onMenuNavigateTab: (callback) => ipcRenderer.on('menu-navigate-tab', (_event, tab) => callback(tab)),
   onMenuOpenSupportTicket: (callback) => ipcRenderer.on('menu-open-support-ticket', callback),
+  onMenuLiveSupport: (callback) => ipcRenderer.on('menu-live-support', callback),
 
   // ── Drive Mode + active-survey close protection ──────────────────
   // Renderer pushes "active survey present" state up so main can intercept

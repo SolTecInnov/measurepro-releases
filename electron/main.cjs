@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, shell, Menu, globalShortcut } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, Menu, globalShortcut, desktopCapturer, session: electronSession } = require('electron');
 
 // Auto-updater — loaded with guard so startup never fails if package missing
 let autoUpdater = null;
@@ -96,6 +96,46 @@ function createWindow() {
   });
 
   mainWindow.webContents.on('crashed', () => writeLog('error', 'Renderer CRASHED'));
+
+  // ── Screen capture handler for Live Support ──────────────────────────────
+  // Electron 27+ API: intercepts getDisplayMedia() from the renderer and
+  // presents a source picker so the user can choose screen/window.
+  try {
+    mainWindow.webContents.session.setDisplayMediaRequestHandler(async (_request, callback) => {
+      try {
+        const sources = await desktopCapturer.getSources({ types: ['screen', 'window'], thumbnailSize: { width: 320, height: 180 } });
+        if (sources.length === 0) {
+          callback({});
+          return;
+        }
+        // If only one source (single monitor, no windows), use it directly
+        if (sources.length === 1) {
+          callback({ video: sources[0] });
+          return;
+        }
+        // Present a simple picker dialog
+        const choices = sources.map((s, i) => `${i + 1}. ${s.name}`).join('\n');
+        const result = await dialog.showMessageBox(mainWindow, {
+          type: 'question',
+          title: 'Share Screen — Live Support',
+          message: 'Choose what to share:',
+          detail: choices,
+          buttons: sources.map(s => s.name).slice(0, 6), // Electron limits buttons
+          cancelId: -1,
+        });
+        if (result.response >= 0 && result.response < sources.length) {
+          callback({ video: sources[result.response] });
+        } else {
+          callback({});
+        }
+      } catch (err) {
+        writeLog('error', `Screen capture picker error: ${err.message}`);
+        callback({});
+      }
+    });
+  } catch (err) {
+    writeLog('warning', `setDisplayMediaRequestHandler not available: ${err.message}`);
+  }
 
   if (isDev) {
     mainWindow.loadURL('http://localhost:5173');
@@ -251,6 +291,10 @@ function createMenu() {
           click: () => mainWindow.webContents.send('menu-navigate', '/welcome')
         },
         { type: 'separator' },
+        {
+          label: 'Live Support',
+          click: () => mainWindow.webContents.send('menu-live-support')
+        },
         {
           label: 'Submit a Support Ticket',
           click: () => shell.openExternal('mailto:support@soltecinnovation.com?subject=MeasurePRO%20Support%20Request')

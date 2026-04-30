@@ -11,6 +11,8 @@ import { DisclaimerModal, useDisclaimerAccepted } from './components/DisclaimerM
 import { ThemeProvider } from './components/ThemeProvider';
 import { LazyLoadErrorBoundary } from './components/LazyLoadErrorBoundary';
 import AdminNavBar from './components/admin/AdminNavBar';
+import LiveSupportProvider from './components/liveSupport/LiveSupportProvider';
+import { useLiveSupportStore } from './lib/liveSupport/liveSupportStore';
 
 // Import stores directly but handle errors
 import { useSurveyStore } from './lib/survey/store';
@@ -409,6 +411,11 @@ function ElectronMenuHandler() {
       sessionStorage.setItem('electron-pending-tab', tab);
       navigate('/app');
       setTimeout(() => window.dispatchEvent(new CustomEvent('electron-open-tab', { detail: { tab } })), 150);
+    });
+
+    // Help > Live Support
+    window.electronAPI.onMenuLiveSupport?.(() => {
+      useLiveSupportStore.getState().setModalOpen(true);
     });
   }, [navigate]);
 
@@ -990,6 +997,7 @@ function App() {
       <ThemeProvider>
         <MemoryRouter initialEntries={['/']} initialIndex={0}>
           <Toaster richColors position="bottom-right" duration={1500} />
+          <LiveSupportProvider />
 
       {/* Resume post-login navigation after a version-mismatch page reload */}
       <PostLoginRedirectHandler />
