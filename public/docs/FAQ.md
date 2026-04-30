@@ -91,7 +91,7 @@ Ground reference is your vehicle or load height. The laser measures the distance
 Example: Laser reads 18 ft to bridge. Vehicle is 15 ft tall. Clearance = 18 - 15 = 3 ft.
 
 ### Can I measure side clearances, not just overhead?
-Yes, but only with the **Envelope Clearance** premium feature ($250/month), which requires a ZED 2i stereo camera. This monitors clearances in all directions—overhead, sides, and front.
+Yes, but only with the **Envelope Clearance** premium feature ($125/month), which requires a ZED 2i stereo camera. This monitors clearances in all directions—overhead, sides, and front.
 
 ### Why are my measurements jumping around?
 This is usually sensor noise or vibration. Enable averaging in **Settings → Laser → Enable averaging** to smooth the readings. Also check that your laser is securely mounted and pointing straight up.
@@ -104,22 +104,27 @@ Yes. Choose your preferred units in **Settings → Measurement → Units**. You 
 ## PREMIUM FEATURES
 
 ### How do I activate premium features?
-1. Subscribe to the premium tier you want
-2. Your administrator will activate your subscription
-3. Go to **Settings** → Select the feature tab (AI, Envelope, Convoy, or Route)
-4. Your premium features are now available ✓
+MeasurePRO Desktop uses **offline license keys** tied to your computer's Machine ID:
 
-Contact your administrator if you need a subscription activated.
+1. Open MeasurePRO — your **Machine ID** is displayed on the activation screen (or in the trial banner)
+2. Copy the Machine ID and send it to your administrator (email button provided)
+3. Your administrator generates a license key using LicensePRO
+4. Paste the license key into MeasurePRO — features activate instantly, no internet required
 
-### What happens if my subscription expires?
-Premium features stop working, but your data remains accessible. You can still view, export, and analyze data collected while subscribed. Re-subscribe to continue using premium features.
+New installations include a **7-day free trial** (basic features) so you can start using the app immediately while waiting for your license key.
+
+### What happens if my license expires?
+Premium features stop working, but your data remains accessible. You can still view, export, and analyze data collected while licensed. Contact your administrator for a renewal key.
 
 ### Can I use multiple premium features simultaneously?
-Yes. Each premium feature is independent. You can subscribe to MeasurePRO+ and Convoy Guardian simultaneously, for example. Each has its own password.
+Yes. Your license key includes all the add-ons (features) your administrator selected when generating it. All granted features work simultaneously.
+
+### What is the 7-day free trial?
+New installations automatically get 7 days of basic access (GPS, laser, POI capture, data export) without needing a license key. After 7 days, there is a 2-day grace period before the app requires a license key to continue. Contact your administrator during the trial to get your permanent license key.
 
 ### What's the difference between MeasurePRO+ and Envelope Clearance?
-- **MeasurePRO+ ($100/mo):** AI automatically detects overhead objects and logs them. You still use one laser for overhead measurement.
-- **Envelope Clearance ($250/mo):** Monitors your entire vehicle envelope (overhead + sides + front) using a stereo camera. Includes vehicle profile configuration and violation logging.
+- **AI Detection (MeasurePRO+, $250/mo):** AI automatically detects overhead objects and logs them. You still use one laser for overhead measurement.
+- **Envelope Clearance ($125/mo):** Monitors your entire vehicle envelope (overhead + sides + front) using a stereo camera. Includes vehicle profile configuration and violation logging.
 
 ---
 
@@ -174,7 +179,7 @@ Yes. The AI model is loaded locally in your browser. Detection happens on-device
 Up to 100 vehicles per convoy. Most professional operations use 3-10 vehicles (pilot car, load vehicle, chase cars).
 
 ### Do all vehicles need their own subscription?
-No. Only the lead vehicle needs the Convoy Guardian subscription ($2,000/month). Support vehicles join for free using the QR code.
+No. Only the lead vehicle needs the Convoy Guardian subscription ($650/month). Support vehicles join for free using the QR code.
 
 ### What data is shared between convoy vehicles?
 - Current measurements (overhead clearance)
@@ -282,10 +287,10 @@ STOP modal clearance requires internet connection. Solutions:
 ## ACCOUNT & BILLING
 
 ### Is there a free trial?
-Yes. The basic tier is completely free forever. You can use live measurements, GPS tracking, POI capture, and data export without any subscription.
+Yes. New installations include a **7-day free trial** with basic features (live measurements, GPS tracking, POI capture, data export). After the trial, a 2-day grace period allows you to continue while your license key is being arranged. Contact your administrator or **sales@soltec-innovation.com** to get your permanent license key.
 
-### How do I upgrade to a premium tier?
-Contact SolTecInnovation sales at **sales@soltec-innovation.com** or call **+1.438.533.5344**. They'll set up your subscription and activate it for you. Your premium features will be available immediately.
+### How do I upgrade to premium features?
+Contact SolTecInnovation sales at **sales@soltec-innovation.com** or call **+1.438.533.5344**. Your administrator will generate a license key with the premium add-ons you need (AI Detection, Envelope Clearance, Convoy Guardian, Route Enforcement, Swept Path Analysis). Paste the key into MeasurePRO to activate instantly.
 
 ### Can I cancel my subscription anytime?
 Yes. Premium subscriptions are month-to-month with no long-term contracts (unless you negotiate an annual contract for discounts). Contact support to cancel.
@@ -298,6 +303,29 @@ Yes. Premium subscriptions are month-to-month with no long-term contracts (unles
 
 ### Is there a discount for annual subscriptions?
 Yes. Annual subscriptions receive 10-20% discounts depending on the tier. Contact sales for pricing.
+
+---
+
+## LIVE SUPPORT
+
+### What is Live Support?
+Live Support lets you share your screen with a SolTec support agent in real-time. The agent can see your MeasurePRO screen, draw annotations (arrows, highlights, freehand) to guide you, and you can swap who is sharing. It uses WebRTC for direct peer-to-peer video — your screen is shared directly to the agent, not through a server.
+
+### How do I start a Live Support session?
+1. Go to **Help → Live Support** in the menu bar
+2. Click **Start Session** — you'll get a session code
+3. Read the code to the support agent (or copy it)
+4. The agent enters the code on their side and requests to join
+5. You'll see an **Approve / Deny** prompt — click Approve to start sharing
+
+### Can I close the window during a session?
+Yes. When you close the Live Support modal, a **floating bar** appears in the bottom-right corner showing the session status. Click it to reopen the full view. The session continues running in the background.
+
+### Can the agent control my computer?
+No. The agent can only **see** your screen and draw annotations on it. They cannot click, type, or control anything on your computer. You remain in full control at all times.
+
+### Does Live Support require internet?
+Yes. Live Support requires an active internet connection for the WebRTC peer connection and signaling through the RoadScope server.
 
 ---
 

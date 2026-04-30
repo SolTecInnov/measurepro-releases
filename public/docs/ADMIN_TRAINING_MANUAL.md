@@ -171,12 +171,14 @@ The dashboard provides quick access to:
 
 | Tier | Monthly Cost | Key Features |
 |------|-------------|--------------|
-| **Free** | $0 | Basic measurements, GPS, POI, export |
-| **MeasurePRO+** | $100 | AI detection, auto-logging, training data |
-| **Envelope Clearance** | $250 | Multi-directional clearance, violations |
-| **Convoy Guardian** | $2,000 | Multi-vehicle, black box, emergency |
-| **Route Enforcement** | $350 | GPS compliance, 3 convoys included |
-| **Route Add-on** | $55 | Each additional convoy beyond 3 |
+| **7-Day Trial** | $0 | Basic measurements, GPS, POI, export (7 days + 2 grace) |
+| **MeasurePRO** | $300/mo | Full-featured professional surveying |
+| **AI Detection (MeasurePRO+)** | +$250/mo | AI detection, auto-logging, training data |
+| **Envelope Clearance** | +$125/mo | Multi-directional clearance, violations |
+| **Convoy Guardian** | +$650/mo | Multi-vehicle, black box, emergency |
+| **Route Enforcement** | +$350/mo | GPS compliance, route monitoring |
+| **Swept Path Analysis** | +$450/mo | Vehicle swept path simulation |
+| **RoadScope Sync** | +$350/mo | Cloud sync to RoadScope platform |
 
 ### Creating a Subscription
 
@@ -192,12 +194,26 @@ The dashboard provides quick access to:
 7. Click "Create Subscription"
 8. Subscription activated automatically - customer can use immediately
 
-**Subscription Management:**
-Subscriptions are managed in the admin panel with validity dates, not passwords. The system automatically:
+**License Key Management (Desktop App):**
+MeasurePRO Desktop uses **offline license keys** tied to each computer's Machine ID:
+1. Customer opens MeasurePRO → Machine ID is displayed on the activation screen or trial banner
+2. Customer sends their Machine ID to the admin
+3. Admin generates a license key using **LicensePRO** (desktop tool or web app)
+4. Admin sends the key to the customer
+5. Customer pastes the key in MeasurePRO — features activate instantly, no internet required
+
+License keys are HMAC-SHA256 signed and validated entirely offline. They include:
+- Customer name and email
+- License type (commercial, pro, enterprise, trial, etc.)
+- Selected add-ons (AI, Envelope, Convoy, Route, Swept Path, etc.)
+- Expiration date (or NEVER for permanent licenses)
+- Machine ID (key only works on the intended computer)
+
+**Web App Subscriptions:**
+For web app users, subscriptions are managed in the admin panel with validity dates:
 - Activates features when subscription is active (current date within start/end dates)
 - Deactivates features when subscription expires
 - Tracks usage and billing periods
-- No customer action required - admin manages everything
 
 **Example:**
 ```
@@ -657,14 +673,15 @@ FIREBASE_API_KEY=<firebase-key> (if using Firebase sync)
 
 ### Common Support Tasks
 
-**Subscription Access Issues:**
-- Subscriptions are managed by validity dates, not passwords
-- If customer can't access premium features:
+**License / Feature Access Issues:**
+- **Desktop (Electron) users:** Access is controlled by offline license keys, not web subscriptions
+  1. Verify customer has a valid license key (not expired)
+  2. Check that the key includes the correct add-ons for the feature they need
+  3. If key is expired, generate a new one with LicensePRO
+  4. If Machine ID changed (new computer), a new key is needed for the new machine
+- **Web app users:** Subscriptions are managed by validity dates in the admin panel
   1. Admin → Customers → [Select Customer] → Subscriptions
-  2. Verify subscription status is "Active"
-  3. Check start date (subscription may be future-dated)
-  4. Verify end date hasn't passed
-  5. Customer needs no password - features activate automatically when subscription is valid
+  2. Verify subscription status is "Active" and dates are correct
 
 **Data Recovery:**
 - If user accidentally deletes local data

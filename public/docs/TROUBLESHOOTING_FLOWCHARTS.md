@@ -813,7 +813,7 @@ Each flowchart guides you through a systematic troubleshooting process:
 ├─{Is lead vehicle subscription active?}
 │  │  (Only lead needs Convoy Guardian subscription)
 │  ├─ NO → [SOLUTION: Activate Convoy Guardian on lead]
-│  │        • Lead vehicle must have active $2,000/mo subscription
+│  │        • Lead vehicle must have active $650/mo subscription
 │  │        • Support vehicles join free but need active lead
 │  │        └─{Fixed?}
 │  │           ├─ YES → [DONE ✓]
@@ -1096,7 +1096,134 @@ ws.onerror = (e) => console.error("WebSocket Error:", e)
 
 ---
 
+## FLOWCHART 15: LICENSE KEY WON'T ACTIVATE (DESKTOP)
+
+```
+[START: User pasted license key but activation failed]
+│
+├─{What error message is shown?}
+│
+├─ "Cannot decode key" →
+│    [SOLUTION: Key is corrupted or incomplete]
+│    • Ensure the ENTIRE key was copied (it's a long base64 string)
+│    • Re-copy from the original email/message
+│    • Do not add spaces or line breaks
+│    └─{Fixed?} → YES → [DONE ✓] / NO → [ESCALATE]
+│
+├─ "Key is for a different computer" →
+│    [SOLUTION: Machine ID mismatch]
+│    • The key was generated for a different computer
+│    • Copy YOUR Machine ID from the activation screen
+│    • Send it to your administrator for a new key
+│    └─[DONE — wait for new key]
+│
+├─ "Invalid key — signature mismatch" →
+│    [SOLUTION: Key was modified or is from wrong product]
+│    • Re-copy the key exactly as received
+│    • Ensure it's a MeasurePRO key (not RoadScope, SweptPRO, etc.)
+│    └─{Fixed?} → YES → [DONE ✓] / NO → [ESCALATE]
+│
+├─ "License expired on YYYY-MM-DD" →
+│    [SOLUTION: Key has expired]
+│    • Contact administrator for a renewal key
+│    • A new key with extended expiration is needed
+│    └─[DONE — wait for new key]
+│
+├─ "System clock appears to have been set back" →
+│    [SOLUTION: Clock rollback detected]
+│    • Verify your system date/time is correct
+│    • Enable automatic time sync in Windows Settings
+│    └─{Fixed?} → YES → [DONE ✓] / NO → [ESCALATE]
+│
+└─ Other error →
+   [ESCALATE: Contact support@soltecinnovation.com]
+   Include: error message, Machine ID, screenshot
+```
+
+---
+
+## FLOWCHART 16: TRIAL EXPIRED
+
+```
+[START: "Your 7-day free trial has expired" message shown]
+│
+├─{Do you have a license key?}
+│  ├─ YES → Paste it in the License Key field and click "Activate License"
+│  │        └─{Activated?} → YES → [DONE ✓] / NO → See FLOWCHART 15
+│  │
+│  └─ NO → Continue
+│
+├─{Have you contacted your administrator?}
+│  ├─ NO → [SOLUTION: Request a license key]
+│  │        1. Copy your Machine ID from the activation screen
+│  │        2. Click "Send Machine ID to Administrator" button
+│  │        3. Or email it to your admin / sales@soltecinnovation.com
+│  │        4. Wait for your license key
+│  │        └─[DONE — wait for key]
+│  │
+│  └─ YES → Continue
+│
+├─{Are you in the 2-day grace period?}
+│  ├─ YES → You still have access — use this time to get your key activated
+│  │        └─ Banner shows "Grace period: X days remaining"
+│  │
+│  └─ NO (fully locked out) → Continue
+│
+└─{Contact support}
+   └─ Email: support@soltecinnovation.com
+      Phone: +1.438.533.5344
+      Provide: Machine ID + your name/company
+```
+
+---
+
+## FLOWCHART 17: LIVE SUPPORT NOT CONNECTING
+
+```
+[START: Live Support session won't start or connect]
+│
+├─{Is there an internet connection?}
+│  ├─ NO → [SOLUTION: Live Support requires internet for WebRTC signaling]
+│  │        └─ Connect to WiFi or cellular data
+│  └─ YES → Continue
+│
+├─{Are you signed in with Firebase?}
+│  ├─ NO → [SOLUTION: Live Support requires authentication]
+│  │        └─ Sign in first, then try again
+│  └─ YES → Continue
+│
+├─{Did you get a session code?}
+│  ├─ NO → [SOLUTION: Session creation failed]
+│  │        • Check internet connection
+│  │        • The RoadScope server may be down
+│  │        • Try again in a few minutes
+│  │        └─{Fixed?} → YES → [DONE ✓] / NO → [ESCALATE]
+│  │
+│  └─ YES → Continue
+│
+├─{Did the admin enter the code?}
+│  ├─ NO → Share the session code with your support agent
+│  │        └─ Code expires after 5 minutes
+│  └─ YES → Continue
+│
+├─{Did you approve the admin's request?}
+│  ├─ NO → Look for the "Admin wants to join" prompt and click Approve
+│  └─ YES → Continue
+│
+├─{Is screen sharing working?}
+│  ├─ NO → [SOLUTION: Screen capture permission]
+│  │        • When prompted, choose which screen/window to share
+│  │        • On macOS: System Settings → Privacy → Screen Recording → allow MeasurePRO
+│  │        └─{Fixed?} → YES → [DONE ✓] / NO → [ESCALATE]
+│  │
+│  └─ YES → [DONE ✓]
+│
+└─[ESCALATE: Contact support with session code and error details]
+```
+
+---
+
 **End of Troubleshooting Flowcharts**
 
 *MeasurePRO by SolTecInnovation*  
-*Version 2.0 | April 2026*
+*Version 3.0 | April 2026*

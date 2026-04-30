@@ -545,38 +545,37 @@ Hours: Monday-Friday, 9 AM - 5 PM EST
 
 Your hardware kit includes:
 
-- **30-day free trial** of MeasurePRO base plan
-- Full access to core measurement features
+- **7-day free trial** of MeasurePRO (basic features, no license key needed)
+- 2-day grace period after trial ends
+- Full access to core measurement features during trial
 - GPS tracking and mapping
 - Photo documentation
 - Data export (all formats)
 
 **After Trial Period:**
 
-**MeasurePRO Base:** $79/month per user
+Contact your administrator or **sales@soltec-innovation.com** to receive your permanent license key.
+
+**MeasurePRO:** $300/month per user
 - Unlimited surveys and measurements
 - GPS tracking and route planning
 - Photo/video documentation
+- All hardware support (laser, GPS, Insta360)
 - Email support
 
-**MeasurePRO+:** $149/month per user  
-*Includes everything in Base, plus:*
-- AI-powered object detection
-- Automatic clearance alerts
-- Detection logging and training
-- Priority support
+**Add-ons (included in your license key):**
+- AI Detection (MeasurePRO+): +$250/month
+- Envelope Clearance Monitoring: +$125/month
+- Swept Path Analysis: +$450/month
+- Convoy Guardian: +$650/month
+- Route Enforcement: +$350/month
+- RoadScope Sync: +$350/month
 
-**Add-ons:**
-- Envelope Clearance Monitoring: +$99/month
-- Swept Path Analysis: +$450/month (requires Envelope Clearance)
-- Convoy Guardian: +$199/month per vehicle
-- Permitted Route Enforcement: +$129/month
-
-**To upgrade or manage your subscription:**
-1. Login to MeasurePRO
-2. Click your name (top right)
-3. Select "Subscription & Billing"
-4. Choose your plan
+**To activate your license:**
+1. Open MeasurePRO — copy your Machine ID from the activation screen or trial banner
+2. Send the Machine ID to your administrator
+3. Receive your license key and paste it into MeasurePRO
+4. Features activate instantly — no internet required
 
 ---
 
@@ -595,21 +594,46 @@ Your hardware kit includes:
 ### Taking Measurements
 1. Create/select active survey
 2. Point laser at target
-3. Press **[Space]** or click "Log"
+3. Press **Alt+G** or click "Log"
 4. Add photo (optional)
 5. Add note (optional)
 
-### Keyboard Shortcuts
-- **Space** — Log measurement (POI)
-- **C** — Capture photo
-- **V** — Start/stop video recording
-- **G** — Set ground reference
-- **M** — Toggle map view
-- **A** — Run AI detection (MeasurePRO+ only)
-- **Alt+3** — Start/stop Road Profile logging
-- **Alt+E** — Toggle envelope clearance monitoring
-- **Alt+L** — Connect/disconnect laser
-- **Alt+G** — Connect/disconnect GPS
+### Keyboard Shortcuts — Core
+- **Alt+G** — Log measurement (POI)
+- **Alt+1** — Capture photo
+- **Alt+2** — Clear alert
+- **Alt+V** — Start/stop video recording
+- **Alt+3** — Start logging
+- **Alt+4** — Stop logging
+- **Alt+5** — Pause logging
+- **Alt+6** — Resume logging
+- **Alt+7** — Start GPS trace
+- **Alt+Z** — Clear all alerts
+- **Ctrl+Backspace** — Delete last entry
+
+### Keyboard Shortcuts — Logging Modes
+- **Alt+M** — Manual mode
+- **Alt+A** — All Data mode
+- **Alt+D** — Detection mode (AI)
+
+### Keyboard Shortcuts — POI Types (Alt + key)
+- **Alt+B** — Bridge
+- **Alt+W** — Wire
+- **Alt+P** — Power Line
+- **Alt+T** — Tree
+- **Alt+K** — Overpass
+- **Alt+L** — Traffic Light
+- **Alt+R** — Road
+- **Alt+I** — Intersection
+- **Alt+O** — Lateral Obstruction
+
+### Keyboard Shortcuts — Advanced
+- **Alt+Shift+E** — Toggle envelope clearance monitoring
+- **Alt+Shift+P** — Cycle vehicle profiles
+- **Alt+Shift+M** — Open manual log entry modal
+- **Alt+Shift+N** — Deselect POI type (None)
+
+*All shortcuts are customizable in Settings → Keyboard Shortcuts.*
 
 ### Supported Laser Devices
 | Device | Protocol | Baud Rate |
@@ -635,12 +659,16 @@ Auto-switch occurs after 5 seconds of signal loss.
 | Road Profiling & Grade | Duro RTK + RTK Fixed fix | Settings → Road Profile |
 | Cross-Slope / Banking | Duro (IMU roll) | Automatic when Duro connected |
 | Amplitude Filter | Any laser | Settings → Laser → Amplitude Filter |
-| Convoy Guardian | Premium subscription | Settings → Convoy |
+| Convoy Guardian | License with `convoy` addon | Settings → Convoy |
 | Route Enforcement | GPX file + Convoy plan | Route Enforcement → New Convoy |
-| Swept Path Analysis | Vehicle profile + Premium | Settings → Premium → Swept Path |
-| Auto-Part (200 POI split) | Any | Settings → Survey → Auto-Part |
-| RoadScope Mobile | iOS/Android app | Download from App Store / Google Play |
+| Swept Path Analysis | License with `swept_path` addon | Settings → Premium → Swept Path |
+| Auto-Part (250 POI split) | Any license | Settings → Survey → Auto-Part |
+| RoadScope Sync | License with RoadScope addon | Tools → RoadScope Sync |
+| Route Creator | Any license | Map → Route Creator side panel |
 | Voice Commands | Chrome/Edge + microphone | Settings → Voice Commands |
+| Live Support | Internet + Firebase auth | Help → Live Support |
+| Insta360 X5 | Insta360 connected via WiFi | Settings → Insta360 |
+| Drone Import | SD card with drone photos | Settings → Drone Import |
 
 ### Status Indicators
 - 🟢 **Green** — Connected and receiving data

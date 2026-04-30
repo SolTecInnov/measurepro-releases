@@ -4,28 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MeasurePro is a full-stack professional surveying and measurement platform. It's a PWA-first, offline-capable application for field data collection with AI-powered analysis, hardware integration (laser, GNSS, LiDAR, cameras), and real-time collaboration.
+MeasurePRO Desktop is a professional surveying and measurement Electron application. It's an offline-first desktop app for field data collection with hardware integration (laser distance meters, GNSS receivers, LiDAR, cameras, Insta360), AI-powered detection, real-time convoy coordination, and RoadScope cloud sync.
 
 ## Commands
 
 ```bash
-# Development (runs backend + frontend concurrently)
+# Development — Vite dev server + Electron (hot reload)
+npm run electron:dev
+
+# Vite dev server only (renderer, port 5173)
 npm run dev
 
-# Frontend only (Vite on port 5000)
-npm run dev:frontend
-
-# Backend only (tsx watch on port 3001)
-npm run dev:backend
-
-# Build for production
+# Build frontend for production (outputs to dist/)
 npm run build
 
-# Start production server
+# Build Windows installer (runs npm run build + electron-builder)
+npm run electron:build
+
+# Start Electron in production mode
 npm run start
 
-# Lint (strict, zero warnings allowed)
-npm run lint
+# TypeScript type check (no emit)
+npm run type-check
 
 # Run all tests
 npx vitest run
@@ -35,20 +35,18 @@ npx vitest run src/path/to/file.test.ts
 
 # Run tests in watch mode
 npx vitest
-
-# Push database schema changes
-npm run db:push
 ```
 
 ## Architecture
 
+**Platform:** Electron 35 (main process in `electron/main.cjs`, preload in `electron/preload.cjs`)  
 **Frontend:** React 18 + TypeScript (strict) + Vite + Tailwind CSS  
-**Backend:** Express.js 5 + TypeScript (server/index.ts, port 3001)  
 **State:** Zustand stores + React Query for server cache + React Context for auth/theme  
-**Database:** IndexedDB (offline-first local), Firebase Firestore (cloud sync), PostgreSQL via Drizzle ORM (admin/licensing/subscriptions)  
+**Database:** IndexedDB (offline-first local), Firebase Firestore (cloud sync)  
 **Validation:** Zod schemas in `shared/schema.ts`  
 **Testing:** Vitest + happy-dom + React Testing Library  
-**Real-time:** WebSocket via ConvoyHub (`server/convoyHub.ts`)
+**Auto-update:** electron-updater, publishes to GitHub Releases (`SolTecInnov/measurepro-releases`)  
+**Licensing:** Offline HMAC-SHA256 signed keys validated by `electron/license/engine.cjs` — no server dependency. 7-day trial for new installs.
 
 ### Path Aliases
 
@@ -58,13 +56,15 @@ npm run db:push
 
 ### Key Directories
 
-- `src/components/` — React components organized by feature domain (ai, camera, convoy, gnss, lidar, measurement, survey, ui, etc.)
+- `electron/` — Electron main process, preload, license engine, IPC handlers
+- `src/components/` — React components organized by feature domain (ai, camera, convoy, gnss, lidar, liveSupport, measurement, survey, licensing, ui, etc.)
 - `src/lib/` — Business logic, services, and utilities organized by domain
-- `src/stores/` and `src/lib/stores/` — Zustand state stores
-- `src/hooks/` — Custom React hooks
-- `server/` — Express backend (routes.ts is the main API file, storage.ts for cloud storage)
-- `shared/` — Shared types and Zod schemas used by both client and server
-- `db/` — Drizzle ORM schema and database config
+- `src/lib/stores/` — Zustand state stores
+- `src/hooks/` — Custom React hooks (useLicenseEnforcement, useLicenseCheck, etc.)
+- `src/lib/liveSupport/` — Live Support WebRTC client, peer manager, store
+- `src/lib/roadscope/` — RoadScope API client and sync service
+- `src/lib/licensing/` — Firebase-based licensing features and cloud functions API
+- `shared/` — Shared types and Zod schemas
 
 ### Code Organization Pattern
 
@@ -77,8 +77,26 @@ Each feature domain follows a cohesive structure:
 ### Key Patterns
 
 - **Offline-first:** Data stored in IndexedDB first, synced to Firebase in background via Web Workers
+- **Electron IPC:** Hardware access (serial ports, screen capture, file I/O) goes through main process via `electron/preload.cjs` contextBridge
 - **Lazy loading:** Heavy pages/libraries (TensorFlow, Three.js) loaded with `React.lazy()` in App.tsx
 - **Error boundaries:** `ErrorBoundary` and `LazyLoadErrorBoundary` wrap route pages
-- **Hardware abstraction:** Web Serial API for lasers, Web Bluetooth for GPS, MediaDevices for cameras
-- **License gating:** `FeatureProtectedRoute` component controls access to premium features
-- **UI components:** Reusable design system in `src/components/ui/`
+- **Hardware abstraction:** SerialPort (Node.js) for lasers/GPS in Electron, Web Serial API fallback for PWA
+- **License gating:** `FeatureProtectedRoute` + `useLicenseEnforcement` hook. Electron uses offline HMAC keys (`electronLicenseStore`), web uses Firebase cloud functions
+- **UI components:** Reusable design system in `src/components/ui/` (shadcn/ui pattern)
+
+### Hardware Support (Electron)
+
+- **Lasers:** LDM71 (ASCII), RSA (3-byte binary), SolTec binary — via SerialPort in main process
+- **GPS:** USB serial NMEA, Bluetooth NMEA, Swift Navigation Duro (RTK-GNSS via TCP)
+- **Cameras:** MediaDevices API, Insta360 X5 native integration
+- **Screen capture:** `setDisplayMediaRequestHandler` for Live Support
+- **Drone import:** SD card scanning and photo matching
+
+### License System
+
+- Machine ID: SHA-256 of MAC addresses + hostname + CPU, formatted `XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX`
+- Keys: base64url-encoded JSON signed with HMAC-SHA256, validated entirely offline
+- Types: admin (all access), enterprise, commercial, pro, partner (addon-based), trial/demo/beta (basic + addons)
+- Trial: 7 days + 2 days grace on first install, no key needed
+- Key generation: LicensePRO (local Electron app) or LicensePRO Web (Replit)
+- Addon IDs that MeasurePRO enforces: `ai_plus`, `envelope`, `convoy`, `route_analysis`, `swept_path`, `calibration`, `3d_view`
