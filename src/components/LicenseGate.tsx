@@ -23,6 +23,9 @@ interface LicenseStatus {
   needsActivation?: boolean;
   reason?: string;
   expired?: boolean;
+  isTrial?: boolean;
+  inGrace?: boolean;
+  trialExpired?: boolean;
   daysLeft?: number | null;
   payload?: {
     customer: string;
@@ -76,7 +79,7 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
       setMachineId(mid);
       // Populate global store so the rest of the app can read license type/addons
       if (result.valid && result.payload) {
-        useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null);
+        useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null, result.isTrial ?? false, result.inGrace ?? false);
       }
     } catch (err) {
       console.error('[LicenseGate] Validation error:', err);
@@ -103,7 +106,7 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
       if (result.valid) {
         setStatus(result);
         if (result.payload) {
-          useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null);
+          useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null, result.isTrial ?? false, result.inGrace ?? false);
         }
       } else {
         setError(result.reason || 'Invalid license key');
@@ -139,8 +142,27 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
     );
   }
 
-  // Valid license — render the app
+  // Valid license — render the app (with trial banner if applicable)
   if (status?.valid) {
+    if (status.isTrial) {
+      return (
+        <>
+          <div className={`fixed top-0 left-0 right-0 z-[9999] px-4 py-2 text-center text-sm font-medium ${
+            status.inGrace
+              ? 'bg-red-600 text-white'
+              : 'bg-amber-500 text-black'
+          }`}>
+            {status.inGrace ? (
+              <>Grace period: {status.daysLeft} day{status.daysLeft !== 1 ? 's' : ''} remaining — </>
+            ) : (
+              <>Free trial: {status.daysLeft} day{status.daysLeft !== 1 ? 's' : ''} remaining — </>
+            )}
+            Contact <a href={`mailto:${ADMIN_EMAIL}`} className="underline font-bold">{ADMIN_EMAIL}</a> for your license key
+          </div>
+          <div className="pt-8">{children}</div>
+        </>
+      );
+    }
     return <>{children}</>;
   }
 
@@ -155,8 +177,19 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
           <p className="text-gray-500 text-sm mt-1">License activation required</p>
         </div>
 
+        {/* Trial expired warning */}
+        {status?.trialExpired && (
+          <div className="flex items-start gap-2 p-3 bg-amber-900/20 border border-amber-500/30 rounded-lg mb-4">
+            <Clock className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
+            <div className="text-sm text-amber-200">
+              Your <strong>7-day free trial</strong> has expired.
+              Contact your administrator for a license key to continue using MeasurePRO.
+            </div>
+          </div>
+        )}
+
         {/* Expired warning */}
-        {status?.expired && (
+        {status?.expired && !status?.trialExpired && (
           <div className="flex items-start gap-2 p-3 bg-red-900/20 border border-red-500/30 rounded-lg mb-4">
             <Clock className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
             <div className="text-sm text-red-200">

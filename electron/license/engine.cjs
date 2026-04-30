@@ -128,14 +128,117 @@ function clearLicenseKey() {
   try { fs.unlinkSync(getLicensePath()); } catch {}
 }
 
+// ── 7-Day Free Trial ───────────────────────────────────────────────────────
+const TRIAL_DAYS = 7;
+const GRACE_DAYS = 2;
+
+function getTrialPath() {
+  return path.join(getLicenseDir(), 'trial.json');
+}
+
+function signTrial(data) {
+  return crypto.createHmac('sha256', SECRET).update(JSON.stringify(data)).digest('hex');
+}
+
+function loadTrial() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(getTrialPath(), 'utf8'));
+    const expected = signTrial({ startedAt: raw.startedAt, machineId: raw.machineId });
+    if (expected !== raw.sig) return null; // tampered
+    return raw;
+  } catch {
+    return null;
+  }
+}
+
+function createTrial(machineId) {
+  const data = { startedAt: new Date().toISOString(), machineId };
+  data.sig = signTrial(data);
+  try { fs.writeFileSync(getTrialPath(), JSON.stringify(data), 'utf8'); } catch {}
+  return data;
+}
+
+function getTrialStatus() {
+  const machineId = getMachineId();
+  let trial = loadTrial();
+
+  // If trial file is missing but timefloor exists, a trial already ran — don't recreate
+  if (!trial) {
+    const timeFloorPath = getTimeFloorPath();
+    let hadPreviousUse = false;
+    try {
+      const floor = parseInt(fs.readFileSync(timeFloorPath, 'utf8').trim());
+      hadPreviousUse = !isNaN(floor) && floor > 0;
+    } catch {}
+    if (hadPreviousUse) {
+      return { active: false, expired: true, daysLeft: 0, inGrace: false };
+    }
+    trial = createTrial(machineId);
+  }
+
+  // Machine mismatch (copied trial.json from another machine)
+  if (trial.machineId !== machineId) {
+    return { active: false, expired: true, daysLeft: 0, inGrace: false };
+  }
+
+  const startMs = new Date(trial.startedAt).getTime();
+  const nowMs = Date.now();
+  const elapsedDays = (nowMs - startMs) / 86400000;
+  const totalDays = TRIAL_DAYS + GRACE_DAYS;
+  const daysLeft = Math.ceil(TRIAL_DAYS - elapsedDays);
+  const graceDaysLeft = Math.ceil(totalDays - elapsedDays);
+
+  if (elapsedDays < TRIAL_DAYS) {
+    return { active: true, expired: false, daysLeft: Math.max(1, daysLeft), inGrace: false };
+  }
+  if (elapsedDays < totalDays) {
+    return { active: true, expired: false, daysLeft: 0, inGrace: true, graceDaysLeft: Math.max(1, graceDaysLeft) };
+  }
+  return { active: false, expired: true, daysLeft: 0, inGrace: false };
+}
+
 // ── Validate stored license ─────────────────────────────────────────────────
 function validateStoredLicense() {
   const key = loadLicenseKey();
-  if (!key) return { valid: false, reason: 'No license key found', needsActivation: true };
   const machineId = getMachineId();
-  const result = verifyKey(key, machineId);
-  result.needsActivation = !result.valid;
-  return result;
+
+  // If a license key exists, validate it normally
+  if (key) {
+    const result = verifyKey(key, machineId);
+    result.needsActivation = !result.valid;
+    return result;
+  }
+
+  // No license key — check trial status
+  const trial = getTrialStatus();
+  if (trial.active) {
+    const trialEnd = new Date();
+    trialEnd.setDate(trialEnd.getDate() + (trial.inGrace ? trial.graceDaysLeft : trial.daysLeft));
+    return {
+      valid: true,
+      isTrial: true,
+      inGrace: trial.inGrace,
+      daysLeft: trial.inGrace ? trial.graceDaysLeft : trial.daysLeft,
+      needsActivation: false,
+      payload: {
+        customer: 'Trial User',
+        email: '',
+        expiresAt: trialEnd.toISOString().split('T')[0],
+        type: 'trial',
+        addons: [],
+        product: 'MeasurePRO',
+        machineId,
+      },
+    };
+  }
+
+  // Trial expired
+  return {
+    valid: false,
+    reason: 'Your 7-day free trial has expired',
+    trialExpired: true,
+    needsActivation: true,
+  };
 }
 
 module.exports = {

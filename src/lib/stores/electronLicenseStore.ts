@@ -20,7 +20,9 @@ interface ElectronLicenseState {
   payload: ElectronLicensePayload | null;
   daysLeft: number | null;
   valid: boolean;
-  setLicense: (payload: ElectronLicensePayload | null, daysLeft: number | null) => void;
+  isTrial: boolean;
+  inGrace: boolean;
+  setLicense: (payload: ElectronLicensePayload | null, daysLeft: number | null, isTrial?: boolean, inGrace?: boolean) => void;
   clear: () => void;
 }
 
@@ -28,6 +30,9 @@ export const useElectronLicenseStore = create<ElectronLicenseState>((set) => ({
   payload: null,
   daysLeft: null,
   valid: false,
-  setLicense: (payload, daysLeft) => set({ payload, daysLeft, valid: !!payload }),
-  clear: () => set({ payload: null, daysLeft: null, valid: false }),
+  isTrial: false,
+  inGrace: false,
+  setLicense: (payload, daysLeft, isTrial = false, inGrace = false) =>
+    set({ payload, daysLeft, valid: !!payload, isTrial, inGrace }),
+  clear: () => set({ payload: null, daysLeft: null, valid: false, isTrial: false, inGrace: false }),
 }));
