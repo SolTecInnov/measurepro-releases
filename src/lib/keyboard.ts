@@ -96,6 +96,11 @@ export interface KeyboardMapping {
     captureTotal: KeyboardShortcut;
     captureRear: KeyboardShortcut;
   };
+  badges: {
+    danger: KeyboardShortcut;
+    information: KeyboardShortcut;
+    workRequired: KeyboardShortcut;
+  };
   poiTypes: Record<POIType, KeyboardShortcut>;
 }
 
@@ -145,6 +150,11 @@ const defaultMapping: KeyboardMapping = {
     captureRight: { key: ']', alt: true, description: 'Capture Right Lateral Clearance POI' },
     captureTotal: { key: '\\', alt: true, description: 'Capture Total Width POI' },
     captureRear: { key: '\'', alt: true, description: 'Capture Rear Overhang POI' }
+  },
+  badges: {
+    danger: { key: '1', ctrl: true, shift: true, description: 'Badge: Danger (add to last POI)' },
+    information: { key: '2', ctrl: true, shift: true, description: 'Badge: Information (add to last POI)' },
+    workRequired: { key: '3', ctrl: true, shift: true, description: 'Badge: Work Required (add to last POI)' },
   },
   poiTypes: {
     bridge: { key: 'b', alt: true, description: 'Bridge' },

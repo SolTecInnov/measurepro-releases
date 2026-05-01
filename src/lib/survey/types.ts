@@ -105,6 +105,7 @@ export interface Measurement {
   lengthMeasure?: number | null;
   drawingUrl?: string | null;
   poi_type?: string;
+  badges?: string[];           // e.g. ['danger', 'information', 'workRequired'] — for RoadScope filtering
   imageUrl?: string | null;
   images?: string[];
   timelapseFrameNumber?: number | null;

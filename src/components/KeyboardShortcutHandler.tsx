@@ -8,6 +8,7 @@ import type { POIType } from '../lib/poi';
 import { usePOIActionsStore } from '../lib/poiActions';
 import { useRainModeStore } from '../lib/stores/rainModeStore';
 import { useAlertsStore } from '../lib/stores/alertsStore';
+import { useBadgeStore, type BadgeType } from '../lib/stores/badgeStore';
 
 interface KeyboardShortcutHandlerProps {
   setSelectedPOIType: (type: string | POIType | '') => void;
@@ -157,6 +158,17 @@ const KeyboardShortcutHandler: React.FC<KeyboardShortcutHandlerProps> = ({
           }
           
           return;
+        }
+      }
+
+      // Badge shortcuts — add badge to last created POI
+      if (mapping.badges) {
+        for (const [badge, shortcut] of Object.entries(mapping.badges)) {
+          if (matchShortcut(shortcut)) {
+            e.preventDefault();
+            useBadgeStore.getState().addBadgeToLastPoi(badge as BadgeType);
+            return;
+          }
         }
       }
 

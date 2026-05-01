@@ -17,6 +17,7 @@ import { soundManager } from '@/lib/sounds';
 import { openSurveyDB } from '@/lib/survey/db';
 import { getMeasurementFeed } from '@/lib/survey/MeasurementFeed';
 import { getMeasurementLogger } from '@/lib/workers/MeasurementLoggerClient';
+import { useBadgeStore } from '@/lib/stores/badgeStore';
 import type { POIType } from '@/lib/poi';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -167,6 +168,10 @@ export function useLoggingCore() {
         window.dispatchEvent(new CustomEvent('poi-image-attached', { detail: measurement.imageUrl }));
       }
       soundManager.playLogEntry();
+
+      // Track last POI for badge assignment (StreamDeck workflow)
+      useBadgeStore.getState().setLastPoi(record.id, record.poiType || null);
+
       return true;
     } catch (e) {
       console.error('[LoggingCore] savePOI failed:', e);

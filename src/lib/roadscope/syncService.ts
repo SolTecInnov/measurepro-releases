@@ -203,10 +203,10 @@ function measurementToPOI(
     alerts.push('Low Clearance');
   }
   
-  // Build badges array
-  const badges: string[] = [];
-  if (m.alertLevel === 'critical' || m.alertLevel === 'danger') {
-    badges.push('Danger');
+  // Build badges array — include user-assigned badges + auto-detected ones
+  const badges: string[] = [...(m.badges || [])];
+  if ((m.alertLevel === 'critical' || m.alertLevel === 'danger') && !badges.includes('danger')) {
+    badges.push('danger');
   }
   
   // Build POI object and remove all undefined values (Firestore doesn't accept them)
