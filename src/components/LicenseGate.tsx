@@ -196,6 +196,10 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
       if (result.valid && result.payload) {
         useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null, result.isTrial ?? false, result.inGrace ?? false);
       }
+      // Grant app access so ProtectedRoute allows entry without web login
+      if (result.valid) {
+        localStorage.setItem('app_access', 'true');
+      }
     } catch (err) {
       console.error('[LicenseGate] Validation error:', err);
       // Retry on error — IPC might not be ready yet
@@ -223,6 +227,7 @@ const LicenseGate: React.FC<LicenseGateProps> = ({ children }) => {
         if (result.payload) {
           useElectronLicenseStore.getState().setLicense(result.payload, result.daysLeft ?? null, result.isTrial ?? false, result.inGrace ?? false);
         }
+        localStorage.setItem('app_access', 'true');
       } else {
         setError(result.reason || 'Invalid license key');
       }
