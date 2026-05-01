@@ -60,21 +60,18 @@ export default function LoginPage() {
       const success = await login(email, password);
       
       if (success) {
-        localStorage.setItem('app_access', 'true');
+        // app_access is set by LicenseGate (license/trial), not by login
+        toast.success('Connected to cloud sync');
 
-        const reloading = await checkVersionAndReloadIfStale('/');
+        const reloading = await checkVersionAndReloadIfStale('/app');
         if (reloading) return;
-        
-        if (isOnline) {
-          /* toast removed */
-        }
-        
+
         const postLoginRedirect = sessionStorage.getItem('post_login_redirect');
         if (postLoginRedirect) {
           sessionStorage.removeItem('post_login_redirect');
           navigate(postLoginRedirect, { replace: true });
         } else {
-          navigate('/', { replace: true });
+          navigate('/app', { replace: true });
         }
       }
     } catch (error: any) {

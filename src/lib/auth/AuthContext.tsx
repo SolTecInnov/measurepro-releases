@@ -588,7 +588,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setIsGracePeriod(false);
       
       // Clear localStorage and sessionStorage flags
-      localStorage.removeItem('app_access');
+      // app_access NOT removed — license/trial controls app access, not Firebase login
       localStorage.removeItem('current_user_id');
       // Clear queued password change intent on logout
       sessionStorage.removeItem('pending_pw_change_flag');

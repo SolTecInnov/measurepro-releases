@@ -194,12 +194,11 @@ const AppHeader: React.FC<AppHeaderProps> = ({
   const handleLogOut = async () => {
     try {
       await signOutUser();
+      toast.success('Signed out of cloud sync');
     } catch (err) {
       console.error('[AppHeader] Sign out failed:', err);
     }
-    // Clear the legacy lock-screen flag too so the route guard treats us as logged out
-    localStorage.removeItem('app_access');
-    navigate('/login', { replace: true });
+    // app_access stays — license/trial controls app access, not Firebase login
   };
   
   // Voice Assistant helpers
@@ -528,8 +527,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                     <span>License Info</span>
                   </button>
 
-                  {/* Log Out — only for Firebase cloud sync users */}
-                  {getCurrentUser() && (
+                  {/* Cloud Sync: Log Out when connected, Log In when not */}
+                  {getCurrentUser() ? (
                     <button
                       onClick={() => {
                         handleLogOut();
@@ -539,7 +538,19 @@ const AppHeader: React.FC<AppHeaderProps> = ({
                       data-testid="button-log-out"
                     >
                       <LogOut className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                      <span>Log Out (Cloud Sync)</span>
+                      <span>Log Out (Cloud)</span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        navigate('/login');
+                        setShowToolsMenu(false);
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                      data-testid="button-log-in"
+                    >
+                      <Cloud className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                      <span>Log In (Cloud Sync)</span>
                     </button>
                   )}
                 </>

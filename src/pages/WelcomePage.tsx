@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Ruler,
@@ -37,32 +37,16 @@ import {
   Building2,
   Video
 } from 'lucide-react';
-import { toast } from 'sonner';
 
 export default function WelcomePage() {
   const navigate = useNavigate();
-  const [password, setPassword] = useState('');
-
-  // Redirect users who already have app access to the protected dashboard at /app
+  // Redirect users who already have app access (license/trial) to the dashboard
   useEffect(() => {
     const hasAccess = localStorage.getItem('app_access') === 'true';
     if (hasAccess) {
       navigate('/app', { replace: true });
     }
   }, [navigate]);
-
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (password === (import.meta.env.VITE_APP_ACCESS_PASSWORD || '')) {
-      localStorage.setItem('app_access', 'true');
-      /* toast removed */
-      navigate('/app', { replace: true });
-    } else {
-      toast.error('Incorrect password');
-      setPassword('');
-    }
-  };
   const features = [
     {
       icon: <Ruler className="w-8 h-8" />,
