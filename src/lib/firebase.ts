@@ -204,18 +204,8 @@ export const signInWithEmail = async (email: string, password: string) => {
       error
     });
     
-    // Provide user-friendly error messages
-    if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-      throw new Error('❌ Invalid email or password. Please check your credentials.');
-    } else if (error.code === 'auth/too-many-requests') {
-      throw new Error('⏱️ Too many failed attempts. Please try again later.');
-    } else if (error.code === 'auth/network-request-failed') {
-      throw new Error('📡 Network error. Please check your internet connection.');
-    } else if (error.code === 'auth/user-disabled') {
-      throw new Error('🚫 Your account has been disabled. Contact support.');
-    } else {
-      throw new Error(`⚠️ Login failed: ${error.message || 'Unknown error'}`);
-    }
+    // Re-throw with the original Firebase error code preserved so callers can match on it
+    throw error;
   }
 };
 
