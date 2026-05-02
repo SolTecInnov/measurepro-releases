@@ -51,6 +51,8 @@ interface ElectronAPI {
   writeFile: (filePath: string, data: ArrayBuffer | number[]) => Promise<{ success: boolean }>;
   getAutoSavePath: (filename: string) => Promise<string | null>;
   pickSoundFile:   () => Promise<string | null>;
+  clearAppCache:   () => Promise<{ success: boolean; error?: string }>;
+  relaunch:        () => Promise<void>;
   duro: {
     connect:         (config: { host: string; port: number }) => Promise<{ ok: boolean }>;
     disconnect:      () => Promise<{ ok: boolean }>;

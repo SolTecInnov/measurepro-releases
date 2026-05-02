@@ -977,6 +977,28 @@ ipcMain.handle('updater:get-version', () => {
   return app.getVersion();
 });
 
+// ── Clear App Cache (emergency) ─────────────────────────────────────────────
+ipcMain.handle('app:clear-cache', async () => {
+  try {
+    const ses = mainWindow?.webContents?.session;
+    if (ses) {
+      await ses.clearCache();
+      await ses.clearStorageData({
+        storages: ['cachestorage', 'serviceworkers', 'shadercache', 'cookies'],
+      });
+    }
+    return { success: true };
+  } catch (err) {
+    console.error('[ClearCache] Failed:', err);
+    return { success: false, error: err.message };
+  }
+});
+
+ipcMain.handle('app:relaunch', () => {
+  app.relaunch();
+  app.exit(0);
+});
+
 // ── Drive Mode + active-survey state ─────────────────────────────────────────
 ipcMain.handle('app:set-active-survey', (_event, hasActive) => {
   hasActiveSurvey = !!hasActive;

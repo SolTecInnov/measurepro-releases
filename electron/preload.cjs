@@ -164,4 +164,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onNativeKeydown: (callback) => {
     ipcRenderer.on('native-keydown', (_event, data) => callback(data));
   },
+
+  // ── Emergency cache clear ──────────────────────────────────────────────────
+  clearAppCache: () => ipcRenderer.invoke('app:clear-cache'),
+  relaunch:      () => ipcRenderer.invoke('app:relaunch'),
 });

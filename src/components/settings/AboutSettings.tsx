@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ExternalLink, Info, Calendar, Code, KeyRound, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { ExternalLink, Info, Calendar, Code, KeyRound, Eye, EyeOff, Loader2, AlertTriangle, Trash2 } from 'lucide-react';
 import { UpdateChecker } from '@/components/AutoUpdater';
 import { APP_VERSION, BUILD_DATE, APP_NAME, COMPANY_NAME, COMPANY_URL, SUPPORT_EMAIL } from '@/lib/version';
 import { getCurrentUser } from '@/lib/firebase';
@@ -7,6 +7,135 @@ import { updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 
 import { apiRequest } from '@/lib/queryClient';
 import { toast } from 'sonner';
 import { useAuth } from '@/lib/auth/AuthContext';
+
+/** Emergency cache clear — wipes Chromium/Electron cached data to fix slowness.
+ *  License key and saved survey ZIPs are NOT affected. */
+function ClearAppCache() {
+  const [confirmText, setConfirmText] = useState('');
+  const [expanded, setExpanded] = useState(false);
+  const [clearing, setClearing] = useState(false);
+
+  const handleClear = async () => {
+    if (confirmText !== 'CLEAR CACHE') return;
+    setClearing(true);
+
+    try {
+      // 1. Delete all IndexedDB databases (Firebase caches, stale data)
+      const dbNames = [
+        'firebaseLocalStorageDb',
+        'firebase-heartbeat-database',
+        'firebase-installations-database',
+        'firebase-messaging-database',
+      ];
+      for (const name of dbNames) {
+        try { indexedDB.deleteDatabase(name); } catch {}
+      }
+
+      // 2. Clear localStorage (except license-related keys)
+      const keepKeys = ['_measurepro_cache_version'];
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && !keepKeys.includes(key)) keysToRemove.push(key);
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+
+      // 3. Clear sessionStorage
+      sessionStorage.clear();
+
+      // 4. Clear Chromium caches via Electron IPC
+      if (window.electronAPI?.clearAppCache) {
+        await window.electronAPI.clearAppCache();
+      }
+
+      toast.success('Cache cleared. The app will now restart.');
+
+      // 5. Restart after short delay
+      setTimeout(() => {
+        if (window.electronAPI?.relaunch) {
+          window.electronAPI.relaunch();
+        } else {
+          window.location.reload();
+        }
+      }, 1500);
+    } catch (err) {
+      console.error('[ClearAppCache] Failed:', err);
+      toast.error('Failed to clear cache. Try manually deleting %APPDATA%\\measurepro-desktop');
+      setClearing(false);
+    }
+  };
+
+  return (
+    <div className="bg-gray-700 rounded-lg p-4">
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg font-medium flex items-center gap-2">
+          <Trash2 className="w-5 h-5 text-red-400" />
+          Clear App Cache
+        </h3>
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className="text-sm text-red-400 hover:text-red-300 transition-colors"
+        >
+          {expanded ? 'Cancel' : 'Emergency Reset'}
+        </button>
+      </div>
+
+      {!expanded ? (
+        <p className="text-gray-400 text-sm mt-2">
+          Clears all cached data to fix extreme slowness or freezing. Use only as a last resort.
+        </p>
+      ) : (
+        <div className="mt-3 space-y-3">
+          {/* Warning box */}
+          <div className="rounded-lg bg-red-900/40 border border-red-600/50 p-3 space-y-2">
+            <div className="flex items-start gap-2">
+              <AlertTriangle className="w-5 h-5 text-red-400 mt-0.5 shrink-0" />
+              <div className="text-sm text-red-200 space-y-1">
+                <p className="font-bold">DANGEROUS — USE ONLY IN EXTREME CIRCUMSTANCES</p>
+                <p>This will permanently delete:</p>
+                <ul className="list-disc ml-4 text-red-300 space-y-0.5">
+                  <li>All cached cloud sync data (will re-download on next login)</li>
+                  <li>All app settings and preferences (will reset to defaults)</li>
+                  <li>Current session data (you will need to log in again for cloud)</li>
+                  <li>Any unsaved survey data still in the browser cache</li>
+                </ul>
+                <p className="mt-2"><strong>NOT affected:</strong> Your license key, saved survey ZIP files in Documents/MeasurePRO, and your activation are safe.</p>
+                <p className="mt-2">Only use this if the app is extremely slow, freezing, or unusable after an update. <strong>The app will restart after clearing.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Confirmation input */}
+          <div>
+            <label className="block text-sm text-gray-300 mb-1">
+              Type <code className="text-red-400 font-mono bg-gray-800 px-1.5 py-0.5 rounded">CLEAR CACHE</code> to confirm
+            </label>
+            <input
+              type="text"
+              value={confirmText}
+              onChange={e => setConfirmText(e.target.value)}
+              placeholder="Type CLEAR CACHE"
+              className="w-full px-3 py-2 bg-gray-800 border border-red-600/50 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+              disabled={clearing}
+            />
+          </div>
+
+          <button
+            onClick={handleClear}
+            disabled={confirmText !== 'CLEAR CACHE' || clearing}
+            className="w-full py-2 bg-red-700 hover:bg-red-800 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors text-sm flex items-center justify-center gap-2"
+          >
+            {clearing ? (
+              <><Loader2 className="w-4 h-4 animate-spin" />Clearing...</>
+            ) : (
+              <><Trash2 className="w-4 h-4" />Clear All Cached Data & Restart</>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const AboutSettings = () => {
   const { clearPasswordChange } = useAuth();
@@ -165,6 +294,11 @@ const AboutSettings = () => {
             <UpdateChecker />
           </div>
         </div>
+
+        {/* ============================================================ */}
+        {/* CLEAR APP CACHE — EMERGENCY USE ONLY                          */}
+        {/* ============================================================ */}
+        <ClearAppCache />
 
         {/* ============================================================ */}
         {/* CHANGE PASSWORD SECTION                                        */}
